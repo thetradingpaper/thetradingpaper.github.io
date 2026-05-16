@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — სტატიები</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №01 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html" class="active">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <div class="hero">
+    <h2>სტატიები</h2>
+    <p class="dek">ვაჭრობის ჟურნალი, ბაზრის ანალიზი, საგანმანათლებლო მასალები, პირადი მოგზაურობა</p>
+  </div>
+
+  <!-- Categories filter (visual only for now) -->
+  <div style="text-align: center; margin-bottom: 32px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">
+    <span style="border-bottom: 2px solid var(--red); padding-bottom: 4px;">ყველა</span>
+    &nbsp;·&nbsp; <span>პირადი</span>
+    &nbsp;·&nbsp; <span>ანალიზი</span>
+    &nbsp;·&nbsp; <span>სწავლება</span>
+    &nbsp;·&nbsp; <span>ჟურნალი</span>
+  </div>
+
+  <!-- Articles grid -->
+  <div class="grid cols-2">
+
+    <article class="card">
+      <div class="meta">პირადი · 2026-05-16</div>
+      <h3><a href="articles/01-shesavali.html" style="color: var(--ink); text-decoration: none;">შესავალი — რატომ ვწერ ამ ბლოგს</a></h3>
+      <p>ვცხოვრობ ვისბადენში. ვმუშაობ ანესთეზიოლოგიაში, ვაჭრობას ვუყურებ როგორც ხანგრძლივ პროექტს. ეს არის ჩემი ჩანაწერი — ორი წიგნი, ერთი მიზანი.</p>
+      <p><a href="articles/01-shesavali.html">სრულად კითხვა →</a></p>
+    </article>
+
+    <article class="card" style="opacity: 0.55;">
+      <div class="meta">ანალიზი · მალე</div>
+      <h3>დღევანდელი ბაზრის სურათი</h3>
+      <p>რას ვუყურებ ამ კვირას, რა მიგვითითებს მაკრო სიგნალები, რა ვარაუდები მაქვს. (ჯერ არ გამოქვეყნებულა)</p>
+    </article>
+
+    <article class="card" style="opacity: 0.55;">
+      <div class="meta">სწავლება · მალე</div>
+      <h3>DCA: რა არის და როგორ მუშაობს</h3>
+      <p>Dollar-Cost Averaging — ყოველთვიური $200-ის სტრატეგია. რატომ მუშაობს მათემატიკურად, რა შემთხვევებში არ მუშაობს.</p>
+    </article>
+
+    <article class="card" style="opacity: 0.55;">
+      <div class="meta">ჟურნალი · მალე</div>
+      <h3>რატომ ვტოვებ MSTR-ს TBC-ში</h3>
+      <p>აქტიური წიგნის ერთადერთი ღია პოზიცია. ენტრი, თეზისი, რა მაიძულებს გავიდე.</p>
+    </article>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent =
+    `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+</script>
+
+</body>
+</html>
