@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TBC ისტორია · The Trading Paper</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="top-bar"><span id="today-date"></span><span>გამოცემა №01 · ვისბადენი</span></div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html" class="active">პორტფელი</a>
+    <a href="about.html">ჩემს შესახებ</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="hero">
+    <h2>TBC · სრული ისტორია</h2>
+    <p class="dek">TBC Capital პორტფელის ყველა ტრანზაქცია და ფინანსური ნაკადი</p>
+  </div>
+  <p style="text-align:center;margin-bottom:24px;">
+    <a href="portfolio.html" style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);">← უკან პორტფელზე</a>
+  </p>
+  <div id="tbc-banner"></div>
+  <div class="section-head">დიდი სურათი</div>
+  <div id="summary"></div>
+  <div class="widget" style="min-height:380px;">
+    <div class="widget-title">აქტიური ნაკადები · USD</div>
+    <div style="height:320px;position:relative;"><canvas id="chart"></canvas></div>
+  </div>
+  <div class="section-head">ყველა ტრანზაქცია · ქრონოლოგიური</div>
+  <div id="tx-all" class="tx-list"></div>
+</main>
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+<script src="js/portfolios.js"></script>
+<script>
+  const months=['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d=new Date();
+  document.getElementById('today-date').textContent=`${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  renderStatBanner('tbc-banner','tbc');
+  renderSummary('summary','tbc');
+  renderAllTx('tx-all','tbc');
+  renderChart('chart','tbc');
+</script>
+</body>
+</html>

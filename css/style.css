@@ -473,3 +473,135 @@ li { margin-bottom: 8px; }
   .summary-grid { grid-template-columns: 1fr; }
   .summary-card.big .summary-value { font-size: 32px; }
 }
+
+/* ===== Stat banner (per-portfolio newspaper-style top) ===== */
+.stat-banner {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+
+.stat-banner-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-name {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.stat-tag {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-cell {
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.stat-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.stat-val {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+
+.stat-val.pos { color: var(--green); }
+.stat-val.neg { color: var(--red); }
+
+.stat-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.live-dot {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 2px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@media (max-width: 700px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-val { font-size: 18px; }
+}
+
+/* ===== Portfolio body: holdings table + donut chart side-by-side ===== */
+.port-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.port-holdings { min-width: 0; }
+.port-holdings table { margin: 0; }
+
+.port-donut {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+@media (max-width: 900px) {
+  .port-body { grid-template-columns: 1fr; }
+  .port-donut { max-width: 400px; margin: 0 auto; width: 100%; }
+}
+
+/* ===== Empty state for transactions ===== */
+.empty-state {
+  background: var(--paper);
+  border: 1px dashed var(--border);
+  padding: 32px 16px;
+  text-align: center;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+}

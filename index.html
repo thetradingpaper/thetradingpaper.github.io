@@ -20,12 +20,13 @@
     <a href="articles.html">სტატიები</a>
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
+    <a href="about.html">ჩემს შესახებ</a>
   </nav>
 </header>
 
 <main class="container">
 
-  <!-- Live ticker -->
+  <!-- Ticker tape · 3 lines · includes BTC -->
   <div class="widget">
     <div class="widget-title">ბაზრის პულსი</div>
     <div class="tradingview-widget-container">
@@ -37,14 +38,23 @@
           {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
           {"description": "Dow", "proName": "FOREXCOM:DJI"},
           {"description": "DAX", "proName": "XETR:DAX"},
-          {"description": "MSTR", "proName": "NASDAQ:MSTR"},
           {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
+          {"description": "ETH", "proName": "BITSTAMP:ETHUSD"},
           {"description": "Gold", "proName": "TVC:GOLD"},
-          {"description": "Oil", "proName": "TVC:USOIL"},
-          {"description": "EUR/USD", "proName": "FX:EURUSD"}
+          {"description": "Silver", "proName": "TVC:SILVER"},
+          {"description": "Oil WTI", "proName": "TVC:USOIL"},
+          {"description": "NVDA", "proName": "NASDAQ:NVDA"},
+          {"description": "TSLA", "proName": "NASDAQ:TSLA"},
+          {"description": "AAPL", "proName": "NASDAQ:AAPL"},
+          {"description": "MSFT", "proName": "NASDAQ:MSFT"},
+          {"description": "MSTR", "proName": "NASDAQ:MSTR"},
+          {"description": "EUR/USD", "proName": "FX:EURUSD"},
+          {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
+          {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
         ],
         "isTransparent": true,
         "showSymbolLogo": true,
+        "displayMode": "regular",
         "colorTheme": "light",
         "locale": "en"
       }
@@ -54,43 +64,84 @@
 
   <div class="hero">
     <h2>დღეს ბაზარზე</h2>
-    <p class="dek">რას ვაკვირდები, რა მნიშვნელოვანია, რა შეიძლება გამოგვრჩეს</p>
+    <p class="dek">4 მთავარი მაჩვენებელი — რეალურ დროში</p>
   </div>
 
-  <!-- Two-column layout: chart + news -->
+  <!-- 4 main widgets: S&P 500, Bitcoin, EUR/GEL, Nasdaq -->
   <div class="grid cols-2">
 
-    <div class="widget" style="min-height: 460px;">
-      <div class="widget-title">S&P 500 · დღევანდელი მოძრაობა</div>
+    <div class="widget" style="min-height: 360px;">
+      <div class="widget-title">S&P 500 · აშშ-ის მთავარი ინდექსი</div>
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
         {
           "symbol": "FOREXCOM:SPXUSD",
           "width": "100%",
-          "height": 400,
+          "height": 320,
+          "locale": "en",
+          "dateRange": "12M",
+          "colorTheme": "light",
+          "trendLineColor": "rgba(22, 101, 52, 1)",
+          "underLineColor": "rgba(22, 101, 52, 0.1)",
+          "isTransparent": true,
+          "autosize": true
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="widget" style="min-height: 360px;">
+      <div class="widget-title">Bitcoin · BTC/USD</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BITSTAMP:BTCUSD",
+          "width": "100%",
+          "height": 320,
+          "locale": "en",
+          "dateRange": "12M",
+          "colorTheme": "light",
+          "trendLineColor": "rgba(247, 147, 26, 1)",
+          "underLineColor": "rgba(247, 147, 26, 0.1)",
+          "isTransparent": true,
+          "autosize": true
+        }
+        </script>
+      </div>
+    </div>
+
+    <div class="widget" style="min-height: 360px;">
+      <div class="widget-title">EUR / GEL · ევრო ლართან</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX_IDC:EURGEL",
+          "width": "100%",
+          "height": 320,
           "locale": "en",
           "dateRange": "12M",
           "colorTheme": "light",
           "trendLineColor": "rgba(41, 98, 255, 1)",
           "underLineColor": "rgba(41, 98, 255, 0.1)",
           "isTransparent": true,
-          "autosize": true,
-          "largeChartUrl": ""
+          "autosize": true
         }
         </script>
       </div>
     </div>
 
-    <div class="widget" style="min-height: 460px;">
-      <div class="widget-title">MSTR · აქტიური წიგნის პოზიცია</div>
+    <div class="widget" style="min-height: 360px;">
+      <div class="widget-title">Nasdaq Composite · ტექნოლოგიური ბაზარი</div>
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
         {
-          "symbol": "NASDAQ:MSTR",
+          "symbol": "NASDAQ:IXIC",
           "width": "100%",
-          "height": 400,
+          "height": 320,
           "locale": "en",
           "dateRange": "12M",
           "colorTheme": "light",
@@ -99,17 +150,46 @@
           "isTransparent": true,
           "autosize": true
         }
-      </script>
+        </script>
       </div>
     </div>
 
   </div>
 
-  <!-- News -->
-  <div class="section-head">მთავარი სიახლეები</div>
+  <!-- Big heatmap - more companies -->
+  <div class="section-head">ბაზრის რუკა</div>
+
+  <div class="widget" style="min-height: 720px;">
+    <div class="widget-title">S&P 500 · სექტორებით · ყველა კომპანია</div>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+      {
+        "exchanges": [],
+        "dataSource": "SPX500",
+        "grouping": "sector",
+        "blockSize": "market_cap_basic",
+        "blockColor": "change",
+        "locale": "en",
+        "symbolUrl": "",
+        "colorTheme": "light",
+        "hasTopBar": true,
+        "isDataSetEnabled": true,
+        "isZoomEnabled": true,
+        "hasSymbolTooltip": true,
+        "isMonoSize": false,
+        "width": "100%",
+        "height": 680
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- Top stories at bottom -->
+  <div class="section-head">Top Stories · ბაზრის სიახლეები</div>
 
   <div class="widget" style="min-height: 600px;">
-    <div class="widget-title">ბაზრის სიახლეები · რეალურ დროში</div>
+    <div class="widget-title">რეალური დროის სიახლეები</div>
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
@@ -126,48 +206,17 @@
     </div>
   </div>
 
-  <!-- Heatmap -->
-  <div class="section-head">ბაზრის რუკა</div>
-
-  <div class="widget" style="min-height: 520px;">
-    <div class="widget-title">S&P 500 · სექტორებით</div>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
-      {
-        "exchanges": [],
-        "dataSource": "SPX500",
-        "grouping": "sector",
-        "blockSize": "market_cap_basic",
-        "blockColor": "change",
-        "locale": "en",
-        "symbolUrl": "",
-        "colorTheme": "light",
-        "hasTopBar": false,
-        "isDataSetEnabled": false,
-        "isZoomEnabled": true,
-        "hasSymbolTooltip": true,
-        "isMonoSize": false,
-        "width": "100%",
-        "height": 480
-      }
-      </script>
-    </div>
-  </div>
-
 </main>
 
 <footer>
-  © 2026 The Trading Paper · ლაშა · ვისბადენი<br>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
   ეს არ არის ფინანსური რჩევა
 </footer>
 
 <script>
-  // Today's date in Georgian
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
-  document.getElementById('today-date').textContent =
-    `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 </script>
 
 </body>
