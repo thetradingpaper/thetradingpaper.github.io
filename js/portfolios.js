@@ -29,8 +29,10 @@ const portfolios = {
       { ticker: 'KOID', name: 'Robotics & Automation ETF',   value: 135.17, color: '#4b5563' },
     ],
     cash: 0,
+    priorDeposits: 907.76,    // carried over from prior tracking (before 2026-05-17)
+    priorCostBasis: 907.76,
     transactions: [
-      // Empty — user starts tracking from 2026-05-17
+      // No detailed transactions yet — starts fresh from 2026-05-17
     ],
   },
 
@@ -80,7 +82,9 @@ function txPaid(tx)     { return tx.shares * tx.price + (tx.commission || 0); }
 function txReceived(tx) { return tx.shares * tx.price - (tx.commission || 0); }
 
 function aggregate(p) {
-  let deposits = 0, bought = 0, sold = 0, fees = 0;
+  let deposits = (p.priorDeposits || 0);
+  let bought   = (p.priorCostBasis || 0);
+  let sold = 0, fees = 0;
   for (const tx of p.transactions) {
     if (tx.type === 'deposit') deposits += tx.amount;
     if (tx.type === 'buy')     { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
@@ -91,7 +95,7 @@ function aggregate(p) {
   const netInvested  = deposits - fees;
   const pnl          = currentValue - netInvested;
   const pnlPct       = netInvested > 0 ? (pnl / netInvested) * 100 : 0;
-  const hasHistory   = p.transactions.length > 0;
+  const hasHistory   = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
   return { deposits, bought, sold, fees, currentValue, netInvested, pnl, pnlPct, hasHistory };
 }
 
@@ -105,7 +109,7 @@ function renderTx(tx) {
   if (tx.type === 'deposit') return `<div class="tx tx-deposit">
     ${date}
     <span class="tx-badge badge-deposit">DEPOSIT</span>
-    <span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ ცეშ</span>
+    <span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
   </div>`;
 
   if (tx.type === 'buy') return `<div class="tx tx-buy">
