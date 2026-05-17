@@ -295,3 +295,181 @@ li { margin-bottom: 8px; }
   font-style: italic;
   background: rgba(185, 28, 28, 0.04);
 }
+
+/* ===== Transactions ===== */
+.tx-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 0;
+  margin: 32px 0 16px;
+}
+
+.tx-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.history-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+
+.history-btn:hover { background: var(--ink); color: var(--paper); }
+
+.tx-list { margin: 16px 0 24px; }
+
+.tx {
+  display: grid;
+  grid-template-columns: 110px 90px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 14px;
+}
+
+.tx:first-child { border-top: 1px solid var(--border); }
+.tx:hover { background: rgba(0,0,0,0.02); }
+
+.tx-date {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.tx-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.badge-deposit { background: var(--green); color: white; }
+.badge-buy     { background: var(--ink); color: var(--paper); }
+.badge-sell    { background: var(--red); color: white; }
+.badge-fee     { background: var(--muted); color: white; }
+
+.tx-line { color: var(--ink); }
+.tx-line .muted { color: var(--muted); font-size: 13px; }
+
+@media (max-width: 700px) {
+  .tx { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0 32px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+}
+
+.page-link, .page-current {
+  min-width: 36px;
+  padding: 6px 12px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.page-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.page-current {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  font-weight: 700;
+  cursor: default;
+}
+
+/* ===== Summary grid (history page) ===== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 20px;
+  text-align: center;
+}
+
+.summary-card.big {
+  grid-column: 1 / -1;
+  padding: 32px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.summary-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.summary-card.big .summary-label { color: rgba(255,255,255,0.6); }
+
+.summary-value {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+
+.summary-card.big .summary-value { font-size: 42px; }
+
+.summary-pnl {
+  margin-top: 12px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+
+.summary-pnl.pos { color: #4ade80; }
+.summary-pnl.neg { color: #f87171; }
+
+@media (max-width: 700px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .summary-card.big .summary-value { font-size: 32px; }
+}
