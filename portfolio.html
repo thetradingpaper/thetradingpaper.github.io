@@ -196,22 +196,7 @@
   const d = new Date();
   document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 
-  // BOG
-  renderStatBanner('bog-banner', 'bog');
-  renderHoldings('bog-holdings', 'bog');
-  renderDonut('bog-donut', 'bog');
-  renderPaginated('bog-tx', 'bog-pager', 'bog', 4);
-
-  // TBC
-  renderStatBanner('tbc-banner', 'tbc');
-  renderHoldings('tbc-holdings', 'tbc');
-  renderDonut('tbc-donut', 'tbc');
-  renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
-</script>
-
-</body>
-</html>
-  // BOG — initial static render
+  // BOG — initial static render (cached prices)
   renderStatBanner('bog-banner', 'bog');
   renderHoldings('bog-holdings', 'bog');
   renderDonut('bog-donut', 'bog');
@@ -223,7 +208,9 @@
   renderDonut('tbc-donut', 'tbc');
   renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
 
-  // === LIVE PRICE REFRESH ===
+  // === LIVE PRICE AUTO-REFRESH ===
+  // Pulls regular + pre-market + after-hours from Yahoo Finance v8 chart API.
+  // Repaints banners, holdings tables, and donuts every 60s.
   function refreshAll() {
     refreshAndRender('bog', { holdingsId: 'bog-holdings', bannerId: 'bog-banner', donutId: 'bog-donut', stampId: 'bog-live-stamp' });
     refreshAndRender('tbc', { holdingsId: 'tbc-holdings', bannerId: 'tbc-banner', donutId: 'tbc-donut', stampId: 'tbc-live-stamp' });

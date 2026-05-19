@@ -22,18 +22,25 @@ const portfolios = {
     startDate: '2026-05-17',          // tracking starts today, no past history
     annualGoalPct: 35,
     holdings: [
-      // shares = best-known holdings. Live price updates value = shares × livePrice.
-      // If shares is wrong, just edit it here and value will recompute live.
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',   shares: 1.85,  value: 443.88, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',        shares: 0.57,  value: 297.65, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',      shares: 18.32, value: 201.57, color: '#8b6914' },
-      { ticker: 'KOID', name: 'Robotics & Automation ETF',   shares: 6.14,  value: 135.17, color: '#4b5563' },
+      // shares = real share count from BOG app. value = shares × livePrice (auto-updated).
+      // The `value` here is the last-known fallback if live fetch fails.
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',   shares: 0.79785924, value: 439.51, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',        shares: 0.43807493, value: 296.92, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',      shares: 6.6170481,  value: 206.98, color: '#8b6914' },
+      { ticker: 'KOID', name: 'Robotics & Automation ETF',   shares: 3.34000784, value: 132.83, color: '#4b5563' },
+      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',          shares: 1.09717696, value: 20.25,  color: '#7c3aed' },
     ],
     cash: 0,
-    priorDeposits: 907.76,    // carried over from prior tracking (before 2026-05-17)
-    priorCostBasis: 907.76,
+    // Baseline: cost basis of holdings before today's 2026-05-19 buys ($40 across QBTS+ASX).
+    // SMH 393.67 + VOO 277.41 + ASX 201.86 + KOID 134.11 + QBTS 0 = $1,007.05
+    priorDeposits: 1007.05,
+    priorCostBasis: 1007.05,
     transactions: [
-      // No detailed transactions yet — starts fresh from 2026-05-17
+      // 2026-05-19 — added QBTS (new) and topped up ASX
+      { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
+      { date: '2026-05-19', type: 'deposit', amount: 20.50 },
+      { date: '2026-05-19', type: 'buy',     ticker: 'ASX',  shares: 0.65530799, price: 30.5202, commission: 0.50 },
+      { date: '2026-05-19', type: 'deposit', amount: 20.50 },
     ],
   },
 
@@ -245,7 +252,7 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   draw();
 }
 
-// Holdings table for a portfolio (includes live-price column)
+// Holdings table for a portfolio (includes live-price column with session badge)
 function renderHoldings(tableBodyId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const tb = document.getElementById(tableBodyId);
@@ -255,42 +262,88 @@ function renderHoldings(tableBodyId, portfolioKey) {
   for (const h of p.holdings) {
     const pct = ((h.value / total) * 100).toFixed(1);
     const sharesCol = h.shares !== undefined ? `<td class="num">${(+h.shares).toFixed(4)}</td>` : '<td class="num">—</td>';
-    const liveCol   = h.livePrice ? `<td class="num"><strong>${fmtMoney(h.livePrice)}</strong></td>` : `<td class="num muted">…</td>`;
-    html += `<tr><td><strong>${h.ticker}</strong></td>${sharesCol}${liveCol}<td class="num">${fmtMoney(h.value)}</td><td class="num">${pct}%</td><td>${h.name}</td></tr>`;
+
+    let liveCell;
+    if (h.livePrice) {
+      const sessBadge = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
+                     : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+                     : '';
+      const chg = (h.dayChangePct !== undefined && h.dayChangePct !== null)
+        ? `<div class="day-chg ${h.dayChangePct >= 0 ? 'pos' : 'neg'}">${h.dayChangePct >= 0 ? '+' : ''}${h.dayChangePct.toFixed(2)}%</div>`
+        : '';
+      liveCell = `<td class="num"><strong>${fmtMoney(h.livePrice)}</strong>${sessBadge}${chg}</td>`;
+    } else {
+      liveCell = `<td class="num muted">…</td>`;
+    }
+
+    html += `<tr><td><strong>${h.ticker}</strong></td>${sharesCol}${liveCell}<td class="num">${fmtMoney(h.value)}</td><td class="num">${pct}%</td><td>${h.name}</td></tr>`;
   }
   if (p.cash > 0) html += `<tr><td>ნაღდი</td><td class="num">—</td><td class="num">—</td><td class="num">${fmtMoney(p.cash)}</td><td class="num">${((p.cash/total)*100).toFixed(1)}%</td><td>რეზერვი</td></tr>`;
   tb.innerHTML = html;
 }
 
 // ============================================================
-// LIVE PRICE FETCHING
+// LIVE PRICE FETCHING — Yahoo Finance v8 chart API
+// Returns real-time regular-hours price plus pre-market and
+// after-hours prices. Tries direct first, falls through CORS proxies.
 // ============================================================
-async function fetchLivePrice(ticker) {
-  try {
-    const url = `https://stooq.com/q/l/?s=${ticker.toLowerCase()}.us&f=sd2t2ohlcv&h&e=csv&_=${Date.now()}`;
-    const res = await fetch(url, { cache: 'no-store' });
-    if (!res.ok) return null;
-    const text = await res.text();
-    const lines = text.trim().split('\n');
-    if (lines.length < 2) return null;
-    const cols = lines[1].split(',');
-    const close = parseFloat(cols[6]);
-    return isNaN(close) || close <= 0 ? null : close;
-  } catch (e) {
-    return null;
+const PRICE_PROXIES = [
+  '',                                       // direct (works in some networks)
+  'https://corsproxy.io/?',                 // public CORS proxy
+  'https://api.allorigins.win/raw?url=',    // backup
+];
+
+async function fetchLiveQuote(ticker) {
+  const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true`;
+  for (const proxy of PRICE_PROXIES) {
+    try {
+      const url = proxy ? proxy + encodeURIComponent(target) : target;
+      const res = await fetch(url, { cache: 'no-store', mode: 'cors' });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const meta = data?.chart?.result?.[0]?.meta;
+      if (!meta || !meta.regularMarketPrice) continue;
+
+      const state = meta.marketState || 'REGULAR';
+      const reg   = meta.regularMarketPrice;
+      const pre   = meta.preMarketPrice;
+      const post  = meta.postMarketPrice;
+      const prev  = meta.chartPreviousClose || meta.previousClose || reg;
+
+      // Pick the most recent price for valuation:
+      // PRE/PREPRE → pre, POST/POSTPOST → post, otherwise regular.
+      let price = reg;
+      let session = 'REG';
+      if ((state === 'PRE' || state === 'PREPRE') && pre)      { price = pre;  session = 'PRE';  }
+      else if ((state === 'POST' || state === 'POSTPOST') && post) { price = post; session = 'POST'; }
+      else if (state === 'CLOSED' && post)                      { price = post; session = 'POST'; }
+
+      return { price, session, state, regular: reg, pre, post, previousClose: prev };
+    } catch (e) { /* try next proxy */ }
   }
+  return null;
+}
+
+// Back-compat shim — older callers expected a number.
+async function fetchLivePrice(ticker) {
+  const q = await fetchLiveQuote(ticker);
+  return q ? q.price : null;
 }
 
 async function refreshLivePrices(portfolioKey) {
   const p = portfolios[portfolioKey];
-  const results = await Promise.all(p.holdings.map(h => fetchLivePrice(h.ticker)));
+  const results = await Promise.all(p.holdings.map(h => fetchLiveQuote(h.ticker)));
   let updated = 0;
   for (let i = 0; i < p.holdings.length; i++) {
-    const price = results[i];
-    if (price !== null && price !== undefined) {
-      p.holdings[i].livePrice = price;
+    const q = results[i];
+    if (q && q.price) {
+      p.holdings[i].livePrice    = q.price;
+      p.holdings[i].liveSession  = q.session;       // 'REG' | 'PRE' | 'POST'
+      p.holdings[i].liveState    = q.state;
+      p.holdings[i].previousClose = q.previousClose;
+      p.holdings[i].dayChangePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
       if (p.holdings[i].shares !== undefined && p.holdings[i].shares > 0) {
-        p.holdings[i].value = +(p.holdings[i].shares * price).toFixed(2);
+        p.holdings[i].value = +(p.holdings[i].shares * q.price).toFixed(2);
       }
       updated++;
     }
@@ -323,6 +376,64 @@ function renderAllTx(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const c = document.getElementById(containerId);
   if (!c) return;
+  if (!p.transactions.length) {
+    c.innerHTML = `<div class="empty-state">ჯერ არ არსებობს ტრანზაქცია — დაიწყე აღრიცხვა</div>`;
+    return;
+  }
+  c.innerHTML = p.transactions.map(renderTx).join('');
+}
+
+// Summary for history page
+function renderSummary(containerId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
+  const pnlSign  = a.pnl >= 0 ? '+' : '−';
+  const has = a.hasHistory;
+
+  c.innerHTML = `
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
+      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
+      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
+      <div class="summary-card big">
+        <div class="summary-label">მიმდინარე ღირებულება</div>
+        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
+        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
+      </div>
+    </div>
+  `;
+}
+
+// Bar chart for history page
+function renderChart(canvasId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: ['Deposit', 'ნაყიდი', 'გაყიდული', 'საკომისიო', 'მიმდინარე'],
+      datasets: [{
+        data: [a.deposits, a.bought, a.sold, a.fees, a.currentValue],
+        backgroundColor: ['#166534', '#1f2937', '#b91c1c', '#8b6914', '#2563eb'],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
+    }
+  });
+}
+!c) return;
   if (!p.transactions.length) {
     c.innerHTML = `<div class="empty-state">ჯერ არ არსებობს ტრანზაქცია — დაიწყე აღრიცხვა</div>`;
     return;
