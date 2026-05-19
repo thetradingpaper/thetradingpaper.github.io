@@ -22,11 +22,12 @@ const portfolios = {
     startDate: '2026-05-17',          // tracking starts today, no past history
     annualGoalPct: 35,
     holdings: [
-      // Current snapshot — auto-updated via TradingView widgets shown alongside
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',   value: 443.88, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',        value: 297.65, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',      value: 201.57, color: '#8b6914' },
-      { ticker: 'KOID', name: 'Robotics & Automation ETF',   value: 135.17, color: '#4b5563' },
+      // shares = best-known holdings. Live price updates value = shares × livePrice.
+      // If shares is wrong, just edit it here and value will recompute live.
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',   shares: 1.85,  value: 443.88, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',        shares: 0.57,  value: 297.65, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',      shares: 18.32, value: 201.57, color: '#8b6914' },
+      { ticker: 'KOID', name: 'Robotics & Automation ETF',   shares: 6.14,  value: 135.17, color: '#4b5563' },
     ],
     cash: 0,
     priorDeposits: 907.76,    // carried over from prior tracking (before 2026-05-17)
@@ -244,7 +245,7 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   draw();
 }
 
-// Holdings table for a portfolio
+// Holdings table for a portfolio (includes live-price column)
 function renderHoldings(tableBodyId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const tb = document.getElementById(tableBodyId);
@@ -253,72 +254,78 @@ function renderHoldings(tableBodyId, portfolioKey) {
   let html = '';
   for (const h of p.holdings) {
     const pct = ((h.value / total) * 100).toFixed(1);
-    const sharesCol = h.shares !== undefined ? `<td class="num">${h.shares}</td>` : '<td>—</td>';
-    html += `<tr><td><strong>${h.ticker}</strong></td>${sharesCol}<td class="num">${fmtMoney(h.value)}</td><td class="num">${pct}%</td><td>${h.name}</td></tr>`;
+    const sharesCol = h.shares !== undefined ? `<td class="num">${(+h.shares).toFixed(4)}</td>` : '<td class="num">—</td>';
+    const liveCol   = h.livePrice ? `<td class="num"><strong>${fmtMoney(h.livePrice)}</strong></td>` : `<td class="num muted">…</td>`;
+    html += `<tr><td><strong>${h.ticker}</strong></td>${sharesCol}${liveCol}<td class="num">${fmtMoney(h.value)}</td><td class="num">${pct}%</td><td>${h.name}</td></tr>`;
   }
-  if (p.cash > 0) html += `<tr><td>ნაღდი</td><td>—</td><td class="num">${fmtMoney(p.cash)}</td><td class="num">${((p.cash/total)*100).toFixed(1)}%</td><td>რეზერვი</td></tr>`;
+  if (p.cash > 0) html += `<tr><td>ნაღდი</td><td class="num">—</td><td class="num">—</td><td class="num">${fmtMoney(p.cash)}</td><td class="num">${((p.cash/total)*100).toFixed(1)}%</td><td>რეზერვი</td></tr>`;
   tb.innerHTML = html;
+}
+
+// ============================================================
+// LIVE PRICE FETCHING
+// ============================================================
+// Uses stooq.com CSV endpoint — no API key, CORS-friendly.
+// Falls back gracefully if a ticker fails (keeps static value).
+// ============================================================
+async function fetchLivePrice(ticker) {
+  try {
+    const url = `https://stooq.com/q/l/?s=${ticker.toLowerCase()}.us&f=sd2t2ohlcv&h&e=csv&_=${Date.now()}`;
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) return null;
+    const text = await res.text();
+    const lines = text.trim().split('\n');
+    if (lines.length < 2) return null;
+    const cols = lines[1].split(',');
+    const close = parseFloat(cols[6]);
+    return isNaN(close) || close <= 0 ? null : close;
+  } catch (e) {
+    return null;
+  }
+}
+
+// Refresh live prices for one portfolio, mutating h.livePrice and h.value (if shares present)
+async function refreshLivePrices(portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const results = await Promise.all(p.holdings.map(h => fetchLivePrice(h.ticker)));
+  let updated = 0;
+  for (let i = 0; i < p.holdings.length; i++) {
+    const price = results[i];
+    if (price !== null && price !== undefined) {
+      p.holdings[i].livePrice = price;
+      if (p.holdings[i].shares !== undefined && p.holdings[i].shares > 0) {
+        p.holdings[i].value = +(p.holdings[i].shares * price).toFixed(2);
+      }
+      updated++;
+    }
+  }
+  return updated;
+}
+
+// Full refresh + re-render for portfolio page (holdings + banner + donut)
+async function refreshAndRender(portfolioKey, opts = {}) {
+  const updated = await refreshLivePrices(portfolioKey);
+  if (opts.holdingsId)  renderHoldings(opts.holdingsId, portfolioKey);
+  if (opts.bannerId)    renderStatBanner(opts.bannerId, portfolioKey);
+  if (opts.donutId && typeof Chart !== 'undefined') {
+    // Chart.js doesn't easily update doughnut data — destroy + recreate
+    const canvas = document.getElementById(opts.donutId);
+    if (canvas) {
+      const existing = Chart.getChart(canvas);
+      if (existing) existing.destroy();
+      renderDonut(opts.donutId, portfolioKey);
+    }
+  }
+  // Stamp a "last updated" indicator if present
+  const stamp = document.getElementById(opts.stampId || `${portfolioKey}-live-stamp`);
+  if (stamp) {
+    const now = new Date();
+    stamp.textContent = `● LIVE · ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+  }
+  return updated;
 }
 
 // Full tx list (used on history pages, no pagination)
 function renderAllTx(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
-  const c = document.getElementById(containerId);
-  if (!c) return;
-  if (!p.transactions.length) {
-    c.innerHTML = `<div class="empty-state">ჯერ არ არსებობს ტრანზაქცია — დაიწყე აღრიცხვა</div>`;
-    return;
-  }
-  c.innerHTML = p.transactions.map(renderTx).join('');
-}
-
-// Summary for history page
-function renderSummary(containerId, portfolioKey) {
-  const p = portfolios[portfolioKey];
-  const a = aggregate(p);
-  const c = document.getElementById(containerId);
-  if (!c) return;
-  const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
-  const pnlSign  = a.pnl >= 0 ? '+' : '−';
-  const has = a.hasHistory;
-
-  c.innerHTML = `
-    <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
-      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
-      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
-      <div class="summary-card big">
-        <div class="summary-label">მიმდინარე ღირებულება</div>
-        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
-        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
-      </div>
-    </div>
-  `;
-}
-
-// Bar chart for history page
-function renderChart(canvasId, portfolioKey) {
-  const p = portfolios[portfolioKey];
-  const a = aggregate(p);
-  const canvas = document.getElementById(canvasId);
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: ['Deposit', 'ნაყიდი', 'გაყიდული', 'საკომისიო', 'მიმდინარე'],
-      datasets: [{
-        data: [a.deposits, a.bought, a.sold, a.fees, a.currentValue],
-        backgroundColor: ['#166534', '#1f2937', '#b91c1c', '#8b6914', '#2563eb'],
-        borderWidth: 0,
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
-    }
-  });
-}
+  c
