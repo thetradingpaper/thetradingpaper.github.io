@@ -265,9 +265,6 @@ function renderHoldings(tableBodyId, portfolioKey) {
 // ============================================================
 // LIVE PRICE FETCHING
 // ============================================================
-// Uses stooq.com CSV endpoint — no API key, CORS-friendly.
-// Falls back gracefully if a ticker fails (keeps static value).
-// ============================================================
 async function fetchLivePrice(ticker) {
   try {
     const url = `https://stooq.com/q/l/?s=${ticker.toLowerCase()}.us&f=sd2t2ohlcv&h&e=csv&_=${Date.now()}`;
@@ -284,7 +281,6 @@ async function fetchLivePrice(ticker) {
   }
 }
 
-// Refresh live prices for one portfolio, mutating h.livePrice and h.value (if shares present)
 async function refreshLivePrices(portfolioKey) {
   const p = portfolios[portfolioKey];
   const results = await Promise.all(p.holdings.map(h => fetchLivePrice(h.ticker)));
@@ -302,13 +298,11 @@ async function refreshLivePrices(portfolioKey) {
   return updated;
 }
 
-// Full refresh + re-render for portfolio page (holdings + banner + donut)
 async function refreshAndRender(portfolioKey, opts = {}) {
   const updated = await refreshLivePrices(portfolioKey);
   if (opts.holdingsId)  renderHoldings(opts.holdingsId, portfolioKey);
   if (opts.bannerId)    renderStatBanner(opts.bannerId, portfolioKey);
   if (opts.donutId && typeof Chart !== 'undefined') {
-    // Chart.js doesn't easily update doughnut data — destroy + recreate
     const canvas = document.getElementById(opts.donutId);
     if (canvas) {
       const existing = Chart.getChart(canvas);
@@ -316,7 +310,6 @@ async function refreshAndRender(portfolioKey, opts = {}) {
       renderDonut(opts.donutId, portfolioKey);
     }
   }
-  // Stamp a "last updated" indicator if present
   const stamp = document.getElementById(opts.stampId || `${portfolioKey}-live-stamp`);
   if (stamp) {
     const now = new Date();
@@ -328,4 +321,62 @@ async function refreshAndRender(portfolioKey, opts = {}) {
 // Full tx list (used on history pages, no pagination)
 function renderAllTx(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
-  c
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  if (!p.transactions.length) {
+    c.innerHTML = `<div class="empty-state">ჯერ არ არსებობს ტრანზაქცია — დაიწყე აღრიცხვა</div>`;
+    return;
+  }
+  c.innerHTML = p.transactions.map(renderTx).join('');
+}
+
+// Summary for history page
+function renderSummary(containerId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
+  const pnlSign  = a.pnl >= 0 ? '+' : '−';
+  const has = a.hasHistory;
+
+  c.innerHTML = `
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
+      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
+      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
+      <div class="summary-card big">
+        <div class="summary-label">მიმდინარე ღირებულება</div>
+        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
+        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
+      </div>
+    </div>
+  `;
+}
+
+// Bar chart for history page
+function renderChart(canvasId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: ['Deposit', 'ნაყიდი', 'გაყიდული', 'საკომისიო', 'მიმდინარე'],
+      datasets: [{
+        data: [a.deposits, a.bought, a.sold, a.fees, a.currentValue],
+        backgroundColor: ['#166534', '#1f2937', '#b91c1c', '#8b6914', '#2563eb'],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
+    }
+  });
+}
