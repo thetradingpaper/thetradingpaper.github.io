@@ -365,4 +365,49 @@
       const depEl = document.getElementById('home-live-' + prefix + '-deposits');
 
       if (valEl) valEl.textContent = fmtMoney(a.currentValue);
-      if (depEl) depEl.textContent = a.has
+      if (depEl) depEl.textContent = a.hasHistory ? fmtMoney(a.deposits) : '—';
+
+      if (pnlEl) {
+        if (a.hasHistory) {
+          const sign = a.pnl >= 0 ? '+' : '−';
+          pnlEl.textContent = sign + '$' + Math.abs(a.pnl).toFixed(2);
+          pnlEl.setAttribute('fill', a.pnl >= 0 ? posColor : negColor);
+        } else {
+          pnlEl.textContent = '—';
+          pnlEl.setAttribute('fill', neutralColor);
+        }
+      }
+      if (pctEl) {
+        if (a.hasHistory) {
+          const sign = a.pnlPct >= 0 ? '+' : '−';
+          pctEl.textContent = sign + Math.abs(a.pnlPct).toFixed(2) + '%';
+          pctEl.setAttribute('fill', a.pnlPct >= 0 ? posColor : negColor);
+        } else {
+          pctEl.textContent = '—';
+          pctEl.setAttribute('fill', neutralColor);
+        }
+      }
+    }
+
+    fillBook('tbc', 'tbc');
+    fillBook('bog', 'bog');
+
+    const stamp = document.getElementById('home-live-stamp');
+    if (stamp) stamp.textContent = `● LIVE · ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+    // === LIVE PRICE REFRESH for homepage books ===
+    async function refreshHomeBooks() {
+      if (typeof refreshLivePrices !== 'function') return;
+      await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc')]);
+      fillBook('tbc', 'tbc');
+      fillBook('bog', 'bog');
+      const now = new Date();
+      if (stamp) stamp.textContent = `● LIVE · ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    }
+    refreshHomeBooks();
+    setInterval(refreshHomeBooks, 60000);
+  })();
+</script>
+
+</body>
+</html>
