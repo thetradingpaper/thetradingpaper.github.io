@@ -19,24 +19,24 @@ const portfolios = {
     name: 'BOG',
     fullName: 'Bank of Georgia',
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
-    startDate: '2026-05-17',          // tracking starts today, no past history
+    startDate: '2025-12-09',          // first BOG deposit per Issue 02
     annualGoalPct: 35,
     holdings: [
-      // shares = real share count from BOG app. value = shares × livePrice (auto-updated).
-      // The `value` here is the last-known fallback if live fetch fails.
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',   shares: 0.79785924, value: 439.51, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',        shares: 0.43807493, value: 296.92, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',      shares: 6.6170481,  value: 206.98, color: '#8b6914' },
-      { ticker: 'KOID', name: 'Robotics & Automation ETF',   shares: 3.34000784, value: 132.83, color: '#4b5563' },
-      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',          shares: 1.09717696, value: 20.25,  color: '#7c3aed' },
+      // shares from BOG app · value = last known market value (auto-refreshed by live prices)
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',  shares: 0.79785924, value: 453.09, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',       shares: 0.43807493, value: 299.14, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',     shares: 6.6170481,  value: 215.98, color: '#8b6914' },
+      { ticker: 'KOID', name: 'Robotics & Automation ETF',  shares: 3.34000784, value: 136.24, color: '#4b5563' },
     ],
-    cash: 0,
-    // Baseline: cost basis of holdings before today's 2026-05-19 buys ($40 across QBTS+ASX).
-    // SMH 393.67 + VOO 277.41 + ASX 201.86 + KOID 134.11 + QBTS 0 = $1,007.05
-    priorDeposits: 1007.05,
+    cash: 26.18,                     // proceeds from QBTS sale (21 May 2026), uninvested
+    // Pre-tracking baseline per Issue 02 (9 May 2026): $907.76 deposited, $1,007.05 cost basis on the four open positions today.
+    priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
-      // 2026-05-19 — added QBTS (new) and topped up ASX
+      // Newest first
+      // 21 May 2026 — QBTS closed for +$5.68 realised gain in 2 days
+      { date: '2026-05-21', type: 'sell',    ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
+      // 19 May 2026 — opened QBTS, topped up ASX
       { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
       { date: '2026-05-19', type: 'deposit', amount: 20.50 },
       { date: '2026-05-19', type: 'buy',     ticker: 'ASX',  shares: 0.65530799, price: 30.5202, commission: 0.50 },
@@ -54,7 +54,7 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, value: 363.25, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, value: 337.51, color: '#1a1a1a' },
     ],
     cash: 0,
     transactions: [
@@ -100,9 +100,11 @@ function aggregate(p) {
     if (tx.type === 'fee')     fees += tx.amount;
   }
   const currentValue = p.holdings.reduce((s,h) => s + h.value, 0) + p.cash;
-  const netInvested  = deposits - fees;
-  const pnl          = currentValue - netInvested;
-  const pnlPct       = netInvested > 0 ? (pnl / netInvested) * 100 : 0;
+  // Real Net Profit = current book value − total money deposited (fees are already paid out of cash,
+  // so they're baked into currentValue; subtracting them from deposits would double-count).
+  const netInvested  = deposits;
+  const pnl          = currentValue - deposits;
+  const pnlPct       = deposits > 0 ? (pnl / deposits) * 100 : 0;
   const hasHistory   = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
   return { deposits, bought, sold, fees, currentValue, netInvested, pnl, pnlPct, hasHistory };
 }
@@ -486,6 +488,12 @@ function renderChart(canvasId, portfolioKey) {
     },
     options: {
       responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
+    }
+  });
+}
+esponsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
     }
