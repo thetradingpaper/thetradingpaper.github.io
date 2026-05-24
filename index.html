@@ -388,4 +388,42 @@
       }
       if (pctEl) {
         if (a.hasHistory) {
-          const sign = a.pnlPct >= 0 ? '
+          const sign = a.pnlPct >= 0 ? '+' : '−';
+          pctEl.textContent = sign + Math.abs(a.pnlPct).toFixed(2) + '%';
+          pctEl.setAttribute('fill', a.pnlPct >= 0 ? posColor : negColor);
+        } else {
+          pctEl.textContent = '—';
+          pctEl.setAttribute('fill', neutralColor);
+        }
+      }
+    }
+
+    function paintAll() {
+      fillBook('tbc', 'tbc');
+      fillBook('bog', 'bog');
+      const stamp = document.getElementById('home-live-stamp');
+      if (stamp) {
+        const now = new Date();
+        stamp.textContent = '● LIVE · ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+      }
+    }
+
+    // Initial paint from cached values
+    paintAll();
+
+    // Refresh with live Yahoo prices, then repaint
+    if (typeof refreshLivePrices === 'function') {
+      async function refreshHome() {
+        try {
+          await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc')]);
+          paintAll();
+        } catch (e) { /* ignore network errors */ }
+      }
+      refreshHome();
+      setInterval(refreshHome, 60000);
+    }
+  })();
+</script>
+
+</body>
+</html>
