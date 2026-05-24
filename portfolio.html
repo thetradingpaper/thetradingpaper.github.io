@@ -7,6 +7,118 @@
 <link rel="stylesheet" href="css/style.css">
 <script src="/js/gate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  /* ========== Accordion (newspaper style) ========== */
+  .acc {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 3px double var(--rule);
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .acc[open] { border-bottom: 3px double var(--rule); }
+  .acc > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--ink);
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .acc > summary::-webkit-details-marker { display: none; }
+  .acc > summary:hover { background: rgba(0,0,0,0.03); }
+  .acc > summary::after {
+    content: '+';
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--red);
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .acc[open] > summary::after { content: '−'; }
+  .acc .acc-body { padding: 8px 24px 24px; border-top: 1px solid var(--border); }
+  .acc .acc-sub {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 12px;
+  }
+
+  /* ========== Holding cards grid ========== */
+  .hcards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  @media (max-width: 900px) { .hcards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .hcards { grid-template-columns: 1fr; } }
+
+  .hcard {
+    background: #fffdf7;
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--ink);
+    padding: 16px 18px 14px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .hcard-head {
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+  .hcard-ticker {
+    display: block;
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+  .hcard-name {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+  .hcard-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .hcard-tbl td {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .hcard-tbl tr:last-child td { border-bottom: none; }
+  .hcard-tbl td:first-child {
+    color: var(--muted);
+    letter-spacing: 1px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .hcard-tbl td.num {
+    text-align: right;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hcard-tbl td.num.pos { color: var(--green); }
+  .hcard-tbl td.num.neg { color: var(--red); }
+</style>
 </head>
 <body>
 
@@ -39,21 +151,17 @@
   <!-- ============================================================ -->
   <div id="bog-banner"></div>
 
-  <div class="port-body">
-    <div class="port-holdings">
-      <div class="section-head" style="margin-top: 0;">აქტივები <span id="bog-live-stamp" style="float:right;font-size:11px;letter-spacing:2px;color:var(--red);">● იტვირთება…</span></div>
-      <table>
-        <thead>
-          <tr><th>ტიკერი</th><th class="num">წილი</th><th class="num">ცოცხალი ფასი</th><th class="num">ღირებულება</th><th class="num">%</th><th>აღწერა</th></tr>
-        </thead>
-        <tbody id="bog-holdings"></tbody>
-      </table>
+  <details class="acc" open>
+    <summary>აქციები <span class="acc-sub">BOG · დეტალური ბარათები</span></summary>
+    <div class="acc-body">
+      <div style="text-align: right; font-size: 11px; letter-spacing: 2px; color: var(--red); margin-bottom: 8px;"><span id="bog-live-stamp">● იტვირთება…</span></div>
+      <div id="bog-hcards" class="hcards"></div>
+      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <div class="widget-title" style="text-align: center;">გადანაწილება</div>
+        <div style="height: 260px; position: relative;"><canvas id="bog-donut"></canvas></div>
+      </div>
     </div>
-    <div class="port-donut">
-      <div class="widget-title">გადანაწილება</div>
-      <div style="height: 260px; position: relative;"><canvas id="bog-donut"></canvas></div>
-    </div>
-  </div>
+  </details>
 
   <!-- ============================================================ -->
   <!-- THE MOUNTAIN · BOG — value vs deposits across issues          -->
@@ -67,7 +175,10 @@
     <div style="height: 280px; position: relative;"><canvas id="bog-mountain-top"></canvas></div>
   </div>
 
-  <!-- BOG live charts -->
+  <!-- BOG live charts (accordion) -->
+  <details class="acc">
+    <summary>ცოცხალი ფასები <span class="acc-sub">BOG · TradingView ჩარტები</span></summary>
+    <div class="acc-body">
   <div class="grid cols-2">
     <div class="widget" style="min-height: 280px;">
       <div class="widget-title">SMH · ცოცხალი ფასი</div>
@@ -106,6 +217,8 @@
       </div>
     </div>
   </div>
+    </div>
+  </details>
 
   <div class="tx-header">
     <h3 class="tx-title">BOG · ბოლო ტრანზაქციები</h3>
@@ -135,21 +248,17 @@
   <!-- ============================================================ -->
   <div id="tbc-banner" style="margin-top: 48px;"></div>
 
-  <div class="port-body">
-    <div class="port-holdings">
-      <div class="section-head" style="margin-top: 0;">აქტივები <span id="tbc-live-stamp" style="float:right;font-size:11px;letter-spacing:2px;color:var(--red);">● იტვირთება…</span></div>
-      <table>
-        <thead>
-          <tr><th>ტიკერი</th><th class="num">წილი</th><th class="num">ცოცხალი ფასი</th><th class="num">ღირებულება</th><th class="num">%</th><th>აღწერა</th></tr>
-        </thead>
-        <tbody id="tbc-holdings"></tbody>
-      </table>
+  <details class="acc" open>
+    <summary>აქციები <span class="acc-sub">TBC · დეტალური ბარათები</span></summary>
+    <div class="acc-body">
+      <div style="text-align: right; font-size: 11px; letter-spacing: 2px; color: var(--red); margin-bottom: 8px;"><span id="tbc-live-stamp">● იტვირთება…</span></div>
+      <div id="tbc-hcards" class="hcards"></div>
+      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto;">
+        <div class="widget-title" style="text-align: center;">გადანაწილება</div>
+        <div style="height: 260px; position: relative;"><canvas id="tbc-donut"></canvas></div>
+      </div>
     </div>
-    <div class="port-donut">
-      <div class="widget-title">გადანაწილება</div>
-      <div style="height: 260px; position: relative;"><canvas id="tbc-donut"></canvas></div>
-    </div>
-  </div>
+  </details>
 
   <!-- ============================================================ -->
   <!-- THE MOUNTAIN · TBC — value vs deposits across issues          -->
@@ -163,25 +272,30 @@
     <div style="height: 280px; position: relative;"><canvas id="tbc-mountain-top"></canvas></div>
   </div>
 
-  <!-- Live MSTR chart -->
-  <div class="widget" style="min-height: 320px;">
-    <div class="widget-title">MSTR · ცოცხალი ფასი</div>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-      {
-        "symbol": "NASDAQ:MSTR",
-        "width": "100%",
-        "height": 280,
-        "locale": "en",
-        "dateRange": "3M",
-        "colorTheme": "light",
-        "isTransparent": true,
-        "autosize": true
-      }
-      </script>
+  <!-- Live MSTR chart (accordion) -->
+  <details class="acc">
+    <summary>ცოცხალი ფასები <span class="acc-sub">TBC · MSTR ჩარტი</span></summary>
+    <div class="acc-body">
+      <div class="widget" style="min-height: 320px;">
+        <div class="widget-title">MSTR · ცოცხალი ფასი</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {
+            "symbol": "NASDAQ:MSTR",
+            "width": "100%",
+            "height": 280,
+            "locale": "en",
+            "dateRange": "3M",
+            "colorTheme": "light",
+            "isTransparent": true,
+            "autosize": true
+          }
+          </script>
+        </div>
+      </div>
     </div>
-  </div>
+  </details>
 
   <div class="tx-header">
     <h3 class="tx-title">TBC · ბოლო ტრანზაქციები</h3>
@@ -222,13 +336,13 @@
 
   // BOG — initial static render (cached prices)
   renderStatBanner('bog-banner', 'bog');
-  renderHoldings('bog-holdings', 'bog');
+  renderHoldingsCards('bog-hcards', 'bog');
   renderDonut('bog-donut', 'bog');
   renderPaginated('bog-tx', 'bog-pager', 'bog', 4);
 
   // TBC — initial static render
   renderStatBanner('tbc-banner', 'tbc');
-  renderHoldings('tbc-holdings', 'tbc');
+  renderHoldingsCards('tbc-hcards', 'tbc');
   renderDonut('tbc-donut', 'tbc');
   renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
 
@@ -324,8 +438,8 @@
 
   // === LIVE PRICE AUTO-REFRESH ===
   function refreshAll() {
-    refreshAndRender('bog', { holdingsId: 'bog-holdings', bannerId: 'bog-banner', donutId: 'bog-donut', stampId: 'bog-live-stamp' });
-    refreshAndRender('tbc', { holdingsId: 'tbc-holdings', bannerId: 'tbc-banner', donutId: 'tbc-donut', stampId: 'tbc-live-stamp' });
+    refreshAndRender('bog', { cardsId: 'bog-hcards', bannerId: 'bog-banner', donutId: 'bog-donut', stampId: 'bog-live-stamp' });
+    refreshAndRender('tbc', { cardsId: 'tbc-hcards', bannerId: 'tbc-banner', donutId: 'tbc-donut', stampId: 'tbc-live-stamp' });
   }
   refreshAll();
   setInterval(refreshAll, 60000);

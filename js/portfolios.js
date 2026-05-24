@@ -24,11 +24,11 @@ const portfolios = {
     annualGoalPct: 35,
     holdings: [
       // Cached values from Issue 05 snapshot — live prices repaint these every 60s.
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, value: 463.64, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, value: 301.33, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  value: 231.66, color: '#8b6914' },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, value: 139.61, color: '#4b5563' },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, value:  26.08, color: '#2563eb' },
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 463.64, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 301.33, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 231.66, color: '#8b6914' },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 139.61, color: '#4b5563' },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  26.08, color: '#2563eb' },
     ],
     cash: 0.00,                       // QBTS proceeds redeployed into WQTM on 22 May 2026
     priorDeposits: 907.76,
@@ -54,7 +54,7 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, value: 334.69, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 334.69, color: '#1a1a1a' },
     ],
     cash: 0,
     transactions: [
@@ -249,6 +249,52 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   draw();
 }
 
+// Newspaper-style card grid for holdings (PDF aesthetic) — one card per stock
+function renderHoldingsCards(containerId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  let html = '';
+  for (const h of p.holdings) {
+    const price = h.livePrice || h.avgBuy || 0;
+    const value = (h.shares !== undefined && price)
+      ? +(h.shares * price).toFixed(2)
+      : h.value;
+    const invested = h.invested || 0;
+    const unreal = value - invested;
+    const unrealPct = invested > 0 ? (unreal / invested) * 100 : 0;
+    const dayPct = h.dayChangePct;
+    const dayDollar = (h.dayChangePct !== undefined && h.shares !== undefined && h.previousClose)
+      ? +((price - h.previousClose) * h.shares).toFixed(2)
+      : null;
+
+    const sess = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
+              : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+              : '';
+
+    const unrealClass = unreal >= 0 ? 'pos' : 'neg';
+    const dayClass = (dayPct >= 0) ? 'pos' : 'neg';
+
+    html += `
+      <div class="hcard">
+        <div class="hcard-head">
+          <span class="hcard-ticker">${h.ticker}</span>
+          <span class="hcard-name">${h.name.toUpperCase()}</span>
+        </div>
+        <table class="hcard-tbl">
+          <tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
+          <tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
+          <tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
+          <tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
+          <tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
+          <tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
+          ${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
+        </table>
+      </div>`;
+  }
+  c.innerHTML = html;
+}
+
 function renderHoldings(tableBodyId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const tb = document.getElementById(tableBodyId);
@@ -345,6 +391,7 @@ async function refreshLivePrices(portfolioKey) {
 async function refreshAndRender(portfolioKey, opts = {}) {
   const updated = await refreshLivePrices(portfolioKey);
   if (opts.holdingsId)  renderHoldings(opts.holdingsId, portfolioKey);
+  if (opts.cardsId)     renderHoldingsCards(opts.cardsId, portfolioKey);
   if (opts.bannerId)    renderStatBanner(opts.bannerId, portfolioKey);
   if (opts.donutId && typeof Chart !== 'undefined') {
     const canvas = document.getElementById(opts.donutId);
@@ -371,6 +418,57 @@ function renderAllTx(containerId, portfolioKey) {
     return;
   }
   c.innerHTML = p.transactions.map(renderTx).join('');
+}
+
+function renderSummary(containerId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
+  const pnlSign  = a.pnl >= 0 ? '+' : '−';
+  const has = a.hasHistory;
+
+  c.innerHTML = `
+    <div class="summary-grid">
+      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
+      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
+      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
+      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
+      <div class="summary-card big">
+        <div class="summary-label">მიმდინარე ღირებულება</div>
+        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
+        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
+      </div>
+    </div>
+  `;
+}
+
+function renderChart(canvasId, portfolioKey) {
+  const p = portfolios[portfolioKey];
+  const a = aggregate(p);
+  const canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: ['Deposit', 'ნაყიდი', 'გაყიდული', 'საკომისიო', 'მიმდინარე'],
+      datasets: [{
+        data: [a.deposits, a.bought, a.sold, a.fees, a.currentValue],
+        backgroundColor: ['#166534', '#1f2937', '#b91c1c', '#8b6914', '#2563eb'],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
+    }
+  });
+}
+.map(renderTx).join('');
 }
 
 function renderSummary(containerId, portfolioKey) {
