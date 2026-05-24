@@ -55,6 +55,18 @@
     </div>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- THE MOUNTAIN · BOG — value vs deposits across issues          -->
+  <!-- ============================================================ -->
+  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 24px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
+      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">BOG · ISS 01 → 05</span>
+    </div>
+    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩარიცხული</div>
+    <div style="height: 280px; position: relative;"><canvas id="bog-mountain-top"></canvas></div>
+  </div>
+
   <!-- BOG live charts -->
   <div class="grid cols-2">
     <div class="widget" style="min-height: 280px;">
@@ -93,18 +105,6 @@
         </script>
       </div>
     </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- THE MOUNTAIN · BOG — value vs deposits across issues          -->
-  <!-- ============================================================ -->
-  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 32px 0 16px;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
-      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
-      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">BOG · ISS 01 → 05</span>
-    </div>
-    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩარიცხული</div>
-    <div style="height: 280px; position: relative;"><canvas id="bog-mountain"></canvas></div>
   </div>
 
   <div class="tx-header">
@@ -151,6 +151,18 @@
     </div>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- THE MOUNTAIN · TBC — value vs deposits across issues          -->
+  <!-- ============================================================ -->
+  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 24px 0;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
+      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">TBC · ISS 03 → 05</span>
+    </div>
+    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩადებული</div>
+    <div style="height: 280px; position: relative;"><canvas id="tbc-mountain-top"></canvas></div>
+  </div>
+
   <!-- Live MSTR chart -->
   <div class="widget" style="min-height: 320px;">
     <div class="widget-title">MSTR · ცოცხალი ფასი</div>
@@ -169,18 +181,6 @@
       }
       </script>
     </div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- THE MOUNTAIN · TBC — value vs deposits across issues          -->
-  <!-- ============================================================ -->
-  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 32px 0 16px;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
-      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
-      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">TBC · ISS 03 → 05</span>
-    </div>
-    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩადებული</div>
-    <div style="height: 280px; position: relative;"><canvas id="tbc-mountain"></canvas></div>
   </div>
 
   <div class="tx-header">
@@ -319,8 +319,8 @@
     });
   }
 
-  renderMountain('bog-mountain', MOUNTAIN_BOG, '#166534', 'rgba(22, 101, 52, 0.15)');
-  renderMountain('tbc-mountain', MOUNTAIN_TBC, '#b91c1c', 'rgba(185, 28, 28, 0.12)');
+  renderMountain('bog-mountain-top', MOUNTAIN_BOG, '#166534', 'rgba(22, 101, 52, 0.15)');
+  renderMountain('tbc-mountain-top', MOUNTAIN_TBC, '#b91c1c', 'rgba(185, 28, 28, 0.12)');
 
   // === LIVE PRICE AUTO-REFRESH ===
   function refreshAll() {
