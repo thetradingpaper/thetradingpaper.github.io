@@ -95,6 +95,18 @@
     </div>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- THE MOUNTAIN · BOG — value vs deposits across issues          -->
+  <!-- ============================================================ -->
+  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 32px 0 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
+      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">BOG · ISS 01 → 05</span>
+    </div>
+    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩარიცხული</div>
+    <div style="height: 280px; position: relative;"><canvas id="bog-mountain"></canvas></div>
+  </div>
+
   <div class="tx-header">
     <h3 class="tx-title">BOG · ბოლო ტრანზაქციები</h3>
     <a href="history-bog.html" class="history-btn">
@@ -159,6 +171,18 @@
     </div>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- THE MOUNTAIN · TBC — value vs deposits across issues          -->
+  <!-- ============================================================ -->
+  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 32px 0 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
+      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">TBC · ISS 03 → 05</span>
+    </div>
+    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩადებული</div>
+    <div style="height: 280px; position: relative;"><canvas id="tbc-mountain"></canvas></div>
+  </div>
+
   <div class="tx-header">
     <h3 class="tx-title">TBC · ბოლო ტრანზაქციები</h3>
     <a href="history-tbc.html" class="history-btn">
@@ -208,9 +232,97 @@
   renderDonut('tbc-donut', 'tbc');
   renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
 
+  // === THE MOUNTAIN charts — value vs deposits per issue ===
+  const MOUNTAIN_BOG = {
+    labels: ['Iss 01', 'Iss 02', 'Iss 03', 'Iss 04', 'Iss 05'],
+    value:    [1019.90, 1086.75, 1104.15, 1130.63, 1162.32],
+    deposits: [ 894.06,  907.76,  907.76,  948.76,  948.76],
+  };
+  const MOUNTAIN_TBC = {
+    labels: ['Iss 03', 'Iss 04', 'Iss 05'],
+    value:    [277.05, 337.51, 334.69],
+    deposits: [268.75, 380.36, 380.36],
+  };
+
+  function renderMountain(canvasId, data, valueColor, fillColor) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || typeof Chart === 'undefined') return;
+    new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: data.labels,
+        datasets: [
+          {
+            label: 'VALUE',
+            data: data.value,
+            borderColor: valueColor,
+            backgroundColor: fillColor,
+            fill: true,
+            tension: 0.25,
+            pointBackgroundColor: valueColor,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            borderWidth: 2.5,
+          },
+          {
+            label: 'DEPOSITS',
+            data: data.deposits,
+            borderColor: '#6b6b6b',
+            borderDash: [6, 4],
+            backgroundColor: 'transparent',
+            fill: false,
+            tension: 0,
+            pointBackgroundColor: '#6b6b6b',
+            pointRadius: 3,
+            pointHoverRadius: 5,
+            borderWidth: 1.5,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: {
+            position: 'top',
+            align: 'start',
+            labels: {
+              boxWidth: 14,
+              font: { family: "'Noto Sans Georgian', sans-serif", size: 11, weight: '700' },
+              color: '#1a1a1a',
+            },
+          },
+          tooltip: {
+            backgroundColor: '#1a1a1a',
+            titleFont: { family: "'Noto Sans Georgian', sans-serif", size: 11 },
+            bodyFont: { family: "ui-monospace, monospace", size: 12 },
+            callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(2) },
+          },
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { font: { family: "'Noto Sans Georgian', sans-serif", size: 11 }, color: '#6b6b6b' },
+          },
+          y: {
+            beginAtZero: false,
+            grid: { color: 'rgba(0,0,0,0.06)' },
+            ticks: {
+              font: { family: "ui-monospace, monospace", size: 11 },
+              color: '#6b6b6b',
+              callback: v => '$' + v.toLocaleString(),
+            },
+          },
+        },
+      },
+    });
+  }
+
+  renderMountain('bog-mountain', MOUNTAIN_BOG, '#166534', 'rgba(22, 101, 52, 0.15)');
+  renderMountain('tbc-mountain', MOUNTAIN_TBC, '#b91c1c', 'rgba(185, 28, 28, 0.12)');
+
   // === LIVE PRICE AUTO-REFRESH ===
-  // Pulls regular + pre-market + after-hours from Yahoo Finance v8 chart API.
-  // Repaints banners, holdings tables, and donuts every 60s.
   function refreshAll() {
     refreshAndRender('bog', { holdingsId: 'bog-holdings', bannerId: 'bog-banner', donutId: 'bog-donut', stampId: 'bog-live-stamp' });
     refreshAndRender('tbc', { holdingsId: 'tbc-holdings', bannerId: 'tbc-banner', donutId: 'tbc-donut', stampId: 'tbc-live-stamp' });
