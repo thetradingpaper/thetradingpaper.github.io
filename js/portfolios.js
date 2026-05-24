@@ -6,6 +6,7 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
+// Last sync: Issue 05 · 2026-05-22 (snapshot 19:36 Wiesbaden)
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
@@ -13,30 +14,29 @@
 const portfolios = {
 
   // -----------------------------------------------------------
-  // BOG — Bank of Georgia (long-term)
+  // BOG — Bank of Georgia (long-term · Dogma)
   // -----------------------------------------------------------
   bog: {
     name: 'BOG',
     fullName: 'Bank of Georgia',
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
-    startDate: '2025-12-09',          // first BOG deposit per Issue 02
+    startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // shares from BOG app · value = last known market value (auto-refreshed by live prices)
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',  shares: 0.79785924, value: 453.09, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',       shares: 0.43807493, value: 299.14, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',     shares: 6.6170481,  value: 215.98, color: '#8b6914' },
-      { ticker: 'KOID', name: 'Robotics & Automation ETF',  shares: 3.34000784, value: 136.24, color: '#4b5563' },
+      // Cached values from Issue 05 snapshot — live prices repaint these every 60s.
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, value: 463.64, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, value: 301.33, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  value: 231.66, color: '#8b6914' },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, value: 139.61, color: '#4b5563' },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, value:  26.08, color: '#2563eb' },
     ],
-    cash: 26.18,                     // proceeds from QBTS sale (21 May 2026), uninvested
-    // Pre-tracking baseline per Issue 02 (9 May 2026): $907.76 deposited, $1,007.05 cost basis on the four open positions today.
+    cash: 0.00,                       // QBTS proceeds redeployed into WQTM on 22 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // 21 May 2026 — QBTS closed for +$5.68 realised gain in 2 days
+      { date: '2026-05-22', type: 'buy',     ticker: 'WQTM', shares: 0.67472943, price: 38.06, commission: 0.50 },
       { date: '2026-05-21', type: 'sell',    ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
-      // 19 May 2026 — opened QBTS, topped up ASX
       { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
       { date: '2026-05-19', type: 'deposit', amount: 20.50 },
       { date: '2026-05-19', type: 'buy',     ticker: 'ASX',  shares: 0.65530799, price: 30.5202, commission: 0.50 },
@@ -45,7 +45,7 @@ const portfolios = {
   },
 
   // -----------------------------------------------------------
-  // TBC — Active trading (single company)
+  // TBC — Active trading (single company · Active Desk)
   // -----------------------------------------------------------
   tbc: {
     name: 'TBC',
@@ -54,7 +54,7 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, value: 337.51, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, value: 334.69, color: '#1a1a1a' },
     ],
     cash: 0,
     transactions: [
@@ -100,8 +100,6 @@ function aggregate(p) {
     if (tx.type === 'fee')     fees += tx.amount;
   }
   const currentValue = p.holdings.reduce((s,h) => s + h.value, 0) + p.cash;
-  // Real Net Profit = current book value − total money deposited (fees are already paid out of cash,
-  // so they're baked into currentValue; subtracting them from deposits would double-count).
   const netInvested  = deposits;
   const pnl          = currentValue - deposits;
   const pnlPct       = deposits > 0 ? (pnl / deposits) * 100 : 0;
@@ -151,7 +149,6 @@ function renderTx(tx) {
   return '';
 }
 
-// Stat banner at top of each portfolio section
 function renderStatBanner(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const a = aggregate(p);
@@ -195,7 +192,6 @@ function renderStatBanner(containerId, portfolioKey) {
   `;
 }
 
-// Donut chart of holdings allocation
 function renderDonut(canvasId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const canvas = document.getElementById(canvasId);
@@ -224,7 +220,6 @@ function renderDonut(canvasId, portfolioKey) {
   });
 }
 
-// Paginated tx list (4 per page) - for portfolio.html sections
 function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   const p = portfolios[portfolioKey];
   const list  = document.getElementById(listId);
@@ -254,7 +249,6 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   draw();
 }
 
-// Holdings table for a portfolio (includes live-price column with session badge)
 function renderHoldings(tableBodyId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const tb = document.getElementById(tableBodyId);
@@ -286,13 +280,11 @@ function renderHoldings(tableBodyId, portfolioKey) {
 
 // ============================================================
 // LIVE PRICE FETCHING — Yahoo Finance v8 chart API
-// Returns real-time regular-hours price plus pre-market and
-// after-hours prices. Tries direct first, falls through CORS proxies.
 // ============================================================
 const PRICE_PROXIES = [
-  '',                                       // direct (works in some networks)
-  'https://corsproxy.io/?',                 // public CORS proxy
-  'https://api.allorigins.win/raw?url=',    // backup
+  '',
+  'https://corsproxy.io/?',
+  'https://api.allorigins.win/raw?url=',
 ];
 
 async function fetchLiveQuote(ticker) {
@@ -312,8 +304,6 @@ async function fetchLiveQuote(ticker) {
       const post  = meta.postMarketPrice;
       const prev  = meta.chartPreviousClose || meta.previousClose || reg;
 
-      // Pick the most recent price for valuation:
-      // PRE/PREPRE → pre, POST/POSTPOST → post, otherwise regular.
       let price = reg;
       let session = 'REG';
       if ((state === 'PRE' || state === 'PREPRE') && pre)      { price = pre;  session = 'PRE';  }
@@ -326,7 +316,6 @@ async function fetchLiveQuote(ticker) {
   return null;
 }
 
-// Back-compat shim — older callers expected a number.
 async function fetchLivePrice(ticker) {
   const q = await fetchLiveQuote(ticker);
   return q ? q.price : null;
@@ -340,7 +329,7 @@ async function refreshLivePrices(portfolioKey) {
     const q = results[i];
     if (q && q.price) {
       p.holdings[i].livePrice    = q.price;
-      p.holdings[i].liveSession  = q.session;       // 'REG' | 'PRE' | 'POST'
+      p.holdings[i].liveSession  = q.session;
       p.holdings[i].liveState    = q.state;
       p.holdings[i].previousClose = q.previousClose;
       p.holdings[i].dayChangePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
@@ -373,7 +362,6 @@ async function refreshAndRender(portfolioKey, opts = {}) {
   return updated;
 }
 
-// Full tx list (used on history pages, no pagination)
 function renderAllTx(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const c = document.getElementById(containerId);
@@ -385,7 +373,6 @@ function renderAllTx(containerId, portfolioKey) {
   c.innerHTML = p.transactions.map(renderTx).join('');
 }
 
-// Summary for history page
 function renderSummary(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const a = aggregate(p);
@@ -411,7 +398,6 @@ function renderSummary(containerId, portfolioKey) {
   `;
 }
 
-// Bar chart for history page
 function renderChart(canvasId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const a = aggregate(p);
@@ -430,70 +416,6 @@ function renderChart(canvasId, portfolioKey) {
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
-    }
-  });
-}
-!c) return;
-  if (!p.transactions.length) {
-    c.innerHTML = `<div class="empty-state">ჯერ არ არსებობს ტრანზაქცია — დაიწყე აღრიცხვა</div>`;
-    return;
-  }
-  c.innerHTML = p.transactions.map(renderTx).join('');
-}
-
-// Summary for history page
-function renderSummary(containerId, portfolioKey) {
-  const p = portfolios[portfolioKey];
-  const a = aggregate(p);
-  const c = document.getElementById(containerId);
-  if (!c) return;
-  const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
-  const pnlSign  = a.pnl >= 0 ? '+' : '−';
-  const has = a.hasHistory;
-
-  c.innerHTML = `
-    <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
-      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
-      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
-      <div class="summary-card big">
-        <div class="summary-label">მიმდინარე ღირებულება</div>
-        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
-        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
-      </div>
-    </div>
-  `;
-}
-
-// Bar chart for history page
-function renderChart(canvasId, portfolioKey) {
-  const p = portfolios[portfolioKey];
-  const a = aggregate(p);
-  const canvas = document.getElementById(canvasId);
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: ['Deposit', 'ნაყიდი', 'გაყიდული', 'საკომისიო', 'მიმდინარე'],
-      datasets: [{
-        data: [a.deposits, a.bought, a.sold, a.fees, a.currentValue],
-        backgroundColor: ['#166534', '#1f2937', '#b91c1c', '#8b6914', '#2563eb'],
-        borderWidth: 0,
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
-    }
-  });
-}
-esponsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v } }, x: { grid: { display: false } } }
     }

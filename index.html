@@ -44,7 +44,7 @@
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №02 · ვისბადენი</span>
+    <span>გამოცემა №05 · ვისბადენი</span>
   </div>
   <h1>The Trading Paper</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
@@ -54,7 +54,7 @@
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
     <a href="strategy.html">სტრატეგია</a>
-    <a href="about.html">ჩემს შესახებ</a>
+    <a href="startup.html">სტარტაფი</a>
   </nav>
 </header>
 
@@ -151,6 +151,15 @@
     <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:6px;">დღევანდელი სტატია · 2026-05-18</div>
     <div style="font-family:'Noto Serif Georgian',serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:6px;">ბაზრის სურათი — 18 მაისი</div>
     <div style="font-size:14px; color:var(--muted);">ნასდაკი −0.97%, S&amp;P −0.48%, 10-წლიანი ობლიგაცია 4.60%+ — წლის მაქსიმუმი. ნვიდიას ანგარიში ოთხშაბათს. <span style="color:var(--red);">სრულად →</span></div>
+  </div>
+  </a>
+
+  <!-- NEW STARTUP TEASER -->
+  <a href="startup.html" style="display:block; text-decoration:none; color:inherit;">
+  <div class="widget" style="border-left:4px solid var(--ink); padding:18px 22px; margin-bottom:24px; background: linear-gradient(135deg, #fffdf7 0%, #f7f3ec 100%);">
+    <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--ink); margin-bottom:6px;">ახალი გვერდი · სტარტაფი №1</div>
+    <div style="font-family:'Noto Serif Georgian',serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:6px;">ავტოსამრეცხაო · თბილისი · $50,000</div>
+    <div style="font-size:14px; color:var(--muted);">პორტფელის გვერდით აშენებული რეალური ბიზნესი — CAPEX, OPEX, payback, ფაზები. სრული ბიზნეს გეგმა. <span style="color:var(--red);">სრულად →</span></div>
   </div>
   </a>
 
@@ -379,35 +388,4 @@
       }
       if (pctEl) {
         if (a.hasHistory) {
-          const sign = a.pnlPct >= 0 ? '+' : '−';
-          pctEl.textContent = sign + Math.abs(a.pnlPct).toFixed(2) + '%';
-          pctEl.setAttribute('fill', a.pnlPct >= 0 ? posColor : negColor);
-        } else {
-          pctEl.textContent = '—';
-          pctEl.setAttribute('fill', neutralColor);
-        }
-      }
-    }
-
-    fillBook('tbc', 'tbc');
-    fillBook('bog', 'bog');
-
-    const stamp = document.getElementById('home-live-stamp');
-    if (stamp) stamp.textContent = `● LIVE · ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-
-    // === LIVE PRICE REFRESH for homepage books ===
-    async function refreshHomeBooks() {
-      if (typeof refreshLivePrices !== 'function') return;
-      await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc')]);
-      fillBook('tbc', 'tbc');
-      fillBook('bog', 'bog');
-      const now = new Date();
-      if (stamp) stamp.textContent = `● LIVE · ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-    }
-    refreshHomeBooks();
-    setInterval(refreshHomeBooks, 60000);
-  })();
-</script>
-
-</body>
-</html>
+          const sign = a.pnlPct >= 0 ? '

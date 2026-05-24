@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — სტარტაფი · ავტოსამრეცხაო თბილისი</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<style>
+  /* ========== Startup page — local styles ========== */
+  .startup-hero {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: 40px 32px;
+    margin: 24px 0 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .startup-hero::before {
+    content: "სტარტაფი №1";
+    position: absolute;
+    top: 12px; right: 16px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .startup-hero h2 {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 48px;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+    line-height: 1.05;
+  }
+  .startup-hero .dek {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+  .startup-hero .pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .startup-hero .pill {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 18px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .startup-hero .pill.red { background: var(--red); }
+  .startup-hero .pill.green { background: var(--green); }
+  .startup-hero .pill.gold { background: var(--accent); }
+
+  /* Stat-row */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 2px solid var(--ink);
+    margin: 24px 0 32px;
+    background: var(--paper);
+  }
+  .stat-cell-big {
+    padding: 24px 16px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-cell-big:last-child { border-right: none; }
+  .stat-cell-big .label {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .stat-cell-big .val {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stat-cell-big .sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  @media (max-width: 720px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .stat-cell-big:nth-child(2) { border-right: none; }
+    .stat-cell-big:nth-child(1), .stat-cell-big:nth-child(2) {
+      border-bottom: 1px solid var(--border);
+    }
+    .startup-hero h2 { font-size: 34px; }
+  }
+
+  /* Section heading override */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 16px;
+  }
+  .section-rule .num {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: var(--red);
+    line-height: 1;
+    min-width: 50px;
+  }
+  .section-rule .heading {
+    flex: 1;
+  }
+  .section-rule h3 {
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -0.3px;
+  }
+  .section-rule .tag {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .section-rule::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--ink);
+  }
+
+  /* Two-col layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 16px 0;
+  }
+  @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* Capex / opex / income table */
+  .biz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 14px;
+  }
+  .biz-table th, .biz-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .biz-table th {
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .biz-table td.num { text-align: right; font-family: ui-monospace, monospace; }
+  .biz-table tr.total td {
+    font-weight: 700;
+    background: #f7f3ec;
+    border-top: 2px solid var(--ink);
+  }
+
+  /* Phase timeline */
+  .phase-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+    counter-reset: phase;
+  }
+  .phase-list li {
+    counter-increment: phase;
+    background: var(--paper);
+    border-left: 4px solid var(--red);
+    padding: 16px 20px 16px 60px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .phase-list li::before {
+    content: counter(phase, decimal-leading-zero);
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--red);
+  }
+  .phase-list li strong {
+    display: block;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  /* Risk grid */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 12px 0;
+  }
+  @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+  }
+  .risk-card h4 {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  .risk-card p { margin: 0; font-size: 14px; line-height: 1.5; }
+
+  /* Pull quote */
+  .pull {
+    border-left: 5px solid var(--red);
+    padding: 16px 24px;
+    margin: 24px 0;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .biz-list {
+    margin: 12px 0 0 20px;
+    line-height: 1.7;
+  }
+  .biz-list li { margin-bottom: 6px; }
+
+  /* Goal mountain */
+  .goal-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+    border: 2px solid var(--ink);
+  }
+  .goal-box .top {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .goal-box .big {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 44px;
+    margin: 8px 0 4px;
+    letter-spacing: -1px;
+  }
+  .goal-box .sub { font-size: 14px; font-style: italic; opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html" class="active">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <div class="startup-hero">
+    <h2>ავტოსამრეცხაო · თბილისი</h2>
+    <p class="dek">პირველი რეალური ბიზნესი — სტარტაფი, რომელიც პორტფელის გვერდით აიგება</p>
+    <div class="pills">
+      <span class="pill red">სტარტი 2027–2028</span>
+      <span class="pill">თბილისი · საქართველო</span>
+      <span class="pill gold">CAPEX $50,000</span>
+      <span class="pill green">მიზანი: ფულის მდინარე</span>
+    </div>
+  </div>
+
+  <!-- KPI ROW -->
+  <div class="stat-row">
+    <div class="stat-cell-big">
+      <div class="label">საჭირო ინვესტიცია</div>
+      <div class="val">$50,000</div>
+      <div class="sub">CAPEX · აშშ დოლარი</div>
+    </div>
+    <div class="stat-cell-big">
+      <div class="label">ლოკაცია</div>
+      <div class="val">თბილისი</div>
+      <div class="sub">საქართველო</div>
+    </div>
+    <div class="stat-cell-big">
+      <div class="label">ბიზნესის ტიპი</div>
+      <div class="val">ავტო<br>სამრეცხაო</div>
+      <div class="sub">სერვისი</div>
+    </div>
+    <div class="stat-cell-big">
+      <div class="label">სამიზნე ROI</div>
+      <div class="val">2–3 წ.</div>
+      <div class="sub">payback period</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="article-body">
+    <p>ეს გვერდი არის გრძელვადიანი გეგმის პირველი თავი — სტარტაფი, რომელიც პორტფელის გვერდით ვითარდება. პორტფელი (BOG + TBC + მალე Galt &amp; Taggart) აშენებს კაპიტალს ბაზრიდან; სტარტაფი აშენებს კაპიტალს რეალური სამყაროდან. ორივე ერთად — ფინანსური დამოუკიდებლობის ორი ფეხი.</p>
+    <p>პირველი სტარტაფი არის <strong>ავტოსამრეცხაო თბილისში</strong>. ამის მიზეზი მარტივია: მოთხოვნა მუდმივია, ოპერაცია გასაგებია, CAPEX წინასწარ ცნობილია, შემოსავალი ყოველდღიური ფულადი ნაკადია. ეს არ არის "სმარტ" ბიზნესი — ეს არის სანდო, წინასწარ გათვლადი მანქანა, რომელიც, თუ კარგად მიდის, ფინანსურად აყვავდება და თბილისის ბაზრის ცოდნას მომცემს შემდეგი ნაბიჯისთვის.</p>
+  </div>
+
+  <div class="pull">
+    "გრძელვადიანი მდიდრობა ერთი წყაროდან არ მოდის — ის შენდება სამ ფეხზე: ანაბარი, საინვესტიციო პორტფელი, რეალური ბიზნესი. ეს გვერდი არის მესამე ფეხის დაწყება."
+  </div>
+
+  <!-- BUSINESS MODEL -->
+  <div class="section-rule">
+    <span class="num">01</span>
+    <div class="heading">
+      <h3>ბიზნეს მოდელი</h3>
+      <div class="tag">ფულის გამომუშავების ლოგიკა</div>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <p>კონცეფცია: საშუალო ზომის (3-პოსტი / 4-პოსტი) ავტოსამრეცხაო თბილისის ერთ-ერთ მაღალი ტრაფიკის რაიონში — საბურთალო, დიდი დიღომი, ვაკე ან ისანი-სამგორი. ფუნქციონირება ყოველდღე, 8:00–22:00. სერვისები ფასების მიხედვით დიფერენცირებული:</p>
+    <ul class="biz-list">
+      <li><strong>Express რეცხვა</strong> (გარე გადარეცხვა) — 15₾ · 6–8 წუთი · ბაზის სერვისი</li>
+      <li><strong>სტანდარტი</strong> (გარე + სალონის მტვერსასრუტი) — 30₾ · 15–20 წუთი</li>
+      <li><strong>Premium</strong> (გარე, შიდა, საბურავი, შავი ფარები, ცვილი) — 60₾ · 30–40 წუთი</li>
+      <li><strong>დეტეილინგი</strong> (ფოლადის გაპრიალება, კერამიკული ცვილი) — 200–400₾ · 2–4 საათი</li>
+      <li>დამატებითი: საბავშვო-მაგიდის რეცხვა, საფარის ქიმწმენდა, ძრავის გადარეცხვა</li>
+    </ul>
+    <p>დღიური სამიზნე — <strong>40–60 მანქანა</strong> (გასაშუალოებული), <strong>საშუალო ჩეკი ≈ 30₾</strong>. ეს გვაძლევს დღიურ ბრუნვას ≈ 1,200–1,800₾ ($450–680). თვიური ბრუნვა (30 დღე) — $13,500–20,400.</p>
+  </div>
+
+  <!-- CAPEX BREAKDOWN -->
+  <div class="section-rule">
+    <span class="num">02</span>
+    <div class="heading">
+      <h3>CAPEX · $50,000 დაშლა</h3>
+      <div class="tag">სად მიდის თითოეული დოლარი</div>
+    </div>
+  </div>
+
+  <table class="biz-table">
+    <thead>
+      <tr><th>კატეგორია</th><th>აღწერა</th><th class="num">$ USD</th><th class="num">%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ფართის გადატანა / რემონტი</td><td>იჯარის წინასწარი გადახდა (6 თვე) + სამშენებლო სამუშაოები, წყლისადენი, კანალიზაცია</td><td class="num">$12,000</td><td class="num">24%</td></tr>
+      <tr><td>აღჭურვილობა — წნევის სარეცხები</td><td>2× Karcher / Nilfisk პროფესიონალური წნევით სარეცხი + შლანგი + ფორსუნკები</td><td class="num">$6,000</td><td class="num">12%</td></tr>
+      <tr><td>აღჭურვილობა — მტვერსასრუტი</td><td>2× ინდუსტრიული მტვერსასრუტი (სველი / მშრალი) + აქსესუარები</td><td class="num">$2,500</td><td class="num">5%</td></tr>
+      <tr><td>აღჭურვილობა — ცვილი / პოლირება</td><td>დეტეილინგ აპარატურა, ცვილის გადასაყვანი, კერამიკული საფარის გასაკეთებელი</td><td class="num">$3,500</td><td class="num">7%</td></tr>
+      <tr><td>კომპრესორი + წყლის სისტემა</td><td>ჰაერის კომპრესორი, წყლის რეციკლირების სისტემა (ეკოლოგია + ხარჯების შემცირება)</td><td class="num">$4,500</td><td class="num">9%</td></tr>
+      <tr><td>ქიმია (პირველი 3 თვე)</td><td>შამპუნი, ცვილი, ფერგამოყვანი, რეზინისა და ლითონის ქიმია, განზავება</td><td class="num">$2,000</td><td class="num">4%</td></tr>
+      <tr><td>ბრენდინგი + ვებსაიტი + სოც.მედია</td><td>ლოგო, ნიშანი, ნაჭრები, Instagram/TikTok, Google ბიზნეს პროფილი, ჩექიდან კუპონები</td><td class="num">$2,500</td><td class="num">5%</td></tr>
+      <tr><td>POS + კასა + ვიდეო</td><td>კასის სისტემა, BOG/TBC ტერმინალი, 4× კამერა + DVR</td><td class="num">$2,000</td><td class="num">4%</td></tr>
+      <tr><td>პერსონალის ფორმა, ხელსაწყოები, წვრილი</td><td>ცარცები, ხელთათმანები, ღრუბლები, ფორმა (5 კომპლექტი), ვედროები</td><td class="num">$1,500</td><td class="num">3%</td></tr>
+      <tr><td>ლიცენზია + იურისტი + რეგისტრაცია</td><td>შპს რეგისტრაცია, ბუღალტერია (1 წელი), ეკოლოგიური ნებართვა</td><td class="num">$1,500</td><td class="num">3%</td></tr>
+      <tr><td>საოპერაციო რეზერვი</td><td>3 თვის ხელფასები + კომუნალური + ქირა (buffer)</td><td class="num">$10,000</td><td class="num">20%</td></tr>
+      <tr><td>გაუთვალისწინებელი</td><td>10% reserve unexpected costs</td><td class="num">$2,000</td><td class="num">4%</td></tr>
+      <tr class="total"><td colspan="2">სრული CAPEX</td><td class="num">$50,000</td><td class="num">100%</td></tr>
+    </tbody>
+  </table>
+
+  <!-- OPEX -->
+  <div class="section-rule">
+    <span class="num">03</span>
+    <div class="heading">
+      <h3>თვიური ხარჯი (OPEX)</h3>
+      <div class="tag">რა იხდება ყოველი თვე</div>
+    </div>
+  </div>
+
+  <table class="biz-table">
+    <thead>
+      <tr><th>ხარჯი</th><th class="num">$ USD / თვე</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ქირა (კომერციული, 200–300 მ²)</td><td class="num">$1,200</td></tr>
+      <tr><td>პერსონალი — 4 მცველი/მრეცხავი × $400</td><td class="num">$1,600</td></tr>
+      <tr><td>მენეჯერი / ცვლის უფროსი</td><td class="num">$700</td></tr>
+      <tr><td>კომუნალური (წყალი, ელ., გათბობა)</td><td class="num">$800</td></tr>
+      <tr><td>ქიმია + მასალები</td><td class="num">$600</td></tr>
+      <tr><td>მარკეტინგი (Instagram ads, კუპონები)</td><td class="num">$300</td></tr>
+      <tr><td>ბუღალტერია + ბანკი + იურისტი</td><td class="num">$250</td></tr>
+      <tr><td>აღჭურვილობის ცვეთა / შეკეთება</td><td class="num">$200</td></tr>
+      <tr><td>გადასახადები (მცირე ბიზნესი, 1%)</td><td class="num">$150</td></tr>
+      <tr class="total"><td>სრული OPEX / თვე</td><td class="num">$5,800</td></tr>
+    </tbody>
+  </table>
+
+  <!-- INCOME PROJECTION -->
+  <div class="section-rule">
+    <span class="num">04</span>
+    <div class="heading">
+      <h3>შემოსავლის პროგნოზი</h3>
+      <div class="tag">სცენარული გათვლები</div>
+    </div>
+  </div>
+
+  <table class="biz-table">
+    <thead>
+      <tr><th>სცენარი</th><th class="num">მანქანა/დღე</th><th class="num">საშ. ჩეკი</th><th class="num">თვიური ბრუნვა</th><th class="num">წმინდა მოგება</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pessimistic (პირველი თვეები)</td><td class="num">30</td><td class="num">25₾ (~$9)</td><td class="num">$8,100</td><td class="num">+$2,300</td></tr>
+      <tr><td>Base case (3-6 თვის შემდეგ)</td><td class="num">50</td><td class="num">30₾ (~$11)</td><td class="num">$16,500</td><td class="num">+$10,700</td></tr>
+      <tr><td>Optimistic (1 წლის შემდეგ)</td><td class="num">70</td><td class="num">35₾ (~$13)</td><td class="num">$27,300</td><td class="num">+$21,500</td></tr>
+    </tbody>
+  </table>
+
+  <div class="article-body">
+    <p><strong>Payback period:</strong> base scenario-ში — $50,000 CAPEX / $10,700 ნეტო თვიური მოგება ≈ <strong>4–5 თვის ნეტო-მოგება / წელი = ~5 წელი ბრუნდება</strong>. რეალისტურად, თუ პირველი 6 თვე pessimistic-ია და შემდეგ base — payback დაახ. <strong>2.5–3 წელი</strong>.</p>
+  </div>
+
+  <!-- PHASES -->
+  <div class="section-rule">
+    <span class="num">05</span>
+    <div class="heading">
+      <h3>ფაზები — გზა ნულიდან გახსნამდე</h3>
+      <div class="tag">თანმიმდევრობა, ნაბიჯ-ნაბიჯ</div>
+    </div>
+  </div>
+
+  <ol class="phase-list">
+    <li>
+      <strong>კაპიტალის შეგროვება · 18–24 თვე</strong>
+      პორტფელის მოგების ნაწილი + USML-ის შემდგომი შემოსავალი + ანაბრის დაგროვება Wiesbaden-ში. სამიზნე: ლიკვიდური $30K + $20K კრედიტი ან თანამოინვესტორი.
+    </li>
+    <li>
+      <strong>კვლევა + ლოკაცია · 2–3 თვე</strong>
+      თბილისის 3-4 რაიონის ანალიზი (ტრაფიკის, კონკურენციის, ფასების), 5–10 ფართის დათვალიერება, საუკეთესოს არჩევა, ხელშეკრულება.
+    </li>
+    <li>
+      <strong>ლეგალური სტრუქტურა · 3 კვირა</strong>
+      შპს დარეგისტრირება (1% turnover tax-ის სტატუსით), საბანკო ანგარიში BOG/TBC-ში, ბუღალტერის დაქირავება, ეკოლოგიური ნებართვა.
+    </li>
+    <li>
+      <strong>სამშენებლო სამუშაოები + აღჭურვილობის შესყიდვა · 2 თვე</strong>
+      წყლის გადატანა, კანალიზაცია, აპარატურის შესყიდვა (პოლონეთიდან / თურქეთიდან იმპორტი ან ადგილობრივი), დამონტაჟება, ტესტირება.
+    </li>
+    <li>
+      <strong>გუნდის დაკომპლექტება + ტრენინგი · 3 კვირა</strong>
+      4 მრეცხავი + 1 მენეჯერი (5 პერსონალის ერთეული start). ცვლის უფროსს — ფინანსური ბონუსი მონაცემთა გადახდისთვის.
+    </li>
+    <li>
+      <strong>Soft launch + Grand opening · 2 კვირა</strong>
+      პირველი 14 დღე — 50% ფასდაკლება სოც.მედიის გავრცელებისთვის. ფოტო, ვიდეო, რივიუების შეგროვება, Google ბიზნეს პროფილის გააქტიურება.
+    </li>
+    <li>
+      <strong>ოპერაცია + ოპტიმიზაცია · მუდმივად</strong>
+      ყოველდღიური მონაცემთა მონიტორინგი (მანქანების რაოდენობა, ჩეკი, ხარჯი), თვიური P&amp;L, კვარტალური სტრატეგიული გადახედვა.
+    </li>
+  </ol>
+
+  <!-- RISKS -->
+  <div class="section-rule">
+    <span class="num">06</span>
+    <div class="heading">
+      <h3>რისკები + მიტიგაცია</h3>
+      <div class="tag">სად შეიძლება ჩავარდეს — და როგორ ვიცავთ</div>
+    </div>
+  </div>
+
+  <div class="risk-grid">
+    <div class="risk-card">
+      <h4>კონკურენცია</h4>
+      <p>თბილისში სამრეცხაოები ბევრია. <strong>მიტიგაცია:</strong> ლოკაცია + ხარისხი + სოც.მედია = დიფერენციაცია. ბრენდი, არა მხოლოდ სერვისი.</p>
+    </div>
+    <div class="risk-card">
+      <h4>ზამთრის სეზონი</h4>
+      <p>დეკ–იან მოთხოვნა ეცემა 30%-ით. <strong>მიტიგაცია:</strong> შიდა საფარების სერვისი, ცხელი წყლის სამრეცხაო, abonement (თვიური ფასდაკლება).</p>
+    </div>
+    <div class="risk-card">
+      <h4>პერსონალის როტაცია</h4>
+      <p>დაბალი ხელფასის სექტორი — ხალხი იცვლება. <strong>მიტიგაცია:</strong> ბაზარზე მაღალი ხელფასი ($400+) + ბონუსი + სათანადო პირობები.</p>
+    </div>
+    <div class="risk-card">
+      <h4>კომუნალური ხარჯი</h4>
+      <p>წყლისა და ელ. ფასი იცვლება. <strong>მიტიგაცია:</strong> წყლის რეციკლირების სისტემა (50% ხელახალი გამოყენება), LED განათება.</p>
+    </div>
+    <div class="risk-card">
+      <h4>აღჭურვილობის ცვეთა</h4>
+      <p>წნევით სარეცხები 3–4 წელში ნებისმიერად იშლება. <strong>მიტიგაცია:</strong> საფინანსო რეზერვი ($200/თვე), preventive maintenance, ხარისხიანი ბრენდი.</p>
+    </div>
+    <div class="risk-card">
+      <h4>კურსი (₾ vs $)</h4>
+      <p>CAPEX $-შია, შემოსავალი ₾-ში. <strong>მიტიგაცია:</strong> ფასები ₾-ში გავიწიოთ ინფლაციით, USD-ში მოგების ნაწილი დროულად კონვერტირება.</p>
+    </div>
+  </div>
+
+  <!-- EXIT / GROWTH -->
+  <div class="section-rule">
+    <span class="num">07</span>
+    <div class="heading">
+      <h3>გრძელვადიანი ვიზია</h3>
+      <div class="tag">სად მიდის ეს ბიზნესი</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4 style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">წელი 1–2</h4>
+      <p style="font-size:15px;line-height:1.6;">გახსნა, ოპერაცია, payback-ის გავლა. ფოკუსი — ხარისხი, ბრენდი, რეპუტაცია. პერსონალური ჩართულობა მაღალია, ყოველდღიური ვიზიტი.</p>
+    </div>
+    <div>
+      <h4 style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">წელი 2–3</h4>
+      <p style="font-size:15px;line-height:1.6;">პროცესების ავტომატიზაცია (SOP-ები, მენეჯერი დამოუკიდებლად მართავს), ფინანსები საკონტროლოდ. პერსონალური ჩართულობა მცირდება.</p>
+    </div>
+    <div>
+      <h4 style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">წელი 3–5</h4>
+      <p style="font-size:15px;line-height:1.6;">მე-2 ფილიალის გახსნა (იგივე ფორმატით, უკვე გაცილებით იაფი — სისტემა გვაქვს). საქართველოს მცირე ფრენჩაიზის შესაძლებლობა.</p>
+    </div>
+    <div>
+      <h4 style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);">წელი 5+</h4>
+      <p style="font-size:15px;line-height:1.6;">3–5 ფილიალი, ბრენდის რეპუტაცია, ფინანსური დამოუკიდებლობა მთლიანი ცხოვრებიდან. ან ბიზნესის გაყიდვა და კაპიტალის გადასვლა შემდეგ პროექტში.</p>
+    </div>
+  </div>
+
+  <!-- GOAL BOX -->
+  <div class="goal-box">
+    <div class="top">სამიზნე გახსნა</div>
+    <div class="big">2027–2028</div>
+    <div class="sub">ანესთეზიის ექიმობის შემოსავალი + პორტფელის მოგება = $50K კაპიტალის შეგროვება</div>
+  </div>
+
+  <div class="pull">
+    "ეს არ არის სანატრელი. ეს არის გათვლა. $50,000 · თბილისი · ავტოსამრეცხაო · 2–3 წელი payback. ფურცელზე დაწერილი ნაკადია — ვცდილობ მე გავხსნა, არა ვინმე სხვამ."
+  </div>
+
+  <p style="text-align:center;margin:32px 0;">
+    <a href="strategy.html" style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:2px;">← სტრატეგია</a>
+    &nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="portfolio.html" style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:2px;">პორტფელი →</a>
+  </p>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა · სტარტაფ პროექტი მზადებაშია
+</footer>
+
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+</script>
+
+</body>
+</html>

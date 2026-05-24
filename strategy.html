@@ -198,7 +198,7 @@
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №02 · ვისბადენი</span>
+    <span>გამოცემა №05 · ვისბადენი</span>
   </div>
   <h1>The Trading Paper</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
@@ -208,7 +208,7 @@
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
     <a href="strategy.html" class="active">სტრატეგია</a>
-    <a href="about.html">ჩემს შესახებ</a>
+    <a href="startup.html">სტარტაფი</a>
   </nav>
 </header>
 
@@ -230,6 +230,32 @@
 
   <div class="article-body">
     <p>დღეს იწყება მეორე წიგნი — TBC, აქტიური სავაჭრო. პირველი წიგნი (BOG) აგრძელებს ნელ, გრძელვადიან აშენებას — DCA, ETF-ები, არასოდეს ვყიდი. მეორე წიგნი არის სარისკო კაპიტალი: ერთ ცალკეულ ვაჭრობას ვირჩევ მომენტში, თეზისით ფურცელზე, წინასწარ განსაზღვრული გასვლის წერტილით. ყოველი წარმატებული ვაჭრობის შემდეგ — მოგებას ვიღებ, გადავიტან BOG-ის ანგარიშზე და გრძელვადიან საფუძველს ვუმატებ. ეს არის სისტემა.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- COMING SOON — GALT & TAGGART · 5x MARGIN                     -->
+  <!-- ============================================================ -->
+  <div class="gt-banner" style="margin: 32px 0; border: 2px solid var(--ink); background: linear-gradient(135deg, #fffdf7 0%, #f7f3ec 100%); padding: 28px 32px; position: relative;">
+    <div style="position: absolute; top: -14px; left: 24px; background: var(--red); color: #fff; padding: 4px 16px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;">მალე დაემატება</div>
+    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <div style="flex: 0 0 auto; width: 90px; height: 90px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; background: var(--ink); color: var(--paper); font-family: 'Noto Serif Georgian', serif;">
+        <div style="text-align: center;">
+          <div style="font-size: 32px; font-weight: 900; line-height: 1;">5×</div>
+          <div style="font-size: 9px; letter-spacing: 2px; margin-top: 4px;">MARGIN</div>
+        </div>
+      </div>
+      <div style="flex: 1 1 300px;">
+        <h3 style="font-family: 'Noto Serif Georgian', serif; font-size: 24px; font-weight: 900; margin: 0 0 6px; letter-spacing: -0.3px;">მესამე წიგნი — Galt &amp; Taggart</h3>
+        <p style="font-style: italic; color: var(--muted); margin: 0 0 12px; font-size: 14px;">აქტიური სავაჭრო · 5× margin · მაღალი მიზანი · მაღალი დისციპლინა</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6;">მალე იხსნება მესამე ანგარიში — <strong>Galt &amp; Taggart</strong>, საქართველოს ერთ-ერთი წამყვანი საინვესტიციო ბროკერი. ვაჭრობა <strong>5-ჯერ margin-ით</strong>: კაპიტალის ხუთჯერადი ბერკეტი, რომელიც დიდი მოგების მაგრამ დიდი დანაკარგის შესაძლებლობას იძლევა. დღევანდელი ორი წიგნი (BOG &amp; TBC) უცვლელად აგრძელებს, ხოლო ეს ახალი წიგნი იქნება მკაცრად განცალკევებული, საკუთარი წესებითა და კაპიტალით.</p>
+      </div>
+    </div>
+    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--border); display: flex; gap: 32px; flex-wrap: wrap; font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;">
+      <span><strong style="color: var(--red);">ბროკერი:</strong> Galt &amp; Taggart</span>
+      <span><strong style="color: var(--red);">ბერკეტი:</strong> 5×</span>
+      <span><strong style="color: var(--red);">სტატუსი:</strong> მზადებაში</span>
+      <span><strong style="color: var(--red);">წიგნი:</strong> №3</span>
+    </div>
   </div>
 
   <!-- ============================================================ -->
@@ -827,86 +853,4 @@
       if (depEl) depEl.textContent = a.hasHistory ? fmtMoney(a.deposits) : '—';
 
       // Bright contrast colors that read on both red and green book backgrounds
-      const posColor = '#86efac';  // bright green
-      const negColor = '#fca5a5';  // bright red
-      const neutralColor = '#fffdf7';
-
-      if (pnlEl) {
-        if (a.hasHistory) {
-          const sign = a.pnl >= 0 ? '+' : '−';
-          pnlEl.textContent = sign + '$' + Math.abs(a.pnl).toFixed(2);
-          pnlEl.setAttribute('fill', a.pnl >= 0 ? posColor : negColor);
-        } else {
-          pnlEl.textContent = '—';
-          pnlEl.setAttribute('fill', neutralColor);
-        }
-      }
-
-      if (pctEl) {
-        if (a.hasHistory) {
-          const sign = a.pnlPct >= 0 ? '+' : '−';
-          pctEl.textContent = sign + Math.abs(a.pnlPct).toFixed(2) + '%';
-          pctEl.setAttribute('fill', a.pnlPct >= 0 ? posColor : negColor);
-        } else {
-          pctEl.textContent = '—';
-          pctEl.setAttribute('fill', neutralColor);
-        }
-      }
-    }
-
-    fillBook('tbc', 'tbc');
-    fillBook('bog', 'bog');
-
-    // Live stamp
-    const stamp = document.getElementById('live-stamp');
-    if (stamp) {
-      stamp.textContent = `● LIVE · ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-    }
-  })();
-
-  // ============================================================
-  // STRATEGY JOURNAL — add new entries to top of array
-  // Each entry: { date: 'YYYY-MM-DD', tag, title, body }
-  // ============================================================
-  const strategyJournal = [
-    {
-      date: '2026-05-18',
-      tag: 'სტარტი',
-      title: 'სტრატეგია იწყება',
-      body: 'დღეიდან აქტიური სავაჭრო წიგნი ცალკე ფსიქოლოგიით — TBC. ფლაივილი დაიწერა ფურცელზე: ექვსი საფეხური, ექვსი წესი, ერთი ციკლი. ყოველი წარმატებული ვაჭრობის შემდეგ მოგების ნაწილი გადის BOG-ში — ეს არ არის ვარიანტი, ეს არის წესი. დივერსიფიკაცია მოვა ნაბიჯობრივად, არასოდეს ბრმად.',
-    },
-    // ──── სამომავლო ჩანაწერები აქ დაემატება ────
-  ];
-
-  (function renderJournal() {
-    const c = document.getElementById('strategy-journal');
-    if (!c) return;
-    if (!strategyJournal.length) {
-      c.innerHTML = '<div class="journal-empty">ჯერ არ არსებობს ჩანაწერი — დროთა განმავლობაში დაიწერება</div>';
-      return;
-    }
-    c.innerHTML = strategyJournal.map(entry => {
-      const dt = new Date(entry.date);
-      const day = dt.getDate();
-      const mo  = monthsShort[dt.getMonth()];
-      const yr  = dt.getFullYear();
-      return `
-        <article class="journal-entry">
-          <div class="date-col">
-            <div class="date-day">${day}</div>
-            <div class="date-mo">${mo}</div>
-            <div class="date-yr">${yr}</div>
-          </div>
-          <div>
-            ${entry.tag ? `<div class="tag">${entry.tag}</div>` : ''}
-            <h4>${entry.title}</h4>
-            <p class="body">${entry.body}</p>
-          </div>
-        </article>
-      `;
-    }).join('');
-  })();
-</script>
-
-</body>
-</html>
+      const posColor = '#86efac';  // bright
