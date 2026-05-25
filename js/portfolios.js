@@ -65,6 +65,23 @@ const portfolios = {
     ],
   },
 
+  // -----------------------------------------------------------
+  // GALT — Galt & Taggart (awaiting · not yet funded)
+  // -----------------------------------------------------------
+  galt: {
+    name: 'GALT',
+    fullName: 'Galt & Taggart',
+    tagline: 'საქართველოს კაპიტალის ბაზარი · მზადყოფნაში',
+    startDate: null,
+    annualGoalPct: null,
+    status: 'awaiting',
+    holdings: [],
+    cash: 0,
+    priorDeposits: 0,
+    priorCostBasis: 0,
+    transactions: [],
+  },
+
 };
 
 // ============================================================
