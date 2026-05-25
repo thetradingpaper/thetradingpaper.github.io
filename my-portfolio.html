@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჩემი პორტფელი · The Trading Paper</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+.me-wrap { max-width: 980px; margin: 0 auto; }
+
+/* Profile editor */
+.me-profile {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  margin: 24px 0 0;
+}
+.me-avatar-zone {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fffdf7;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 32px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.me-avatar-zone img { width: 100%; height: 100%; object-fit: cover; }
+.me-avatar-zone input[type=file] { display: none; }
+.me-avatar-zone .upload-hint {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,.6);
+  color: #fffdf7;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 0;
+  text-align: center;
+}
+.me-info .me-name {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+.me-info .me-handle {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.me-info .me-city {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.me-info .me-bio {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+  max-width: 460px;
+}
+.me-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-mini {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink);
+}
+.btn-mini.danger { color: var(--red); border-color: var(--red); }
+.btn-mini:hover { background: var(--paper); }
+
+/* Stat row */
+.me-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-top: none;
+  background: var(--paper);
+  margin-bottom: 32px;
+}
+@media (max-width: 700px) { .me-stats { grid-template-columns: repeat(2, 1fr); } }
+.me-stats .cell { padding: 14px 16px; border-right: 1px solid var(--border); }
+.me-stats .cell:last-child { border-right: none; }
+.me-stats .lab {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: block;
+}
+.me-stats .val {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+}
+.me-stats .val.pos { color: var(--green); }
+.me-stats .val.neg { color: var(--red); }
+
+/* Add holding panel */
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--ink);
+  padding: 22px 24px;
+  margin-bottom: 22px;
+}
+.panel .panel-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+}
+.panel h3 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 17px;
+}
+.panel .panel-sub {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ticker-search { position: relative; margin-bottom: 12px; }
+.ticker-search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: #fffdf7;
+  font-family: ui-monospace, monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.ticker-results {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: #fffdf7;
+  border: 1px solid var(--border);
+  border-top: none;
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 5;
+}
+.ticker-result {
+  padding: 8px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+.ticker-result:hover { background: var(--bg); }
+.ticker-result .tkr {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.ticker-result .tkn { color: var(--muted); font-size: 11px; }
+
+.add-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+@media (max-width: 720px) {
+  .add-grid { grid-template-columns: repeat(2, 1fr); }
+  .add-grid button { grid-column: 1 / -1; }
+}
+.add-grid .field { margin-bottom: 0; }
+.add-grid label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 3px;
+}
+.add-grid input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  background: #fffdf7;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+}
+.btn-add {
+  padding: 9px 18px;
+  background: var(--green);
+  color: #fffdf7;
+  border: none;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-add:hover { opacity: 0.9; }
+
+/* Holdings table */
+.h-tbl { width: 100%; border-collapse: collapse; font-family: ui-monospace, monospace; font-size: 13px; }
+.h-tbl th {
+  text-align: left;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 8px;
+  border-bottom: 2px solid var(--ink);
+}
+.h-tbl td {
+  padding: 9px 8px;
+  border-bottom: 1px dashed var(--border);
+}
+.h-tbl td.num { text-align: right; }
+.h-tbl td.pos { color: var(--green); }
+.h-tbl td.neg { color: var(--red); }
+.h-tbl .del {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
+  background: transparent;
+  border: none;
+}
+.h-tbl .del:hover { color: var(--red); }
+
+.empty-holdings {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--muted);
+  font-style: italic;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  margin-top: 12px;
+}
+
+.donut-wrap { height: 240px; }
+
+.next-steps {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  padding: 18px 22px;
+  margin-top: 24px;
+}
+.next-steps h4 {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.next-steps a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--ink);
+  color: #fffdf7;
+  text-decoration: none;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-right: 8px;
+  margin-top: 6px;
+}
+
+.msg {
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 13px;
+  border-radius: 2px;
+}
+.msg.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.msg.ok  { background: #ecfdf5; color: #065f46; border: 1px solid #bbf7d0; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="me-wrap" id="me-wrap"></div>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // Require login
+  let user = currentUser();
+  if (!user) { location.href = 'register.html'; }
+
+  function fmt$(n) {
+    const s = Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (n < 0 ? '−$' : '$') + s;
+  }
+
+  // === Common tickers list (for the search dropdown) ===
+  // For real production, switch to Yahoo Finance lookup via a CORS proxy.
+  const TICKER_DB = [
+    { t: 'AAPL', n: 'Apple Inc.' },
+    { t: 'MSFT', n: 'Microsoft Corporation' },
+    { t: 'GOOGL', n: 'Alphabet Inc.' },
+    { t: 'AMZN', n: 'Amazon.com Inc.' },
+    { t: 'NVDA', n: 'NVIDIA Corp.' },
+    { t: 'META', n: 'Meta Platforms' },
+    { t: 'TSLA', n: 'Tesla Inc.' },
+    { t: 'NFLX', n: 'Netflix Inc.' },
+    { t: 'AMD',  n: 'Advanced Micro Devices' },
+    { t: 'INTC', n: 'Intel Corp.' },
+    { t: 'PLTR', n: 'Palantir Technologies' },
+    { t: 'COIN', n: 'Coinbase Global' },
+    { t: 'MSTR', n: 'Strategy Inc' },
+    { t: 'SMH',  n: 'VanEck Semiconductors ETF' },
+    { t: 'VOO',  n: 'Vanguard S&P 500 ETF' },
+    { t: 'QQQ',  n: 'Invesco QQQ Trust' },
+    { t: 'VTI',  n: 'Vanguard Total Stock Market' },
+    { t: 'VT',   n: 'Vanguard Total World' },
+    { t: 'SCHD', n: 'Schwab US Dividend ETF' },
+    { t: 'SPY',  n: 'SPDR S&P 500 ETF' },
+    { t: 'IWM',  n: 'iShares Russell 2000' },
+    { t: 'KOID', n: 'KraneShares Humanoid Robotics ETF' },
+    { t: 'WQTM', n: 'WisdomTree Quantum Computing Fund' },
+    { t: 'QBTS', n: 'D-Wave Quantum' },
+    { t: 'ASX',  n: 'ASE Industrial Holding' },
+    { t: 'BRK.B', n: 'Berkshire Hathaway B' },
+    { t: 'KO',   n: 'Coca-Cola' },
+    { t: 'PEP',  n: 'PepsiCo' },
+    { t: 'JNJ',  n: 'Johnson & Johnson' },
+    { t: 'WMT',  n: 'Walmart' },
+    { t: 'V',    n: 'Visa Inc.' },
+    { t: 'MA',   n: 'Mastercard' },
+    { t: 'JPM',  n: 'JPMorgan Chase' },
+    { t: 'BAC',  n: 'Bank of America' },
+    { t: 'XOM',  n: 'Exxon Mobil' },
+    { t: 'CVX',  n: 'Chevron' },
+    { t: 'DIS',  n: 'Walt Disney' },
+    { t: 'NKE',  n: 'Nike' },
+    { t: 'SBUX', n: 'Starbucks' },
+    { t: 'MCD',  n: 'McDonald\'s' },
+  ];
+
+  const COLOR_POOL = ['#b91c1c','#166534','#8b6914','#4b5563','#2563eb','#7c3aed','#0e7490','#be185d','#1a1a1a'];
+
+  // Live price fetch (Yahoo Finance via proxy)
+  async function fetchPrice(ticker) {
+    const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1d&range=1d`;
+    const proxies = ['', 'https://corsproxy.io/?', 'https://api.allorigins.win/raw?url='];
+    for (const p of proxies) {
+      try {
+        const url = p ? p + encodeURIComponent(target) : target;
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const data = await res.json();
+        const price = data?.chart?.result?.[0]?.meta?.regularMarketPrice;
+        if (price) return price;
+      } catch {}
+    }
+    return null;
+  }
+
+  // ============================================================
+  // RENDER
+  // ============================================================
+  function render() {
+    user = currentUser();
+    if (!user) { location.href = 'register.html'; return; }
+
+    const stats = traderStats(user);
+    const pnlCls = stats.pnl >= 0 ? 'pos' : 'neg';
+
+    const avatarInner = user.avatarImg
+      ? `<img src="${user.avatarImg}" alt="">`
+      : `<span>${user.avatar}</span>`;
+
+    document.getElementById('me-wrap').innerHTML = `
+      <div class="me-profile">
+        <label class="me-avatar-zone" style="background:${user.accent}">
+          ${avatarInner}
+          <span class="upload-hint">+ ფოტო</span>
+          <input id="avatar-input" type="file" accept="image/*">
+        </label>
+        <div class="me-info">
+          <div class="me-name">${user.name}</div>
+          <div class="me-handle">${user.handle}</div>
+          <div class="me-city">${user.city || '—'} · გაწევრიანდი ${user.joinedDate}</div>
+          ${user.bio ? `<div class="me-bio">${user.bio}</div>` : ''}
+        </div>
+        <div class="me-actions">
+          <a href="trader.html?id=${user.id}" class="btn-mini">საჯარო გვერდი →</a>
+          <a href="my-articles.html" class="btn-mini">სტატიები</a>
+          <button class="btn-mini danger" onclick="doLogout()">გასვლა</button>
+        </div>
+      </div>
+
+      <div class="me-stats">
+        <div class="cell">
+          <span class="lab">ჩარიცხული</span>
+          <span class="val">${fmt$(stats.deposited)}</span>
+        </div>
+        <div class="cell">
+          <span class="lab">ღირებულება</span>
+          <span class="val">${fmt$(stats.value)}</span>
+        </div>
+        <div class="cell">
+          <span class="lab">P/L</span>
+          <span class="val ${pnlCls}">${stats.pnl >= 0 ? '+' : '−'}${fmt$(Math.abs(stats.pnl)).replace(/^\$/,'$')}</span>
+        </div>
+        <div class="cell">
+          <span class="lab">უკუგება</span>
+          <span class="val ${pnlCls}">${stats.pnlPct >= 0 ? '+' : '−'}${Math.abs(stats.pnlPct).toFixed(2)}%</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>+ ახალი პოზიცია</h3>
+          <span class="panel-sub">Search · Add · Track</span>
+        </div>
+        <div class="ticker-search">
+          <input id="ticker-input" type="text" placeholder="ძებნა (მაგ. NVDA, AAPL, VOO…)" autocomplete="off">
+          <div id="ticker-results" class="ticker-results" style="display:none;"></div>
+        </div>
+        <div class="add-grid">
+          <div class="field">
+            <label>ტიკერი</label>
+            <input id="add-ticker" type="text" readonly>
+          </div>
+          <div class="field">
+            <label>აქციები</label>
+            <input id="add-shares" type="number" step="0.0001" placeholder="0">
+          </div>
+          <div class="field">
+            <label>საშ. ფასი ($)</label>
+            <input id="add-price" type="number" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field">
+            <label>თარიღი</label>
+            <input id="add-date" type="date">
+          </div>
+          <button class="btn-add" onclick="doAdd()">დამატება</button>
+        </div>
+        <div id="add-msg"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>ჩემი პოზიციები</h3>
+          <span class="panel-sub" id="h-count">${user.holdings.length} OPEN · CASH ${fmt$(user.cash || 0)}</span>
+        </div>
+        <div id="holdings-area"></div>
+        ${user.holdings.length ? '<div class="donut-wrap"><canvas id="me-donut"></canvas></div>' : ''}
+      </div>
+
+      <div class="next-steps">
+        <h4>★ შემდეგი ნაბიჯი</h4>
+        <p style="margin:6px 0;">დაამატე პოზიციები, აიტვირთე ფოტო, დაწერე სტატია — საჯარო გვერდიც ცოცხლდება.</p>
+        <a href="my-articles.html">+ ახალი სტატია</a>
+        <a href="community.html">საზოგადოება</a>
+      </div>
+    `;
+
+    // Wire avatar upload
+    document.getElementById('avatar-input').addEventListener('change', e => {
+      const f = e.target.files[0];
+      if (!f) return;
+      if (f.size > 2 * 1024 * 1024) { alert('მაქს 2MB'); return; }
+      const r = new FileReader();
+      r.onload = () => {
+        updateCurrentUser({ avatarImg: r.result });
+        render();
+      };
+      r.readAsDataURL(f);
+    });
+
+    // Ticker search
+    const ti = document.getElementById('ticker-input');
+    const tr = document.getElementById('ticker-results');
+    ti.addEventListener('input', () => {
+      const q = ti.value.trim().toUpperCase();
+      if (!q) { tr.style.display = 'none'; return; }
+      const matches = TICKER_DB.filter(x => x.t.includes(q) || x.n.toUpperCase().includes(q)).slice(0, 8);
+      if (!matches.length) { tr.style.display = 'none'; return; }
+      tr.innerHTML = matches.map(m =>
+        `<div class="ticker-result" data-tkr="${m.t}" data-tkn="${m.n}">
+          <span class="tkr">${m.t}</span><span class="tkn">${m.n}</span>
+        </div>`).join('');
+      tr.style.display = '';
+      tr.querySelectorAll('.ticker-result').forEach(el => {
+        el.onclick = () => {
+          document.getElementById('add-ticker').value = el.dataset.tkr;
+          document.getElementById('add-ticker').dataset.name = el.dataset.tkn;
+          ti.value = `${el.dataset.tkr} · ${el.dataset.tkn}`;
+          tr.style.display = 'none';
+          document.getElementById('add-shares').focus();
+        };
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.ticker-search')) tr.style.display = 'none';
+    });
+
+    // Default date = today
+    document.getElementById('add-date').value = new Date().toISOString().slice(0, 10);
+
+    // Holdings table
+    renderHoldings();
+  }
+
+  function renderHoldings() {
+    const area = document.getElementById('holdings-area');
+    if (!user.holdings.length) {
+      area.innerHTML = `<div class="empty-holdings">ჯერ პოზიციები არ გაქვს — დაიწყე ზემოთ მოცემული ფორმით</div>`;
+      return;
+    }
+    const rows = user.holdings.map((h, idx) => {
+      const unreal = h.value - h.invested;
+      const pct = h.invested > 0 ? (unreal / h.invested) * 100 : 0;
+      const cls = unreal >= 0 ? 'pos' : 'neg';
+      return `<tr>
+        <td><strong>${h.ticker}</strong></td>
+        <td style="font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);">${h.name || '—'}</td>
+        <td class="num">${(+h.shares).toFixed(4)}</td>
+        <td class="num">${fmt$(h.avgBuy)}</td>
+        <td class="num">${fmt$(h.invested)}</td>
+        <td class="num">${h.livePrice ? fmt$(h.livePrice) : '<span style="color:var(--muted)">…</span>'}</td>
+        <td class="num">${fmt$(h.value)}</td>
+        <td class="num ${cls}">${unreal >= 0 ? '+' : '−'}${fmt$(Math.abs(unreal)).replace(/^\$/,'$')} (${pct >= 0 ? '+' : '−'}${Math.abs(pct).toFixed(2)}%)</td>
+        <td><button class="del" title="წაშლა" onclick="doDelete(${idx})">×</button></td>
+      </tr>`;
+    }).join('');
+    area.innerHTML = `<table class="h-tbl">
+      <thead>
+        <tr><th>ტიკერი</th><th>კომპანია</th><th class="num">აქციები</th><th class="num">საშ.</th><th class="num">ჩადებული</th><th class="num">ფასი</th><th class="num">ღირებულება</th><th class="num">P/L</th><th></th></tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+    // Donut
+    setTimeout(() => {
+      const canvas = document.getElementById('me-donut');
+      if (canvas && typeof Chart !== 'undefined') {
+        const labels = user.holdings.map(h => h.ticker);
+        const data = user.holdings.map(h => h.value);
+        const colors = user.holdings.map(h => h.color);
+        new Chart(canvas, {
+          type: 'doughnut',
+          data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 2, borderColor: '#fffdf7' }] },
+          options: { responsive: true, maintainAspectRatio: false, cutout: '60%',
+            plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { family: "'Noto Sans Georgian', sans-serif", size: 12 } } } }
+          }
+        });
+      }
+    }, 0);
+  }
+
+  // ============================================================
+  // ACTIONS
+  // ============================================================
+  async function doAdd() {
+    const tkr = document.getElementById('add-ticker').value.trim().toUpperCase();
+    const name = document.getElementById('add-ticker').dataset.name || tkr;
+    const shares = +document.getElementById('add-shares').value;
+    const price  = +document.getElementById('add-price').value;
+    const date   = document.getElementById('add-date').value;
+    const msg = document.getElementById('add-msg');
+    if (!tkr) { msg.innerHTML = '<div class="msg err">აირჩიე ტიკერი ძებნიდან</div>'; return; }
+    if (!shares || shares <= 0) { msg.innerHTML = '<div class="msg err">აქციების რაოდენობა > 0</div>'; return; }
+    if (!price || price <= 0)   { msg.innerHTML = '<div class="msg err">ფასი > 0</div>'; return; }
+
+    msg.innerHTML = '<div class="msg ok">📡 ცოცხალი ფასი იწერება…</div>';
+    const live = await fetchPrice(tkr);
+    const value = live ? +(shares * live).toFixed(2) : +(shares * price).toFixed(2);
+    const invested = +(shares * price).toFixed(2);
+    const color = COLOR_POOL[user.holdings.length % COLOR_POOL.length];
+
+    user.holdings.push({
+      ticker: tkr, name, shares, avgBuy: price, invested, value, color,
+      livePrice: live, addedDate: date,
+    });
+    user.deposited = (user.deposited || 0) + invested;
+    updateCurrentUser({ holdings: user.holdings, deposited: user.deposited });
+
+    msg.innerHTML = `<div class="msg ok">✓ ${tkr} დაემატა${live ? ' · ცოცხალი ფასი ' + fmt$(live) : ' (ფასი არ მოვიდა — ვიყენებ ნაყიდს)'}</div>`;
+    document.getElementById('add-ticker').value = '';
+    document.getElementById('add-shares').value = '';
+    document.getElementById('add-price').value = '';
+    document.getElementById('ticker-input').value = '';
+    setTimeout(render, 700);
+  }
+
+  function doDelete(idx) {
+    if (!confirm('წავშალო ეს პოზიცია?')) return;
+    const removed = user.holdings.splice(idx, 1)[0];
+    if (removed) user.deposited = Math.max(0, (user.deposited || 0) - (removed.invested || 0));
+    updateCurrentUser({ holdings: user.holdings, deposited: user.deposited });
+    render();
+  }
+
+  function doLogout() {
+    if (!confirm('გასვლა?')) return;
+    clearSession();
+    location.href = 'index.html';
+  }
+
+  render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — საზოგადოება</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+
+/* ====== Community page layout ====== */
+.com-intro {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding: 24px 28px;
+  margin: 0 0 28px;
+}
+.com-intro .com-eyebrow {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+.com-intro h2 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.com-intro p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 720px;
+}
+
+/* ====== Leaderboard banner (top 1) ====== */
+.leader-banner {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 22px;
+  align-items: center;
+}
+.leader-banner .lb-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fffdf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+}
+.leader-banner .lb-text .lb-rank {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 3px;
+}
+.leader-banner .lb-text .lb-name {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 22px;
+}
+.leader-banner .lb-text .lb-tag {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.leader-banner .lb-num {
+  text-align: right;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+.leader-banner .lb-num .lb-val {
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--green);
+  letter-spacing: -0.5px;
+}
+.leader-banner .lb-num .lb-pct {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ====== Trader cards grid ====== */
+.section-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.section-title .st-count {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+.trader-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.trader-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--ink);
+  padding: 18px 18px 16px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s, box-shadow .15s;
+  position: relative;
+}
+.trader-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.tc-rank {
+  position: absolute;
+  top: 10px; right: 12px;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.tc-rank.gold   { color: #b8860b; font-weight: 700; }
+.tc-rank.silver { color: #6b7280; font-weight: 700; }
+.tc-rank.bronze { color: #92400e; font-weight: 700; }
+
+.tc-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.tc-avatar {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fffdf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+.tc-id .tc-name {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+}
+.tc-id .tc-handle {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.tc-id .tc-city {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* Mini donut + numbers — mirrors the SS Allocation card */
+.tc-mini {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+.tc-donut-wrap {
+  position: relative;
+  width: 100px; height: 100px;
+}
+.tc-donut-wrap canvas { width: 100% !important; height: 100% !important; }
+
+.tc-legend {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+}
+.tc-legend-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 2px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.tc-legend-row:last-child { border-bottom: none; }
+.tc-legend-row .tc-leg-tk {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.tc-legend-row .tc-leg-tk::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--swatch, var(--ink));
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+.tc-legend-row .tc-leg-val {
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.tc-foot {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+}
+.tc-foot .tc-stat .tc-stat-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 2px;
+}
+.tc-foot .tc-stat .tc-stat-val {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.3px;
+}
+.tc-foot .tc-stat .tc-stat-val.pos { color: var(--green); }
+.tc-foot .tc-stat .tc-stat-val.neg { color: var(--red); }
+
+.tc-tag {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-style: italic;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Empty / awaiting card (for empty registration slots) */
+.trader-card.awaiting {
+  opacity: 0.7;
+  border-top-color: #9ca3af;
+}
+.trader-card.awaiting .tc-avatar {
+  background: #d4cfc4;
+  color: var(--muted);
+}
+/* Empty slot — placeholder for un-registered traders */
+.empty-slot {
+  background: repeating-linear-gradient(45deg, var(--paper), var(--paper) 8px, #f4efe5 8px, #f4efe5 16px);
+  border: 1px dashed var(--border);
+  border-top: 3px dashed #9ca3af;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--muted);
+  transition: background .15s;
+  min-height: 280px;
+}
+.empty-slot:hover {
+  background: var(--paper);
+}
+.empty-slot .es-icon {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  border: 2px dashed #9ca3af;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  color: #9ca3af;
+  margin-bottom: 14px;
+}
+.empty-slot .es-title {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.empty-slot .es-sub {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.empty-slot .es-cta {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 6px 14px;
+}
+
+.com-note {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  margin-top: 30px;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .leader-banner { grid-template-columns: auto 1fr; }
+  .leader-banner .lb-num { grid-column: 1 / -1; text-align: left; }
+  .tc-mini { grid-template-columns: 80px 1fr; }
+  .tc-donut-wrap { width: 80px; height: 80px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html" class="active">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <div class="com-intro">
+    <div class="com-eyebrow">საზოგადოება · The Community</div>
+    <h2>დარეგისტრირებული ტრეიდერები</h2>
+    <p>ყოველი წევრი თავის გვერდს ფლობს — საკუთარი წიგნი, საკუთარი ისტორია, საკუთარი წესები. რანკინგი ნაჩვენებია წლიური უკუგების მიხედვით.</p>
+    <p style="margin-top:10px;"><a href="register.html" style="font-family:'Noto Sans Georgian',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:2px;">+ რეგისტრაცია →</a></p>
+  </div>
+
+  <!-- Leaderboard (top performer) -->
+  <div id="leader-banner"></div>
+
+  <div class="section-title">
+    <span>რანკინგი · უკუგების მიხედვით</span>
+    <span class="st-count" id="trader-count"></span>
+  </div>
+
+  <div id="trader-grid" class="trader-grid"></div>
+
+  <div class="com-note" id="com-note">
+    ⓘ რანკინგი იანგარიშება პორტფელის ღირებულება vs ჩარიცხული თანხის მიხედვით.
+  </div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
+<script>
+  // ===== Date =====
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // ===== Helpers =====
+  function fmt$(n) {
+    const s = Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (n < 0 ? '−$' : '$') + s;
+  }
+  function fmtPctSigned(n) { return (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2) + '%'; }
+
+  // ===== Render leaderboard + grid =====
+  const ranked = rankedTraders();
+
+  // -- Leader banner (#1)
+  if (ranked.length) {
+    const leader = ranked[0];
+    const lb = document.getElementById('leader-banner');
+    lb.className = 'leader-banner';
+    lb.style.borderLeftColor = leader.accent;
+    lb.innerHTML = `
+      <div class="lb-avatar" style="background:${leader.accent}">${leader.avatar}</div>
+      <div class="lb-text">
+        <div class="lb-rank">★ № 1 · დღევანდელი ლიდერი</div>
+        <div class="lb-name">${leader.name}</div>
+        <div class="lb-tag">${leader.tagline}</div>
+      </div>
+      <div class="lb-num">
+        <div class="lb-val ${leader.pnl >= 0 ? '' : 'neg'}" style="color:${leader.pnl >= 0 ? 'var(--green)' : 'var(--red)'}">${fmtPctSigned(leader.pnlPct)}</div>
+        <div class="lb-pct">${fmt$(leader.value)} · P/L ${leader.pnl >= 0 ? '+' : '−'}${fmt$(Math.abs(leader.pnl)).replace('$','$')}</div>
+      </div>
+    `;
+  }
+
+  // -- Trader cards grid
+  const grid = document.getElementById('trader-grid');
+  const emptySlots = Math.max(0, 3 - ranked.length);   // always show at least 3 cells
+  document.getElementById('trader-count').textContent = `${ranked.length} ტრეიდერი${emptySlots ? ' · ' + emptySlots + ' ცარიელი სლოტი' : ''}`;
+
+  const rankClasses = ['gold', 'silver', 'bronze'];
+
+  const traderCards = ranked.map((t, i) => {
+    const rankCls = rankClasses[i] || '';
+    const rankNum = '#' + (i + 1);
+    // Top 4 holdings shown in legend
+    const top = t.holdings.slice().sort((a,b) => b.value - a.value).slice(0, 4);
+    const legend = top.map(h =>
+      `<div class="tc-legend-row">
+         <span class="tc-leg-tk" style="--swatch:${h.color}">${h.ticker}</span>
+         <span class="tc-leg-val">${fmt$(h.value)}</span>
+       </div>`
+    ).join('');
+
+    const pnlCls = t.pnl >= 0 ? 'pos' : 'neg';
+    const pnlSign = t.pnl >= 0 ? '+' : '−';
+
+    return `
+    <a href="trader.html?id=${t.id}" class="trader-card">
+      <span class="tc-rank ${rankCls}">${rankNum}</span>
+      <div class="tc-head">
+        <div class="tc-avatar" style="background:${t.accent}">${t.avatar}</div>
+        <div class="tc-id">
+          <div class="tc-name">${t.name}</div>
+          <div class="tc-handle">${t.handle}</div>
+          <div class="tc-city">${t.city}</div>
+        </div>
+      </div>
+      <div class="tc-mini">
+        <div class="tc-donut-

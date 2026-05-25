@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>რეგისტრაცია · The Trading Paper</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
+<style>
+.auth-wrap {
+  max-width: 480px;
+  margin: 40px auto;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  padding: 32px 34px 28px;
+}
+.auth-wrap h2 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+.auth-wrap .eyebrow {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.auth-wrap .lead {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 0 22px;
+  border-bottom: 2px solid var(--ink);
+}
+.auth-tabs button {
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+.auth-tabs button.active {
+  color: var(--ink);
+  border-bottom-color: var(--red);
+  font-weight: 700;
+}
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.field input, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fffdf7;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-family: 'Noto Serif Georgian', serif;
+  font-size: 14px;
+  color: var(--ink);
+}
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+.field-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: var(--red);
+  color: #fffdf7;
+  border: none;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.msg {
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: 13px;
+  border-radius: 2px;
+}
+.msg.err  { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.msg.ok   { background: #ecfdf5; color: #065f46; border: 1px solid #bbf7d0; }
+.foot-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 16px;
+  text-align: center;
+  line-height: 1.6;
+}
+.demo-note {
+  background: #fef9e7;
+  border: 1px solid #fbd38d;
+  padding: 10px 14px;
+  margin: 0 0 20px;
+  font-size: 11px;
+  color: #92400e;
+  border-radius: 2px;
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <div class="auth-wrap">
+    <div class="eyebrow">★ შემოუერთდი</div>
+    <h2>გახდი წევრი</h2>
+    <p class="lead">დარეგისტრირდი, ააწყე საკუთარი პორტფელი, დაწერე სტატიები — და გაიხედე სხვა ტრეიდერების მუშაობა.</p>
+
+    <div class="demo-note">
+      ⚠ ეს არის ბრაუზერული დემო-რეგისტრაცია — შენი მონაცემები ინახება მხოლოდ ამ ბრაუზერში (localStorage). ნამდვილი მრავალ-მომხმარებლიანი ვერსიისთვის საჭიროა backend (Firebase / Supabase).
+    </div>
+
+    <div class="auth-tabs">
+      <button id="tab-register" class="active" onclick="switchTab('register')">რეგისტრაცია</button>
+      <button id="tab-login" onclick="switchTab('login')">შესვლა</button>
+    </div>
+
+    <div id="form-register">
+      <div class="field">
+        <label for="reg-name">სახელი</label>
+        <input id="reg-name" type="text" placeholder="მაგ. გიორგი ბერიძე" />
+      </div>
+      <div class="field">
+        <label for="reg-handle">@handle</label>
+        <input id="reg-handle" type="text" placeholder="giorgi" pattern="[a-z0-9_]+" />
+        <div class="field-hint">მხოლოდ პატარა ასოები / რიცხვები / _ · ეს იქნება შენი URL: trader.html?id=…</div>
+      </div>
+      <div class="field">
+        <label for="reg-password">პაროლი</label>
+        <input id="reg-password" type="password" placeholder="მინიმუმ 4 სიმბოლო" />
+      </div>
+      <div class="field">
+        <label for="reg-city">ქალაქი</label>
+        <input id="reg-city" type="text" placeholder="თბილისი · GE" />
+      </div>
+      <div class="field">
+        <label for="reg-broker">საბროკერო</label>
+        <select id="reg-broker" style="width:100%;padding:10px 12px;background:#fffdf7;border:1px solid var(--border);font-family:'Noto Serif Georgian',serif;font-size:14px;color:var(--ink);border-radius:2px;">
+          <option value="">— აირჩიე საბროკერო —</option>
+          <option value="BOG">BOG · Bank of Georgia</option>
+          <option value="TBC">TBC Capital</option>
+          <option value="GALT">Galt &amp; Taggart</option>
+          <option value="IBKR">Interactive Brokers</option>
+          <option value="ROBINHOOD">Robinhood</option>
+          <option value="ETORO">eToro</option>
+          <option value="TRADE212">Trading 212</option>
+          <option value="REVOLUT">Revolut</option>
+          <option value="OTHER">სხვა</option>
+        </select>
+        <div class="field-hint">საიდანაც ვაჭრობ — ნახულობს მხოლოდ შენი გვერდის სათაურში</div>
+      </div>
+      <div class="field">
+        <label for="reg-bio">მოკლე bio (არასავალდებულო)</label>
+        <textarea id="reg-bio" rows="2" placeholder="რას ვაჭრობ, რა მიყვარს, რა მძულს…"></textarea>
+      </div>
+      <div id="reg-msg"></div>
+      <button class="btn-primary" onclick="doRegister()">რეგისტრაცია →</button>
+    </div>
+
+    <div id="form-login" style="display:none;">
+      <div class="field">
+        <label for="login-handle">@handle</label>
+        <input id="login-handle" type="text" placeholder="giorgi" />
+      </div>
+      <div class="field">
+        <label for="login-password">პაროლი</label>
+        <input id="login-password" type="password" />
+      </div>
+      <div id="login-msg"></div>
+      <button class="btn-primary" onclick="doLogin()">შესვლა →</button>
+    </div>
+
+    <p class="foot-note">
+      რეგისტრაციით თანახმა ხარ, რომ მონაცემები ინახება შენი ბრაუზერის ლოკალურ მეხსიერებაში.<br>
+      ეს არ არის ფინანსური რჩევა.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // If already logged in, jump to my-portfolio
+  if (currentUser()) {
+    location.href = 'my-portfolio.html';
+  }
+
+  function switchTab(which) {
+    document.getElementById('tab-register').classList.toggle('active', which === 'register');
+    document.getElementById('tab-login').classList.toggle('active', which === 'login');
+    document.getElementById('form-register').style.display = which === 'register' ? '' : 'none';
+    document.getElementById('form-login').style.display    = which === 'login'    ? '' : 'none';
+  }
+
+  function showMsg(id, type, text) {
+    document.getElementById(id).innerHTML = `<div class="msg ${type}">${text}</div>`;
+  }
+
+  function doRegister() {
+    const name     = document.getElementById('reg-name').value.trim();
+    const handle   = document.getElementById('reg-handle').value.trim().toLowerCase().replace(/^@/, '');
+    const password = document.getElementById('reg-password').value;
+    const city     = document.getElementById('reg-city').value.trim();
+    const broker   = document.getElementById('reg-broker').value;
+    const bio      = document.getElementById('reg-bio').value.trim();
+
+    if (!name)                       return showMsg('reg-msg', 'err', 'სახელი აუცილებელია');
+    if (!/^[a-z0-9_]{2,20}$/.test(handle)) return showMsg('reg-msg', 'err', 'handle: 2-20 სიმბოლო, მხოლოდ a-z 0-9 _');
+    if (password.length < 4)         return showMsg('reg-msg', 'err', 'პაროლი მინიმუმ 4 სიმბოლო');
+    if (!broker)                     return showMsg('reg-msg', 'err', 'აირჩიე საბროკერო');
+
+    try {
+      registerUser({ name, handle, password, city, bio, broker });
+      showMsg('reg-msg', 'ok', '✓ რეგისტრაცია წარმატებულია — გადაგამისამართებ…');
+      setTimeout(() => location.href = 'my-portfolio.html', 800);
+    } catch (e) {
+      showMsg('reg-msg', 'err', '✗ ' + e.message);
+    }
+  }
+
+  function doLogin() {
+    const handle   = document.getElementById('login-handle').value.trim();
+    const password = document.getElementById('login-password').value;
+    if (!handle || !password) return showMsg('login-msg', 'err', 'შეავსე ორივე ველი');
+    try {
+      loginUser(handle, password);
+      showMsg('login-msg', 'ok', '✓ მოგესალმები — გადაგამისამართებ…');
+      setTimeout(() => location.href = 'my-portfolio.html', 600);
+    } catch (e) {
+      showMsg('login-msg', 'err', '✗ ' + e.message);
+    }
+  }
+</script>
+
+</body>
+</html>

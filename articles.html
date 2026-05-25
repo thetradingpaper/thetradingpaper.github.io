@@ -6,6 +6,7 @@
 <title>სტატიები · The Trading Paper</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
 </head>
 <body>
 <header class="masthead">
@@ -17,6 +18,7 @@
     <a href="articles.html" class="active">სტატიები</a>
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
     <a href="strategy.html">სტრატეგია</a>
     <a href="startup.html">სტარტაფი</a>
   </nav>
@@ -25,6 +27,19 @@
   <div class="hero">
     <h2>სტატიები</h2>
     <p class="dek">ვაჭრობის ჟურნალი · ბაზრის ანალიზი · საგანმანათლებლო მასალები</p>
+  </div>
+
+  <!-- Community-published articles (from registered users) -->
+  <div id="community-feed-wrap" style="display:none;">
+    <div style="border-bottom:2px solid var(--ink);padding-bottom:8px;margin:24px 0 16px;display:flex;justify-content:space-between;align-items:baseline;">
+      <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">საზოგადოების სტატიები</span>
+      <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:2px;color:var(--muted);" id="community-feed-count"></span>
+    </div>
+    <div class="grid cols-2" id="community-feed"></div>
+  </div>
+
+  <div style="border-bottom:2px solid var(--ink);padding-bottom:8px;margin:24px 0 16px;">
+    <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);">ლაშას მთავარი სტატიები</span>
   </div>
   <div class="grid cols-2">
     <article class="card">
@@ -51,9 +66,52 @@
     </article>
   </div>
 </main>
+
 <footer>
   © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
   ეს არ არის ფინანსური რჩევა
 </footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
 <script>
-  const months=['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბე
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  const td = document.getElementById('today-date');
+  if (td) td.textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // Collect community articles from every registered user (except LASHA — her main posts are listed below)
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function communityFeed() {
+    const out = [];
+    const all = (typeof allTraders === 'function') ? allTraders() : {};
+    for (const [id, t] of Object.entries(all)) {
+      if (id === 'lasha') continue;       // her posts live in /articles/
+      for (const a of (t.articles || [])) {
+        out.push({ ...a, author: t });
+      }
+    }
+    return out.sort((a,b) => (b.createdAt || 0) - (a.createdAt || 0));
+  }
+
+  const feed = communityFeed();
+  if (feed.length) {
+    document.getElementById('community-feed-wrap').style.display = '';
+    document.getElementById('community-feed-count').textContent = feed.length + ' სტატია';
+    document.getElementById('community-feed').innerHTML = feed.map(a => {
+      const u = a.author;
+      const av = u.avatarImg
+        ? `<img src="${u.avatarImg}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">`
+        : `<span style="display:inline-block;width:24px;height:24px;border-radius:50%;background:${u.accent || '#1a1a1a'};color:#fffdf7;font-family:'Noto Serif Georgian',serif;font-weight:700;font-size:10px;text-align:center;line-height:24px;vertical-align:middle;margin-right:6px;">${u.avatar || (u.handle||'').slice(1,3).toUpperCase()}</span>`;
+      const preview = escapeHtml(a.body).slice(0, 220) + (a.body.length > 220 ? '…' : '');
+      return `<article class="card">
+        <div class="meta">${av} <a href="trader.html?id=${u.id}" style="color:var(--muted);text-decoration:none;">${escapeHtml(u.handle || u.name)}</a> · ${a.date} · ${a.wordCount} სიტყვა</div>
+        <h3 style="margin-top:8px;">${escapeHtml(a.title)}</h3>
+        <p>${preview}</p>
+      </article>`;
+    }).join('');
+  }
+</script>
+</body>
+</html>

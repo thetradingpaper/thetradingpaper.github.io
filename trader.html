@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — ტრეიდერი</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+
+/* ====== Trader header (profile) ====== */
+.profile-head {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 0;
+}
+.profile-head .ph-avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fffdf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+.profile-head .ph-id .ph-eyebrow {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.profile-head .ph-id .ph-name {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.profile-head .ph-id .ph-meta {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.profile-head .ph-id .ph-bio {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+  max-width: 560px;
+}
+.profile-head .ph-rank {
+  text-align: right;
+  font-family: ui-monospace, monospace;
+}
+.profile-head .ph-rank .ph-rank-eyebrow {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.profile-head .ph-rank .ph-rank-val {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: -1px;
+  margin-top: 2px;
+}
+
+/* ====== Stat row (same as portfolio.html) ====== */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-top: none;
+  background: var(--paper);
+}
+@media (max-width: 700px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+.stat-box {
+  padding: 14px 18px 12px;
+  border-right: 1px solid var(--border);
+}
+.stat-box:last-child { border-right: none; }
+.stat-box .stat-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: block;
+}
+.stat-box .stat-val {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.stat-box .stat-val.pos { color: var(--green); }
+.stat-box .stat-val.neg { color: var(--red); }
+.stat-box .stat-note {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 3px;
+  display: block;
+}
+
+/* ====== Allocation panel (mirrors portfolio.html) ====== */
+.alloc-mountain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 28px 0;
+}
+@media (max-width: 800px) { .alloc-mountain { grid-template-columns: 1fr; } }
+
+.alloc-panel, .holdings-panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--ink);
+  padding: 20px 22px;
+}
+.panel-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.panel-label em {
+  color: var(--red);
+  font-style: italic;
+  margin-left: 4px;
+}
+.panel-sublabel {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  display: block;
+  margin-bottom: 14px;
+}
+.alloc-chart-wrap {
+  position: relative;
+  height: 220px;
+  margin-bottom: 12px;
+}
+
+/* ====== Holdings table ====== */
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 13px;
+}
+.holdings-table th {
+  text-align: left;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 4px;
+}
+.holdings-table td {
+  padding: 8px 4px;
+  border-bottom: 1px dashed var(--border);
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+.holdings-table td.num { text-align: right; }
+.holdings-table tr:last-child td { border-bottom: none; }
+.swatch {
+  display: inline-block;
+  width: 10px; height: 10px;
+  margin-right: 6px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  margin: 18px 0;
+}
+.back-link:hover { color: var(--red); }
+
+.demo-banner {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  margin: 18px 0;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.not-found {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 40px 28px;
+  text-align: center;
+  font-family: 'Noto Serif Georgian', serif;
+}
+.not-found h2 { font-size: 24px; margin-bottom: 8px; }
+.not-found p { color: var(--muted); }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html" class="active">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <a href="community.html" class="back-link">← უკან რანკინგზე</a>
+
+  <div id="trader-content"></div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
+<script>
+  // ===== Date =====
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // ===== Helpers =====
+  function fmt$(n) {
+    const s = Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (n < 0 ? '−$' : '$') + s;
+  }
+  function fmtPctSigned(n) { return (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2) + '%'; }
+  function fmtDateGe(s) {
+    if (!s) return '—';
+    const d = new Date(s);
+    return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  }
+
+  // ===== Resolve trader from ?id=
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') || 'lasha';
+  const t = traders[id];
+  const content = document.getElementById('trader-content');
+
+  if (!t) {
+    content.innerHTML = `
+      <div class="not-found">
+        <h2>ტრეიდერი ვერ მოიძებნა</h2>
+        <p>ID "${id}" არ არსებობს. დაბრუნდი <a href="community.html">საზოგადოებაში</a>.</p>
+      </div>`;
+  } else {
+    const stats = traderStats(t);
+    const ranked = rankedTraders();
+    const rank = ranked.findIndex(r => r.id === t.id) + 1;
+    const pnlCls = stats.pnl >= 0 ? 'pos' : 'neg';
+
+    content.innerHTML = `
+      <div class="profile-head">
+        <div class="ph-avatar" style="background:${t.accent}">${t.avatar}</div>
+        <div class="ph-id">
+          <div class="ph-eyebrow">${t.id === 'lasha' ? '★ ავტორი · The Trading Paper' : 'რეგისტრირებული ტრეიდერი'}${t.broker ? ' · ' + (typeof brokerLabel === 'function' ? brokerLabel(t.broker) : t.broker) : ''}</div>
+          <div class="ph-name">${t.name}</div>
+          <div class="ph-meta">${t.handle} · ${t.city} · გაწევრიანდა ${fmtDateGe(t.joinedDate)}</div>
+          <div class="ph-bio">${t.bio}</div>
+        </div>
+        <div class="ph-rank">
+          <div class="ph-rank-eyebrow">რანკი</div>
+          <div class="ph-rank-val" style="color:${rank === 1 ? '#b8860b' : 'var(--ink)'}">#${rank}</div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-label">ჩარიცხული</span>
+          <span class="stat-val">${fmt$(stats.deposited)}</span>
+          <span class="stat-note">total deposits</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">პორტფელის ღირებულება</span>
+          <span class="stat-val">${fmt$(stats.value)}</span>
+          <span class="stat-note">live value</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">წმინდა P/L</span>
+          <span class="stat-val ${pnlCls}">${stats.pnl >= 0 ? '+' : '−'}${fmt$(Math.abs(stats.pnl)).replace(/^\$/,'$')}</span>
+          <span class="stat-note">unrealised</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">უკუგება</span>
+          <span class="stat-val ${pnlCls}">${fmtPctSigned(stats.pnlPct)}</span>
+          <span class="stat-note">vs deposits</span>
+        </div>
+      </div>
+
+      ${t.id !== 'lasha' ? `<div class="demo-banner">ⓘ დემო მონაცემები — ნაჩვენებია იმისთვის, რომ საზოგადოების გვერდმა იმუშაოს. რეალური მონაცემები გვაქვს მხოლოდ ლაშასი.</div>` : ''}
+
+      <div class="alloc-mountain">
+        <div class="alloc-panel">
+          <div class="panel-label">გადანაწილება <em>The Allocation</em></div>
+          <span class="panel-sublabel">${t.tagline}</span>
+          <div class="alloc-chart-wrap"><canvas id="t-donut"></canvas></div>
+        </div>
+        <div class="holdings-panel">
+          <div class="panel-label">პოზიციები <em>Holdings</em></div>
+          <span class="panel-sublabel">${stats.holdingsCount} ღია პოზიცია · CASH ${fmt$(t.cash || 0)}</span>
+          <table class="holdings-table">
+            <thead>
+              <tr><th>ტიკერი</th><th>კომპანია</th><th class="num">ღირებულება</th><th class="num">%</th></tr>
+            </thead>
+            <tbody id="t-holdings"></tbody>
+          </table>
+        </div>
+      </div>
+    `;
+
+    // Holdings table
+    const totalVal = t.holdings.reduce((s,h) => s + h.value, 0) + (t.cash || 0);
+    const tb = document.getElementById('t-holdings');
+    tb.innerHTML = t.holdings
+      .slice()
+      .sort((a,b) => b.value - a.value)
+      .map(h => {
+        const pct = ((h.value / totalVal) * 100).toFixed(1);
+        return `<tr>
+          <td><span class="swatch" style="background:${h.color}"></span><strong>${h.ticker}</strong></td>
+          <td>${h.name}</td>
+          <td class="num">${fmt$(h.value)}</td>
+          <td class="num">${pct}%</td>
+        </tr>`;
+      }).join('') + (t.cash > 0 ? `<tr>
+        <td><span class="swatch" style="background:#9ca3af"></span><strong>CASH</strong></td>
+        <td>idle reserve</td>
+        <td class="num">${fmt$(t.cash)}</td>
+        <td class="num">${((t.cash / totalVal) * 100).toFixed(1)}%</td>
+      </tr>` : '');
+
+    // Donut
+    const labels = t.holdings.map(h => h.ticker);
+    const data   = t.holdings.map(h => h.value);
+    const colors = t.holdings.map(h => h.color);
+    if (t.cash > 0) { labels.push('CASH'); data.push(t.cash); colors.push('#9ca3af'); }
+    new Chart(document.getElementById('t-donut'), {
+      type: 'doughnut',
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 2, borderColor: '#fffdf7' }] },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '62%',
+        plugins: {
+          legend: { position: 'right', labels: { boxWidth: 12, font: { family: "'Noto Sans Georgian', sans-serif", size: 12 } } },
+          tooltip: { callbacks: { label: ctx => `${ctx.label}: ${fmt$(ctx.parsed)}` } }
+        }
+      }
+    });
+
+    // Page title
+    document.title = `The Trading Paper — ${t.name}`;
+  }
+</script>
+
+</body>
+</html>

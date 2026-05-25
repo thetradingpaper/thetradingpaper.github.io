@@ -6,118 +6,404 @@
 <title>The Trading Paper — ჩემი პორტფელი</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-  /* ========== Accordion (newspaper style) ========== */
-  .acc {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-top: 3px double var(--rule);
-    margin: 16px 0;
-    overflow: hidden;
-  }
-  .acc[open] { border-bottom: 3px double var(--rule); }
-  .acc > summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Noto Serif Georgian', serif;
-    font-weight: 900;
-    font-size: 20px;
-    color: var(--ink);
-    user-select: none;
-    transition: background 0.15s;
-  }
-  .acc > summary::-webkit-details-marker { display: none; }
-  .acc > summary:hover { background: rgba(0,0,0,0.03); }
-  .acc > summary::after {
-    content: '+';
-    font-family: 'Noto Serif Georgian', serif;
-    font-weight: 400;
-    font-size: 32px;
-    color: var(--red);
-    line-height: 1;
-    transition: transform 0.2s;
-  }
-  .acc[open] > summary::after { content: '−'; }
-  .acc .acc-body { padding: 8px 24px 24px; border-top: 1px solid var(--border); }
-  .acc .acc-sub {
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 400;
-    margin-left: 12px;
-  }
 
-  /* ========== Holding cards grid ========== */
-  .hcards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 16px;
-  }
-  @media (max-width: 900px) { .hcards { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .hcards { grid-template-columns: 1fr; } }
+/* ===== BOOK HEADER (PDF-style) ===== */
+.book-header {
+  background: var(--paper);
+  border-top: 3px double var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0 10px;
+  margin: 32px 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.book-header .book-title {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.book-header .book-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  margin-right: 4px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+.book-header .book-sub {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+.book-header .book-meta {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
 
-  .hcard {
-    background: #fffdf7;
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--ink);
-    padding: 16px 18px 14px;
-    font-family: 'Noto Sans Georgian', sans-serif;
-  }
-  .hcard-head {
-    border-bottom: 1px dashed var(--border);
-    padding-bottom: 8px;
-    margin-bottom: 10px;
-  }
-  .hcard-ticker {
-    display: block;
-    font-family: 'Noto Serif Georgian', serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--ink);
-    letter-spacing: -0.3px;
-    line-height: 1.1;
-  }
-  .hcard-name {
-    display: block;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-top: 3px;
-    line-height: 1.3;
-  }
-  .hcard-tbl {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-  .hcard-tbl td {
-    padding: 5px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  .hcard-tbl tr:last-child td { border-bottom: none; }
-  .hcard-tbl td:first-child {
-    color: var(--muted);
-    letter-spacing: 1px;
-    font-size: 10px;
-    text-transform: uppercase;
-  }
-  .hcard-tbl td.num {
-    text-align: right;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .hcard-tbl td.num.pos { color: var(--green); }
-  .hcard-tbl td.num.neg { color: var(--red); }
+/* ===== AWAITING STAT BOXES (Galt section only — separate from .stat-banner) ===== */
+.awaiting-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-top: none;
+  background: var(--paper);
+  margin-bottom: 0;
+}
+@media (max-width: 700px) { .awaiting-row { grid-template-columns: repeat(2, 1fr); } }
+
+.awaiting-box {
+  padding: 14px 18px 12px;
+  border-right: 1px solid var(--border);
+}
+.awaiting-box:last-child { border-right: none; }
+.awaiting-box .stat-label {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: block;
+}
+.awaiting-box .stat-val {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+.awaiting-box .stat-val.pos { color: var(--green); }
+.awaiting-box .stat-val.neg { color: var(--red); }
+.awaiting-box .stat-note {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 3px;
+  display: block;
+}
+
+/* ===== HOLDINGS SECTION HEADER ===== */
+.holdings-head {
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+  margin: 20px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.holdings-head .hl-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+}
+.holdings-head .hl-summary {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+.holdings-head .hl-summary span { margin-left: 14px; }
+.holdings-head .hl-summary .pos { color: var(--green); }
+.holdings-head .hl-summary .neg { color: var(--red); }
+
+/* ===== HOLDING CARDS GRID ===== */
+.hcards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 0;
+}
+@media (max-width: 900px) { .hcards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) { .hcards { grid-template-columns: 1fr; } }
+
+.hcard {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--ink);
+  padding: 13px 15px 11px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+}
+.hcard-head {
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+}
+.hcard-ticker {
+  display: block;
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  line-height: 1.1;
+}
+.hcard-name {
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.hcard-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.hcard-tbl td {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.hcard-tbl tr:last-child td { border-bottom: none; }
+.hcard-tbl td:first-child {
+  color: var(--muted);
+  letter-spacing: 1px;
+  font-size: 9.5px;
+  text-transform: uppercase;
+}
+.hcard-tbl td.num {
+  text-align: right;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hcard-tbl td.num.pos { color: var(--green); }
+.hcard-tbl td.num.neg { color: var(--red); }
+
+/* ===== BOTTOM SECTION: Allocation + Mountain side by side ===== */
+.alloc-mountain {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  border-bottom: 3px double var(--rule);
+  background: var(--paper);
+  margin: 20px 0 28px;
+}
+@media (max-width: 800px) { .alloc-mountain { grid-template-columns: 1fr; } }
+
+.alloc-panel {
+  padding: 20px 22px;
+  border-right: 1px solid var(--border);
+}
+.mountain-panel {
+  padding: 20px 22px;
+}
+
+.panel-label {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.panel-label em {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 14px;
+}
+.panel-sublabel {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Allocation legend table */
+.alloc-chart-wrap {
+  height: 200px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.alloc-legend {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  margin-top: 4px;
+}
+.alloc-legend td {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.alloc-legend tr:last-child td { border-bottom: none; }
+.alloc-legend .al-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.alloc-legend .al-name {
+  font-weight: 600;
+  color: var(--ink);
+  font-family: 'Noto Serif Georgian', serif;
+}
+.alloc-legend .al-val {
+  text-align: right;
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  color: var(--ink);
+}
+.alloc-legend .al-pct {
+  text-align: right;
+  color: var(--muted);
+  font-size: 10px;
+  padding-left: 8px;
+}
+
+/* Mountain chart */
+.mountain-chart-wrap {
+  height: 240px;
+  position: relative;
+}
+
+/* ===== LIVE STAMP ===== */
+.live-stamp {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-align: right;
+  margin-bottom: 6px;
+}
+
+/* ===== SECTION DIVIDER ===== */
+.book-divider {
+  border: none;
+  border-top: 3px double var(--rule);
+  margin: 44px 0 0;
+}
+
+/* ===== Accordion (live prices / transactions) ===== */
+.acc {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--rule);
+  margin: 16px 0;
+  overflow: hidden;
+}
+.acc[open] { border-bottom: 2px solid var(--rule); }
+.acc > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  user-select: none;
+  transition: background 0.15s;
+}
+.acc > summary::-webkit-details-marker { display: none; }
+.acc > summary:hover { background: rgba(0,0,0,0.025); }
+.acc > summary::after {
+  content: '+';
+  font-family: serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--red);
+  line-height: 1;
+}
+.acc[open] > summary::after { content: '−'; }
+.acc .acc-body { padding: 6px 20px 20px; border-top: 1px solid var(--border); }
+.acc .acc-sub {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+/* ===== Transaction list ===== */
+.tx-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 2px solid var(--rule);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+  margin: 18px 0 10px;
+}
+.tx-title {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+.history-btn {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.history-btn:hover { text-decoration: underline; }
+
+/* ===== Rules box ===== */
+.rules-box {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  margin: 14px 0 32px;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+}
+.rules-box .rules-title {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.rules-box ul { padding-left: 18px; }
+.rules-box li { margin-bottom: 4px; color: var(--muted); }
+.rules-box li strong { color: var(--ink); }
+
 </style>
 </head>
 <body>
@@ -134,6 +420,7 @@
     <a href="articles.html">სტატიები</a>
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html" class="active">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
     <a href="strategy.html">სტრატეგია</a>
     <a href="startup.html">სტარტაფი</a>
   </nav>
@@ -141,99 +428,107 @@
 
 <main class="container">
 
-  <div class="hero">
-    <h2>ჩემი პორტფელი</h2>
-    <p class="dek">ორი პლატფორმა · ცალკე მიზანი · ცალკე წესები · ცალკე აღრიცხვა</p>
+  <!-- ============================================================ -->
+  <!-- BOOK ONE · DOGMA (BOG)                                       -->
+  <!-- ============================================================ -->
+
+  <div class="book-header">
+    <div class="book-title">
+      <span><span class="book-dot"></span>წიგნი პირველი · <em style="font-weight:400;font-style:italic;color:var(--muted)">Dogma</em></span>
+    </div>
+    <div class="book-meta">
+      <div class="book-sub">BOG · გრძელვადიანი</div>
+      <div id="bog-open-count" style="font-size:10px;margin-top:2px;color:var(--red);letter-spacing:1px;"></div>
+    </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- BOG PORTFOLIO                                                -->
-  <!-- ============================================================ -->
-  <div id="bog-banner"></div>
+  <!-- Stat boxes -->
+  <div id="bog-banner" class="stat-row"></div>
 
-  <details class="acc" open>
-    <summary>აქციები <span class="acc-sub">BOG · დეტალური ბარათები</span></summary>
-    <div class="acc-body">
-      <div style="text-align: right; font-size: 11px; letter-spacing: 2px; color: var(--red); margin-bottom: 8px;"><span id="bog-live-stamp">● იტვირთება…</span></div>
-      <div id="bog-hcards" class="hcards"></div>
-      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto;">
-        <div class="widget-title" style="text-align: center;">გადანაწილება</div>
-        <div style="height: 260px; position: relative;"><canvas id="bog-donut"></canvas></div>
-      </div>
+  <!-- Allocation + Mountain side by side (moved up — comes right after stat banner) -->
+  <div class="alloc-mountain">
+    <div class="alloc-panel">
+      <div class="panel-label">გადანაწილება <em>The Allocation</em></div>
+      <span class="panel-sublabel">BOG — ინვესტიციის წილი</span>
+      <div class="alloc-chart-wrap"><canvas id="bog-donut"></canvas></div>
+      <table class="alloc-legend" id="bog-alloc-legend"></table>
     </div>
-  </details>
-
-  <!-- ============================================================ -->
-  <!-- THE MOUNTAIN · BOG — value vs deposits across issues          -->
-  <!-- ============================================================ -->
-  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 24px 0;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
-      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
-      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">BOG · ISS 01 → 05</span>
+    <div class="mountain-panel">
+      <div class="panel-label">მთა <em>The Mountain</em></div>
+      <span class="panel-sublabel">BOG · ISS 01 → 05 · USD · ღირებულება vs ჩარიცხული</span>
+      <div class="mountain-chart-wrap"><canvas id="bog-mountain-top"></canvas></div>
     </div>
-    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩარიცხული</div>
-    <div style="height: 280px; position: relative;"><canvas id="bog-mountain-top"></canvas></div>
   </div>
 
-  <!-- BOG live charts (accordion) -->
+  <!-- Holdings section (stocks list — now at the end before TradingView) -->
+  <div class="holdings-head">
+    <span class="hl-title">Open Holdings</span>
+    <span class="hl-summary" id="bog-holdings-summary"></span>
+  </div>
+  <div class="live-stamp"><span id="bog-live-stamp">● იტვირთება…</span></div>
+  <div id="bog-hcards" class="hcards"></div>
+
+  <!-- Live TradingView charts -->
   <details class="acc">
-    <summary>ცოცხალი ფასები <span class="acc-sub">BOG · TradingView ჩარტები</span></summary>
+    <summary>ცოცხალი ფასები <span class="acc-sub">BOG · TradingView</span></summary>
     <div class="acc-body">
-  <div class="grid cols-2">
-    <div class="widget" style="min-height: 280px;">
-      <div class="widget-title">SMH · ცოცხალი ფასი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {"symbol":"NASDAQ:SMH","width":"100%","height":240,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-        </script>
+      <div class="grid cols-2">
+        <div class="widget" style="min-height:260px;">
+          <div class="widget-title">SMH · ცოცხალი ფასი</div>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:SMH","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
+            </script>
+          </div>
+        </div>
+        <div class="widget" style="min-height:260px;">
+          <div class="widget-title">VOO · ცოცხალი ფასი</div>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"AMEX:VOO","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
+            </script>
+          </div>
+        </div>
+        <div class="widget" style="min-height:260px;">
+          <div class="widget-title">ASX · ცოცხალი ფასი</div>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NYSE:ASX","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
+            </script>
+          </div>
+        </div>
+        <div class="widget" style="min-height:260px;">
+          <div class="widget-title">KOID · ცოცხალი ფასი</div>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:KOID","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
+            </script>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="widget" style="min-height: 280px;">
-      <div class="widget-title">VOO · ცოცხალი ფასი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {"symbol":"AMEX:VOO","width":"100%","height":240,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-        </script>
-      </div>
-    </div>
-    <div class="widget" style="min-height: 280px;">
-      <div class="widget-title">ASX · ცოცხალი ფასი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {"symbol":"NYSE:ASX","width":"100%","height":240,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-        </script>
-      </div>
-    </div>
-    <div class="widget" style="min-height: 280px;">
-      <div class="widget-title">KOID · ცოცხალი ფასი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {"symbol":"NASDAQ:KOID","width":"100%","height":240,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-        </script>
-      </div>
-    </div>
-  </div>
     </div>
   </details>
 
+  <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">BOG · ბოლო ტრანზაქციები</h3>
     <a href="history-bog.html" class="history-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
       </svg>
-      <span>BOG ისტორია</span>
+      <span>სრული ისტორია</span>
     </a>
   </div>
   <div id="bog-tx" class="tx-list"></div>
   <div id="bog-pager" class="pagination"></div>
 
-  <div class="card" style="margin-top: 12px;">
-    <h3>BOG წესები</h3>
+  <!-- Rules -->
+  <div class="rules-box">
+    <div class="rules-title">Dogma წესები</div>
     <ul>
       <li>თვიური $100-200 DCA — დისციპლინა მნიშვნელოვანია</li>
       <li>გრძელვადიანი ETF-ების / აქციების შეგროვება</li>
@@ -244,73 +539,79 @@
   </div>
 
   <!-- ============================================================ -->
-  <!-- TBC PORTFOLIO                                                -->
+  <!-- BOOK TWO · TBC (Active)                                      -->
   <!-- ============================================================ -->
-  <div id="tbc-banner" style="margin-top: 48px;"></div>
 
-  <details class="acc" open>
-    <summary>აქციები <span class="acc-sub">TBC · დეტალური ბარათები</span></summary>
-    <div class="acc-body">
-      <div style="text-align: right; font-size: 11px; letter-spacing: 2px; color: var(--red); margin-bottom: 8px;"><span id="tbc-live-stamp">● იტვირთება…</span></div>
-      <div id="tbc-hcards" class="hcards"></div>
-      <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto;">
-        <div class="widget-title" style="text-align: center;">გადანაწილება</div>
-        <div style="height: 260px; position: relative;"><canvas id="tbc-donut"></canvas></div>
-      </div>
-    </div>
-  </details>
+  <hr class="book-divider">
 
-  <!-- ============================================================ -->
-  <!-- THE MOUNTAIN · TBC — value vs deposits across issues          -->
-  <!-- ============================================================ -->
-  <div class="mountain-box" style="background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 24px 28px; margin: 24px 0;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
-      <h3 style="font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 22px; margin: 0;">მთა · <em style="font-weight: 400; color: var(--muted);">The Mountain</em></h3>
-      <span style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent);">TBC · ISS 03 → 05</span>
+  <div class="book-header">
+    <div class="book-title">
+      <span><span class="book-dot" style="background:var(--ink)"></span>წიგნი მეორე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Active</em></span>
     </div>
-    <div style="font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">USD · წიგნის ღირებულება vs ჩადებული</div>
-    <div style="height: 280px; position: relative;"><canvas id="tbc-mountain-top"></canvas></div>
+    <div class="book-meta">
+      <div class="book-sub">TBC · აქტიური ვაჭრობა</div>
+      <div id="tbc-open-count" style="font-size:10px;margin-top:2px;color:var(--red);letter-spacing:1px;"></div>
+    </div>
   </div>
 
-  <!-- Live MSTR chart (accordion) -->
+  <!-- Stat boxes -->
+  <div id="tbc-banner" class="stat-row"></div>
+
+  <!-- Allocation + Mountain side by side (moved up — comes right after stat banner) -->
+  <div class="alloc-mountain">
+    <div class="alloc-panel">
+      <div class="panel-label">გადანაწილება <em>The Allocation</em></div>
+      <span class="panel-sublabel">TBC — ინვესტიციის წილი</span>
+      <div class="alloc-chart-wrap"><canvas id="tbc-donut"></canvas></div>
+      <table class="alloc-legend" id="tbc-alloc-legend"></table>
+    </div>
+    <div class="mountain-panel">
+      <div class="panel-label">მთა <em>The Mountain</em></div>
+      <span class="panel-sublabel">TBC · ISS 03 → 05 · USD · ღირებულება vs ჩარიცხული</span>
+      <div class="mountain-chart-wrap"><canvas id="tbc-mountain-top"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Holdings section (stocks list — now at the end before TradingView) -->
+  <div class="holdings-head">
+    <span class="hl-title">Open Holdings</span>
+    <span class="hl-summary" id="tbc-holdings-summary"></span>
+  </div>
+  <div class="live-stamp"><span id="tbc-live-stamp">● იტვირთება…</span></div>
+  <div id="tbc-hcards" class="hcards"></div>
+
+  <!-- Live MSTR chart -->
   <details class="acc">
-    <summary>ცოცხალი ფასები <span class="acc-sub">TBC · MSTR ჩარტი</span></summary>
+    <summary>ცოცხალი ფასები <span class="acc-sub">TBC · MSTR</span></summary>
     <div class="acc-body">
-      <div class="widget" style="min-height: 320px;">
-        <div class="widget-title">MSTR · ცოცხალი ფასი</div>
+      <div class="widget" style="min-height:300px;">
+        <div class="widget-title">MSTR · Strategy Inc</div>
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {
-            "symbol": "NASDAQ:MSTR",
-            "width": "100%",
-            "height": 280,
-            "locale": "en",
-            "dateRange": "3M",
-            "colorTheme": "light",
-            "isTransparent": true,
-            "autosize": true
-          }
+          {"symbol":"NASDAQ:MSTR","width":"100%","height":260,"locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true}
           </script>
         </div>
       </div>
     </div>
   </details>
 
+  <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">TBC · ბოლო ტრანზაქციები</h3>
     <a href="history-tbc.html" class="history-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
       </svg>
-      <span>TBC ისტორია</span>
+      <span>სრული ისტორია</span>
     </a>
   </div>
   <div id="tbc-tx" class="tx-list"></div>
   <div id="tbc-pager" class="pagination"></div>
 
-  <div class="card" style="margin-top: 12px;">
-    <h3>TBC წესები</h3>
+  <!-- Rules -->
+  <div class="rules-box" style="border-left-color: var(--ink);">
+    <div class="rules-title">Active წესები</div>
     <ul>
       <li>ერთი კომპანიით ვაჭრობა, მთლიანი ბალანსით</li>
       <li>თეზისი ფურცელზე ჯერ — შემდეგ შესვლა</li>
@@ -321,6 +622,64 @@
     </ul>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- BOOK THREE · GALT & TAGGART (Awaiting)                       -->
+  <!-- ============================================================ -->
+
+  <hr class="book-divider">
+
+  <div class="book-header" style="opacity:.85;">
+    <div class="book-title">
+      <span><span class="book-dot" style="background:#9ca3af"></span>წიგნი მესამე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Galt &amp; Taggart</em></span>
+    </div>
+    <div class="book-meta">
+      <div class="book-sub" style="color:#9ca3af;">GALT · მზადყოფნაში</div>
+      <div style="font-size:10px;margin-top:2px;color:#9ca3af;letter-spacing:1px;">AWAITING · $0.00</div>
+    </div>
+  </div>
+
+  <div class="awaiting-row" style="opacity:.7;">
+    <div class="awaiting-box">
+      <span class="stat-label">სტატუსი</span>
+      <span class="stat-val" style="font-size:14px;color:#9ca3af;letter-spacing:2px;">AWAITING</span>
+      <span class="stat-note">ჯერ არ დაიწყო</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">ჩარიცხული</span>
+      <span class="stat-val" style="color:#9ca3af;">$0.00</span>
+      <span class="stat-note">depo­sit pending</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">პორტფელის ღირებულება</span>
+      <span class="stat-val" style="color:#9ca3af;">$0.00</span>
+      <span class="stat-note">no positions</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">უკუგება</span>
+      <span class="stat-val" style="color:#9ca3af;">—</span>
+      <span class="stat-note">N/A</span>
+    </div>
+  </div>
+
+  <div style="border:1px solid var(--border); border-top:none; background:var(--paper); padding:28px 22px; text-align:center; font-family:'Noto Serif Georgian', serif;">
+    <div style="font-size:11px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; margin-bottom:10px;">⏳ Awaiting deposit</div>
+    <div style="font-size:18px; color:var(--ink); margin-bottom:6px;">Galt &amp; Taggart ანგარიში მზადყოფნაშია</div>
+    <div style="font-size:13px; color:var(--muted); max-width:520px; margin:0 auto; line-height:1.6;">
+      ქართული საინვესტიციო ბანკი · ლოკალური და საერთაშორისო აქციები. ანგარიში გახსნილია, ჩარიცხვა და სტრატეგია მოგვიანებით განისაზღვრება.
+    </div>
+  </div>
+
+  <!-- Rules placeholder (future) -->
+  <div class="rules-box" style="border-left-color:#9ca3af; opacity:.85;">
+    <div class="rules-title" style="color:#6b6b6b;">Galt &amp; Taggart · გეგმა</div>
+    <ul>
+      <li>ანგარიში გახსნილია — ჩარიცხვა მოლოდინში</li>
+      <li>სტრატეგია: <em>TBD</em> — განისაზღვრება პირველი ჩარიცხვის წინ</li>
+      <li>დანიშნულება: საქართველოს ბაზრის და საერთაშორისო აქციების ალტერნატიული წვდომა</li>
+      <li>გამოყოფილი კაპიტალი BOG/TBC-სგან განცალკევებულია</li>
+    </ul>
+  </div>
+
 </main>
 
 <footer>
@@ -328,122 +687,53 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script src="js/portfolios.js?v=20260524-cards"></script>
+<script src="js/portfolios.js?v=20260526-restore"></script>
 <script>
+  // ===== Date =====
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
   document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 
-  // BOG — initial static render (cached prices)
+  // ===== Initial static renders =====
   renderStatBanner('bog-banner', 'bog');
   renderHoldingsCards('bog-hcards', 'bog');
   renderDonut('bog-donut', 'bog');
   renderPaginated('bog-tx', 'bog-pager', 'bog', 4);
 
-  // TBC — initial static render
   renderStatBanner('tbc-banner', 'tbc');
   renderHoldingsCards('tbc-hcards', 'tbc');
   renderDonut('tbc-donut', 'tbc');
   renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
 
-  // === THE MOUNTAIN charts — value vs deposits per issue ===
-  const MOUNTAIN_BOG = {
-    labels: ['Iss 01', 'Iss 02', 'Iss 03', 'Iss 04', 'Iss 05'],
-    value:    [1019.90, 1086.75, 1104.15, 1130.63, 1162.32],
-    deposits: [ 894.06,  907.76,  907.76,  948.76,  948.76],
-  };
-  const MOUNTAIN_TBC = {
-    labels: ['Iss 03', 'Iss 04', 'Iss 05'],
-    value:    [277.05, 337.51, 334.69],
-    deposits: [268.75, 380.36, 380.36],
-  };
+  // ===== Holdings summary line =====
+  function renderHoldingsSummary(summaryId, openCountId, key) {
+    const p = portfolios[key];
+    if (!p) return;
+    const h = p.holdings;
+    const totalInv = h.reduce((s,x) => s + x.invested, 0);
+    const totalVal = h.reduce((s,x) => s + x.value, 0);
+    const totalUnreal = totalVal - totalInv;
+    const unrealPct = (totalUnreal / totalInv * 100);
+    const pnlCls = totalUnreal >= 0 ? 'pos' : 'neg';
+    const sign = totalUnreal >= 0 ? '+' : '−';
 
-  function renderMountain(canvasId, data, valueColor, fillColor) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas || typeof Chart === 'undefined') return;
-    new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: data.labels,
-        datasets: [
-          {
-            label: 'VALUE',
-            data: data.value,
-            borderColor: valueColor,
-            backgroundColor: fillColor,
-            fill: true,
-            tension: 0.25,
-            pointBackgroundColor: valueColor,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            borderWidth: 2.5,
-          },
-          {
-            label: 'DEPOSITS',
-            data: data.deposits,
-            borderColor: '#6b6b6b',
-            borderDash: [6, 4],
-            backgroundColor: 'transparent',
-            fill: false,
-            tension: 0,
-            pointBackgroundColor: '#6b6b6b',
-            pointRadius: 3,
-            pointHoverRadius: 5,
-            borderWidth: 1.5,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: 'index', intersect: false },
-        plugins: {
-          legend: {
-            position: 'top',
-            align: 'start',
-            labels: {
-              boxWidth: 14,
-              font: { family: "'Noto Sans Georgian', sans-serif", size: 11, weight: '700' },
-              color: '#1a1a1a',
-            },
-          },
-          tooltip: {
-            backgroundColor: '#1a1a1a',
-            titleFont: { family: "'Noto Sans Georgian', sans-serif", size: 11 },
-            bodyFont: { family: "ui-monospace, monospace", size: 12 },
-            callbacks: { label: ctx => ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(2) },
-          },
-        },
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { font: { family: "'Noto Sans Georgian', sans-serif", size: 11 }, color: '#6b6b6b' },
-          },
-          y: {
-            beginAtZero: false,
-            grid: { color: 'rgba(0,0,0,0.06)' },
-            ticks: {
-              font: { family: "ui-monospace, monospace", size: 11 },
-              color: '#6b6b6b',
-              callback: v => '$' + v.toLocaleString(),
-            },
-          },
-        },
-      },
-    });
+    const el = document.getElementById(summaryId);
+    if (el) {
+      el.innerHTML = `
+        <span>ინვ: $${totalInv.toFixed(2)}</span>
+        <span>ღირ: $${totalVal.toFixed(2)}</span>
+        <span class="${pnlCls}">${sign}$${Math.abs(totalUnreal).toFixed(2)} (${sign}${Math.abs(unrealPct).toFixed(2)}%)</span>
+      `;
+    }
+    const oc = document.getElementById(openCountId);
+    if (oc) oc.textContent = `${h.length} OPEN · CASH $${(p.cash||0).toFixed(2)}`;
   }
+  renderHoldingsSummary('bog-holdings-summary', 'bog-open-count', 'bog');
+  renderHoldingsSummary('tbc-holdings-summary', 'tbc-open-count', 'tbc');
 
-  renderMountain('bog-mountain-top', MOUNTAIN_BOG, '#166534', 'rgba(22, 101, 52, 0.15)');
-  renderMountain('tbc-mountain-top', MOUNTAIN_TBC, '#b91c1c', 'rgba(185, 28, 28, 0.12)');
-
-  // === LIVE PRICE AUTO-REFRESH ===
-  function refreshAll() {
-    refreshAndRender('bog', { cardsId: 'bog-hcards', bannerId: 'bog-banner', donutId: 'bog-donut', stampId: 'bog-live-stamp' });
-    refreshAndRender('tbc', { cardsId: 'tbc-hcards', bannerId: 'tbc-banner', donutId: 'tbc-donut', stampId: 'tbc-live-stamp' });
-  }
-  refreshAll();
-  setInterval(refreshAll, 60000);
-</script>
-
-</body>
-</html>
+  // ===== Allocation legend (PDF-style table) =====
+  function renderAllocLegend(tableId, key) {
+    const p = portfolios[key];
+    if (!p) return;
+    const total = p.holdings.reduce((s,x) => s + x.value, 0);
+    con

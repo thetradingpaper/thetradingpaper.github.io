@@ -6,6 +6,7 @@
 <title>The Trading Paper — სტარტაფი · ავტოსამრეცხაო თბილისი</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
 <style>
   /* ========== Startup page — local styles ========== */
   .startup-hero {
@@ -301,6 +302,7 @@
     <a href="articles.html">სტატიები</a>
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
     <a href="strategy.html">სტრატეგია</a>
     <a href="startup.html" class="active">სტარტაფი</a>
   </nav>
@@ -317,6 +319,59 @@
       <span class="pill">თბილისი · საქართველო</span>
       <span class="pill gold">CAPEX $50,000</span>
       <span class="pill green">მიზანი: ფულის მდინარე</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- FUNDRAISING BANNER · live-ish progress                       -->
+  <!-- ============================================================ -->
+  <div style="background:var(--paper); border:2px solid var(--ink); padding:26px 28px; margin:0 0 32px; position:relative; overflow:hidden;">
+    <div style="position:absolute; top:0; left:0; padding:3px 14px; background:var(--red); color:#fffdf7; font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:700;">★ ფონდების მოძიება დაიწყო</div>
+
+    <div style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; margin-top:14px;">
+      <div>
+        <h3 style="font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:24px; letter-spacing:-0.5px; margin:0 0 6px;">
+          საფინანსო პროცესი დაწყებულია
+        </h3>
+        <p style="color:var(--muted); font-size:14px; font-style:italic; margin:0; max-width:560px;">
+          პირველი სტარტაფისთვის — ავტოსამრეცხაო თბილისში — ფონდების მოძიების ფაზა გახსნილია. ცოცხალი მიმოხილვა აქ განახლდება.
+        </p>
+      </div>
+      <div style="text-align:right; font-family:ui-monospace, monospace;">
+        <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">შეგროვებული</div>
+        <div style="font-weight:900; font-family:'Noto Serif Georgian',serif; font-size:38px; color:var(--ink); line-height:1; letter-spacing:-1px;">0%</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:4px;">$0 / $50,000</div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div style="margin-top:22px; background:#f4efe5; border:1px solid var(--border); height:18px; position:relative; overflow:hidden;">
+      <div style="background:linear-gradient(90deg, var(--green), #22a657); height:100%; width:0%; transition:width 1s; position:relative;">
+        <div style="position:absolute; right:6px; top:50%; transform:translateY(-50%); color:#fffdf7; font-family:ui-monospace,monospace; font-size:10px; font-weight:700;"></div>
+      </div>
+      <!-- tick marks every 25% -->
+      <div style="position:absolute; top:0; left:25%; width:1px; height:100%; background:var(--border);"></div>
+      <div style="position:absolute; top:0; left:50%; width:1px; height:100%; background:var(--border);"></div>
+      <div style="position:absolute; top:0; left:75%; width:1px; height:100%; background:var(--border);"></div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:6px;">
+      <span>$0</span><span>$12.5K</span><span>$25K</span><span>$37.5K</span><span>$50K</span>
+    </div>
+
+    <div style="margin-top:18px; padding-top:14px; border-top:1px dashed var(--border); display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; font-family:'Noto Sans Georgian',sans-serif;">
+      <div>
+        <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">ფაზა</div>
+        <div style="font-weight:700; font-size:14px; margin-top:2px;">Pre-seed</div>
+      </div>
+      <div>
+        <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">დაიწყო</div>
+        <div style="font-weight:700; font-size:14px; margin-top:2px;">2026-05-26</div>
+      </div>
+      <div>
+        <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">სტატუსი</div>
+        <div style="font-weight:700; font-size:14px; margin-top:2px; color:var(--red);">● ღია · მალე განახლდება</div>
+      </div>
     </div>
   </div>
 
@@ -587,8 +642,4 @@
 <script>
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
-  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-</script>
-
-</body>
-</html>
+  document.getElementById('today-date').textContent = `${d.getDate()} ${mon

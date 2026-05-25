@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჩემი სტატიები · The Trading Paper</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="/js/gate.js"></script>
+<script defer src="js/auth-ui.js?v=20260525"></script>
+<style>
+.art-wrap { max-width: 880px; margin: 0 auto; }
+
+.art-head {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--rule);
+  padding: 22px 26px;
+  margin: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.art-head h2 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+}
+.art-head .sub {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.editor-panel {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--ink);
+  padding: 22px 24px;
+  margin-bottom: 28px;
+}
+.editor-panel h3 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-size: 17px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.field input, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fffdf7;
+  border: 1px solid var(--border);
+  font-family: 'Noto Serif Georgian', serif;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+#art-body { min-height: 240px; resize: vertical; }
+
+.editor-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+.word-count {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+.word-count.ok { color: var(--green); font-weight: 700; }
+.word-count.low, .word-count.high { color: var(--red); font-weight: 700; }
+
+.btn-row { display: flex; gap: 10px; margin-top: 12px; }
+.btn-primary {
+  padding: 10px 22px;
+  background: var(--red);
+  color: #fffdf7;
+  border: none;
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-ghost {
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.msg {
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+.msg.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.msg.ok  { background: #ecfdf5; color: #065f46; border: 1px solid #bbf7d0; }
+
+.art-list { margin-top: 18px; }
+.art-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--ink);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+}
+.art-card .ah {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 8px;
+}
+.art-card .ah h4 {
+  font-family: 'Noto Serif Georgian', serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.art-card .ah .meta {
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.art-card .body {
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.art-card .actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.art-card .actions button {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.art-card .actions .del { color: var(--red); border-color: var(--red); }
+
+.empty {
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  padding: 32px 16px;
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+}
+.streak-note {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+}
+.streak-note .ok { color: var(--green); font-weight: 700; font-style: normal; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №05 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="community.html">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="art-wrap" id="art-wrap"></div>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/traders.js?v=20260525-com"></script>
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  let user = currentUser();
+  if (!user) { location.href = 'register.html'; }
+
+  let editId = null;   // id of article being edited (null = new)
+
+  function countWords(s) {
+    return s.trim().split(/\s+/).filter(Boolean).length;
+  }
+  function todayStr() { return new Date().toISOString().slice(0, 10); }
+
+  function postedToday() {
+    return (user.articles || []).some(a => a.date === todayStr());
+  }
+
+  function render() {
+    user = currentUser();
+    const arts = (user.articles || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+    const posted = postedToday();
+
+    document.getElementById('art-wrap').innerHTML = `
+      <div class="art-head">
+        <div>
+          <h2>ჩემი სტატიები</h2>
+          <div class="sub">${user.handle} · ${arts.length} გამოქვეყნებული</div>
+        </div>
+        <a href="my-portfolio.html" style="font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;">← პორტფელი</a>
+      </div>
+
+      <div class="editor-panel">
+        <h3 id="editor-title">${editId ? 'რედაქტირება' : '+ ახალი სტატია'}</h3>
+        <div class="field">
+          <label for="art-title">სათაური</label>
+          <input id="art-title" type="text" maxlength="100" placeholder="რა ხდება ბაზარზე დღეს…">
+        </div>
+        <div class="field">
+          <label for="art-body">ტექსტი (100-200 სიტყვა)</label>
+          <textarea id="art-body" placeholder="დაწერე 100-200 სიტყვა. რა ნახე ბაზარზე, რას ფიქრობ, რა ვერ გესმის…"></textarea>
+          <div class="editor-meta">
+            <span class="word-count" id="word-count">0 სიტყვა</span>
+            <span class="sub" style="font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;color:var(--muted);">დღევანდელი დღე: ${posted && !editId ? '✓ უკვე გამოაქვეყნე დღეს' : 'ჯერ არ გამოგიქვეყნებია'}</span>
+          </div>
+        </div>
+        <div id="form-msg"></div>
+        <div class="btn-row">
+          <button class="btn-primary" id="btn-save" onclick="doSave()">${editId ? '✓ შენახვა' : '✓ გამოქვეყნება'}</button>
+          ${editId ? `<button class="btn-ghost" onclick="cancelEdit()">გაუქმება</button>` : ''}
+        </div>
+        <div class="streak-note">
+          მიზანი: <span class="ok">დღეში მინიმუმ 1 სტატია · 100-200 სიტყვა</span> · დისციპლინა > შთაგონება
+        </div>
+      </div>
+
+      <div class="art-list" id="art-list">
+        ${arts.length === 0
+          ? `<div class="empty">ჯერ არცერთი სტატია არ გაქვს — ზემოთ დაიწყე</div>`
+          : arts.map(a => `
+            <article class="art-card">
+              <div class="ah">
+                <h4>${escapeHtml(a.title)}</h4>
+                <span class="meta">${a.date} · ${a.wordCount} სიტყვა</span>
+              </div>
+              <div class="body">${escapeHtml(a.body)}</div>
+              <div class="actions">
+                <button onclick="doEdit('${a.id}')">რედაქტ.</button>
+                <button class="del" onclick="doDelete('${a.id}')">წაშლა</button>
+              </div>
+            </article>`).join('')}
+      </div>
+    `;
+
+    // Load editor content
+    if (editId) {
+      const a = (user.articles || []).find(x => x.id === editId);
+      if (a) {
+        document.getElementById('art-title').value = a.title;
+        document.getElementById('art-body').value = a.body;
+      }
+    }
+    updateWordCount();
+    document.getElementById('art-body').addEventListener('input', updateWordCount);
+  }
+
+  function updateWordCount() {
+    const body = document.getElementById('art-body').value;
+    const n = countWords(body);
+    const el = document.getElementById('word-count');
+    el.textContent = `${n} სიტყვა`;
+    el.className = 'word-count ' + (n === 0 ? '' : n < 100 ? 'low' : n > 200 ? 'high' : 'ok');
+    document.getElementById('btn-save').disabled = (n < 100 || n > 200);
+  }
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function doSave() {
+    const title = document.getElementById('art-title').value.trim();
+    const body  = document.getElementById('art-body').value.trim();
+    const wc = countWords(body);
+    if (!title) { showMsg('err', 'სათაური აუცილებელია'); return; }
+    if (wc < 100 || wc > 200) { showMsg('err', `100-200 სიტყვა · ახლა გაქვს ${wc}`); return; }
+
+    const arts = user.articles || [];
+    if (editId) {
+      const i = arts.findIndex(a => a.id === editId);
+      if (i >= 0) arts[i] = { ...arts[i], title, body, wordCount: wc, updatedAt: Date.now() };
+    } else {
+      arts.unshift({
+        id: 'art_' + Date.now(),
+        title, body,
+        wordCount: wc,
+        date: todayStr(),
+        createdAt: Date.now(),
+      });
+    }
+    updateCurrentUser({ articles: arts });
+    editId = null;
+    showMsg('ok', '✓ შენახულია');
+    setTimeout(render, 500);
+  }
+
+  function doEdit(id) {
+    editId = id;
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function cancelEdit() {
+    editId = null;
+    render();
+  }
+
+  function doDelete(id) {
+    if (!confirm('წავშალო ეს სტატია?')) return;
+    const arts = (user.articles || []).filter(a => a.id !== id);
+    updateCurrentUser({ articles: arts });
+    if (editId === id) editId = null;
+    render();
+  }
+
+  function showMsg(type, text) {
+    document.getElementById('form-msg').innerHTML = `<div class="msg ${type}">${text}</div>`;
+    setTimeout(() => { const el = document.getElementById('form-msg'); if (el) el.innerHTML = ''; }, 4000);
+  }
+
+  render();
+</script>
+
+</body>
+</html>
