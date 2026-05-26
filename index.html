@@ -422,4 +422,10 @@
         } catch (e) { /* ignore network errors */ }
       }
       refreshHome();
-      setInte
+      setInterval(refreshHome, 60000);
+    }
+  })();
+</script>
+
+</body>
+</html>
