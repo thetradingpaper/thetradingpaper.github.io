@@ -687,14 +687,14 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script src="js/portfolios.js?v=20260526-restore"></script>
+<script src="js/portfolios.js?v=20260526-fix"></script>
 <script>
   // ===== Date =====
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
   document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 
-  // ===== Initial static renders =====
+  // ===== Initial static renders (cached values, repainted by live prices below) =====
   renderStatBanner('bog-banner', 'bog');
   renderHoldingsCards('bog-hcards', 'bog');
   renderDonut('bog-donut', 'bog');
@@ -713,7 +713,7 @@
     const totalInv = h.reduce((s,x) => s + x.invested, 0);
     const totalVal = h.reduce((s,x) => s + x.value, 0);
     const totalUnreal = totalVal - totalInv;
-    const unrealPct = (totalUnreal / totalInv * 100);
+    const unrealPct = totalInv > 0 ? (totalUnreal / totalInv * 100) : 0;
     const pnlCls = totalUnreal >= 0 ? 'pos' : 'neg';
     const sign = totalUnreal >= 0 ? '+' : '−';
 
@@ -735,5 +735,127 @@
   function renderAllocLegend(tableId, key) {
     const p = portfolios[key];
     if (!p) return;
-    const total = p.holdings.reduce((s,x) => s + x.value, 0);
-    con
+    const tbl = document.getElementById(tableId);
+    if (!tbl) return;
+    const total = p.holdings.reduce((s,x) => s + x.value, 0) + (p.cash || 0);
+    let html = '';
+    for (const h of p.holdings) {
+      const pct = total > 0 ? (h.value / total * 100) : 0;
+      html += `<tr>
+        <td><span class="al-swatch" style="background:${h.color}"></span><span class="al-name">${h.ticker}</span></td>
+        <td class="al-val">$${h.value.toFixed(2)}</td>
+        <td class="al-pct">${pct.toFixed(1)}%</td>
+      </tr>`;
+    }
+    if (p.cash > 0) {
+      const pct = total > 0 ? (p.cash / total * 100) : 0;
+      html += `<tr>
+        <td><span class="al-swatch" style="background:#9ca3af"></span><span class="al-name">CASH</span></td>
+        <td class="al-val">$${p.cash.toFixed(2)}</td>
+        <td class="al-pct">${pct.toFixed(1)}%</td>
+      </tr>`;
+    }
+    tbl.innerHTML = html;
+  }
+  renderAllocLegend('bog-alloc-legend', 'bog');
+  renderAllocLegend('tbc-alloc-legend', 'tbc');
+
+  // ===== Mountain chart (value vs deposited across issues) =====
+  const mountainSeries = {
+    bog: {
+      labels: ['ISS 01', 'ISS 02', 'ISS 03', 'ISS 04', 'ISS 05'],
+      deposited: [868.26, 907.76, 928.26, 948.76, 948.76],
+      value:     [907.13, 945.20, 1104.15, 1138.20, 1162.32],
+    },
+    tbc: {
+      labels: ['ISS 03', 'ISS 04', 'ISS 05'],
+      deposited: [268.75, 380.36, 380.36],
+      value:     [277.05, 339.78, 334.69],
+    },
+  };
+
+  function renderMountain(canvasId, key) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || typeof Chart === 'undefined') return;
+    const s = mountainSeries[key];
+    if (!s) return;
+    new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: s.labels,
+        datasets: [
+          {
+            label: 'ღირებულება',
+            data: s.value,
+            borderColor: key === 'bog' ? '#b91c1c' : '#1a1a1a',
+            backgroundColor: key === 'bog' ? 'rgba(185,28,28,0.12)' : 'rgba(26,26,26,0.10)',
+            fill: true,
+            tension: 0.25,
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: key === 'bog' ? '#b91c1c' : '#1a1a1a',
+          },
+          {
+            label: 'ჩარიცხული',
+            data: s.deposited,
+            borderColor: '#6b6b6b',
+            backgroundColor: 'transparent',
+            borderDash: [5, 4],
+            borderWidth: 1.5,
+            pointRadius: 3,
+            pointBackgroundColor: '#6b6b6b',
+            fill: false,
+            tension: 0.1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 14, font: { family: "'Noto Sans Georgian', sans-serif", size: 11 } } },
+          tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}` } },
+        },
+        scales: {
+          y: { beginAtZero: false, ticks: { callback: v => '$' + v, font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+        },
+      },
+    });
+  }
+  renderMountain('bog-mountain-top', 'bog');
+  renderMountain('tbc-mountain-top', 'tbc');
+
+  // ===== Live price refresh — repaint stat banner, holdings, donut, legend =====
+  async function refreshAll(key) {
+    try {
+      const updated = await refreshLivePrices(key);
+      renderStatBanner(`${key}-banner`, key);
+      renderHoldingsCards(`${key}-hcards`, key);
+      renderHoldingsSummary(`${key}-holdings-summary`, `${key}-open-count`, key);
+      renderAllocLegend(`${key}-alloc-legend`, key);
+      // repaint donut
+      const c = document.getElementById(`${key}-donut`);
+      if (c && typeof Chart !== 'undefined') {
+        const existing = Chart.getChart(c);
+        if (existing) existing.destroy();
+        renderDonut(`${key}-donut`, key);
+      }
+      const stamp = document.getElementById(`${key}-live-stamp`);
+      if (stamp) {
+        const n = new Date();
+        stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+      }
+    } catch (e) {
+      const stamp = document.getElementById(`${key}-live-stamp`);
+      if (stamp) stamp.textContent = `● cached`;
+    }
+  }
+
+  refreshAll('bog');
+  refreshAll('tbc');
+  setInterval(() => { refreshAll('bog'); refreshAll('tbc'); }, 60000);
+</script>
+
+</body>
+</html>
