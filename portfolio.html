@@ -691,6 +691,149 @@
     </ul>
   </div>
 
+  <!-- ============================================================ -->
+  <!-- ARCHIVE · all Trading Paper PDFs — download + inline viewer  -->
+  <!-- ============================================================ -->
+  <hr class="book-divider">
+
+  <div class="book-header">
+    <div class="book-title">
+      <span><span class="book-dot" style="background:#8b6914"></span>არქივი · <em style="font-weight:400;font-style:italic;color:var(--muted)">The Trading Paper</em></span>
+    </div>
+    <div class="book-meta">
+      <div class="book-sub">6 გამოცემა · PDF</div>
+      <div style="font-size:10px;margin-top:2px;color:var(--muted);letter-spacing:1px;">ჩამოტვირთვა · ნახვა · ფურცლის ძიება</div>
+    </div>
+  </div>
+
+  <style>
+    .archive-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 1200px) { .archive-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
+    .arch-card { background: var(--paper); border: 1px solid var(--border); padding: 14px 12px; text-align: center; cursor: pointer; transition: all .15s; font-family: 'Noto Sans Georgian', sans-serif; }
+    .arch-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .arch-card.active { border: 2px solid var(--red); background: #fff8f4; padding: 13px 11px; }
+    .arch-card .num { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 28px; color: var(--ink); line-height: 1; margin-bottom: 4px; }
+    .arch-card .tag { font-size: 9.5px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+    .arch-card .date { font-size: 10px; color: var(--muted); margin-bottom: 8px; font-style: italic; }
+    .arch-card .actions { display: flex; gap: 6px; justify-content: center; }
+    .arch-card .actions a { font-size: 9.5px; letter-spacing: 1px; padding: 4px 8px; border: 1px solid var(--border); color: var(--ink); text-decoration: none; text-transform: uppercase; }
+    .arch-card .actions a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .arch-card .actions a.dl { color: var(--red); border-color: var(--red); }
+    .arch-card .actions a.dl:hover { background: var(--red); color: #fff; }
+
+    .pdf-viewer-wrap { background: var(--paper); border: 1px solid var(--border); margin-bottom: 24px; }
+    .pdf-viewer-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; flex-wrap: wrap; gap: 12px; }
+    .pdf-viewer-head .label { font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink); }
+    .pdf-viewer-head .label em { color: var(--red); font-style: normal; }
+    .pdf-viewer-head .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .pdf-viewer-head input[type="number"] { width: 60px; padding: 5px 8px; border: 1px solid var(--border); font-family: inherit; font-size: 12px; }
+    .pdf-viewer-head .btn { padding: 5px 10px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: inherit; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+    .pdf-viewer-head .btn:hover { background: var(--ink); color: var(--paper); }
+    .pdf-viewer-head .btn.primary { background: var(--red); color: #fff; border-color: var(--red); }
+    .pdf-viewer-head .btn.primary:hover { background: #7f1313; }
+    .pdf-viewer-head .help { font-size: 10.5px; color: var(--muted); font-style: italic; }
+    .pdf-frame { width: 100%; height: 820px; border: 0; display: block; background: #525659; }
+    @media (max-width: 700px) { .pdf-frame { height: 600px; } }
+  </style>
+
+  <div class="archive-grid" id="archive-grid"></div>
+
+  <div class="pdf-viewer-wrap">
+    <div class="pdf-viewer-head">
+      <div class="label">ნახვა · <em><span id="pdf-current-name">გამოცემა №06</span></em></div>
+      <div class="controls">
+        <label style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;">გადასვლა ფურცელზე</label>
+        <input type="number" id="pdf-page-input" min="1" value="1" />
+        <button class="btn" id="pdf-page-go">წადი</button>
+        <a class="btn primary" id="pdf-download-link" href="pdfs/thetradingpaper6.pdf" download>⬇ ჩამოტვირთვა</a>
+        <a class="btn" id="pdf-open-link" href="pdfs/thetradingpaper6.pdf" target="_blank">↗ ცალკე ფანჯარაში</a>
+      </div>
+    </div>
+    <div class="pdf-viewer-head" style="padding-top:0;border:none;">
+      <div class="help">💡 PDF-ის ფანჯრის შიგნით ტექსტის ძიებისთვის: <strong>Ctrl + F</strong> (Windows) / <strong>⌘ + F</strong> (Mac)</div>
+    </div>
+    <iframe id="pdf-frame" class="pdf-frame" src="pdfs/thetradingpaper6.pdf#view=FitH&toolbar=1&navpanes=0" title="The Trading Paper PDF viewer"></iframe>
+  </div>
+
+  <script>
+    (function() {
+      const ARCHIVE = [
+        { n: 1, file: 'pdfs/thetradingpaper1.pdf', tag: 'პირველი გამოცემა', date: 'Anchor · 2026',     name: 'გამოცემა №01' },
+        { n: 2, file: 'pdfs/thetradingpaper2.pdf', tag: 'მე-2 გამოცემა',   date: '9 May 2026',          name: 'გამოცემა №02' },
+        { n: 3, file: 'pdfs/thetradingpaper3.pdf', tag: 'მე-3 გამოცემა',   date: '11 May 2026',         name: 'გამოცემა №03' },
+        { n: 4, file: 'pdfs/thetradingpaper4.pdf', tag: 'მე-4 გამოცემა',   date: '21 May 2026',         name: 'გამოცემა №04' },
+        { n: 5, file: 'pdfs/thetradingpaper5.pdf', tag: 'მე-5 გამოცემა',   date: '22 May 2026',         name: 'გამოცემა №05' },
+        { n: 6, file: 'pdfs/thetradingpaper6.pdf', tag: 'მე-6 გამოცემა',   date: '27 May 2026 · LIVE',  name: 'გამოცემა №06' },
+      ];
+
+      const grid = document.getElementById('archive-grid');
+      const frame = document.getElementById('pdf-frame');
+      const dlLink = document.getElementById('pdf-download-link');
+      const openLink = document.getElementById('pdf-open-link');
+      const currentName = document.getElementById('pdf-current-name');
+      const pageInput = document.getElementById('pdf-page-input');
+      const pageGoBtn = document.getElementById('pdf-page-go');
+
+      let activeIdx = 5;  // Issue 06 is the default
+
+      function buildCards() {
+        grid.innerHTML = ARCHIVE.map((p, i) => `
+          <div class="arch-card${i === activeIdx ? ' active' : ''}" data-idx="${i}">
+            <div class="num">№${String(p.n).padStart(2, '0')}</div>
+            <div class="tag">${p.tag}</div>
+            <div class="date">${p.date}</div>
+            <div class="actions">
+              <a href="${p.file}#view=FitH&toolbar=1" target="_blank" class="view" data-idx="${i}">ნახვა</a>
+              <a href="${p.file}" download="thetradingpaper${p.n}.pdf" class="dl">PDF</a>
+            </div>
+          </div>
+        `).join('');
+
+        // Hook card-body click (anywhere except the action links) to load into viewer
+        grid.querySelectorAll('.arch-card').forEach(card => {
+          card.addEventListener('click', e => {
+            // Don't intercept clicks on the action links — let them do their own thing
+            if (e.target.closest('a')) return;
+            loadIssue(+card.dataset.idx);
+          });
+        });
+        // The "ნახვა" link inside the card should also drive the inline viewer (and not open new tab)
+        grid.querySelectorAll('.arch-card .view').forEach(a => {
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            loadIssue(+a.dataset.idx);
+          });
+        });
+      }
+
+      function loadIssue(idx) {
+        if (idx < 0 || idx >= ARCHIVE.length) return;
+        activeIdx = idx;
+        const p = ARCHIVE[idx];
+        frame.src = p.file + '#view=FitH&toolbar=1&navpanes=0&page=1';
+        dlLink.href = p.file;
+        dlLink.setAttribute('download', `thetradingpaper${p.n}.pdf`);
+        openLink.href = p.file + '#view=FitH&toolbar=1';
+        currentName.textContent = p.name;
+        pageInput.value = 1;
+        buildCards();  // repaint active state
+        // Scroll the viewer into view smoothly
+        document.querySelector('.pdf-viewer-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function goToPage() {
+        const page = Math.max(1, parseInt(pageInput.value, 10) || 1);
+        const p = ARCHIVE[activeIdx];
+        frame.src = p.file + `#view=FitH&toolbar=1&navpanes=0&page=${page}`;
+      }
+      pageGoBtn.addEventListener('click', goToPage);
+      pageInput.addEventListener('keydown', e => { if (e.key === 'Enter') goToPage(); });
+
+      buildCards();
+    })();
+  </script>
+
 </main>
 
 <footer>
