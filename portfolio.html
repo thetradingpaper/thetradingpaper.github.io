@@ -455,7 +455,7 @@
     </div>
     <div class="mountain-panel">
       <div class="panel-label">მთა <em>The Mountain</em></div>
-      <span class="panel-sublabel">BOG · ISS 01 → 05 · USD · ღირებულება vs ჩარიცხული</span>
+      <span class="panel-sublabel">BOG · ISS 01 → 06 · USD · ღირებულება vs ჩარიცხული</span>
       <div class="mountain-chart-wrap"><canvas id="bog-mountain-top"></canvas></div>
     </div>
   </div>
@@ -567,7 +567,7 @@
     </div>
     <div class="mountain-panel">
       <div class="panel-label">მთა <em>The Mountain</em></div>
-      <span class="panel-sublabel">TBC · ISS 03 → 05 · USD · ღირებულება vs ჩარიცხული</span>
+      <span class="panel-sublabel">TBC · ISS 03 → 06 · USD · ღირებულება vs ჩარიცხული</span>
       <div class="mountain-chart-wrap"><canvas id="tbc-mountain-top"></canvas></div>
     </div>
   </div>
@@ -628,55 +628,66 @@
 
   <hr class="book-divider">
 
-  <div class="book-header" style="opacity:.85;">
+  <div class="book-header">
     <div class="book-title">
-      <span><span class="book-dot" style="background:#9ca3af"></span>წიგნი მესამე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Galt &amp; Taggart</em></span>
+      <span><span class="book-dot" style="background:#1a1a1a"></span>წიგნი მესამე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Galt &amp; Taggart</em></span>
     </div>
     <div class="book-meta">
-      <div class="book-sub" style="color:#9ca3af;">GALT · მზადყოფნაში</div>
-      <div style="font-size:10px;margin-top:2px;color:#9ca3af;letter-spacing:1px;">AWAITING · $0.00</div>
+      <div class="book-sub">GALT · 2.5× margin · MSTR</div>
+      <div style="font-size:10px;margin-top:2px;color:var(--red);letter-spacing:1px;">მალე გაიშვება · ფასს ელოდება</div>
     </div>
   </div>
 
-  <div class="awaiting-row" style="opacity:.7;">
+  <div class="awaiting-row">
     <div class="awaiting-box">
-      <span class="stat-label">სტატუსი</span>
-      <span class="stat-val" style="font-size:14px;color:#9ca3af;letter-spacing:2px;">AWAITING</span>
-      <span class="stat-note">ჯერ არ დაიწყო</span>
+      <span class="stat-label">საკუთარი კაპიტალი</span>
+      <span class="stat-val">$500</span>
+      <span class="stat-note">პოზიცია $1,250</span>
     </div>
     <div class="awaiting-box">
-      <span class="stat-label">ჩარიცხული</span>
-      <span class="stat-val" style="color:#9ca3af;">$0.00</span>
-      <span class="stat-note">depo­sit pending</span>
+      <span class="stat-label">ბერკეტი</span>
+      <span class="stat-val">2.5×</span>
+      <span class="stat-note">margin $750</span>
     </div>
     <div class="awaiting-box">
-      <span class="stat-label">პორტფელის ღირებულება</span>
-      <span class="stat-val" style="color:#9ca3af;">$0.00</span>
-      <span class="stat-note">no positions</span>
+      <span class="stat-label">შესვლის ფანჯარა</span>
+      <span class="stat-val">$135–$150</span>
+      <span class="stat-note">MSTR</span>
     </div>
     <div class="awaiting-box">
-      <span class="stat-label">უკუგება</span>
-      <span class="stat-val" style="color:#9ca3af;">—</span>
-      <span class="stat-note">N/A</span>
+      <span class="stat-label">მიზანი / ჰორიზონტი</span>
+      <span class="stat-val pos">$460</span>
+      <span class="stat-note">5–7 თვე</span>
     </div>
   </div>
 
-  <div style="border:1px solid var(--border); border-top:none; background:var(--paper); padding:28px 22px; text-align:center; font-family:'Noto Serif Georgian', serif;">
-    <div style="font-size:11px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; margin-bottom:10px;">⏳ Awaiting deposit</div>
-    <div style="font-size:18px; color:var(--ink); margin-bottom:6px;">Galt &amp; Taggart ანგარიში მზადყოფნაშია</div>
-    <div style="font-size:13px; color:var(--muted); max-width:520px; margin:0 auto; line-height:1.6;">
-      ქართული საინვესტიციო ბანკი · ლოკალური და საერთაშორისო აქციები. ანგარიში გახსნილია, ჩარიცხვა და სტრატეგია მოგვიანებით განისაზღვრება.
+  <div style="border:1px solid var(--border); border-top:none; background:var(--paper); padding:24px 22px; font-family:'Noto Serif Georgian', serif;">
+    <div style="font-size:11px; letter-spacing:3px; color:var(--red); text-transform:uppercase; margin-bottom:12px; text-align:center;">⏳ მალე გაიშვება · ფასი მონიშნულ ფანჯარაში შესვლისთანავე</div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; font-family:'Noto Sans Georgian',sans-serif; font-size:13px; line-height:1.65;">
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">აქცია (mid $142.50)</div><div style="font-weight:700;">8.77 sh</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">ეგზიტი $460</div><div style="font-weight:700;color:#166534;">$4,034.20</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">წმინდა equity</div><div style="font-weight:700;color:#166534;">$3,284.20</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">P/L $500-ზე</div><div style="font-weight:700;color:#166534;">+$2,784 (+557%)</div></div>
+    </div>
+    <div style="border-top:1px dashed var(--border); margin-top:14px; padding-top:12px; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; font-family:'Noto Sans Georgian',sans-serif; font-size:12px; line-height:1.6;">
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">margin %, 6–7 თვე</div><div style="color:var(--red);font-weight:700;">−$45-დან −$53-მდე</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">საკომისიო (in + out)</div><div style="color:var(--red);font-weight:700;">≈ −$26</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">წმინდა P/L (ხარჯის შემდეგ)</div><div style="color:#166534;font-weight:700;">+$2,705-დან +$2,713-მდე</div></div>
+    </div>
+    <div style="text-align:center; margin-top:14px; font-size:11px; letter-spacing:2px; color:var(--muted); text-transform:uppercase;">
+      maintenance 30% → ლიკვიდაცია ~$122 · ბუფერი −14.4% · შემდეგ short ვაჭრობა
     </div>
   </div>
 
-  <!-- Rules placeholder (future) -->
-  <div class="rules-box" style="border-left-color:#9ca3af; opacity:.85;">
-    <div class="rules-title" style="color:#6b6b6b;">Galt &amp; Taggart · გეგმა</div>
+  <div class="rules-box" style="border-left-color:var(--red);">
+    <div class="rules-title">Galt &amp; Taggart · გეგმა</div>
     <ul>
-      <li>ანგარიში გახსნილია — ჩარიცხვა მოლოდინში</li>
-      <li>სტრატეგია: <em>TBD</em> — განისაზღვრება პირველი ჩარიცხვის წინ</li>
-      <li>დანიშნულება: საქართველოს ბაზრის და საერთაშორისო აქციების ალტერნატიული წვდომა</li>
-      <li>გამოყოფილი კაპიტალი BOG/TBC-სგან განცალკევებულია</li>
+      <li><strong>კაპიტალი:</strong> $500 საკუთარი + $750 ნასესხები = $1,250 პოზიცია, 2.5× ბერკეტი</li>
+      <li><strong>აქცია:</strong> MSTR · შესვლა მონიშნულ ფანჯარაში <strong>$135–$150</strong></li>
+      <li><strong>ეგზიტი:</strong> $460 · ჰორიზონტი 5–7 თვე</li>
+      <li><strong>ხარჯები:</strong> margin ~12% APR + ~0.5% round-trip commission</li>
+      <li><strong>შემდეგი ფაზა:</strong> short trades იმავე ანგარიშზე, ამ წიგნის შემოსავლიდან</li>
+      <li>გამოყოფილი კაპიტალი BOG/TBC-სგან მკაცრად განცალკევებულია</li>
     </ul>
   </div>
 
@@ -687,7 +698,7 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script src="js/portfolios.js?v=20260527-iss06b"></script>
+<script src="js/portfolios.js?v=20260528-iss06c"></script>
 <script>
   // ===== Date =====
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
@@ -763,14 +774,14 @@
   // ===== Mountain chart (value vs deposited across issues) =====
   const mountainSeries = {
     bog: {
-      labels: ['ISS 01', 'ISS 02', 'ISS 03', 'ISS 04', 'ISS 05'],
-      deposited: [868.26, 907.76, 928.26, 948.76, 948.76],
-      value:     [907.13, 945.20, 1104.15, 1138.20, 1162.32],
+      labels: ['ISS 01', 'ISS 02', 'ISS 03', 'ISS 04', 'ISS 05', 'ISS 06'],
+      deposited: [868.26, 907.76, 928.26, 948.76, 948.76, 948.76],
+      value:     [907.13, 945.20, 1104.15, 1138.20, 1162.32, 1202.62],
     },
     tbc: {
-      labels: ['ISS 03', 'ISS 04', 'ISS 05'],
-      deposited: [268.75, 380.36, 380.36],
-      value:     [277.05, 339.78, 334.69],
+      labels: ['ISS 03', 'ISS 04', 'ISS 05', 'ISS 06'],
+      deposited: [268.75, 380.36, 380.36, 380.36],
+      value:     [277.05, 339.78, 334.69, 315.73],
     },
   };
 
