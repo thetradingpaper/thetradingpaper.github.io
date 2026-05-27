@@ -6,7 +6,7 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
-// Last sync: Issue 05 · 2026-05-22 (snapshot 19:36 Wiesbaden)
+// Last sync: Issue 06 · 2026-05-27 (snapshot 22:03 Wiesbaden)
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
@@ -23,14 +23,14 @@ const portfolios = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values from Issue 05 snapshot — live prices repaint these every 60s.
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 463.64, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 301.33, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 231.66, color: '#8b6914' },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 139.61, color: '#4b5563' },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  26.08, color: '#2563eb' },
+      // Cached values from Issue 06 snapshot — live prices repaint these every 60s.
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 474.87, color: '#b91c1c' },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 302.26, color: '#166534' },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 258.53, color: '#8b6914' },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 141.18, color: '#4b5563' },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  25.78, color: '#2563eb' },
     ],
-    cash: 0.00,                       // QBTS proceeds redeployed into WQTM on 22 May 2026
+    cash: 0.00,                       // unchanged since QBTS → WQTM rotation on 22 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
@@ -54,7 +54,7 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 334.69, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 315.73, color: '#1a1a1a' },
     ],
     cash: 0,
     transactions: [
@@ -66,12 +66,12 @@ const portfolios = {
   },
 
   // -----------------------------------------------------------
-  // GALT — Galt & Taggart (awaiting · not yet funded)
+  // GALT — Galt & Taggart (awaiting · plan locked, not yet funded)
   // -----------------------------------------------------------
   galt: {
     name: 'GALT',
     fullName: 'Galt & Taggart',
-    tagline: 'საქართველოს კაპიტალის ბაზარი · მზადყოფნაში',
+    tagline: '$500 კაპიტალი · 2.5× margin · მიზანი $460 · 5–7 თვე',
     startDate: null,
     annualGoalPct: null,
     status: 'awaiting',
@@ -80,6 +80,21 @@ const portfolios = {
     priorDeposits: 0,
     priorCostBasis: 0,
     transactions: [],
+    plan: {
+      asset: 'MSTR',
+      ownCapital: 500,
+      leverage: 2.5,
+      borrowed: 750,
+      totalPosition: 1250,
+      entryLow: 135,
+      entryHigh: 150,
+      entryMid: 142.50,
+      target: 460,
+      horizonMonths: '5–7',
+      estMarginInterestPct: 12,  // estimated annual rate
+      estCommissionPct: 0.5,
+      nextPhase: 'short-side trading',
+    },
   },
 
 };
