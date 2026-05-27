@@ -24,11 +24,12 @@ const portfolios = {
     annualGoalPct: 35,
     holdings: [
       // Cached values from Issue 06 snapshot — live prices repaint these every 60s.
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 474.87, color: '#b91c1c' },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 302.26, color: '#166534' },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 258.53, color: '#8b6914' },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 141.18, color: '#4b5563' },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  25.78, color: '#2563eb' },
+      // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 474.87, color: '#b91c1c', divYield: 0.26 },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 302.26, color: '#166534', divYield: 1.11 },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 258.53, color: '#8b6914', divYield: 1.52 },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 141.18, color: '#4b5563', divYield: 0.01 },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  25.78, color: '#2563eb', divYield: 0.00 },
     ],
     cash: 0.00,                       // unchanged since QBTS → WQTM rotation on 22 May 2026
     priorDeposits: 907.76,
@@ -192,13 +193,34 @@ function renderStatBanner(containerId, portfolioKey) {
   const pctStr = a.hasHistory ? fmtPct(a.pnlPct) : '—';
   const depStr = a.hasHistory ? fmtMoney(a.deposits) : '—';
 
+  // Annual dividend — sum across holdings that have a divYield, then net after 30% GE withholding.
+  // Only show the cell when at least one holding actually pays a dividend.
+  let divGross = 0;
+  let anyYield = false;
+  for (const h of p.holdings) {
+    if (typeof h.divYield === 'number' && h.divYield > 0) {
+      divGross += h.value * (h.divYield / 100);
+      anyYield = true;
+    }
+  }
+  const divNet = divGross * 0.70; // GE 30% withholding tax
+  const portYieldPct = a.currentValue > 0 ? (divGross / a.currentValue) * 100 : 0;
+
+  const divCell = anyYield ? `
+        <div class="stat-cell">
+          <div class="stat-label">წლიური დივიდენდი (წმინდა)</div>
+          <div class="stat-val pos">${fmtMoney(divNet)}<span class="stat-sub">≈ ${portYieldPct.toFixed(2)}% / წელი · 30% GE გადასახადის შემდეგ</span></div>
+        </div>` : '';
+
+  const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
+
   el.innerHTML = `
     <div class="stat-banner">
       <div class="stat-banner-head">
         <span class="stat-name">${p.name} · ${p.fullName.toUpperCase()}</span>
         <span class="stat-tag">${p.tagline}</span>
       </div>
-      <div class="stat-grid">
+      <div class="${gridClass}">
         <div class="stat-cell">
           <div class="stat-label">სრული ჩარიცხული</div>
           <div class="stat-val">${depStr}</div>
@@ -214,7 +236,7 @@ function renderStatBanner(containerId, portfolioKey) {
         <div class="stat-cell">
           <div class="stat-label">უკუგება</div>
           <div class="stat-val ${pnlClass}">${pctStr}</div>
-        </div>
+        </div>${divCell}
       </div>
       <div class="stat-foot">
         <span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
