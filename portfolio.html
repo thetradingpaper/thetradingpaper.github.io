@@ -639,7 +639,12 @@
   </div>
 
   <style>
-    .archive-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 28px; }
+    .archive-toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .archive-toolbar .arch-search { flex: 1 1 240px; min-width: 200px; padding: 10px 14px; border: 1px solid var(--border); background: var(--paper); font-family: 'Noto Sans Georgian', sans-serif; font-size: 13px; color: var(--ink); }
+    .archive-toolbar .arch-search:focus { outline: none; border-color: var(--red); }
+    .archive-toolbar .arch-count { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+
+    .archive-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-bottom: 16px; }
     @media (max-width: 1200px) { .archive-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 700px)  { .archive-grid { grid-template-columns: repeat(2, 1fr); } }
     .arch-card { background: var(--paper); border: 1px solid var(--border); padding: 18px 14px; text-align: center; transition: all .15s; font-family: 'Noto Sans Georgian', sans-serif; }
@@ -653,9 +658,22 @@
     .arch-card .actions a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
     .arch-card .actions a.dl { color: var(--red); border-color: var(--red); font-weight: 700; }
     .arch-card .actions a.dl:hover { background: var(--red); color: #fff; }
+
+    .arch-pager { display: flex; gap: 6px; justify-content: center; align-items: center; margin: 18px 0 8px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 13px; }
+    .arch-pager button, .arch-pager .ap-cur { min-width: 36px; padding: 6px 12px; border: 1px solid var(--border); background: var(--paper); color: var(--ink); font-family: inherit; font-size: inherit; letter-spacing: 1px; cursor: pointer; }
+    .arch-pager button:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .arch-pager .ap-cur { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 700; cursor: default; }
+    .arch-pager button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .arch-empty { text-align: center; padding: 32px 16px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 14px; color: var(--muted); font-style: italic; border: 1px dashed var(--border); }
   </style>
 
+  <div class="archive-toolbar">
+    <input type="text" id="arch-search" class="arch-search" placeholder="🔍 ძიება ნომრით ან თარიღით (მაგ: 06, may, 22)..." />
+    <span class="arch-count" id="arch-count"></span>
+  </div>
+
   <div class="archive-grid" id="archive-grid"></div>
+  <div class="arch-pager" id="arch-pager"></div>
 
   <script>
     (function() {
@@ -668,20 +686,85 @@
         { n: 6, file: 'pdfs/thetradingpaper6.pdf', tag: 'მე-6 გამოცემა',    date: '27 May 2026 · LIVE' },
       ];
 
-      const grid = document.getElementById('archive-grid');
-      const latestIdx = ARCHIVE.length - 1;
+      // Newest first so latest issue is always front-page in the archive
+      const SORTED = [...ARCHIVE].sort((a, b) => b.n - a.n);
+      const PER_PAGE = 6;
 
-      grid.innerHTML = ARCHIVE.map((p, i) => `
-        <div class="arch-card${i === latestIdx ? ' latest' : ''}">
-          <div class="num">№${String(p.n).padStart(2, '0')}</div>
-          <div class="tag">${p.tag}</div>
-          <div class="date">${p.date}</div>
-          <div class="actions">
-            <a href="${p.file}" target="_blank" rel="noopener">↗ ნახვა</a>
-            <a href="${p.file}" download="thetradingpaper${p.n}.pdf" class="dl">⬇ PDF</a>
-          </div>
-        </div>
-      `).join('');
+      const grid = document.getElementById('archive-grid');
+      const pager = document.getElementById('arch-pager');
+      const search = document.getElementById('arch-search');
+      const count = document.getElementById('arch-count');
+
+      let query = '';
+      let page = 1;
+
+      function filtered() {
+        const q = query.trim().toLowerCase();
+        if (!q) return SORTED;
+        return SORTED.filter(p =>
+          String(p.n).includes(q) ||
+          ('№' + String(p.n).padStart(2, '0')).toLowerCase().includes(q) ||
+          p.tag.toLowerCase().includes(q) ||
+          p.date.toLowerCase().includes(q)
+        );
+      }
+
+      function render() {
+        const list = filtered();
+        const totalPages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+        if (page > totalPages) page = totalPages;
+        if (page < 1) page = 1;
+
+        const start = (page - 1) * PER_PAGE;
+        const slice = list.slice(start, start + PER_PAGE);
+        const latestN = ARCHIVE[ARCHIVE.length - 1].n;
+
+        count.textContent = list.length === ARCHIVE.length
+          ? `სულ ${list.length} გამოცემა`
+          : `ნაპოვნი: ${list.length} / ${ARCHIVE.length}`;
+
+        if (!list.length) {
+          grid.innerHTML = `<div class="arch-empty" style="grid-column:1/-1;">გამოცემა ვერ მოიძებნა — სცადე სხვა საძიებო სიტყვა</div>`;
+        } else {
+          grid.innerHTML = slice.map(p => `
+            <div class="arch-card${p.n === latestN ? ' latest' : ''}">
+              <div class="num">№${String(p.n).padStart(2, '0')}</div>
+              <div class="tag">${p.tag}</div>
+              <div class="date">${p.date}</div>
+              <div class="actions">
+                <a href="${p.file}" target="_blank" rel="noopener">↗ ნახვა</a>
+                <a href="${p.file}" download="thetradingpaper${p.n}.pdf" class="dl">⬇ PDF</a>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // Pager — show only when more than one page
+        if (totalPages <= 1) {
+          pager.innerHTML = '';
+          return;
+        }
+        let h = '';
+        h += `<button${page === 1 ? ' disabled' : ''} data-p="${page - 1}">← წინა</button>`;
+        for (let i = 1; i <= totalPages; i++) {
+          h += i === page
+            ? `<span class="ap-cur">${i}</span>`
+            : `<button data-p="${i}">${i}</button>`;
+        }
+        h += `<button${page === totalPages ? ' disabled' : ''} data-p="${page + 1}">შემდეგი →</button>`;
+        pager.innerHTML = h;
+        pager.querySelectorAll('button').forEach(b => {
+          b.addEventListener('click', () => { page = +b.dataset.p; render(); });
+        });
+      }
+
+      search.addEventListener('input', e => {
+        query = e.target.value;
+        page = 1;
+        render();
+      });
+
+      render();
     })();
   </script>
 
@@ -692,7 +775,7 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script src="js/portfolios.js?v=20260528-iss06c"></script>
+<script src="js/portfolios.js?v=20260528-iss06d"></script>
 <script>
   // ===== Date =====
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
@@ -839,7 +922,6 @@
       renderHoldingsCards(`${key}-hcards`, key);
       renderHoldingsSummary(`${key}-holdings-summary`, `${key}-open-count`, key);
       renderAllocLegend(`${key}-alloc-legend`, key);
-      // repaint donut
       const c = document.getElementById(`${key}-donut`);
       if (c && typeof Chart !== 'undefined') {
         const existing = Chart.getChart(c);
@@ -849,4 +931,17 @@
       const stamp = document.getElementById(`${key}-live-stamp`);
       if (stamp) {
         const n = new Date();
-        stamp.textContent = `● LIVE · ${String
+        stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+      }
+    } catch (e) {
+      console.warn('refresh failed', key, e);
+    }
+  }
+
+  refreshAll('bog');
+  refreshAll('tbc');
+  setInterval(() => { refreshAll('bog'); refreshAll('tbc'); }, 60000);
+</script>
+
+</body>
+</html>
