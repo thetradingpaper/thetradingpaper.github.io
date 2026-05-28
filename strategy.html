@@ -208,6 +208,7 @@
     <a href="articles.html">სტატიები</a>
     <a href="legends.html">ლეგენდები</a>
     <a href="portfolio.html">პორტფელი</a>
+    <a href="margin.html">ბერკეტი</a>
     <a href="community.html">საზოგადოება</a>
     <a href="strategy.html" class="active">სტრატეგია</a>
     <a href="startup.html">სტარტაფი</a>
@@ -832,73 +833,4 @@
 
         <g transform="translate(18,250)">
           <text x="20" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">P / L</text>
-          <text id="live-bog-pnl" x="20" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-          <text x="160" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">უკუგება</text>
-          <text id="live-bog-pct" x="160" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-        </g>
-
-        <line x1="48" y1="310" x2="250" y2="310" stroke="#fffdf7" stroke-width="0.5" opacity="0.5"/>
-
-        <text x="149" y="340" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">სრული ჩარიცხული</text>
-        <text id="live-bog-deposits" x="149" y="362" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="16" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-      </g>
-
-      <!-- Bottom live timestamp -->
-      <g transform="translate(0,470)">
-        <text x="200" y="20" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#6b6b6b">სარისკო · დღევანდელი ცოცხალი მონაცემი</text>
-        <text x="700" y="20" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#6b6b6b">საფუძველი · დღევანდელი ცოცხალი მონაცემი</text>
-        <text id="live-stamp" x="450" y="50" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="3" fill="#b91c1c">● LIVE · განახლება ბოლო ჩანაწერთან</text>
-      </g>
-    </svg>
-    <div class="fig-caption"><span class="fig-num">ნახ. V</span>ცოცხალი ვერსია — იგივე ორი წიგნი, ახლა მონაცემებით · ღირებულება, P/L, უკუგება</div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- STRATEGY JOURNAL                                             -->
-  <!-- ============================================================ -->
-  <div class="section-head">სტრატეგიის ჟურნალი</div>
-
-  <div class="article-body">
-    <p>აქ შევიტან ჩანაწერებს დროთა განმავლობაში — გადაწყვეტილებები, ცვლილებები, რა იმუშავა, რა არ იმუშავა. დღევანდელი ფიქრი ხვალ აღარ მახსოვს — ფურცელია ერთადერთი მოწმე.</p>
-  </div>
-
-  <div id="strategy-journal" class="journal-list"></div>
-
-  <!-- Closing -->
-  <div class="callout" style="margin-top: 36px;">
-    ეს არის სისტემა, რომელიც დაცული უნდა იყოს ემოციისგან. ციფრები ვერ ცრუობს. ფურცელი ვერ ცრუობს. ემოცია ცრუობს. — ლაშა
-  </div>
-
-  <p style="text-align:center;margin-top:24px;"><a href="portfolio.html">→ ნახე პორტფელის სრული მდგომარეობა</a></p>
-
-</main>
-
-<footer>
-  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
-  ეს არ არის ფინანსური რჩევა
-</footer>
-
-<script>
-  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
-  const monthsShort = ['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'];
-  const d = new Date();
-  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
-
-  // ============================================================
-  // LIVE VALUES — Figure V (pulled from portfolios.js)
-  // ============================================================
-  (function fillLiveValues() {
-    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return;
-
-    function fillBook(prefix, key) {
-      const p = portfolios[key];
-      const a = aggregate(p);
-      const valEl = document.getElementById('live-' + prefix + '-value');
-      const pnlEl = document.getElementById('live-' + prefix + '-pnl');
-      const pctEl = document.getElementById('live-' + prefix + '-pct');
-      const depEl = document.getElementById('live-' + prefix + '-deposits');
-
-      if (valEl) valEl.textContent = fmtMoney(a.currentValue);
-      if (depEl) depEl.textContent = a.hasHistory ? fmtMoney(a.deposits) : '—';
-
-      // Bright contrast colors that read on both red and 
+          <text id="live-bog-pnl" x="20" y="38" font-family="Noto Serif Georgian, serif" font-s

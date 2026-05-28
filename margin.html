@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — ბერკეტი · Galt &amp; Taggart</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Book header (matches portfolio.html style) */
+  .book-header {
+    background: var(--paper);
+    border-top: 3px double var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0 10px;
+    margin: 32px 0 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .book-header .book-title {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .book-header .book-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+    margin-right: 4px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+  }
+  .book-header .book-sub {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .book-header .book-meta {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* Awaiting stat boxes — same look as portfolio Galt section had */
+  .awaiting-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    border-top: 3px double var(--rule);
+    background: var(--paper);
+    margin-top: 0;
+  }
+  @media (max-width: 900px) { .awaiting-row { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .awaiting-row { grid-template-columns: 1fr; } }
+  .awaiting-box {
+    padding: 18px 18px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .awaiting-box:last-child { border-right: none; }
+  .awaiting-box .stat-label {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .awaiting-box .stat-val {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 700;
+    font-size: 22px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.3px;
+  }
+  .awaiting-box .stat-val.pos { color: var(--green); }
+  .awaiting-box .stat-note {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Rules box */
+  .rules-box {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    padding: 18px 22px;
+    margin-top: 18px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+  .rules-box .rules-title {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .rules-box ul { padding-left: 18px; margin: 0; }
+  .rules-box li { margin-bottom: 4px; color: var(--muted); }
+  .rules-box li strong { color: var(--ink); }
+
+  /* Lead paragraph */
+  .margin-lead {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 22px 26px;
+    margin-top: 14px;
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .margin-lead .pull {
+    font-style: italic;
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა №06 · ვისბადენი</span>
+  </div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="margin.html" class="active">ბერკეტი</a>
+    <a href="community.html">საზოგადოება</a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- ============================================================ -->
+  <!-- BOOK THREE · GALT & TAGGART · MARGIN PLAN                    -->
+  <!-- ============================================================ -->
+
+  <div class="book-header">
+    <div class="book-title">
+      <span><span class="book-dot"></span>მესამე წიგნი · <em style="font-weight:400;font-style:italic;color:var(--muted)">Galt &amp; Taggart</em></span>
+    </div>
+    <div class="book-meta">
+      <div class="book-sub">GALT · 2.5× margin · MSTR</div>
+      <div style="font-size:10px;margin-top:2px;color:var(--red);letter-spacing:1px;">მალე გაიშვება · ფასს ელოდება</div>
+    </div>
+  </div>
+
+  <div class="margin-lead">
+    <div class="pull">$500 საკუთარი კაპიტალი · 2.5× ბერკეტი · შესვლა $135–$150 · მიზანი $460 · 5–7 თვე.</div>
+    გეგმა ფიქსირებულია. ბროკერი — <strong>Galt &amp; Taggart</strong>. წიგნი ცარიელია სანამ MSTR-ის ფასი მონიშნულ ფანჯარაში არ შემოვა; მერე ერთჯერადი ყიდვა, შემდეგ ლოდინი ეგზიტამდე. პორტფელის ორი არსებული წიგნი (Dogma · TBC) ცალკე, საკუთარი წესებითა და კაპიტალით აგრძელებს — ფული წიგნებს შორის არ გადადის.
+  </div>
+
+  <div class="awaiting-row">
+    <div class="awaiting-box">
+      <span class="stat-label">საკუთარი კაპიტალი</span>
+      <span class="stat-val">$500</span>
+      <span class="stat-note">პოზიცია $1,250</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">ბერკეტი</span>
+      <span class="stat-val">2.5×</span>
+      <span class="stat-note">margin $750</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">შესვლის ფანჯარა</span>
+      <span class="stat-val">$135–$150</span>
+      <span class="stat-note">MSTR</span>
+    </div>
+    <div class="awaiting-box">
+      <span class="stat-label">მიზანი / ჰორიზონტი</span>
+      <span class="stat-val pos">$460</span>
+      <span class="stat-note">5–7 თვე</span>
+    </div>
+  </div>
+
+  <div style="border:1px solid var(--border); border-top:none; background:var(--paper); padding:24px 22px; font-family:'Noto Serif Georgian', serif;">
+    <div style="font-size:11px; letter-spacing:3px; color:var(--red); text-transform:uppercase; margin-bottom:14px; text-align:center;">⏳ მალე გაიშვება · ფასი მონიშნულ ფანჯარაში შესვლისთანავე</div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; font-family:'Noto Sans Georgian',sans-serif; font-size:13px; line-height:1.65;">
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">აქცია (mid $142.50)</div><div style="font-weight:700;">8.77 sh</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">ეგზიტი $460</div><div style="font-weight:700;color:#166534;">$4,034.20</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">წმინდა equity</div><div style="font-weight:700;color:#166534;">$3,284.20</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">P/L $500-ზე</div><div style="font-weight:700;color:#166534;">+$2,784 (+557%)</div></div>
+    </div>
+    <div style="border-top:1px dashed var(--border); margin-top:14px; padding-top:12px; display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; font-family:'Noto Sans Georgian',sans-serif; font-size:12px; line-height:1.6;">
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">margin %, 6–7 თვე</div><div style="color:var(--red);font-weight:700;">−$45-დან −$53-მდე</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">საკომისიო (in + out)</div><div style="color:var(--red);font-weight:700;">≈ −$26</div></div>
+      <div><div style="font-size:10px;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;">წმინდა P/L (ხარჯის შემდეგ)</div><div style="color:#166534;font-weight:700;">+$2,705-დან +$2,713-მდე</div></div>
+    </div>
+    <div style="text-align:center; margin-top:16px; font-size:11px; letter-spacing:2px; color:var(--muted); text-transform:uppercase;">
+      maintenance 30% → ლიკვიდაცია ~$122 · ბუფერი −14.4% · შემდეგ short ვაჭრობა
+    </div>
+  </div>
+
+  <div class="rules-box" style="border-left-color:var(--red);">
+    <div class="rules-title">Galt &amp; Taggart · გეგმა</div>
+    <ul>
+      <li><strong>კაპიტალი:</strong> $500 საკუთარი + $750 ნასესხები = $1,250 პოზიცია, 2.5× ბერკეტი</li>
+      <li><strong>აქცია:</strong> MSTR · შესვლა მონიშნულ ფანჯარაში <strong>$135–$150</strong></li>
+      <li><strong>ეგზიტი:</strong> $460 · ჰორიზონტი 5–7 თვე</li>
+      <li><strong>ხარჯები:</strong> margin ~12% APR + ~0.5% round-trip commission</li>
+      <li><strong>შემდეგი ფაზა:</strong> short trades იმავე ანგარიშზე, ამ წიგნის შემოსავლიდან</li>
+      <li>გამოყოფილი კაპიტალი BOG/TBC-სგან მკაცრად განცალკევებულია</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  const el = document.getElementById('today-date');
+  if (el) el.textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+</script>
+
+</body>
+</html>
