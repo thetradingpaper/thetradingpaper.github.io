@@ -75,7 +75,7 @@ const portfolios = {
   },
 
   // -----------------------------------------------------------
-  // GALT — Galt & Taggart (awaiting · plan locked, not yet funded)
+  // GALT — Galt & Taggart (funded 29 May 2026 · $290 cash parked, no position open yet)
   // -----------------------------------------------------------
   galt: {
     name: 'GALT',
