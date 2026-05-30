@@ -293,7 +293,7 @@
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №06 · ვისბადენი</span>
+    <span>გამოცემა №07 · ვისბადენი</span>
   </div>
   <h1>The Trading Paper</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
@@ -340,14 +340,14 @@
       </div>
       <div style="text-align:right; font-family:ui-monospace, monospace;">
         <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">შეგროვებული</div>
-        <div style="font-weight:900; font-family:'Noto Serif Georgian',serif; font-size:38px; color:var(--ink); line-height:1; letter-spacing:-1px;">0%</div>
-        <div style="font-size:12px; color:var(--muted); margin-top:4px;">$0 / $50,000</div>
+        <div id="goal-pct" style="font-weight:900; font-family:'Noto Serif Georgian',serif; font-size:38px; color:var(--ink); line-height:1; letter-spacing:-1px;">0%</div>
+        <div id="goal-collected" style="font-size:12px; color:var(--muted); margin-top:4px;">$0 / $50,000</div>
       </div>
     </div>
 
     <!-- Progress bar -->
     <div style="margin-top:22px; background:#f4efe5; border:1px solid var(--border); height:18px; position:relative; overflow:hidden;">
-      <div style="background:linear-gradient(90deg, var(--green), #22a657); height:100%; width:0%; transition:width 1s; position:relative;">
+      <div id="goal-bar" style="background:linear-gradient(90deg, var(--green), #22a657); height:100%; width:0%; transition:width 1s; position:relative;">
         <div style="position:absolute; right:6px; top:50%; transform:translateY(-50%); color:#fffdf7; font-family:ui-monospace,monospace; font-size:10px; font-weight:700;"></div>
       </div>
       <!-- tick marks every 25% -->
@@ -371,7 +371,7 @@
       </div>
       <div>
         <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);">სტატუსი</div>
-        <div style="font-weight:700; font-size:14px; margin-top:2px; color:var(--red);">● ღია · მალე განახლდება</div>
+        <div id="goal-status" style="font-weight:700; font-size:14px; margin-top:2px; color:var(--green);">● ღია · LIVE · Galt &amp; Taggart</div>
       </div>
     </div>
   </div>
@@ -640,7 +640,45 @@
   ეს არ არის ფინანსური რჩევა · სტარტაფ პროექტი მზადებაშია
 </footer>
 
+<script src="js/portfolios.js?v=20260529-iss07a"></script>
 <script>
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
-  document.getElementById('today-date').textContent = `${d.getDate()} ${mon
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+
+  // ===== LIVE: Galt & Taggart balance → startup capital goal ($50K car wash) =====
+  // Reads the G&T book straight from portfolios.js. Today: $290 cash, no position.
+  // When a position is opened there, its live value rolls into this bar automatically.
+  const STARTUP_GOAL = 50000;
+
+  function galtBalance() {
+    const g = (typeof portfolios !== 'undefined') ? portfolios.galt : null;
+    if (!g) return 0;
+    const holdingsValue = (g.holdings || []).reduce((s, h) => s + (h.value || 0), 0);
+    return (g.cash || 0) + holdingsValue;
+  }
+
+  function renderStartupGoal() {
+    const bal = galtBalance();
+    const pct = (bal / STARTUP_GOAL) * 100;
+    const pctEl = document.getElementById('goal-pct');
+    const colEl = document.getElementById('goal-collected');
+    const barEl = document.getElementById('goal-bar');
+    if (pctEl) pctEl.textContent = pct.toFixed(2) + '%';
+    if (colEl) colEl.textContent = '$' + bal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / $50,000';
+    if (barEl) barEl.style.width = Math.min(100, pct).toFixed(2) + '%';
+  }
+
+  renderStartupGoal();
+
+  // Once G&T holds live positions, repaint as Yahoo prices refresh every 60s.
+  if (typeof portfolios !== 'undefined' && portfolios.galt.holdings.length && typeof refreshLivePrices === 'function') {
+    setInterval(async () => {
+      try { await refreshLivePrices('galt'); } catch (e) { /* offline / proxy down */ }
+      renderStartupGoal();
+    }, 60000);
+  }
+</script>
+
+</body>
+</html>

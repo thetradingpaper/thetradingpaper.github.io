@@ -6,7 +6,7 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
-// Last sync: Issue 06 · 2026-05-27 (snapshot 22:03 Wiesbaden)
+// Last sync: Issue 07 · 2026-05-29 (snapshot 18:34 Wiesbaden)
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
@@ -25,17 +25,25 @@ const portfolios = {
     holdings: [
       // Cached values from Issue 06 snapshot — live prices repaint these every 60s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
-      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 474.87, color: '#b91c1c', divYield: 0.26 },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 302.26, color: '#166534', divYield: 1.11 },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.6170481,  avgBuy:  33.60, invested: 222.36, value: 258.53, color: '#8b6914', divYield: 1.52 },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 141.18, color: '#4b5563', divYield: 0.01 },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  25.78, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 479.44, color: '#b91c1c', divYield: 0.26 },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 305.07, color: '#166534', divYield: 1.11 },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 7.66256466, avgBuy:  34.24, invested: 262.36, value: 293.32, color: '#8b6914', divYield: 1.52 },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 139.81, color: '#4b5563', divYield: 0.01 },
+      { ticker: 'MP',   name: 'MP Materials Corp',                 shares: 1.03896426, avgBuy:  64.49, invested:  67.00, value:  67.07, color: '#b5651d', divYield: 0.00 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',                shares: 0.16056065, avgBuy: 311.41, invested:  50.00, value:  50.01, color: '#3d8c7a', divYield: 0.08 },
+      { ticker: 'WMT',  name: 'Walmart Inc',                       shares: 0.22569679, avgBuy: 115.20, invested:  26.00, value:  26.00, color: '#7a8c2a', divYield: 0.90 },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 0.67472943, avgBuy:  38.06, invested:  25.68, value:  26.40, color: '#2563eb', divYield: 0.00 },
     ],
-    cash: 0.00,                       // unchanged since QBTS → WQTM rotation on 22 May 2026
+    cash: 0.00,                       // $185 deposit fully deployed on 29 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-05-29', type: 'deposit', amount: 185.00 },
+      { date: '2026-05-29', type: 'buy',     ticker: 'ASX',  shares: 1.04551656, price: 38.2585, commission: 0.50 },
+      { date: '2026-05-29', type: 'buy',     ticker: 'MP',   shares: 1.03896426, price: 64.49,   commission: 0.50 },
+      { date: '2026-05-29', type: 'buy',     ticker: 'VRT',  shares: 0.16056065, price: 311.41,  commission: 0.50 },
+      { date: '2026-05-29', type: 'buy',     ticker: 'WMT',  shares: 0.22569679, price: 115.20,  commission: 0.50 },
       { date: '2026-05-22', type: 'buy',     ticker: 'WQTM', shares: 0.67472943, price: 38.06, commission: 0.50 },
       { date: '2026-05-21', type: 'sell',    ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
       { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
@@ -73,14 +81,16 @@ const portfolios = {
     name: 'GALT',
     fullName: 'Galt & Taggart',
     tagline: '$500 კაპიტალი · 2.5× margin · მიზანი $460 · 5–7 თვე',
-    startDate: null,
+    startDate: '2026-05-29',
     annualGoalPct: null,
-    status: 'awaiting',
+    status: 'funded',                 // funded 29 May 2026 — cash parked, no position open yet
     holdings: [],
-    cash: 0,
+    cash: 290.00,
     priorDeposits: 0,
     priorCostBasis: 0,
-    transactions: [],
+    transactions: [
+      { date: '2026-05-29', type: 'deposit', amount: 290.00 },
+    ],
     plan: {
       asset: 'MSTR',
       ownCapital: 500,
