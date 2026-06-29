@@ -2,13 +2,13 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-06-25
+// Last updated: 2026-06-29
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-06-25',
-  feesPaid: 48.5,                       // running total of all commissions + taxes
+  lastUpdated: '2026-06-29',
+  feesPaid: 49.0,                       // running total of all commissions + taxes
   feesByBook: [
-    { book: 'BOG', amount: 8.5, note: 'ისტორიის საკომისიოები' },
+    { book: 'BOG', amount: 9.0, note: 'ისტორიის საკომისიოები' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 1.96,
