@@ -12,6 +12,7 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const HIST = path.join(ROOT, 'data', 'history.json');
+const PRICES = path.join(ROOT, 'data', 'prices.json');
 
 // ---- load portfolios.js (browser file) into a sandbox ----
 function loadPortfolios() {
@@ -33,16 +34,33 @@ function loadMeportf() {
   return ctx.window.MEPORTF || {};
 }
 
-// ---- live price from Yahoo (server-side: no CORS, no proxy needed) ----
-async function fetchPrice(ticker) {
+// ---- live quote from Yahoo (server-side: no CORS, no proxy needed) ----
+// Returns { price, previousClose } or null. A small cache avoids re-fetching
+// the same ticker twice (once for the snapshot value, once for prices.json).
+const _quoteCache = {};
+async function fetchQuote(ticker) {
+  if (ticker in _quoteCache) return _quoteCache[ticker];
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1d&range=1d`;
+  let out = null;
   try {
     const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-    if (!r.ok) return null;
-    const j = await r.json();
-    const m = j && j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta;
-    return (m && (m.regularMarketPrice || m.previousClose)) || null;
-  } catch (e) { return null; }
+    if (r.ok) {
+      const j = await r.json();
+      const m = j && j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta;
+      if (m) {
+        const price = m.regularMarketPrice || m.previousClose;
+        if (price) out = { price: +price, previousClose: +(m.chartPreviousClose || m.previousClose || price) };
+      }
+    }
+  } catch (e) { /* leave null */ }
+  _quoteCache[ticker] = out;
+  return out;
+}
+
+// back-compat helper used by bookValue()
+async function fetchPrice(ticker) {
+  const q = await fetchQuote(ticker);
+  return q ? q.price : null;
 }
 
 function deposits(p) {
@@ -91,4 +109,25 @@ async function bookValue(p) {
   hist.sort((a, b) => a.date.localeCompare(b.date));
   fs.writeFileSync(HIST, JSON.stringify(hist, null, 2) + '\n');
   console.log('snapshot written:', JSON.stringify(entry));
+
+  // ---- prices.json: per-ticker quote cache the browser falls back to when
+  // the public CORS proxies are down (see loadCachedPrices in portfolios.js) ----
+  const tickers = new Set();
+  for (const key of ['bog', 'tbc', 'galt']) {
+    const p = P[key];
+    if (p && Array.isArray(p.holdings)) for (const h of p.holdings) if (h.ticker) tickers.add(h.ticker);
+  }
+  tickers.add('MSTR'); // referenced by TBC/GALT even when not an open holding
+
+  const quotes = {};
+  for (const t of tickers) {
+    const q = await fetchQuote(t);
+    if (q && q.price) quotes[t] = { price: q.price, previousClose: q.previousClose };
+  }
+  // Preserve any prior quote we failed to refresh this run, so the fallback never regresses.
+  let prevPrices = {};
+  try { prevPrices = JSON.parse(fs.readFileSync(PRICES, 'utf8')).quotes || {}; } catch (e) { prevPrices = {}; }
+  const merged = Object.assign({}, prevPrices, quotes);
+  fs.writeFileSync(PRICES, JSON.stringify({ updated: new Date().toISOString(), quotes: merged }, null, 2) + '\n');
+  console.log('prices written:', Object.keys(quotes).length, 'fresh /', Object.keys(merged).length, 'total');
 })();

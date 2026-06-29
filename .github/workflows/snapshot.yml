@@ -2,10 +2,13 @@ name: Daily portfolio snapshot
 
 # Records one dated point (deposited + live value per book) into
 # data/history.json after the US market closes, so the mountain
-# charts grow every day. Also runnable on demand from the Actions tab.
+# charts grow every day, AND refreshes data/prices.json — the quote
+# cache the live site falls back to when the public CORS proxies fail.
+# Also runnable on demand from the Actions tab.
 on:
   schedule:
-    - cron: '45 21 * * 1-5'   # 21:45 UTC, Mon-Fri (~1-2h after US close)
+    - cron: '30 14,17,20 * * 1-5'  # ~10:30/13:30/16:30 ET, Mon-Fri — keep prices.json fresh through the US session
+    - cron: '45 21 * * 1-5'        # 21:45 UTC — the daily history.json point (~1-2h after US close)
   workflow_dispatch: {}
 
 permissions:
@@ -25,7 +28,7 @@ jobs:
         run: |
           git config user.name "thetradingpaper-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/history.json
+          git add data/history.json data/prices.json
           if git diff --cached --quiet; then
             echo "No change today."
           else

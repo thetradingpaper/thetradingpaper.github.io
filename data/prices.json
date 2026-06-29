@@ -1,0 +1,20 @@
+{
+  "updated": "2026-06-29T20:28:38Z",
+  "quotes": {
+    "ARCC": {"price": 18.51, "previousClose": 18.19},
+    "ASX": {"price": 42.13, "previousClose": 40.21},
+    "KOID": {"price": 39.42, "previousClose": 38.84},
+    "MAIN": {"price": 51.56, "previousClose": 51.01},
+    "MNST": {"price": 97.64, "previousClose": 96.38},
+    "MP": {"price": 54.74, "previousClose": 53.9},
+    "MSTR": {"price": 92.68, "previousClose": 82.31},
+    "QBTS": {"price": 23.83, "previousClose": 22.76},
+    "SMH": {"price": 631.98, "previousClose": 611.61},
+    "SPCX": {"price": 164.19, "previousClose": 153.23},
+    "SSRM": {"price": 28.375, "previousClose": 29.38},
+    "VOO": {"price": 681.01, "previousClose": 670.26},
+    "VRT": {"price": 306.97, "previousClose": 303.95},
+    "WMT": {"price": 114.6, "previousClose": 115.69},
+    "WQTM": {"price": 37.12, "previousClose": 35.83}
+  }
+}

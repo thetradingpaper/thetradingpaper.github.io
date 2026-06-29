@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-<base href="/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mePortfolio</title>
+<title>The Trading Paper · ლაშა ფხაკაძე</title>
+<meta name="description" content="The Trading Paper — ლაშა ფხაკაძის პირადი საინვესტიციო ჟურნალი. სამი წიგნი: BOG, TBC, GALT. ცოცხალი ღირებულება, P/L და უკუგება.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#b91c1c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Trading Paper · ლაშა ფხაკაძე">
+<meta property="og:description" content="პირადი საინვესტიციო ჟურნალი — ცოცხალი პორტფელი.">
+<meta property="og:image" content="images/lasha.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
 
 
@@ -580,12 +587,6 @@
   <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">BOG · ბოლო ტრანზაქციები</h3>
-    <a href="history-bog.html" class="history-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      <span>სრული ისტორია</span>
-    </a>
   </div>
   <div id="bog-tx" class="tx-list"></div>
   <div id="bog-pager" class="pagination"></div>
@@ -663,12 +664,6 @@
   <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">TBC · ბოლო ტრანზაქციები</h3>
-    <a href="history-tbc.html" class="history-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      <span>სრული ისტორია</span>
-    </a>
   </div>
   <div id="tbc-tx" class="tx-list"></div>
   <div id="tbc-pager" class="pagination"></div>
@@ -801,9 +796,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   renderDonut('tbc-donut', 'tbc');
   renderPaginated('tbc-tx', 'tbc-pager', 'tbc', 4);
 
-  renderStatBanner('galt-banner', 'galt');
-  renderHoldingsCards('galt-hcards', 'galt');
-  renderPaginated('galt-tx', 'galt-pager', 'galt', 4);
+  // GALT is closed — its section is rendered by the MEPORTF script above
+  // (galt-stats / galt-note / galt-trades), so no live book render here.
 
   // ===== Holdings summary line =====
   function renderHoldingsSummary(summaryId, openCountId, key) {
@@ -830,7 +824,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   }
   renderHoldingsSummary('bog-holdings-summary', 'bog-open-count', 'bog');
   renderHoldingsSummary('tbc-holdings-summary', 'tbc-open-count', 'tbc');
-  renderHoldingsSummary('galt-holdings-summary', 'galt-open-count', 'galt');
 
   // ===== Allocation legend (PDF-style table) =====
   function renderAllocLegend(tableId, key) {
@@ -952,7 +945,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   }
   renderMountain('bog-mountain-top', 'bog');
   renderMountain('tbc-mountain-top', 'tbc');
-  renderMountain('galt-mountain-top', 'galt');
 
   // ===== Live price refresh — repaint stat banner, holdings, donut, legend =====
   async function refreshAll(key) {
@@ -972,10 +964,14 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       const stamp = document.getElementById(`${key}-live-stamp`);
       if (stamp) {
         const n = new Date();
-        stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+        const live = (updated > 0);
+        stamp.textContent = `● ${live ? 'LIVE' : 'ქეშირებული'} · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
+        stamp.style.color = live ? '' : 'var(--muted)';
       }
     } catch (e) {
       console.warn('refresh failed', key, e);
+      const stamp = document.getElementById(`${key}-live-stamp`);
+      if (stamp) { stamp.textContent = '● ქეშირებული მონაცემი'; stamp.style.color = 'var(--muted)'; }
     }
   }
 
@@ -1019,9 +1015,15 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   }
   renderTotal();
 
-  function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc'), refreshAll('galt')]).then(renderTotal); }
+  function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal); }
   refreshAllBooks();
-  setInterval(refreshAllBooks, 5000);
+  // 60s — was 5s, which flooded the public CORS proxies and got them to rate-limit/fail.
+  // Pause polling when the tab is hidden to avoid pointless background requests.
+  let _refreshTimer = setInterval(refreshAllBooks, 60000);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { clearInterval(_refreshTimer); _refreshTimer = null; }
+    else if (!_refreshTimer) { refreshAllBooks(); _refreshTimer = setInterval(refreshAllBooks, 60000); }
+  });
 </script>
 
 
