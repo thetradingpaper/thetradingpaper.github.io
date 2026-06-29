@@ -83,9 +83,9 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.66320965, avgBuy: 163.33, invested: 434.97, value: 234.95, color: '#1a1a1a' },
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 0.27151778, avgBuy: 18.42, invested: 5.00, value: 5.00, color: '#1d4ed8' },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.09765853, avgBuy: 51.20, invested: 5.00, value: 4.98, color: '#15803d' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.66320965, avgBuy: 163.33, invested: 434.97, value: 234.95, color: '#1a1a1a', divYield: 0.00 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 0.27151778, avgBuy: 18.42, invested: 5.00, value: 5.00, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.09765853, avgBuy: 51.20, invested: 5.00, value: 4.98, color: '#15803d', divYield: 6.20 },
     ],
     cash: 0,
     transactions: [
