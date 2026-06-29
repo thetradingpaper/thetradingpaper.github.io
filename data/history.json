@@ -1,137 +1,14 @@
 [
- {
-  "date": "2026-05-08",
-  "books": {
-   "bog": {
-    "deposited": 868.26,
-    "value": 907.13
-   }
-  }
- },
- {
-  "date": "2026-05-09",
-  "books": {
-   "bog": {
-    "deposited": 907.76,
-    "value": 945.2
-   }
-  }
- },
- {
-  "date": "2026-05-11",
-  "books": {
-   "bog": {
-    "deposited": 928.26,
-    "value": 1104.15
-   },
-   "tbc": {
-    "deposited": 268.75,
-    "value": 277.05
-   }
-  }
- },
- {
-  "date": "2026-05-21",
-  "books": {
-   "bog": {
-    "deposited": 948.76,
-    "value": 1138.2
-   },
-   "tbc": {
-    "deposited": 380.36,
-    "value": 339.78
-   }
-  }
- },
- {
-  "date": "2026-05-22",
-  "books": {
-   "bog": {
-    "deposited": 948.76,
-    "value": 1162.32
-   },
-   "tbc": {
-    "deposited": 380.36,
-    "value": 334.69
-   }
-  }
- },
- {
-  "date": "2026-05-27",
-  "books": {
-   "bog": {
-    "deposited": 948.76,
-    "value": 1202.62
-   },
-   "tbc": {
-    "deposited": 380.36,
-    "value": 315.73
-   }
-  }
- },
- {
-  "date": "2026-05-29",
-  "books": {
-   "bog": {
-    "deposited": 1133.76,
-    "value": 1387.12
-   },
-   "galt": {
-    "deposited": 290,
-    "value": 290
-   }
-  }
- },
- {
-  "date": "2026-06-11",
-  "books": {
-   "bog": {
-    "deposited": 1186.26,
-    "value": 1346.26
-   },
-   "tbc": {
-    "deposited": 380.36,
-    "value": 233.94
-   },
-   "galt": {
-    "deposited": 290,
-    "value": 313.22
-   }
-  }
- },
- {
-  "date": "2026-06-12",
-  "books": {
-   "galt": {
-    "deposited": 290,
-    "value": 318.4
-   }
-  }
- },
- {
-  "date": "2026-06-15",
-  "books": {
-   "galt": {
-    "deposited": 290,
-    "value": 354.25
-   }
-  }
- },
- {
-  "date": "2026-06-25",
-  "books": {
-   "bog": {
-    "deposited": 1410.63,
-    "value": 1677.08
-   },
-   "tbc": {
-    "deposited": 380.36,
-    "value": 192.72
-   },
-   "galt": {
-    "deposited": 78.63,
-    "value": 0
-   }
-  }
- }
+  { "date": "2026-05-08", "books": { "bog": { "deposited": 868.26, "value": 907.13 } } },
+  { "date": "2026-05-09", "books": { "bog": { "deposited": 907.76, "value": 945.2 } } },
+  { "date": "2026-05-11", "books": { "bog": { "deposited": 928.26, "value": 1104.15 }, "tbc": { "deposited": 268.75, "value": 277.05 } } },
+  { "date": "2026-05-21", "books": { "bog": { "deposited": 948.76, "value": 1138.2 }, "tbc": { "deposited": 380.36, "value": 339.78 } } },
+  { "date": "2026-05-22", "books": { "bog": { "deposited": 948.76, "value": 1162.32 }, "tbc": { "deposited": 380.36, "value": 334.69 } } },
+  { "date": "2026-05-27", "books": { "bog": { "deposited": 948.76, "value": 1202.62 }, "tbc": { "deposited": 380.36, "value": 315.73 } } },
+  { "date": "2026-05-29", "books": { "bog": { "deposited": 1133.76, "value": 1387.12 }, "galt": { "deposited": 290, "value": 290 } } },
+  { "date": "2026-06-11", "books": { "bog": { "deposited": 1186.26, "value": 1346.26 }, "tbc": { "deposited": 380.36, "value": 233.94 }, "galt": { "deposited": 290, "value": 313.22 } } },
+  { "date": "2026-06-12", "books": { "galt": { "deposited": 290, "value": 318.4 } } },
+  { "date": "2026-06-15", "books": { "galt": { "deposited": 290, "value": 354.25 } } },
+  { "date": "2026-06-25", "books": { "bog": { "deposited": 1410.63, "value": 1677.08 }, "tbc": { "deposited": 380.36, "value": 192.72 }, "galt": { "deposited": 78.63, "value": 0 } } },
+  { "date": "2026-06-29", "books": { "bog": { "deposited": 1555.56, "value": 1814.31 }, "tbc": { "deposited": 444.97, "value": 250.04 }, "galt": { "deposited": 78.63, "value": 0 } }, "note": "Issue 13 - BOG MNST top-up; TBC ARCC/MAIN dividend stocks added" }
 ]
