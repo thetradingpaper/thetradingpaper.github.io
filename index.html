@@ -423,7 +423,7 @@
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №12 · ვისბადენი</span>
+    <span>გამოცემა №13 · ვისბადენი</span>
   </div>
   <h1>mePortfolio</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
@@ -726,7 +726,7 @@
 </style>
 <script>
 (function(){
-  var issues=[{n:12,date:'25 Jun 2026'},{n:11,date:'25 Jun 2026'},{n:10,date:'15 Jun 2026'},{n:9,date:'12 Jun 2026'},{n:8,date:'11 Jun 2026'},{n:7,date:'29 May 2026'},{n:6,date:'27 May 2026'},{n:5,date:'22 May 2026'},{n:4,date:'21 May 2026'},{n:3,date:'11 May 2026'},{n:2,date:'9 May 2026'},{n:1,date:'Anchor · 2026'}];
+  var issues=[{n:13,date:'29 Jun 2026'},{n:12,date:'25 Jun 2026'},{n:11,date:'25 Jun 2026'},{n:10,date:'15 Jun 2026'},{n:9,date:'12 Jun 2026'},{n:8,date:'11 Jun 2026'},{n:7,date:'29 May 2026'},{n:6,date:'27 May 2026'},{n:5,date:'22 May 2026'},{n:4,date:'21 May 2026'},{n:3,date:'11 May 2026'},{n:2,date:'9 May 2026'},{n:1,date:'Anchor · 2026'}];
   var perPage=4, page=1, q='';
   var grid=document.getElementById('tp-arch'), pager=document.getElementById('tp-pager'), cnt=document.getElementById('tp-arch-count'), search=document.getElementById('tp-arch-search');
   function pad(n){return n<10?'0'+n:''+n;}
@@ -736,7 +736,7 @@
     var total=Math.max(1,Math.ceil(list.length/perPage));
     if(page>total)page=total;
     var start=(page-1)*perPage, items=list.slice(start,start+perPage);
-    grid.innerHTML=items.length?items.map(function(it){var latest=(it.n===12)?' latest':'';var f='pdfs/thetradingpaper'+it.n+'.pdf';return '<div class="tp-card'+latest+'"><div class="n">№'+pad(it.n)+'</div><div class="dt">'+it.date+'</div><a href="'+f+'" target="_blank" rel="noopener">ნახვა</a><a class="dl" href="'+f+'" download="thetradingpaper'+it.n+'.pdf">PDF</a></div>';}).join(''):'<div style="grid-column:1/-1;text-align:center;color:#6b6b6b;padding:18px;">ვერ მოიძებნა</div>';
+    grid.innerHTML=items.length?items.map(function(it){var latest=(it.n===13)?' latest':'';var f='pdfs/thetradingpaper'+it.n+'.pdf';return '<div class="tp-card'+latest+'"><div class="n">№'+pad(it.n)+'</div><div class="dt">'+it.date+'</div><a href="'+f+'" target="_blank" rel="noopener">ნახვა</a><a class="dl" href="'+f+'" download="thetradingpaper'+it.n+'.pdf">PDF</a></div>';}).join(''):'<div style="grid-column:1/-1;text-align:center;color:#6b6b6b;padding:18px;">ვერ მოიძებნა</div>';
     cnt.textContent=list.length+' გამოცემა';
     var ph='<button class="tp-pg" data-p="prev"'+(page<=1?' disabled':'')+'>←</button>';
     for(var i=1;i<=total;i++){ph+='<button class="tp-pg'+(i===page?' on':'')+'" data-p="'+i+'">'+i+'</button>';}
