@@ -6,7 +6,7 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
-// Last sync: Issue 10 · 2026-06-18 — GALT re-entry (6 MSTR @112.22); BOG ASX→SSRM rotation
+// Last sync: Issue 13 · 2026-06-29 — TBC ARCC/MAIN adds + MSTR top-up; BOG MNST top-up
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
@@ -26,46 +26,49 @@ const portfolios = {
       // Cached values from Issue 06 snapshot — live prices repaint these every 10s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 11.73, color: '#0f3057', divYield: 0.00 },
-{ ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 503.96, color: '#b91c1c', divYield: 0.26 },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 295.77, color: '#166534', divYield: 1.11 },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 9.99266799, avgBuy:  37.24, invested: 372.13, value: 415.79, color: '#8b6914', divYield: 1.52 },
-      { ticker: 'SSRM', name: 'SSR Mining Inc',                    shares: 3.40788323, avgBuy:  31.25, invested:  106.50, value:  98.39, color: '#0891b2', divYield: 0.00 },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 134.34, color: '#4b5563', divYield: 0.01 },
-      { ticker: 'MP',   name: 'MP Materials Corp',                 shares: 1.03896426, avgBuy:  64.97, invested:  67.50, value:  57.85, color: '#b5651d', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',                shares: 0.16056065, avgBuy: 314.52, invested:  50.50, value:  53.54, color: '#3d8c7a', divYield: 0.08 },
-      { ticker: 'WMT',  name: 'Walmart Inc',                       shares: 0.22569679, avgBuy: 117.41, invested:  26.50, value:  26.61, color: '#7a8c2a', divYield: 0.90 },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy:  38.68, invested:  65.13, value:  60.90, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'MNST', name: 'Monster Beverage Corporation',     shares: 0.19100633, avgBuy:  94.24, invested:  18.00, value:  18.20, color: '#65a30d', divYield: 0.00 },
+      { ticker: 'SMH', name: 'VanEck Semiconductors ETF', shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 503.96, color: '#b91c1c', divYield: 0.26 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 295.77, color: '#166534', divYield: 1.11 },
+      { ticker: 'ASX', name: 'ASE Industrial Holding', shares: 9.99266799, avgBuy: 37.24, invested: 372.13, value: 415.79, color: '#8b6914', divYield: 1.52 },
+      { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 3.40788323, avgBuy: 31.25, invested: 106.50, value: 98.39, color: '#0891b2', divYield: 0.00 },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy: 40.15, invested: 134.11, value: 134.34, color: '#4b5563', divYield: 0.01 },
+      { ticker: 'MP', name: 'MP Materials Corp', shares: 1.03896426, avgBuy: 64.97, invested: 67.50, value: 57.85, color: '#b5651d', divYield: 0.00 },
+      { ticker: 'VRT', name: 'Vertiv Holdings Co', shares: 0.16056065, avgBuy: 314.52, invested: 50.50, value: 53.54, color: '#3d8c7a', divYield: 0.08 },
+      { ticker: 'WMT', name: 'Walmart Inc', shares: 0.22569679, avgBuy: 117.41, invested: 26.50, value: 26.61, color: '#7a8c2a', divYield: 0.90 },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy: 38.68, invested: 65.13, value: 60.90, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'MNST', name: 'Monster Beverage Corporation', shares: 1.67377224, avgBuy: 97.04, invested: 162.43, value: 163.04, color: '#65a30d', divYield: 0.00 },
     ],
-    cash: 0.00,                       // $185 deposit fully deployed on 29 May 2026
+    cash: 0.00, // $185 deposit fully deployed on 29 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      { date: '2026-06-25', type: 'buy',      ticker: 'ASX',  shares: 3.63656193, price: 42.18, commission: 0.50 },
-      { date: '2026-06-25', type: 'buy',      ticker: 'SSRM', shares: 1.94075587, price: 29.37, commission: 0.50 },
-      { date: '2026-06-25', type: 'dividend', ticker: 'VRT',  amount: 0.01, note: '$0.0625/share' },
-      { date: '2026-06-24', type: 'deposit',  amount: 211.37, note: 'transfer in' },
-      { date: '2026-06-17', type: 'buy',    ticker: 'SSRM', shares: 1.46712736, price: 33.40,  commission: 0.50 },
-      { date: '2026-06-17', type: 'sell',   ticker: 'ASX',  shares: 1.30645860, price: 38.27,  commission: 0.50 },
-      { date: '2026-06-15', type: 'buy',    ticker: 'WQTM', shares: 1.00906981, price: 38.10,  commission: 0.50 },
-      { date: '2026-06-15', type: 'sell',   ticker: 'MSTR', shares: 0.29757007, price: 132.57, commission: 0.50 },
-      { date: '2026-06-12', type: 'buy',    ticker: 'SPCX', shares: 0.07576271, price: 164.99, commission: 0.50 },
-{ date: '2026-06-12', type: 'deposit', amount: 13.00 },
-{ date: '2026-06-11', type: 'buy',    ticker: 'MSTR', shares: 0.29757007, price: 114.2588, commission: 0.50 },
+      { date: '2026-06-29', type: 'deposit', amount: 144.93 },
+      { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 1.00000000, price: 97.41, commission: 0.50 },
+      { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 0.48276591, price: 97.40, commission: 0 },
+      { date: '2026-06-25', type: 'buy', ticker: 'ASX', shares: 3.63656193, price: 42.18, commission: 0.50 },
+      { date: '2026-06-25', type: 'buy', ticker: 'SSRM', shares: 1.94075587, price: 29.37, commission: 0.50 },
+      { date: '2026-06-25', type: 'dividend', ticker: 'VRT', amount: 0.01, note: '$0.0625/share' },
+      { date: '2026-06-24', type: 'deposit', amount: 211.37, note: 'transfer in' },
+      { date: '2026-06-17', type: 'buy', ticker: 'SSRM', shares: 1.46712736, price: 33.40, commission: 0.50 },
+      { date: '2026-06-17', type: 'sell', ticker: 'ASX', shares: 1.30645860, price: 38.27, commission: 0.50 },
+      { date: '2026-06-15', type: 'buy', ticker: 'WQTM', shares: 1.00906981, price: 38.10, commission: 0.50 },
+      { date: '2026-06-15', type: 'sell', ticker: 'MSTR', shares: 0.29757007, price: 132.57, commission: 0.50 },
+      { date: '2026-06-12', type: 'buy', ticker: 'SPCX', shares: 0.07576271, price: 164.99, commission: 0.50 },
+      { date: '2026-06-12', type: 'deposit', amount: 13.00 },
+      { date: '2026-06-11', type: 'buy', ticker: 'MSTR', shares: 0.29757007, price: 114.2588, commission: 0.50 },
       { date: '2026-06-11', type: 'deposit', amount: 34.50 },
-      { date: '2026-06-11', type: 'buy',     ticker: 'MNST', shares: 0.19100633, price: 91.62, commission: 0.50 },
+      { date: '2026-06-11', type: 'buy', ticker: 'MNST', shares: 0.19100633, price: 91.62, commission: 0.50 },
       { date: '2026-06-11', type: 'deposit', amount: 18.00 },
       { date: '2026-05-29', type: 'deposit', amount: 185.00 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'ASX',  shares: 1.04551656, price: 38.2585, commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'MP',   shares: 1.03896426, price: 64.49,   commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'VRT',  shares: 0.16056065, price: 311.41,  commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'WMT',  shares: 0.22569679, price: 115.20,  commission: 0.50 },
-      { date: '2026-05-22', type: 'buy',     ticker: 'WQTM', shares: 0.67472943, price: 38.06, commission: 0.50 },
-      { date: '2026-05-21', type: 'sell',    ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
-      { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
+      { date: '2026-05-29', type: 'buy', ticker: 'ASX', shares: 1.04551656, price: 38.2585, commission: 0.50 },
+      { date: '2026-05-29', type: 'buy', ticker: 'MP', shares: 1.03896426, price: 64.49, commission: 0.50 },
+      { date: '2026-05-29', type: 'buy', ticker: 'VRT', shares: 0.16056065, price: 311.41, commission: 0.50 },
+      { date: '2026-05-29', type: 'buy', ticker: 'WMT', shares: 0.22569679, price: 115.20, commission: 0.50 },
+      { date: '2026-05-22', type: 'buy', ticker: 'WQTM', shares: 0.67472943, price: 38.06, commission: 0.50 },
+      { date: '2026-05-21', type: 'sell', ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
+      { date: '2026-05-19', type: 'buy', ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
       { date: '2026-05-19', type: 'deposit', amount: 20.50 },
-      { date: '2026-05-19', type: 'buy',     ticker: 'ASX',  shares: 0.65530799, price: 30.5202, commission: 0.50 },
+      { date: '2026-05-19', type: 'buy', ticker: 'ASX', shares: 0.65530799, price: 30.5202, commission: 0.50 },
       { date: '2026-05-19', type: 'deposit', amount: 20.50 },
     ],
   },
@@ -80,13 +83,19 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 233.94, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.66320965, avgBuy: 163.33, invested: 434.97, value: 234.95, color: '#1a1a1a' },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 0.27151778, avgBuy: 18.42, invested: 5.00, value: 5.00, color: '#1d4ed8' },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.09765853, avgBuy: 51.20, invested: 5.00, value: 4.98, color: '#15803d' },
     ],
     cash: 0,
     transactions: [
-      { date: '2026-05-15', type: 'buy',     ticker: 'MSTR', shares: 0.63346818, price: 176.21, commission: 0 },
+      { date: '2026-06-29', type: 'deposit', amount: 64.61 },
+      { date: '2026-06-29', type: 'buy', ticker: 'MSTR', shares: 0.61581104, price: 88.68, commission: 0 },
+      { date: '2026-06-29', type: 'buy', ticker: 'ARCC', shares: 0.27151778, price: 18.42, commission: 0 },
+      { date: '2026-06-29', type: 'buy', ticker: 'MAIN', shares: 0.09765853, price: 51.20, commission: 0 },
+      { date: '2026-05-15', type: 'buy', ticker: 'MSTR', shares: 0.63346818, price: 176.21, commission: 0 },
       { date: '2026-05-15', type: 'deposit', amount: 111.61 },
-      { date: '2026-05-12', type: 'buy',     ticker: 'MSTR', shares: 1.41393043, price: 190.06, commission: 0 },
+      { date: '2026-05-12', type: 'buy', ticker: 'MSTR', shares: 1.41393043, price: 190.06, commission: 0 },
       { date: '2026-05-12', type: 'deposit', amount: 268.75 },
     ],
   },
@@ -100,9 +109,9 @@ const portfolios = {
     tagline: '2.5× margin · MSTR.CFD · შესრულდა $112.22 · 6 კონტრაქტი',
     startDate: '2026-05-29',
     annualGoalPct: null,
-    status: 'active',                 // OPEN: 6 MSTR.CFD @ $112.22 (filled 18 Jun 2026, Order No CF26M18500515)
+    status: 'active', // OPEN: 6 MSTR.CFD @ $112.22 (filled 18 Jun 2026, Order No CF26M18500515)
     // History: 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun, realized +$18.85) → account $307.91 flat
-    //          → re-entered 6 @112.22 (18 Jun).
+    // → re-entered 6 @112.22 (18 Jun).
     // CFD position: 6 contracts MSTR @ 112.22 = $673.32 gross.
     // Margin 40% = $269.33 own, borrowed $403.99, commission $10.
     // cash = free cash ($28.58) - borrowed ($403.99) = -375.41,
@@ -114,9 +123,9 @@ const portfolios = {
     priorDeposits: 0,
     priorCostBasis: 0,
     transactions: [
-      { date: '2026-06-18', type: 'buy',  ticker: 'MSTR', shares: 6, price: 112.22, commission: 10.00 },
+      { date: '2026-06-18', type: 'buy', ticker: 'MSTR', shares: 6, price: 112.22, commission: 10.00 },
       { date: '2026-06-17', type: 'sell', ticker: 'MSTR', shares: 5, price: 124.06, commission: 10.00 },
-      { date: '2026-06-10', type: 'buy',  ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
+      { date: '2026-06-10', type: 'buy', ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
       { date: '2026-05-29', type: 'deposit', amount: 290.00 },
     ],
     // FILLED ORDER — Order No CF26M18500515 · Galt & Taggart
@@ -124,17 +133,17 @@ const portfolios = {
       placed: '2026-06-18',
       filledAt: '2026-06-18',
       asset: 'MSTR.CFD',
-      side: 'buy',                    // long
+      side: 'buy', // long
       type: 'limit',
-      entry: 112.22,                  // re-entry after closing prior 5 @116.29 at $124.06
+      entry: 112.22, // re-entry after closing prior 5 @116.29 at $124.06
       contracts: 6,
       orderValue: 673.32,
-      marginPct: 40,                  // 40% initial margin = 2.5× leverage
+      marginPct: 40, // 40% initial margin = 2.5× leverage
       initialMargin: 269.33,
       borrowed: 403.99,
       commission: 10,
       balance: 307.91,
-      liquidation: 99.50,             // ≈ -11.3% buffer ratio (same leverage as prior trade)
+      liquidation: 99.50, // ≈ -11.3% buffer ratio (same leverage as prior trade)
       drawdownPct: -11.2,
       filled: true,
       thesis: 're-entry long after taking +$18.85 on the prior MSTR position',
@@ -146,7 +155,7 @@ const portfolios = {
       entry: 112.22,
       target: 460,
       horizonMonths: '5–7',
-      estMarginInterestPct: 12,       // estimated annual rate
+      estMarginInterestPct: 12, // estimated annual rate
       estCommissionPct: 0.5,
       nextPhase: 'short-side trading',
     },
@@ -173,24 +182,24 @@ function fmtDate(s) {
   return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-function txPaid(tx)     { return tx.shares * tx.price + (tx.commission || 0); }
+function txPaid(tx) { return tx.shares * tx.price + (tx.commission || 0); }
 function txReceived(tx) { return tx.shares * tx.price - (tx.commission || 0); }
 
 function aggregate(p) {
   let deposits = (p.priorDeposits || 0);
-  let bought   = (p.priorCostBasis || 0);
+  let bought = (p.priorCostBasis || 0);
   let sold = 0, fees = 0;
   for (const tx of p.transactions) {
     if (tx.type === 'deposit') deposits += tx.amount;
-    if (tx.type === 'buy')     { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
-    if (tx.type === 'sell')    { sold   += tx.shares * tx.price; fees += (tx.commission || 0); }
-    if (tx.type === 'fee')     fees += tx.amount;
+    if (tx.type === 'buy') { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
+    if (tx.type === 'sell') { sold += tx.shares * tx.price; fees += (tx.commission || 0); }
+    if (tx.type === 'fee') fees += tx.amount;
   }
   const currentValue = p.holdings.reduce((s,h) => s + h.value, 0) + p.cash;
-  const netInvested  = deposits;
-  const pnl          = currentValue - deposits;
-  const pnlPct       = deposits > 0 ? (pnl / deposits) * 100 : 0;
-  const hasHistory   = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
+  const netInvested = deposits;
+  const pnl = currentValue - deposits;
+  const pnlPct = deposits > 0 ? (pnl / deposits) * 100 : 0;
+  const hasHistory = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
   return { deposits, bought, sold, fees, currentValue, netInvested, pnl, pnlPct, hasHistory };
 }
 
@@ -202,42 +211,42 @@ function renderTx(tx) {
   const date = `<span class="tx-date">${fmtDate(tx.date)}</span>`;
 
   if (tx.type === 'deposit') return `<div class="tx tx-deposit">
-    ${date}
-    <span class="tx-badge badge-deposit">DEPOSIT</span>
-    <span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
-  </div>`;
+${date}
+<span class="tx-badge badge-deposit">DEPOSIT</span>
+<span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
+</div>`;
 
   if (tx.type === 'buy') return `<div class="tx tx-buy">
-    ${date}
-    <span class="tx-badge badge-buy">BUY</span>
-    <span class="tx-line">
-      <strong>${tx.ticker}</strong> ·
-      ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-      paid <strong>${fmtMoney(txPaid(tx))}</strong>
-    </span>
-  </div>`;
+${date}
+<span class="tx-badge badge-buy">BUY</span>
+<span class="tx-line">
+<strong>${tx.ticker}</strong> ·
+${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+paid <strong>${fmtMoney(txPaid(tx))}</strong>
+</span>
+</div>`;
 
   if (tx.type === 'sell') return `<div class="tx tx-sell">
-    ${date}
-    <span class="tx-badge badge-sell">SELL</span>
-    <span class="tx-line">
-      <strong>${tx.ticker}</strong> ·
-      ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-      received <strong>${fmtMoney(txReceived(tx))}</strong>
-    </span>
-  </div>`;
+${date}
+<span class="tx-badge badge-sell">SELL</span>
+<span class="tx-line">
+<strong>${tx.ticker}</strong> ·
+${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+received <strong>${fmtMoney(txReceived(tx))}</strong>
+</span>
+</div>`;
 
   if (tx.type === 'dividend') return `<div class="tx tx-deposit">
-    ${date}
-    <span class="tx-badge badge-deposit">DIVIDEND</span>
-    <span class="tx-line"><strong>${tx.ticker||''}</strong> &nbsp;+${fmtMoney(tx.amount)}${tx.note ? ` &middot; <span class="muted">${tx.note}</span>` : ''}</span>
-  </div>`;
+${date}
+<span class="tx-badge badge-deposit">DIVIDEND</span>
+<span class="tx-line"><strong>${tx.ticker||''}</strong> &nbsp;+${fmtMoney(tx.amount)}${tx.note ? ` &middot; <span class="muted">${tx.note}</span>` : ''}</span>
+</div>`;
 
   if (tx.type === 'fee') return `<div class="tx tx-fee">
-    ${date}
-    <span class="tx-badge badge-fee">FEE</span>
-    <span class="tx-line">−${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
-  </div>`;
+${date}
+<span class="tx-badge badge-fee">FEE</span>
+<span class="tx-line">−${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
+</div>`;
 
   return '';
 }
@@ -267,51 +276,51 @@ function renderStatBanner(containerId, portfolioKey) {
   const portYieldPct = a.currentValue > 0 ? (divGross / a.currentValue) * 100 : 0;
 
   const divCell = anyYield ? `
-        <div class="stat-cell">
-          <div class="stat-label">წლიური დივიდენდი (წმინდა)</div>
-          <div class="stat-val pos">${fmtMoney(divNet)}<span class="stat-sub">≈ ${portYieldPct.toFixed(2)}% / წელი · 30% GE გადასახადის შემდეგ</span></div>
-        </div>` : '';
+<div class="stat-cell">
+<div class="stat-label">წლიური დივიდენდი (წმინდა)</div>
+<div class="stat-val pos">${fmtMoney(divNet)}<span class="stat-sub">≈ ${portYieldPct.toFixed(2)}% / წელი · 30% GE გადასახადის შემდეგ</span></div>
+</div>` : '';
 
   let divReceived = 0;
   for (const tx of p.transactions) { if (tx.type === 'dividend') divReceived += (tx.amount || 0); }
   const recvCell = divReceived > 0 ? `
-        <div class="stat-cell">
-          <div class="stat-label">სულ მიღებული დივიდენდი <a href="dividends.html" style="text-decoration:none;color:#b91c1c;font-weight:800" title="დივიდენდების ისტორია">↗</a></div>
-          <div class="stat-val pos">${fmtMoney(divReceived)}<span class="stat-sub">წმინდა · მიღებული</span></div>
-        </div>` : '';
+<div class="stat-cell">
+<div class="stat-label">სულ მიღებული დივიდენდი <a href="dividends.html" style="text-decoration:none;color:#b91c1c;font-weight:800" title="დივიდენდების ისტორია">↗</a></div>
+<div class="stat-val pos">${fmtMoney(divReceived)}<span class="stat-sub">წმინდა · მიღებული</span></div>
+</div>` : '';
 
   const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
 
   el.innerHTML = `
-    <div class="stat-banner">
-      <div class="stat-banner-head">
-        <span class="stat-name">${p.name} · ${p.fullName.toUpperCase()}</span>
-        <span class="stat-tag">${p.tagline}</span>
-      </div>
-      <div class="${gridClass}">
-        <div class="stat-cell">
-          <div class="stat-label">სრული ჩარიცხული</div>
-          <div class="stat-val">${depStr}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">პორტფელის ღირებულება</div>
-          <div class="stat-val">${fmtMoney(a.currentValue)}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">წმინდა P/L</div>
-          <div class="stat-val ${pnlClass}">${pnlStr}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">უკუგება</div>
-          <div class="stat-val ${pnlClass}">${pctStr}</div>
-        </div>${divCell}${recvCell}
-      </div>
-      <div class="stat-foot">
-        <span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
-        <span class="live-dot">● LIVE</span>
-      </div>
-    </div>
-  `;
+<div class="stat-banner">
+<div class="stat-banner-head">
+<span class="stat-name">${p.name} · ${p.fullName.toUpperCase()}</span>
+<span class="stat-tag">${p.tagline}</span>
+</div>
+<div class="${gridClass}">
+<div class="stat-cell">
+<div class="stat-label">სრული ჩარიცხული</div>
+<div class="stat-val">${depStr}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">პორტფელის ღირებულება</div>
+<div class="stat-val">${fmtMoney(a.currentValue)}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">წმინდა P/L</div>
+<div class="stat-val ${pnlClass}">${pnlStr}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">უკუგება</div>
+<div class="stat-val ${pnlClass}">${pctStr}</div>
+</div>${divCell}${recvCell}
+</div>
+<div class="stat-foot">
+<span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
+<span class="live-dot">● LIVE</span>
+</div>
+</div>
+`;
 }
 
 function renderDonut(canvasId, portfolioKey) {
@@ -320,7 +329,7 @@ function renderDonut(canvasId, portfolioKey) {
   if (!canvas || typeof Chart === 'undefined') return;
 
   const labels = p.holdings.map(h => h.ticker);
-  const data   = p.holdings.map(h => h.value);
+  const data = p.holdings.map(h => h.value);
   const colors = p.holdings.map(h => h.color);
 
   if (p.cash > 0) {
@@ -344,7 +353,7 @@ function renderDonut(canvasId, portfolioKey) {
 
 function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   const p = portfolios[portfolioKey];
-  const list  = document.getElementById(listId);
+  const list = document.getElementById(listId);
   const pager = document.getElementById(pagerId);
   if (!list) return;
 
@@ -390,29 +399,29 @@ function renderHoldingsCards(containerId, portfolioKey) {
       ? +((price - h.previousClose) * h.shares).toFixed(2)
       : null;
 
-    const sess = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
-              : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
-              : '';
+    const sess = (h.liveSession === 'PRE') ? ` <span class="sess-badge pre">PRE</span>`
+      : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+      : '';
 
     const unrealClass = unreal >= 0 ? 'pos' : 'neg';
     const dayClass = (dayPct >= 0) ? 'pos' : 'neg';
 
     html += `
-      <div class="hcard">
-        <div class="hcard-head">
-          <span class="hcard-ticker">${h.ticker}</span>
-          <span class="hcard-name">${h.name.toUpperCase()}</span>
-        </div>
-        <table class="hcard-tbl">
-          <tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
-          <tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
-          <tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
-          <tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
-          <tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
-          <tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
-          ${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
-        </table>
-      </div>`;
+<div class="hcard">
+<div class="hcard-head">
+<span class="hcard-ticker">${h.ticker}</span>
+<span class="hcard-name">${h.name.toUpperCase()}</span>
+</div>
+<table class="hcard-tbl">
+<tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
+<tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
+<tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
+<tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
+<tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
+<tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
+${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
+</table>
+</div>`;
   }
   c.innerHTML = html;
 }
@@ -429,9 +438,9 @@ function renderHoldings(tableBodyId, portfolioKey) {
 
     let liveCell;
     if (h.livePrice) {
-      const sessBadge = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
-                     : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
-                     : '';
+      const sessBadge = (h.liveSession === 'PRE') ? ` <span class="sess-badge pre">PRE</span>`
+        : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+        : '';
       const chg = (h.dayChangePct !== undefined && h.dayChangePct !== null)
         ? `<div class="day-chg ${h.dayChangePct >= 0 ? 'pos' : 'neg'}">${h.dayChangePct >= 0 ? '+' : ''}${h.dayChangePct.toFixed(2)}%</div>`
         : '';
@@ -529,9 +538,9 @@ async function refreshLivePrices(portfolioKey) {
   for (let i = 0; i < p.holdings.length; i++) {
     const q = results[i];
     if (q && q.price) {
-      p.holdings[i].livePrice    = q.price;
-      p.holdings[i].liveSession  = q.session;
-      p.holdings[i].liveState    = q.state;
+      p.holdings[i].livePrice = q.price;
+      p.holdings[i].liveSession = q.session;
+      p.holdings[i].liveState = q.state;
       p.holdings[i].previousClose = q.previousClose;
       p.holdings[i].dayChangePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
       if (p.holdings[i].shares !== undefined && p.holdings[i].shares > 0) {
@@ -545,9 +554,9 @@ async function refreshLivePrices(portfolioKey) {
 
 async function refreshAndRender(portfolioKey, opts = {}) {
   const updated = await refreshLivePrices(portfolioKey);
-  if (opts.holdingsId)  renderHoldings(opts.holdingsId, portfolioKey);
-  if (opts.cardsId)     renderHoldingsCards(opts.cardsId, portfolioKey);
-  if (opts.bannerId)    renderStatBanner(opts.bannerId, portfolioKey);
+  if (opts.holdingsId) renderHoldings(opts.holdingsId, portfolioKey);
+  if (opts.cardsId) renderHoldingsCards(opts.cardsId, portfolioKey);
+  if (opts.bannerId) renderStatBanner(opts.bannerId, portfolioKey);
   if (opts.donutId && typeof Chart !== 'undefined') {
     const canvas = document.getElementById(opts.donutId);
     if (canvas) {
@@ -581,23 +590,23 @@ function renderSummary(containerId, portfolioKey) {
   const c = document.getElementById(containerId);
   if (!c) return;
   const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
-  const pnlSign  = a.pnl >= 0 ? '+' : '−';
+  const pnlSign = a.pnl >= 0 ? '+' : '−';
   const has = a.hasHistory;
 
   c.innerHTML = `
-    <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
-      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
-      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
-      <div class="summary-card big">
-        <div class="summary-label">მიმდინარე ღირებულება</div>
-        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
-        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
-      </div>
-    </div>
-  `;
+<div class="summary-grid">
+<div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
+<div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
+<div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
+<div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
+<div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
+<div class="summary-card big">
+<div class="summary-label">მიმდინარე ღირებულება</div>
+<div class="summary-value">${fmtMoney(a.currentValue)}</div>
+${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
+</div>
+</div>
+`;
 }
 
 function renderChart(canvasId, portfolioKey) {
