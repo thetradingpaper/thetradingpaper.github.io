@@ -1,0 +1,34 @@
+name: Daily portfolio snapshot
+
+# Records one dated point (deposited + live value per book) into
+# data/history.json after the US market closes, so the mountain
+# charts grow every day. Also runnable on demand from the Actions tab.
+on:
+  schedule:
+    - cron: '45 21 * * 1-5'   # 21:45 UTC, Mon-Fri (~1-2h after US close)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build snapshot
+        run: node scripts/snapshot.js
+      - name: Commit if changed
+        run: |
+          git config user.name "thetradingpaper-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history.json
+          if git diff --cached --quiet; then
+            echo "No change today."
+          else
+            git commit -m "Daily snapshot $(date -u +%F)"
+            git push
+          fi
