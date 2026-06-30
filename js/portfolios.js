@@ -347,25 +347,34 @@ async function fetchLiveQuote(ticker) {
   const nonce = Date.now() + '' + Math.floor(Math.random() * 1000);
   const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true&_=${nonce}`;
 
-  const timers = [], controllers = [];
-  let settled = false;
-  const cleanup = () => { settled = true; timers.forEach(clearTimeout); controllers.forEach(c => { try { c.abort(); } catch (e) {} }); };
-
-  const attempts = PRICE_PROXIES.map((mk, i) => new Promise((resolve, reject) => {
-    const start = setTimeout(() => {
-      if (settled) return reject(new Error('already settled'));
+  return new Promise(resolve => {
+    let idx = 0, pending = 0, settled = false;
+    const controllers = [];
+    const finish = v => {
+      if (settled) return;
+      settled = true;
+      controllers.forEach(c => { try { c.abort(); } catch (e) {} });
+      resolve(v);
+    };
+    const tryNext = () => {
+      if (settled) return;
+      if (idx >= PRICE_PROXIES.length) { if (pending === 0) finish(null); return; }
+      const mk = PRICE_PROXIES[idx++];
+      pending++;
       const ctrl = new AbortController(); controllers.push(ctrl);
-      const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS); timers.push(to);
+      const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS);
+      // Hedge: if this proxy is just SLOW (not failed), start the next one in
+      // parallel after a short gap so latency stays low. On an outright FAILURE
+      // we escalate immediately (in .catch) — no need to wait for the gap.
+      const hedge = setTimeout(() => { if (!settled) tryNext(); }, PROXY_STAGGER_MS);
       fetch(mk(target), { cache: 'no-store', signal: ctrl.signal })
-        .then(r => { clearTimeout(to); if (!r.ok) throw new Error('bad status ' + r.status); return r.json(); })
+        .then(r => { if (!r.ok) throw new Error('bad status ' + r.status); return r.json(); })
         .then(_parseYahooMeta)
-        .then(resolve, reject);
-    }, i * PROXY_STAGGER_MS);
-    timers.push(start);
-  }));
-
-  try { const q = await Promise.any(attempts); cleanup(); return q; }
-  catch (e) { cleanup(); return null; }
+        .then(q => { clearTimeout(to); clearTimeout(hedge); pending--; finish(q); })
+        .catch(() => { clearTimeout(to); clearTimeout(hedge); pending--; tryNext(); });
+    };
+    tryNext();
+  });
 }
 
 async function fetchLivePrice(ticker) {
