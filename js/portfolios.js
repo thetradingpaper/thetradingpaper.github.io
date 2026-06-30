@@ -331,15 +331,41 @@ function _parseYahooMeta(data) {
   return { price, session, state, regular: reg, pre, post, previousClose: prev };
 }
 
-// Race all proxies in parallel — fastest valid response wins (lowest latency, resilient to a dead proxy).
+// Hedged proxy race — fire the first proxy immediately, then stagger the rest
+// ~1.1s apart and take the first valid response. When a proxy answers quickly
+// (the common case) only ONE request is made; slow/dead proxies trigger the next
+// wave. This cuts request volume ~3× vs. blasting all proxies every time, which
+// is what lets us poll faster without re-flooding the public proxies.
+const PROXY_STAGGER_MS = 1100;   // gap before escalating to the next proxy
+const PROXY_TIMEOUT_MS = 7000;   // abort a single proxy attempt after this
+
 async function fetchLiveQuote(ticker) {
-  const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true`;
-  const attempts = PRICE_PROXIES.map(mk =>
-    fetch(mk(target), { cache: 'no-store' })
-      .then(r => { if (!r.ok) throw new Error('bad status'); return r.json(); })
-      .then(_parseYahooMeta)
-  );
-  try { return await Promise.any(attempts); } catch (e) { return null; }
+  // Cache-bust the *target* URL (not just the browser fetch): public proxies like
+  // allorigins/codetabs cache Yahoo responses server-side, so without a fresh
+  // nonce they hand back stale quotes even when we poll. This is the main reason
+  // prices looked "late". A unique _ param forces the proxy to refetch Yahoo.
+  const nonce = Date.now() + '' + Math.floor(Math.random() * 1000);
+  const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true&_=${nonce}`;
+
+  const timers = [], controllers = [];
+  let settled = false;
+  const cleanup = () => { settled = true; timers.forEach(clearTimeout); controllers.forEach(c => { try { c.abort(); } catch (e) {} }); };
+
+  const attempts = PRICE_PROXIES.map((mk, i) => new Promise((resolve, reject) => {
+    const start = setTimeout(() => {
+      if (settled) return reject(new Error('already settled'));
+      const ctrl = new AbortController(); controllers.push(ctrl);
+      const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS); timers.push(to);
+      fetch(mk(target), { cache: 'no-store', signal: ctrl.signal })
+        .then(r => { clearTimeout(to); if (!r.ok) throw new Error('bad status ' + r.status); return r.json(); })
+        .then(_parseYahooMeta)
+        .then(resolve, reject);
+    }, i * PROXY_STAGGER_MS);
+    timers.push(start);
+  }));
+
+  try { const q = await Promise.any(attempts); cleanup(); return q; }
+  catch (e) { cleanup(); return null; }
 }
 
 async function fetchLivePrice(ticker) {
