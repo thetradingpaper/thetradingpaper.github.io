@@ -318,7 +318,9 @@ function renderHoldings(tableBodyId, portfolioKey) {
 // Finnhub real-time quotes. Free tier = 60 calls/min, direct browser access (CORS).
 // Set the key here for ALL devices, OR per-browser via the editor (localStorage
 // 'tp_finnhub_key', which overrides this). Empty key → skip Finnhub, use Yahoo.
-const FINNHUB_KEY = '';
+// Public on purpose (Lasha's free personal key, authorized 2026-06-30). Free tier,
+// read-only quotes, 60 calls/min — low risk. Per-browser localStorage still overrides.
+const FINNHUB_KEY = 'd91t069r01qsj27o4k8gd91t069r01qsj27o4k90';
 function _finnhubKey() {
   try { const k = localStorage.getItem('tp_finnhub_key'); if (k && k.trim()) return k.trim(); } catch (e) {}
   return FINNHUB_KEY || '';
