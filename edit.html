@@ -65,6 +65,13 @@ table.ed-tbl tr.hit{background:rgba(185,28,28,.10);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .dirty-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-left:8px;opacity:0;transition:.2s;}
 .dirty-dot.on{opacity:1;}
+.ed-settings{border:1px solid var(--ed-line);border-radius:6px;background:var(--paper);margin-bottom:16px;}
+.ed-settings > summary{cursor:pointer;padding:10px 14px;font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;list-style:none;}
+.ed-settings > summary::-webkit-details-marker{display:none;}
+.ed-settings .rt-body{padding:0 14px 14px;border-top:1px solid var(--ed-line);}
+.ed-settings .rt-body .hint{margin:12px 0;}
+.rt-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.rt-row input{flex:1;min-width:200px;padding:8px 10px;border:1px solid var(--ed-line);border-radius:4px;background:var(--bg);color:var(--ink);font-family:ui-monospace,monospace;font-size:13px;}
 </style>
 </head>
 <body>
@@ -85,6 +92,23 @@ table.ed-tbl tr.hit{background:rgba(185,28,28,.10);}
     <button class="btn ghost sm" id="btn-reset" title="Reload from the live file, discard local draft">↺ Reset</button>
     <button class="btn sm" id="btn-export-jump">⤓ Export</button>
   </div>
+
+  <details class="ed-settings" id="rt-settings">
+    <summary>⚡ რეალ-თაიმ ფასები · Finnhub API key</summary>
+    <div class="rt-body">
+      <p class="hint">
+        უფასო real-time ფასებისთვის აიღე key აქ → <a href="https://finnhub.io/register" target="_blank" rel="noopener">finnhub.io/register</a>
+        (60 calls/min). ჩასვი ქვემოთ — ინახება <b>მხოლოდ ამ ბრაუზერში</b>. ცარიელი = Yahoo (default).
+      </p>
+      <div class="rt-row">
+        <input id="rt-key" type="text" placeholder="Finnhub API key…" autocomplete="off" spellcheck="false">
+        <button class="btn sm" id="rt-save">შენახვა</button>
+        <button class="btn ghost sm" id="rt-test">ტესტი (AAPL)</button>
+        <button class="btn ghost sm" id="rt-clear">წაშლა</button>
+      </div>
+      <div id="rt-status" class="hint" style="margin-top:8px;"></div>
+    </div>
+  </details>
 
   <div class="ed-tabs" id="tabs"></div>
 
@@ -374,6 +398,32 @@ table.ed-tbl tr.hit{background:rgba(185,28,28,.10);}
     }
   };
   $('#btn-export-jump').onclick=function(){ if(activeKey==='__bot'){ activeKey=BROKERS[0]; renderAll(); } var ex=$('#export-card'); if(ex){ ex.querySelector('#export-ta').value=buildFileText(); ex.scrollIntoView({behavior:'smooth'}); } else renderExport(); };
+
+  // ---------- Finnhub real-time key (per-browser, shared with portfolios.js via localStorage) ----------
+  var KEY_LS='tp_finnhub_key';
+  function rtStatus(msg,ok){ var s=$('#rt-status'); s.innerHTML=msg; s.style.color= ok===true?'var(--green,#166534)': ok===false?'var(--red)':'var(--muted)'; }
+  (function initKey(){
+    var k=''; try{ k=localStorage.getItem(KEY_LS)||''; }catch(e){}
+    $('#rt-key').value=k;
+    if(k){ $('#rt-settings').open=true; rtStatus('✓ key დაყენებულია — ფასები ახლა Finnhub-იდან მოდის (Yahoo = fallback).',true); }
+    else rtStatus('key არ არის — ფასები იტვირთება Yahoo-დან (default).');
+  })();
+  $('#rt-save').onclick=function(){
+    var k=$('#rt-key').value.trim();
+    try{ if(k) localStorage.setItem(KEY_LS,k); else localStorage.removeItem(KEY_LS); }catch(e){}
+    rtStatus(k?'✓ შენახულია. გახსენი მთავარი გვერდი — real-time ჩაირთვება.':'წაიშალა — დაბრუნდა Yahoo.', k?true:null);
+    toast(k?'key შენახულია':'key წაიშალა');
+  };
+  $('#rt-clear').onclick=function(){ $('#rt-key').value=''; try{ localStorage.removeItem(KEY_LS); }catch(e){} rtStatus('წაიშალა — დაბრუნდა Yahoo (default).'); toast('key წაიშალა'); };
+  $('#rt-test').onclick=function(){
+    var k=$('#rt-key').value.trim();
+    if(!k){ rtStatus('ჯერ ჩასვი key.',false); return; }
+    rtStatus('⏳ ვამოწმებ…');
+    fetch('https://finnhub.io/api/v1/quote?symbol=AAPL&token='+encodeURIComponent(k),{cache:'no-store'})
+      .then(function(r){ if(r.status===401) throw new Error('401 — key არასწორია'); if(r.status===429) throw new Error('429 — ლიმიტი ამოიწურა'); if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(function(d){ if(d&&d.c) rtStatus('✓ მუშაობს — AAPL = $'+d.c.toFixed(2)+'. დააჭირე „შენახვა".',true); else rtStatus('⚠ პასუხი ცარიელია (c=0).',false); })
+      .catch(function(e){ rtStatus('✗ '+e.message,false); });
+  };
 })();
 </script>
 </body>

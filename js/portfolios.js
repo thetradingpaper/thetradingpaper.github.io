@@ -309,8 +309,38 @@ function renderHoldings(tableBodyId, portfolioKey) {
 }
 
 // ============================================================
-// LIVE PRICE FETCHING — Yahoo Finance v8 chart API
+// LIVE PRICE FETCHING
+// Primary: Finnhub (real-time, direct CORS) when a key is set.
+// Fallback: Yahoo Finance v8 chart API via public CORS proxies.
+// Last resort: data/prices.json (committed by the snapshot Action).
 // ============================================================
+
+// Finnhub real-time quotes. Free tier = 60 calls/min, direct browser access (CORS).
+// Set the key here for ALL devices, OR per-browser via the editor (localStorage
+// 'tp_finnhub_key', which overrides this). Empty key → skip Finnhub, use Yahoo.
+const FINNHUB_KEY = '';
+function _finnhubKey() {
+  try { const k = localStorage.getItem('tp_finnhub_key'); if (k && k.trim()) return k.trim(); } catch (e) {}
+  return FINNHUB_KEY || '';
+}
+
+// Finnhub /quote → { c:current, d:change, dp:%chg, pc:prevClose, ... }. Direct fetch,
+// no proxy needed. Returns null on miss (unknown symbol → c:0) so we fall back to Yahoo.
+async function fetchFinnhubQuote(ticker) {
+  const key = _finnhubKey();
+  if (!key) return null;
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS);
+    const r = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(ticker)}&token=${encodeURIComponent(key)}`, { cache: 'no-store', signal: ctrl.signal });
+    clearTimeout(to);
+    if (!r.ok) return null;            // 401 bad key / 429 rate-limited → fall back to Yahoo
+    const d = await r.json();
+    if (!d || !d.c) return null;       // c===0 → Finnhub has no data for this symbol
+    return { price: d.c, session: 'REG', state: 'REGULAR', regular: d.c, previousClose: (d.pc || d.c) };
+  } catch (e) { return null; }
+}
+
 const PRICE_PROXIES = [
   u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
   u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
@@ -339,7 +369,14 @@ function _parseYahooMeta(data) {
 const PROXY_STAGGER_MS = 1100;   // gap before escalating to the next proxy
 const PROXY_TIMEOUT_MS = 7000;   // abort a single proxy attempt after this
 
+// Orchestrator: real-time Finnhub first (if a key is set), else the Yahoo proxy race.
 async function fetchLiveQuote(ticker) {
+  const fh = await fetchFinnhubQuote(ticker);
+  if (fh && fh.price) return fh;
+  return fetchYahooQuote(ticker);
+}
+
+async function fetchYahooQuote(ticker) {
   // Cache-bust the *target* URL (not just the browser fetch): public proxies like
   // allorigins/codetabs cache Yahoo responses server-side, so without a fresh
   // nonce they hand back stale quotes even when we poll. This is the main reason
