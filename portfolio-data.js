@@ -5,7 +5,7 @@
 // Last updated: 2026-06-29
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-06-29',
+  lastUpdated: '2026-06-30',
   feesPaid: 49.0,                       // running total of all commissions + taxes
   feesByBook: [
     { book: 'BOG', amount: 9.0, note: 'ისტორიის საკომისიოები' },
