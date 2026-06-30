@@ -128,3 +128,88 @@ button:active { transform: translateY(1px); }
   .masthead h1 { font-size: 40px; }
   .container { padding: 24px 18px; }
 }
+
+/* ==========================================================
+   THEME TOGGLE BUTTON
+   ========================================================== */
+#tp-theme-btn {
+  position: fixed; top: 14px; right: 16px; z-index: 50;
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--paper); color: var(--ink);
+  font-size: 18px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px -8px rgba(26,26,26,0.55);
+  transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+}
+#tp-theme-btn:hover { transform: translateY(-2px) rotate(-12deg); border-color: var(--red); color: var(--red); }
+#tp-theme-btn:active { transform: translateY(0); }
+
+/* ==========================================================
+   STICKY MINI-HEADER
+   ========================================================== */
+#tp-mini {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 70px 10px 22px;
+  background: rgba(255,253,247,0.88);
+  -webkit-backdrop-filter: blur(10px) saturate(1.25);
+  backdrop-filter: blur(10px) saturate(1.25);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 10px 30px -18px rgba(26,26,26,0.6);
+  transform: translateY(-105%);
+  transition: transform .35s cubic-bezier(.2,.7,.3,1);
+  font-family: 'Noto Sans Georgian', sans-serif;
+}
+#tp-mini.show { transform: translateY(0); }
+.tp-mini-brand { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 15px; letter-spacing: -0.3px; }
+.tp-mini-spacer { flex: 1; }
+.tp-mini-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.tp-mini-val { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-weight: 700; font-size: 16px; letter-spacing: -0.5px; }
+.tp-mini-pl { font-family: ui-monospace, monospace; font-weight: 700; font-size: 13px; padding: 2px 8px; border-radius: 6px; }
+.tp-mini-pl.pos { color: var(--green); background: rgba(22,101,52,0.10); }
+.tp-mini-pl.neg { color: var(--red);   background: rgba(185,28,28,0.10); }
+@media (max-width: 520px) {
+  #tp-mini { gap: 9px; padding: 8px 64px 8px 16px; }
+  .tp-mini-brand { font-size: 13px; }
+  .tp-mini-label { display: none; }
+}
+
+/* ==========================================================
+   DARK THEME
+   Swap the design tokens; override the few hard-coded surfaces.
+   ========================================================== */
+html[data-theme="dark"] {
+  --bg:     #14130f;
+  --paper:  #1d1b16;
+  --ink:    #ece7db;
+  --muted:  #a39c8c;
+  --rule:   #524c41;
+  --red:    #ef4444;
+  --green:  #22c55e;
+  --accent: #d8af4e;
+  --border: #36322a;
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(239,68,68,0.06), transparent 60%),
+    var(--bg);
+}
+/* surfaces that hard-code light colours */
+html[data-theme="dark"] .tp-card.latest { background: rgba(239,68,68,0.10); }
+html[data-theme="dark"] #tp-arch-search {
+  background: #1d1b16 !important; border-color: #36322a !important; color: #ece7db !important;
+}
+html[data-theme="dark"] #tp-arch-search::placeholder { color: #7d7666; }
+html[data-theme="dark"] #tp-pager .tp-pg { background: #1d1b16; color: #ece7db; border-color: #36322a; }
+html[data-theme="dark"] #tp-pager .tp-pg.on { background: var(--red); color: #fff; border-color: var(--red); }
+html[data-theme="dark"] #tp-mini { background: rgba(29,27,22,0.9); }
+/* password gate */
+html[data-theme="dark"] #tp-gate { background: #14130f !important; }
+html[data-theme="dark"] #tp-gate > div > div:first-child { color: #ece7db !important; }
+html[data-theme="dark"] #tp-gate input {
+  background: #1d1b16 !important; color: #ece7db !important; border-color: #36322a !important;
+}
+/* keep dashed hairlines visible on dark */
+html[data-theme="dark"] .hcard-tbl td { border-bottom-color: rgba(255,255,255,0.06); }
+html[data-theme="dark"] .alloc-legend td,
+html[data-theme="dark"] .th-legend td { border-bottom-color: rgba(255,255,255,0.06); }
