@@ -14,13 +14,20 @@ const ROOT = path.resolve(__dirname, '..');
 const HIST = path.join(ROOT, 'data', 'history.json');
 const PRICES = path.join(ROOT, 'data', 'prices.json');
 
-// ---- load portfolios.js (browser file) into a sandbox ----
+// ---- load portfolios data + helpers (browser files) into a sandbox ----
+// Data now lives in js/portfolios.data.js (window.PORTFOLIOS); js/portfolios.js
+// only reads it via `const portfolios = window.PORTFOLIOS`. So we must load the
+// data file first AND provide a `window` object, or portfolios ends up empty.
 function loadPortfolios() {
+  const ctx = { document: { getElementById: () => null }, console, fetch: () => {} };
+  ctx.window = ctx;        // window.PORTFOLIOS -> ctx.PORTFOLIOS
+  ctx.globalThis = ctx;    // globalThis.portfolios -> ctx.portfolios
+  vm.createContext(ctx);
+  // 1) data file: sets window.PORTFOLIOS
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'js', 'portfolios.data.js'), 'utf8'), ctx);
+  // 2) helpers file: `const portfolios = window.PORTFOLIOS` -> expose on globalThis
   let src = fs.readFileSync(path.join(ROOT, 'js', 'portfolios.js'), 'utf8');
   src = src.replace('const portfolios', 'globalThis.portfolios'); // expose
-  const ctx = { globalThis: {}, document: { getElementById: () => null }, console, fetch: () => {} };
-  ctx.globalThis = ctx;
-  vm.createContext(ctx);
   vm.runInContext(src, ctx);
   return ctx.portfolios;
 }

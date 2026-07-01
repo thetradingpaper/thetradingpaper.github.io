@@ -28,12 +28,17 @@ window.PORTFOLIOS = {
       { ticker: 'WMT', name: 'Walmart Inc', shares: 0.22569679, avgBuy: 117.41, invested: 26.50, value: 26.61, color: '#7a8c2a', divYield: 0.90 },
       { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy: 38.68, invested: 65.13, value: 60.90, color: '#2563eb', divYield: 0.00 },
       { ticker: 'MNST', name: 'Monster Beverage Corporation', shares: 1.67377224, avgBuy: 97.04, invested: 162.43, value: 163.04, color: '#65a30d', divYield: 0.00 },
+      { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 265.29, invested: 28.03, value: 28.03, color: '#9d174d', divYield: 0.00 },
     ],
     cash: 0.00, // $185 deposit fully deployed on 29 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-01', type: 'buy', ticker: 'CRDO', shares: 0.10565843, price: 265.29, commission: 0.50 },
+      { date: '2026-07-01', type: 'deposit', amount: 11.84 },
+      { date: '2026-07-01', type: 'deposit', amount: 16.09 },
+      { date: '2026-06-30', type: 'dividend', ticker: 'VOO', amount: 0.86, note: '$1.9622/share · 30% GE tax $0.26 → net $0.60' },
       { date: '2026-06-29', type: 'deposit', amount: 144.93 },
       { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 1.00000000, price: 97.41, commission: 0.50 },
       { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 0.48276591, price: 97.40, commission: 0 },

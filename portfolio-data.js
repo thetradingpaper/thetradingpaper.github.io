@@ -5,10 +5,10 @@
 // Last updated: 2026-06-29
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-06-30',
-  feesPaid: 49.0,                       // running total of all commissions + taxes
+  lastUpdated: '2026-07-01',
+  feesPaid: 49.76,                      // running total of all commissions + taxes
   feesByBook: [
-    { book: 'BOG', amount: 9.0, note: 'ისტორიის საკომისიოები' },
+    { book: 'BOG', amount: 9.76, note: 'ისტორიის საკომისიოები + CRDO $0.50 + VOO div tax $0.26' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 1.96,

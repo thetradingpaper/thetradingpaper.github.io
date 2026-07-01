@@ -44,21 +44,37 @@
       '<span class="tp-mini-spacer"></span>' +
       '<span class="tp-mini-label">სრული</span>' +
       '<span class="tp-mini-val" id="tp-mini-val">—</span>' +
+      '<span class="tp-mini-label">დღეს</span>' +
       '<span class="tp-mini-pl" id="tp-mini-pl">—</span>';
     document.body.appendChild(bar);
 
     var valOut = document.getElementById('tp-mini-val');
     var plOut = document.getElementById('tp-mini-pl');
 
+    function fmtDay(n) {
+      return (n < 0 ? '−$' : '+$') +
+        Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
     function sync() {
       var cells = document.querySelectorAll('#total-stats .c');
       if (cells.length < 4) return;
       var val = cells[1].querySelector('.v');   // მთლიანი პორტფელი
-      var pct = cells[3].querySelector('.v');   // უკუგება %
       if (val && valOut) valOut.textContent = val.textContent;
-      if (pct && plOut) {
-        plOut.textContent = pct.textContent;
-        plOut.className = 'tp-mini-pl ' + (pct.classList.contains('neg') ? 'neg' : 'pos');
+      // today's move (not all-time return) — computed in renderTotal()
+      if (!plOut) return;
+      var d = window.__tpDay;
+      if (d && d.ready) {
+        var pos = d.dollar >= 0;
+        plOut.textContent = fmtDay(d.dollar) + ' (' + (pos ? '+' : '−') + Math.abs(d.pct).toFixed(2) + '%)';
+        plOut.className = 'tp-mini-pl ' + (pos ? 'pos' : 'neg');
+      } else {
+        // day data not ready yet (e.g. before first live refresh) — fall back to all-time
+        var pct = cells[3].querySelector('.v');
+        if (pct) {
+          plOut.textContent = pct.textContent;
+          plOut.className = 'tp-mini-pl ' + (pct.classList.contains('neg') ? 'neg' : 'pos');
+        }
       }
     }
 

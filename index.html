@@ -1026,6 +1026,21 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: c => `${c.label}: ${fmtUSD(c.parsed)}` } } } }
       });
     }
+    // ----- today's move (day change) across all live holdings -----
+    // Sum (value − shares×previousClose) per holding; percent vs yesterday's value.
+    let dayDollar = 0, prevVal = 0;
+    for (const k of ['bog','tbc']){            // GALT is closed (value 0)
+      const p = portfolios[k]; if(!p) continue;
+      for (const h of p.holdings){
+        if (h.previousClose && h.shares !== undefined){
+          const prev = h.shares * h.previousClose;
+          prevVal += prev;
+          dayDollar += (h.value - prev);
+        }
+      }
+    }
+    const dayPct = prevVal > 0 ? (dayDollar / prevVal * 100) : 0;
+    window.__tpDay = { dollar: dayDollar, pct: dayPct, ready: prevVal > 0 };
     const stamp = document.getElementById('total-live-stamp');
     if (stamp){ const n=new Date(); stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`; }
   }
@@ -1061,5 +1076,5 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 })();
 </script>
 <script src="js/mountain-range.js"></script>
-<script src="js/enhance.js?v=20260629"></script></body>
+<script src="js/enhance.js?v=20260701"></script></body>
 </html>
