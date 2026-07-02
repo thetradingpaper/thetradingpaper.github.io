@@ -1,32 +1,32 @@
 {
-  "updated": "2026-07-02T16:19:11.086Z",
+  "updated": "2026-07-02T18:56:30.153Z",
   "quotes": {
     "ARCC": {
-      "price": 18.595,
+      "price": 18.656,
       "previousClose": 18.66
     },
     "ASX": {
-      "price": 42.26,
+      "price": 41.62,
       "previousClose": 42.99
     },
     "KOID": {
-      "price": 40.28,
+      "price": 40.05,
       "previousClose": 41.04
     },
     "MAIN": {
-      "price": 51.975,
+      "price": 52.015,
       "previousClose": 52.02
     },
     "MNST": {
-      "price": 98.11,
+      "price": 97.886,
       "previousClose": 97.35
     },
     "MP": {
-      "price": 54.89,
+      "price": 53.2,
       "previousClose": 54.28
     },
     "MSTR": {
-      "price": 98.745,
+      "price": 100.93,
       "previousClose": 93.39
     },
     "QBTS": {
@@ -34,39 +34,39 @@
       "previousClose": 22.76
     },
     "SMH": {
-      "price": 595.5,
+      "price": 588.06,
       "previousClose": 620.46
     },
     "SPCX": {
-      "price": 157.585,
+      "price": 158.975,
       "previousClose": 157.54
     },
     "SSRM": {
-      "price": 30.68,
+      "price": 30.39,
       "previousClose": 28.83
     },
     "VOO": {
-      "price": 684.02,
+      "price": 682.705,
       "previousClose": 685.46
     },
     "VRT": {
-      "price": 302.15,
+      "price": 303.43,
       "previousClose": 311.42
     },
     "WMT": {
-      "price": 111.64,
+      "price": 111.96,
       "previousClose": 108.82
     },
     "WQTM": {
-      "price": 35.8,
+      "price": 35.405,
       "previousClose": 36.81
     },
     "CRDO": {
-      "price": 242.16,
+      "price": 239.052,
       "previousClose": 259.09
     },
     "BXSL": {
-      "price": 23.75,
+      "price": 23.69,
       "previousClose": 23.85
     }
   }
