@@ -1,73 +1,73 @@
 {
-  "updated": "2026-07-01T22:51:05.072Z",
+  "updated": "2026-07-02T16:19:11.086Z",
   "quotes": {
     "ARCC": {
-      "price": 18.66,
-      "previousClose": 18.53
+      "price": 18.595,
+      "previousClose": 18.66
     },
     "ASX": {
-      "price": 42.99,
-      "previousClose": 45.12
+      "price": 42.26,
+      "previousClose": 42.99
     },
     "KOID": {
-      "price": 41.04,
-      "previousClose": 41.22
+      "price": 40.28,
+      "previousClose": 41.04
     },
     "MAIN": {
-      "price": 52.02,
-      "previousClose": 51.88
+      "price": 51.975,
+      "previousClose": 52.02
     },
     "MNST": {
-      "price": 97.35,
-      "previousClose": 96.12
+      "price": 98.11,
+      "previousClose": 97.35
     },
     "MP": {
-      "price": 54.28,
-      "previousClose": 56.01
+      "price": 54.89,
+      "previousClose": 54.28
     },
     "MSTR": {
-      "price": 93.39,
-      "previousClose": 86.93
+      "price": 98.745,
+      "previousClose": 93.39
     },
     "QBTS": {
       "price": 23.83,
       "previousClose": 22.76
     },
     "SMH": {
-      "price": 620.46,
-      "previousClose": 655.89
+      "price": 595.5,
+      "previousClose": 620.46
     },
     "SPCX": {
-      "price": 157.54,
-      "previousClose": 170.86
+      "price": 157.585,
+      "previousClose": 157.54
     },
     "SSRM": {
-      "price": 28.83,
-      "previousClose": 28.28
+      "price": 30.68,
+      "previousClose": 28.83
     },
     "VOO": {
-      "price": 685.46,
-      "previousClose": 686.81
+      "price": 684.02,
+      "previousClose": 685.46
     },
     "VRT": {
-      "price": 311.42,
-      "previousClose": 334.82
+      "price": 302.15,
+      "previousClose": 311.42
     },
     "WMT": {
-      "price": 108.82,
-      "previousClose": 113.26
+      "price": 111.64,
+      "previousClose": 108.82
     },
     "WQTM": {
-      "price": 36.81,
-      "previousClose": 37.81
+      "price": 35.8,
+      "previousClose": 36.81
     },
     "CRDO": {
-      "price": 259.09,
-      "previousClose": 271.95
+      "price": 242.16,
+      "previousClose": 259.09
     },
     "BXSL": {
-      "price": 23.85,
-      "previousClose": 23.71
+      "price": 23.75,
+      "previousClose": 23.85
     }
   }
 }
