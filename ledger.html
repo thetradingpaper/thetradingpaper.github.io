@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ყოველთვიური წიგნი · The Trading Paper</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  :root { --gold:#8b6914; }
+  .lg-wrap { max-width: 900px; margin: 0 auto; padding: 10px 18px 40px; }
+
+  .lg-hero { text-align:center; border:2px solid var(--rule); background:var(--paper);
+             padding:18px 14px; margin:16px 0 8px; }
+  .lg-hero .eyebrow { font-family:'Noto Sans Georgian',sans-serif; font-size:10px;
+             letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); }
+  .lg-hero .big { font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:50px;
+             line-height:1.05; color:var(--green); margin:2px 0; }
+  .lg-hero.over { border-color:var(--red); } .lg-hero.over .big { color:var(--red); }
+  .lg-hero .sub { font-size:13px; color:var(--muted); font-style:italic; }
+
+  .lg-bar { display:flex; height:22px; border:1px solid var(--rule); overflow:hidden; margin-top:14px; }
+  .lg-bar div { transition:width .35s ease; }
+  @media (prefers-reduced-motion:reduce){ .lg-bar div{ transition:none; } }
+  .lg-legend { display:flex; flex-wrap:wrap; gap:6px 16px; margin:8px 0 4px;
+               font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; }
+  .lg-legend i { width:11px; height:11px; display:inline-block; margin-right:6px; vertical-align:-1px; }
+
+  .lg-cols { display:flex; gap:28px; align-items:flex-start; margin-top:6px; }
+  @media (max-width:720px){ .lg-cols{ flex-direction:column; gap:0; } }
+  .lg-col { flex:1; min-width:0; width:100%; }
+
+  .lg-sect { margin:22px 0 12px; }
+  .lg-sect .n { font-family:ui-monospace,monospace; font-size:11px; color:var(--red); font-weight:700; margin-right:8px; }
+  .lg-sect h3 { display:inline; font-family:'Noto Serif Georgian',serif; font-size:17px; }
+  .lg-sect .note { font-style:italic; font-size:12.5px; color:var(--muted); margin-top:3px; }
+  .lg-sect hr { border:none; border-top:1px solid var(--border); margin-top:8px; }
+
+  .lg-field { margin-bottom:13px; }
+  .lg-field label { font-size:14px; font-weight:600; }
+  .lg-field .hint { float:right; font-family:ui-monospace,monospace; font-size:10.5px; color:var(--muted); }
+  .lg-in { display:flex; align-items:stretch; margin-top:5px; border:1px solid var(--border); background:#fbfaf5; }
+  .lg-in button { width:38px; border:none; background:transparent; color:var(--ink);
+                  font-size:20px; cursor:pointer; line-height:1; font-family:'Noto Serif Georgian',serif; }
+  .lg-in .box { flex:1; display:flex; align-items:center; padding:0 8px;
+                border-left:1px solid var(--border); border-right:1px solid var(--border); }
+  .lg-in .box span { font-family:ui-monospace,monospace; color:var(--muted); font-size:14px; }
+  .lg-in input { width:100%; border:none; outline:none; background:transparent;
+                 font-family:ui-monospace,monospace; font-size:16px; color:var(--ink);
+                 padding:9px 4px; text-align:right; -moz-appearance:textfield; }
+  .lg-in input::-webkit-inner-spin-button,.lg-in input::-webkit-outer-spin-button{ -webkit-appearance:none; margin:0; }
+  .lg-in input:focus { outline:2px solid var(--red); outline-offset:-2px; }
+
+  .lg-line { display:flex; justify-content:space-between; align-items:baseline;
+             padding:7px 0; border-bottom:1px dotted var(--border); font-size:14px; }
+  .lg-line b { font-family:ui-monospace,monospace; font-size:15px; font-weight:600; }
+  .lg-subtotal { display:flex; justify-content:space-between; padding:5px 0 9px; }
+  .lg-subtotal em { font-size:12.5px; color:var(--muted); }
+  .lg-subtotal b { font-family:ui-monospace,monospace; font-size:14px; }
+
+  .lg-total { display:flex; justify-content:space-between; align-items:baseline; margin-top:12px;
+              padding:12px; background:#eef3ef; border:1.5px solid var(--green); }
+  .lg-total.over { background:#fbebeb; border-color:var(--red); }
+  .lg-total b { font-family:ui-monospace,monospace; font-size:20px; font-weight:700; color:var(--green); }
+  .lg-total.over b { color:var(--red); }
+
+  .lg-rule-box { margin-top:16px; padding:14px; border:1px solid var(--border); background:#fbfaf5; }
+  .lg-rule-box .t { font-weight:700; font-size:13.5px; color:var(--red); margin-bottom:6px; }
+  .lg-rule-box p { font-size:13.5px; line-height:1.55; }
+
+  .lg-notes textarea { width:100%; min-height:140px; padding:12px; border:1px solid var(--border);
+                       background:#fbfaf5; font-family:'Noto Serif Georgian',serif; font-size:14px;
+                       line-height:1.6; resize:vertical; }
+  .lg-notes textarea:focus { outline:2px solid var(--red); outline-offset:-2px; }
+  .lg-saved { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; color:var(--muted);
+              letter-spacing:1px; text-transform:uppercase; margin-top:6px; min-height:14px; }
+
+  .lg-foot { text-align:center; font-style:italic; font-size:11.5px; color:var(--muted);
+             border-top:1px solid var(--rule); margin-top:26px; padding-top:8px; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span><a href="index.html" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">← ჩემი კაბინეტი</a></span>
+  </div>
+  <h1>ყოველთვიური წიგნი</h1>
+  <p class="tagline">ბიუჯეტი · ხელფასი · ცხოვრება</p>
+</header>
+
+<main class="lg-wrap">
+
+  <div class="lg-hero" id="hero">
+    <div class="eyebrow" id="hero-label">თავისუფალი დასახარჯი</div>
+    <div class="big" id="hero-num">€0</div>
+    <div class="sub">თვეში · ცხოვრება და მომავალი უკვე გადახდილია</div>
+    <div class="lg-bar" id="bar" aria-hidden="true"></div>
+    <div class="lg-legend" id="legend"></div>
+  </div>
+
+  <div class="lg-cols">
+    <div class="lg-col">
+      <div class="lg-field">
+        <label>თვიური შემოსავალი</label>
+        <div class="lg-in" data-key="income" data-step="50"></div>
+      </div>
+
+      <div class="lg-sect"><span class="n">I</span><h3>ფიქსირებული ხარჯები</h3>
+        <div class="note">სახურავი და საბაზისო — ყოველთვე ერთი და იგივე</div><hr></div>
+      <div class="lg-field"><label>ქირა (თბილი)</label><div class="lg-in" data-key="rent" data-step="25"></div></div>
+      <div class="lg-field"><label>საკვები</label><div class="lg-in" data-key="groceries" data-step="25"></div></div>
+      <div class="lg-field"><label>ტელეფონი + ინტერნეტი</label><div class="lg-in" data-key="phone" data-step="5"></div></div>
+      <div class="lg-field"><label>დენი</label><div class="lg-in" data-key="power" data-step="5"></div></div>
+      <div class="lg-field"><label>Rundfunkbeitrag</label><div class="lg-in" data-key="rundfunk" data-step="1"></div></div>
+      <div class="lg-field"><label>Deutschlandticket</label><div class="lg-in" data-key="ticket" data-step="1"></div></div>
+
+      <div class="lg-sect"><span class="n">II</span><h3>მომავალი</h3>
+        <div class="note">ხელფასის დღეს — პირველ რიგში, ავტომატურად</div><hr></div>
+      <div class="lg-field"><label>ინვესტიცია (DCA)</label><div class="lg-in" data-key="invest" data-step="25"></div></div>
+      <div class="lg-field"><label>ბუფერი</label><div class="lg-in" data-key="buffer" data-step="25"></div></div>
+
+      <div class="lg-sect"><span class="n">III</span><h3>ჩემი ცხოვრება</h3>
+        <div class="note">ის, რისთვისაც ღირს</div><hr></div>
+      <div class="lg-field"><label>საბრძოლო კლუბი (MMA)</label><div class="lg-in" data-key="mma" data-step="5"></div></div>
+      <div class="lg-field"><label>დარბაზი</label><div class="lg-in" data-key="gym" data-step="5"></div></div>
+      <div class="lg-field"><label>წიგნები / სწავლა</label><div class="lg-in" data-key="books" data-step="5"></div></div>
+      <div class="lg-field"><label>გასვლები ბუნებაში</label><div class="lg-in" data-key="trips" data-step="5"></div></div>
+    </div>
+
+    <div class="lg-col">
+      <div class="lg-sect"><span class="n">§</span><h3>შედეგი</h3>
+        <div class="note">შემოსავალი — ზემოდან ქვემოთ</div><hr></div>
+
+      <div class="lg-line"><span>შემოსავალი</span><b id="r-inc">€0</b></div>
+      <div class="lg-line"><span>− ფიქსირებული ხარჯები</span><b id="r-ess" style="color:#3a3630;">−€0</b></div>
+      <div class="lg-subtotal"><em>ფიქსირებულის შემდეგ</em><b id="r-after-ess">€0</b></div>
+      <div class="lg-line"><span>− მომავალი</span><b id="r-fut" style="color:var(--green);">−€0</b></div>
+      <div class="lg-subtotal"><em>საცხოვრებლად დარჩა</em><b id="r-after-fut">€0</b></div>
+      <div class="lg-line"><span>− ჩემი ცხოვრება</span><b id="r-life" style="color:var(--red);">−€0</b></div>
+
+      <div class="lg-total" id="total-box">
+        <span style="font-weight:700;font-size:15px;">= თავისუფალი დასახარჯი</span>
+        <b id="r-free">€0</b>
+      </div>
+
+      <div class="lg-rule-box">
+        <div class="t">ერთი წესი</div>
+        <p>ხელფასის დღეს ჯერ მომავალი გადაირიცხოს — ინვესტიცია და ბუფერი, ავტომატურად. რაც ანგარიშზე დარჩება, მთლიანად შენია.</p>
+      </div>
+
+      <div class="lg-sect"><span class="n">✎</span><h3>თვის ანალიზი · ჩანაწერები</h3><hr></div>
+      <div class="lg-notes">
+        <textarea id="notes" placeholder="ჩაწერე აქ თვის შენიშვნები…"></textarea>
+        <div class="lg-saved" id="notes-saved"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lg-foot">© The Trading Paper · ვისბადენი · ეს არ არის ფინანსური რჩევა</div>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var DEFAULTS = { income:1765, rent:550, groceries:300, phone:35, power:40,
+                   rundfunk:18, ticket:58, invest:200, buffer:200,
+                   mma:70, gym:30, books:40, trips:30 };
+  var state = {};
+  try { state = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem("tp_ledger")||"{}")); }
+  catch(e){ state = Object.assign({}, DEFAULTS); }
+
+  function save(){ try{ localStorage.setItem("tp_ledger", JSON.stringify(state)); }catch(e){} }
+  function fmt(n){ return "€" + Math.round(n).toLocaleString("de-DE"); }
+  function v(k){ return Number(state[k]) || 0; }
+
+  // Build inputs
+  document.querySelectorAll(".lg-in").forEach(function(el){
+    var key = el.dataset.key, step = Number(el.dataset.step)||10;
+    el.innerHTML = '<button type="button" aria-label="−">−</button>' +
+      '<div class="box"><span>€</span><input type="number" inputmode="decimal"></div>' +
+      '<button type="button" aria-label="+">+</button>';
+    var btns = el.querySelectorAll("button"), inp = el.querySelector("input");
+    inp.value = state[key];
+    btns[0].addEventListener("click", function(){ state[key] = Math.max(0, v(key)-step); inp.value = state[key]; recalc(); });
+    btns[1].addEventListener("click", function(){ state[key] = v(key)+step; inp.value = state[key]; recalc(); });
+    inp.addEventListener("input", function(){ state[key] = inp.value===""? 0 : Number(inp.value); recalc(); });
+  });
+
+  var SEGS = [
+    { keys:["rent","groceries","phone","power","rundfunk","ticket"], color:"#3a3630", ka:"ფიქსირებული" },
+    { keys:["invest","buffer"], color:"#166534", ka:"მომავალი" },
+    { keys:["mma","gym","books","trips"], color:"#b91c1c", ka:"ცხოვრება" },
+    { keys:null, color:"#8b6914", ka:"თავისუფალი" }
+  ];
+
+  function recalc(){
+    var inc = v("income");
+    var sums = SEGS.slice(0,3).map(function(s){
+      return s.keys.reduce(function(a,k){ return a+v(k); },0);
+    });
+    var free = inc - sums[0] - sums[1] - sums[2];
+    var over = free < 0;
+
+    document.getElementById("r-inc").textContent = fmt(inc);
+    document.getElementById("r-ess").textContent = "−"+fmt(sums[0]);
+    document.getElementById("r-after-ess").textContent = fmt(inc-sums[0]);
+    document.getElementById("r-fut").textContent = "−"+fmt(sums[1]);
+    document.getElementById("r-after-fut").textContent = fmt(inc-sums[0]-sums[1]);
+    document.getElementById("r-life").textContent = "−"+fmt(sums[2]);
+    document.getElementById("r-free").textContent = fmt(free);
+    document.getElementById("hero-num").textContent = fmt(free);
+    document.getElementById("hero-num").style.color = over ? "var(--red)" : "var(--green)";
+    document.getElementById("hero-label").textContent = over ? "ბიუჯეტს გადააჭარბე — შეამცირე" : "თავისუფალი დასახარჯი";
+    document.getElementById("hero").classList.toggle("over", over);
+    document.getElementById("total-box").classList.toggle("over", over);
+
+    var vals = sums.concat([Math.max(0,free)]);
+    var bar = document.getElementById("bar"), leg = document.getElementById("legend");
+    bar.innerHTML = ""; leg.innerHTML = "";
+    SEGS.forEach(function(s,i){
+      var pct = inc>0 ? Math.max(0, vals[i]/inc*100) : 0;
+      var d = document.createElement("div");
+      d.style.width = pct+"%"; d.style.background = s.color;
+      bar.appendChild(d);
+      var l = document.createElement("span");
+      l.innerHTML = '<i style="background:'+s.color+'"></i>'+s.ka+" "+Math.round(pct)+"%";
+      leg.appendChild(l);
+    });
+    save();
+  }
+
+  // Notes (autosave)
+  var notes = document.getElementById("notes"), savedEl = document.getElementById("notes-saved"), t=null;
+  try { notes.value = localStorage.getItem("tp_ledger_notes") || ""; } catch(e){}
+  notes.addEventListener("input", function(){
+    clearTimeout(t);
+    t = setTimeout(function(){
+      try{ localStorage.setItem("tp_ledger_notes", notes.value); }catch(e){}
+      savedEl.textContent = "შენახულია";
+      setTimeout(function(){ savedEl.textContent=""; }, 1500);
+    }, 500);
+  });
+
+  // Date in top bar
+  var d = new Date();
+  var el = document.getElementById("today-date");
+  if (el) el.textContent = d.toLocaleDateString("ka-GE", { day:"numeric", month:"long", year:"numeric" });
+
+  recalc();
+})();
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

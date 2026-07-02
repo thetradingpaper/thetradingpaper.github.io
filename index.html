@@ -432,22 +432,13 @@
 <style>.tp-archwrap{margin-top:4px;}.tp-arch{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}@media(max-width:900px){.tp-arch{grid-template-columns:repeat(3,1fr);}}@media(max-width:560px){.tp-arch{grid-template-columns:repeat(2,1fr);}}.tp-card{background:var(--paper);border:1px solid var(--border);padding:15px 10px;text-align:center;font-family:'Noto Sans Georgian',sans-serif;}.tp-card.latest{border:2px solid var(--red);background:#fff8f4;}.tp-card .n{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:25px;color:var(--ink);line-height:1;}.tp-card .dt{font-size:9.5px;color:var(--muted);font-style:italic;margin:5px 0 9px;}.tp-card a{display:inline-block;font-size:9px;letter-spacing:1px;padding:5px 8px;border:1px solid var(--border);color:var(--ink);text-decoration:none;text-transform:uppercase;margin:2px;}.tp-card a.dl{color:var(--red);border-color:var(--red);font-weight:700;}</style>
 </head>
 <body>
-<div id="tp-gate" style="position:fixed;inset:0;z-index:99999;background:#f4f1ea;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif Georgian',serif;">
-  <div style="text-align:center;max-width:320px;padding:30px;">
-    <div style="font-weight:900;font-size:30px;color:#1a1a1a;margin-bottom:4px;">The Trading Paper</div>
-    <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#b91c1c;margin-bottom:22px;font-family:sans-serif;">Private · შეიყვანე კოდი</div>
-    <input id="tp-code" type="text" inputmode="numeric" autocomplete="off" placeholder="კოდი" style="width:150px;text-align:center;font-size:22px;letter-spacing:6px;padding:10px;border:1px solid #ccc;background:#fff;font-family:ui-monospace,monospace;">
-    <div id="tp-err" style="height:16px;color:#b91c1c;font-size:11px;margin-top:8px;font-family:sans-serif;"></div>
-    <button id="tp-go" style="margin-top:8px;padding:9px 28px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;">შესვლა</button>
-  </div>
-</div>
 
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №13 · ვისბადენი &nbsp;·&nbsp; <a href="edit.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">✎ რედაქტირება</a></span>
+    <span>გამოცემა №13 · ვისბადენი &nbsp;·&nbsp; <a href="ledger.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a> <a href="edit.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">✎ რედაქტირება</a> <a href="/tp-logout" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a></span>
   </div>
-  <h1>mePortfolio</h1>
+  <h1>ჩემი კაბინეტი</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
   </header>
 
@@ -1062,19 +1053,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 </script>
 
 
-<script>
-(function(){
-  var g=document.getElementById('tp-gate'),i=document.getElementById('tp-code'),b=document.getElementById('tp-go'),e=document.getElementById('tp-err');
-  if(!g)return;try{if(localStorage.getItem('tp_ok')==='1'){g.style.display='none';document.documentElement.style.overflow='';return;}}catch(_e){}
-  document.documentElement.style.overflow='hidden';
-  function u(){ if((i.value||'').trim()==='111'){ try{localStorage.setItem('tp_ok','1');}catch(_e){}g.style.display='none'; document.documentElement.style.overflow=''; } else { e.textContent='არასწორი კოდი'; i.value=''; i.focus(); } }
-  b.addEventListener('click',u);
-  i.addEventListener('input',function(){if((i.value||'').trim()==='111')u();});
-  i.addEventListener('focus',function(){if((i.value||'')!==''&&(i.value||'').trim()!=='111')i.value='';});
-  i.addEventListener('keydown',function(ev){ if(ev.key==='Enter'){ev.preventDefault();u();} });
-  setTimeout(function(){i.focus();},50);
-})();
-</script>
 <script src="js/mountain-range.js"></script>
-<script src="js/enhance.js?v=20260701"></script></body>
+<script src="js/enhance.js?v=20260701"></script>
+<script src="js/i18n.js?v=1"></script></body>
 </html>
