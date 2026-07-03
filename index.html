@@ -436,10 +436,15 @@
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №13 · ვისბადენი &nbsp;·&nbsp; <a href="ledger.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a> <a href="edit.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">✎ რედაქტირება</a> <a href="/tp-logout" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a></span>
+    <span>გამოცემა №13 · ვისბადენი &nbsp;·&nbsp; <a href="meportfolio/" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;font-weight:700;">ბაზარი</a> <a href="ledger.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a> <a href="edit.html" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">✎ რედაქტირება</a> <a href="/tp-logout" class="no-print" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a></span>
   </div>
-  <h1>ჩემი კაბინეტი</h1>
-  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <div class="mast-row" style="display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:8px 0 2px;">
+    <div style="text-align:left;">
+      <h1 style="font-size:34px;margin:0;line-height:1.05;">ჩემი კაბინეტი</h1>
+      <p class="tagline" style="margin:3px 0 0;font-size:11px;">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+    </div>
+    <div id="tp-clocks" class="no-print"></div>
+  </div>
   </header>
 
 <main class="container">
@@ -509,7 +514,7 @@
   <!-- BOOK ONE · DOGMA (BOG)                                       -->
   <!-- ============================================================ -->
 
-  <div class="book-header">
+  <div class="book-header" id="book-bog">
     <div class="book-title">
       <span><span class="book-dot"></span>წიგნი პირველი · <em style="font-weight:400;font-style:italic;color:var(--muted)">Dogma</em></span>
     </div>
@@ -615,7 +620,7 @@
 
   <hr class="book-divider">
 
-  <div class="book-header">
+  <div class="book-header" id="book-tbc">
     <div class="book-title">
       <span><span class="book-dot" style="background:var(--ink)"></span>წიგნი მეორე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Active</em></span>
     </div>
@@ -693,7 +698,7 @@
 
   <hr class="book-divider">
 
-  <div class="book-header">
+  <div class="book-header" id="book-galt">
     <div class="book-title">
       <span><span class="book-dot" style="background:#8b6914"></span>წიგნი მესამე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Leverage</em></span>
     </div>
@@ -1055,5 +1060,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 
 <script src="js/mountain-range.js"></script>
 <script src="js/enhance.js?v=20260701"></script>
-<script src="js/i18n.js?v=1"></script></body>
+<script src="js/i18n.js?v=1"></script>
+<script src="js/clocks.js?v=1"></script></body>
 </html>
