@@ -38,7 +38,7 @@ window.PORTFOLIOS = {
       { date: '2026-07-01', type: 'buy', ticker: 'CRDO', shares: 0.10565843, price: 265.29, commission: 0.50 },
       { date: '2026-07-01', type: 'deposit', amount: 11.84 },
       { date: '2026-07-01', type: 'deposit', amount: 16.09 },
-      { date: '2026-06-30', type: 'dividend', ticker: 'VOO', amount: 0.86, note: '$1.9622/share · 30% GE tax $0.26 → net $0.60' },
+      { date: '2026-06-30', type: 'dividend', ticker: 'VOO', amount: 0.60, note: '$1.9622/share · მთლიანი $0.86 − 30% GE tax $0.26 = წმინდა $0.60' },
       { date: '2026-06-29', type: 'deposit', amount: 144.93 },
       { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 1.00000000, price: 97.41, commission: 0.50 },
       { date: '2026-06-29', type: 'buy', ticker: 'MNST', shares: 0.48276591, price: 97.40, commission: 0 },
