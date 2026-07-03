@@ -1,11 +1,18 @@
 // ============================================================
 // The Trading Paper — Shared Masthead (logo + clocks + nav)
 // One source of truth for the header on every page.
+// v2: GUEST MODE — set  window.TP_GUEST = true  BEFORE this
+// script (public.html does it). Guests get შესვლა/გამოწერა
+// buttons in the top bar and nav clicks open the login popup
+// (event: 'tp-open-login').
+// v3: ჩემი კაბინეტი now has a dropdown (goals / notes / watchlist).
 // Include AFTER page content, BEFORE js/clocks.js:
 //   <script src="/js/masthead.js"></script>
 //   <script src="/js/clocks.js"></script>
 // ============================================================
 (function () {
+  var GUEST = !!window.TP_GUEST;
+
   var PAGES = [
     { href: '/meportfolio/',   label: 'ბაზარი',        re: /^\/meportfolio/ },
     { href: '/',               label: 'ჩემი კაბინეტი', re: /^\/(index\.html)?$/,
@@ -19,7 +26,7 @@
     { href: '/edit.html',      label: 'რედაქტირება',   re: /^\/edit/ }
   ];
   var path = location.pathname;
-  var isCabinet = /^\/(index\.html)?$/.test(path);
+  var isCabinet = !GUEST && /^\/(index\.html)?$/.test(path);
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
@@ -29,6 +36,10 @@
     +   'border-bottom:1px solid var(--border,#d9d4c8);padding:9px 4px;}'
     + '.tpm-top a{text-decoration:none;border:1px solid var(--rule,#1a1a1a);padding:1px 8px;border-radius:3px;font-size:11px;color:inherit;}'
     + '.tpm-top a.tpm-out{color:#b91c1c;}'
+    + '.tpm-top a.tpm-in{color:var(--paper,#fffdf7);background:#1a1a1a;border-color:#1a1a1a;letter-spacing:2px;}'
+    + '.tpm-top a.tpm-in:hover{background:#b91c1c;border-color:#b91c1c;}'
+    + '.tpm-top a.tpm-sub{color:#b91c1c;border-color:#b91c1c;letter-spacing:2px;}'
+    + '.tpm-top a.tpm-sub:hover{background:#b91c1c;color:var(--paper,#fffdf7);}'
     + '.tpm-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:12px 4px 8px;}'
     + '.tpm-brand h1{font-family:"Noto Serif Georgian",serif;font-weight:900;font-size:34px;margin:0;line-height:1.05;'
     +   'letter-spacing:-0.5px;color:var(--ink,#1a1a1a);}'
@@ -40,6 +51,7 @@
     + 'nav.tpm-nav a{color:var(--ink,#1a1a1a);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent;}'
     + 'nav.tpm-nav a:hover{border-bottom-color:var(--muted,#6b6b6b);}'
     + 'nav.tpm-nav a.active{border-bottom-color:#b91c1c;font-weight:700;}'
+    + 'nav.tpm-nav a .tpm-lock{font-size:10px;opacity:0.55;margin-left:3px;}'
     // ---- dropdown (ჩემი კაბინეტი subpages) ----
     + 'nav.tpm-nav .tpm-has-sub{position:relative;display:inline-block;}'
     + 'nav.tpm-nav .tpm-has-sub>a{cursor:pointer;}'
@@ -67,6 +79,9 @@
     + '#tpm-sticky nav{display:flex;gap:16px;flex-wrap:wrap;font-family:"Noto Sans Georgian",sans-serif;font-size:12px;}'
     + '#tpm-sticky nav a{color:var(--ink,#1a1a1a);text-decoration:none;}'
     + '#tpm-sticky nav a.active{color:#b91c1c;font-weight:700;border-bottom:2px solid #b91c1c;}'
+    + '#tpm-sticky .tpm-sticky-in{margin-left:auto;font-family:"Noto Sans Georgian",sans-serif;font-size:11px;letter-spacing:2px;'
+    +   'background:#1a1a1a;color:var(--paper,#fffdf7);padding:3px 12px;border-radius:3px;text-decoration:none;white-space:nowrap;}'
+    + '#tpm-sticky .tpm-sticky-in:hover{background:#b91c1c;}'
     + '.tpm-mini-nav{display:flex;gap:13px;margin-left:16px;font-family:"Noto Sans Georgian",sans-serif;font-size:11.5px;}'
     + '.tpm-mini-nav a{color:var(--ink,#1a1a1a);text-decoration:none;}'
     + '.tpm-mini-nav a.active{color:#b91c1c;font-weight:700;}'
@@ -75,24 +90,38 @@
   st.textContent = css;
   document.head.appendChild(st);
 
+  // ---------- helpers ------------------------------------------------------
+  function openLogin(e) {
+    if (e) e.preventDefault();
+    try { document.dispatchEvent(new CustomEvent('tp-open-login')); } catch (err) { location.href = '/?login=1'; }
+  }
+
   // ---------- nav html ----------------------------------------------------
-  // withSub=true renders the dropdown for items that have children (main nav
-  // only). The sticky and mini nav render a flat list of top-level links.
+  // withSub=true renders the dropdown for items with children (main nav only).
+  // Sticky/mini nav render a flat list of top-level links.
   function navLinks(withSub) {
     return PAGES.map(function (p) {
-      var childActive = p.children && p.children.some(function (c) { return c.re.test(path); });
-      var isActive = p.re.test(path) || childActive;
-      var ac = isActive ? ' class="active"' : '';
+      var childActive = !GUEST && p.children && p.children.some(function (c) { return c.re.test(path); });
+      var active = (!GUEST && (p.re.test(path) || childActive)) ? ' class="active"' : '';
+      var lockAttr = GUEST ? ' data-tpm-locked="1"' : '';
+      var lock = GUEST ? '<span class="tpm-lock">🔒</span>' : '';
       if (p.children && withSub) {
         var kids = p.children.map(function (c) {
-          var ca = c.re.test(path) ? ' class="active"' : '';
-          return '<a href="' + c.href + '"' + ca + '>' + c.label + '</a>';
+          var ca = (!GUEST && c.re.test(path)) ? ' class="active"' : '';
+          var klock = GUEST ? '<span class="tpm-lock">🔒</span>' : '';
+          return '<a href="' + c.href + '"' + ca + (GUEST ? ' data-tpm-locked="1"' : '') + '>' + c.label + klock + '</a>';
         }).join('');
-        return '<span class="tpm-has-sub"><a href="' + p.href + '"' + ac + '>' + p.label + ' &#9662;</a>'
+        return '<span class="tpm-has-sub"><a href="' + p.href + '"' + active + lockAttr + '>' + p.label + ' &#9662;' + lock + '</a>'
              + '<span class="tpm-sub">' + kids + '</span></span>';
       }
-      return '<a href="' + p.href + '"' + ac + '>' + p.label + '</a>';
+      return '<a href="' + p.href + '"' + active + lockAttr + '>' + p.label + lock + '</a>';
     }).join('');
+  }
+  function wireLocked(root) {
+    if (!GUEST || !root) return;
+    root.querySelectorAll('a[data-tpm-locked]').forEach(function (a) {
+      a.addEventListener('click', openLogin);
+    });
   }
 
   // ---------- date --------------------------------------------------------
@@ -112,15 +141,21 @@
   }
 
   // ---------- build header -------------------------------------------------
+  var topRight = GUEST
+    ? '<span>გამოცემა · ვისბადენი &nbsp;·&nbsp; '
+      + '<a href="#packets" class="tpm-sub">გამოწერა</a> '
+      + '<a href="#" class="tpm-in" id="tpm-login-btn">შესვლა · SIGN IN</a></span>'
+    : '<span>გამოცემა · ვისბადენი &nbsp;·&nbsp; <a href="/tp-logout" class="tpm-out no-print">გასვლა</a></span>';
+
   var header = document.createElement('header');
   header.className = 'tpm masthead';
   header.innerHTML =
       '<div class="tpm-top top-bar">'
     +   '<span id="today-date">' + dateStr + '</span>'
-    +   '<span>გამოცემა · ვისბადენი &nbsp;·&nbsp; <a href="/tp-logout" class="tpm-out no-print">გასვლა</a></span>'
+    +   topRight
     + '</div>'
     + '<div class="tpm-row">'
-    +   '<div class="tpm-brand"><h1><a href="/meportfolio/">The Trading Paper</a></h1>'
+    +   '<div class="tpm-brand"><h1><a href="' + (GUEST ? '/' : '/meportfolio/') + '">The Trading Paper</a></h1>'
     +   '<p class="tpm-tag tagline">ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი</p></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
@@ -128,6 +163,10 @@
 
   if (old) old.replaceWith(header);
   else document.body.insertBefore(header, document.body.firstChild);
+
+  wireLocked(header);
+  var lb = header.querySelector('#tpm-login-btn');
+  if (lb) lb.addEventListener('click', openLogin);
 
   // page-title strip (preserves e.g. "ყოველთვიური წიგნი" on ledger)
   if (pageTitle) {
@@ -141,8 +180,13 @@
   function makeSticky() {
     var bar = document.createElement('div');
     bar.id = 'tpm-sticky';
-    bar.innerHTML = '<a class="b" href="/meportfolio/">The Trading Paper</a><nav>' + navLinks(false) + '</nav>';
+    bar.innerHTML = '<a class="b" href="' + (GUEST ? '/' : '/meportfolio/') + '">The Trading Paper</a>'
+      + '<nav>' + navLinks(false) + '</nav>'
+      + (GUEST ? '<a href="#" class="tpm-sticky-in">შესვლა</a>' : '');
     document.body.appendChild(bar);
+    wireLocked(bar);
+    var sin = bar.querySelector('.tpm-sticky-in');
+    if (sin) sin.addEventListener('click', openLogin);
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
         bar.classList.toggle('show', !en[0].isIntersecting);
