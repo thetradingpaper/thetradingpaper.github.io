@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჩემი ჩანაწერები · The Trading Paper</title>
+<meta name="description" content="ჩემი კაბინეტი — ჩანაწერები.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#b91c1c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/enhance.css?v=20260630b">
+<script>(function(){try{if(localStorage.getItem('tp_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<style>
+  .cab-lead{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;color:var(--muted);margin:8px 0 18px;line-height:1.6;}
+  .cab-sec{border-top:2px solid var(--rule);border-bottom:1px solid var(--border);padding:6px 0;margin:22px 0 14px;display:flex;justify-content:space-between;align-items:baseline;}
+  .cab-sec .t{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);}
+  .cab-sec .c{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);}
+  .note{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--red,#b91c1c);padding:14px 18px;margin-bottom:12px;font-family:'Noto Sans Georgian',sans-serif;}
+  .note .n-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--border);padding-bottom:7px;margin-bottom:8px;}
+  .note .n-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;color:var(--ink);}
+  .note .n-date{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);white-space:nowrap;padding-left:12px;}
+  .note .n-body{font-size:13px;color:var(--ink);line-height:1.65;white-space:pre-wrap;}
+  .cab-empty{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);padding:16px;text-align:center;border:1px dashed var(--border);}
+  .cab-form{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--accent,#8b6914);margin:22px 0;overflow:hidden;}
+  .cab-form>summary{cursor:pointer;list-style:none;padding:12px 18px;font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);}
+  .cab-form>summary::-webkit-details-marker{display:none;}
+  .cab-form>summary::after{content:'+';float:right;color:var(--red);font-size:18px;line-height:1;}
+  .cab-form[open]>summary::after{content:'−';}
+  .cab-form .fb{padding:6px 18px 18px;border-top:1px solid var(--border);}
+  .cab-form label{display:block;font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;}
+  .cab-form input,.cab-form textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--border);border-radius:5px;font-family:inherit;font-size:13px;background:var(--bg,#fffdf7);color:var(--ink);}
+  .cab-form textarea{min-height:110px;resize:vertical;line-height:1.6;}
+  .cab-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:560px){.cab-form .row{grid-template-columns:1fr;}}
+  .cab-btn{margin-top:14px;padding:9px 22px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;border-radius:4px;}
+  .cab-export{margin-top:14px;display:none;}.cab-export.show{display:block;}
+  .cab-export p{font-size:11px;color:var(--muted);margin:0 0 6px;line-height:1.5;}
+  .cab-export textarea{width:100%;box-sizing:border-box;height:150px;font-family:ui-monospace,monospace;font-size:11px;padding:10px;border:1px solid var(--border);border-radius:5px;background:var(--bg,#fffdf7);color:var(--ink);}
+  .cab-copy{margin-top:8px;padding:7px 16px;background:var(--red,#b91c1c);color:#fff;border:none;font-size:11px;letter-spacing:1.5px;cursor:pointer;text-transform:uppercase;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>ჩემი ჩანაწერები</h1>
+  <p class="tagline">ჩემი კაბინეტი · იდეები · თეზისები · გაკვეთილები</p>
+</header>
+
+<main class="container">
+  <p class="cab-lead">ბაზრის დღიური. სანამ პოზიციაში შევდივარ — თეზისი ჯერ აქ. შემდეგ ვბრუნდები და ვამოწმებ, მართალი ვიყავი თუ არა. ასე იზრდება დისციპლინა.</p>
+
+  <div class="cab-sec"><span class="t">ჩანაწერები</span><span class="c" id="note-count"></span></div>
+  <div id="note-list"></div>
+
+  <details class="cab-form">
+    <summary>ახალი ჩანაწერი</summary>
+    <div class="fb">
+      <div class="row">
+        <div><label>თარიღი</label><input id="f-date" type="date"></div>
+        <div><label>სათაური</label><input id="f-title" type="text" placeholder="მაგ. MSTR თეზისი"></div>
+      </div>
+      <label>ტექსტი</label>
+      <textarea id="f-body" placeholder="დაწერე შენი ფიქრი, თეზისი ან დაკვირვება…"></textarea>
+      <button class="cab-btn" id="f-add">დამატება</button>
+      <div class="cab-export" id="exp">
+        <p>დაემატა ზემოთ. მუდმივად რომ შეინახო: დააკოპირე ეს და ჩააგდე <b>js/cabinet.data.js</b>-ში (ან გამომიგზავნე და მე ავტვირთავ GitHub-ზე).</p>
+        <textarea id="exp-txt" readonly></textarea>
+        <button class="cab-copy" id="exp-copy">📋 კოდის კოპირება</button>
+      </div>
+    </div>
+  </details>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/cabinet.data.js?t=1"></script>
+<script>
+(function(){
+  var DATA = JSON.parse(JSON.stringify(window.CABINET || {goals:[],notes:[],watchlist:[]}));
+  if(!DATA.notes) DATA.notes=[];
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function sorted(){return DATA.notes.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});}
+  function render(){
+    var list=document.getElementById('note-list'), n=DATA.notes;
+    document.getElementById('note-count').textContent=n.length+' ჩანაწერი';
+    if(!n.length){list.innerHTML='<div class="cab-empty">ჯერ ცარიელია — დაწერე პირველი ჩანაწერი ქვემოთ.</div>';return;}
+    list.innerHTML=sorted().map(function(x){
+      return '<div class="note"><div class="n-head"><span class="n-title">'+esc(x.title||'უსათაურო')+'</span>'
+        +'<span class="n-date">'+esc(x.date||'')+'</span></div>'
+        +'<div class="n-body">'+esc(x.body)+'</div></div>';
+    }).join('');
+  }
+  function buildFile(){
+    return '// The Trading Paper — Cabinet data (generated on '+new Date().toISOString().slice(0,10)+')\n'
+      +'// Paste this WHOLE block into js/cabinet.data.js and commit.\n'
+      +'window.CABINET = '+JSON.stringify(DATA,null,2)+';\n';
+  }
+  var df=document.getElementById('f-date'); df.value=new Date().toISOString().slice(0,10);
+  document.getElementById('f-add').addEventListener('click',function(){
+    var body=document.getElementById('f-body').value.trim();
+    if(!body){document.getElementById('f-body').focus();return;}
+    DATA.notes.push({
+      date:document.getElementById('f-date').value||new Date().toISOString().slice(0,10),
+      title:document.getElementById('f-title').value.trim(),
+      body:body
+    });
+    render();
+    document.getElementById('exp-txt').value=buildFile();
+    document.getElementById('exp').classList.add('show');
+    document.getElementById('f-title').value='';document.getElementById('f-body').value='';
+  });
+  document.getElementById('exp-copy').addEventListener('click',function(){
+    var t=document.getElementById('exp-txt');t.select();
+    try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}
+    this.textContent='✓ დაკოპირდა';var b=this;setTimeout(function(){b.textContent='📋 კოდის კოპირება';},1500);
+  });
+  render();
+})();
+</script>
+<script src="js/masthead.js?v=2"></script>
+<script src="js/clocks.js?v=1"></script>
+</body>
+</html>
