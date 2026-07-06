@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ჩემი ჩანაწერები · The Trading Paper</title>
-<meta name="description" content="ჩემი კაბინეტი — ჩანაწერები.">
+<title>ჩემი ჩანაწერები · ჟურნალი · The Trading Paper</title>
+<meta name="description" content="ჩემი კაბინეტი — ჩანაწერები და ჟურნალი.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#b91c1c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
@@ -17,10 +17,16 @@
   .cab-sec .t{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);}
   .cab-sec .c{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);}
   .note{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--red,#b91c1c);padding:14px 18px;margin-bottom:12px;font-family:'Noto Sans Georgian',sans-serif;}
-  .note .n-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--border);padding-bottom:7px;margin-bottom:8px;}
+  .note .n-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--border);padding-bottom:7px;margin-bottom:8px;gap:10px;}
   .note .n-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;color:var(--ink);}
   .note .n-date{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);white-space:nowrap;padding-left:12px;}
   .note .n-body{font-size:13px;color:var(--ink);line-height:1.65;white-space:pre-wrap;}
+  .note .n-actions{margin-top:9px;display:flex;gap:8px;}
+  .note .n-actions button{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);background:var(--bg,#fffdf7);color:var(--muted);border-radius:4px;cursor:pointer;}
+  .note .n-actions button:hover{border-color:var(--red);color:var(--red);}
+  /* permanent / pinned entries */
+  .note.pinned{border-left-color:var(--accent,#8b6914);background:#fffdf5;}
+  .note .n-pin{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent,#8b6914);border:1px solid var(--accent,#8b6914);border-radius:3px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
   .cab-empty{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);padding:16px;text-align:center;border:1px dashed var(--border);}
   .cab-form{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--accent,#8b6914);margin:22px 0;overflow:hidden;}
   .cab-form>summary{cursor:pointer;list-style:none;padding:12px 18px;font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);}
@@ -34,26 +40,24 @@
   .cab-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   @media(max-width:560px){.cab-form .row{grid-template-columns:1fr;}}
   .cab-btn{margin-top:14px;padding:9px 22px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;border-radius:4px;}
-  .cab-export{margin-top:14px;display:none;}.cab-export.show{display:block;}
-  .cab-export p{font-size:11px;color:var(--muted);margin:0 0 6px;line-height:1.5;}
-  .cab-export textarea{width:100%;box-sizing:border-box;height:150px;font-family:ui-monospace,monospace;font-size:11px;padding:10px;border:1px solid var(--border);border-radius:5px;background:var(--bg,#fffdf7);color:var(--ink);}
-  .cab-copy{margin-top:8px;padding:7px 16px;background:var(--red,#b91c1c);color:#fff;border:none;font-size:11px;letter-spacing:1.5px;cursor:pointer;text-transform:uppercase;border-radius:4px;}
+  .cab-btn.ghost{background:none;color:var(--muted);border:1px solid var(--border);margin-left:8px;}
+  .save-hint{font-size:10.5px;color:var(--muted);margin-top:10px;line-height:1.5;font-family:'Noto Sans Georgian',sans-serif;}
 </style>
 </head>
 <body>
 
 <header class="masthead">
   <h1>ჩემი ჩანაწერები</h1>
-  <p class="tagline">ჩემი კაბინეტი · იდეები · თეზისები · გაკვეთილები</p>
+  <p class="tagline">ჩემი კაბინეტი · იდეები · თეზისები · გაკვეთილები · ჟურნალი</p>
 </header>
 
 <main class="container">
-  <p class="cab-lead">ბაზრის დღიური. სანამ პოზიციაში შევდივარ — თეზისი ჯერ აქ. შემდეგ ვბრუნდები და ვამოწმებ, მართალი ვიყავი თუ არა. ასე იზრდება დისციპლინა.</p>
+  <p class="cab-lead">ბაზრის დღიური და ჟურნალი. სანამ პოზიციაში შევდივარ — თეზისი ჯერ აქ. შემდეგ ვბრუნდები და ვამოწმებ, მართალი ვიყავი თუ არა. ასე იზრდება დისციპლინა. ჩანაწერები ინახება <b>ამ ბრაუზერში</b> (localStorage) და ბრაუზერის დახურვის შემდეგაც რჩება.</p>
 
   <div class="cab-sec"><span class="t">ჩანაწერები</span><span class="c" id="note-count"></span></div>
   <div id="note-list"></div>
 
-  <details class="cab-form">
+  <details class="cab-form" id="new-note">
     <summary>ახალი ჩანაწერი</summary>
     <div class="fb">
       <div class="row">
@@ -62,12 +66,9 @@
       </div>
       <label>ტექსტი</label>
       <textarea id="f-body" placeholder="დაწერე შენი ფიქრი, თეზისი ან დაკვირვება…"></textarea>
-      <button class="cab-btn" id="f-add">დამატება</button>
-      <div class="cab-export" id="exp">
-        <p>დაემატა ზემოთ. მუდმივად რომ შეინახო: დააკოპირე ეს და ჩააგდე <b>js/cabinet.data.js</b>-ში (ან გამომიგზავნე და მე ავტვირთავ GitHub-ზე).</p>
-        <textarea id="exp-txt" readonly></textarea>
-        <button class="cab-copy" id="exp-copy">📋 კოდის კოპირება</button>
-      </div>
+      <button class="cab-btn" id="f-add">შენახვა</button>
+      <button class="cab-btn ghost" id="f-cancel" style="display:none;">გაუქმება</button>
+      <div class="save-hint">💾 ინახება ავტომატურად ამ ბრაუზერში — სერვერი არ სჭირდება. სხვა მოწყობილობაზე რომ გქონდეს, გამომიგზავნე ტექსტი და ავტვირთავ მუდმივ ჩანაწერად.</div>
     </div>
   </details>
 </main>
@@ -79,48 +80,133 @@
 <script src="js/cabinet.data.js?t=1"></script>
 <script>
 (function(){
-  var DATA = JSON.parse(JSON.stringify(window.CABINET || {goals:[],notes:[],watchlist:[]}));
-  if(!DATA.notes) DATA.notes=[];
+  'use strict';
+  var LS_KEY = 'tp_notes';
+
+  // ---- permanent personal journal entry (change spec §7) ----------------
+  // Always shown, pinned, never editable/deletable. Anchor: #journal
+  var JOURNAL = {
+    id: 'journal',
+    date: '2026-01-01',
+    title: 'გაკვეთილი — $5,000-დან პირველ დანაკარგამდე',
+    body:
+      'ერთი წლის შრომით დაახლოებით $5,000 დავაგროვე. ეს ფული ადვილად არ მოსულა — დღიდან დღემდე, დისციპლინით და უარის თქმით.\n\n'
+      + 'შემდეგ, ინვესტიციებში, დაახლოებით $800 დავკარგე. ეს ტკივილი გაკვეთილად მექცა და ამ გვერდზე იმიტომ ვწერ, რომ აღარ დავივიწყო:\n\n'
+      + '• კაპიტალის დაგროვება ნელია, დაკარგვა კი სწრაფი — პატივი მიაგე ყოველ დოლარს.\n'
+      + '• რისკის მართვა უპირველესია. ბერკეტი და აჩქარება ემოციას ზრდის, არა შედეგს.\n'
+      + '• დისციპლინა პროგნოზზე მაღლა დგას — თეზისი ჯერ ფურცელზე, შემდეგ შესვლა.\n'
+      + '• დანაკარგი მარცხი არ არის, თუ მისგან ვსწავლობ.\n\n'
+      + '$800 იმ $5,000-ის ფასი იყო, რომ მესწავლა როგორ არ დავკარგო შემდეგი $5,000. ეს ჩანაწერი ჩემი ფსიქოლოგიური შეხსენებაა — მოთმინება, დისციპლინა, ყოველდღიური ჩვევა.',
+    pinned: true
+  };
+
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  function sorted(){return DATA.notes.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});}
+
+  // ---- localStorage helpers (change spec §8) ----------------------------
+  function load(){
+    try { var raw = localStorage.getItem(LS_KEY); if(!raw) return []; var a = JSON.parse(raw); return Array.isArray(a)?a:[]; }
+    catch(e){ return []; }
+  }
+  function save(arr){
+    try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); return true; }
+    catch(e){ alert('ვერ შევინახე — ბრაუზერის მეხსიერება სავსეა ან დაბლოკილია.'); return false; }
+  }
+  var userNotes = load();
+
+  // Seed (permanent) diary entries from js/cabinet.data.js — read-only baseline.
+  var seed = ((window.CABINET && Array.isArray(window.CABINET.notes)) ? window.CABINET.notes : []).map(function(x,i){
+    return { id:'seed-'+i, date:x.date||'', title:x.title||'', body:x.body||'', permanent:true };
+  });
+
+  var editingId = null;
+
+  function allNotes(){
+    // pinned journal first, then everything else sorted by date desc
+    var rest = seed.concat(userNotes).slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+    return [JOURNAL].concat(rest);
+  }
+
+  function noteHTML(x){
+    var isUser = !x.permanent && !x.pinned;
+    var pin = x.pinned ? '<span class="n-pin">მუდმივი · ჟურნალი</span>' : (x.permanent ? '<span class="n-pin">მუდმივი</span>' : '');
+    var actions = isUser
+      ? '<div class="n-actions"><button data-edit="'+x.id+'">რედაქტირება</button><button data-del="'+x.id+'">წაშლა</button></div>'
+      : '';
+    return '<div class="note'+(x.pinned?' pinned':'')+'"'+(x.id==='journal'?' id="journal"':'')+'>'
+      + '<div class="n-head"><span class="n-title">'+esc(x.title||'უსათაურო')+pin+'</span>'
+      + '<span class="n-date">'+esc(x.date||'')+'</span></div>'
+      + '<div class="n-body">'+esc(x.body)+'</div>'
+      + actions + '</div>';
+  }
+
   function render(){
-    var list=document.getElementById('note-list'), n=DATA.notes;
-    document.getElementById('note-count').textContent=n.length+' ჩანაწერი';
-    if(!n.length){list.innerHTML='<div class="cab-empty">ჯერ ცარიელია — დაწერე პირველი ჩანაწერი ქვემოთ.</div>';return;}
-    list.innerHTML=sorted().map(function(x){
-      return '<div class="note"><div class="n-head"><span class="n-title">'+esc(x.title||'უსათაურო')+'</span>'
-        +'<span class="n-date">'+esc(x.date||'')+'</span></div>'
-        +'<div class="n-body">'+esc(x.body)+'</div></div>';
-    }).join('');
-  }
-  function buildFile(){
-    return '// The Trading Paper — Cabinet data (generated on '+new Date().toISOString().slice(0,10)+')\n'
-      +'// Paste this WHOLE block into js/cabinet.data.js and commit.\n'
-      +'window.CABINET = '+JSON.stringify(DATA,null,2)+';\n';
-  }
-  var df=document.getElementById('f-date'); df.value=new Date().toISOString().slice(0,10);
-  document.getElementById('f-add').addEventListener('click',function(){
-    var body=document.getElementById('f-body').value.trim();
-    if(!body){document.getElementById('f-body').focus();return;}
-    DATA.notes.push({
-      date:document.getElementById('f-date').value||new Date().toISOString().slice(0,10),
-      title:document.getElementById('f-title').value.trim(),
-      body:body
+    var list = document.getElementById('note-list');
+    var notes = allNotes();
+    document.getElementById('note-count').textContent = notes.length + ' ჩანაწერი';
+    list.innerHTML = notes.map(noteHTML).join('');
+    // wire edit / delete
+    list.querySelectorAll('button[data-del]').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(!confirm('წავშალო ეს ჩანაწერი?')) return;
+        var id = b.getAttribute('data-del');
+        userNotes = userNotes.filter(function(n){return n.id!==id;});
+        save(userNotes); render();
+      });
     });
-    render();
-    document.getElementById('exp-txt').value=buildFile();
-    document.getElementById('exp').classList.add('show');
-    document.getElementById('f-title').value='';document.getElementById('f-body').value='';
+    list.querySelectorAll('button[data-edit]').forEach(function(b){
+      b.addEventListener('click', function(){ startEdit(b.getAttribute('data-edit')); });
+    });
+    // if page opened with #journal, scroll to it
+    if(location.hash==='#journal'){ var j=document.getElementById('journal'); if(j) j.scrollIntoView({behavior:'smooth',block:'start'}); }
+  }
+
+  var dEl = document.getElementById('f-date');
+  var tEl = document.getElementById('f-title');
+  var bEl = document.getElementById('f-body');
+  var addBtn = document.getElementById('f-add');
+  var cancelBtn = document.getElementById('f-cancel');
+  var formBox = document.getElementById('new-note');
+
+  function resetForm(){
+    editingId = null;
+    dEl.value = new Date().toISOString().slice(0,10);
+    tEl.value=''; bEl.value='';
+    addBtn.textContent='შენახვა';
+    cancelBtn.style.display='none';
+  }
+  function startEdit(id){
+    var n = userNotes.filter(function(x){return x.id===id;})[0];
+    if(!n) return;
+    editingId = id;
+    dEl.value = n.date || new Date().toISOString().slice(0,10);
+    tEl.value = n.title || '';
+    bEl.value = n.body || '';
+    addBtn.textContent='განახლება';
+    cancelBtn.style.display='inline-block';
+    formBox.open = true;
+    formBox.scrollIntoView({behavior:'smooth',block:'center'});
+    bEl.focus();
+  }
+
+  addBtn.addEventListener('click', function(){
+    var body = bEl.value.trim();
+    if(!body){ bEl.focus(); return; }
+    var date = dEl.value || new Date().toISOString().slice(0,10);
+    var title = tEl.value.trim();
+    if(editingId){
+      userNotes = userNotes.map(function(n){ return n.id===editingId ? {id:n.id,date:date,title:title,body:body} : n; });
+    } else {
+      userNotes.push({ id:'u'+Date.now()+'-'+Math.floor(Math.random()*1000), date:date, title:title, body:body });
+    }
+    if(save(userNotes)){ resetForm(); render(); }
   });
-  document.getElementById('exp-copy').addEventListener('click',function(){
-    var t=document.getElementById('exp-txt');t.select();
-    try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}
-    this.textContent='✓ დაკოპირდა';var b=this;setTimeout(function(){b.textContent='📋 კოდის კოპირება';},1500);
-  });
+  cancelBtn.addEventListener('click', function(){ resetForm(); });
+
+  resetForm();
   render();
 })();
 </script>
-<script src="js/masthead.js?v=2"></script>
+<script src="js/masthead.js?v=3"></script>
 <script src="js/clocks.js?v=1"></script>
 </body>
 </html>

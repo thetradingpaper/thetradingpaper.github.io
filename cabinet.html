@@ -457,6 +457,8 @@
     .th-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
     .th-eyebrow{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;}
     .th-person{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:30px;letter-spacing:-0.5px;line-height:1.05;margin-top:2px;}
+    .th-edit{font-size:15px;color:var(--muted);text-decoration:none;margin-left:10px;border:1px solid var(--border);border-radius:6px;padding:1px 8px;vertical-align:middle;transition:all .15s;}
+    .th-edit:hover{color:var(--red);border-color:var(--red);}
     .th-sub{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
     .th-live{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:2px;color:var(--red);white-space:nowrap;}
     .th-body{display:grid;grid-template-columns:300px 1fr;gap:30px;align-items:center;}
@@ -482,13 +484,49 @@
     .th-legend .nm{font-family:'Noto Serif Georgian',serif;font-weight:700;}
     .th-legend .vv{text-align:right;font-family:ui-monospace,monospace;font-weight:700;}
     .th-legend .pp{text-align:right;color:var(--muted);font-size:10px;padding-left:10px;}
+    /* combined mountain + withdrawn belt (change spec §3 & §6) */
+    .th-mountain{border-top:1px solid var(--border);margin-top:20px;padding-top:16px;}
+    .th-m-label{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;margin-bottom:2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+    .th-m-label em{font-weight:400;color:var(--muted);font-size:12px;font-style:italic;}
+    .th-m-wrap{height:220px;position:relative;margin-top:8px;}
+    .th-belt{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
+    @media (max-width:640px){.th-belt{grid-template-columns:1fr;}}
+    .th-belt .cell{padding:14px 18px;border-right:1px solid var(--border);}
+    .th-belt .cell:last-child{border-right:none;}
+    @media (max-width:640px){.th-belt .cell{border-right:none;border-bottom:1px solid var(--border);}.th-belt .cell:last-child{border-bottom:none;}}
+    .th-belt .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+    .th-belt .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:22px;letter-spacing:-0.5px;color:var(--ink);}
+    .th-belt .n{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
+    /* portfolio dividend goal card (change spec §5) */
+    .div-goal{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--green,#15803d);padding:16px 20px;margin:10px 0 26px;font-family:'Noto Sans Georgian',sans-serif;}
+    .div-goal .dg-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;}
+    .div-goal .dg-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:17px;color:var(--ink);}
+    .div-goal .dg-title em{font-weight:400;font-style:italic;color:var(--muted);font-size:13px;margin-left:6px;}
+    .div-goal .dg-sub{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);}
+    .div-goal .dg-target{font-family:ui-monospace,monospace;font-weight:700;font-size:26px;color:var(--green,#15803d);margin:10px 0 2px;}
+    .div-goal .dg-target span{font-size:12px;color:var(--muted);font-weight:400;}
+    .div-goal .dg-bar{height:9px;background:rgba(0,0,0,.06);border-radius:5px;overflow:hidden;margin:8px 0 6px;}
+    .div-goal .dg-fill{height:100%;background:var(--green,#15803d);border-radius:5px;transition:width .4s;}
+    .div-goal .dg-foot{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:ui-monospace,monospace;}
+    .div-goal .dg-foot .got{color:var(--ink);font-weight:700;}
+    .div-goal .dg-note{font-size:11px;color:var(--muted);margin-top:9px;line-height:1.55;}
+    /* archive written journey summary (change spec §4) */
+    .tp-journey{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--red,#b91c1c);padding:18px 22px;margin:6px 0 20px;font-family:'Noto Sans Georgian',sans-serif;}
+    .tp-journey h4{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:19px;margin:0 0 4px;color:var(--ink);}
+    .tp-journey .jr-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+    .tp-journey p{font-size:12.5px;line-height:1.7;color:var(--ink);margin:0 0 10px;}
+    .tp-journey p.muted{color:var(--muted);}
+    .tp-journey .jr-h{font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin:14px 0 5px;}
+    .tp-journey ul{margin:0 0 6px;padding-left:18px;}
+    .tp-journey li{font-size:12px;line-height:1.6;color:var(--muted);margin-bottom:3px;}
+    .tp-journey li strong{color:var(--ink);}
   </style>
 
   <section class="total-hero">
     <div class="th-top">
       <div>
         <div class="th-eyebrow">სრული პორტფელი · Total Portfolio</div>
-        <div class="th-person">ლაშა ფხაკაძე</div>
+        <div class="th-person">ლაშა ფხაკაძე <a href="edit.html" class="th-edit no-print" title="რედაქტირება" aria-label="რედაქტირება">&#9998;</a></div>
         <div class="th-sub">სამი წიგნი · BOG · TBC · GALT · ვისბადენი</div>
         <div id="me-fees" style="font-family:ui-monospace,monospace;font-size:11px;color:var(--red);margin-top:7px;letter-spacing:0.5px;"></div>
       </div>
@@ -508,7 +546,22 @@
         <table class="th-legend" id="total-legend"></table>
       </div>
     </div>
+
+    <!-- Combined "The Mountain" — total value vs total deposited (all books) · §3 -->
+    <div class="th-mountain">
+      <div class="th-m-label">პორტფელის ზრდა <em>Portfolio Growth · ღირებულება vs ჩარიცხული · ყველა წიგნი</em></div>
+      <div class="th-m-wrap"><canvas id="total-mountain"></canvas></div>
+    </div>
+
+    <!-- Withdrawn belt · §6 -->
+    <div class="th-belt">
+      <div class="cell" id="total-withdrawn"></div>
+      <div class="cell" id="total-dividends-belt"></div>
+    </div>
   </section>
+
+  <!-- Portfolio-wide dividend goal · §5 -->
+  <section class="div-goal" id="div-goal"></section>
 
   <!-- ============================================================ -->
   <!-- BOOK ONE · DOGMA (BOG)                                       -->
@@ -622,10 +675,10 @@
 
   <div class="book-header" id="book-tbc">
     <div class="book-title">
-      <span><span class="book-dot" style="background:var(--ink)"></span>წიგნი მეორე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Active</em></span>
+      <span><span class="book-dot" style="background:var(--ink)"></span>წიგნი მეორე · <em style="font-weight:400;font-style:italic;color:var(--muted)">Income</em></span>
     </div>
     <div class="book-meta">
-      <div class="book-sub">TBC · აქტიური ვაჭრობა</div>
+      <div class="book-sub">TBC · დივიდენდი · შემოსავალი</div>
       <div id="tbc-open-count" style="font-size:10px;margin-top:2px;color:var(--red);letter-spacing:1px;"></div>
     </div>
   </div>
@@ -681,14 +734,13 @@
 
   <!-- Rules -->
   <div class="rules-box" style="border-left-color: var(--ink);">
-    <div class="rules-title">Active წესები</div>
+    <div class="rules-title">TBC · სტაბილური შემოსავლის წესები</div>
     <ul>
-      <li>ერთი კომპანიით ვაჭრობა, მთლიანი ბალანსით</li>
-      <li>თეზისი ფურცელზე ჯერ — შემდეგ შესვლა</li>
-      <li>დროული რეალიზება — როცა მიზანი მიღწეულია, გადი</li>
-      <li>თვიური დამატება $100 — საჭიროებისამებრ</li>
-      <li>დანაკარგი არ ვცვლი BOG-დან — ცალკე კაპიტალი, ცალკე რისკი</li>
-      <li>მიზანი: <strong>150% წლიური ზრდა</strong></li>
+      <li>დივიდენდის გადამხდელი კომპანიების თანდათანობითი შეგროვება</li>
+      <li>უსაფრთხოება და სტაბილურობა — აგრესიულ ზრდაზე მაღლა</li>
+      <li>ხარისხი და მდგრადი დივიდენდი, არა მაღალი რისკი</li>
+      <li>თვიური დამატება · რეინვესტირებული დივიდენდი</li>
+      <li>მიზანი: <strong>გრძელვადიანი პასიური შემოსავალი</strong></li>
     </ul>
   </div>
 
@@ -716,6 +768,36 @@
   <div id="me-transfers" class="rules-box" style="border-left-color:#8b6914;"></div>
 
   <div class="tx-header"><h3 class="tx-title">არქივი · The Trading Paper · PDF</h3></div>
+
+  <!-- Written investment-journey summary (change spec §4) -->
+  <div class="tp-journey">
+    <h4>The Trading Paper — საინვესტიციო მოგზაურობა</h4>
+    <div class="jr-sub">რა არის ეს არქივი · What this archive is</div>
+    <p>The Trading Paper ჩემი პირადი საინვესტიციო ჟურნალია — ქართული გაზეთის სტილში. ის ერთ ადგილას კრებს პორტფელის მდგომარეობას, ვაჭრობის გადაწყვეტილებებს და გაკვეთილებს. ყოველი გამოცემა (PDF) დროის ერთი მომენტის სურათია; ერთად კი ისინი ჩემი, როგორც ინვესტორის, ბიოგრაფიას ქმნიან — არა მხოლოდ ციფრებს.</p>
+    <p class="muted">ქვემოთ ინახება ყველა გამოცემა PDF-ად. აქ კი — მოკლე ისტორია იმისა, საიდან სად მოვედი.</p>
+
+    <div class="jr-h">რა არის აღწერილი</div>
+    <p>სამი წიგნი, თითოეული თავისი ლოგიკით: <strong>BOG · Dogma</strong> — გრძელვადიანი, დისციპლინირებული DCA; <strong>TBC · Income</strong> — თანდათან აშენებული დივიდენდის/სტაბილური შემოსავლის წიგნი; და <strong>GALT · Leverage</strong> — ბერკეტიანი ექსპერიმენტი, რომელიც უკვე დახურულია. ცოცხალი ფასები, ჩარიცხული კაპიტალი, P/L და უკუგება — ყველა აქ იყრის თავს.</p>
+
+    <div class="jr-h">მნიშვნელოვანი ეტაპები</div>
+    <ul>
+      <li><strong>2025 დეკ. 9</strong> — თვალყურის დევნება ოფიციალურად დაიწყო (BOG).</li>
+      <li><strong>2026 მაისი</strong> — TBC-ს გახსნა და აქტიური ვაჭრობის პირველი ცდები.</li>
+      <li><strong>2026 ივნისი</strong> — GALT-ის ბერკეტიანი ცდა, შემდეგ მისი შეგნებული დახურვა.</li>
+      <li><strong>2026 ივლისი</strong> — სტრატეგიის ცვლილება: TBC ხდება დივიდენდის/სტაბილური შემოსავლის წიგნი; მიზანი — $100 წლიური დივიდენდი მთელი პორტფელიდან.</li>
+    </ul>
+
+    <div class="jr-h">გაკვეთილები</div>
+    <ul>
+      <li>ბერკეტი და აგრესია ემოციას ზრდის — სტაბილურობა და დივიდენდი უფრო მშვიდ გზას აძლევს.</li>
+      <li>დისციპლინა &gt; პროგნოზი: თვიური DCA და თეზისი ფურცელზე ჯერ, შემდეგ შესვლა.</li>
+      <li>დიდი შედეგი ყოველდღიური ჩვევის ჯამია — ფული ნელა, მაგრამ სტაბილურად იზრდება.</li>
+    </ul>
+
+    <div class="jr-h">ძირითადი ცვლილებები პორტფელში</div>
+    <p class="muted">MSTR-ის როტაცია დივიდენდის გადამხდელებში (LYG, ARCC, MAIN, BXSL) · GALT-ის დახურვა და კაპიტალის დაბრუნება BOG-ში · აქცენტის გადატანა ზრდიდან შემოსავალზე.</p>
+  </div>
+
   <div class="tp-archwrap">
   <div class="tp-arch-bar" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
     <input id="tp-arch-search" type="search" placeholder="ძებნა — № ან თარიღი…" style="flex:1;min-width:150px;padding:8px 12px;border:1px solid #d9d2c4;border-radius:8px;font-size:14px;background:#fff;font-family:inherit;">
@@ -958,6 +1040,60 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   renderMountain('bog-mountain-top', 'bog');
   renderMountain('tbc-mountain-top', 'tbc');
 
+  // ===== COMBINED "The Mountain" — all books together (change spec §3) =====
+  // Total portfolio value vs total deposited, summed across BOG + TBC + GALT
+  // per historical snapshot (data/history.json). Falls back to a two-point
+  // start→now series from the live aggregate if history is unavailable.
+  async function renderTotalMountain() {
+    const canvas = document.getElementById('total-mountain');
+    if (!canvas || typeof Chart === 'undefined') return;
+    let labels = [], dep = [], val = [];
+    try {
+      const hist = (typeof loadHistory === 'function') ? await loadHistory() : null;
+      if (hist && Array.isArray(hist) && hist.length) {
+        hist.forEach(e => {
+          if (!e.books) return;
+          let d = 0, v = 0, has = false;
+          ['bog', 'tbc', 'galt'].forEach(k => {
+            if (e.books[k]) { has = true; d += (+e.books[k].deposited || 0); v += (+e.books[k].value || 0); }
+          });
+          if (has) {
+            labels.push(e.label || (e.date ? e.date.slice(5).replace('-', '/') : ''));
+            dep.push(+d.toFixed(2)); val.push(+v.toFixed(2));
+          }
+        });
+      }
+    } catch (e) { /* fall through to fallback */ }
+    if (labels.length < 2) {
+      let d = 0, v = 0;
+      ['bog', 'tbc', 'galt'].forEach(k => { const p = portfolios[k]; if (p) { const a = aggregate(p); d += a.deposits; v += a.currentValue; } });
+      labels = ['დასაწყისი', 'ახლა']; dep = [d, d]; val = [d, v];
+    }
+    const existing = Chart.getChart(canvas);
+    if (existing) existing.destroy();
+    new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          { label: 'მთლიანი ღირებულება', data: val, borderColor: '#b91c1c', backgroundColor: 'rgba(185,28,28,0.12)', fill: true, tension: 0.25, borderWidth: 2, pointRadius: 3, pointBackgroundColor: '#b91c1c' },
+          { label: 'სრული ჩარიცხული', data: dep, borderColor: '#6b6b6b', backgroundColor: 'transparent', borderDash: [5, 4], borderWidth: 1.5, pointRadius: 2, pointBackgroundColor: '#6b6b6b', fill: false, tension: 0.1 },
+        ],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 14, font: { family: "'Noto Sans Georgian', sans-serif", size: 11 } } },
+          tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)}` } },
+        },
+        scales: {
+          y: { beginAtZero: false, ticks: { callback: v => '$' + v, font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+          x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+        },
+      },
+    });
+  }
+
   // ===== Live price refresh — repaint stat banner, holdings, donut, legend =====
   async function refreshAll(key) {
     try {
@@ -990,6 +1126,48 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   // ===== TOTAL PORTFOLIO (all three books combined) =====
   const TOTAL_COLORS = { bog: '#b91c1c', tbc: '#1a1a1a', galt: '#8b6914' };
   function fmtUSD(n){ const s = Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); return (n<0?'−$':'$')+s; }
+
+  // ----- Total withdrawn from investments (change spec §6) -----
+  // Sum of every 'withdraw' transaction across all books since 09 Dec 2025.
+  // (Internal book-to-book transfers are NOT withdrawals — they don't count.)
+  const WITHDRAW_SINCE = '2025-12-09';
+  function renderWithdrawn(){
+    let wd = 0;
+    ['bog','tbc','galt'].forEach(k => {
+      const p = portfolios[k]; if (!p || !p.transactions) return;
+      p.transactions.forEach(t => {
+        if (t.type === 'withdraw' && (t.date || '') >= WITHDRAW_SINCE) wd += Math.abs(+t.amount || 0);
+      });
+    });
+    const el = document.getElementById('total-withdrawn');
+    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
+  }
+
+  // ----- Portfolio-wide dividend goal + received dividends (change spec §5) -----
+  const DIV_TARGET = 100; // $100 / year — first milestone, whole portfolio
+  function totalDividends(){
+    let got = 0;
+    ['bog','tbc','galt'].forEach(k => {
+      const p = portfolios[k]; if (!p || !p.transactions) return;
+      p.transactions.forEach(t => { if (t.type === 'dividend') got += (+t.amount || 0); });
+    });
+    return got;
+  }
+  function renderDividendGoal(){
+    const got = totalDividends();
+    const pct = Math.max(0, Math.min(100, DIV_TARGET > 0 ? got / DIV_TARGET * 100 : 0));
+    const el = document.getElementById('div-goal');
+    if (el) el.innerHTML =
+      '<div class="dg-head"><div class="dg-title">დივიდენდის მიზანი <em>Dividend Goal</em></div>'
+      + '<div class="dg-sub">მთელი პორტფელი აზიარებს · BOG · TBC</div></div>'
+      + '<div class="dg-target">$'+DIV_TARGET.toFixed(0)+' <span>/ წელი · პასიური შემოსავალი</span></div>'
+      + '<div class="dg-bar"><div class="dg-fill" style="width:'+pct.toFixed(1)+'%"></div></div>'
+      + '<div class="dg-foot"><span class="got">'+fmtUSD(got)+' მიღებული (წმინდა)</span><span>'+pct.toFixed(1)+'%</span></div>'
+      + '<div class="dg-note">პირველი ეტაპი — $100 წლიური დივიდენდი მთელი პორტფელიდან. ყველა წიგნი აზიარებს; მოგვიანებით მიზანი შესაძლოა ანგარიშებად დაიყოს.</div>';
+    const belt = document.getElementById('total-dividends-belt');
+    if (belt) belt.innerHTML = '<div class="l">მიღებული დივიდენდი (წმინდა)</div><div class="v">'+fmtUSD(got)+'</div><div class="n">მიზანი: $'+DIV_TARGET.toFixed(0)+' / წელი</div>';
+  }
+
   function renderTotal(){
     const keys = ['bog','tbc','galt'];
     let dep = 0, val = 0; const parts = [];
@@ -1022,6 +1200,9 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: c => `${c.label}: ${fmtUSD(c.parsed)}` } } } }
       });
     }
+    // withdrawn + dividend goal repaint alongside the totals
+    renderWithdrawn();
+    renderDividendGoal();
     // ----- today's move (day change) across all live holdings -----
     // Sum (value − shares×previousClose) per holding; percent vs yesterday's value.
     let dayDollar = 0, prevVal = 0;
@@ -1041,6 +1222,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (stamp){ const n=new Date(); stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`; }
   }
   renderTotal();
+  renderTotalMountain();
 
   function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal); }
   refreshAllBooks();
@@ -1060,7 +1242,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 
 <script src="js/mountain-range.js"></script>
 <script src="js/enhance.js?v=20260701"></script>
-<script src="js/masthead.js?v=1"></script>
+<script src="js/masthead.js?v=3"></script>
 <script src="js/i18n.js?v=1"></script>
 <script src="js/clocks.js?v=1"></script></body>
 </html>
