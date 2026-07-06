@@ -71,14 +71,16 @@ window.PORTFOLIOS = {
   },
 
   // -----------------------------------------------------------
-  // TBC — Active trading (single company · Active Desk)
+  // TBC — Dividend / stable-income book (see change spec §5)
+  // Reframed from aggressive active trading → gradual dividend-payer
+  // collection. Goal: long-term passive income, not a % growth target.
   // -----------------------------------------------------------
   tbc: {
     name: 'TBC',
     fullName: 'TBC Capital',
-    tagline: 'აქტიური ვაჭრობა · ერთი კომპანია · მიზანი 150%/წელი',
+    tagline: 'დივიდენდი · სტაბილური შემოსავალი · გრძელვადიანი პასიური შემოსავალი',
     startDate: '2026-05-12',
-    annualGoalPct: 150,
+    annualGoalPct: null,
     holdings: [
       { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.06839171, avgBuy: 163.33, invested: 337.82, value: 182.48, color: '#1a1a1a', divYield: 0.00 },
       { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 0.27151778, avgBuy: 18.42, invested: 5.00, value: 5.00, color: '#1d4ed8', divYield: 10.40 },
