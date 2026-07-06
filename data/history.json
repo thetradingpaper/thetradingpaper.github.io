@@ -100,24 +100,6 @@
     }
   },
   {
-    "date": "2026-06-12",
-    "books": {
-      "galt": {
-        "deposited": 290,
-        "value": 318.4
-      }
-    }
-  },
-  {
-    "date": "2026-06-15",
-    "books": {
-      "galt": {
-        "deposited": 290,
-        "value": 354.25
-      }
-    }
-  },
-  {
     "date": "2026-06-25",
     "books": {
       "bog": {
