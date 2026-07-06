@@ -26,6 +26,17 @@
                font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; }
   .lg-legend i { width:11px; height:11px; display:inline-block; margin-right:6px; vertical-align:-1px; }
 
+  /* toolbar: autosave status + reset */
+  .lg-toolbar { display:flex; justify-content:space-between; align-items:center; gap:10px;
+                flex-wrap:wrap; margin:8px 0 2px; }
+  #num-saved { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; letter-spacing:.5px;
+               color:var(--muted); min-height:14px; transition:color .2s; }
+  #num-saved.flash { color:var(--green); font-weight:700; }
+  .lg-reset { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:.5px;
+              color:var(--muted); background:transparent; border:1px solid var(--border);
+              border-radius:5px; padding:6px 12px; cursor:pointer; }
+  .lg-reset:hover { border-color:var(--red); color:var(--red); }
+
   .lg-cols { display:flex; gap:28px; align-items:flex-start; margin-top:6px; }
   @media (max-width:720px){ .lg-cols{ flex-direction:column; gap:0; } }
   .lg-col { flex:1; min-width:0; width:100%; }
@@ -100,6 +111,12 @@
     <div class="lg-legend" id="legend"></div>
   </div>
 
+  <!-- autosave status + reset -->
+  <div class="lg-toolbar">
+    <div id="num-saved">● ცვლილებები ავტომატურად ინახება ამ ბრაუზერში</div>
+    <button type="button" id="lg-reset" class="lg-reset">↺ საწყის მაჩვენებლებზე დაბრუნება</button>
+  </div>
+
   <div class="lg-cols">
     <div class="lg-col">
       <div class="lg-field">
@@ -171,7 +188,22 @@
   try { state = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem("tp_ledger")||"{}")); }
   catch(e){ state = Object.assign({}, DEFAULTS); }
 
-  function save(){ try{ localStorage.setItem("tp_ledger", JSON.stringify(state)); }catch(e){} }
+  var ready = false;                 // don't flash "saved" during the first render
+  var savedNum = document.getElementById("num-saved");
+  var savedTimer = null;
+  function flashSaved(){
+    if(!ready || !savedNum) return;
+    var n = new Date();
+    savedNum.textContent = "✓ შენახულია · " + String(n.getHours()).padStart(2,"0") + ":" + String(n.getMinutes()).padStart(2,"0");
+    savedNum.classList.add("flash");
+    clearTimeout(savedTimer);
+    savedTimer = setTimeout(function(){
+      savedNum.textContent = "● ცვლილებები ავტომატურად ინახება ამ ბრაუზერში";
+      savedNum.classList.remove("flash");
+    }, 1800);
+  }
+
+  function save(){ try{ localStorage.setItem("tp_ledger", JSON.stringify(state)); }catch(e){} flashSaved(); }
   function fmt(n){ return "€" + Math.round(n).toLocaleString("de-DE"); }
   function v(k){ return Number(state[k]) || 0; }
 
@@ -231,6 +263,18 @@
     save();
   }
 
+  // Reset to defaults
+  var resetBtn = document.getElementById("lg-reset");
+  if (resetBtn) resetBtn.addEventListener("click", function(){
+    if(!confirm("დავაბრუნო საწყის მაჩვენებლებზე? ახლანდელი ცვლილებები წაიშლება.")) return;
+    state = Object.assign({}, DEFAULTS);
+    document.querySelectorAll(".lg-in").forEach(function(el){
+      var inp = el.querySelector("input");
+      if(inp) inp.value = state[el.dataset.key];
+    });
+    recalc();
+  });
+
   // Notes (autosave)
   var notes = document.getElementById("notes"), savedEl = document.getElementById("notes-saved"), t=null;
   try { notes.value = localStorage.getItem("tp_ledger_notes") || ""; } catch(e){}
@@ -249,10 +293,11 @@
   if (el) el.textContent = d.toLocaleDateString("ka-GE", { day:"numeric", month:"long", year:"numeric" });
 
   recalc();
+  ready = true;   // subsequent edits will show the "✓ შენახულია" confirmation
 })();
 </script>
 <script src="js/i18n.js"></script>
-<script src="/js/masthead.js?v=1"></script>
+<script src="/js/masthead.js?v=4"></script>
 <script src="/js/clocks.js?v=1"></script>
 </body>
 </html>
