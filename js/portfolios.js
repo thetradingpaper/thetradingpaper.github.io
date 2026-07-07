@@ -44,6 +44,7 @@ function aggregate(p) {
   let sold = 0, fees = 0;
   for (const tx of p.transactions) {
     if (tx.type === 'deposit') deposits += tx.amount;
+    if (tx.type === 'withdraw') deposits -= tx.amount; // cash taken OUT of the book — keeps P/L honest
     if (tx.type === 'buy') { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
     if (tx.type === 'sell') { sold += tx.shares * tx.price; fees += (tx.commission || 0); }
     if (tx.type === 'fee') fees += tx.amount;
@@ -67,6 +68,12 @@ function renderTx(tx) {
 ${date}
 <span class="tx-badge badge-deposit">DEPOSIT</span>
 <span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
+</div>`;
+
+  if (tx.type === 'withdraw') return `<div class="tx tx-sell">
+${date}
+<span class="tx-badge badge-sell">WITHDRAW</span>
+<span class="tx-line"><strong>−${fmtMoney(tx.amount)}</strong> &nbsp;CASH → ბარათი${tx.note ? ` · <span class="muted">${tx.note}</span>` : ''}</span>
 </div>`;
 
   if (tx.type === 'buy') return `<div class="tx tx-buy">

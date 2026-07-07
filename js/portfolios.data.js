@@ -18,7 +18,7 @@ window.PORTFOLIOS = {
       // Cached values from Issue 06 snapshot — live prices repaint these every 10s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 11.73, color: '#0f3057', divYield: 0.00 },
-      { ticker: 'SMH', name: 'VanEck Semiconductors ETF', shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 503.96, color: '#b91c1c', divYield: 0.26 },
+      { ticker: 'SMH', name: 'VanEck Semiconductors ETF', shares: 0.45510661, avgBuy: 493.41, invested: 224.55, value: 265.56, color: '#b91c1c', divYield: 0.26 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 295.77, color: '#166534', divYield: 1.11 },
       { ticker: 'ASX', name: 'ASE Industrial Holding', shares: 9.99266799, avgBuy: 37.24, invested: 372.13, value: 415.79, color: '#8b6914', divYield: 1.52 },
       { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 3.40788323, avgBuy: 31.25, invested: 106.50, value: 98.39, color: '#0891b2', divYield: 0.00 },
@@ -30,11 +30,13 @@ window.PORTFOLIOS = {
       { ticker: 'MNST', name: 'Monster Beverage Corporation', shares: 1.67377224, avgBuy: 97.04, invested: 162.43, value: 163.04, color: '#65a30d', divYield: 0.00 },
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 265.29, invested: 28.03, value: 28.03, color: '#9d174d', divYield: 0.00 },
     ],
-    cash: 0.00, // $185 deposit fully deployed on 29 May 2026
+    cash: 0.00, // SMH sale proceeds $199.40 withdrawn to card 08 Jul 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-08', type: 'withdraw', amount: 199.40, note: 'გატანა ბარათზე — ტანსაცმლისთვის' },
+      { date: '2026-07-07', type: 'sell', ticker: 'SMH', shares: 0.34275263, price: 583.51, commission: 0.60 },
       { date: '2026-07-01', type: 'buy', ticker: 'CRDO', shares: 0.10565843, price: 265.29, commission: 0.50 },
       { date: '2026-07-01', type: 'deposit', amount: 11.84 },
       { date: '2026-07-01', type: 'deposit', amount: 16.09 },
