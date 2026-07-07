@@ -38,14 +38,14 @@
     margin-right: 8px;
   }
 </style>
-<script src="js/portfolios.js?v=20260618-snap1"></script>
+<script src="js/portfolios.js?v=20260610-snap1"></script>
 </head>
 <body>
 
 <header class="masthead">
   <div class="top-bar">
     <span id="today-date"></span>
-    <span>გამოცემა №08 · ვისბადენი</span>
+    <span>გამოცემა №10 · ვისბადენი</span>
   </div>
   <h1>The Trading Paper</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
@@ -165,22 +165,22 @@
       <text x="170" y="106" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#fffdf7">Galt &amp; Taggart</text>
       <text x="170" y="126" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#fffdf7" opacity="0.8">ბერკეტული წიგნი · MSTR</text>
       <line x1="80" y1="144" x2="260" y2="144" stroke="#fffdf7" stroke-width="0.6" opacity="0.6"/>
-      <text id="galt-stamp" x="170" y="170" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#86efac">● აქტიური · $112.22</text>
-      <text id="galt-stamp-sub" x="170" y="188" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="1.5" fill="#fffdf7" opacity="0.75">ღია პოზიცია · 6 კონტრაქტი</text>
+      <text id="galt-stamp" x="170" y="170" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#fcd34d">● რიგში · $113</text>
+      <text id="galt-stamp-sub" x="170" y="188" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="1.5" fill="#fffdf7" opacity="0.75">ლიმიტ ორდერი — GTC</text>
       <line x1="300" y1="40" x2="300" y2="182" stroke="#fffdf7" stroke-width="0.6" opacity="0.4"/>
       <g font-family="Noto Sans Georgian, sans-serif" fill="#fffdf7">
-        <text x="392" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">შესვლა</text>
-        <text x="392" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">$112.22</text>
+        <text x="392" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">შესვლა · ლიმიტი</text>
+        <text x="392" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">$113</text>
         <text x="575" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ბერკეტი</text>
         <text x="575" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">2.5×</text>
         <text x="758" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">კონტრაქტი</text>
-        <text x="758" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">6 · $673</text>
+        <text x="758" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">5 · $565</text>
         <text x="392" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">margin · 40%</text>
-        <text x="392" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$269</text>
-        <text x="575" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ბალანსი</text>
-        <text id="galt-balance" x="575" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$307.91</text>
+        <text x="392" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$226</text>
+        <text x="575" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">თავისუფალი ქეში</text>
+        <text x="575" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$290</text>
         <text x="758" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ლიკვიდაცია</text>
-        <text x="758" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">~$99.50</text>
+        <text x="758" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">~$100.20</text>
       </g>
     </svg>
     <div class="fig-caption"><span class="fig-num">მესამე წიგნი</span>Galt &amp; Taggart · ბერკეტი 2.5× · MSTR · <span style="color:#8b6914;font-weight:700;">ბერკეტის გვერდი →</span></div>
@@ -440,25 +440,22 @@
       }
     }
 
-    // THIRD BOOK — Galt & Taggart leverage. Shows the live open-position balance (equity).
+    // THIRD BOOK — Galt & Taggart leverage. Flips to "active" when MSTR fills at the limit.
     function fillGaltBook() {
       const g = portfolios.galt;
       if (!g || !g.order) return;
       const stamp = document.getElementById('galt-stamp');
       const sub   = document.getElementById('galt-stamp-sub');
-      const balEl = document.getElementById('galt-balance');
-      // live MSTR price (galt holding refreshed; fall back to TBC's MSTR or entry)
-      const live  = (g.holdings[0] && g.holdings[0].livePrice)
-                 || (portfolios.tbc.holdings[0] && portfolios.tbc.holdings[0].livePrice)
-                 || g.order.entry;
-      const posVal = g.order.contracts * live;       // full position value
-      const equity = posVal + g.cash;                // open-position balance (cash holds −borrowed)
-      const pl     = g.order.contracts * (live - g.order.entry); // unrealised on the open position
-      const sign   = pl >= 0 ? '+' : '−';
-      if (g.order.filled) {
-        if (stamp) { stamp.textContent = '● ბალანსი ' + fmtMoney(equity); stamp.setAttribute('fill', pl >= 0 ? '#86efac' : '#fca5a5'); }
-        if (sub)   { sub.textContent = sign + '$' + Math.abs(pl).toFixed(2) + ' · პოზიცია ' + fmtMoney(posVal); sub.setAttribute('opacity', '0.95'); }
-        if (balEl) balEl.textContent = fmtMoney(equity);
+      const mstrHolding = portfolios.tbc.holdings[0];
+      const mstr = (mstrHolding && mstrHolding.livePrice) || null;
+      const filled = g.order.filled || (mstr != null && mstr <= g.order.entry);
+      if (filled) {
+        const px = mstr || g.order.entry;
+        const posVal = g.order.contracts * px;
+        const pl = g.order.contracts * (px - g.order.entry);
+        const sign = pl >= 0 ? '+' : '−';
+        if (stamp) { stamp.textContent = '● აქტიური პოზიცია'; stamp.setAttribute('fill', '#86efac'); }
+        if (sub)   { sub.textContent = sign + '$' + Math.abs(pl).toFixed(0) + ' · პოზიცია $' + posVal.toFixed(0); sub.setAttribute('opacity', '0.95'); }
       } else {
         if (stamp) { stamp.textContent = '● რიგში · $' + g.order.entry; stamp.setAttribute('fill', '#fcd34d'); }
         if (sub)   { sub.textContent = 'ლიმიტ ორდერი — GTC'; sub.setAttribute('opacity', '0.75'); }
@@ -483,7 +480,7 @@
     if (typeof refreshLivePrices === 'function') {
       async function refreshHome() {
         try {
-          await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc'), refreshLivePrices('galt')]);
+          await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc')]);
           paintAll();
         } catch (e) { /* ignore network errors */ }
       }

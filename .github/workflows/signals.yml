@@ -1,42 +1,37 @@
-name: Price snapshot
+name: Bot signals
 
 on:
   schedule:
-    # every 20 min during US pre-market -> after-hours, Mon-Fri (UTC)
-    - cron: '3,23,43 8-23 * * 1-5'
-    # one daily run on Saturday to close out the week
-    - cron: '23 8 * * 6'
+    # every 30 min during US market hours incl. pre/post edge, Mon-Fri (UTC)
+    - cron: '7,37 13-21 * * 1-5'
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 concurrency:
-  group: snapshot
+  group: signals
   cancel-in-progress: false
 
 jobs:
-  snapshot:
+  signals:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Fetch prices & update history
-        run: node scripts/snapshot.js
-
+      - name: Run signal engine
+        run: node scripts/signals.js
       - name: Commit & push if changed
         run: |
-          git config user.name "ttp-snapshot-bot"
+          git config user.name "ttp-signal-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/
           if git diff --staged --quiet; then
             echo "no changes"
           else
-            git commit -m "data: price snapshot $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git commit -m "bot: signals $(date -u +'%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin main
             git push
           fi

@@ -1,0 +1,126 @@
+[
+ {
+  "date": "2026-06-12T20:24:35.824490+00:00",
+  "ticker": "ROKU",
+  "entry": 143.66,
+  "score": 94.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824498+00:00",
+  "ticker": "WDS",
+  "entry": 23.07,
+  "score": 62.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824503+00:00",
+  "ticker": "NUVL",
+  "entry": 123.25,
+  "score": 58.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824508+00:00",
+  "ticker": "INTC",
+  "entry": 124.57,
+  "score": 52.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824512+00:00",
+  "ticker": "CRDO",
+  "entry": 250.81,
+  "score": 51.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824516+00:00",
+  "ticker": "CAVA",
+  "entry": 90.99,
+  "score": 48.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824520+00:00",
+  "ticker": "SFIX",
+  "entry": 3.85,
+  "score": 45.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824526+00:00",
+  "ticker": "PAYO",
+  "entry": 6.75,
+  "score": 45.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824530+00:00",
+  "ticker": "ONTO",
+  "entry": 323.88,
+  "score": 41.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:24:35.824533+00:00",
+  "ticker": "GLXY",
+  "entry": 33.36,
+  "score": 41.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-06-12T20:55:44.951106+00:00",
+  "ticker": "ATEX",
+  "entry": 82.5,
+  "score": 39.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ }
+]

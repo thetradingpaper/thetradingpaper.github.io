@@ -1,0 +1,43 @@
+name: research-bot
+
+on:
+  schedule:
+    # weekdays 13:40 UTC — ~3h after US market open, news has settled
+    - cron: "40 13 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: research-bot
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install yfinance pandas
+
+      - name: Run research bot
+        run: python bot/research_bot.py
+
+      - name: Run bot lab (5 test portfolios)
+        run: python bot/bot_lab.py
+
+      - name: Commit results
+        run: |
+          git config user.name "research-bot"
+          git config user.email "bot@thetradingpaper"
+          git add data/research.json data/research-log.json data/catalyst-stats.json data/bot-lab.json
+          git diff --cached --quiet || git commit -m "research: daily picks + bot lab $(date -u +%F)"
+          git pull --rebase origin main || true
+          git push

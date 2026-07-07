@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} · The Trading Paper</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="/js/gate.js"></script>
+<style>
+  /* photo / figure support */
+  .article-fig { margin: 24px 0; }
+  .article-fig img { width: 100%; height: auto; display: block; border: 1px solid var(--border); }
+  .article-fig figcaption {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px; color: var(--muted); margin-top: 6px;
+    letter-spacing: 0.5px; font-style: italic;
+  }
+  .snap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+  .snap-cell { border: 1px solid var(--border); padding: 14px 16px; background: var(--paper); }
+  .snap-cell .label { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .snap-cell .val { font-family: 'Noto Serif Georgian', serif; font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .snap-cell .val.neg { color: var(--red); }
+  .snap-cell .val.pos { color: #166534; }
+  .snap-cell .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 640px) { .snap-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="top-bar"><span id="today-date"></span><span>გამოცემა №{{ISSUE}} · ვისბადენი</span></div>
+  <h1>The Trading Paper</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
+  <nav>
+    <a href="../index.html">ბაზარი</a>
+    <a href="../articles.html" class="active">სტატიები</a>
+    <a href="../legends.html">ლეგენდები</a>
+    <a href="../portfolio.html">პორტფელი</a>
+    <a href="../strategy.html">სტრატეგია</a>
+    <a href="../startup.html">სტარტაფი</a>
+  </nav>
+</header>
+
+<main class="container narrow">
+  <article>
+    <h2 style="text-align:center;font-size:42px;">{{TITLE}}</h2>
+    <p class="dek">{{DEK — one-line subtitle}}</p>
+    <div class="article-meta">{{CATEGORY}} · {{YYYY-MM-DD}} · ლაშა ფხაკაძე</div>
+    <div class="article-body">
+
+      <p>{{LEAD PARAGRAPH}}</p>
+
+      <!-- PHOTO BLOCK — copy as needed, image file goes to /images/ -->
+      <figure class="article-fig">
+        <img src="../images/{{YYYY-MM-DD-slug}}.jpg" alt="{{ALT TEXT}}">
+        <figcaption>{{CAPTION}}</figcaption>
+      </figure>
+
+      <!-- NUMBERS GRID — optional, for market snapshots -->
+      <div class="snap-grid">
+        <div class="snap-cell">
+          <div class="label">{{METRIC}}</div>
+          <div class="val neg">{{VALUE}}</div>
+          <div class="sub">{{NOTE}}</div>
+        </div>
+      </div>
+
+      <p>{{BODY}}</p>
+
+    </div>
+  </article>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script>
+  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  const d = new Date();
+  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="ka"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper · გამოცემა №10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+ :root{--ink:#1a1a1a;--mut:#6b6b6b;--rule:#cfc8b8;--bd:#e2dccd;--paper:#fffdf7;--bg:#f4f1ea;--red:#b91c1c;--green:#166534;--gold:#8b6914}
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans Georgian',sans-serif;font-size:13px;line-height:1.5;padding:24px 12px}
+ .page{max-width:900px;margin:0 auto;background:var(--paper);padding:40px 44px 48px;border:1px solid var(--rule);box-shadow:0 24px 48px -24px rgba(60,40,20,.18)}
+ .mast{border-bottom:3px double var(--ink);padding-bottom:14px;margin-bottom:18px;text-align:center}
+ .mast .kick{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
+ .mast h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:46px;letter-spacing:-1px;margin:2px 0}
+ .mast .sub{font-size:11px;letter-spacing:2px;color:var(--mut)}
+ .total{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bd);margin:18px 0 6px;background:#fff}
+ .total .c{padding:12px 14px;border-right:1px solid var(--bd)}.total .c:last-child{border:none}
+ .total .c span{display:block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);margin-bottom:3px}
+ .total .c b{font-family:'Noto Serif Georgian',serif;font-size:22px}
+ .total .c b.pos{color:var(--green)}.total .c b.neg{color:var(--red)}
+ .totlabel{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:18px}
+ .book{margin-top:26px;border-top:2px solid var(--rule);padding-top:14px;break-inside:avoid}
+ .bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+ .bh .bt{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:22px}
+ .bh .bt em{font-weight:400;font-style:italic;color:var(--mut);font-size:18px}
+ .bh .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+ .bh .bs{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut)}
+ .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bd);background:#fff;margin-bottom:14px}
+ .stats .st{padding:10px 14px;border-right:1px solid var(--bd)}.stats .st:last-child{border:none}
+ .stats .st span{display:block;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--mut);margin-bottom:3px}
+ .stats .st b{font-family:'Noto Serif Georgian',serif;font-size:19px}
+ .stats .st b.pos{color:var(--green)}.stats .st b.neg{color:var(--red)}
+ .cols{display:grid;grid-template-columns:1.5fr 1fr;gap:24px}
+ h3{font-family:'Noto Serif Georgian',serif;font-size:13px;letter-spacing:.5px;margin:6px 0 7px;padding-bottom:3px;border-bottom:1px solid var(--bd)}
+ table.hold{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px}
+ table.hold th{text-align:left;font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--ink);padding:4px 6px 4px 0}
+ table.hold th.n,table.hold td.n{text-align:right;font-variant-numeric:tabular-nums}
+ table.hold td{padding:4px 6px 4px 0;border-bottom:1px solid var(--bd)}
+ table.hold td.t{font-family:'Noto Serif Georgian',serif;font-weight:700}
+ table.hold td.nm{color:var(--mut);font-size:9.5px}
+ ul.rules,ul.tx{list-style:none;font-size:11px}
+ ul.rules li{padding:3px 0 3px 14px;position:relative;color:#333}
+ ul.rules li:before{content:"—";position:absolute;left:0;color:var(--gold)}
+ ul.tx li{padding:5px 0;border-bottom:1px solid var(--bd);font-variant-numeric:tabular-nums}
+ ul.tx .bb{color:var(--red)}ul.tx .bs{color:var(--green)}ul.tx .bd{color:var(--gold)}
+ .foot{margin-top:30px;border-top:3px double var(--ink);padding-top:12px;text-align:center;font-size:10px;letter-spacing:1.5px;color:var(--mut)}
+ @media print{body{background:#fff;padding:0}.page{box-shadow:none;border:none;max-width:none;padding:24px 28px}}
+</style></head><body>
+<div class="page">
+ <div class="mast">
+  <div class="kick">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</div>
+  <h1>The Trading Paper</h1>
+  <div class="sub">გამოცემა №10 · 15 ივნისი 2026 · ვისბადენი · USD</div>
+ </div>
+ <div class="totlabel">სამივე წიგნი ერთად · All Three Books</div>
+ <div class="total">
+  <div class="c"><span>სრული ჩარიცხული</span><b>$1,869.62</b></div>
+  <div class="c"><span>მთლიანი პორტფელი</span><b>$2,112.77</b></div>
+  <div class="c"><span>წმინდა P/L</span><b class="pos">$243.15</b></div>
+  <div class="c"><span>უკუგება</span><b class="pos">+13.0%</b></div>
+ </div>
+ 
+ <section class="book">
+  <div class="bh"><div class="bt"><span class="dot" style="background:#b91c1c"></span>წიგნი პირველი · <em>Dogma</em></div><div class="bs">BOG · ბანკი საქართველო · გრძელვადიანი</div></div>
+  <div class="stats">
+   <div class="st"><span>სრული ჩარიცხული</span><b>$1,199.26</b></div>
+   <div class="st"><span>პორტფელის ღირებულება</span><b>$1,490.02</b></div>
+   <div class="st"><span>წმინდა P/L</span><b class="pos">$290.76</b></div>
+   <div class="st"><span>უკუგება</span><b class="pos">+24.2%</b></div>
+  </div>
+  <div class="cols">
+   <div>
+    <h3>პოზიციები · Holdings</h3>
+    <table class="hold"><thead><tr><th>ტიკერი</th><th>სახელი</th><th class="n">წილები</th><th class="n">საშ. ფასი</th><th class="n">ჩადებული</th></tr></thead><tbody><tr><td class="t">SPCX</td><td class="nm">Space Exploration Technologies Corp</td><td class="n">0.07576271</td><td class="n">$164.99</td><td class="n">$13.00</td></tr><tr><td class="t">SMH</td><td class="nm">VanEck Semiconductors ETF</td><td class="n">0.79785924</td><td class="n">$493.41</td><td class="n">$393.67</td></tr><tr><td class="t">VOO</td><td class="nm">Vanguard S&P 500 ETF</td><td class="n">0.43807493</td><td class="n">$633.25</td><td class="n">$277.41</td></tr><tr><td class="t">ASX</td><td class="nm">ASE Industrial Holding</td><td class="n">7.66256466</td><td class="n">$34.24</td><td class="n">$262.36</td></tr><tr><td class="t">KOID</td><td class="nm">KraneShares Humanoid Robotics ETF</td><td class="n">3.34000784</td><td class="n">$40.15</td><td class="n">$134.11</td></tr><tr><td class="t">MP</td><td class="nm">MP Materials Corp</td><td class="n">1.03896426</td><td class="n">$64.49</td><td class="n">$67.00</td></tr><tr><td class="t">VRT</td><td class="nm">Vertiv Holdings Co</td><td class="n">0.16056065</td><td class="n">$311.41</td><td class="n">$50.00</td></tr><tr><td class="t">WMT</td><td class="nm">Walmart Inc</td><td class="n">0.22569679</td><td class="n">$115.20</td><td class="n">$26.00</td></tr><tr><td class="t">WQTM</td><td class="nm">WisdomTree Quantum Computing Fund</td><td class="n">1.68379924</td><td class="n">$38.09</td><td class="n">$64.13</td></tr><tr><td class="t">MNST</td><td class="nm">Monster Beverage Corporation</td><td class="n">0.19100633</td><td class="n">$91.62</td><td class="n">$17.50</td></tr></tbody></table>
+    <h3>როგორ ვაკეთებ · Method</h3>
+    <ul class="rules"><li>თვიური $100–200 DCA — დისციპლინა</li><li>გრძელვადიანი ETF / აქციების შეგროვება</li><li>ვამოწმებ მხოლოდ — ფასი ეცემა თუ იზრდება</li><li>ფასი ეცემა → DCA · ფასი იზრდება → ვფლობ</li><li>მიზანი: 35% წლიური ზრდა</li></ul>
+   </div>
+   <div>
+    <h3>როგორ გავაკეთე · History</h3>
+    <ul class="tx"><li>15 Jun 2026 · <b class="bb">ყიდვა</b> · WQTM 1.00906981 @ $38.10 · $38.95</li><li>15 Jun 2026 · <b class="bs">გაყიდვა</b> · MSTR 0.29757007 @ $132.57 · $38.95</li><li>12 Jun 2026 · <b class="bb">ყიდვა</b> · SPCX 0.07576271 @ $164.99 · $13.00</li><li>12 Jun 2026 · <b class="bd">შევსება</b> · +$13.00 → CASH</li><li>11 Jun 2026 · <b class="bb">ყიდვა</b> · MSTR 0.29757007 @ $114.26 · $34.50</li></ul>
+   </div>
+  </div>
+ </section>
+ <section class="book">
+  <div class="bh"><div class="bt"><span class="dot" style="background:#1a1a1a"></span>წიგნი მეორე · <em>Active</em></div><div class="bs">TBC კაპიტალი · აქტიური ვაჭრობა</div></div>
+  <div class="stats">
+   <div class="st"><span>სრული ჩარიცხული</span><b>$380.36</b></div>
+   <div class="st"><span>პორტფელის ღირებულება</span><b>$268.50</b></div>
+   <div class="st"><span>წმინდა P/L</span><b class="neg">−$111.86</b></div>
+   <div class="st"><span>უკუგება</span><b class="neg">−29.4%</b></div>
+  </div>
+  <div class="cols">
+   <div>
+    <h3>პოზიციები · Holdings</h3>
+    <table class="hold"><thead><tr><th>ტიკერი</th><th>სახელი</th><th class="n">წილები</th><th class="n">საშ. ფასი</th><th class="n">ჩადებული</th></tr></thead><tbody><tr><td class="t">MSTR</td><td class="nm">Strategy Inc</td><td class="n">2.04739861</td><td class="n">$185.78</td><td class="n">$380.36</td></tr></tbody></table>
+    <h3>როგორ ვაკეთებ · Method</h3>
+    <ul class="rules"><li>ერთი კომპანიით ვაჭრობა, მთლიანი ბალანსით</li><li>თეზისი ფურცელზე ჯერ — შემდეგ შესვლა</li><li>დროული რეალიზება — მიზანთან გასვლა</li><li>მოგება BOG-ში მიედინება</li><li>მიზანი: 150% წლიური ზრდა</li></ul>
+   </div>
+   <div>
+    <h3>როგორ გავაკეთე · History</h3>
+    <ul class="tx"><li>15 May 2026 · <b class="bb">ყიდვა</b> · MSTR 0.63346818 @ $176.21 · $111.62</li><li>15 May 2026 · <b class="bd">შევსება</b> · +$111.61 → CASH</li><li>12 May 2026 · <b class="bb">ყიდვა</b> · MSTR 1.41393043 @ $190.06 · $268.73</li><li>12 May 2026 · <b class="bd">შევსება</b> · +$268.75 → CASH</li></ul>
+   </div>
+  </div>
+ </section>
+ <section class="book">
+  <div class="bh"><div class="bt"><span class="dot" style="background:#8b6914"></span>წიგნი მესამე · <em>Leverage</em></div><div class="bs">Galt & Taggart · 2.5× ბერკეტი</div></div>
+  <div class="stats">
+   <div class="st"><span>სრული ჩარიცხული</span><b>$290.00</b></div>
+   <div class="st"><span>პორტფელის ღირებულება</span><b>$354.25</b></div>
+   <div class="st"><span>წმინდა P/L</span><b class="pos">$64.25</b></div>
+   <div class="st"><span>უკუგება</span><b class="pos">+22.2%</b></div>
+  </div>
+  <div class="cols">
+   <div>
+    <h3>პოზიციები · Holdings</h3>
+    <table class="hold"><thead><tr><th>ტიკერი</th><th>სახელი</th><th class="n">წილები</th><th class="n">საშ. ფასი</th><th class="n">ჩადებული</th></tr></thead><tbody><tr><td class="t">MSTR</td><td class="nm">Strategy Inc · CFD 2.5×</td><td class="n">5</td><td class="n">$116.29</td><td class="n">$581.45</td></tr></tbody></table>
+    <h3>როგორ ვაკეთებ · Method</h3>
+    <ul class="rules"><li>2.5× ბერკეტი · MSTR.CFD · შესვლა $116.29 · 5 კონტრაქტი</li><li>მიზანი $460 · ჰორიზონტი 5–7 თვე · ლიკვიდაცია ≈ $103</li><li>ცალკე კაპიტალი — არასდროს ვავსებ სხვა წიგნებიდან</li><li>თეზისი ფურცელზე ჯერ — შემდეგ შესვლა</li><li>რისკის კონტროლი უპირველესია</li></ul>
+   </div>
+   <div>
+    <h3>როგორ გავაკეთე · History</h3>
+    <ul class="tx"><li>10 Jun 2026 · <b class="bb">ყიდვა</b> · MSTR 5 @ $116.29 · $591.45</li><li>29 May 2026 · <b class="bd">შევსება</b> · +$290.00 → CASH</li></ul>
+   </div>
+  </div>
+ </section>
+ <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი &nbsp;·&nbsp; ეს არ არის ფინანსური რჩევა</div>
+</div></body></html>

@@ -6,7 +6,7 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
-// Last sync: Issue 10 · 2026-06-18 — GALT re-entry (6 MSTR @112.22); BOG ASX→SSRM rotation
+// Last sync: Issue 10 · 2026-06-15 — BOG closes MSTR (+$4.95), rolls into WQTM (10 names)
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
@@ -25,27 +25,24 @@ const portfolios = {
     holdings: [
       // Cached values from Issue 06 snapshot — live prices repaint these every 60s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
-      { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 164.99, invested: 13.00, value: 12.49, color: '#0f3057', divYield: 0.00 },
-{ ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 455.51, color: '#b91c1c', divYield: 0.26 },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 292.22, color: '#166534', divYield: 1.11 },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.35610606, avgBuy:  34.24, invested: 217.63, value: 218.02, color: '#8b6914', divYield: 1.52 },
-      { ticker: 'SSRM', name: 'SSR Mining Inc',                    shares: 1.46712736, avgBuy:  33.40, invested:  49.00, value:  49.00, color: '#0891b2', divYield: 0.00 },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 132.56, color: '#4b5563', divYield: 0.01 },
-      { ticker: 'MP',   name: 'MP Materials Corp',                 shares: 1.03896426, avgBuy:  64.49, invested:  67.00, value:  55.53, color: '#b5651d', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',                shares: 0.16056065, avgBuy: 311.41, invested:  50.00, value:  45.11, color: '#3d8c7a', divYield: 0.08 },
-      { ticker: 'WMT',  name: 'Walmart Inc',                       shares: 0.22569679, avgBuy: 115.20, invested:  26.00, value:  27.22, color: '#7a8c2a', divYield: 0.90 },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy:  38.09, invested:  64.13, value:  59.15, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'MNST', name: 'Monster Beverage Corporation',     shares: 0.19100633, avgBuy:  91.62, invested:  17.50, value:  17.58, color: '#65a30d', divYield: 0.00 },
+      { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 164.99, invested: 13.00, value: 14.58, color: '#0f3057', divYield: 0.00 },
+{ ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 516.29, color: '#b91c1c', divYield: 0.26 },
+      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 303.95, color: '#166534', divYield: 1.11 },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 7.66256466, avgBuy:  34.24, invested: 262.36, value: 295.01, color: '#8b6914', divYield: 1.52 },
+      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 139.58, color: '#4b5563', divYield: 0.01 },
+      { ticker: 'MP',   name: 'MP Materials Corp',                 shares: 1.03896426, avgBuy:  64.49, invested:  67.00, value:  60.53, color: '#b5651d', divYield: 0.00 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',                shares: 0.16056065, avgBuy: 311.41, invested:  50.00, value:  50.08, color: '#3d8c7a', divYield: 0.08 },
+      { ticker: 'WMT',  name: 'Walmart Inc',                       shares: 0.22569679, avgBuy: 115.20, invested:  26.00, value:  27.27, color: '#7a8c2a', divYield: 0.90 },
+      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy:  38.09, invested:  64.13, value:  64.61, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'MNST', name: 'Monster Beverage Corporation',     shares: 0.19100633, avgBuy:  91.62, invested:  17.50, value:  17.81, color: '#65a30d', divYield: 0.00 },
     ],
     cash: 0.00,                       // $185 deposit fully deployed on 29 May 2026
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      { date: '2026-06-17', type: 'buy',    ticker: 'SSRM', shares: 1.46712736, price: 33.40,  commission: 0.50 },
-      { date: '2026-06-17', type: 'sell',   ticker: 'ASX',  shares: 1.30645860, price: 38.27,  commission: 0.50 },
-      { date: '2026-06-15', type: 'buy',    ticker: 'WQTM', shares: 1.00906981, price: 38.10,  commission: 0.50 },
-      { date: '2026-06-15', type: 'sell',   ticker: 'MSTR', shares: 0.29757007, price: 132.57, commission: 0.50 },
+      { date: '2026-06-15', type: 'buy',     ticker: 'WQTM', shares: 1.00906981, price: 38.10,  commission: 0.50 },
+      { date: '2026-06-15', type: 'sell',    ticker: 'MSTR', shares: 0.29757007, price: 132.57, commission: 0.50 },
       { date: '2026-06-12', type: 'buy',    ticker: 'SPCX', shares: 0.07576271, price: 164.99, commission: 0.50 },
 { date: '2026-06-12', type: 'deposit', amount: 13.00 },
 { date: '2026-06-11', type: 'buy',    ticker: 'MSTR', shares: 0.29757007, price: 114.2588, commission: 0.50 },
@@ -76,7 +73,7 @@ const portfolios = {
     startDate: '2026-05-12',
     annualGoalPct: 150,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 233.94, color: '#1a1a1a' },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 268.50, color: '#1a1a1a' },
     ],
     cash: 0,
     transactions: [
@@ -88,58 +85,53 @@ const portfolios = {
   },
 
   // -----------------------------------------------------------
-  // GALT — Galt & Taggart (re-entry long 18 Jun 2026 · $112.22 · 6 contracts · filled)
+  // GALT — Galt & Taggart (limit order placed 05 Jun 2026 · $113 · 5 contracts · queued)
   // -----------------------------------------------------------
   galt: {
     name: 'GALT',
     fullName: 'Galt & Taggart',
-    tagline: '2.5× margin · MSTR.CFD · შესრულდა $112.22 · 6 კონტრაქტი',
+    tagline: '2.5× margin · MSTR.CFD · შესრულდა $116.29 · მიზანი $460',
     startDate: '2026-05-29',
     annualGoalPct: null,
-    status: 'active',                 // OPEN: 6 MSTR.CFD @ $112.22 (filled 18 Jun 2026, Order No CF26M18500515)
-    // History: 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun, realized +$18.85) → account $307.91 flat
-    //          → re-entered 6 @112.22 (18 Jun).
-    // CFD position: 6 contracts MSTR @ 112.22 = $673.32 gross.
-    // Margin 40% = $269.33 own, borrowed $403.99, commission $10.
-    // cash = free cash ($28.58) - borrowed ($403.99) = -375.41,
-    // so currentValue = 6 x livePrice - 375.41 = real equity. Entry equity $297.91.
+    status: 'active',                 // FILLED 10 Jun 2026 14:04 @ $116.29 (user moved limit from $113)
+    // CFD position: 5 contracts MSTR @ 116.29 = $581.45 gross.
+    // Margin 40% = $232.58 own, borrowed $348.87, commission $10.
+    // cash = free cash ($47.42) - borrowed ($348.87) = -301.45,
+    // so currentValue = 5 x livePrice - 301.45 = real equity. Entry equity $280.
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc · CFD 2.5×', shares: 6, avgBuy: 112.22, invested: 673.32, value: 673.32, color: '#8b6914' },
+      { ticker: 'MSTR', name: 'Strategy Inc · CFD 2.5×', shares: 5, avgBuy: 116.29, invested: 581.45, value: 655.70, color: '#8b6914' },
     ],
-    cash: -375.41,
+    cash: -301.45,
     priorDeposits: 0,
     priorCostBasis: 0,
     transactions: [
-      { date: '2026-06-18', type: 'buy',  ticker: 'MSTR', shares: 6, price: 112.22, commission: 10.00 },
-      { date: '2026-06-17', type: 'sell', ticker: 'MSTR', shares: 5, price: 124.06, commission: 10.00 },
-      { date: '2026-06-10', type: 'buy',  ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
+      { date: '2026-06-10', type: 'buy', ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
       { date: '2026-05-29', type: 'deposit', amount: 290.00 },
     ],
-    // FILLED ORDER — Order No CF26M18500515 · Galt & Taggart
+    // FILLED ORDER — Order No CF26M10501132 · Galt & Taggart
     order: {
-      placed: '2026-06-18',
-      filledAt: '2026-06-18',
+      placed: '2026-06-05',
+      filledAt: '2026-06-10 14:04',
       asset: 'MSTR.CFD',
       side: 'buy',                    // long
-      type: 'limit',
-      entry: 112.22,                  // re-entry after closing prior 5 @116.29 at $124.06
-      contracts: 6,
-      orderValue: 673.32,
+      type: 'limit',                  // GTC
+      entry: 116.29,                  // user moved limit up from $113; filled same day
+      contracts: 5,
+      orderValue: 581.45,
       marginPct: 40,                  // 40% initial margin = 2.5× leverage
-      initialMargin: 269.33,
-      borrowed: 403.99,
+      initialMargin: 232.58,
+      borrowed: 348.87,
       commission: 10,
-      balance: 307.91,
-      liquidation: 99.50,             // ≈ -11.3% buffer ratio (same leverage as prior trade)
-      drawdownPct: -11.2,
+      balance: 290,
+      liquidation: 103.10,            // ≈ same -11.3% buffer ratio as broker quoted at $113
+      drawdownPct: -11.3,
       filled: true,
-      thesis: 're-entry long after taking +$18.85 on the prior MSTR position',
+      thesis: 'dip-buy after −6.4% intraday, support below $118',
     },
-    // Prior closed trade: bought 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun), realized +$18.85 after $20 commissions.
     plan: {
       asset: 'MSTR',
       leverage: 2.5,
-      entry: 112.22,
+      entry: 116.29,
       target: 460,
       horizonMonths: '5–7',
       estMarginInterestPct: 12,       // estimated annual rate

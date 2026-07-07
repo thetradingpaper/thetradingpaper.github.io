@@ -1,0 +1,115 @@
+{
+ "updated": "2026-06-13T08:39:44.629Z",
+ "watchlist": [
+  "NVDA",
+  "TSLA",
+  "MSTR",
+  "PLTR",
+  "BABA"
+ ],
+ "results": [
+  {
+   "ok": true,
+   "ticker": "NVDA",
+   "price": 205.19,
+   "rsi": 42.1,
+   "sma5": 205.46,
+   "sma20": 214.62,
+   "atr": 8.33,
+   "high20": 236.54,
+   "vol": 112001800,
+   "avgVol20": 179479125,
+   "chg1d": 0.16,
+   "signal": "WAIT",
+   "reasons": [],
+   "plan": null
+  },
+  {
+   "ok": true,
+   "ticker": "TSLA",
+   "price": 406.43,
+   "rsi": 43.6,
+   "sma5": 398.56,
+   "sma20": 415.74,
+   "atr": 17.77,
+   "high20": 451.98,
+   "vol": 63514500,
+   "avgVol20": 46538220,
+   "chg1d": 1.82,
+   "signal": "WAIT",
+   "reasons": [],
+   "plan": null
+  },
+  {
+   "ok": true,
+   "ticker": "MSTR",
+   "price": 123.97,
+   "rsi": 29.4,
+   "sma5": 120.74,
+   "sma20": 144.5,
+   "atr": 10.63,
+   "high20": 193,
+   "vol": 16772200,
+   "avgVol20": 18550955,
+   "chg1d": 3.18,
+   "signal": "BUY",
+   "reasons": [
+    "R1 oversold bounce · RSI 29.4 < 32 · პირველი მწვანე"
+   ],
+   "plan": {
+    "entry": 123.97,
+    "target": 145.23,
+    "stop": 108.03,
+    "horizon": "5 სავაჭრო დღე max"
+   }
+  },
+  {
+   "ok": true,
+   "ticker": "PLTR",
+   "price": 127.99,
+   "rsi": 43.5,
+   "sma5": 131.56,
+   "sma20": 138.74,
+   "atr": 7.59,
+   "high20": 163.7,
+   "vol": 35378000,
+   "avgVol20": 38484520,
+   "chg1d": -2.36,
+   "signal": "WAIT",
+   "reasons": [],
+   "plan": null
+  },
+  {
+   "ok": true,
+   "ticker": "BABA",
+   "price": 112.82,
+   "rsi": 22,
+   "sma5": 116.13,
+   "sma20": 125.81,
+   "atr": 3.77,
+   "high20": 143.98,
+   "vol": 8128100,
+   "avgVol20": 11504040,
+   "chg1d": 0.12,
+   "signal": "BUY",
+   "reasons": [
+    "R1 oversold bounce · RSI 22 < 32 · პირველი მწვანე"
+   ],
+   "plan": {
+    "entry": 112.82,
+    "target": 120.36,
+    "stop": 107.16,
+    "horizon": "5 სავაჭრო დღე max"
+   }
+  }
+ ],
+ "stats": {
+  "closedTrades": 0,
+  "wins": 0,
+  "losses": 0,
+  "winRate": null,
+  "totalPnl": 0,
+  "equity": 100.64,
+  "returnPct": 0.64
+ }
+}

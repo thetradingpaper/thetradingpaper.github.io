@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — Research Desk · კვლევის ბოტი</title>
+<style>
+  :root{
+    --paper:#f5f0e6; --ink:#1d1a14; --muted:#6b6357; --line:#c9bfa9;
+    --green:#1d6b45; --red:#9c2b2b; --amber:#9a6a14; --card:#fbf8f1;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--paper); color:var(--ink);
+       font-family:Georgia,"Times New Roman",serif; line-height:1.6;}
+  .wrap{max-width:980px; margin:0 auto; padding:18px;}
+  header{text-align:center; border-bottom:3px double var(--ink); padding:14px 0 10px;}
+  .kicker{font-size:12px; letter-spacing:2px; color:var(--muted); text-transform:uppercase;}
+  h1{font-size:42px; letter-spacing:1px;}
+  .sub{font-style:italic; color:var(--muted); font-size:14px;}
+  nav{display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
+      border-bottom:1px solid var(--line); padding:8px 0; font-size:14px;}
+  nav a{color:var(--ink); text-decoration:none;}
+  nav a:hover{text-decoration:underline;}
+  .book{font-style:italic; text-align:center; color:var(--muted); margin:16px 0 4px;}
+  .notif{background:var(--card); border:1px solid var(--line); border-left:6px solid var(--green);
+         padding:18px; margin:18px 0; font-size:18px;}
+  .notif.WAIT{border-left-color:var(--muted);}
+  .notif.STARTER{border-left-color:var(--amber);}
+  .notif .mode{font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:6px;}
+  .meta{font-size:13px; color:var(--muted); text-align:center; margin:6px 0 14px;}
+  .stale{background:#f3dede; border:1px solid var(--red); color:var(--red);
+         padding:10px; font-size:14px; margin:10px 0; display:none;}
+  .pick{background:var(--card); border:1px solid var(--line); margin:12px 0; padding:14px 16px;}
+  .pick h3{font-size:20px; display:flex; justify-content:space-between; align-items:baseline;}
+  .score{font-size:14px; color:var(--green);}
+  .horizon{font-size:12px; color:var(--muted); font-style:italic;}
+  .cat{font-size:14px; margin:6px 0 2px; padding-left:10px; border-left:3px solid var(--line);}
+  .cat b{color:var(--green); font-weight:normal; font-variant:small-caps;}
+  .plan{font-size:14px; margin-top:8px; color:var(--ink);}
+  .plan span{margin-right:14px;}
+  .plan .t{color:var(--green);} .plan .s{color:var(--red);}
+  table{width:100%; border-collapse:collapse; font-size:14px; margin:10px 0;}
+  th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left;}
+  th{font-size:12px; letter-spacing:1px; color:var(--muted); text-transform:uppercase;}
+  h2{font-size:22px; margin:26px 0 6px; border-bottom:1px solid var(--line); padding-bottom:4px;}
+  .rules{font-size:14px; color:var(--muted); margin:14px 0;}
+  .rules li{margin:4px 0 4px 18px;}
+  footer{text-align:center; font-size:13px; color:var(--muted);
+         border-top:3px double var(--ink); margin-top:30px; padding:14px 0;}
+  .labgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;}
+  .labcard{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--muted); padding:10px 12px;}
+  .labcard h4{font-size:15px; margin-bottom:2px;}
+  .labcard .eq{font-size:20px; font-weight:bold;}
+  .labcard .ret.pos{color:var(--green);} .labcard .ret.neg{color:var(--red);}
+  .labcard .small{font-size:11.5px; color:var(--muted); line-height:1.45;}
+  @media(max-width:600px){ h1{font-size:30px;} .notif{font-size:16px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">გამოცემა №10 · ვისბადენი</div>
+    <h1>The Trading Paper</h1>
+    <div class="sub">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</div>
+  </header>
+  <nav>
+    <a href="index.html">ბაზარი</a>
+    <a href="articles.html">სტატიები</a>
+    <a href="legends.html">ლეგენდები</a>
+    <a href="portfolio.html">პორტფელი</a>
+    <a href="margin.html">ბერკეტი</a>
+    <a href="signals.html">ბოტი</a>
+    <a href="research.html"><b>კვლევა</b></a>
+    <a href="strategy.html">სტრატეგია</a>
+    <a href="startup.html">სტარტაფი</a>
+  </nav>
+
+  <p class="book">წიგნი მეოთხე · <i>The Bot</i> — Research Desk · Wisdom Tree ეტაპი II</p>
+  <p style="text-align:center; margin:10px 0;">
+    <span style="display:inline-block; border:2px solid var(--red); color:var(--red); padding:4px 14px;
+                 font-size:12px; letter-spacing:3px; font-weight:bold;">⚠ სატესტო ვერსია · TEST BUILD</span>
+    <span style="display:block; font-size:12px; color:var(--muted); margin-top:6px;">
+      მიმდინარეობს ექსპერიმენტები ქაღალდის ფულით — არცერთი ციფრი არ არის რეალური ვაჭრობა ·
+      <a href="pdfs/bot-devlog-01.pdf" style="color:var(--red);">📄 როგორ ვავითარებთ ბოტს — Dev Log 01 (PDF)</a>
+    </span>
+  </p>
+  <p class="meta" id="meta">● იტვირთება…</p>
+  <div class="stale" id="stale">⚠ მონაცემები მოძველებულია — ბოტი შესაძლოა არ მუშაობს.
+    <a href="https://github.com/thetradingpaper/thetradingpaper.github.io/actions">შეამოწმე Actions</a></div>
+
+  <div class="notif" id="notif" style="display:none">
+    <span class="mode" id="mode"></span>
+    <span id="notifText"></span>
+  </div>
+
+  <h2>ბოტ-ლაბი · 5 სატესტო პორტფელი ერთსა და იმავე სიგნალებზე</h2>
+  <p class="rules" style="margin:6px 0">ხუთივე ბოტი ერთსა და იმავე დღიურ კვლევას იღებს — განსხვავდება მხოლოდ ფულის მართვა.
+  ექსპერიმენტის კითხვა: რომელი სტილი გადარჩება. ბოტი 5 იმეორებს რეალურ Galt &amp; Taggart CFD სეტაპს ($1000 · 2.5× · $10 საკომისიო · ლიკვიდაცია −11.3%).</p>
+  <div id="lab" class="labgrid">● იტვირთება…</div>
+
+  <h2>დღევანდელი კვლევა · მაქს. 10 აქცია მთელი ბაზრიდან</h2>
+  <div id="picks">● იტვირთება…</div>
+
+  <h2>რა ისწავლა ბოტმა · კატალიზატორების win rate</h2>
+  <p class="rules" style="margin:6px 0">ბოტი ყოველ არჩევანს 7 დღის შემდეგ აფასებს: გაიზარდა თუ არა.
+  კატალიზატორი რომელიც მუშაობს — მეტ წონას იღებს. რომელიც არ მუშაობს — ნაკლებს.</p>
+  <table id="learnedTbl" style="display:none">
+    <thead><tr><th>კატალიზატორი</th><th>შემთხვევა</th><th>Win rate</th><th>საშ. შედეგი</th><th>წონა ახლა</th></tr></thead>
+    <tbody id="learnedBody"></tbody>
+  </table>
+  <p id="learnedEmpty" class="rules">ჯერ საკმარისი ისტორია არ არის — ბოტი აგროვებს მონაცემებს.</p>
+
+  <h2>როგორ მუშაობს</h2>
+  <ul class="rules">
+    <li><b>სკანი:</b> ~6,000 ამერიკული აქცია ყოველდღე → ფილტრი (ფასი, მოცულობა, მოძრაობა) → ~120 კანდიდატი</li>
+    <li><b>ამბები:</b> თითო კანდიდატის ბოლო 72 საათის სათაურები — earnings, კონტრაქტები, FDA, M&amp;A, upgrade/downgrade</li>
+    <li><b>ქულა:</b> ტექნიკური სურათი + ამბის ძალა × ნასწავლი წონა. მხოლოდ პოზიტიური კატალიზატორით შედის სიაში</li>
+    <li><b>ერთი პასუხი:</b> კონცენტრაცია / დივერსიფიკაცია / ლოდინი — ხმაურის გარეშე</li>
+    <li><b>პატიოსნება:</b> ყველა არჩევანი ლოგში იწერება და ფასდება. ქაღალდის ვაჭრობა — რეალურ გადაწყვეტილებას ადამიანი იღებს</li>
+  </ul>
+
+  <footer>
+    განახლება დღეში ერთხელ, ბაზრის გახსნიდან ~3 საათში (GitHub Actions)<br>
+    ეს არ არის ფინანსური რჩევა — ბოტი ინფორმაციას იძლევა, გადაწყვეტილება ყოველთვის შენია<br><br>
+    © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი
+  </footer>
+</div>
+
+<script>
+fetch('data/bot-lab.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    const box = document.getElementById('lab');
+    box.innerHTML = Object.values(d.bots).map(b => {
+      const ret = b.stats ? b.stats.return_pct : 0;
+      const cls = ret >= 0 ? 'pos' : 'neg';
+      const pos = b.positions.map(p =>
+        `${p.ticker}${p.leverage ? ' ' + p.leverage + '×' : ''} @ $${(+p.entry).toFixed(2)}`).join(', ') || 'ცარიელი — ელოდება';
+      const last = b.trades.length ? b.trades[b.trades.length - 1] : null;
+      return `
+      <div class="labcard">
+        <h4>${b.name_ka}</h4>
+        <div class="small">${b.desc_ka}</div>
+        <div class="eq">$${b.equity.toFixed(2)}</div>
+        <div class="ret ${cls}">${ret >= 0 ? '+' : ''}${ret}% · სტარტი $${b.start}</div>
+        <div class="small">პოზიცია: ${pos}</div>
+        <div class="small">ვაჭრობა: ${b.stats && b.stats.trades ? b.stats.trades + ' · win rate ' + (b.stats.win_rate ?? '—') + '%' : 'ჯერ 0'}</div>
+        ${last ? `<div class="small">ბოლო: ${last.ticker} ${last.ret_pct >= 0 ? '+' : ''}${last.ret_pct}% (${last.reason})</div>` : ''}
+      </div>`;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('lab').innerHTML =
+      '<p class="rules">data/bot-lab.json ჯერ არ არსებობს — გაუშვი workflow (Actions → research-bot).</p>';
+  });
+
+const CAT_KA = {
+  earnings_beat:"მოგებამ აჯობა", guidance_raise:"პროგნოზი აწია", analyst_upgrade:"ანალიტიკოსის upgrade",
+  big_contract:"დიდი კონტრაქტი", fda_approval:"FDA / კვლევა", m_and_a:"M&A",
+  buyback_dividend:"buyback / დივიდენდი", growth_news:"ზრდის ამბავი",
+  earnings_miss:"მოგება ჩავარდა", analyst_downgrade:"downgrade", dilution:"დილუცია",
+  legal_trouble:"სამართლებრივი", short_report:"short report"
+};
+fetch('data/research.json?t=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    const upd = new Date(d.updated);
+    const ageH = (Date.now() - upd.getTime()) / 36e5;
+    document.getElementById('meta').textContent =
+      `განახლდა: ${upd.toLocaleString('ka-GE')} · დასკანერდა ${d.scanned} აქცია · შორთლისტი ${d.shortlisted}`;
+    const day = upd.getDay();
+    if (ageH > 30 && day >= 1 && day <= 5) document.getElementById('stale').style.display = 'block';
+
+    const n = document.getElementById('notif');
+    n.style.display = 'block';
+    n.classList.add(d.mode);
+    document.getElementById('mode').textContent = d.mode;
+    document.getElementById('notifText').textContent = d.notification;
+
+    const box = document.getElementById('picks');
+    if (!d.picks || !d.picks.length) {
+      box.innerHTML = '<p class="rules">ბოტი ელოდება — დღეს სუფთა სეტაპი არ არის.</p>';
+    } else {
+      box.innerHTML = d.picks.map((p, i) => `
+        <div class="pick">
+          <h3><span>${i + 1}. ${p.ticker} · $${p.price}</span>
+              <span class="score">ქულა ${p.score}</span></h3>
+          <div class="horizon">${p.horizon === 'long' ? 'გრძელვადიანი კანდიდატი' : 'მოკლევადიანი სვინგი'} ·
+            RSI ${p.rsi} · 5დღ ${p.mom5 > 0 ? '+' : ''}${p.mom5}% · მოცულობა ${p.vol_surge}×</div>
+          ${p.catalysts.map(c => `<p class="cat"><b>${CAT_KA[c.category] || c.category}</b> · ${c.headline}
+            <span style="color:var(--muted)">(${Math.round(c.age_h)}სთ წინ · ${c.points > 0 ? '+' : ''}${c.points})</span></p>`).join('')}
+          <p class="plan"><span>შესვლა ${p.plan.entry}</span>
+            <span class="t">target ${p.plan.target}</span>
+            <span class="s">stop ${p.plan.stop}</span>
+            <span>${p.plan.hold}</span></p>
+        </div>`).join('');
+    }
+
+    if (d.learned && d.learned.length) {
+      document.getElementById('learnedTbl').style.display = 'table';
+      document.getElementById('learnedEmpty').style.display = 'none';
+      document.getElementById('learnedBody').innerHTML = d.learned.map(l => `
+        <tr><td>${CAT_KA[l.category] || l.category}</td><td>${l.n}</td>
+        <td>${l.win_rate}%</td><td>${l.avg_return > 0 ? '+' : ''}${l.avg_return}%</td>
+        <td>${l.weight_now}×</td></tr>`).join('');
+    }
+  })
+  .catch(() => {
+    document.getElementById('meta').textContent =
+      'data/research.json ჯერ არ არსებობს — გაუშვი workflow ერთხელ ხელით (Actions → research-bot → Run workflow).';
+  });
+</script>
+</body>
+</html>

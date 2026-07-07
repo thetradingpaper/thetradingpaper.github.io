@@ -160,5 +160,23 @@
     "deposited": 290
    }
   }
+ },
+ {
+  "date": "2026-06-15",
+  "books": {
+   "bog": {
+    "value": 1490.02,
+    "deposited": 1199.26
+   },
+   "tbc": {
+    "value": 268.5,
+    "deposited": 380.36
+   },
+   "galt": {
+    "value": 354.25,
+    "deposited": 290
+   }
+  },
+  "label": "ISS 10"
  }
 ]
