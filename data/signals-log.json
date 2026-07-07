@@ -1,1 +1,24 @@
-[]
+[
+ {
+  "closed": "2026-07-07T22:40:15.927Z",
+  "opened": "2026-06-12T21:00:39.184Z",
+  "ticker": "BABA",
+  "rule": "R1",
+  "entry": 112.82,
+  "exit": 98.14,
+  "exitType": "STOP",
+  "pnl": -2.6,
+  "pnlPct": -13.01
+ },
+ {
+  "closed": "2026-07-07T22:40:15.927Z",
+  "opened": "2026-06-11T21:32:20.983Z",
+  "ticker": "MSTR",
+  "rule": "R1",
+  "entry": 120.15,
+  "exit": 97.36,
+  "exitType": "STOP",
+  "pnl": -3.79,
+  "pnlPct": -18.97
+ }
+]
