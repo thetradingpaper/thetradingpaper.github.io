@@ -1,70 +1,76 @@
 {
-  "updated": "2026-06-13T15:16:34.240Z",
+  "updated": "2026-07-07T22:33:25.038Z",
   "source": "yahoo-finance-v8 via GitHub Actions",
   "quotes": {
     "SPCX": {
-      "price": 160.95,
-      "previousClose": 135,
+      "price": 149.47,
+      "previousClose": 160.42,
       "session": "REG",
       "state": "REGULAR"
     },
     "SMH": {
-      "price": 619.96,
-      "previousClose": 609.45,
+      "price": 581.45,
+      "previousClose": 604.3,
       "session": "REG",
       "state": "REGULAR"
     },
     "VOO": {
-      "price": 681.95,
-      "previousClose": 678.23,
+      "price": 687.08,
+      "previousClose": 690.62,
       "session": "REG",
       "state": "REGULAR"
     },
     "ASX": {
-      "price": 38.12,
-      "previousClose": 36.8,
+      "price": 39.65,
+      "previousClose": 43.32,
+      "session": "REG",
+      "state": "REGULAR"
+    },
+    "SSRM": {
+      "price": 29.91,
+      "previousClose": 30.64,
       "session": "REG",
       "state": "REGULAR"
     },
     "KOID": {
-      "price": 40.81,
-      "previousClose": 41.05,
+      "price": 39.83,
+      "previousClose": 41.625,
       "session": "REG",
       "state": "REGULAR"
     },
     "MP": {
-      "price": 57.55,
-      "previousClose": 57.18,
+      "price": 50.49,
+      "previousClose": 53.01,
       "session": "REG",
       "state": "REGULAR"
     },
     "VRT": {
-      "price": 302.87,
-      "previousClose": 297.88,
+      "price": 305.58,
+      "previousClose": 318.47,
       "session": "REG",
       "state": "REGULAR"
     },
     "WMT": {
-      "price": 121.04,
-      "previousClose": 120.5,
+      "price": 111.54,
+      "previousClose": 110.65,
       "session": "REG",
       "state": "REGULAR"
     },
     "WQTM": {
-      "price": 36.63,
-      "previousClose": 36.63,
+      "price": 34.71,
+      "previousClose": 36.19,
       "session": "REG",
       "state": "REGULAR"
     },
     "MNST": {
-      "price": 92.83,
-      "previousClose": 92.03,
+      "price": 96.92,
+      "previousClose": 97.37,
       "session": "REG",
       "state": "REGULAR"
     },
     "MSTR": {
-      "price": 123.97,
-      "previousClose": 120.15,
+      "price": 97.36,
+      "previousClose": 100.77,
       "session": "REG",
       "state": "REGULAR"
     }
