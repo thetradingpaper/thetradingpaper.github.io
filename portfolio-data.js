@@ -2,13 +2,13 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-06-29
+// Last updated: 2026-07-07
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-01',
-  feesPaid: 49.76,                      // running total of all commissions + taxes
+  lastUpdated: '2026-07-07',
+  feesPaid: 49.1,                       // running total of all commissions + taxes (+$0.60 SMH sell 07 Jul)
   feesByBook: [
-    { book: 'BOG', amount: 9.76, note: 'ისტორიის საკომისიოები + CRDO $0.50 + VOO div tax $0.26' },
+    { book: 'BOG', amount: 9.1, note: 'ისტორიის საკომისიოები' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 1.96,
