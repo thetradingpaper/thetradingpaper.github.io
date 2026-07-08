@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჩემი ჩანაწერები · წიგნები · ჟურნალი · The Trading Paper</title>
+<meta name="description" content="ბაზრის ჩანაწერები — სამი წიგნი (BOG · TBC · GALT), ჩანაწერები და ჟურნალი.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#b91c1c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/enhance.css?v=20260630b">
+<script>(function(){try{if(localStorage.getItem('tp_theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  // Theme Chart.js defaults before first paint so donuts draw correctly in dark mode.
+  (function(){try{var dark=localStorage.getItem('tp_theme')==='dark';if(window.Chart){Chart.defaults.color=dark?'#b8b1a0':'#6b6b6b';Chart.defaults.borderColor=dark?'rgba(255,255,255,0.07)':'rgba(0,0,0,0.05)';}}catch(e){}})();
+</script>
+<style>
+  .cab-lead{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;color:var(--muted);margin:8px 0 18px;line-height:1.6;}
+  .cab-sec{border-top:2px solid var(--rule);border-bottom:1px solid var(--border);padding:6px 0;margin:22px 0 14px;display:flex;justify-content:space-between;align-items:baseline;}
+  .cab-sec .t{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);}
+  .cab-sec .c{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);}
+  .note{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--red,#b91c1c);padding:14px 18px;margin-bottom:12px;font-family:'Noto Sans Georgian',sans-serif;}
+  .note .n-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--border);padding-bottom:7px;margin-bottom:8px;gap:10px;}
+  .note .n-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;color:var(--ink);}
+  .note .n-date{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);white-space:nowrap;padding-left:12px;}
+  .note .n-body{font-size:13px;color:var(--ink);line-height:1.65;white-space:pre-wrap;}
+  .note .n-actions{margin-top:9px;display:flex;gap:8px;}
+  .note .n-actions button{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);background:var(--bg,#fffdf7);color:var(--muted);border-radius:4px;cursor:pointer;}
+  .note .n-actions button:hover{border-color:var(--red);color:var(--red);}
+  /* permanent / pinned entries */
+  .note.pinned{border-left-color:var(--accent,#8b6914);background:#fffdf5;}
+  .note .n-pin{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent,#8b6914);border:1px solid var(--accent,#8b6914);border-radius:3px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
+  .cab-empty{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);padding:16px;text-align:center;border:1px dashed var(--border);}
+  .cab-form{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--accent,#8b6914);margin:22px 0;overflow:hidden;}
+  .cab-form>summary{cursor:pointer;list-style:none;padding:12px 18px;font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);}
+  .cab-form>summary::-webkit-details-marker{display:none;}
+  .cab-form>summary::after{content:'+';float:right;color:var(--red);font-size:18px;line-height:1;}
+  .cab-form[open]>summary::after{content:'−';}
+  .cab-form .fb{padding:6px 18px 18px;border-top:1px solid var(--border);}
+  .cab-form label{display:block;font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;}
+  .cab-form input,.cab-form textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--border);border-radius:5px;font-family:inherit;font-size:13px;background:var(--bg,#fffdf7);color:var(--ink);}
+  .cab-form textarea{min-height:110px;resize:vertical;line-height:1.6;}
+  .cab-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:560px){.cab-form .row{grid-template-columns:1fr;}}
+  .cab-btn{margin-top:14px;padding:9px 22px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;border-radius:4px;}
+  .cab-btn.ghost{background:none;color:var(--muted);border:1px solid var(--border);margin-left:8px;}
+  .save-hint{font-size:10.5px;color:var(--muted);margin-top:10px;line-height:1.5;font-family:'Noto Sans Georgian',sans-serif;}
+
+  /* ===== FOLDED BOOK CARDS (ჩემი წიგნები) ===== */
+  .books-intro{font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px;color:var(--muted);line-height:1.6;margin:2px 0 14px;}
+  .bookfold{background:var(--paper);border:1px solid var(--border);border-top:2px solid var(--rule);margin-bottom:12px;overflow:hidden;}
+  .bookfold>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;font-family:'Noto Sans Georgian',sans-serif;}
+  .bookfold>summary::-webkit-details-marker{display:none;}
+  .bookfold>summary::after{content:'+';font-family:serif;font-size:22px;line-height:1;color:var(--red);margin-left:6px;}
+  .bookfold[open]>summary::after{content:'−';}
+  .bookfold>summary:hover{background:rgba(0,0,0,.02);}
+  .bf-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:18px;color:var(--ink);display:flex;align-items:center;gap:9px;}
+  .bf-title em{font-weight:400;font-style:italic;color:var(--muted);font-size:14px;}
+  .bf-dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .bf-meta{display:flex;align-items:baseline;gap:12px;font-family:ui-monospace,monospace;font-size:12px;white-space:nowrap;}
+  .bf-meta .bf-val{font-weight:700;color:var(--ink);}
+  .bf-meta .bf-pl.pos{color:var(--green);}.bf-meta .bf-pl.neg{color:var(--red);}
+  .bf-closed{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#8b6914;border:1px solid #8b6914;border-radius:3px;padding:1px 6px;}
+  .bf-body{border-top:1px solid var(--border);padding:18px;display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:center;}
+  @media(max-width:620px){.bf-body{grid-template-columns:1fr;}}
+  .bf-ring{position:relative;width:200px;height:200px;margin:0 auto;}
+  .bf-ring canvas{position:absolute;inset:0;}
+  .bf-photo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;overflow:hidden;background:var(--bg);border:3px solid var(--paper);box-shadow:0 0 0 1px var(--border);}
+  .bf-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .bf-live{position:absolute;left:0;right:0;bottom:-4px;text-align:center;font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;color:var(--red);}
+  .bf-side{min-width:0;}
+  .bf-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);margin-bottom:12px;}
+  .bf-stats .c{padding:9px 12px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .bf-stats .c:nth-child(2n){border-right:none;}
+  .bf-stats .c:nth-child(n+3){border-bottom:none;}
+  .bf-stats .l{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+  .bf-stats .v{font-family:ui-monospace,monospace;font-weight:700;font-size:17px;color:var(--ink);}
+  .bf-stats .v.pos{color:var(--green);}.bf-stats .v.neg{color:var(--red);}
+  .bf-holdings{width:100%;border-collapse:collapse;font-family:'Noto Sans Georgian',sans-serif;font-size:12px;}
+  .bf-holdings th{text-align:left;font-size:8.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:0 0 6px;border-bottom:1px solid var(--border);}
+  .bf-holdings th.num,.bf-holdings td.num{text-align:right;font-family:ui-monospace,monospace;}
+  .bf-holdings td{padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+  .bf-holdings tbody tr:last-child td{border-bottom:none;}
+  .bf-holdings .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+  .bf-holdings .tk{font-family:'Noto Serif Georgian',serif;font-weight:700;color:var(--ink);}
+  .bf-holdings td.num.pos{color:var(--green);}.bf-holdings td.num.neg{color:var(--red);}
+  .bf-closedbody{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>ჩემი ჩანაწერები</h1>
+  <p class="tagline">ბაზრის ჩანაწერი · წიგნები · იდეები · თეზისები · ჟურნალი</p>
+</header>
+
+<main class="container">
+  <p class="cab-lead">ბაზრის დღიური და ჟურნალი. სანამ პოზიციაში შევდივარ — თეზისი ჯერ აქ. შემდეგ ვბრუნდები და ვამოწმებ, მართალი ვიყავი თუ არა. ასე იზრდება დისციპლინა. ჩანაწერები ინახება <b>ამ ბრაუზერში</b> (localStorage) და ბრაუზერის დახურვის შემდეგაც რჩება.</p>
+
+  <!-- ============================================================ -->
+  <!-- ჩემი წიგნები — folded books (BOG · TBC · GALT)               -->
+  <!-- ============================================================ -->
+  <div class="cab-sec"><span class="t">ჩემი წიგნები</span><span class="c" id="books-count"></span></div>
+  <p class="books-intro">სამი წიგნი — თითო დაკეცილია. დააჭირე რომ გახსნა: ჯერ ფოტო და პორტფელის მინი-პროფილი (გადანაწილება), შემდეგ პოზიციები. ღირებულება ცოცხალია.</p>
+  <div id="books-fold"></div>
+
+  <!-- ============================================================ -->
+  <!-- ჩანაწერები / journal                                          -->
+  <!-- ============================================================ -->
+  <div class="cab-sec"><span class="t">ჩანაწერები</span><span class="c" id="note-count"></span></div>
+  <div id="note-list"></div>
+
+  <details class="cab-form" id="new-note">
+    <summary>ახალი ჩანაწერი</summary>
+    <div class="fb">
+      <div class="row">
+        <div><label>თარიღი</label><input id="f-date" type="date"></div>
+        <div><label>სათაური</label><input id="f-title" type="text" placeholder="მაგ. MSTR თეზისი"></div>
+      </div>
+      <label>ტექსტი</label>
+      <textarea id="f-body" placeholder="დაწერე შენი ფიქრი, თეზისი ან დაკვირვება…"></textarea>
+      <button class="cab-btn" id="f-add">შენახვა</button>
+      <button class="cab-btn ghost" id="f-cancel" style="display:none;">გაუქმება</button>
+      <div class="save-hint">💾 ინახება ავტომატურად ამ ბრაუზერში — სერვერი არ სჭირდება. სხვა მოწყობილობაზე რომ გქონდეს, გამომიგზავნე ტექსტი და ავტვირთავ მუდმივ ჩანაწერად.</div>
+    </div>
+  </details>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script src="js/cabinet.data.js?t=1"></script>
+<script>
+(function(){
+  'use strict';
+  var LS_KEY = 'tp_notes';
+
+  // ---- permanent personal journal entry (change spec §7) ----------------
+  // Always shown, pinned, never editable/deletable. Anchor: #journal
+  var JOURNAL = {
+    id: 'journal',
+    date: '2026-01-01',
+    title: 'გაკვეთილი — $5,000-დან პირველ დანაკარგამდე',
+    body:
+      'ერთი წლის შრომით დაახლოებით $5,000 დავაგროვე. ეს ფული ადვილად არ მოსულა — დღიდან დღემდე, დისციპლინით და უარის თქმით.\n\n'
+      + 'შემდეგ, ინვესტიციებში, დაახლოებით $800 დავკარგე. ეს ტკივილი გაკვეთილად მექცა და ამ გვერდზე იმიტომ ვწერ, რომ აღარ დავივიწყო:\n\n'
+      + '• კაპიტალის დაგროვება ნელია, დაკარგვა კი სწრაფი — პატივი მიაგე ყოველ დოლარს.\n'
+      + '• რისკის მართვა უპირველესია. ბერკეტი და აჩქარება ემოციას ზრდის, არა შედეგს.\n'
+      + '• დისციპლინა პროგნოზზე მაღლა დგას — თეზისი ჯერ ფურცელზე, შემდეგ შესვლა.\n'
+      + '• დანაკარგი მარცხი არ არის, თუ მისგან ვსწავლობ.\n\n'
+      + '$800 იმ $5,000-ის ფასი იყო, რომ მესწავლა როგორ არ დავკარგო შემდეგი $5,000. ეს ჩანაწერი ჩემი ფსიქოლოგიური შეხსენებაა — მოთმინება, დისციპლინა, ყოველდღიური ჩვევა.',
+    pinned: true
+  };
+
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  // ---- localStorage helpers (change spec §8) ----------------------------
+  function load(){
+    try { var raw = localStorage.getItem(LS_KEY); if(!raw) return []; var a = JSON.parse(raw); return Array.isArray(a)?a:[]; }
+    catch(e){ return []; }
+  }
+  function save(arr){
+    try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); return true; }
+    catch(e){ alert('ვერ შევინახე — ბრაუზერის მეხსიერება სავსეა ან დაბლოკილია.'); return false; }
+  }
+  var userNotes = load();
+
+  // Seed (permanent) diary entries from js/cabinet.data.js — read-only baseline.
+  var seed = ((window.CABINET && Array.isArray(window.CABINET.notes)) ? window.CABINET.notes : []).map(function(x,i){
+    return { id:'seed-'+i, date:x.date||'', title:x.title||'', body:x.body||'', permanent:true };
+  });
+
+  var editingId = null;
+
+  function allNotes(){
+    // pinned journal first, then everything else sorted by date desc
+    var rest = seed.concat(userNotes).slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'');});
+    return [JOURNAL].concat(rest);
+  }
+
+  function noteHTML(x){
+    var isUser = !x.permanent && !x.pinned;
+    var pin = x.pinned ? '<span class="n-pin">მუდმივი · ჟურნალი</span>' : (x.permanent ? '<span class="n-pin">მუდმივი</span>' : '');
+    var actions = isUser
+      ? '<div class="n-actions"><button data-edit="'+x.id+'">რედაქტირება</button><button data-del="'+x.id+'">წაშლა</button></div>'
+      : '';
+    return '<div class="note'+(x.pinned?' pinned':'')+'"'+(x.id==='journal'?' id="journal"':'')+'>'
+      + '<div class="n-head"><span class="n-title">'+esc(x.title||'უსათაურო')+pin+'</span>'
+      + '<span class="n-date">'+esc(x.date||'')+'</span></div>'
+      + '<div class="n-body">'+esc(x.body)+'</div>'
+      + actions + '</div>';
+  }
+
+  function render(){
+    var list = document.getElementById('note-list');
+    var notes = allNotes();
+    document.getElementById('note-count').textContent = notes.length + ' ჩანაწერი';
+    list.innerHTML = notes.map(noteHTML).join('');
+    // wire edit / delete
+    list.querySelectorAll('button[data-del]').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(!confirm('წავშალო ეს ჩანაწერი?')) return;
+        var id = b.getAttribute('data-del');
+        userNotes = userNotes.filter(function(n){return n.id!==id;});
+        save(userNotes); render();
+      });
+    });
+    list.querySelectorAll('button[data-edit]').forEach(function(b){
+      b.addEventListener('click', function(){ startEdit(b.getAttribute('data-edit')); });
+    });
+    // if page opened with #journal, scroll to it
+    if(location.hash==='#journal'){ var j=document.getElementById('journal'); if(j) j.scrollIntoView({behavior:'smooth',block:'start'}); }
+  }
+
+  var dEl = document.getElementById('f-date');
+  var tEl = document.getElementById('f-title');
+  var bEl = document.getElementById('f-body');
+  var addBtn = document.getElementById('f-add');
+  var cancelBtn = document.getElementById('f-cancel');
+  var formBox = document.getElementById('new-note');
+
+  function resetForm(){
+    editingId = null;
+    dEl.value = new Date().toISOString().slice(0,10);
+    tEl.value=''; bEl.value='';
+    addBtn.textContent='შენახვა';
+    cancelBtn.style.display='none';
+  }
+  function startEdit(id){
+    var n = userNotes.filter(function(x){return x.id===id;})[0];
+    if(!n) return;
+    editingId = id;
+    dEl.value = n.date || new Date().toISOString().slice(0,10);
+    tEl.value = n.title || '';
+    bEl.value = n.body || '';
+    addBtn.textContent='განახლება';
+    cancelBtn.style.display='inline-block';
+    formBox.open = true;
+    formBox.scrollIntoView({behavior:'smooth',block:'center'});
+    bEl.focus();
+  }
+
+  addBtn.addEventListener('click', function(){
+    var body = bEl.value.trim();
+    if(!body){ bEl.focus(); return; }
+    var date = dEl.value || new Date().toISOString().slice(0,10);
+    var title = tEl.value.trim();
+    if(editingId){
+      userNotes = userNotes.map(function(n){ return n.id===editingId ? {id:n.id,date:date,title:title,body:body} : n; });
+    } else {
+      userNotes.push({ id:'u'+Date.now()+'-'+Math.floor(Math.random()*1000), date:date, title:title, body:body });
+    }
+    if(save(userNotes)){ resetForm(); render(); }
+  });
+  cancelBtn.addEventListener('click', function(){ resetForm(); });
+
+  resetForm();
+  render();
+})();
+</script>
+
+<!-- Portfolio data + helpers (same sources the cabinet dashboard uses) -->
+<script>document.write('<scr'+'ipt src="/portfolio-data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="js/portfolios.data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="js/portfolios.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>
+// ============================================================
+// ჩემი წიგნები — folded book cards. Self-contained: reads the
+// live window.PORTFOLIOS data and (if present) refreshLivePrices()
+// from js/portfolios.js. Each book stays folded until opened;
+// opening draws the allocation donut with the photo in the centre.
+// ============================================================
+(function(){
+  'use strict';
+  var P = window.PORTFOLIOS;
+  if(!P){ return; }
+  var ME = window.MEPORTF || {};
+
+  var BOOKS = [
+    { key:'bog',  latin:'Dogma',    dot:'#b91c1c' },
+    { key:'tbc',  latin:'Income',   dot:'#1a1a1a' },
+    { key:'galt', latin:'Leverage', dot:'#8b6914' }
+  ];
+
+  function fmt(n){ n=+n||0; return (n<0?'−$':'$')+Math.abs(n).toFixed(2); }
+  function hVal(p){ var s=0; (p.holdings||[]).forEach(function(h){ s+=(+h.value||0); }); return s; }
+  function aggBook(p){
+    var inv=0, val=hVal(p);
+    (p.holdings||[]).forEach(function(h){ inv+=(+h.invested||0); });
+    return { inv:inv, val:val+(+p.cash||0), pl:val-inv };
+  }
+  function ringSegments(p){
+    return (p.holdings||[]).filter(function(h){ return (+h.value)>0; })
+      .map(function(h){ return { v:+h.value, c:h.color||'#9ca3af', t:h.ticker }; });
+  }
+  function drawDonut(canvas, segs){
+    if(!canvas || typeof Chart==='undefined' || !segs.length) return;
+    var ex = Chart.getChart(canvas); if(ex) ex.destroy();
+    new Chart(canvas, {
+      type:'doughnut',
+      data:{ labels:segs.map(function(s){return s.t;}), datasets:[{ data:segs.map(function(s){return s.v;}), backgroundColor:segs.map(function(s){return s.c;}), borderWidth:2, borderColor:'#fffdf7' }] },
+      options:{ responsive:true, maintainAspectRatio:false, cutout:'70%',
+        plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(c){ return c.label+': $'+(+c.parsed).toFixed(2); } } } } }
+    });
+  }
+  function statsBox(p){
+    var a=aggBook(p);
+    var cls=a.pl>=0?'pos':'neg';
+    var plp=a.inv>0?(a.pl/a.inv*100):0;
+    return '<div class="bf-stats">'
+      +'<div class="c"><div class="l">ინვესტ.</div><div class="v">$'+a.inv.toFixed(2)+'</div></div>'
+      +'<div class="c"><div class="l">ღირებულება</div><div class="v">$'+a.val.toFixed(2)+'</div></div>'
+      +'<div class="c"><div class="l">P/L</div><div class="v '+cls+'">'+(a.pl>=0?'+$':'−$')+Math.abs(a.pl).toFixed(2)+'</div></div>'
+      +'<div class="c"><div class="l">უკუგება</div><div class="v '+cls+'">'+(a.pl>=0?'+':'−')+Math.abs(plp).toFixed(1)+'%</div></div>'
+      +'</div>';
+  }
+  function holdingsTable(p){
+    var denom=hVal(p);
+    var rows=(p.holdings||[]).slice().sort(function(a,b){ return (+b.value)-(+a.value); }).map(function(h){
+      var pl=(+h.value)-(+h.invested);
+      var plp=(+h.invested)>0?(pl/(+h.invested)*100):0;
+      var alloc=denom>0?((+h.value)/denom*100):0;
+      var cls=pl>=0?'pos':'neg';
+      return '<tr><td><span class="sw" style="background:'+(h.color||'#9ca3af')+'"></span><span class="tk">'+h.ticker+'</span></td>'
+        +'<td class="num">$'+(+h.value).toFixed(2)+'</td>'
+        +'<td class="num '+cls+'">'+(pl>=0?'+':'−')+Math.abs(plp).toFixed(1)+'%</td>'
+        +'<td class="num">'+alloc.toFixed(1)+'%</td></tr>';
+    }).join('');
+    return '<table class="bf-holdings"><thead><tr><th>აქტივი</th><th class="num">ღირ.</th><th class="num">P/L</th><th class="num">წილი</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  }
+  function liveBody(key){
+    return '<div class="bf-body">'
+      +'<div class="bf-ring"><canvas id="bf-donut-'+key+'"></canvas>'
+        +'<div class="bf-photo"><img src="images/lasha.jpg" alt="" onerror="this.parentNode.style.display=\'none\'"></div>'
+        +'<div class="bf-live" id="bf-live-'+key+'"></div></div>'
+      +'<div class="bf-side">'+statsBox(P[key])+holdingsTable(P[key])+'</div>'
+      +'</div>';
+  }
+  function galtClosedBody(g){
+    var netCls=(+g.net>=0)?'pos':'neg';
+    return '<div class="bf-body" style="grid-template-columns:1fr;">'
+      +'<div style="width:100%">'
+      +'<div class="bf-stats">'
+        +'<div class="c"><div class="l">ჩარიცხული</div><div class="v">'+fmt(g.deposit)+'</div></div>'
+        +'<div class="c"><div class="l">წმინდა შედეგი</div><div class="v '+netCls+'">'+fmt(g.net)+'</div></div>'
+        +'<div class="c"><div class="l">საკომისიო</div><div class="v neg">−$'+(+g.fees||0).toFixed(2)+'</div></div>'
+        +'<div class="c"><div class="l">გატანილი → BOG</div><div class="v">'+fmt(g.withdrawnToBOG)+'</div></div>'
+      +'</div>'
+      +'<p class="bf-closedbody" style="margin-top:12px">'+(g.statusNote||'ბერკეტიანი წიგნი დახურულია — კაპიტალი დაბრუნდა BOG-ში. გაკვეთილი: ბერკეტი და აჩქარება ემოციას ზრდის, არა შედეგს.')+'</p>'
+      +'</div></div>';
+  }
+
+  function renderBooks(){
+    var host=document.getElementById('books-fold');
+    if(!host) return;
+    var html='';
+    BOOKS.forEach(function(b){
+      var p=P[b.key]; if(!p) return;
+      var closed=(b.key==='galt') && ME.galt && ME.galt.closed;
+      var head, body;
+      if(closed){
+        head='<span class="bf-meta"><span class="bf-closed">დახურული</span><span class="bf-pl '+((+ME.galt.net>=0)?'pos':'neg')+'">'+fmt(ME.galt.net)+'</span></span>';
+        body=galtClosedBody(ME.galt);
+      } else {
+        var a=aggBook(p);
+        head='<span class="bf-meta"><span class="bf-val" id="bfv-'+b.key+'">$'+a.val.toFixed(2)+'</span><span class="bf-pl '+(a.pl>=0?'pos':'neg')+'" id="bfp-'+b.key+'">'+(a.pl>=0?'+$':'−$')+Math.abs(a.pl).toFixed(2)+'</span></span>';
+        body=liveBody(b.key);
+      }
+      html+='<details class="bookfold" data-key="'+b.key+'"'+(closed?' data-closed="1"':'')+'>'
+        +'<summary><span class="bf-title"><span class="bf-dot" style="background:'+b.dot+'"></span>'+p.name+' · <em>'+b.latin+'</em></span>'+head+'</summary>'
+        +body+'</details>';
+    });
+    host.innerHTML=html;
+    var cnt=document.getElementById('books-count'); if(cnt) cnt.textContent='3 წიგნი · BOG · TBC · GALT';
+
+    host.querySelectorAll('details.bookfold').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(d.open && !d.dataset.closed && !d._drawn){
+          d._drawn=true;
+          var key=d.dataset.key;
+          drawDonut(document.getElementById('bf-donut-'+key), ringSegments(P[key]));
+        }
+      });
+    });
+  }
+
+  function refreshBooks(){
+    if(typeof refreshLivePrices!=='function') return;
+    ['bog','tbc'].forEach(function(key){
+      if(!P[key]) return;
+      Promise.resolve(refreshLivePrices(key)).then(function(){
+        var p=P[key]; var a=aggBook(p);
+        var v=document.getElementById('bfv-'+key); if(v) v.textContent='$'+a.val.toFixed(2);
+        var pe=document.getElementById('bfp-'+key);
+        if(pe){ pe.textContent=(a.pl>=0?'+$':'−$')+Math.abs(a.pl).toFixed(2); pe.className='bf-pl '+(a.pl>=0?'pos':'neg'); }
+        var d=document.querySelector('details.bookfold[data-key="'+key+'"]');
+        if(d && d.open){
+          var side=d.querySelector('.bf-side'); if(side) side.innerHTML=statsBox(p)+holdingsTable(p);
+          drawDonut(document.getElementById('bf-donut-'+key), ringSegments(p));
+          var ls=document.getElementById('bf-live-'+key); if(ls) ls.textContent='● LIVE';
+        }
+      }).catch(function(){});
+    });
+  }
+
+  renderBooks();
+  refreshBooks();
+  var _t=setInterval(refreshBooks, 30000);
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ clearInterval(_t); _t=null; }
+    else if(!_t){ refreshBooks(); _t=setInterval(refreshBooks, 30000); }
+  });
+})();
+</script>
+<script src="js/masthead.js?v=4"></script>
+<script src="js/clocks.js?v=1"></script>
+</body>
+</html>
