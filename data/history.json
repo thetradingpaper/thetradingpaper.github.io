@@ -1,198 +1,227 @@
 [
- {
-  "date": "2026-05-07",
-  "label": "ISS 01",
-  "books": {
-   "bog": {
-    "value": 907.13,
-    "deposited": 868.26
-   }
+  {
+    "date": "2026-05-08",
+    "books": {
+      "bog": {
+        "deposited": 868.26,
+        "value": 907.13
+      }
+    }
+  },
+  {
+    "date": "2026-05-09",
+    "books": {
+      "bog": {
+        "deposited": 907.76,
+        "value": 945.2
+      }
+    }
+  },
+  {
+    "date": "2026-05-11",
+    "books": {
+      "bog": {
+        "deposited": 928.26,
+        "value": 1104.15
+      },
+      "tbc": {
+        "deposited": 268.75,
+        "value": 277.05
+      }
+    }
+  },
+  {
+    "date": "2026-05-21",
+    "books": {
+      "bog": {
+        "deposited": 948.76,
+        "value": 1138.2
+      },
+      "tbc": {
+        "deposited": 380.36,
+        "value": 339.78
+      }
+    }
+  },
+  {
+    "date": "2026-05-22",
+    "books": {
+      "bog": {
+        "deposited": 948.76,
+        "value": 1162.32
+      },
+      "tbc": {
+        "deposited": 380.36,
+        "value": 334.69
+      }
+    }
+  },
+  {
+    "date": "2026-05-27",
+    "books": {
+      "bog": {
+        "deposited": 948.76,
+        "value": 1202.62
+      },
+      "tbc": {
+        "deposited": 380.36,
+        "value": 315.73
+      }
+    }
+  },
+  {
+    "date": "2026-05-29",
+    "books": {
+      "bog": {
+        "deposited": 1133.76,
+        "value": 1387.12
+      },
+      "galt": {
+        "deposited": 290,
+        "value": 290
+      }
+    }
+  },
+  {
+    "date": "2026-06-11",
+    "books": {
+      "bog": {
+        "deposited": 1186.26,
+        "value": 1346.26
+      },
+      "tbc": {
+        "deposited": 380.36,
+        "value": 233.94
+      },
+      "galt": {
+        "deposited": 290,
+        "value": 313.22
+      }
+    }
+  },
+  {
+    "date": "2026-06-25",
+    "books": {
+      "bog": {
+        "deposited": 1410.63,
+        "value": 1677.08
+      },
+      "tbc": {
+        "deposited": 380.36,
+        "value": 192.72
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    }
+  },
+  {
+    "date": "2026-06-29",
+    "books": {
+      "bog": {
+        "deposited": 1555.56,
+        "value": 1822.31
+      },
+      "tbc": {
+        "deposited": 444.97,
+        "value": 256.89
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1822.31 (+17.1%) · TBC $256.89 (-42.3%) · GALT closed"
+  },
+  {
+    "date": "2026-07-01",
+    "books": {
+      "bog": {
+        "deposited": 1583.49,
+        "value": 1855.42
+      },
+      "tbc": {
+        "deposited": 467.58,
+        "value": 281.48
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1855.42 (+17.2%) · TBC $281.48 (-39.8%) · GALT closed"
+  },
+  {
+    "date": "2026-07-02",
+    "books": {
+      "bog": {
+        "deposited": 1583.49,
+        "value": 1819.64
+      },
+      "tbc": {
+        "deposited": 467.58,
+        "value": 301.08
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1819.64 (+14.9%) · TBC $301.08 (-35.6%) · GALT closed"
+  },
+  {
+    "date": "2026-07-03",
+    "books": {
+      "bog": {
+        "deposited": 1583.49,
+        "value": 1819.64
+      },
+      "tbc": {
+        "deposited": 467.58,
+        "value": 301.08
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1819.64 (+14.9%) · TBC $301.08 (-35.6%) · GALT closed"
+  },
+  {
+    "date": "2026-07-06",
+    "books": {
+      "bog": {
+        "deposited": 1583.49,
+        "value": 1856.31
+      },
+      "tbc": {
+        "deposited": 467.58,
+        "value": 300.8
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1856.31 (+17.2%) · TBC $300.8 (-35.7%) · GALT closed"
+  },
+  {
+    "date": "2026-07-07",
+    "books": {
+      "bog": {
+        "deposited": 1583.49,
+        "value": 1566.71
+      },
+      "tbc": {
+        "deposited": 467.58,
+        "value": 293.45
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $1566.71 (-1.1%) · TBC $293.45 (-37.2%) · GALT closed"
   }
- },
- {
-  "date": "2026-05-09",
-  "label": "ISS 02",
-  "books": {
-   "bog": {
-    "value": 945.2,
-    "deposited": 907.76
-   }
-  }
- },
- {
-  "date": "2026-05-11",
-  "label": "ISS 03",
-  "books": {
-   "bog": {
-    "value": 1104.15,
-    "deposited": 928.26
-   },
-   "tbc": {
-    "value": 277.05,
-    "deposited": 268.75
-   }
-  }
- },
- {
-  "date": "2026-05-21",
-  "label": "ISS 04",
-  "books": {
-   "bog": {
-    "value": 1138.2,
-    "deposited": 948.76
-   },
-   "tbc": {
-    "value": 339.78,
-    "deposited": 380.36
-   }
-  }
- },
- {
-  "date": "2026-05-22",
-  "label": "ISS 05",
-  "books": {
-   "bog": {
-    "value": 1162.32,
-    "deposited": 948.76
-   },
-   "tbc": {
-    "value": 334.69,
-    "deposited": 380.36
-   }
-  }
- },
- {
-  "date": "2026-05-27",
-  "label": "ISS 06",
-  "books": {
-   "bog": {
-    "value": 1202.62,
-    "deposited": 948.76
-   },
-   "tbc": {
-    "value": 315.73,
-    "deposited": 380.36
-   }
-  }
- },
- {
-  "date": "2026-05-29",
-  "label": "ISS 07",
-  "books": {
-   "bog": {
-    "value": 1387.12,
-    "deposited": 1133.76
-   },
-   "tbc": {
-    "value": 315.73,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 290,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-06-10",
-  "books": {
-   "bog": {
-    "value": 1300.19,
-    "deposited": 1133.76
-   },
-   "tbc": {
-    "value": 239.28,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 290,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-06-11",
-  "books": {
-   "bog": {
-    "value": 1401.81,
-    "deposited": 1186.26
-   },
-   "tbc": {
-    "value": 242.82,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 291.55,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-06-12",
-  "books": {
-   "bog": {
-    "value": 1441.29,
-    "deposited": 1186.26
-   },
-   "tbc": {
-    "value": 251.7,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 313.22,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-06-13",
-  "books": {
-   "bog": {
-    "value": 1449.06,
-    "deposited": 1199.26
-   },
-   "tbc": {
-    "value": 253.82,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 318.4,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-07-07",
-  "books": {
-   "bog": {
-    "value": 1408.82,
-    "deposited": 1199.26
-   },
-   "tbc": {
-    "value": 199.33,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 208.75,
-    "deposited": 290
-   }
-  }
- },
- {
-  "date": "2026-07-08",
-  "books": {
-   "bog": {
-    "value": 1418.83,
-    "deposited": 1199.26
-   },
-   "tbc": {
-    "value": 192.19,
-    "deposited": 380.36
-   },
-   "galt": {
-    "value": 187.81,
-    "deposited": 290
-   }
-  }
- }
 ]

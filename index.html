@@ -3,211 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Trading Paper — ბაზრის მიმოხილვა</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="/js/gate.js"></script>
-<script defer src="js/auth-ui.js?v=20260525"></script>
+<title>The Trading Paper — პირადი საინვესტიციო გაზეთი</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;800;900&family=Noto+Sans+Georgian:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.TP_GUEST = true;</script>
 <style>
-  /* Homepage live-books figure */
-  .home-fig {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-top: 3px double var(--rule);
-    border-bottom: 3px double var(--rule);
-    padding: 28px 24px 20px;
-    margin: 0 0 32px;
-  }
-  .home-fig svg { display: block; width: 100%; height: auto; max-width: 100%; }
-  .home-fig .fig-caption {
-    text-align: center;
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-  .home-fig .fig-num {
-    display: inline-block;
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--red);
-    margin-right: 8px;
-  }
+  /* ---- fallbacks in case style.css is unavailable ---- */
+  :root { --paper:#fffdf7; --bg:#f4f1ea; --ink:#1a1a1a; --muted:#6b6b6b;
+          --border:#d9d4c8; --rule:#1a1a1a; --red:#b91c1c; --green:#166534; --gold:#8b6914; }
+  body { background:var(--bg); color:var(--ink); font-family:'Noto Serif Georgian', Georgia, serif; margin:0; }
+  .container { max-width:1080px; margin:0 auto; padding:0 20px 40px; }
+
+  /* ---- hero ---- */
+  .pub-hero { text-align:center; padding:34px 16px 30px; border-bottom:3px double var(--rule);
+              background:var(--paper); border:1px solid var(--border); border-top:3px double var(--rule); margin-bottom:26px; }
+  .pub-hero .kicker { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; letter-spacing:4px;
+                      text-transform:uppercase; color:var(--red); margin-bottom:12px; }
+  .pub-hero h2 { font-size:34px; font-weight:900; margin:0 0 10px; letter-spacing:-0.5px; line-height:1.2; }
+  .pub-hero p { font-size:15px; color:var(--muted); max-width:640px; margin:0 auto 22px; line-height:1.65; }
+  .pub-hero .cta { display:inline-block; font-family:'Noto Sans Georgian',sans-serif; font-size:12px; letter-spacing:2px;
+                   text-transform:uppercase; text-decoration:none; padding:12px 26px; margin:0 6px 6px; }
+  .pub-hero .cta.dark { background:var(--ink); color:var(--paper); }
+  .pub-hero .cta.dark:hover { background:var(--red); }
+  .pub-hero .cta.line { border:1px solid var(--ink); color:var(--ink); }
+  .pub-hero .cta.line:hover { border-color:var(--red); color:var(--red); }
+
+  .section-head2 { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:3.5px; text-transform:uppercase;
+                   color:var(--ink); border-top:3px double var(--rule); border-bottom:1px solid var(--border);
+                   padding:10px 2px; margin:34px 0 18px; display:flex; justify-content:space-between; align-items:center;}
+  .section-head2 .en { color:var(--muted); letter-spacing:2px; font-size:9.5px; }
+
+  .pub-widget { background:var(--paper); border:1px solid var(--border); padding:14px 16px; margin-bottom:20px; }
+  .pub-widget .w-title { font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:2.5px;
+                         text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .pub-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media(max-width:760px){ .pub-grid2 { grid-template-columns:1fr; } }
+
+  /* ---- locked teaser books ---- */
+  .lock-wrap { position:relative; border:1px solid var(--border); border-top:3px double var(--rule);
+               border-bottom:3px double var(--rule); background:var(--paper); padding:28px 24px; overflow:hidden; }
+  .lock-books { display:grid; grid-template-columns:1fr 1fr; gap:26px; filter:blur(7px); opacity:0.85;
+                user-select:none; pointer-events:none; }
+  @media(max-width:640px){ .lock-books { grid-template-columns:1fr; } }
+  .lk-book { color:#fffdf7; padding:26px 22px 22px; text-align:center; border:2px solid var(--ink); }
+  .lk-book.red { background:var(--red); } .lk-book.green { background:var(--green); }
+  .lk-book .t { font-size:30px; font-weight:900; }
+  .lk-book .s { font-family:'Noto Sans Georgian',sans-serif; font-size:9px; letter-spacing:3px; margin:4px 0 14px; opacity:.85; }
+  .lk-book .v { font-size:34px; font-weight:900; font-variant-numeric:tabular-nums; }
+  .lk-book .row { display:flex; justify-content:space-around; margin-top:14px;
+                  font-family:'Noto Sans Georgian',sans-serif; font-size:12px; }
+  .lock-over { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+               text-align:center; background:rgba(255,253,247,0.35); padding:20px; }
+  .lock-over .padlock { font-size:34px; margin-bottom:10px; }
+  .lock-over .lt { font-weight:800; font-size:20px; background:var(--paper); padding:6px 16px; border:1px solid var(--border); }
+  .lock-over .ls { font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);
+                   background:var(--paper); padding:4px 12px; margin-top:6px; border:1px solid var(--border);}
+  .lock-over a.go { margin-top:14px; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:2px;
+                    text-transform:uppercase; background:var(--ink); color:var(--paper); padding:10px 22px; text-decoration:none; }
+  .lock-over a.go:hover { background:var(--red); }
+
+  /* ---- feature strip ---- */
+  .feat { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); background:var(--paper); }
+  @media(max-width:760px){ .feat { grid-template-columns:1fr 1fr; } }
+  .feat div { padding:16px 14px; border-right:1px solid var(--border); }
+  .feat div:last-child { border-right:none; }
+  @media(max-width:760px){ .feat div:nth-child(2) { border-right:none; } }
+  .feat b { display:block; font-size:14.5px; margin-bottom:5px; }
+  .feat span { font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; color:var(--muted); line-height:1.55; }
+
+  /* ---- packets ---- */
+  .packets { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+  @media(max-width:820px){ .packets { grid-template-columns:1fr; } }
+  .pk { background:var(--paper); border:1px solid var(--border); border-top:3px double var(--rule);
+        padding:24px 22px 22px; text-align:center; display:flex; flex-direction:column; position:relative; }
+  .pk.feat-pk { border:2px solid var(--ink); border-top:4px double var(--ink); box-shadow:6px 6px 0 rgba(26,26,26,0.12); }
+  .pk .badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:var(--red); color:#fffdf7;
+               font-family:'Noto Sans Georgian',sans-serif; font-size:9px; letter-spacing:2px; padding:3px 12px; text-transform:uppercase; }
+  .pk h3 { font-size:21px; font-weight:900; margin:0 0 2px; }
+  .pk .en-name { font-family:'Noto Sans Georgian',sans-serif; font-size:9.5px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  .pk .price { font-size:38px; font-weight:900; margin:14px 0 2px; font-variant-numeric:tabular-nums; }
+  .pk .per { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; color:var(--muted); margin-bottom:16px; }
+  .pk ul { list-style:none; padding:0; margin:0 0 20px; text-align:right; flex:1; }
+  .pk ul li { font-family:'Noto Sans Georgian',sans-serif; font-size:12.5px; padding:7px 2px; border-bottom:1px dotted var(--border);
+              display:flex; justify-content:space-between; gap:8px; }
+  .pk ul li .no { color:#b8b2a4; }
+  .pk ul li .tick { color:var(--green); }
+  .pk button { font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; letter-spacing:2px; text-transform:uppercase;
+               padding:12px; border:none; cursor:pointer; background:var(--ink); color:var(--paper); }
+  .pk button:hover { background:var(--red); }
+  .pk.free button { background:transparent; color:var(--ink); border:1px solid var(--ink); }
+  .pk.free button:hover { color:var(--red); border-color:var(--red); }
+  .pk-note { text-align:center; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--muted);
+             font-style:italic; margin-top:14px; }
+
+  /* ---- modals ---- */
+  .tp-modal-bg { position:fixed; inset:0; background:rgba(26,26,26,0.55); z-index:10000; display:none;
+                 align-items:center; justify-content:center; padding:18px; }
+  .tp-modal-bg.open { display:flex; }
+  .tp-card { text-align:center; max-width:360px; width:100%; padding:34px 26px 26px; position:relative;
+             background:var(--paper); border:1px solid #d4cfc4; border-top:3px double var(--ink); border-bottom:3px double var(--ink);
+             box-shadow:0 18px 60px rgba(0,0,0,0.35); animation:tpPop .18s ease; }
+  @keyframes tpPop { from { transform:translateY(14px); opacity:0; } to { transform:none; opacity:1; } }
+  .tp-card h1 { font-weight:900; font-size:28px; letter-spacing:-0.5px; margin:0; }
+  .tp-card .sub { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:3px;
+                  text-transform:uppercase; color:var(--red); margin:6px 0 22px; }
+  .tp-card label { display:block; text-align:left; font-family:'Noto Sans Georgian',sans-serif;
+                   font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+  .tp-card input, .tp-card select { display:block; width:100%; box-sizing:border-box; margin:0 0 12px; padding:11px 12px; font-size:16px;
+                                    border:1px solid #ccc; background:#fff; font-family:'Noto Sans Georgian',sans-serif; }
+  .tp-card input:focus, .tp-card select:focus { outline:2px solid var(--red); outline-offset:1px; }
+  .tp-card button.main { margin-top:6px; width:100%; padding:11px; background:var(--ink); color:#fff; border:none;
+                         font-size:12px; letter-spacing:2px; cursor:pointer; text-transform:uppercase;
+                         font-family:'Noto Sans Georgian',sans-serif; }
+  .tp-card button.main:hover { background:var(--red); }
+  .tp-card .err { min-height:18px; color:var(--red); font-size:11.5px; margin:10px 0 0; font-family:'Noto Sans Georgian',sans-serif; }
+  .tp-card .foot { margin-top:16px; font-size:10.5px; color:var(--muted); font-style:italic; }
+  .tp-card .x { position:absolute; top:8px; right:12px; font-size:20px; color:var(--muted); cursor:pointer;
+                background:none; border:none; line-height:1; }
+  .tp-card .x:hover { color:var(--red); }
+  .tp-card .swap { display:block; margin-top:12px; font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; color:var(--ink); }
+  .tp-card .swap a { color:var(--red); cursor:pointer; text-decoration:underline; }
+  .tp-card .note { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--gold);
+                   background:rgba(139,105,20,0.08); border:1px dashed var(--gold); padding:8px 10px; margin:4px 0 12px; }
+
+  footer { text-align:center; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--muted);
+           border-top:3px double var(--rule); margin-top:44px; padding:18px 10px 30px; line-height:1.8; }
 </style>
-<script src="js/portfolios.js?v=20260618-snap1"></script>
 </head>
 <body>
 
 <header class="masthead">
-  <div class="top-bar">
-    <span id="today-date"></span>
-    <span>გამოცემა №08 · ვისბადენი</span>
-  </div>
+  <div class="top-bar"><span id="today-date"></span><span></span></div>
   <h1>The Trading Paper</h1>
-  <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
-  <nav>
-    <a href="index.html" class="active">ბაზარი</a>
-    <a href="articles.html">სტატიები</a>
-    <a href="legends.html">ლეგენდები</a>
-    <a href="portfolio.html">პორტფელი</a>
-    <a href="margin.html">ბერკეტი</a>
-    <a href="signals.html">ბოტი</a>
-<a href="research.html">კვლევა</a>
-    <a href="community.html">საზოგადოება</a>
-    <a href="strategy.html">სტრატეგია</a>
-    <a href="startup.html">სტარტაფი</a>
-  </nav>
 </header>
 
 <main class="container">
 
-  <!-- ============================================================ -->
-  <!-- LIVE PORTFOLIO BOOKS — pinned to top of homepage             -->
-  <!-- ============================================================ -->
-  <div class="home-fig">
-    <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ცოცხალი ანგარიში — ორი წიგნი ღირებულებებით">
-      <defs>
-        <marker id="home-ar" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-          <path d="M0,0 L12,6 L0,12 L3,6 Z" fill="#8b6914"/>
-        </marker>
-      </defs>
-
-      <!-- LEFT — TBC book -->
-      <g transform="translate(40,60)">
-        <rect x="14" y="14" width="320" height="400" fill="#1a1a1a" opacity="0.12"/>
-        <rect x="0" y="0" width="320" height="400" fill="#b91c1c" stroke="#1a1a1a" stroke-width="2"/>
-        <rect x="0" y="0" width="18" height="400" fill="#7f1313" stroke="#1a1a1a" stroke-width="2"/>
-        <rect x="36" y="24" width="270" height="356" fill="none" stroke="#fffdf7" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <rect x="46" y="34" width="250" height="336" fill="none" stroke="#fffdf7" stroke-width="0.8"/>
-        <text x="171" y="78" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="40" font-weight="900" fill="#fffdf7">TBC</text>
-        <text x="171" y="100" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="3" fill="#fffdf7">სარისკო წიგნი</text>
-        <line x1="80" y1="118" x2="262" y2="118" stroke="#fffdf7" stroke-width="0.8"/>
-        <text x="171" y="155" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#fffdf7" opacity="0.8">მიმდინარე ღირებულება</text>
-        <text id="home-live-tbc-value" x="171" y="200" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="42" font-weight="900" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-        <line x1="70" y1="225" x2="272" y2="225" stroke="#fffdf7" stroke-width="0.5" opacity="0.5"/>
-        <g transform="translate(40,250)">
-          <text x="20" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">P / L</text>
-          <text id="home-live-tbc-pnl" x="20" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-          <text x="160" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">უკუგება</text>
-          <text id="home-live-tbc-pct" x="160" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-        </g>
-        <line x1="70" y1="310" x2="272" y2="310" stroke="#fffdf7" stroke-width="0.5" opacity="0.5"/>
-        <text x="171" y="340" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">სრული ჩარიცხული</text>
-        <text id="home-live-tbc-deposits" x="171" y="362" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="16" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-      </g>
-
-      <!-- CENTER — coin river -->
-      <g transform="translate(380,200)">
-        <path d="M0,60 Q60,0 120,60 Q180,120 140,60" stroke="#8b6914" stroke-width="3" fill="none" stroke-linecap="round" marker-end="url(#home-ar)"/>
-        <g fill="#8b6914" stroke="#1a1a1a" stroke-width="0.8">
-          <circle cx="30" cy="40" r="7"/>
-          <circle cx="75" cy="25" r="6"/>
-          <circle cx="115" cy="58" r="8"/>
-        </g>
-        <g fill="#fffdf7" font-family="Noto Serif Georgian, serif" font-size="8" font-weight="700" text-anchor="middle">
-          <text x="30" y="43">$</text>
-          <text x="75" y="28">$</text>
-          <text x="115" y="61">$</text>
-        </g>
-        <text x="70" y="-10" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#6b6b6b">მოგებიდან</text>
-        <text x="70" y="160" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#6b6b6b">წარმატებისას</text>
-      </g>
-
-      <!-- RIGHT — BOG book -->
-      <g transform="translate(540,60)">
-        <rect x="14" y="14" width="320" height="400" fill="#1a1a1a" opacity="0.12"/>
-        <rect x="0" y="0" width="320" height="400" fill="#166534" stroke="#1a1a1a" stroke-width="2"/>
-        <rect x="302" y="0" width="18" height="400" fill="#0b3d1f" stroke="#1a1a1a" stroke-width="2"/>
-        <rect x="14" y="24" width="270" height="356" fill="none" stroke="#fffdf7" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <rect x="24" y="34" width="250" height="336" fill="none" stroke="#fffdf7" stroke-width="0.8"/>
-        <text x="149" y="78" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="40" font-weight="900" fill="#fffdf7">BOG</text>
-        <text x="149" y="100" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="3" fill="#fffdf7">გრძელვადიანი წიგნი</text>
-        <line x1="58" y1="118" x2="240" y2="118" stroke="#fffdf7" stroke-width="0.8"/>
-        <text x="149" y="155" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#fffdf7" opacity="0.8">მიმდინარე შეფასება</text>
-        <text id="home-live-bog-value" x="149" y="200" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="42" font-weight="900" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-        <line x1="48" y1="225" x2="250" y2="225" stroke="#fffdf7" stroke-width="0.5" opacity="0.5"/>
-        <g transform="translate(18,250)">
-          <text x="20" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">P / L</text>
-          <text id="home-live-bog-pnl" x="20" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-          <text x="160" y="14" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">უკუგება</text>
-          <text id="home-live-bog-pct" x="160" y="38" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-        </g>
-        <line x1="48" y1="310" x2="250" y2="310" stroke="#fffdf7" stroke-width="0.5" opacity="0.5"/>
-        <text x="149" y="340" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="2" fill="#fffdf7" opacity="0.8">სრული ჩარიცხული</text>
-        <text id="home-live-bog-deposits" x="149" y="362" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="16" font-weight="700" fill="#fffdf7" font-variant-numeric="tabular-nums">—</text>
-      </g>
-
-      <g transform="translate(0,470)">
-        <text x="200" y="20" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#6b6b6b">სარისკო · დღევანდელი ცოცხალი მონაცემი</text>
-        <text x="700" y="20" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#6b6b6b">საფუძველი · დღევანდელი ცოცხალი მონაცემი</text>
-        <text id="home-live-stamp" x="450" y="50" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="3" fill="#b91c1c">● LIVE</text>
-      </g>
-    </svg>
-    <div class="fig-caption"><span class="fig-num">ცოცხალი ანგარიში</span>ორი წიგნი · მიმდინარე ღირებულება · P/L · უკუგება · <a href="strategy.html" style="color:var(--red);">სტრატეგია →</a></div>
-  </div>
-
-  <!-- ============================================================ -->
-  <!-- THIRD BOOK · GALT & TAGGART · LEVERAGE  ->  margin.html       -->
-  <!-- ============================================================ -->
-  <a href="margin.html" style="display:block; text-decoration:none; color:inherit;">
-  <div class="home-fig" style="margin-top:6px;">
-    <svg viewBox="0 0 900 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="მესამე წიგნი — Galt and Taggart, ბერკეტი 2.5x, MSTR">
-      <rect x="22" y="20" width="864" height="210" fill="#1a1a1a" opacity="0.12"/>
-      <rect x="8" y="6" width="864" height="210" fill="#8b6914" stroke="#1a1a1a" stroke-width="2"/>
-      <rect x="8" y="6" width="18" height="210" fill="#5e4708" stroke="#1a1a1a" stroke-width="2"/>
-      <rect x="44" y="24" width="800" height="174" fill="none" stroke="#fffdf7" stroke-width="1.5" stroke-dasharray="3 3"/>
-      <rect x="52" y="32" width="784" height="158" fill="none" stroke="#fffdf7" stroke-width="0.8"/>
-      <text x="170" y="84" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="38" font-weight="900" fill="#fffdf7">GALT</text>
-      <text x="170" y="106" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="11" letter-spacing="2" fill="#fffdf7">Galt &amp; Taggart</text>
-      <text x="170" y="126" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="10" letter-spacing="2" fill="#fffdf7" opacity="0.8">ბერკეტული წიგნი · MSTR</text>
-      <line x1="80" y1="144" x2="260" y2="144" stroke="#fffdf7" stroke-width="0.6" opacity="0.6"/>
-      <text id="galt-stamp" x="170" y="170" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#86efac">● აქტიური · $112.22</text>
-      <text id="galt-stamp-sub" x="170" y="188" text-anchor="middle" font-family="Noto Sans Georgian, sans-serif" font-size="9" letter-spacing="1.5" fill="#fffdf7" opacity="0.75">ღია პოზიცია · 6 კონტრაქტი</text>
-      <line x1="300" y1="40" x2="300" y2="182" stroke="#fffdf7" stroke-width="0.6" opacity="0.4"/>
-      <g font-family="Noto Sans Georgian, sans-serif" fill="#fffdf7">
-        <text x="392" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">შესვლა</text>
-        <text x="392" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">$112.22</text>
-        <text x="575" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ბერკეტი</text>
-        <text x="575" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">2.5×</text>
-        <text x="758" y="70" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">კონტრაქტი</text>
-        <text x="758" y="98" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="24" font-weight="700">6 · $673</text>
-        <text x="392" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">margin · 40%</text>
-        <text x="392" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$269</text>
-        <text x="575" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ბალანსი</text>
-        <text id="galt-balance" x="575" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">$307.91</text>
-        <text x="758" y="148" text-anchor="middle" font-size="10" letter-spacing="1.5" opacity="0.8">ლიკვიდაცია</text>
-        <text x="758" y="176" text-anchor="middle" font-family="Noto Serif Georgian, serif" font-size="22" font-weight="700">~$99.50</text>
-      </g>
-    </svg>
-    <div class="fig-caption"><span class="fig-num">მესამე წიგნი</span>Galt &amp; Taggart · ბერკეტი 2.5× · MSTR · <span style="color:#8b6914;font-weight:700;">ბერკეტის გვერდი →</span></div>
-  </div>
-  </a>
-
-  <!-- TODAY'S DAILY ARTICLE -->
-  <a href="articles/02-bazris-surati-2026-05-18.html" style="display:block; text-decoration:none; color:inherit;">
-  <div class="widget" style="border-left:4px solid var(--red); padding:18px 22px; margin-bottom:24px;">
-    <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:6px;">დღევანდელი სტატია · 2026-05-18</div>
-    <div style="font-family:'Noto Serif Georgian',serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:6px;">ბაზრის სურათი — 18 მაისი</div>
-    <div style="font-size:14px; color:var(--muted);">ნასდაკი −0.97%, S&amp;P −0.48%, 10-წლიანი ობლიგაცია 4.60%+ — წლის მაქსიმუმი. ნვიდიას ანგარიში ოთხშაბათს. <span style="color:var(--red);">სრულად →</span></div>
-  </div>
-  </a>
-
-  <!-- NEW STARTUP TEASER -->
-  <a href="startup.html" style="display:block; text-decoration:none; color:inherit;">
-  <div class="widget" style="border-left:4px solid var(--ink); padding:18px 22px; margin-bottom:24px; background: linear-gradient(135deg, #fffdf7 0%, #f7f3ec 100%);">
-    <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--ink); margin-bottom:6px;">ახალი გვერდი · სტარტაფი №1</div>
-    <div style="font-family:'Noto Serif Georgian',serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:6px;">ავტოსამრეცხაო · თბილისი · $50,000</div>
-    <div style="font-size:14px; color:var(--muted);">პორტფელის გვერდით აშენებული რეალური ბიზნესი — CAPEX, OPEX, payback, ფაზები. სრული ბიზნეს გეგმა. <span style="color:var(--red);">სრულად →</span></div>
-  </div>
-  </a>
-
-  <!-- Ticker tape · 3 lines · includes BTC -->
-  <div class="widget">
-    <div class="widget-title">ბაზრის პულსი</div>
+  <!-- Ticker tape · free market pulse for everyone -->
+  <div class="pub-widget">
+    <div class="w-title">ბაზრის პულსი · Market Pulse</div>
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -215,172 +149,138 @@
         "symbols": [
           {"description": "S&P 500", "proName": "FOREXCOM:SPXUSD"},
           {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
-          {"description": "Dow", "proName": "FOREXCOM:DJI"},
           {"description": "DAX", "proName": "XETR:DAX"},
           {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
-          {"description": "ETH", "proName": "BITSTAMP:ETHUSD"},
           {"description": "Gold", "proName": "TVC:GOLD"},
-          {"description": "Silver", "proName": "TVC:SILVER"},
-          {"description": "Oil WTI", "proName": "TVC:USOIL"},
-          {"description": "NVDA", "proName": "NASDAQ:NVDA"},
-          {"description": "TSLA", "proName": "NASDAQ:TSLA"},
-          {"description": "AAPL", "proName": "NASDAQ:AAPL"},
-          {"description": "MSFT", "proName": "NASDAQ:MSFT"},
-          {"description": "MSTR", "proName": "NASDAQ:MSTR"},
           {"description": "EUR/USD", "proName": "FX:EURUSD"},
           {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
           {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
         ],
-        "isTransparent": true,
-        "showSymbolLogo": true,
-        "displayMode": "regular",
-        "colorTheme": "light",
-        "locale": "en"
+        "isTransparent": true, "showSymbolLogo": true, "displayMode": "regular",
+        "colorTheme": "light", "locale": "en"
       }
       </script>
     </div>
   </div>
 
-  <div class="hero">
-    <h2>დღეს ბაზარზე</h2>
-    <p class="dek">4 მთავარი მაჩვენებელი — რეალურ დროში</p>
+  <!-- Hero -->
+  <div class="pub-hero">
+    <div class="kicker">Private Edition · ვისბადენი</div>
+    <h2>პირადი საინვესტიციო გაზეთი</h2>
+    <p>ცოცხალი პორტფელი ორ წიგნად, ბაზრის ყოველდღიური ჩანაწერი, დივიდენდების ისტორია და
+       ყოველთვიური ბიუჯეტის წიგნი — ძველი გაზეთის ესთეტიკით, ახალი ბაზრის მონაცემებით.</p>
+    <a href="#packets" class="cta dark">გამოწერის პაკეტები ↓</a>
+    <a href="#" class="cta line" data-open-login>შესვლა · Sign in</a>
   </div>
 
-  <!-- 4 main widgets: S&P 500, Bitcoin, EUR/GEL, Nasdaq -->
-  <div class="grid cols-2">
-
-    <div class="widget" style="min-height: 360px;">
-      <div class="widget-title">S&P 500 · აშშ-ის მთავარი ინდექსი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {
-          "symbol": "FOREXCOM:SPXUSD",
-          "width": "100%",
-          "height": 320,
-          "locale": "en",
-          "dateRange": "12M",
-          "colorTheme": "light",
-          "trendLineColor": "rgba(22, 101, 52, 1)",
-          "underLineColor": "rgba(22, 101, 52, 0.1)",
-          "isTransparent": true,
-          "autosize": true
-        }
-        </script>
+  <!-- Locked live books teaser -->
+  <div class="section-head2"><span>ცოცხალი ანგარიში</span><span class="en">Live Books · Subscribers only</span></div>
+  <div class="lock-wrap">
+    <div class="lock-books" aria-hidden="true">
+      <div class="lk-book red">
+        <div class="t">TBC</div><div class="s">სარისკო წიგნი</div>
+        <div class="v">$8,4▓▓.▓▓</div>
+        <div class="row"><span>P/L&nbsp; +$▓▓▓.▓▓</span><span>უკუგება&nbsp; +▓▓.▓%</span></div>
+      </div>
+      <div class="lk-book green">
+        <div class="t">BOG</div><div class="s">გრძელვადიანი წიგნი</div>
+        <div class="v">$5,1▓▓.▓▓</div>
+        <div class="row"><span>P/L&nbsp; +$▓▓▓.▓▓</span><span>უკუგება&nbsp; +▓.▓▓%</span></div>
       </div>
     </div>
-
-    <div class="widget" style="min-height: 360px;">
-      <div class="widget-title">Bitcoin · BTC/USD</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {
-          "symbol": "BITSTAMP:BTCUSD",
-          "width": "100%",
-          "height": 320,
-          "locale": "en",
-          "dateRange": "12M",
-          "colorTheme": "light",
-          "trendLineColor": "rgba(247, 147, 26, 1)",
-          "underLineColor": "rgba(247, 147, 26, 0.1)",
-          "isTransparent": true,
-          "autosize": true
-        }
-        </script>
-      </div>
-    </div>
-
-    <div class="widget" style="min-height: 360px;">
-      <div class="widget-title">EUR / GEL · ევრო ლართან</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {
-          "symbol": "FX_IDC:EURGEL",
-          "width": "100%",
-          "height": 320,
-          "locale": "en",
-          "dateRange": "12M",
-          "colorTheme": "light",
-          "trendLineColor": "rgba(41, 98, 255, 1)",
-          "underLineColor": "rgba(41, 98, 255, 0.1)",
-          "isTransparent": true,
-          "autosize": true
-        }
-        </script>
-      </div>
-    </div>
-
-    <div class="widget" style="min-height: 360px;">
-      <div class="widget-title">Nasdaq Composite · ტექნოლოგიური ბაზარი</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        {
-          "symbol": "NASDAQ:IXIC",
-          "width": "100%",
-          "height": 320,
-          "locale": "en",
-          "dateRange": "12M",
-          "colorTheme": "light",
-          "trendLineColor": "rgba(185, 28, 28, 1)",
-          "underLineColor": "rgba(185, 28, 28, 0.1)",
-          "isTransparent": true,
-          "autosize": true
-        }
-        </script>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Big heatmap - more companies -->
-  <div class="section-head">ბაზრის რუკა</div>
-
-  <div class="widget" style="min-height: 720px;">
-    <div class="widget-title">S&P 500 · სექტორებით · ყველა კომპანია</div>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
-      {
-        "exchanges": [],
-        "dataSource": "SPX500",
-        "grouping": "sector",
-        "blockSize": "market_cap_basic",
-        "blockColor": "change",
-        "locale": "en",
-        "symbolUrl": "",
-        "colorTheme": "light",
-        "hasTopBar": true,
-        "isDataSetEnabled": true,
-        "isZoomEnabled": true,
-        "hasSymbolTooltip": true,
-        "isMonoSize": false,
-        "width": "100%",
-        "height": 680
-      }
-      </script>
+    <div class="lock-over">
+      <div class="padlock">🔒</div>
+      <div class="lt">მხოლოდ გამომწერებისთვის</div>
+      <div class="ls">ცოცხალი ღირებულება · P/L · უკუგება · რეიტინგი — Yahoo-ს ფასებით, რეალურ დროში</div>
+      <a class="go" href="#packets">აირჩიე პაკეტი</a>
     </div>
   </div>
 
-  <!-- Top stories at bottom -->
-  <div class="section-head">Top Stories · ბაზრის სიახლეები</div>
+  <!-- What's inside -->
+  <div class="section-head2"><span>რას შეიცავს გაზეთი</span><span class="en">Inside the paper</span></div>
+  <div class="feat">
+    <div><b>ბაზარი 🔒</b><span>რეიტინგული პორტფელის წიგნები, ცოცხალი ფასები, სექტორების რუკა, სიახლეები.</span></div>
+    <div><b>ჩემი კაბინეტი 🔒</b><span>ორი ცოცხალი წიგნი — TBC და BOG — ღირებულება, P/L და უკუგება რეალურ დროში.</span></div>
+    <div><b>დივიდენდები 🔒</b><span>მიღებული დივიდენდების სრული ისტორია, თარიღებით და ჯამებით.</span></div>
+    <div><b>ბიუჯეტი 🔒</b><span>ყოველთვიური წიგნი — შემოსავალი, ხარჯი, დანაზოგი, გეგმა.</span></div>
+  </div>
 
-  <div class="widget" style="min-height: 600px;">
-    <div class="widget-title">რეალური დროის სიახლეები</div>
+  <!-- Free charts -->
+  <div class="section-head2"><span>დღეს ბაზარზე · უფასო</span><span class="en">Free preview</span></div>
+  <div class="pub-grid2">
+    <div class="pub-widget" style="min-height:340px;">
+      <div class="w-title">S&amp;P 500</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "FOREXCOM:SPXUSD", "width": "100%", "height": 300, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(22,101,52,1)", "underLineColor": "rgba(22,101,52,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+    <div class="pub-widget" style="min-height:340px;">
+      <div class="w-title">Bitcoin · BTC/USD</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "BITSTAMP:BTCUSD", "width": "100%", "height": 300, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(247,147,26,1)", "underLineColor": "rgba(247,147,26,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Packets -->
+  <div class="section-head2" id="packets"><span>გამოწერის პაკეტები</span><span class="en">Subscription packets</span></div>
+  <div class="packets">
+    <div class="pk free">
+      <h3>მკითხველი</h3><div class="en-name">Reader</div>
+      <div class="price">უფასო</div><div class="per">სამუდამოდ</div>
+      <ul>
+        <li><span>ბაზრის პულსი და საათები</span><span class="tick">✔</span></li>
+        <li><span>უფასო გრაფიკები</span><span class="tick">✔</span></li>
+        <li><span>ცოცხალი პორტფელი</span><span class="no">—</span></li>
+        <li><span>დივიდენდები · ბიუჯეტი</span><span class="no">—</span></li>
+      </ul>
+      <button data-packet="Reader (Free)">დარეგისტრირდი</button>
+    </div>
+    <div class="pk feat-pk">
+      <div class="badge">ყველაზე პოპულარული</div>
+      <h3>ინვესტორი</h3><div class="en-name">Investor</div>
+      <div class="price">€5</div><div class="per">თვეში</div>
+      <ul>
+        <li><span>ყველაფერი „მკითხველი“-დან</span><span class="tick">✔</span></li>
+        <li><span>ცოცხალი წიგნები · TBC + BOG</span><span class="tick">✔</span></li>
+        <li><span>ბაზარი · რეიტინგი და რუკა</span><span class="tick">✔</span></li>
+        <li><span>დივიდენდების ისტორია</span><span class="tick">✔</span></li>
+      </ul>
+      <button data-packet="Investor (€5/mo)">გამოწერა</button>
+    </div>
+    <div class="pk">
+      <h3>პარტნიორი</h3><div class="en-name">Partner</div>
+      <div class="price">€15</div><div class="per">თვეში</div>
+      <ul>
+        <li><span>ყველაფერი „ინვესტორი“-დან</span><span class="tick">✔</span></li>
+        <li><span>ყოველთვიური ბიუჯეტის წიგნი</span><span class="tick">✔</span></li>
+        <li><span>რედაქტორის შენიშვნები</span><span class="tick">✔</span></li>
+        <li><span>პირდაპირი კონტაქტი</span><span class="tick">✔</span></li>
+      </ul>
+      <button data-packet="Partner (€15/mo)">გამოწერა</button>
+    </div>
+  </div>
+  <div class="pk-note">ონლაინ გადახდა მალე დაემატება — ჯერჯერობით მოთხოვნა იგზავნება რედაქციაში ელფოსტით.</div>
+
+  <!-- News -->
+  <div class="section-head2"><span>ბაზრის სიახლეები</span><span class="en">Top stories</span></div>
+  <div class="pub-widget" style="min-height:440px;">
+    <div class="w-title">რეალური დროის სიახლეები</div>
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-      {
-        "feedMode": "all_symbols",
-        "isTransparent": true,
-        "displayMode": "regular",
-        "width": "100%",
-        "height": 560,
-        "colorTheme": "light",
-        "locale": "en"
-      }
+      { "feedMode": "all_symbols", "isTransparent": true, "displayMode": "regular",
+        "width": "100%", "height": 400, "colorTheme": "light", "locale": "en" }
       </script>
     </div>
   </div>
@@ -388,109 +288,123 @@
 </main>
 
 <footer>
-  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
-  ეს არ არის ფინანსური რჩევა
+  © 2026 The Trading Paper · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა · This is not financial advice
 </footer>
 
+<!-- ============ LOGIN MODAL ============ -->
+<div class="tp-modal-bg" id="tp-login-modal" role="dialog" aria-modal="true" aria-label="შესვლა">
+  <form class="tp-card" method="POST" action="/tp-login">
+    <button type="button" class="x" data-close>&times;</button>
+    <h1>The Trading Paper</h1>
+    <div class="sub">Private · შესვლა / Sign in</div>
+    <label for="u">მომხმარებელი · Username</label>
+    <input id="u" name="user" type="text" autocomplete="username" autocapitalize="off" required>
+    <label for="p">პაროლი · Password</label>
+    <input id="p" name="pass" type="password" autocomplete="current-password" required>
+    <button type="submit" class="main">შესვლა</button>
+    <div class="err" id="tp-login-err"></div>
+    <span class="swap">არ გაქვს ანგარიში? <a data-swap-reg>გამოწერა →</a></span>
+    <div class="foot">© The Trading Paper · ვისბადენი</div>
+  </form>
+</div>
+
+<!-- ============ REGISTER / SUBSCRIBE MODAL ============ -->
+<div class="tp-modal-bg" id="tp-reg-modal" role="dialog" aria-modal="true" aria-label="გამოწერა">
+  <form class="tp-card" id="tp-reg-form">
+    <button type="button" class="x" data-close>&times;</button>
+    <h1>The Trading Paper</h1>
+    <div class="sub">გამოწერა · Subscribe</div>
+    <div class="note">ონლაინ გადახდა მალე დაემატება · მოთხოვნა გაიგზავნება რედაქციაში</div>
+    <label for="rn">სახელი · Name</label>
+    <input id="rn" name="name" type="text" required>
+    <label for="re">ელფოსტა · Email</label>
+    <input id="re" name="email" type="email" required>
+    <label for="rp">პაკეტი · Packet</label>
+    <select id="rp" name="packet">
+      <option>Reader (Free)</option>
+      <option selected>Investor (€5/mo)</option>
+      <option>Partner (€15/mo)</option>
+    </select>
+    <button type="submit" class="main">მოთხოვნის გაგზავნა</button>
+    <div class="err"></div>
+    <span class="swap">უკვე გაქვს ანგარიში? <a data-swap-login>შესვლა →</a></span>
+    <div class="foot">© The Trading Paper · ვისბადენი</div>
+  </form>
+</div>
+
+<script src="/js/masthead.js"></script>
+<script src="/js/clocks.js"></script>
 <script>
-  const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
-  const d = new Date();
-  document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+(function () {
+  // ---- payment links (paste real Stripe/Paddle checkout URLs here later;
+  //      when set, packet buttons go straight to checkout) -----------------
+  var PAY_LINKS = {
+    'Investor (€5/mo)': '',
+    'Partner (€15/mo)': ''
+  };
+  var EDITOR_EMAIL = 'lasha.pkhakadze2000@gmail.com';
 
-  // ============================================================
-  // LIVE PORTFOLIO BOOKS — pulled from portfolios.js
-  // ============================================================
-  (function fillHomeLive() {
-    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return;
+  // On github.io there is no login server — send the visitor to the
+  // Cloudflare edition, where this same page opens the popup.
+  var LOGIN_HOST = 'https://thetradingpaper.pages.dev';
+  var CROSS = /github\.io$/i.test(location.hostname);
 
-    const posColor = '#86efac';
-    const negColor = '#fca5a5';
-    const neutralColor = '#fffdf7';
+  var loginM = document.getElementById('tp-login-modal');
+  var regM = document.getElementById('tp-reg-modal');
 
-    function fillBook(prefix, key) {
-      const p = portfolios[key];
-      const a = aggregate(p);
-      const valEl = document.getElementById('home-live-' + prefix + '-value');
-      const pnlEl = document.getElementById('home-live-' + prefix + '-pnl');
-      const pctEl = document.getElementById('home-live-' + prefix + '-pct');
-      const depEl = document.getElementById('home-live-' + prefix + '-deposits');
+  function open(m) {
+    if (CROSS && m === loginM) { location.href = LOGIN_HOST + '/?login=1'; return; }
+    close(loginM); close(regM); m.classList.add('open'); document.body.style.overflow = 'hidden';
+    var f = m.querySelector('input'); if (f) setTimeout(function(){ f.focus(); }, 60); }
+  function close(m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+  function closeAll() { close(loginM); close(regM); }
 
-      if (valEl) valEl.textContent = fmtMoney(a.currentValue);
-      if (depEl) depEl.textContent = a.hasHistory ? fmtMoney(a.deposits) : '—';
+  // open triggers
+  document.addEventListener('tp-open-login', function () { open(loginM); });
+  document.querySelectorAll('[data-open-login]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); open(loginM); });
+  });
+  // packet buttons
+  document.querySelectorAll('.pk button[data-packet]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pk = b.getAttribute('data-packet');
+      if (PAY_LINKS[pk]) { location.href = PAY_LINKS[pk]; return; }
+      var sel = document.getElementById('rp');
+      for (var i = 0; i < sel.options.length; i++) if (sel.options[i].text === pk) sel.selectedIndex = i;
+      open(regM);
+    });
+  });
+  // swaps & closes
+  document.querySelectorAll('[data-swap-reg]').forEach(function (a) { a.addEventListener('click', function(){ open(regM); }); });
+  document.querySelectorAll('[data-swap-login]').forEach(function (a) { a.addEventListener('click', function(){ open(loginM); }); });
+  document.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', closeAll); });
+  [loginM, regM].forEach(function (m) {
+    m.addEventListener('click', function (e) { if (e.target === m) closeAll(); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 
-      if (pnlEl) {
-        if (a.hasHistory) {
-          const sign = a.pnl >= 0 ? '+' : '−';
-          pnlEl.textContent = sign + '$' + Math.abs(a.pnl).toFixed(2);
-          pnlEl.setAttribute('fill', a.pnl >= 0 ? posColor : negColor);
-        } else {
-          pnlEl.textContent = '—';
-          pnlEl.setAttribute('fill', neutralColor);
-        }
-      }
-      if (pctEl) {
-        if (a.hasHistory) {
-          const sign = a.pnlPct >= 0 ? '+' : '−';
-          pctEl.textContent = sign + Math.abs(a.pnlPct).toFixed(2) + '%';
-          pctEl.setAttribute('fill', a.pnlPct >= 0 ? posColor : negColor);
-        } else {
-          pctEl.textContent = '—';
-          pctEl.setAttribute('fill', neutralColor);
-        }
-      }
+  // register → email request to the editor
+  document.getElementById('tp-reg-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var n = document.getElementById('rn').value.trim();
+    var em = document.getElementById('re').value.trim();
+    var pk = document.getElementById('rp').value;
+    var subject = 'The Trading Paper — გამოწერის მოთხოვნა: ' + pk;
+    var body = 'სახელი: ' + n + '\nელფოსტა: ' + em + '\nპაკეტი: ' + pk + '\n\n(გაგზავნილია public გვერდიდან)';
+    location.href = 'mailto:' + EDITOR_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  // URL params from middleware: ?login=1 (open) / ?login=wrong (open + error)
+  var q = new URLSearchParams(location.search);
+  if (q.get('login')) {
+    if (q.get('login') === 'wrong') {
+      document.getElementById('tp-login-err').textContent = 'არასწორი მონაცემები · Wrong credentials';
     }
-
-    // THIRD BOOK — Galt & Taggart leverage. Shows the live open-position balance (equity).
-    function fillGaltBook() {
-      const g = portfolios.galt;
-      if (!g || !g.order) return;
-      const stamp = document.getElementById('galt-stamp');
-      const sub   = document.getElementById('galt-stamp-sub');
-      const balEl = document.getElementById('galt-balance');
-      // live MSTR price (galt holding refreshed; fall back to TBC's MSTR or entry)
-      const live  = (g.holdings[0] && g.holdings[0].livePrice)
-                 || (portfolios.tbc.holdings[0] && portfolios.tbc.holdings[0].livePrice)
-                 || g.order.entry;
-      const posVal = g.order.contracts * live;       // full position value
-      const equity = posVal + g.cash;                // open-position balance (cash holds −borrowed)
-      const pl     = g.order.contracts * (live - g.order.entry); // unrealised on the open position
-      const sign   = pl >= 0 ? '+' : '−';
-      if (g.order.filled) {
-        if (stamp) { stamp.textContent = '● ბალანსი ' + fmtMoney(equity); stamp.setAttribute('fill', pl >= 0 ? '#86efac' : '#fca5a5'); }
-        if (sub)   { sub.textContent = sign + '$' + Math.abs(pl).toFixed(2) + ' · პოზიცია ' + fmtMoney(posVal); sub.setAttribute('opacity', '0.95'); }
-        if (balEl) balEl.textContent = fmtMoney(equity);
-      } else {
-        if (stamp) { stamp.textContent = '● რიგში · $' + g.order.entry; stamp.setAttribute('fill', '#fcd34d'); }
-        if (sub)   { sub.textContent = 'ლიმიტ ორდერი — GTC'; sub.setAttribute('opacity', '0.75'); }
-      }
-    }
-
-    function paintAll() {
-      fillBook('tbc', 'tbc');
-      fillBook('bog', 'bog');
-      fillGaltBook();
-      const stamp = document.getElementById('home-live-stamp');
-      if (stamp) {
-        const now = new Date();
-        stamp.textContent = '● LIVE · ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
-      }
-    }
-
-    // Initial paint from cached values
-    paintAll();
-
-    // Refresh with live Yahoo prices, then repaint
-    if (typeof refreshLivePrices === 'function') {
-      async function refreshHome() {
-        try {
-          await Promise.all([refreshLivePrices('bog'), refreshLivePrices('tbc'), refreshLivePrices('galt')]);
-          paintAll();
-        } catch (e) { /* ignore network errors */ }
-      }
-      refreshHome();
-      setInterval(refreshHome, 60000);
-    }
-  })();
+    open(loginM);
+    history.replaceState(null, '', location.pathname);
+  }
+})();
 </script>
 
 </body>

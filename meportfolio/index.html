@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ბაზარი · The Trading Paper</title>
+<meta name="description" content="The Trading Paper — ბაზარი. ცოცხალი ინდექსები, ბაზრის რუკა, სიახლეები და პორტფელების რეიტინგი.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=mkt1">
+<style>
+  /* --- masthead row: logo + clocks --------------------------- */
+  .mast-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:10px 0 4px;}
+  .mast-row .brand{text-align:left;}
+  .mast-row h1{font-size:34px;margin:0;line-height:1.05;letter-spacing:-0.5px;}
+  .mast-row .tagline{margin:3px 0 0;font-size:11px;}
+  @media(max-width:860px){.mast-row{justify-content:center;}.mast-row .brand{text-align:center;width:100%;}}
+
+  /* --- ranked portfolio books -------------------------------- */
+  .rank-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 18px;}
+  .rank-tools .lbl{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+  .sort-toggle{display:inline-flex;border:1px solid var(--border);background:var(--paper);}
+  .sort-toggle button{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;color:var(--muted);}
+  .sort-toggle button:last-child{border-right:none;}
+  .sort-toggle button.on{background:var(--ink);color:var(--paper);font-weight:700;}
+  .books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:8px;}
+  @media(max-width:900px){.books-grid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto;}}
+  a.bookcard{display:block;text-decoration:none;position:relative;transition:transform .15s ease;}
+  a.bookcard:hover{transform:translateY(-4px);}
+  .bk{position:relative;border:2px solid #1a1a1a;padding:26px 22px 22px 36px;color:#fffdf7;box-shadow:10px 10px 0 rgba(26,26,26,0.12);min-height:330px;}
+  .bk::before{content:'';position:absolute;left:0;top:0;bottom:0;width:16px;border-right:2px solid #1a1a1a;background:rgba(0,0,0,0.28);}
+  .bk .inner{border:1.5px dashed rgba(255,253,247,0.85);padding:18px 14px;text-align:center;height:100%;}
+  .bk.pos{background:#166534;}.bk.pos::before{background:#0d4023;}
+  .bk.neg{background:#b91c1c;}.bk.neg::before{background:#7f1313;}
+  .bk.closed{background:#4b5563;}.bk.closed::before{background:#2f3742;}
+  .bk .rank-no{position:absolute;top:-13px;right:-13px;width:34px;height:34px;border-radius:50%;background:#fffdf7;color:#1a1a1a;border:2px solid #1a1a1a;font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(26,26,26,0.2);}
+  .bk .b-name{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:34px;line-height:1;}
+  .bk .b-sub{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;opacity:0.85;margin-top:7px;}
+  .bk hr{border:none;border-top:1px solid rgba(255,253,247,0.75);margin:13px 22px;}
+  .bk .b-cap{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;opacity:0.8;}
+  .bk .b-val{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:34px;font-variant-numeric:tabular-nums;margin-top:3px;}
+  .bk .b-row{display:flex;justify-content:space-between;gap:8px;margin-top:13px;padding:0 6px;}
+  .bk .b-row .cell{flex:1;}
+  .bk .b-row .v{font-family:'Noto Serif Georgian',serif;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;margin-top:2px;}
+  .bk .v.up{color:#86efac;}.bk .v.dn{color:#fecaca;}
+  .bk .b-dep{font-family:ui-monospace,monospace;font-size:12px;opacity:0.9;margin-top:12px;}
+  .bk .b-open{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;margin-top:12px;opacity:0.75;}
+
+  /* --- important links --------------------------------------- */
+  .links-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:900px){.links-grid{grid-template-columns:repeat(2,1fr);}}
+  a.res-link{display:block;background:var(--paper);border:1px solid var(--border);padding:13px 14px;text-decoration:none;transition:border-color .15s;}
+  a.res-link:hover{border-color:var(--ink);}
+  a.res-link .t{font-family:'Noto Serif Georgian',serif;font-weight:700;font-size:14px;color:var(--ink);}
+  a.res-link .d{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;color:var(--muted);margin-top:3px;line-height:1.45;}
+  .live-note{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;color:var(--red);}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="top-bar">
+    <span id="today-date"></span>
+    <span>გამოცემა · ვისბადენი &nbsp;·&nbsp;
+      <a href="/" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">ჩემი კაბინეტი</a>
+      <a href="/ledger.html" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a>
+      <a href="/tp-logout" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a>
+    </span>
+  </div>
+
+  <div class="mast-row">
+    <div class="brand">
+      <h1>The Trading Paper</h1>
+      <p class="tagline">ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი</p>
+    </div>
+    <div id="tp-clocks" class="no-print"></div>
+  </div>
+
+  <nav>
+    <a href="/meportfolio/" class="active">ბაზარი</a>
+    <a href="/">ჩემი კაბინეტი</a>
+    <a href="/ledger.html">ბიუჯეტი</a>
+    <a href="/dividends.html">დივიდენდები</a>
+    <a href="/edit.html">რედაქტირება</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- ============================================================ -->
+  <!-- RANKED PORTFOLIO BOOKS                                       -->
+  <!-- ============================================================ -->
+  <div class="section-head">პორტფელების რეიტინგი</div>
+
+  <div class="rank-tools">
+    <span class="lbl">სამი წიგნი — ცოცხალი ფასებით, საუკეთესოდან</span>
+    <span class="live-note" id="books-live-stamp">● იტვირთება…</span>
+    <div class="sort-toggle" role="tablist">
+      <button id="sort-total" class="on" onclick="setSort('total')">ჯამური %</button>
+      <button id="sort-day" onclick="setSort('day')">დღიური %</button>
+    </div>
+  </div>
+
+  <div class="books-grid" id="books-grid"></div>
+
+  <!-- ============================================================ -->
+  <!-- MARKET PULSE                                                 -->
+  <!-- ============================================================ -->
+  <div class="widget" style="margin-top:26px;">
+    <div class="widget-title">ბაზრის პულსი</div>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          {"description": "S&P 500", "proName": "FOREXCOM:SPXUSD"},
+          {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
+          {"description": "Dow", "proName": "FOREXCOM:DJI"},
+          {"description": "DAX", "proName": "XETR:DAX"},
+          {"description": "FTSE 100", "proName": "SPREADEX:FTSE"},
+          {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
+          {"description": "ETH", "proName": "BITSTAMP:ETHUSD"},
+          {"description": "Gold", "proName": "TVC:GOLD"},
+          {"description": "Oil WTI", "proName": "TVC:USOIL"},
+          {"description": "NVDA", "proName": "NASDAQ:NVDA"},
+          {"description": "TSLA", "proName": "NASDAQ:TSLA"},
+          {"description": "AAPL", "proName": "NASDAQ:AAPL"},
+          {"description": "MSFT", "proName": "NASDAQ:MSFT"},
+          {"description": "MSTR", "proName": "NASDAQ:MSTR"},
+          {"description": "EUR/USD", "proName": "FX:EURUSD"},
+          {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
+          {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
+        ],
+        "isTransparent": true,
+        "showSymbolLogo": true,
+        "displayMode": "regular",
+        "colorTheme": "light",
+        "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TODAY ON THE MARKET — 4 charts                               -->
+  <!-- ============================================================ -->
+  <div class="hero">
+    <h2>დღეს ბაზარზე</h2>
+    <p class="dek">4 მთავარი მაჩვენებელი — რეალურ დროში</p>
+  </div>
+
+  <div class="grid cols-2">
+
+    <div class="widget" style="min-height:360px;">
+      <div class="widget-title">S&P 500 · აშშ-ის მთავარი ინდექსი</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "FOREXCOM:SPXUSD", "width": "100%", "height": 320, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(22,101,52,1)", "underLineColor": "rgba(22,101,52,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+
+    <div class="widget" style="min-height:360px;">
+      <div class="widget-title">Bitcoin · BTC/USD</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "BITSTAMP:BTCUSD", "width": "100%", "height": 320, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(247,147,26,1)", "underLineColor": "rgba(247,147,26,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+
+    <div class="widget" style="min-height:360px;">
+      <div class="widget-title">EUR / GEL · ევრო ლართან</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "FX_IDC:EURGEL", "width": "100%", "height": 320, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(41,98,255,1)", "underLineColor": "rgba(41,98,255,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+
+    <div class="widget" style="min-height:360px;">
+      <div class="widget-title">Nasdaq 100 · ტექნოლოგიური ბაზარი</div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        { "symbol": "FOREXCOM:NSXUSD", "width": "100%", "height": 320, "locale": "en", "dateRange": "12M",
+          "colorTheme": "light", "trendLineColor": "rgba(185,28,28,1)", "underLineColor": "rgba(185,28,28,0.1)",
+          "isTransparent": true, "autosize": true }
+        </script>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HEATMAP                                                      -->
+  <!-- ============================================================ -->
+  <div class="section-head">ბაზრის რუკა</div>
+
+  <div class="widget" style="min-height:720px;">
+    <div class="widget-title">S&P 500 · სექტორებით · ყველა კომპანია</div>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+      { "exchanges": [], "dataSource": "SPX500", "grouping": "sector", "blockSize": "market_cap_basic",
+        "blockColor": "change", "locale": "en", "symbolUrl": "", "colorTheme": "light", "hasTopBar": true,
+        "isDataSetEnabled": true, "isZoomEnabled": true, "hasSymbolTooltip": true, "isMonoSize": false,
+        "width": "100%", "height": 680 }
+      </script>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- IMPORTANT LINKS                                              -->
+  <!-- ============================================================ -->
+  <div class="section-head">მნიშვნელოვანი ბმულები</div>
+
+  <div class="links-grid">
+    <a class="res-link" href="https://www.tradingview.com/economic-calendar/" target="_blank" rel="noopener">
+      <div class="t">ეკონომიკური კალენდარი</div><div class="d">Fed, CPI, უმუშევრობა — რა ელის ბაზარს ამ კვირაში</div></a>
+    <a class="res-link" href="https://www.tradingview.com/markets/stocks-usa/earnings/" target="_blank" rel="noopener">
+      <div class="t">Earnings კალენდარი</div><div class="d">ვინ აქვეყნებს შედეგებს — თარიღები და მოლოდინები</div></a>
+    <a class="res-link" href="https://finviz.com/map.ashx" target="_blank" rel="noopener">
+      <div class="t">Finviz Map</div><div class="d">ბაზრის ალტერნატიული რუკა — სწრაფი მიმოხილვა</div></a>
+    <a class="res-link" href="https://edition.cnn.com/markets/fear-and-greed" target="_blank" rel="noopener">
+      <div class="t">Fear & Greed Index</div><div class="d">შიშისა და სიხარბის ინდექსი — ბაზრის განწყობა</div></a>
+    <a class="res-link" href="https://finance.yahoo.com/" target="_blank" rel="noopener">
+      <div class="t">Yahoo Finance</div><div class="d">ფასები, ისტორია, ფინანსური ანგარიშები</div></a>
+    <a class="res-link" href="https://fred.stlouisfed.org/" target="_blank" rel="noopener">
+      <div class="t">FRED</div><div class="d">მაკროეკონომიკური მონაცემები — განაკვეთები, ინფლაცია</div></a>
+    <a class="res-link" href="https://bankofgeorgia.ge/ka/retail/investments" target="_blank" rel="noopener">
+      <div class="t">BOG ინვესტიციები</div><div class="d">ბროკერი №1 — გრძელვადიანი წიგნი</div></a>
+    <a class="res-link" href="https://tbcbank.ge/ka/investments" target="_blank" rel="noopener">
+      <div class="t">TBC ინვესტიციები</div><div class="d">ბროკერი №2 — სარისკო წიგნი</div></a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TOP STORIES                                                  -->
+  <!-- ============================================================ -->
+  <div class="section-head">Top Stories · ბაზრის სიახლეები</div>
+
+  <div class="widget" style="min-height:600px;">
+    <div class="widget-title">რეალური დროის სიახლეები</div>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+      { "feedMode": "all_symbols", "isTransparent": true, "displayMode": "regular",
+        "width": "100%", "height": 560, "colorTheme": "light", "locale": "en" }
+      </script>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
+  ეს არ არის ფინანსური რჩევა
+</footer>
+
+<script>document.write('<scr'+'ipt src="/portfolio-data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="/js/portfolios.data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="/js/portfolios.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>try{
+var D=window.MEPORTF||{};
+if(typeof portfolios!=='undefined'){
+ if(portfolios.bog&&D.bog){portfolios.bog.cash=D.bog.cashAdded||0;if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
+ if(portfolios.galt&&D.galt&&D.galt.closed){portfolios.galt.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:-(D.galt.withdrawnToBOG||0),note:'transfer out'}].concat(portfolios.galt.transactions||[]);portfolios.galt.holdings=[];portfolios.galt.cash=0;}
+}
+}catch(e){console.warn('meportf merge',e);}</script>
+<script src="/js/masthead.js?v=1"></script>
+<script src="/js/clocks.js?v=1"></script>
+<script>
+  // date in top bar
+  (function(){
+    var months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+    var d = new Date();
+    document.getElementById('today-date').textContent = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+  })();
+
+  // ============================================================
+  // RANKED PORTFOLIO BOOKS — live, sortable
+  // ============================================================
+  var BOOKS = [
+    { key:'bog',  title:'BOG',  label:'Dogma',  sub:'გრძელვადიანი წიგნი', href:'/#book-bog'  },
+    { key:'tbc',  title:'TBC',  label:'Active', sub:'სარისკო წიგნი',      href:'/#book-tbc'  },
+    { key:'galt', title:'GALT', label:'Margin', sub:'ბერკეტი 2.5×',       href:'/#book-galt' }
+  ];
+  var sortMode = 'total';
+
+  function bookStats(key) {
+    var p = portfolios[key];
+    var D = window.MEPORTF || {};
+    if (key === 'galt' && D.galt && D.galt.closed) {
+      var dep = +D.galt.deposit || 0, net = +D.galt.net || 0;
+      return { key: key, value: 0, deposits: dep, pnl: net,
+               pnlPct: dep > 0 ? (net / dep) * 100 : 0,
+               dayPnl: 0, dayPct: 0, havePrev: false, closed: true };
+    }
+    var a = aggregate(p);
+    var prevVal = 0, nowVal = 0, havePrev = false;
+    (p.holdings || []).forEach(function (h) {
+      var price = h.livePrice || (h.shares ? h.value / h.shares : 0);
+      if (h.previousClose && h.shares) {
+        prevVal += h.previousClose * h.shares;
+        nowVal  += price * h.shares;
+        havePrev = true;
+      }
+    });
+    var dayPnl = havePrev ? nowVal - prevVal : 0;
+    var base = prevVal + (p.cash || 0);
+    var dayPct = (havePrev && base !== 0) ? (dayPnl / Math.abs(base)) * 100 : 0;
+    return { key: key, value: a.currentValue, deposits: a.deposits, pnl: a.pnl, pnlPct: a.pnlPct,
+             dayPnl: dayPnl, dayPct: dayPct, havePrev: havePrev };
+  }
+
+  function fmtSigned(n, suffix) {
+    var sign = n >= 0 ? '+' : '−';
+    return sign + Math.abs(n).toFixed(2) + (suffix || '');
+  }
+
+  function renderBooks() {
+    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return;
+    var stats = BOOKS.map(function (b) {
+      var s = bookStats(b.key); s.meta = b; return s;
+    });
+    stats.sort(function (a, b) {
+      if (!!a.closed !== !!b.closed) return a.closed ? 1 : -1; // closed books last
+      return sortMode === 'day' ? b.dayPct - a.dayPct : b.pnlPct - a.pnlPct;
+    });
+    var html = stats.map(function (s, i) {
+      var cls = s.closed ? 'closed' : (s.pnl >= 0 ? 'pos' : 'neg');
+      var dayCls = s.dayPnl >= 0 ? 'up' : 'dn';
+      var totCls = s.pnl >= 0 ? 'up' : 'dn';
+      return '<a class="bookcard" href="' + s.meta.href + '">'
+        + '<div class="bk ' + cls + '">'
+        + '<div class="rank-no">' + (i + 1) + '</div>'
+        + '<div class="inner">'
+        + '<div class="b-name">' + s.meta.title + '</div>'
+        + '<div class="b-sub">' + (s.closed ? 'დახურულია · CLOSED' : s.meta.sub + ' · ' + s.meta.label) + '</div>'
+        + '<hr>'
+        + '<div class="b-cap">მიმდინარე ღირებულება</div>'
+        + '<div class="b-val">' + fmtMoney(s.value) + '</div>'
+        + '<div class="b-row">'
+        + '<div class="cell"><div class="b-cap">P / L</div><div class="v ' + totCls + '">' + fmtSigned(s.pnl, '').replace(/^([+−])/, '$1$') + '</div></div>'
+        + '<div class="cell"><div class="b-cap">ჯამური</div><div class="v ' + totCls + '">' + fmtSigned(s.pnlPct, '%') + '</div></div>'
+        + '<div class="cell"><div class="b-cap">დღიური</div><div class="v ' + dayCls + '">' + (s.havePrev ? fmtSigned(s.dayPct, '%') : '—') + '</div></div>'
+        + '</div>'
+        + '<div class="b-dep">ჩარიცხული · ' + fmtMoney(s.deposits) + '</div>'
+        + '<div class="b-open">' + (s.closed ? 'ისტორია →' : 'გახსენი წიგნი →') + '</div>'
+        + '</div></div></a>';
+    }).join('');
+    document.getElementById('books-grid').innerHTML = html;
+  }
+
+  function setSort(mode) {
+    sortMode = mode;
+    document.getElementById('sort-total').className = mode === 'total' ? 'on' : '';
+    document.getElementById('sort-day').className = mode === 'day' ? 'on' : '';
+    renderBooks();
+  }
+
+  (function initBooks() {
+    if (typeof portfolios === 'undefined') { setTimeout(initBooks, 200); return; }
+    renderBooks(); // cached paint
+    function stampNow() {
+      var n = new Date();
+      document.getElementById('books-live-stamp').textContent =
+        '● LIVE · ' + String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0');
+    }
+    async function refreshAll() {
+      try {
+        await Promise.all(BOOKS.filter(function (b) {
+          return (portfolios[b.key].holdings || []).length > 0;
+        }).map(function (b) { return refreshLivePrices(b.key); }));
+        renderBooks(); stampNow();
+      } catch (e) { /* network — keep cached */ }
+    }
+    refreshAll();
+    setInterval(refreshAll, 60000);
+  })();
+</script>
+
+</body>
+</html>

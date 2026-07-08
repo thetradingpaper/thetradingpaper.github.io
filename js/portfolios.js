@@ -6,149 +6,15 @@
 //  - BOG (Bank of Georgia) — long-term DCA, $100-200/month, goal 35%/yr
 //  - TBC — active single-stock trading, full balance, goal 150%/yr
 //
-// Last sync: Issue 10 · 2026-06-18 — GALT re-entry (6 MSTR @112.22); BOG ASX→SSRM rotation
+// Last sync: Issue 13 · 2026-06-29 — TBC ARCC/MAIN adds + MSTR top-up; BOG MNST top-up
 // To add a new transaction, push to the portfolio.transactions array.
 // Sort transactions descending (newest first) for display.
 // ============================================================
 
-const portfolios = {
+// Data now lives in js/portfolios.data.js (window.PORTFOLIOS) so the
+// manual editor (edit.html) can regenerate it cleanly. Helpers stay here.
+const portfolios = window.PORTFOLIOS || {};
 
-  // -----------------------------------------------------------
-  // BOG — Bank of Georgia (long-term · Dogma)
-  // -----------------------------------------------------------
-  bog: {
-    name: 'BOG',
-    fullName: 'Bank of Georgia',
-    tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
-    startDate: '2025-12-09',
-    annualGoalPct: 35,
-    holdings: [
-      // Cached values from Issue 06 snapshot — live prices repaint these every 60s.
-      // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
-      { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 164.99, invested: 13.00, value: 12.49, color: '#0f3057', divYield: 0.00 },
-{ ticker: 'SMH',  name: 'VanEck Semiconductors ETF',         shares: 0.79785924, avgBuy: 493.41, invested: 393.67, value: 455.51, color: '#b91c1c', divYield: 0.26 },
-      { ticker: 'VOO',  name: 'Vanguard S&P 500 ETF',              shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 292.22, color: '#166534', divYield: 1.11 },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding',            shares: 6.35610606, avgBuy:  34.24, invested: 217.63, value: 218.02, color: '#8b6914', divYield: 1.52 },
-      { ticker: 'SSRM', name: 'SSR Mining Inc',                    shares: 1.46712736, avgBuy:  33.40, invested:  49.00, value:  49.00, color: '#0891b2', divYield: 0.00 },
-      { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy:  40.15, invested: 134.11, value: 132.56, color: '#4b5563', divYield: 0.01 },
-      { ticker: 'MP',   name: 'MP Materials Corp',                 shares: 1.03896426, avgBuy:  64.49, invested:  67.00, value:  55.53, color: '#b5651d', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',                shares: 0.16056065, avgBuy: 311.41, invested:  50.00, value:  45.11, color: '#3d8c7a', divYield: 0.08 },
-      { ticker: 'WMT',  name: 'Walmart Inc',                       shares: 0.22569679, avgBuy: 115.20, invested:  26.00, value:  27.22, color: '#7a8c2a', divYield: 0.90 },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy:  38.09, invested:  64.13, value:  59.15, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'MNST', name: 'Monster Beverage Corporation',     shares: 0.19100633, avgBuy:  91.62, invested:  17.50, value:  17.58, color: '#65a30d', divYield: 0.00 },
-    ],
-    cash: 0.00,                       // $185 deposit fully deployed on 29 May 2026
-    priorDeposits: 907.76,
-    priorCostBasis: 1007.05,
-    transactions: [
-      // Newest first
-      { date: '2026-06-17', type: 'buy',    ticker: 'SSRM', shares: 1.46712736, price: 33.40,  commission: 0.50 },
-      { date: '2026-06-17', type: 'sell',   ticker: 'ASX',  shares: 1.30645860, price: 38.27,  commission: 0.50 },
-      { date: '2026-06-15', type: 'buy',    ticker: 'WQTM', shares: 1.00906981, price: 38.10,  commission: 0.50 },
-      { date: '2026-06-15', type: 'sell',   ticker: 'MSTR', shares: 0.29757007, price: 132.57, commission: 0.50 },
-      { date: '2026-06-12', type: 'buy',    ticker: 'SPCX', shares: 0.07576271, price: 164.99, commission: 0.50 },
-{ date: '2026-06-12', type: 'deposit', amount: 13.00 },
-{ date: '2026-06-11', type: 'buy',    ticker: 'MSTR', shares: 0.29757007, price: 114.2588, commission: 0.50 },
-      { date: '2026-06-11', type: 'deposit', amount: 34.50 },
-      { date: '2026-06-11', type: 'buy',     ticker: 'MNST', shares: 0.19100633, price: 91.62, commission: 0.50 },
-      { date: '2026-06-11', type: 'deposit', amount: 18.00 },
-      { date: '2026-05-29', type: 'deposit', amount: 185.00 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'ASX',  shares: 1.04551656, price: 38.2585, commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'MP',   shares: 1.03896426, price: 64.49,   commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'VRT',  shares: 0.16056065, price: 311.41,  commission: 0.50 },
-      { date: '2026-05-29', type: 'buy',     ticker: 'WMT',  shares: 0.22569679, price: 115.20,  commission: 0.50 },
-      { date: '2026-05-22', type: 'buy',     ticker: 'WQTM', shares: 0.67472943, price: 38.06, commission: 0.50 },
-      { date: '2026-05-21', type: 'sell',    ticker: 'QBTS', shares: 1.09717696, price: 24.32, commission: 0.50 },
-      { date: '2026-05-19', type: 'buy',     ticker: 'QBTS', shares: 1.09717696, price: 18.2272, commission: 0.50 },
-      { date: '2026-05-19', type: 'deposit', amount: 20.50 },
-      { date: '2026-05-19', type: 'buy',     ticker: 'ASX',  shares: 0.65530799, price: 30.5202, commission: 0.50 },
-      { date: '2026-05-19', type: 'deposit', amount: 20.50 },
-    ],
-  },
-
-  // -----------------------------------------------------------
-  // TBC — Active trading (single company · Active Desk)
-  // -----------------------------------------------------------
-  tbc: {
-    name: 'TBC',
-    fullName: 'TBC Capital',
-    tagline: 'აქტიური ვაჭრობა · ერთი კომპანია · მიზანი 150%/წელი',
-    startDate: '2026-05-12',
-    annualGoalPct: 150,
-    holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.04739861, avgBuy: 185.78, invested: 380.36, value: 233.94, color: '#1a1a1a' },
-    ],
-    cash: 0,
-    transactions: [
-      { date: '2026-05-15', type: 'buy',     ticker: 'MSTR', shares: 0.63346818, price: 176.21, commission: 0 },
-      { date: '2026-05-15', type: 'deposit', amount: 111.61 },
-      { date: '2026-05-12', type: 'buy',     ticker: 'MSTR', shares: 1.41393043, price: 190.06, commission: 0 },
-      { date: '2026-05-12', type: 'deposit', amount: 268.75 },
-    ],
-  },
-
-  // -----------------------------------------------------------
-  // GALT — Galt & Taggart (re-entry long 18 Jun 2026 · $112.22 · 6 contracts · filled)
-  // -----------------------------------------------------------
-  galt: {
-    name: 'GALT',
-    fullName: 'Galt & Taggart',
-    tagline: '2.5× margin · MSTR.CFD · შესრულდა $112.22 · 6 კონტრაქტი',
-    startDate: '2026-05-29',
-    annualGoalPct: null,
-    status: 'active',                 // OPEN: 6 MSTR.CFD @ $112.22 (filled 18 Jun 2026, Order No CF26M18500515)
-    // History: 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun, realized +$18.85) → account $307.91 flat
-    //          → re-entered 6 @112.22 (18 Jun).
-    // CFD position: 6 contracts MSTR @ 112.22 = $673.32 gross.
-    // Margin 40% = $269.33 own, borrowed $403.99, commission $10.
-    // cash = free cash ($28.58) - borrowed ($403.99) = -375.41,
-    // so currentValue = 6 x livePrice - 375.41 = real equity. Entry equity $297.91.
-    holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc · CFD 2.5×', shares: 6, avgBuy: 112.22, invested: 673.32, value: 673.32, color: '#8b6914' },
-    ],
-    cash: -375.41,
-    priorDeposits: 0,
-    priorCostBasis: 0,
-    transactions: [
-      { date: '2026-06-18', type: 'buy',  ticker: 'MSTR', shares: 6, price: 112.22, commission: 10.00 },
-      { date: '2026-06-17', type: 'sell', ticker: 'MSTR', shares: 5, price: 124.06, commission: 10.00 },
-      { date: '2026-06-10', type: 'buy',  ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
-      { date: '2026-05-29', type: 'deposit', amount: 290.00 },
-    ],
-    // FILLED ORDER — Order No CF26M18500515 · Galt & Taggart
-    order: {
-      placed: '2026-06-18',
-      filledAt: '2026-06-18',
-      asset: 'MSTR.CFD',
-      side: 'buy',                    // long
-      type: 'limit',
-      entry: 112.22,                  // re-entry after closing prior 5 @116.29 at $124.06
-      contracts: 6,
-      orderValue: 673.32,
-      marginPct: 40,                  // 40% initial margin = 2.5× leverage
-      initialMargin: 269.33,
-      borrowed: 403.99,
-      commission: 10,
-      balance: 307.91,
-      liquidation: 99.50,             // ≈ -11.3% buffer ratio (same leverage as prior trade)
-      drawdownPct: -11.2,
-      filled: true,
-      thesis: 're-entry long after taking +$18.85 on the prior MSTR position',
-    },
-    // Prior closed trade: bought 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun), realized +$18.85 after $20 commissions.
-    plan: {
-      asset: 'MSTR',
-      leverage: 2.5,
-      entry: 112.22,
-      target: 460,
-      horizonMonths: '5–7',
-      estMarginInterestPct: 12,       // estimated annual rate
-      estCommissionPct: 0.5,
-      nextPhase: 'short-side trading',
-    },
-  },
-
-};
 
 // ============================================================
 // Helpers
@@ -169,25 +35,27 @@ function fmtDate(s) {
   return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-function txPaid(tx)     { return tx.shares * tx.price + (tx.commission || 0); }
+function txPaid(tx) { return tx.shares * tx.price + (tx.commission || 0); }
 function txReceived(tx) { return tx.shares * tx.price - (tx.commission || 0); }
 
 function aggregate(p) {
   let deposits = (p.priorDeposits || 0);
-  let bought   = (p.priorCostBasis || 0);
-  let sold = 0, fees = 0;
+  let bought = (p.priorCostBasis || 0);
+  let sold = 0, fees = 0, withdrawn = 0;
   for (const tx of p.transactions) {
     if (tx.type === 'deposit') deposits += tx.amount;
-    if (tx.type === 'buy')     { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
-    if (tx.type === 'sell')    { sold   += tx.shares * tx.price; fees += (tx.commission || 0); }
-    if (tx.type === 'fee')     fees += tx.amount;
+    if (tx.type === 'withdraw') withdrawn += tx.amount; // cash taken OUT — deposits are NEVER reduced
+    if (tx.type === 'buy') { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
+    if (tx.type === 'sell') { sold += tx.shares * tx.price; fees += (tx.commission || 0); }
+    if (tx.type === 'fee') fees += tx.amount;
   }
   const currentValue = p.holdings.reduce((s,h) => s + h.value, 0) + p.cash;
-  const netInvested  = deposits;
-  const pnl          = currentValue - deposits;
-  const pnlPct       = deposits > 0 ? (pnl / deposits) * 100 : 0;
-  const hasHistory   = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
-  return { deposits, bought, sold, fees, currentValue, netInvested, pnl, pnlPct, hasHistory };
+  const netInvested = deposits;
+  // withdrawn cash is realized value that left the book — count it so P/L stays honest
+  const pnl = currentValue + withdrawn - deposits;
+  const pnlPct = deposits > 0 ? (pnl / deposits) * 100 : 0;
+  const hasHistory = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
+  return { deposits, bought, sold, fees, withdrawn, currentValue, netInvested, pnl, pnlPct, hasHistory };
 }
 
 // ============================================================
@@ -198,36 +66,48 @@ function renderTx(tx) {
   const date = `<span class="tx-date">${fmtDate(tx.date)}</span>`;
 
   if (tx.type === 'deposit') return `<div class="tx tx-deposit">
-    ${date}
-    <span class="tx-badge badge-deposit">DEPOSIT</span>
-    <span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
-  </div>`;
+${date}
+<span class="tx-badge badge-deposit">DEPOSIT</span>
+<span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
+</div>`;
+
+  if (tx.type === 'withdraw') return `<div class="tx tx-sell">
+${date}
+<span class="tx-badge badge-sell">WITHDRAW</span>
+<span class="tx-line"><strong>−${fmtMoney(tx.amount)}</strong> &nbsp;CASH → ბარათი${tx.note ? ` · <span class="muted">${tx.note}</span>` : ''}</span>
+</div>`;
 
   if (tx.type === 'buy') return `<div class="tx tx-buy">
-    ${date}
-    <span class="tx-badge badge-buy">BUY</span>
-    <span class="tx-line">
-      <strong>${tx.ticker}</strong> ·
-      ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-      paid <strong>${fmtMoney(txPaid(tx))}</strong>
-    </span>
-  </div>`;
+${date}
+<span class="tx-badge badge-buy">BUY</span>
+<span class="tx-line">
+<strong>${tx.ticker}</strong> ·
+${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+paid <strong>${fmtMoney(txPaid(tx))}</strong>
+</span>
+</div>`;
 
   if (tx.type === 'sell') return `<div class="tx tx-sell">
-    ${date}
-    <span class="tx-badge badge-sell">SELL</span>
-    <span class="tx-line">
-      <strong>${tx.ticker}</strong> ·
-      ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-      received <strong>${fmtMoney(txReceived(tx))}</strong>
-    </span>
-  </div>`;
+${date}
+<span class="tx-badge badge-sell">SELL</span>
+<span class="tx-line">
+<strong>${tx.ticker}</strong> ·
+${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+received <strong>${fmtMoney(txReceived(tx))}</strong>
+</span>
+</div>`;
+
+  if (tx.type === 'dividend') return `<div class="tx tx-deposit">
+${date}
+<span class="tx-badge badge-deposit">DIVIDEND</span>
+<span class="tx-line"><strong>${tx.ticker||''}</strong> &nbsp;+${fmtMoney(tx.amount)}${tx.note ? ` &middot; <span class="muted">${tx.note}</span>` : ''}</span>
+</div>`;
 
   if (tx.type === 'fee') return `<div class="tx tx-fee">
-    ${date}
-    <span class="tx-badge badge-fee">FEE</span>
-    <span class="tx-line">−${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
-  </div>`;
+${date}
+<span class="tx-badge badge-fee">FEE</span>
+<span class="tx-line">−${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
+</div>`;
 
   return '';
 }
@@ -257,43 +137,57 @@ function renderStatBanner(containerId, portfolioKey) {
   const portYieldPct = a.currentValue > 0 ? (divGross / a.currentValue) * 100 : 0;
 
   const divCell = anyYield ? `
-        <div class="stat-cell">
-          <div class="stat-label">წლიური დივიდენდი (წმინდა)</div>
-          <div class="stat-val pos">${fmtMoney(divNet)}<span class="stat-sub">≈ ${portYieldPct.toFixed(2)}% / წელი · 30% GE გადასახადის შემდეგ</span></div>
-        </div>` : '';
+<div class="stat-cell">
+<div class="stat-label">წლიური დივიდენდი (წმინდა)</div>
+<div class="stat-val pos">${fmtMoney(divNet)}<span class="stat-sub">≈ ${portYieldPct.toFixed(2)}% / წელი · 30% GE გადასახადის შემდეგ</span></div>
+</div>` : '';
+
+  let divReceived = 0;
+  for (const tx of p.transactions) { if (tx.type === 'dividend') divReceived += (tx.amount || 0); }
+  const recvCell = divReceived > 0 ? `
+<div class="stat-cell">
+<div class="stat-label">სულ მიღებული დივიდენდი <a href="dividends.html" style="text-decoration:none;color:#b91c1c;font-weight:800" title="დივიდენდების ისტორია">↗</a></div>
+<div class="stat-val pos">${fmtMoney(divReceived)}<span class="stat-sub">წმინდა · მიღებული</span></div>
+</div>` : '';
+
+  const wdCell = (a.withdrawn > 0) ? `
+<div class="stat-cell">
+<div class="stat-label">გატანილი · Withdrawn</div>
+<div class="stat-val">${fmtMoney(a.withdrawn)}</div>
+</div>` : '';
 
   const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
 
   el.innerHTML = `
-    <div class="stat-banner">
-      <div class="stat-banner-head">
-        <span class="stat-name">${p.name} · ${p.fullName.toUpperCase()}</span>
-        <span class="stat-tag">${p.tagline}</span>
-      </div>
-      <div class="${gridClass}">
-        <div class="stat-cell">
-          <div class="stat-label">სრული ჩარიცხული</div>
-          <div class="stat-val">${depStr}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">პორტფელის ღირებულება</div>
-          <div class="stat-val">${fmtMoney(a.currentValue)}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">წმინდა P/L</div>
-          <div class="stat-val ${pnlClass}">${pnlStr}</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-label">უკუგება</div>
-          <div class="stat-val ${pnlClass}">${pctStr}</div>
-        </div>${divCell}
-      </div>
-      <div class="stat-foot">
-        <span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
-        <span class="live-dot">● LIVE</span>
-      </div>
-    </div>
-  `;
+<div class="stat-banner">
+<div class="stat-banner-head">
+<span class="stat-name">${p.name} · ${p.fullName.toUpperCase()}</span>
+<span class="stat-tag">${p.tagline}</span>
+</div>
+<div class="${gridClass}">
+<div class="stat-cell">
+<div class="stat-label">სრული ჩარიცხული</div>
+<div class="stat-val">${depStr}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">პორტფელის ღირებულება</div>
+<div class="stat-val">${fmtMoney(a.currentValue)}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">წმინდა P/L</div>
+<div class="stat-val ${pnlClass}">${pnlStr}</div>
+</div>
+<div class="stat-cell">
+<div class="stat-label">უკუგება</div>
+<div class="stat-val ${pnlClass}">${pctStr}</div>
+</div>${wdCell}${divCell}${recvCell}
+</div>
+<div class="stat-foot">
+<span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
+<span class="live-dot">● LIVE</span>
+</div>
+</div>
+`;
 }
 
 function renderDonut(canvasId, portfolioKey) {
@@ -302,7 +196,7 @@ function renderDonut(canvasId, portfolioKey) {
   if (!canvas || typeof Chart === 'undefined') return;
 
   const labels = p.holdings.map(h => h.ticker);
-  const data   = p.holdings.map(h => h.value);
+  const data = p.holdings.map(h => h.value);
   const colors = p.holdings.map(h => h.color);
 
   if (p.cash > 0) {
@@ -326,7 +220,7 @@ function renderDonut(canvasId, portfolioKey) {
 
 function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
   const p = portfolios[portfolioKey];
-  const list  = document.getElementById(listId);
+  const list = document.getElementById(listId);
   const pager = document.getElementById(pagerId);
   if (!list) return;
 
@@ -372,29 +266,29 @@ function renderHoldingsCards(containerId, portfolioKey) {
       ? +((price - h.previousClose) * h.shares).toFixed(2)
       : null;
 
-    const sess = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
-              : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
-              : '';
+    const sess = (h.liveSession === 'PRE') ? ` <span class="sess-badge pre">PRE</span>`
+      : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+      : '';
 
     const unrealClass = unreal >= 0 ? 'pos' : 'neg';
     const dayClass = (dayPct >= 0) ? 'pos' : 'neg';
 
     html += `
-      <div class="hcard">
-        <div class="hcard-head">
-          <span class="hcard-ticker">${h.ticker}</span>
-          <span class="hcard-name">${h.name.toUpperCase()}</span>
-        </div>
-        <table class="hcard-tbl">
-          <tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
-          <tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
-          <tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
-          <tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
-          <tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
-          <tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
-          ${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
-        </table>
-      </div>`;
+<div class="hcard">
+<div class="hcard-head">
+<span class="hcard-ticker">${h.ticker}</span>
+<span class="hcard-name">${h.name.toUpperCase()}</span>
+</div>
+<table class="hcard-tbl">
+<tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
+<tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
+<tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
+<tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
+<tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
+<tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
+${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
+</table>
+</div>`;
   }
   c.innerHTML = html;
 }
@@ -411,9 +305,9 @@ function renderHoldings(tableBodyId, portfolioKey) {
 
     let liveCell;
     if (h.livePrice) {
-      const sessBadge = (h.liveSession === 'PRE')  ? ` <span class="sess-badge pre">PRE</span>`
-                     : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
-                     : '';
+      const sessBadge = (h.liveSession === 'PRE') ? ` <span class="sess-badge pre">PRE</span>`
+        : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
+        : '';
       const chg = (h.dayChangePct !== undefined && h.dayChangePct !== null)
         ? `<div class="day-chg ${h.dayChangePct >= 0 ? 'pos' : 'neg'}">${h.dayChangePct >= 0 ? '+' : ''}${h.dayChangePct.toFixed(2)}%</div>`
         : '';
@@ -429,41 +323,111 @@ function renderHoldings(tableBodyId, portfolioKey) {
 }
 
 // ============================================================
-// LIVE PRICE FETCHING — Yahoo Finance v8 chart API
+// LIVE PRICE FETCHING
+// Primary: Finnhub (real-time, direct CORS) when a key is set.
+// Fallback: Yahoo Finance v8 chart API via public CORS proxies.
+// Last resort: data/prices.json (committed by the snapshot Action).
 // ============================================================
+
+// Finnhub real-time quotes. Free tier = 60 calls/min, direct browser access (CORS).
+// Set the key here for ALL devices, OR per-browser via the editor (localStorage
+// 'tp_finnhub_key', which overrides this). Empty key → skip Finnhub, use Yahoo.
+// Public on purpose (Lasha's free personal key, authorized 2026-06-30). Free tier,
+// read-only quotes, 60 calls/min — low risk. Per-browser localStorage still overrides.
+const FINNHUB_KEY = 'd91t069r01qsj27o4k8gd91t069r01qsj27o4k90';
+function _finnhubKey() {
+  try { const k = localStorage.getItem('tp_finnhub_key'); if (k && k.trim()) return k.trim(); } catch (e) {}
+  return FINNHUB_KEY || '';
+}
+
+// Finnhub /quote → { c:current, d:change, dp:%chg, pc:prevClose, ... }. Direct fetch,
+// no proxy needed. Returns null on miss (unknown symbol → c:0) so we fall back to Yahoo.
+async function fetchFinnhubQuote(ticker) {
+  const key = _finnhubKey();
+  if (!key) return null;
+  try {
+    const ctrl = new AbortController();
+    const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS);
+    const r = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(ticker)}&token=${encodeURIComponent(key)}`, { cache: 'no-store', signal: ctrl.signal });
+    clearTimeout(to);
+    if (!r.ok) return null;            // 401 bad key / 429 rate-limited → fall back to Yahoo
+    const d = await r.json();
+    if (!d || !d.c) return null;       // c===0 → Finnhub has no data for this symbol
+    return { price: d.c, session: 'REG', state: 'REGULAR', regular: d.c, previousClose: (d.pc || d.c) };
+  } catch (e) { return null; }
+}
+
 const PRICE_PROXIES = [
-  '',
-  'https://corsproxy.io/?',
-  'https://api.allorigins.win/raw?url=',
+  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+  u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
+  u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u),
+  u => 'https://thingproxy.freeboard.io/fetch/' + u,
 ];
 
+function _parseYahooMeta(data) {
+  const meta = data && data.chart && data.chart.result && data.chart.result[0] && data.chart.result[0].meta;
+  if (!meta || !meta.regularMarketPrice) throw new Error('no meta');
+  const state = meta.marketState || 'REGULAR';
+  const reg = meta.regularMarketPrice, pre = meta.preMarketPrice, post = meta.postMarketPrice;
+  const prev = meta.chartPreviousClose || meta.previousClose || reg;
+  let price = reg, session = 'REG';
+  if ((state === 'PRE' || state === 'PREPRE') && pre) { price = pre; session = 'PRE'; }
+  else if ((state === 'POST' || state === 'POSTPOST') && post) { price = post; session = 'POST'; }
+  else if (state === 'CLOSED' && post) { price = post; session = 'POST'; }
+  return { price, session, state, regular: reg, pre, post, previousClose: prev };
+}
+
+// Hedged proxy race — fire the first proxy immediately, then stagger the rest
+// ~1.1s apart and take the first valid response. When a proxy answers quickly
+// (the common case) only ONE request is made; slow/dead proxies trigger the next
+// wave. This cuts request volume ~3× vs. blasting all proxies every time, which
+// is what lets us poll faster without re-flooding the public proxies.
+const PROXY_STAGGER_MS = 1100;   // gap before escalating to the next proxy
+const PROXY_TIMEOUT_MS = 7000;   // abort a single proxy attempt after this
+
+// Orchestrator: real-time Finnhub first (if a key is set), else the Yahoo proxy race.
 async function fetchLiveQuote(ticker) {
-  const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true`;
-  for (const proxy of PRICE_PROXIES) {
-    try {
-      const url = proxy ? proxy + encodeURIComponent(target) : target;
-      const res = await fetch(url, { cache: 'no-store', mode: 'cors' });
-      if (!res.ok) continue;
-      const data = await res.json();
-      const meta = data?.chart?.result?.[0]?.meta;
-      if (!meta || !meta.regularMarketPrice) continue;
+  const fh = await fetchFinnhubQuote(ticker);
+  if (fh && fh.price) return fh;
+  return fetchYahooQuote(ticker);
+}
 
-      const state = meta.marketState || 'REGULAR';
-      const reg   = meta.regularMarketPrice;
-      const pre   = meta.preMarketPrice;
-      const post  = meta.postMarketPrice;
-      const prev  = meta.chartPreviousClose || meta.previousClose || reg;
+async function fetchYahooQuote(ticker) {
+  // Cache-bust the *target* URL (not just the browser fetch): public proxies like
+  // allorigins/codetabs cache Yahoo responses server-side, so without a fresh
+  // nonce they hand back stale quotes even when we poll. This is the main reason
+  // prices looked "late". A unique _ param forces the proxy to refetch Yahoo.
+  const nonce = Date.now() + '' + Math.floor(Math.random() * 1000);
+  const target = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?interval=1m&range=1d&includePrePost=true&_=${nonce}`;
 
-      let price = reg;
-      let session = 'REG';
-      if ((state === 'PRE' || state === 'PREPRE') && pre)      { price = pre;  session = 'PRE';  }
-      else if ((state === 'POST' || state === 'POSTPOST') && post) { price = post; session = 'POST'; }
-      else if (state === 'CLOSED' && post)                      { price = post; session = 'POST'; }
-
-      return { price, session, state, regular: reg, pre, post, previousClose: prev };
-    } catch (e) { /* try next proxy */ }
-  }
-  return null;
+  return new Promise(resolve => {
+    let idx = 0, pending = 0, settled = false;
+    const controllers = [];
+    const finish = v => {
+      if (settled) return;
+      settled = true;
+      controllers.forEach(c => { try { c.abort(); } catch (e) {} });
+      resolve(v);
+    };
+    const tryNext = () => {
+      if (settled) return;
+      if (idx >= PRICE_PROXIES.length) { if (pending === 0) finish(null); return; }
+      const mk = PRICE_PROXIES[idx++];
+      pending++;
+      const ctrl = new AbortController(); controllers.push(ctrl);
+      const to = setTimeout(() => ctrl.abort(), PROXY_TIMEOUT_MS);
+      // Hedge: if this proxy is just SLOW (not failed), start the next one in
+      // parallel after a short gap so latency stays low. On an outright FAILURE
+      // we escalate immediately (in .catch) — no need to wait for the gap.
+      const hedge = setTimeout(() => { if (!settled) tryNext(); }, PROXY_STAGGER_MS);
+      fetch(mk(target), { cache: 'no-store', signal: ctrl.signal })
+        .then(r => { if (!r.ok) throw new Error('bad status ' + r.status); return r.json(); })
+        .then(_parseYahooMeta)
+        .then(q => { clearTimeout(to); clearTimeout(hedge); pending--; finish(q); })
+        .catch(() => { clearTimeout(to); clearTimeout(hedge); pending--; tryNext(); });
+    };
+    tryNext();
+  });
 }
 
 async function fetchLivePrice(ticker) {
@@ -515,9 +479,9 @@ async function refreshLivePrices(portfolioKey) {
   for (let i = 0; i < p.holdings.length; i++) {
     const q = results[i];
     if (q && q.price) {
-      p.holdings[i].livePrice    = q.price;
-      p.holdings[i].liveSession  = q.session;
-      p.holdings[i].liveState    = q.state;
+      p.holdings[i].livePrice = q.price;
+      p.holdings[i].liveSession = q.session;
+      p.holdings[i].liveState = q.state;
       p.holdings[i].previousClose = q.previousClose;
       p.holdings[i].dayChangePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
       if (p.holdings[i].shares !== undefined && p.holdings[i].shares > 0) {
@@ -531,9 +495,9 @@ async function refreshLivePrices(portfolioKey) {
 
 async function refreshAndRender(portfolioKey, opts = {}) {
   const updated = await refreshLivePrices(portfolioKey);
-  if (opts.holdingsId)  renderHoldings(opts.holdingsId, portfolioKey);
-  if (opts.cardsId)     renderHoldingsCards(opts.cardsId, portfolioKey);
-  if (opts.bannerId)    renderStatBanner(opts.bannerId, portfolioKey);
+  if (opts.holdingsId) renderHoldings(opts.holdingsId, portfolioKey);
+  if (opts.cardsId) renderHoldingsCards(opts.cardsId, portfolioKey);
+  if (opts.bannerId) renderStatBanner(opts.bannerId, portfolioKey);
   if (opts.donutId && typeof Chart !== 'undefined') {
     const canvas = document.getElementById(opts.donutId);
     if (canvas) {
@@ -567,23 +531,23 @@ function renderSummary(containerId, portfolioKey) {
   const c = document.getElementById(containerId);
   if (!c) return;
   const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
-  const pnlSign  = a.pnl >= 0 ? '+' : '−';
+  const pnlSign = a.pnl >= 0 ? '+' : '−';
   const has = a.hasHistory;
 
   c.innerHTML = `
-    <div class="summary-grid">
-      <div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
-      <div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
-      <div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
-      <div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
-      <div class="summary-card big">
-        <div class="summary-label">მიმდინარე ღირებულება</div>
-        <div class="summary-value">${fmtMoney(a.currentValue)}</div>
-        ${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
-      </div>
-    </div>
-  `;
+<div class="summary-grid">
+<div class="summary-card"><div class="summary-label">სრული deposit</div><div class="summary-value">${has ? fmtMoney(a.deposits) : '—'}</div></div>
+<div class="summary-card"><div class="summary-label">საკომისიო</div><div class="summary-value">${fmtMoney(a.fees)}</div></div>
+<div class="summary-card"><div class="summary-label">სრული ნაყიდი</div><div class="summary-value">${fmtMoney(a.bought)}</div></div>
+<div class="summary-card"><div class="summary-label">სრული გაყიდული</div><div class="summary-value">${fmtMoney(a.sold)}</div></div>
+<div class="summary-card"><div class="summary-label">წმინდა ჩადებული</div><div class="summary-value">${has ? fmtMoney(a.netInvested) : '—'}</div></div>
+<div class="summary-card big">
+<div class="summary-label">მიმდინარე ღირებულება</div>
+<div class="summary-value">${fmtMoney(a.currentValue)}</div>
+${has ? `<div class="summary-pnl ${pnlClass}">${pnlSign}${fmtMoney(Math.abs(a.pnl))} (${pnlSign}${Math.abs(a.pnlPct).toFixed(2)}%)</div>` : `<div class="summary-pnl muted">— ცარიელი ისტორია —</div>`}
+</div>
+</div>
+`;
 }
 
 function renderChart(canvasId, portfolioKey) {

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>დივიდენდები · mePortfolio</title>
+<script>
+  // soft gate: only reachable when already unlocked on the main page
+  /* server-side login (Cloudflare) protects all pages now */
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/portfolios.data.js"></script>
+<script src="js/portfolios.js"></script>
+<style>
+  :root{ --bg:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:14px; }
+  .back:hover{ color:var(--red); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:18px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 200px; border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fff; }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
+  .pos{ color:var(--green); }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:20px; margin:8px 0 12px; }
+  .chartbox{ border:1px solid var(--line); border-radius:10px; padding:16px; background:#fff; height:300px; margin-bottom:30px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--green); border-radius:4px; padding:2px 7px; }
+  .empty{ color:var(--muted); padding:20px; text-align:center; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:30px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="/">← უკან · mePortfolio</a>
+    <span style="font-size:12px;color:var(--muted)">დივიდენდების ისტორია</span>
+  </div>
+  <h1>მიღებული დივიდენდები</h1>
+  <div class="sub">Received Dividends · ჩარიცხული დივიდენდები ხაზ-ხაზ · წმინდა მიღებული</div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">სულ მიღებული (წმინდა)</div><div class="val pos" id="d-total">—</div></div>
+    <div class="card"><div class="lab">ჩარიცხვების რაოდენობა</div><div class="val" id="d-count">—</div></div>
+    <div class="card"><div class="lab">ბოლო ჩარიცხვა</div><div class="val" id="d-last" style="font-size:18px;">—</div></div>
+  </div>
+
+  <div class="sec">დივიდენდის ზრდა დღეების მიხედვით · Growth by day (from today)</div>
+  <div class="chartbox"><canvas id="divChart"></canvas></div>
+
+  <div class="sec">ჩარიცხვების ისტორია · History</div>
+  <table id="divTable">
+    <thead><tr><th>თარიღი</th><th>აქცია</th><th>კომენტარი</th><th class="num">თანხა</th><th class="num">ჯამი</th></tr></thead>
+    <tbody id="divBody"></tbody>
+  </table>
+
+  <div class="foot">© 2026 mePortfolio · ლაშა ფხაკაძე · ვისბადენი · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  function fmtDate(s){ const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
+
+  // collect dividends across all books
+  var divs=[];
+  try{
+    Object.keys(portfolios).forEach(function(k){
+      (portfolios[k].transactions||[]).forEach(function(t){
+        if(t.type==='dividend') divs.push({date:t.date, ticker:t.ticker||'', amount:+t.amount||0, note:t.note||'', book:portfolios[k].name});
+      });
+    });
+  }catch(e){}
+  divs.sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
+
+  var total=divs.reduce(function(s,d){return s+d.amount;},0);
+  document.getElementById('d-total').textContent=fmt(total);
+  document.getElementById('d-count').textContent=divs.length;
+  document.getElementById('d-last').textContent=divs.length?fmtDate(divs[divs.length-1].date):'—';
+
+  // table (newest first), running cumulative
+  var body=document.getElementById('divBody');
+  if(!divs.length){ body.innerHTML='<tr><td colspan="5" class="empty">ჯერ არ მიგიღია დივიდენდი — პირველი ჩაირიცხება აქ</td></tr>'; }
+  else{
+    var cum=0, rows=[];
+    divs.forEach(function(d){ cum+=d.amount; d._cum=cum; });
+    for(var i=divs.length-1;i>=0;i--){ var d=divs[i];
+      rows.push('<tr><td>'+fmtDate(d.date)+'</td><td><span class="badge">'+d.ticker+'</span></td><td style="color:var(--muted)">'+(d.note||'')+'</td><td class="num">+'+fmt(d.amount)+'</td><td class="num">'+fmt(d._cum)+'</td></tr>');
+    }
+    body.innerHTML=rows.join('');
+  }
+
+  // chart: cumulative by day, x starts TODAY (or first dividend), extends a bit
+  var today=new Date(); today.setHours(0,0,0,0);
+  var start = today;
+  if(divs.length){ var fd=new Date(divs[0].date); fd.setHours(0,0,0,0); if(fd<start) start=fd; }
+  // build daily axis from start to max(today, last div) + 14 days lookahead
+  var last=today; if(divs.length){ var ld=new Date(divs[divs.length-1].date); ld.setHours(0,0,0,0); if(ld>last) last=ld; }
+  var end=new Date(last); end.setDate(end.getDate()+14);
+  var labels=[], data=[], running=0, di=0;
+  for(var dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+    var iso=dt.toISOString().slice(0,10);
+    while(di<divs.length && divs[di].date<=iso){ running+=divs[di].amount; di++; }
+    labels.push(iso.slice(5).replace('-','/'));
+    data.push(+running.toFixed(4));
+  }
+  new Chart(document.getElementById('divChart'), {
+    type:'line',
+    data:{ labels:labels, datasets:[{ label:'ჯამური დივიდენდი ($)', data:data, borderColor:'#166534', backgroundColor:'rgba(22,101,52,.12)', fill:true, tension:.15, pointRadius:2 }]},
+    options:{ responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(c){return '$'+Number(c.parsed.y).toFixed(4);}}}},
+      scales:{ y:{ beginAtZero:true, ticks:{ callback:function(v){return '$'+v;} } }, x:{ grid:{display:false} } } }
+  });
+})();
+</script>
+<script src="/js/masthead.js?v=1"></script>
+<script src="/js/clocks.js?v=1"></script>
+</body>
+</html>
