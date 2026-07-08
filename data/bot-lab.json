@@ -7,32 +7,36 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 0.0,
-   "positions": [
+   "cash": 96.4235652109375,
+   "positions": [],
+   "trades": [
     {
      "ticker": "ROKU",
-     "shares": 0.692608,
      "entry": 143.66000366210938,
+     "exit": 139.94,
      "entry_date": "2026-06-12",
-     "target": 157.66,
-     "stop": 135.26,
-     "max_days": 7,
-     "last_price": 143.66000366210938
+     "exit_date": "2026-07-08",
+     "ret_pct": -3.58,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "trades": [],
-   "equity": 99.5,
+   "equity": 96.42,
    "equity_history": [
     {
      "date": "2026-06-12",
      "equity": 99.5
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 96.42
     }
    ],
    "stats": {
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "win_rate": null,
-    "return_pct": -0.5
+    "win_rate": 0.0,
+    "return_pct": -3.58
    }
   },
   "bot2": {
@@ -40,72 +44,87 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 0.0,
+   "cash": 69.39903169076842,
    "positions": [
     {
-     "ticker": "ROKU",
-     "shares": 0.135737,
-     "entry": 143.66000366210938,
-     "entry_date": "2026-06-12",
-     "target": 157.66,
-     "stop": 135.26,
+     "ticker": "CRNX",
+     "shares": 0.201806,
+     "entry": 83.49500274658203,
+     "entry_date": "2026-07-08",
+     "target": 92.79,
+     "stop": 77.92,
      "max_days": 7,
-     "last_price": 143.66000366210938
+     "last_price": 83.49500274658203
+    }
+   ],
+   "trades": [
+    {
+     "ticker": "ROKU",
+     "entry": 143.66000366210938,
+     "exit": 139.94,
+     "entry_date": "2026-06-12",
+     "exit_date": "2026-07-08",
+     "ret_pct": -7.52,
+     "reason": "time",
+     "leverage": 1
     },
     {
      "ticker": "WDS",
-     "shares": 0.845254,
      "entry": 23.06999969482422,
+     "exit": 20.38,
      "entry_date": "2026-06-12",
-     "target": 24.43,
-     "stop": 22.25,
-     "max_days": 7,
-     "last_price": 23.06999969482422
+     "exit_date": "2026-07-08",
+     "ret_pct": -16.37,
+     "reason": "stop",
+     "leverage": 1
     },
     {
      "ticker": "NUVL",
-     "shares": 0.158215,
      "entry": 123.25,
+     "exit": 123.81,
      "entry_date": "2026-06-12",
-     "target": 136.34,
-     "stop": 115.39,
-     "max_days": 7,
-     "last_price": 123.25
+     "exit_date": "2026-07-08",
+     "ret_pct": -4.56,
+     "reason": "time",
+     "leverage": 1
     },
     {
      "ticker": "CRDO",
-     "shares": 0.077748,
      "entry": 250.81,
+     "exit": 247.04,
      "entry_date": "2026-06-12",
-     "target": 304.76,
-     "stop": 218.44,
-     "max_days": 7,
-     "last_price": 250.81
+     "exit_date": "2026-07-08",
+     "ret_pct": -6.47,
+     "reason": "time",
+     "leverage": 1
     },
     {
      "ticker": "CAVA",
-     "shares": 0.214309,
      "entry": 90.98999786376953,
+     "exit": 66.41,
      "entry_date": "2026-06-12",
-     "target": 103.31,
-     "stop": 86.06,
-     "max_days": 7,
-     "last_price": 90.98999786376953
+     "exit_date": "2026-07-08",
+     "ret_pct": -31.34,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "trades": [],
-   "equity": 97.5,
+   "equity": 86.25,
    "equity_history": [
     {
      "date": "2026-06-12",
      "equity": 97.5
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 86.25
     }
    ],
    "stats": {
-    "trades": 0,
+    "trades": 5,
     "wins": 0,
-    "win_rate": null,
-    "return_pct": -2.5
+    "win_rate": 0.0,
+    "return_pct": -13.75
    }
   },
   "bot3": {
@@ -113,42 +132,67 @@
    "name_ka": "ბოტი 3 · გრძელვადიანი",
    "desc_ka": "მხოლოდ გრძელვადიანი კატალიზატორები, 2-8 კვირა",
    "start": 100,
-   "cash": 33.33333333333333,
+   "cash": 26.536067298054796,
    "positions": [
     {
-     "ticker": "CAVA",
-     "shares": 0.360846,
-     "entry": 90.98999786376953,
-     "entry_date": "2026-06-12",
-     "target": 103.31,
-     "stop": 86.06,
+     "ticker": "RIOT",
+     "shares": 1.261437,
+     "entry": 20.64,
+     "entry_date": "2026-07-08",
+     "target": 27.56,
+     "stop": 17.87,
      "max_days": 40,
-     "last_price": 90.98999786376953
+     "last_price": 20.64
+    },
+    {
+     "ticker": "BTDR",
+     "shares": 2.162464,
+     "entry": 12.04,
+     "entry_date": "2026-07-08",
+     "target": 17.42,
+     "stop": 9.89,
+     "max_days": 40,
+     "last_price": 12.04
+    }
+   ],
+   "trades": [
+    {
+     "ticker": "CAVA",
+     "entry": 90.98999786376953,
+     "exit": 66.41,
+     "entry_date": "2026-06-12",
+     "exit_date": "2026-07-08",
+     "ret_pct": -29.61,
+     "reason": "stop",
+     "leverage": 1
     },
     {
      "ticker": "GLXY",
-     "shares": 0.984213,
      "entry": 33.36,
+     "exit": 23.68,
      "entry_date": "2026-06-12",
-     "target": 42.55,
-     "stop": 29.68,
-     "max_days": 40,
-     "last_price": 33.36
+     "exit_date": "2026-07-08",
+     "ret_pct": -31.57,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "trades": [],
-   "equity": 99.0,
+   "equity": 78.61,
    "equity_history": [
     {
      "date": "2026-06-12",
      "equity": 99.0
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 78.61
     }
    ],
    "stats": {
-    "trades": 0,
+    "trades": 2,
     "wins": 0,
-    "win_rate": null,
-    "return_pct": -1.0
+    "win_rate": 0.0,
+    "return_pct": -21.39
    }
   },
   "bot4": {
@@ -156,32 +200,47 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 70.0,
+   "cash": 68.38611974133302,
    "positions": [
     {
-     "ticker": "ROKU",
-     "shares": 0.205346,
-     "entry": 143.66000366210938,
-     "entry_date": "2026-06-12",
-     "target": 157.66,
-     "stop": 135.26,
+     "ticker": "CRNX",
+     "shares": 0.351518,
+     "entry": 83.49500274658203,
+     "entry_date": "2026-07-08",
+     "target": 92.79,
+     "stop": 77.92,
      "max_days": 7,
-     "last_price": 143.66000366210938
+     "last_price": 83.49500274658203
     }
    ],
-   "trades": [],
-   "equity": 99.5,
+   "trades": [
+    {
+     "ticker": "ROKU",
+     "entry": 143.66000366210938,
+     "exit": 139.94,
+     "entry_date": "2026-06-12",
+     "exit_date": "2026-07-08",
+     "ret_pct": -5.88,
+     "reason": "time",
+     "leverage": 1
+    }
+   ],
+   "equity": 97.74,
    "equity_history": [
     {
      "date": "2026-06-12",
      "equity": 99.5
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 97.74
     }
    ],
    "stats": {
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "win_rate": null,
-    "return_pct": -0.5
+    "win_rate": 0.0,
+    "return_pct": -2.26
    }
   },
   "bot5": {
@@ -189,37 +248,38 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 0.0,
-   "positions": [
+   "cash": 903.2174328108418,
+   "positions": [],
+   "trades": [
     {
      "ticker": "ROKU",
-     "shares": 17.228177,
      "entry": 143.66000366210938,
+     "exit": 139.94,
      "entry_date": "2026-06-12",
-     "target": 157.66,
-     "stop": 135.26,
-     "max_days": 10,
-     "leverage": 2.5,
-     "own_equity": 990.0,
-     "borrowed": 1485.0,
-     "last_price": 143.66000366210938
+     "exit_date": "2026-07-08",
+     "ret_pct": -8.77,
+     "reason": "time",
+     "leverage": 2.5
     }
    ],
-   "trades": [],
-   "equity": 989.51,
+   "equity": 903.22,
    "equity_history": [
     {
      "date": "2026-06-12",
      "equity": 989.51
+    },
+    {
+     "date": "2026-07-08",
+     "equity": 903.22
     }
    ],
    "stats": {
-    "trades": 0,
+    "trades": 1,
     "wins": 0,
-    "win_rate": null,
-    "return_pct": -1.05
+    "win_rate": 0.0,
+    "return_pct": -9.68
    }
   }
  },
- "updated": "2026-06-12T20:55:46.000965+00:00"
+ "updated": "2026-07-08T15:59:05.471102+00:00"
 }
