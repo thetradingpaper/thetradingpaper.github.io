@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-08T20:18:01.933Z",
+  "updated": "2026-07-08T21:32:56.246Z",
   "source": "yahoo-finance-v8 via GitHub Actions",
   "quotes": {
     "SPCX": {
@@ -15,7 +15,7 @@
       "state": "REGULAR"
     },
     "VOO": {
-      "price": 685.19,
+      "price": 685.26,
       "previousClose": 687.08,
       "session": "REG",
       "state": "REGULAR"
