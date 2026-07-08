@@ -1,75 +1,75 @@
 {
-  "updated": "2026-07-08T15:59:57.254Z",
+  "updated": "2026-07-08T17:36:10.274Z",
   "source": "yahoo-finance-v8 via GitHub Actions",
   "quotes": {
     "SPCX": {
-      "price": 147.32,
+      "price": 148.54,
       "previousClose": 149.47,
       "session": "REG",
       "state": "REGULAR"
     },
     "SMH": {
-      "price": 579.67,
+      "price": 594.69,
       "previousClose": 581.45,
       "session": "REG",
       "state": "REGULAR"
     },
     "VOO": {
-      "price": 680.775,
+      "price": 685.405,
       "previousClose": 687.08,
       "session": "REG",
       "state": "REGULAR"
     },
     "ASX": {
-      "price": 39.31,
+      "price": 40.43,
       "previousClose": 39.65,
       "session": "REG",
       "state": "REGULAR"
     },
     "SSRM": {
-      "price": 27.27,
+      "price": 28.245,
       "previousClose": 29.91,
       "session": "REG",
       "state": "REGULAR"
     },
     "KOID": {
-      "price": 38.41,
+      "price": 39.02,
       "previousClose": 39.83,
       "session": "REG",
       "state": "REGULAR"
     },
     "MP": {
-      "price": 50.825,
+      "price": 52.19,
       "previousClose": 50.49,
       "session": "REG",
       "state": "REGULAR"
     },
     "VRT": {
-      "price": 307.01,
+      "price": 315.26,
       "previousClose": 305.58,
       "session": "REG",
       "state": "REGULAR"
     },
     "WMT": {
-      "price": 113.435,
+      "price": 112.86,
       "previousClose": 111.54,
       "session": "REG",
       "state": "REGULAR"
     },
     "WQTM": {
-      "price": 34.165,
+      "price": 34.849,
       "previousClose": 34.71,
       "session": "REG",
       "state": "REGULAR"
     },
     "MNST": {
-      "price": 96.2,
+      "price": 95.87,
       "previousClose": 96.92,
       "session": "REG",
       "state": "REGULAR"
     },
     "MSTR": {
-      "price": 93.25,
+      "price": 94.62,
       "previousClose": 97.36,
       "session": "REG",
       "state": "REGULAR"
