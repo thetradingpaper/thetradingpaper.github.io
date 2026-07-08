@@ -1,20 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 73.61,
- "positions": [
-  {
-   "ticker": "BABA",
-   "opened": "2026-07-07T22:40:15.927Z",
-   "rule": "R1",
-   "reason": "R1 oversold bounce · RSI 20.9 < 32 · პირველი მწვანე",
-   "entry": 98.14,
-   "shares": 0.203791,
-   "cost": 20,
-   "target": 104.46,
-   "stop": 93.4
-  }
- ],
+ "cash": 95.71,
+ "positions": [],
  "equityHistory": [
   {
    "date": "2026-06-10",
@@ -35,6 +23,10 @@
   {
    "date": "2026-07-07",
    "equity": 93.61
+  },
+  {
+   "date": "2026-07-08",
+   "equity": 95.71
   }
  ]
 }

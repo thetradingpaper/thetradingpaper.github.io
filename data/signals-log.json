@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-07-08T15:29:50.025Z",
+  "opened": "2026-07-07T22:40:15.927Z",
+  "ticker": "BABA",
+  "rule": "R1",
+  "entry": 98.14,
+  "exit": 108.42,
+  "exitType": "TARGET",
+  "pnl": 2.1,
+  "pnlPct": 10.48
+ },
+ {
   "closed": "2026-07-07T22:40:15.927Z",
   "opened": "2026-06-12T21:00:39.184Z",
   "ticker": "BABA",
