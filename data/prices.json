@@ -1,75 +1,75 @@
 {
-  "updated": "2026-07-08T13:58:15.919Z",
+  "updated": "2026-07-08T15:59:57.254Z",
   "source": "yahoo-finance-v8 via GitHub Actions",
   "quotes": {
     "SPCX": {
-      "price": 149.62,
+      "price": 147.32,
       "previousClose": 149.47,
       "session": "REG",
       "state": "REGULAR"
     },
     "SMH": {
-      "price": 588.2,
+      "price": 579.67,
       "previousClose": 581.45,
       "session": "REG",
       "state": "REGULAR"
     },
     "VOO": {
-      "price": 683.845,
-      "previousClose": 687.16,
+      "price": 680.775,
+      "previousClose": 687.08,
       "session": "REG",
       "state": "REGULAR"
     },
     "ASX": {
-      "price": 40.09,
-      "previousClose": 39.6099,
+      "price": 39.31,
+      "previousClose": 39.65,
       "session": "REG",
       "state": "REGULAR"
     },
     "SSRM": {
-      "price": 29.29,
+      "price": 27.27,
       "previousClose": 29.91,
       "session": "REG",
       "state": "REGULAR"
     },
     "KOID": {
-      "price": 38.905,
+      "price": 38.41,
       "previousClose": 39.83,
       "session": "REG",
       "state": "REGULAR"
     },
     "MP": {
-      "price": 52.18,
+      "price": 50.825,
       "previousClose": 50.49,
       "session": "REG",
       "state": "REGULAR"
     },
     "VRT": {
-      "price": 317.8,
-      "previousClose": 305.57,
+      "price": 307.01,
+      "previousClose": 305.58,
       "session": "REG",
       "state": "REGULAR"
     },
     "WMT": {
-      "price": 112.72,
+      "price": 113.435,
       "previousClose": 111.54,
       "session": "REG",
       "state": "REGULAR"
     },
     "WQTM": {
-      "price": 34.825,
-      "previousClose": 34.68,
+      "price": 34.165,
+      "previousClose": 34.71,
       "session": "REG",
       "state": "REGULAR"
     },
     "MNST": {
-      "price": 96.14,
+      "price": 96.2,
       "previousClose": 96.92,
       "session": "REG",
       "state": "REGULAR"
     },
     "MSTR": {
-      "price": 93.065,
+      "price": 93.25,
       "previousClose": 97.36,
       "session": "REG",
       "state": "REGULAR"
