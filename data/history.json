@@ -177,5 +177,22 @@
     "deposited": 290
    }
   }
+ },
+ {
+  "date": "2026-07-08",
+  "books": {
+   "bog": {
+    "value": 1408.82,
+    "deposited": 1199.26
+   },
+   "tbc": {
+    "value": 199.33,
+    "deposited": 380.36
+   },
+   "galt": {
+    "value": 208.75,
+    "deposited": 290
+   }
+  }
  }
 ]
