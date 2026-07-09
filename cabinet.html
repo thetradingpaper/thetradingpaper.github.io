@@ -607,9 +607,9 @@
       <div class="th-m-wrap"><canvas id="total-mountain"></canvas></div>
     </div>
 
-    <!-- Withdrawn & Dividends & Commissions belt -->
+    <!-- Fees & Dividends belt -->
     <div class="th-belt">
-      <a href="history-bog.html" class="cell" id="total-withdrawn"></a>
+      <a href="history-bog.html" class="cell" id="total-platform-fees"></a>
       <a href="dividends.html" class="cell" id="total-dividends-received"></a>
       <a href="dividends.html" class="cell" id="total-dividends-projected"></a>
       <a href="history-bog.html" class="cell" id="total-commissions-belt"></a>
@@ -1197,17 +1197,10 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   // ----- Total withdrawn from investments (change spec §6) -----
   // Sum of every 'withdraw' transaction across all books since 09 Dec 2025.
   // (Internal book-to-book transfers are NOT withdrawals — they don't count.)
-  const WITHDRAW_SINCE = '2025-12-09';
-  function renderWithdrawn(){
-    let wd = 0;
-    ['bog','tbc','galt'].forEach(k => {
-      const p = portfolios[k]; if (!p || !p.transactions) return;
-      p.transactions.forEach(t => {
-        if (t.type === 'withdraw' && (t.date || '') >= WITHDRAW_SINCE) wd += Math.abs(+t.amount || 0);
-      });
-    });
-    const el = document.getElementById('total-withdrawn');
-    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან <span style="color:var(--red);">↗</span> · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
+  function renderPlatformFees(){
+    const est = D.marginFinancingEst || 0;
+    const el = document.getElementById('total-platform-fees');
+    if (el) el.innerHTML = '<div class="l">პლატფორმის მომსახურება <span style="color:var(--red);">↗</span> · Service Fee</div><div class="v" style="color:var(--red)">'+fmtUSD(est)+'</div><div class="n">სავარაუდო · ჯერ არ არის სრულად აღწერილი</div>';
   }
 
   // ----- Portfolio-wide dividend goal + received dividends (change spec §5) -----
@@ -1243,7 +1236,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     const commEl = document.getElementById('total-commissions-belt');
     if (commEl) {
       const fees = D.feesPaid || 0;
-      const breakdown = (D.feesByBook || []).map(f => f.name + ': ' + fmtUSD(f.amount)).join(' · ');
+      const breakdown = (D.feesByBook || []).map(f => f.book + ': ' + fmtUSD(f.amount)).join(' · ');
       commEl.innerHTML = '<div class="l">ჯამური საკომისიო <span style="color:var(--red);">↗</span> · Total Commissions</div><div class="v" style="color:var(--red)">'+fmtUSD(fees)+'</div><div class="n">' + breakdown + '</div>';
     }
   }
@@ -1311,8 +1304,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: c => `${c.label}: ${fmtUSD(c.parsed)}` } } } }
       });
     }
-    // withdrawn + dividend goal repaint alongside the totals
-    renderWithdrawn();
+    // fees + dividend goal repaint alongside the totals
+    renderPlatformFees();
     renderDividendGoal();
     // ----- today's move (day change) across all live holdings -----
     // Sum (value − shares×previousClose) per holding; percent vs yesterday's value.
