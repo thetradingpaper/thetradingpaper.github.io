@@ -532,11 +532,21 @@
     .th-m-label{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;margin-bottom:2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
     .th-m-label em{font-weight:400;color:var(--muted);font-size:12px;font-style:italic;}
     .th-m-wrap{height:220px;position:relative;margin-top:8px;}
-    .th-belt{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
-    @media (max-width:760px){.th-belt{grid-template-columns:1fr;}}
-    .th-belt .cell{padding:14px 18px;border-right:1px solid var(--border);}
+    .th-belt{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
+    .th-belt .cell{padding:14px 18px;border-right:1px solid var(--border);border-bottom:none;display:block;text-decoration:none;color:inherit;transition:background-color .15s;}
+    .th-belt .cell:hover{background:rgba(0,0,0,0.02);}
     .th-belt .cell:last-child{border-right:none;}
-    @media (max-width:760px){.th-belt .cell{border-right:none;border-bottom:1px solid var(--border);}.th-belt .cell:last-child{border-bottom:none;}}
+    @media (max-width:900px){
+      .th-belt{grid-template-columns:repeat(2,1fr);}
+      .th-belt .cell{border-bottom:1px solid var(--border);}
+      .th-belt .cell:nth-child(2n){border-right:none;}
+      .th-belt .cell:nth-child(n+3){border-bottom:none;}
+    }
+    @media (max-width:560px){
+      .th-belt{grid-template-columns:1fr;}
+      .th-belt .cell{border-right:none;border-bottom:1px solid var(--border);}
+      .th-belt .cell:last-child{border-bottom:none;}
+    }
     .th-belt .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
     .th-belt .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:22px;letter-spacing:-0.5px;color:var(--ink);}
     .th-belt .n{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
@@ -596,11 +606,12 @@
       <div class="th-m-wrap"><canvas id="total-mountain"></canvas></div>
     </div>
 
-    <!-- Withdrawn & Dividends belt -->
+    <!-- Withdrawn & Dividends & Commissions belt -->
     <div class="th-belt">
-      <div class="cell" id="total-withdrawn"></div>
-      <div class="cell" id="total-dividends-received"></div>
-      <div class="cell" id="total-dividends-projected"></div>
+      <a href="history-bog.html" class="cell" id="total-withdrawn"></a>
+      <a href="dividends.html" class="cell" id="total-dividends-received"></a>
+      <a href="dividends.html" class="cell" id="total-dividends-projected"></a>
+      <a href="history-bog.html" class="cell" id="total-commissions-belt"></a>
     </div>
   </section>
 
@@ -1195,7 +1206,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       });
     });
     const el = document.getElementById('total-withdrawn');
-    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a> · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
+    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან <span style="color:var(--red);">↗</span> · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
   }
 
   // ----- Portfolio-wide dividend goal + received dividends (change spec §5) -----
@@ -1211,7 +1222,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   function renderDividendGoal(){
     const got = totalDividends();
     const recEl = document.getElementById('total-dividends-received');
-    if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული დივიდენდი <a href="dividends.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a> · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული</div>';
+    if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული დივიდენდი <span style="color:var(--red);">↗</span> · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული</div>';
 
     // Calculate sum of projected annual dividends (net) across bog and tbc
     let totalGross = 0;
@@ -1225,7 +1236,15 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     });
     const projNet = totalGross * 0.70; // GE 30% withholding tax
     const projEl = document.getElementById('total-dividends-projected');
-    if (projEl) projEl.innerHTML = '<div class="l">წლიური დივიდენდი (წმინდა) · Annual Income</div><div class="v" style="color:var(--green)">'+fmtUSD(projNet)+'</div><div class="n">სავარაუდო · 30% GE გადასახადის შემდეგ</div>';
+    if (projEl) projEl.innerHTML = '<div class="l">წლიური დივიდენდი (წმინდა) <span style="color:var(--red);">↗</span> · Annual Income</div><div class="v" style="color:var(--green)">'+fmtUSD(projNet)+'</div><div class="n">სავარაუდო · 30% GE გადასახადის შემდეგ</div>';
+
+    // Total commissions paid across BOG, TBC, GALT
+    const commEl = document.getElementById('total-commissions-belt');
+    if (commEl) {
+      const fees = D.feesPaid || 0;
+      const breakdown = (D.feesByBook || []).map(f => f.name + ': ' + fmtUSD(f.amount)).join(' · ');
+      commEl.innerHTML = '<div class="l">ჯამური საკომისიო <span style="color:var(--red);">↗</span> · Total Commissions</div><div class="v" style="color:var(--red)">'+fmtUSD(fees)+'</div><div class="n">' + breakdown + '</div>';
+    }
   }
 
   function renderTotal(){
