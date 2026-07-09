@@ -911,7 +911,6 @@
 var D=window.MEPORTF||{};
 if(typeof portfolios!=='undefined'){
  if(portfolios.bog&&D.bog){portfolios.bog.cash=D.bog.cashAdded||0;if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
- if(portfolios.galt&&D.galt&&D.galt.closed){portfolios.galt.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:-(D.galt.withdrawnToBOG||0),note:'transfer out'}].concat(portfolios.galt.transactions||[]);portfolios.galt.holdings=[];portfolios.galt.cash=0;}
 }
 function M(n){return (n<0?'−$':'$')+Math.abs(+n||0).toFixed(2);}
 var g=D.galt||{};

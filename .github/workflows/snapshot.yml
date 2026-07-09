@@ -1,6 +1,10 @@
 name: Price snapshot
 
 on:
+  push:
+    paths:
+      - 'js/portfolios.data.js'
+      - '.github/workflows/snapshot.yml'
   schedule:
     # every 20 min during US pre-market -> after-hours, Mon-Fri (UTC)
     - cron: '3,23,43 8-23 * * 1-5'

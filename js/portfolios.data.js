@@ -115,59 +115,24 @@ window.PORTFOLIOS = {
   galt: {
     name: 'GALT',
     fullName: 'Galt & Taggart',
-    tagline: '2.5× margin · MSTR.CFD · შესრულდა $112.22 · 6 კონტრაქტი',
+    tagline: 'დახურულია უვადო დროით · CLOSED',
     startDate: '2026-05-29',
     annualGoalPct: null,
-    status: 'active', // OPEN: 6 MSTR.CFD @ $112.22 (filled 18 Jun 2026, Order No CF26M18500515)
-    // History: 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun, realized +$18.85) → account $307.91 flat
-    // → re-entered 6 @112.22 (18 Jun).
-    // CFD position: 6 contracts MSTR @ 112.22 = $673.32 gross.
-    // Margin 40% = $269.33 own, borrowed $403.99, commission $10.
-    // cash = free cash ($28.58) - borrowed ($403.99) = -375.41,
-    // so currentValue = 6 x livePrice - 375.41 = real equity. Entry equity $297.91.
-    holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc · CFD 2.5×', shares: 6, avgBuy: 112.22, invested: 673.32, value: 673.32, color: '#8b6914' },
-    ],
-    cash: -375.41,
+    status: 'closed',
+    holdings: [],
+    cash: 0.00,
     priorDeposits: 0,
     priorCostBasis: 0,
     transactions: [
+      { date: '2026-06-24', type: 'deposit', amount: -211.37, note: 'transfer to BOG' },
+      { date: '2026-06-24', type: 'sell', ticker: 'MSTR', shares: 6, price: 99.61, commission: 10.00 },
       { date: '2026-06-18', type: 'buy', ticker: 'MSTR', shares: 6, price: 112.22, commission: 10.00 },
       { date: '2026-06-17', type: 'sell', ticker: 'MSTR', shares: 5, price: 124.06, commission: 10.00 },
       { date: '2026-06-10', type: 'buy', ticker: 'MSTR', shares: 5, price: 116.29, commission: 10.00 },
       { date: '2026-05-29', type: 'deposit', amount: 290.00 },
     ],
-    // FILLED ORDER — Order No CF26M18500515 · Galt & Taggart
-    order: {
-      placed: '2026-06-18',
-      filledAt: '2026-06-18',
-      asset: 'MSTR.CFD',
-      side: 'buy', // long
-      type: 'limit',
-      entry: 112.22, // re-entry after closing prior 5 @116.29 at $124.06
-      contracts: 6,
-      orderValue: 673.32,
-      marginPct: 40, // 40% initial margin = 2.5× leverage
-      initialMargin: 269.33,
-      borrowed: 403.99,
-      commission: 10,
-      balance: 307.91,
-      liquidation: 99.50, // ≈ -11.3% buffer ratio (same leverage as prior trade)
-      drawdownPct: -11.2,
-      filled: true,
-      thesis: 're-entry long after taking +$18.85 on the prior MSTR position',
-    },
-    // Prior closed trade: bought 5 @116.29 (10 Jun) → sold 5 @124.06 (17 Jun), realized +$18.85 after $20 commissions.
-    plan: {
-      asset: 'MSTR',
-      leverage: 2.5,
-      entry: 112.22,
-      target: 460,
-      horizonMonths: '5–7',
-      estMarginInterestPct: 12, // estimated annual rate
-      estCommissionPct: 0.5,
-      nextPhase: 'short-side trading',
-    },
+    order: null,
+    plan: null,
   },
 
 };

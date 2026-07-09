@@ -137,7 +137,7 @@ function renderTx(tx) {
 }
 
 // ============================================================
-// Paginated list (used on portfolio.html — 4 per page)
+// Paginated list (used on cabinet.html — 4 per page)
 // ============================================================
 
 function renderPaginated(containerId, paginationId, perPage = 4) {
