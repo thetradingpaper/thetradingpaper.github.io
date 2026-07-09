@@ -30,12 +30,13 @@ window.PORTFOLIOS = {
       { ticker: 'MNST', name: 'Monster Beverage Corporation', shares: 1.67377224, avgBuy: 97.04, invested: 162.43, value: 163.04, color: '#65a30d', divYield: 0.00 },
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 265.29, invested: 28.03, value: 28.03, color: '#9d174d', divYield: 0.00 },
     ],
-    cash: 0.00, // SMH sale proceeds $199.40 withdrawn to card 08 Jul 2026
+    cash: 0.00, // SMH proceeds $199.40 → $97.40 card + $102 to TBC (08-09 Jul 2026)
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      { date: '2026-07-08', type: 'withdraw', amount: 199.40, note: 'გატანა ბარათზე — ტანსაცმლისთვის' },
+      { date: '2026-07-08', type: 'withdraw', amount: 97.40, note: 'გატანა ბარათზე — ტანსაცმლისთვის' },
+      { date: '2026-07-08', type: 'deposit', amount: -102.00, note: 'გადატანა → TBC' },
       { date: '2026-07-07', type: 'sell', ticker: 'SMH', shares: 0.34275263, price: 583.51, commission: 0.60 },
       { date: '2026-07-01', type: 'buy', ticker: 'CRDO', shares: 0.10565843, price: 265.29, commission: 0.50 },
       { date: '2026-07-01', type: 'deposit', amount: 11.84 },
@@ -85,13 +86,18 @@ window.PORTFOLIOS = {
     annualGoalPct: null,
     holdings: [
       { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.06839171, avgBuy: 163.33, invested: 337.82, value: 182.48, color: '#1a1a1a', divYield: 0.00 },
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 0.27151778, avgBuy: 18.42, invested: 5.00, value: 5.00, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.09765853, avgBuy: 51.20, invested: 5.00, value: 4.98, color: '#15803d', divYield: 6.20 },
-      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 0.94841001, avgBuy: 23.84, invested: 22.61, value: 22.63, color: '#7c3aed', divYield: 12.90 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 41.96, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.39350394, avgBuy: 51.61, invested: 20.31, value: 20.31, color: '#15803d', divYield: 6.20 },
+      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 9.75831896, avgBuy: 6.1486, invested: 60.00, value: 60.00, color: '#006a4d', divYield: 3.66 },
     ],
     cash: 0,
     transactions: [
+      { date: '2026-07-09', type: 'deposit', amount: 102.00, note: 'გადმოტანა ← BOG' },
+      { date: '2026-07-09', type: 'buy', ticker: 'MAIN', shares: 0.29584541, price: 51.75, commission: 0 },
+      { date: '2026-07-09', type: 'buy', ticker: 'ARCC', shares: 2.00000000, price: 18.48, commission: 0 },
+      { date: '2026-07-09', type: 'buy', ticker: 'BXSL', shares: 0.15000000, price: 23.13, commission: 0 },
+      { date: '2026-07-09', type: 'buy', ticker: 'BXSL', shares: 2.00000000, price: 23.13, commission: 0 },
       // 2026-07-06 rotation: sold MSTR, bought LYG with exact proceeds (net cash $0)
       { date: '2026-07-06', type: 'sell', ticker: 'MSTR', shares: 0.59481794, price: 100.87, commission: 0 },
       { date: '2026-07-06', type: 'buy', ticker: 'LYG', shares: 9.00000000, price: 6.1489, commission: 0 },
