@@ -508,15 +508,14 @@
     .th-initials{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:60px;color:var(--accent);}
     .th-center-val{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);text-align:center;width:100%;}
     .th-right{align-self:center;}
-    .th-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);background:var(--paper);}
+    .th-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);background:var(--paper);}
     .th-stats .c{padding:14px 18px;border-right:1px solid var(--border);border-bottom:none;}
     .th-stats .c:last-child{border-right:none;}
     @media (max-width:760px){
       .th-stats{grid-template-columns:repeat(2,1fr);}
       .th-stats .c{border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
       .th-stats .c:nth-child(2n){border-right:none;}
-      .th-stats .c:nth-child(5){border-bottom:none;border-right:none;}
-      .th-stats .c:nth-child(4){border-bottom:none;}
+      .th-stats .c:nth-child(n+3){border-bottom:none;}
     }
     .th-stats .c .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
     .th-stats .c .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:24px;letter-spacing:-0.5px;color:var(--ink);}
@@ -1196,7 +1195,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       });
     });
     const el = document.getElementById('total-withdrawn');
-    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
+    if (el) el.innerHTML = '<div class="l">გატანილი ინვესტიციებიდან <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a> · Total Withdrawn</div><div class="v">'+fmtUSD(wd)+'</div><div class="n">09 დეკემბერი 2025 - დან</div>';
   }
 
   // ----- Portfolio-wide dividend goal + received dividends (change spec §5) -----
@@ -1212,7 +1211,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   function renderDividendGoal(){
     const got = totalDividends();
     const recEl = document.getElementById('total-dividends-received');
-    if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული დივიდენდი · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული</div>';
+    if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული დივიდენდი <a href="dividends.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a> · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული</div>';
 
     // Calculate sum of projected annual dividends (net) across bog and tbc
     let totalGross = 0;
@@ -1245,12 +1244,11 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     const stats = document.getElementById('total-stats');
     if (stats) stats.innerHTML = `
       <div class="c">
-        <div class="l">სრული ჩარიცხული</div>
+        <div class="l">სრული ჩარიცხული <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a></div>
         <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: ${fmtUSD(dep)} &nbsp;·&nbsp; გატ: ${fmtUSD(wd)}</div>
         <div class="v">${fmtUSD(netDep)}</div>
       </div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
-      <div class="c"><div class="l">გატანილი</div><div class="v">${fmtUSD(wd)}</div></div>
       <div class="c"><div class="l">წმინდა P/L</div><div class="v ${cls}">${fmtUSD(pl)}</div></div>
       <div class="c"><div class="l">უკუგება</div><div class="v ${cls}">${pl>=0?'+':'−'}${Math.abs(plp).toFixed(2)}%</div></div>`;
     const leg = document.getElementById('total-legend');
