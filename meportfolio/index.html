@@ -54,6 +54,22 @@
   a.res-link .t{font-family:'Noto Serif Georgian',serif;font-weight:700;font-size:14px;color:var(--ink);}
   a.res-link .d{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;color:var(--muted);margin-top:3px;line-height:1.45;}
   .live-note{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;color:var(--red);}
+
+  /* --- kvleva3 compact ticker widget ------------------------- */
+  .kv3-ticker-list { display: flex; flex-wrap: wrap; gap: 12px; }
+  a.kv3-ticker-item {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 4px; text-decoration: none; color: inherit;
+    font-size: 13px; font-family: 'Noto Sans Georgian', sans-serif;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  a.kv3-ticker-item:hover { border-color: var(--red); background: rgba(185,28,28,0.02); }
+  .kv3-ticker-item .tk { font-family: 'Noto Serif Georgian', serif; font-weight: 700; font-size: 14px; }
+  .kv3-ticker-item .pr { font-family: ui-monospace, monospace; color: var(--muted); }
+  .kv3-ticker-item .ch { font-family: ui-monospace, monospace; font-weight: 700; }
+  .kv3-ticker-item .ch.pos { color: var(--green); }
+  .kv3-ticker-item .ch.neg { color: var(--red); }
 </style>
 </head>
 <body>
@@ -138,6 +154,19 @@
         "locale": "en"
       }
       </script>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MARKET PICKS (KVLEVA 3.0)                                    -->
+  <!-- ============================================================ -->
+  <div class="widget" style="margin-top:26px;">
+    <div class="widget-title" style="display:flex; justify-content:space-between; align-items:center;">
+      <span>ბაზარი · კვლევა 3.0</span>
+      <a href="/kvleva3" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
+    </div>
+    <div id="kvleva3-ticker-block" style="padding:16px 20px;">
+      <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);">იტვირთება მონაცემები…</div>
     </div>
   </div>
 
@@ -385,6 +414,44 @@ if(typeof portfolios!=='undefined'){
     }
     refreshAll();
     setInterval(refreshAll, 60000);
+  })();
+
+  // Load Kvleva 3.0 picks
+  (function() {
+    'use strict';
+    async function loadKvleva3() {
+      var box = document.getElementById('kvleva3-ticker-block');
+      if (!box) return;
+      try {
+        var res = await fetch('/data/kvleva3-picks.json?t=' + Date.now());
+        if (!res.ok) throw new Error();
+        var data = await res.json();
+        var picks = data.picks || [];
+        if (picks.length === 0) {
+          box.innerHTML = '<div style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:12px; color:var(--muted);">დღეს აქტივები არ არის.</div>';
+          return;
+        }
+        var html = '<div class="kv3-ticker-list">' +
+          picks.map(function(p) {
+            var isPos = p.change >= 0;
+            var sign = isPos ? '+' : '−';
+            var chVal = sign + '$' + Math.abs(p.change).toFixed(2) + ' (' + (isPos ? '+' : '−') + Math.abs(p.changePct).toFixed(2) + '%)';
+            return '<a class="kv3-ticker-item" href="/kvleva3">' +
+              '<span class="tk">' + esc(p.ticker) + '</span>' +
+              '<span class="pr">$' + (+p.price).toFixed(2) + '</span>' +
+              '<span class="ch ' + (isPos ? 'pos' : 'neg') + '">' + chVal + '</span>' +
+            '</a>';
+          }).join('') +
+        '</div>';
+        box.innerHTML = html;
+      } catch (e) {
+        box.innerHTML = '<div style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:12px; color:var(--red);">⚠️ მონაცემები ვერ ჩაიტვირთა.</div>';
+      }
+    }
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    loadKvleva3();
   })();
 </script>
 

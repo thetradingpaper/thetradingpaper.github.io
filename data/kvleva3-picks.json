@@ -1,0 +1,68 @@
+{
+  "date": "2026-07-09",
+  "picks": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "ტექნოლოგია / Technology",
+      "price": 192.50,
+      "change": 3.40,
+      "changePct": 1.80,
+      "reason": "ახალი AI ფუნქციების გამოშვება ზრდის მოთხოვნას; ძლიერი ტექნიკური მხარდაჭერა 50-დღიან საშუალოზე. (AI features rollout driving demand; strong technical support at the 50-day MA.)"
+    },
+    {
+      "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "sector": "ფინანსები / Financials",
+      "price": 185.20,
+      "change": 1.50,
+      "changePct": 0.82,
+      "reason": "სექტორულ პარტნიორებთან შედარებით მიმზიდველი კოეფიციენტები კვარტალური ანგარიშების წინ. (Attractive valuation multipliers compared to peers ahead of quarterly earnings report.)"
+    },
+    {
+      "ticker": "LLY",
+      "name": "Eli Lilly & Co.",
+      "sector": "ჯანდაცვა / Healthcare",
+      "price": 782.10,
+      "change": -5.20,
+      "changePct": -0.66,
+      "reason": "მოკლევადიანი კორექცია 50-დღიან EMA-მდე საუკეთესო შესვლის წერტილია ახალი წამლების ავტორიზაციამდე. (Short-term pullback to 50-day EMA provides a high-probability entry before key drug approvals.)"
+    },
+    {
+      "ticker": "XOM",
+      "name": "Exxon Mobil Corp.",
+      "sector": "ენერგეტიკა / Energy",
+      "price": 118.40,
+      "change": 2.10,
+      "changePct": 1.81,
+      "reason": "სექტორული როტაცია თავდაცვით ენერგეტიკულ აქციებში ნავთობის ფასების სტაბილიზაციის ფონზე. (Defensive sector rotation into energy names as crude prices find a solid support floor.)"
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "sector": "სამომხმარებლო / Consumer",
+      "price": 220.30,
+      "change": 12.50,
+      "changePct": 6.02,
+      "reason": "მოცულობის ზრდა და მომავალი Robotaxi ღონისძიება მოკლევადიან შორტ-სქვიზს აძლიერებს. (Volume surge and upcoming Robotaxi event fueling strong short-term short squeeze.)"
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "sector": "კომუნიკაცია / Communications",
+      "price": 495.10,
+      "change": -3.80,
+      "changePct": -0.76,
+      "reason": "მიმზიდველი შეფასება ორნიშნა სარეკლამო ზრდისა და მარჟის გაფართოების ფონზე. (Attractive valuation relative to double-digit advertising growth and operating margin expansion.)"
+    },
+    {
+      "ticker": "CAT",
+      "name": "Caterpillar Inc.",
+      "sector": "ინდუსტრია / Industrials",
+      "price": 325.60,
+      "change": 4.80,
+      "changePct": 1.50,
+      "reason": "ინფრასტრუქტურული პროექტების სტაბილური პორტფელი და მდგრადი საოპერაციო მარჟა. (Robust infrastructure project backlog and highly resilient operating margins.)"
+    }
+  ]
+}
