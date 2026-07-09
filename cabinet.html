@@ -449,6 +449,29 @@
 
 <main class="container">
 
+  <!-- Ticker tape · Market Pulse -->
+  <div class="no-print" style="background: var(--paper); border: 1px solid var(--border); padding: 10px 14px; margin: 10px 0 20px;">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          {"description": "S&P 500", "proName": "FOREXCOM:SPXUSD"},
+          {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
+          {"description": "DAX", "proName": "XETR:DAX"},
+          {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
+          {"description": "Gold", "proName": "TVC:GOLD"},
+          {"description": "EUR/USD", "proName": "FX:EURUSD"},
+          {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
+          {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
+        ],
+        "isTransparent": true, "showSymbolLogo": true, "displayMode": "regular",
+        "colorTheme": "light", "locale": "en"
+      }
+      </script>
+    </div>
+  </div>
+
   <!-- ============================================================ -->
   <!-- VIEW SWITCHER · მთლიანი პორტფელი / აქტივების დეტალები          -->
   <!-- ============================================================ -->
@@ -508,10 +531,16 @@
     .th-initials{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:60px;color:var(--accent);}
     .th-center-val{position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);text-align:center;width:100%;}
     .th-right{align-self:center;}
-    .th-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border);background:var(--paper);}
-    .th-stats .c{padding:14px 18px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
-    .th-stats .c:nth-child(2n){border-right:none;}
-    .th-stats .c:nth-child(n+3){border-bottom:none;}
+    .th-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);background:var(--paper);}
+    .th-stats .c{padding:14px 18px;border-right:1px solid var(--border);border-bottom:none;}
+    .th-stats .c:last-child{border-right:none;}
+    @media (max-width:760px){
+      .th-stats{grid-template-columns:repeat(2,1fr);}
+      .th-stats .c{border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+      .th-stats .c:nth-child(2n){border-right:none;}
+      .th-stats .c:nth-child(5){border-bottom:none;border-right:none;}
+      .th-stats .c:nth-child(4){border-bottom:none;}
+    }
     .th-stats .c .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
     .th-stats .c .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:24px;letter-spacing:-0.5px;color:var(--ink);}
     .th-stats .c .v.pos{color:var(--green);}.th-stats .c .v.neg{color:var(--red);}
@@ -527,11 +556,11 @@
     .th-m-label{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;margin-bottom:2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
     .th-m-label em{font-weight:400;color:var(--muted);font-size:12px;font-style:italic;}
     .th-m-wrap{height:220px;position:relative;margin-top:8px;}
-    .th-belt{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
-    @media (max-width:640px){.th-belt{grid-template-columns:1fr;}}
+    .th-belt{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
+    @media (max-width:760px){.th-belt{grid-template-columns:1fr;}}
     .th-belt .cell{padding:14px 18px;border-right:1px solid var(--border);}
     .th-belt .cell:last-child{border-right:none;}
-    @media (max-width:640px){.th-belt .cell{border-right:none;border-bottom:1px solid var(--border);}.th-belt .cell:last-child{border-bottom:none;}}
+    @media (max-width:760px){.th-belt .cell{border-right:none;border-bottom:1px solid var(--border);}.th-belt .cell:last-child{border-bottom:none;}}
     .th-belt .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
     .th-belt .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:22px;letter-spacing:-0.5px;color:var(--ink);}
     .th-belt .n{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
@@ -591,15 +620,13 @@
       <div class="th-m-wrap"><canvas id="total-mountain"></canvas></div>
     </div>
 
-    <!-- Withdrawn belt · §6 -->
+    <!-- Withdrawn & Dividends belt -->
     <div class="th-belt">
       <div class="cell" id="total-withdrawn"></div>
-      <div class="cell" id="total-dividends-belt"></div>
+      <div class="cell" id="total-dividends-received"></div>
+      <div class="cell" id="total-dividends-projected"></div>
     </div>
   </section>
-
-  <!-- Portfolio-wide dividend goal · §5 -->
-  <section class="div-goal" id="div-goal"></section>
 
   <!-- ============================================================ -->
   <!-- BOOK ONE · DOGMA (BOG)                                       -->
@@ -1207,17 +1234,22 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   }
   function renderDividendGoal(){
     const got = totalDividends();
-    const pct = Math.max(0, Math.min(100, DIV_TARGET > 0 ? got / DIV_TARGET * 100 : 0));
-    const el = document.getElementById('div-goal');
-    if (el) el.innerHTML =
-      '<div class="dg-head"><div class="dg-title">დივიდენდის მიზანი <em>Dividend Goal</em></div>'
-      + '<div class="dg-sub">მთელი პორტფელი აზიარებს · BOG · TBC</div></div>'
-      + '<div class="dg-target">$'+DIV_TARGET.toFixed(0)+' <span>/ წელი · პასიური შემოსავალი</span></div>'
-      + '<div class="dg-bar"><div class="dg-fill" style="width:'+pct.toFixed(1)+'%"></div></div>'
-      + '<div class="dg-foot"><span class="got">'+fmtUSD(got)+' მიღებული (წმინდა)</span><span>'+pct.toFixed(1)+'%</span></div>'
-      + '<div class="dg-note">პირველი ეტაპი — $100 წლიური დივიდენდი მთელი პორტფელიდან. ყველა წიგნი აზიარებს; მოგვიანებით მიზანი შესაძლოა ანგარიშებად დაიყოს.</div>';
-    const belt = document.getElementById('total-dividends-belt');
-    if (belt) belt.innerHTML = '<div class="l">მიღებული დივიდენდი (წმინდა)</div><div class="v">'+fmtUSD(got)+'</div><div class="n">მიზანი: $'+DIV_TARGET.toFixed(0)+' / წელი</div>';
+    const recEl = document.getElementById('total-dividends-received');
+    if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული დივიდენდი · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული</div>';
+
+    // Calculate sum of projected annual dividends (net) across bog and tbc
+    let totalGross = 0;
+    ['bog','tbc'].forEach(k => {
+      const p = portfolios[k]; if (!p || !p.holdings) return;
+      p.holdings.forEach(h => {
+        if (typeof h.divYield === 'number' && h.divYield > 0) {
+          totalGross += h.value * (h.divYield / 100);
+        }
+      });
+    });
+    const projNet = totalGross * 0.70; // GE 30% withholding tax
+    const projEl = document.getElementById('total-dividends-projected');
+    if (projEl) projEl.innerHTML = '<div class="l">წლიური დივიდენდი (წმინდა) · Annual Income</div><div class="v" style="color:var(--green)">'+fmtUSD(projNet)+'</div><div class="n">სავარაუდო · 30% GE გადასახადის შემდეგ</div>';
   }
 
   function renderTotal(){
@@ -1236,6 +1268,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (stats) stats.innerHTML = `
       <div class="c"><div class="l">სრული ჩარიცხული</div><div class="v">${fmtUSD(dep)}</div></div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
+      <div class="c"><div class="l">გატანილი</div><div class="v">${fmtUSD(wd)}</div></div>
       <div class="c"><div class="l">წმინდა P/L</div><div class="v ${cls}">${fmtUSD(pl)}</div></div>
       <div class="c"><div class="l">უკუგება</div><div class="v ${cls}">${pl>=0?'+':'−'}${Math.abs(plp).toFixed(2)}%</div></div>`;
     const leg = document.getElementById('total-legend');
