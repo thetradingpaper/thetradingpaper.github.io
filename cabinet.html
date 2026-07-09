@@ -1300,11 +1300,11 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 
   function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal); }
   refreshAllBooks();
-  // 20s poll. History: 5s flooded the public CORS proxies (56 req/cycle) → rate-limited.
+  // 12s poll (faster live refresh; Finnhub real-time primary). History: 5s flooded the public CORS proxies (56 req/cycle) → rate-limited.
   // Now each quote uses a hedged proxy race (~1.3 req/ticker, see fetchLiveQuote) +
   // a cache-busting nonce, so 20s here keeps the SAME ~0.9 req/s sustained proxy load
   // as the old 60s did — but prices repaint 3× more often and aren't served stale.
-  const POLL_MS = 20000;
+  const POLL_MS = 12000;
   let _refreshTimer = setInterval(refreshAllBooks, POLL_MS);
   // Repaint immediately when the user returns to the tab; pause while hidden.
   document.addEventListener('visibilitychange', () => {
