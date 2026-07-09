@@ -67,8 +67,8 @@ function renderTx(tx) {
 
   if (tx.type === 'deposit') return `<div class="tx tx-deposit">
 ${date}
-<span class="tx-badge badge-deposit">DEPOSIT</span>
-<span class="tx-line"><strong>+${fmtMoney(tx.amount)}</strong> &nbsp;→ CASH</span>
+<span class="tx-badge badge-deposit">${(tx.amount<0||/transfer|გადა|გადმ/i.test(tx.note||''))?'TRANSFER':'DEPOSIT'}</span>
+<span class="tx-line"><strong>${tx.amount<0?'−':'+'}${fmtMoney(Math.abs(tx.amount))}</strong> &nbsp;${tx.note?tx.note:'→ CASH'}</span>
 </div>`;
 
   if (tx.type === 'withdraw') return `<div class="tx tx-sell">
