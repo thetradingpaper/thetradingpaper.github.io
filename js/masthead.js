@@ -18,6 +18,7 @@
     { href: '/',                   label: 'ჩემი კაბინეტი',   re: /^\/(index\.html)?$/ },
     { href: '/notes.html',         label: 'ბაზრის ჩანაწერი', re: /^\/notes/ },
     { href: '/meportfolio/',       label: 'ანალიზი',         re: /^\/meportfolio/ },
+    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ },
     { href: '/journal.html',       label: 'ჟურნალი',         re: /^\/journal/ }
   ];
 
@@ -86,7 +87,16 @@
     + '.tpm-mini-nav{display:flex;gap:13px;margin-left:16px;flex-wrap:wrap;align-items:center;font-family:"Noto Sans Georgian",sans-serif;font-size:11.5px;}'
     + '.tpm-mini-nav a{color:var(--ink,#1a1a1a);text-decoration:none;}'
     + '.tpm-mini-nav a.active{color:#b91c1c;font-weight:700;}'
-    + '@media print{header.tpm,#tpm-sticky{display:none!important;}}';
+    + '@media print{header.tpm,#tpm-sticky{display:none!important;}}'
+    + '#tpm-center-ticker{display:flex;align-items:center;gap:10px;font-family:"Noto Sans Georgian",sans-serif;'
+    +   'font-size:11.5px;color:var(--muted,#6b6b6b);border:1px dashed var(--border,#d9d4c8);padding:5px 12px;'
+    +   'background:var(--paper,#fffdf7);border-radius:4px;max-width:420px;overflow:hidden;white-space:nowrap;line-height:1.2;}'
+    + '#tpm-center-ticker a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:6px;}'
+    + '#tpm-center-ticker a:hover{color:var(--red,#b91c1c);}'
+    + '#tpm-center-ticker .tk{font-family:"Noto Serif Georgian",serif;font-weight:700;color:var(--ink,#1a1a1a);}'
+    + '#tpm-center-ticker .pos{color:var(--green,#166534);font-weight:700;}'
+    + '#tpm-center-ticker .neg{color:var(--red,#b91c1c);font-weight:700;}'
+    + '@media(max-width:1200px){#tpm-center-ticker{display:none;}}';
   var st = document.createElement('style');
   st.textContent = css;
   document.head.appendChild(st);
@@ -158,6 +168,7 @@
     + '<div class="tpm-row">'
     +   '<div class="tpm-brand"><h1><a href="/meportfolio/">The Trading Paper</a></h1>'
     +   '<p class="tpm-tag tagline">ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი</p></div>'
+    +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
     + '<nav class="tpm-nav">' + fullNav() + '</nav>';
@@ -214,4 +225,33 @@
   } else {
     makeSticky();
   }
+
+  // Populate the center masthead ticker from kvleva3-picks
+  (function() {
+    var el = document.getElementById('tpm-center-ticker');
+    if (!el) return;
+    var base = (location.pathname.indexOf('/articles/') !== -1) ? '../' : '';
+    fetch(base + 'data/kvleva3-picks.json?t=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var picks = data.picks || [];
+        if (picks.length === 0) { el.style.display = 'none'; return; }
+        
+        var html = '<a href="/kvleva3.html" title="კვლევა 3.0: ყოველდღიური სკაუტინგი">'
+          + '<span style="font-weight:700;color:var(--red,#b91c1c);letter-spacing:0.5px;">კვლევა 3.0:</span>&nbsp;&nbsp;';
+        
+        var items = picks.slice(0, 4).map(function(p) {
+          var isPos = p.change >= 0;
+          var sign = isPos ? '+' : '−';
+          return '<span class="tk">' + p.ticker + '</span> '
+            + '<span class="' + (isPos ? 'pos' : 'neg') + '">' + sign + Math.abs(p.changePct).toFixed(1) + '%</span>';
+        });
+        
+        html += items.join('&nbsp;·&nbsp;&nbsp;') + '</a>';
+        el.innerHTML = html;
+      })
+      .catch(function() {
+        el.style.display = 'none';
+      });
+  })();
 })();
