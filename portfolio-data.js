@@ -2,10 +2,10 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-07-07
+// Last updated: 2026-07-09
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-07',
+  lastUpdated: '2026-07-09',
   feesPaid: 49.1,                       // running total of all commissions + taxes (+$0.60 SMH sell 07 Jul)
   feesByBook: [
     { book: 'BOG', amount: 9.1, note: 'ისტორიის საკომისიოები' },
@@ -33,6 +33,7 @@ window.MEPORTF = {
     ],
   },
   transfers: [
+    { date: '09 ივლ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 102.00 },
     { date: '24 ივნ 2026', from: 'Galt & Taggart', to: 'BOG', type: 'გატანა · გადატანა', amount: 211.37 },
   ],
 };
