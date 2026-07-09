@@ -522,6 +522,7 @@
     .th-stats .c .v.pos{color:var(--green);}.th-stats .c .v.neg{color:var(--red);}
     .th-legend{width:100%;border-collapse:collapse;font-family:'Noto Sans Georgian',sans-serif;font-size:11px;margin-top:12px;}
     .th-legend td{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+    .th-legend tr.clickable-row:hover{background:rgba(22,101,52,0.06);}
     .th-legend tr:last-child td{border-bottom:none;}
     .th-legend .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:7px;vertical-align:middle;}
     .th-legend .nm{font-family:'Noto Serif Georgian',serif;font-weight:700;}
@@ -1264,17 +1265,32 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (stats) stats.innerHTML = `
       <div class="c">
         <div class="l">სრული ჩარიცხული <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a></div>
-        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: ${fmtUSD(dep)} &nbsp;·&nbsp; გატ: ${fmtUSD(wd)}</div>
+        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(dep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span> &nbsp;·&nbsp; დივ: <span style="color:#166534;font-weight:700;">${fmtUSD(totalDividends())}</span></div>
         <div class="v">${fmtUSD(netDep)}</div>
       </div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
       <div class="c"><div class="l">წმინდა P/L</div><div class="v ${cls}">${fmtUSD(pl)}</div></div>
       <div class="c"><div class="l">უკუგება</div><div class="v ${cls}">${pl>=0?'+':'−'}${Math.abs(plp).toFixed(2)}%</div></div>`;
     const leg = document.getElementById('total-legend');
-    if (leg) leg.innerHTML = parts.map(x => {
-      const pct = val>0 ? (x.value/val*100) : 0;
-      return `<tr><td><span class="sw" style="background:${x.color}"></span><span class="nm">${x.name}</span></td><td class="vv">${fmtUSD(x.value)}</td><td class="pp">${pct.toFixed(1)}%</td></tr>`;
-    }).join('');
+    if (leg) {
+      let html = parts.map(x => {
+        const pct = val>0 ? (x.value/val*100) : 0;
+        return `<tr><td><span class="sw" style="background:${x.color}"></span><span class="nm">${x.name}</span></td><td class="vv">${fmtUSD(x.value)}</td><td class="pp">${pct.toFixed(1)}%</td></tr>`;
+      }).join('');
+      let totalGross = 0;
+      ['bog','tbc'].forEach(k => {
+        const p = portfolios[k]; if (!p || !p.holdings) return;
+        p.holdings.forEach(h => {
+          if (typeof h.divYield === 'number' && h.divYield > 0) {
+            totalGross += h.value * (h.divYield / 100);
+          }
+        });
+      });
+      const projNet = totalGross * 0.70;
+      const divYieldPct = val > 0 ? (projNet / val * 100) : 0;
+      html += `<tr class="clickable-row" style="cursor:pointer;" onclick="window.location.href='dividends.html'"><td><span class="sw" style="background:#166534;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:10px;width:15px;height:15px;border-radius:4px;margin-right:7px;vertical-align:middle;line-height:1;">T</span><span class="nm" style="color:#166534;font-weight:900;">წლიური დივიდენდი (T DCA)</span></td><td class="vv" style="color:#166534;font-weight:900;">${fmtUSD(projNet)}</td><td class="pp" style="color:#166534;font-weight:900;">${divYieldPct.toFixed(1)}%</td></tr>`;
+      leg.innerHTML = html;
+    }
     const cv = document.getElementById('total-donut');
     if (cv && typeof Chart !== 'undefined'){
       const ex = Chart.getChart(cv); if (ex) ex.destroy();
