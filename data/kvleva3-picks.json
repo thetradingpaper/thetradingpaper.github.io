@@ -259,6 +259,72 @@
         "change": -0.15,
         "changePct": -2.94
       }
+    ],
+    "fifty_two_week_gainers": [
+      {
+        "ticker": "SNDK",
+        "name": "SanDisk Corporation",
+        "price": 1727.18,
+        "change": 109.48,
+        "changePct": 6.77,
+        "yearlyChange": 3578.76
+      },
+      {
+        "ticker": "AXTI",
+        "name": "AXT, Inc.",
+        "price": 60.12,
+        "change": 1.97,
+        "changePct": 3.39,
+        "yearlyChange": 2560.18
+      },
+      {
+        "ticker": "ABVX",
+        "name": "ABIVAX Société Anonyme",
+        "price": 138.54,
+        "change": -3.63,
+        "changePct": -2.55,
+        "yearlyChange": 1569.16
+      },
+      {
+        "ticker": "ERAS",
+        "name": "Erasca, Inc.",
+        "price": 18.87,
+        "change": 0.51,
+        "changePct": 2.78,
+        "yearlyChange": 1141.45
+      },
+      {
+        "ticker": "BE",
+        "name": "Bloom Energy Corporation",
+        "price": 254.29,
+        "change": -15.28,
+        "changePct": -5.67,
+        "yearlyChange": 883.71
+      },
+      {
+        "ticker": "KOD",
+        "name": "Kodiak Sciences Inc.",
+        "price": 40.63,
+        "change": 2.33,
+        "changePct": 6.08,
+        "yearlyChange": 804.90
+      },
+      {
+        "ticker": "WDC",
+        "name": "Western Digital Corp.",
+        "price": 550.30,
+        "change": 18.20,
+        "changePct": 3.42,
+        "yearlyChange": 745.83
+      },
+      {
+        "ticker": "ALMS",
+        "name": "Alumis Inc.",
+        "price": 29.74,
+        "change": 0.47,
+        "changePct": 1.61,
+        "yearlyChange": 735.39
+      }
     ]
   }
 }

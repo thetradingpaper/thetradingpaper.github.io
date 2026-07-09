@@ -462,11 +462,12 @@
       <div class="screeners-box widget" style="margin-top: 24px;">
         <div class="picks-head" style="border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <span class="picks-head-title" style="letter-spacing: 2px;">სკრინერები · Popular Screeners</span>
-          <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex;">
+          <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex; flex-wrap: wrap;">
             <button id="scr-active" class="on" onclick="setScreener('most_active')">Most Active</button>
             <button id="scr-growth" onclick="setScreener('undervalued_growth')">Undervalued Growth</button>
             <button id="scr-tech" onclick="setScreener('growth_tech')">Growth Tech</button>
             <button id="scr-penny" onclick="setScreener('penny_stocks')">Penny Stocks</button>
+            <button id="scr-fifty-two" onclick="setScreener('fifty_two_week_gainers')">52 Wk Gainers</button>
           </div>
         </div>
         
@@ -673,12 +674,13 @@
 
     // Toggle and render selected screener
     window.setScreener = function(key) {
-      var keys = ['most_active', 'undervalued_growth', 'growth_tech', 'penny_stocks'];
+      var keys = ['most_active', 'undervalued_growth', 'growth_tech', 'penny_stocks', 'fifty_two_week_gainers'];
       var idMap = {
         'most_active': 'scr-active',
         'undervalued_growth': 'scr-growth',
         'growth_tech': 'scr-tech',
-        'penny_stocks': 'scr-penny'
+        'penny_stocks': 'scr-penny',
+        'fifty_two_week_gainers': 'scr-fifty-two'
       };
       
       keys.forEach(function(k) {
@@ -703,10 +705,21 @@
         var changeClass = isPos ? 'pos' : 'neg';
         var spPath = generateSparkline(p.change, 70, 24);
         
+        var badge = '';
+        if (p.yearlyChange != null) {
+          var yisPos = p.yearlyChange >= 0;
+          var ysign = yisPos ? '+' : '−';
+          var ycolor = yisPos ? 'var(--green)' : 'var(--red)';
+          badge = '<span class="yearly-badge" style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:10px;font-weight:700;color:' + ycolor + ';border:1px solid ' + ycolor + ';padding:1.5px 5px;border-radius:3px;margin-left:8px;white-space:nowrap;display:inline-block;vertical-align:middle;line-height:1;">52 Wk: ' + ysign + Math.abs(p.yearlyChange).toLocaleString() + '%</span>';
+        }
+        
         return '<div class="scr-row">' +
           // Ticker & Name
           '<div class="pick-col-ticker">' +
-            '<a class="pick-ticker" href="https://finance.yahoo.com/quote/' + esc(p.ticker) + '" target="_blank" rel="noopener">' + esc(p.ticker) + '</a>' +
+            '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">' +
+              '<a class="pick-ticker" href="https://finance.yahoo.com/quote/' + esc(p.ticker) + '" target="_blank" rel="noopener">' + esc(p.ticker) + '</a>' +
+              badge +
+            '</div>' +
             '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
           '</div>' +
           // Price & Change
