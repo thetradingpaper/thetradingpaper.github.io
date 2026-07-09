@@ -1,256 +1,268 @@
 {
- "updated": "2026-07-08T15:59:04.559902+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on CRNX (score 51.1). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "updated": "2026-07-09T16:23:31.377181+00:00",
+ "mode": "WAIT",
+ "notification": "ბოტი ელოდება — candidates exist but nothing scores high enough. Skip today.",
  "picks": [
   {
    "ticker": "CRNX",
-   "price": 83.5,
-   "score": 51.1,
-   "tech_score": 31.3,
-   "news_score": 19.8,
+   "price": 83.54,
+   "score": 39.9,
+   "tech_score": 28.0,
+   "news_score": 11.9,
    "rsi": 96.3,
-   "mom5": 123.13,
-   "vol_surge": 1.42,
+   "mom5": 115.96,
+   "vol_surge": 0.77,
    "catalysts": [
     {
      "category": "m_and_a",
      "headline": "Vertex Is Paying a 102% Premium to Acquire Crinetics for $10 Billion. Here's Whether the Deal Is Worth It.",
-     "age_h": 8.2,
-     "points": 19.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 83.5,
-    "target": 92.79,
-    "stop": 77.92,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "KC",
-   "price": 10.49,
-   "score": 44.1,
-   "tech_score": 35.1,
-   "news_score": 9.0,
-   "rsi": 46.9,
-   "mom5": 15.88,
-   "vol_surge": 1.89,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "SpaceX initiated, Cloudflare upgraded: Wall Street's top analyst calls",
-     "age_h": 26.4,
-     "points": 9.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 10.49,
-    "target": 11.49,
-    "stop": 9.89,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ABTC",
-   "price": 6.03,
-   "score": 43.0,
-   "tech_score": 28.0,
-   "news_score": 15.0,
-   "rsi": 74.2,
-   "mom5": 781.79,
-   "vol_surge": 0.07,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "MSTR, BMNR Stocks Defy Stock Market Slump – COIN Drops Despite Upgrade With 20% Upside",
-     "age_h": 22.2,
-     "points": 15.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 6.03,
-    "target": 7.78,
-    "stop": 4.98,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CRTO",
-   "price": 22.55,
-   "score": 39.9,
-   "tech_score": 28.0,
-   "news_score": 11.9,
-   "rsi": 76.0,
-   "mom5": 22.81,
-   "vol_surge": 0.32,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Criteo Attracts Takeover Bids From Equity, Investment Firms",
-     "age_h": 42.7,
+     "age_h": 32.6,
      "points": 11.9
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 22.55,
-    "target": 25.15,
-    "stop": 20.99,
+    "entry": 83.54,
+    "target": 92.63,
+    "stop": 78.08,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "PRME",
-   "price": 4.57,
-   "score": 27.4,
-   "tech_score": 22.9,
-   "news_score": 4.5,
-   "rsi": 87.0,
-   "mom5": 23.89,
-   "vol_surge": 1.62,
+   "ticker": "ABTC",
+   "price": 5.92,
+   "score": 37.0,
+   "tech_score": 28.0,
+   "news_score": 9.0,
+   "rsi": 73.2,
+   "mom5": 853.53,
+   "vol_surge": 0.07,
    "catalysts": [
     {
      "category": "analyst_upgrade",
-     "headline": "Here’s Why H.C. Wainwright Upgraded Prime Medicine (PRME) To “Buy”",
-     "age_h": 65.8,
-     "points": 4.5
+     "headline": "MSTR, BMNR Stocks Defy Stock Market Slump – COIN Drops Despite Upgrade With 20% Upside",
+     "age_h": 46.6,
+     "points": 9.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 4.57,
-    "target": 5.31,
-    "stop": 4.13,
+    "entry": 5.92,
+    "target": 7.75,
+    "stop": 4.82,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SNDK",
-   "price": 1598.7,
-   "score": 22.0,
-   "tech_score": 0.0,
-   "news_score": 22.0,
-   "rsi": 41.5,
-   "mom5": -29.73,
-   "vol_surge": 0.54,
+   "ticker": "FCEL",
+   "price": 24.27,
+   "score": 34.0,
+   "tech_score": 18.0,
+   "news_score": 16.0,
+   "rsi": 54.8,
+   "mom5": -23.64,
+   "vol_surge": 0.8,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Samsung saw a record quarter, but it's not enough for investors. Here's why.",
-     "age_h": 19.4,
-     "points": 22.0
+     "category": "big_contract",
+     "headline": "FuelCell Energy Shares Surge After Strategic Collaboration With Siemens (FCEL)",
+     "age_h": 2.4,
+     "points": 18.0
+    },
+    {
+     "category": "growth_news",
+     "headline": "FuelCell Energy (FCEL) Raises $225 Million And Lands Fit Energy Data Center Deal",
+     "age_h": 11.8,
+     "points": 10.0
+    },
+    {
+     "category": "dilution",
+     "headline": "FuelCell Energy shares fall after company prices upsized $225M stock offering",
+     "age_h": 24.5,
+     "points": -12.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 24.27,
+    "target": 39.21,
+    "stop": 18.29,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CRTO",
+   "price": 22.81,
+   "score": 33.9,
+   "tech_score": 28.0,
+   "news_score": 5.9,
+   "rsi": 77.1,
+   "mom5": 23.34,
+   "vol_surge": 0.28,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Criteo Attracts Takeover Bids From Equity, Investment Firms",
+     "age_h": 67.1,
+     "points": 5.9
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 1598.7,
-    "target": 2068.19,
-    "stop": 1317.0,
+    "entry": 22.81,
+    "target": 25.4,
+    "stop": 21.25,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "TER",
-   "price": 336.87,
-   "score": 15.0,
-   "tech_score": 0.0,
+   "ticker": "MXL",
+   "price": 95.49,
+   "score": 33.0,
+   "tech_score": 18.0,
    "news_score": 15.0,
-   "rsi": 40.7,
-   "mom5": -30.4,
-   "vol_surge": 0.22,
+   "rsi": 55.0,
+   "mom5": -15.01,
+   "vol_surge": 0.42,
    "catalysts": [
     {
      "category": "analyst_upgrade",
-     "headline": "Susquehanna Raises PT on Teradyne (TER), Keeps a Buy Rating",
-     "age_h": 17.2,
+     "headline": "Stifel Raises Price Target on MaxLinear, Inc. (MXL)",
+     "age_h": 20.8,
      "points": 15.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 336.87,
-    "target": 416.31,
-    "stop": 289.21,
+    "entry": 95.49,
+    "target": 121.42,
+    "stop": 79.93,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "STRL",
-   "price": 646.15,
-   "score": 13.2,
-   "tech_score": 0.0,
-   "news_score": 13.2,
-   "rsi": 30.1,
-   "mom5": -23.02,
-   "vol_surge": 0.29,
+   "ticker": "KC",
+   "price": 10.5,
+   "score": 32.5,
+   "tech_score": 28.0,
+   "news_score": 4.5,
+   "rsi": 51.1,
+   "mom5": 14.69,
+   "vol_surge": 0.43,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Will Sterling Infrastructure (STRL) Beat Estimates Again in Its Next Earnings Report?",
-     "age_h": 47.8,
-     "points": 13.2
+     "category": "analyst_upgrade",
+     "headline": "SpaceX initiated, Cloudflare upgraded: Wall Street's top analyst calls",
+     "age_h": 50.8,
+     "points": 4.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 646.15,
-    "target": 776.3,
-    "stop": 568.06,
+    "entry": 10.5,
+    "target": 11.49,
+    "stop": 9.9,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "RIOT",
-   "price": 20.64,
-   "score": 10.0,
-   "tech_score": 4.0,
-   "news_score": 6.0,
-   "rsi": 24.2,
-   "mom5": -24.62,
-   "vol_surge": 0.37,
+   "ticker": "AKAM",
+   "price": 129.62,
+   "score": 31.0,
+   "tech_score": 28.0,
+   "news_score": 3.0,
+   "rsi": 52.0,
+   "mom5": 15.06,
+   "vol_surge": 0.52,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Is Riot Platforms (RIOT) Quietly Pivoting From Bitcoin Mining To AI Data Centers?",
-     "age_h": 40.6,
-     "points": 6.0
+     "headline": "Akamai Technology’s (AKAM) Underperformance Can Be Explained By Investors Underestimating Data Center Opportunity",
+     "age_h": 70.5,
+     "points": 3.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 20.64,
-    "target": 27.56,
-    "stop": 17.87,
+    "entry": 129.62,
+    "target": 148.07,
+    "stop": 122.23,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "BTDR",
-   "price": 12.04,
-   "score": 10.0,
-   "tech_score": 4.0,
-   "news_score": 6.0,
-   "rsi": 16.1,
-   "mom5": -24.57,
-   "vol_surge": 0.39,
+   "ticker": "OLLI",
+   "price": 62.99,
+   "score": 5.0,
+   "tech_score": -4.0,
+   "news_score": 9.0,
+   "rsi": 26.1,
+   "mom5": -16.74,
+   "vol_surge": 0.74,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Bitdeer’s (BTDR) Subsidiary Signs AI Data Center Colocation Lease Agreement",
-     "age_h": 25.7,
-     "points": 6.0
+     "category": "analyst_upgrade",
+     "headline": "Dollar Tree upgraded, PayPal initiated: Wall Street's top analyst calls",
+     "age_h": 26.7,
+     "points": 9.0
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 12.04,
-    "target": 17.42,
-    "stop": 9.89,
-    "hold": "2-8 კვირა"
+    "entry": 62.99,
+    "target": 70.15,
+    "stop": 58.7,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "GVA",
+   "price": 128.7,
+   "score": 4.5,
+   "tech_score": 0.0,
+   "news_score": 4.5,
+   "rsi": 37.1,
+   "mom5": -14.32,
+   "vol_surge": 0.65,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Granite Construction (GVA) Is Down 6.6% After Upgraded Outlook And New Contracts Secured - Has The Bull Case Changed?",
+     "age_h": 66.2,
+     "points": 4.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 128.7,
+    "target": 141.17,
+    "stop": 121.22,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SOLS",
+   "price": 62.1,
+   "score": 1.9,
+   "tech_score": -4.0,
+   "news_score": 5.9,
+   "rsi": 24.7,
+   "mom5": -25.12,
+   "vol_surge": 0.82,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "ESI to Be Acquired by Solstice, Creating Advanced Materials Leader",
+     "age_h": 52.4,
+     "points": 5.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 62.1,
+    "target": 72.84,
+    "stop": 55.66,
+    "hold": "3-7 დღე"
    }
   }
  ],

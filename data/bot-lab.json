@@ -30,6 +30,10 @@
     {
      "date": "2026-07-08",
      "equity": 96.42
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 96.42
     }
    ],
    "stats": {
@@ -54,7 +58,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.49500274658203
+     "last_price": 83.54
     }
    ],
    "trades": [
@@ -109,7 +113,7 @@
      "leverage": 1
     }
    ],
-   "equity": 86.25,
+   "equity": 86.26,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -118,13 +122,17 @@
     {
      "date": "2026-07-08",
      "equity": 86.25
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 86.26
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -13.75
+    "return_pct": -13.74
    }
   },
   "bot3": {
@@ -132,7 +140,7 @@
    "name_ka": "ბოტი 3 · გრძელვადიანი",
    "desc_ka": "მხოლოდ გრძელვადიანი კატალიზატორები, 2-8 კვირა",
    "start": 100,
-   "cash": 26.536067298054796,
+   "cash": 0.0,
    "positions": [
     {
      "ticker": "RIOT",
@@ -142,7 +150,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.64
+     "last_price": 21.88
     },
     {
      "ticker": "BTDR",
@@ -152,7 +160,17 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 12.04
+     "last_price": 13.7
+    },
+    {
+     "ticker": "FCEL",
+     "shares": 1.079439,
+     "entry": 24.1200008392334,
+     "entry_date": "2026-07-09",
+     "target": 39.21,
+     "stop": 18.29,
+     "max_days": 40,
+     "last_price": 24.1200008392334
     }
    ],
    "trades": [
@@ -177,7 +195,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.61,
+   "equity": 83.26,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -186,13 +204,17 @@
     {
      "date": "2026-07-08",
      "equity": 78.61
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 83.26
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -21.39
+    "return_pct": -16.74
    }
   },
   "bot4": {
@@ -210,7 +232,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.49500274658203
+     "last_price": 83.54
     }
    ],
    "trades": [
@@ -225,7 +247,7 @@
      "leverage": 1
     }
    ],
-   "equity": 97.74,
+   "equity": 97.75,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -234,13 +256,17 @@
     {
      "date": "2026-07-08",
      "equity": 97.74
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 97.75
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -2.26
+    "return_pct": -2.25
    }
   },
   "bot5": {
@@ -271,6 +297,10 @@
     {
      "date": "2026-07-08",
      "equity": 903.22
+    },
+    {
+     "date": "2026-07-09",
+     "equity": 903.22
     }
    ],
    "stats": {
@@ -281,5 +311,5 @@
    }
   }
  },
- "updated": "2026-07-08T15:59:05.471102+00:00"
+ "updated": "2026-07-09T16:23:32.341568+00:00"
 }

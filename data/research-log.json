@@ -265,5 +265,116 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377127+00:00",
+  "ticker": "CRNX",
+  "entry": 83.54,
+  "score": 39.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377133+00:00",
+  "ticker": "ABTC",
+  "entry": 5.92,
+  "score": 37.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377136+00:00",
+  "ticker": "FCEL",
+  "entry": 24.27,
+  "score": 34.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "big_contract",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377140+00:00",
+  "ticker": "CRTO",
+  "entry": 22.81,
+  "score": 33.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377143+00:00",
+  "ticker": "MXL",
+  "entry": 95.49,
+  "score": 33.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377145+00:00",
+  "ticker": "KC",
+  "entry": 10.5,
+  "score": 32.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377148+00:00",
+  "ticker": "AKAM",
+  "entry": 129.62,
+  "score": 31.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377153+00:00",
+  "ticker": "OLLI",
+  "entry": 62.99,
+  "score": 5.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377156+00:00",
+  "ticker": "GVA",
+  "entry": 128.7,
+  "score": 4.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-09T16:23:31.377158+00:00",
+  "ticker": "SOLS",
+  "entry": 62.1,
+  "score": 1.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
  }
 ]
