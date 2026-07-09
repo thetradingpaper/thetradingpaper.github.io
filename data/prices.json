@@ -1,78 +1,73 @@
 {
-  "updated": "2026-07-08T23:42:03.000Z",
-  "source": "yahoo-finance-v8 via GitHub Actions",
+  "updated": "2026-07-09T00:08:31.995Z",
   "quotes": {
     "SPCX": {
       "price": 148.3,
-      "previousClose": 149.47,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 149.47
     },
     "SMH": {
       "price": 593,
-      "previousClose": 581.45,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 581.45
     },
     "VOO": {
       "price": 685.26,
-      "previousClose": 687.08,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 687.08
     },
     "ASX": {
       "price": 39.93,
-      "previousClose": 39.65,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 39.65
     },
     "SSRM": {
       "price": 28.2,
-      "previousClose": 29.91,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 29.91
     },
     "KOID": {
       "price": 39.17,
-      "previousClose": 39.83,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 39.83
     },
     "MP": {
       "price": 53,
-      "previousClose": 50.49,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 50.49
     },
     "VRT": {
       "price": 317.81,
-      "previousClose": 305.58,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 305.58
     },
     "WMT": {
       "price": 113.1,
-      "previousClose": 111.54,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 111.54
     },
     "WQTM": {
       "price": 34.73,
-      "previousClose": 34.71,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 34.71
     },
     "MNST": {
       "price": 95.15,
-      "previousClose": 96.92,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 96.92
     },
     "MSTR": {
       "price": 93.87,
-      "previousClose": 97.36,
-      "session": "REG",
-      "state": "REGULAR"
+      "previousClose": 97.36
+    },
+    "CRDO": {
+      "price": 258.69,
+      "previousClose": 246.4
+    },
+    "ARCC": {
+      "price": 18.38,
+      "previousClose": 18.47
+    },
+    "MAIN": {
+      "price": 51.05,
+      "previousClose": 52.145
+    },
+    "BXSL": {
+      "price": 23.11,
+      "previousClose": 23.23
+    },
+    "LYG": {
+      "price": 5.9,
+      "previousClose": 6.05
     }
   }
 }
