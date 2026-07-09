@@ -88,6 +88,19 @@
   .bf-holdings td.num.pos{color:var(--green);}.bf-holdings td.num.neg{color:var(--red);}
   .bf-closedbody{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);line-height:1.6;}
 </style>
+
+<style>.tp-archwrap{margin-top:4px;}.tp-arch{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}@media(max-width:900px){.tp-arch{grid-template-columns:repeat(3,1fr);}}@media(max-width:560px){.tp-arch{grid-template-columns:repeat(2,1fr);}}.tp-card{background:var(--paper);border:1px solid var(--border);padding:15px 10px;text-align:center;font-family:'Noto Sans Georgian',sans-serif;}.tp-card.latest{border:2px solid var(--red);background:#fff8f4;}.tp-card .n{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:25px;color:var(--ink);line-height:1;}.tp-card .dt{font-size:9.5px;color:var(--muted);font-style:italic;margin:5px 0 9px;}.tp-card a{display:inline-block;font-size:9px;letter-spacing:1px;padding:5px 8px;border:1px solid var(--border);color:var(--ink);text-decoration:none;text-transform:uppercase;margin:2px;}.tp-card a.dl{color:var(--red);border-color:var(--red);font-weight:700;}</style>
+<style>
+    .tp-journey{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--red,#b91c1c);padding:18px 22px;margin:6px 0 20px;font-family:'Noto Sans Georgian',sans-serif;}
+    .tp-journey h4{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:19px;margin:0 0 4px;color:var(--ink);}
+    .tp-journey .jr-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+    .tp-journey p{font-size:12.5px;line-height:1.7;color:var(--ink);margin:0 0 10px;}
+    .tp-journey p.muted{color:var(--muted);}
+    .tp-journey .jr-h{font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin:14px 0 5px;}
+    .tp-journey ul{margin:0 0 6px;padding-left:18px;}
+    .tp-journey li{font-size:12px;line-height:1.6;color:var(--muted);margin-bottom:3px;}
+    .tp-journey li strong{color:var(--ink);}
+</style>
 </head>
 <body>
 
@@ -126,6 +139,81 @@
       <div class="save-hint">💾 ინახება ავტომატურად ამ ბრაუზერში — სერვერი არ სჭირდება. სხვა მოწყობილობაზე რომ გქონდეს, გამომიგზავნე ტექსტი და ავტვირთავ მუდმივ ჩანაწერად.</div>
     </div>
   </details>
+
+  <!-- ============================================================ -->
+  <!-- არქივი — merged here from the cabinet (spec: merge archive)   -->
+  <!-- Journey summary + every issue PDF. Single source now.        -->
+  <!-- ============================================================ -->
+  <div class="cab-sec"><span class="t">არქივი · The Trading Paper</span><span class="c">გამოცემები · PDF</span></div>
+
+  <!-- Written investment-journey summary (change spec §4) -->
+  <div class="tp-journey">
+    <h4>The Trading Paper — საინვესტიციო მოგზაურობა</h4>
+    <div class="jr-sub">რა არის ეს არქივი · What this archive is</div>
+    <p>The Trading Paper ჩემი პირადი საინვესტიციო ჟურნალია — ქართული გაზეთის სტილში. ის ერთ ადგილას კრებს პორტფელის მდგომარეობას, ვაჭრობის გადაწყვეტილებებს და გაკვეთილებს. ყოველი გამოცემა (PDF) დროის ერთი მომენტის სურათია; ერთად კი ისინი ჩემი, როგორც ინვესტორის, ბიოგრაფიას ქმნიან — არა მხოლოდ ციფრებს.</p>
+    <p class="muted">ქვემოთ ინახება ყველა გამოცემა PDF-ად. აქ კი — მოკლე ისტორია იმისა, საიდან სად მოვედი.</p>
+
+    <div class="jr-h">რა არის აღწერილი</div>
+    <p>სამი წიგნი, თითოეული თავისი ლოგიკით: <strong>BOG · Dogma</strong> — გრძელვადიანი, დისციპლინირებული DCA; <strong>TBC · Income</strong> — თანდათან აშენებული დივიდენდის/სტაბილური შემოსავლის წიგნი; და <strong>GALT · Leverage</strong> — ბერკეტიანი ექსპერიმენტი, რომელიც უკვე დახურულია. ცოცხალი ფასები, ჩარიცხული კაპიტალი, P/L და უკუგება — ყველა აქ იყრის თავს.</p>
+
+    <div class="jr-h">მნიშვნელოვანი ეტაპები</div>
+    <ul>
+      <li><strong>2025 დეკ. 9</strong> — თვალყურის დევნება ოფიციალურად დაიწყო (BOG).</li>
+      <li><strong>2026 მაისი</strong> — TBC-ს გახსნა და აქტიური ვაჭრობის პირველი ცდები.</li>
+      <li><strong>2026 ივნისი</strong> — GALT-ის ბერკეტიანი ცდა, შემდეგ მისი შეგნებული დახურვა.</li>
+      <li><strong>2026 ივლისი</strong> — სტრატეგიის ცვლილება: TBC ხდება დივიდენდის/სტაბილური შემოსავლის წიგნი; მიზანი — $100 წლიური დივიდენდი მთელი პორტფელიდან.</li>
+    </ul>
+
+    <div class="jr-h">გაკვეთილები</div>
+    <ul>
+      <li>ბერკეტი და აგრესია ემოციას ზრდის — სტაბილურობა და დივიდენდი უფრო მშვიდ გზას აძლევს.</li>
+      <li>დისციპლინა &gt; პროგნოზი: თვიური DCA და თეზისი ფურცელზე ჯერ, შემდეგ შესვლა.</li>
+      <li>დიდი შედეგი ყოველდღიური ჩვევის ჯამია — ფული ნელა, მაგრამ სტაბილურად იზრდება.</li>
+    </ul>
+
+    <div class="jr-h">ძირითადი ცვლილებები პორტფელში</div>
+    <p class="muted">MSTR-ის როტაცია დივიდენდის გადამხდელებში (LYG, ARCC, MAIN, BXSL) · GALT-ის დახურვა და კაპიტალის დაბრუნება BOG-ში · აქცენტის გადატანა ზრდიდან შემოსავალზე.</p>
+  </div>
+
+  <div class="tp-archwrap">
+  <div class="tp-arch-bar" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
+    <input id="tp-arch-search" type="search" placeholder="ძებნა — № ან თარიღი…" style="flex:1;min-width:150px;padding:8px 12px;border:1px solid #d9d2c4;border-radius:8px;font-size:14px;background:#fff;font-family:inherit;">
+    <span id="tp-arch-count" style="font-size:12px;color:#6b6b6b;white-space:nowrap;"></span>
+  </div>
+  <div class="tp-arch" id="tp-arch"></div>
+  <div class="tp-pager" id="tp-pager" style="display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:nowrap;overflow-x:auto;margin-top:14px;"></div>
+</div>
+<style>
+  #tp-pager .tp-pg{min-width:30px;height:30px;border:1px solid #d9d2c4;background:#fff;color:#1a1a1a;border-radius:6px;cursor:pointer;font-size:13px;padding:0 9px;flex:0 0 auto;}
+  #tp-pager .tp-pg.on{background:#b91c1c;color:#fff;border-color:#b91c1c;}
+  #tp-pager .tp-pg:disabled{opacity:.4;cursor:default;}
+  #tp-pager .tp-pg:hover:not(:disabled):not(.on){border-color:#b91c1c;}
+</style>
+<script>
+(function(){
+  var issues=[{n:13,date:'29 Jun 2026'},{n:12,date:'25 Jun 2026'},{n:11,date:'25 Jun 2026'},{n:10,date:'15 Jun 2026'},{n:9,date:'12 Jun 2026'},{n:8,date:'11 Jun 2026'},{n:7,date:'29 May 2026'},{n:6,date:'27 May 2026'},{n:5,date:'22 May 2026'},{n:4,date:'21 May 2026'},{n:3,date:'11 May 2026'},{n:2,date:'9 May 2026'},{n:1,date:'Anchor · 2026'}];
+  var perPage=4, page=1, q='';
+  var grid=document.getElementById('tp-arch'), pager=document.getElementById('tp-pager'), cnt=document.getElementById('tp-arch-count'), search=document.getElementById('tp-arch-search');
+  function pad(n){return n<10?'0'+n:''+n;}
+  function filtered(){var s=q.trim().toLowerCase();if(!s)return issues;return issues.filter(function(it){return ('№'+pad(it.n)).toLowerCase().indexOf(s)>=0||(''+it.n).indexOf(s)>=0||it.date.toLowerCase().indexOf(s)>=0;});}
+  function render(){
+    var list=filtered();
+    var total=Math.max(1,Math.ceil(list.length/perPage));
+    if(page>total)page=total;
+    var start=(page-1)*perPage, items=list.slice(start,start+perPage);
+    grid.innerHTML=items.length?items.map(function(it){var latest=(it.n===13)?' latest':'';var f='pdfs/thetradingpaper'+it.n+'.pdf';return '<div class="tp-card'+latest+'"><div class="n">№'+pad(it.n)+'</div><div class="dt">'+it.date+'</div><a href="'+f+'" target="_blank" rel="noopener">ნახვა</a><a class="dl" href="'+f+'" download="thetradingpaper'+it.n+'.pdf">PDF</a></div>';}).join(''):'<div style="grid-column:1/-1;text-align:center;color:#6b6b6b;padding:18px;">ვერ მოიძებნა</div>';
+    cnt.textContent=list.length+' გამოცემა';
+    var ph='<button class="tp-pg" data-p="prev"'+(page<=1?' disabled':'')+'>←</button>';
+    for(var i=1;i<=total;i++){ph+='<button class="tp-pg'+(i===page?' on':'')+'" data-p="'+i+'">'+i+'</button>';}
+    ph+='<button class="tp-pg" data-p="next"'+(page>=total?' disabled':'')+'>→</button>';
+    pager.innerHTML=ph;
+    [].forEach.call(pager.querySelectorAll('button'),function(b){b.addEventListener('click',function(){var p=b.getAttribute('data-p');if(p==='prev')page=Math.max(1,page-1);else if(p==='next')page=Math.min(total,page+1);else page=+p;render();});});
+  }
+  search.addEventListener('input',function(){q=search.value;page=1;render();});
+  render();
+})();
+</script>
+
 </main>
 
 <footer>
@@ -415,7 +503,7 @@
   });
 })();
 </script>
-<script src="js/masthead.js?v=4"></script>
+<script src="js/masthead.js?v=5"></script>
 <script src="js/clocks.js?v=1"></script>
 </body>
 </html>
