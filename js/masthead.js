@@ -7,22 +7,24 @@
 //
 // TWO nav systems, working together (see change spec §1):
 //   TABS  = primary horizontal tabs (feel like the main navigation)
-//   MENU  = secondary "კაბინეტი ▾" dropdown (cabinet tools)
+//   MENU  = secondary cabinet-tools sub-nav (horizontal tab row shown
+//           only inside the Cabinet area; replaced the old dropdown)
 // Watchlist removed everywhere (see §9). To retarget a tab, edit
 // the TABS / MENU arrays below — it updates every page at once.
 // ============================================================
 (function () {
   // ---- PRIMARY horizontal tabs -------------------------------------------
-  // My Cabinet · Market Notes · Analysis · Journal
+  // My Cabinet · Market Notes · Analysis · Kvleva 3.0
   var TABS = [
     { href: '/',                   label: 'ჩემი კაბინეტი',   re: /^\/(index\.html)?$/ },
     { href: '/notes.html',         label: 'ბაზრის ჩანაწერი', re: /^\/notes/ },
     { href: '/meportfolio/',       label: 'ანალიზი',         re: /^\/meportfolio/ },
-    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ },
-    { href: '/journal.html',       label: 'ჟურნალი',         re: /^\/journal/ }
+    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ }
   ];
 
-  // ---- SECONDARY dropdown menu (cabinet tools) ---------------------------
+  // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
+  // Shown as a red-underline sub-nav line when inside the Cabinet area
+  // (dashboard + its tools). Replaced the old "კაბინეტი ▾" dropdown.
   var MENU = [
     { href: '/goals.html',     label: 'მიზნები' },
     { href: '/notes.html',     label: 'ჩემი ჩანაწერები' },
@@ -33,6 +35,9 @@
 
   var path = location.pathname;
   var isCabinet = /^\/(index\.html)?$/.test(path);
+  // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
+  var inCabArea = (path === '/' || path === '/index.html'
+    || /^\/(goals|notes|ledger|dividends|edit)/.test(path));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
@@ -54,23 +59,13 @@
     + 'nav.tpm-nav a{color:var(--ink,#1a1a1a);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent;}'
     + 'nav.tpm-nav a:hover{border-bottom-color:var(--muted,#6b6b6b);}'
     + 'nav.tpm-nav a.active{border-bottom-color:#b91c1c;font-weight:700;}'
-    // dropdown
-    + '.tpm-dd{position:relative;display:inline-block;}'
-    + '.tpm-dd>button{font-family:"Noto Sans Georgian",sans-serif;font-size:13.5px;color:var(--ink,#1a1a1a);background:none;'
-    +   'border:none;cursor:pointer;padding:0 0 3px;border-bottom:2px solid transparent;display:inline-flex;align-items:center;gap:5px;}'
-    + '.tpm-dd>button:hover{border-bottom-color:var(--muted,#6b6b6b);}'
-    + '.tpm-dd>button .caret{font-size:10px;transition:transform .15s;}'
-    + '.tpm-dd.open>button{border-bottom-color:#b91c1c;font-weight:700;}'
-    + '.tpm-dd.open>button .caret{transform:rotate(180deg);}'
-    + '.tpm-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:180px;background:var(--paper,#fffdf7);'
-    +   'border:1px solid var(--ink,#1a1a1a);box-shadow:0 6px 20px rgba(0,0,0,0.12);padding:6px 0;margin-top:8px;z-index:10000;'
-    +   'display:none;}'
-    + '.tpm-dd.open .tpm-dd-menu{display:block;}'
-    + '.tpm-dd-menu a{display:block;padding:8px 18px;font-family:"Noto Sans Georgian",sans-serif;font-size:13px;'
-    +   'color:var(--ink,#1a1a1a);text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(0,0,0,0.05);}'
-    + '.tpm-dd-menu a:last-child{border-bottom:none;}'
-    + '.tpm-dd-menu a:hover{background:rgba(185,28,28,0.07);color:#b91c1c;}'
-    + '.tpm-dd-menu a.active{color:#b91c1c;font-weight:700;}'
+    // secondary sub-nav (cabinet tools) — horizontal tab row, red active underline
+    + 'nav.tpm-subnav{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;'
+    +   'padding:9px 0 10px;border-bottom:1px solid var(--border,#d9d4c8);margin-bottom:14px;'
+    +   'font-family:"Noto Sans Georgian",sans-serif;font-size:12px;letter-spacing:.3px;}'
+    + 'nav.tpm-subnav a{color:var(--muted,#6b6b6b);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent;}'
+    + 'nav.tpm-subnav a:hover{color:var(--ink,#1a1a1a);border-bottom-color:var(--muted,#6b6b6b);}'
+    + 'nav.tpm-subnav a.active{color:var(--ink,#1a1a1a);border-bottom-color:#b91c1c;font-weight:700;}'
     + '.tpm-pagetitle{text-align:center;font-family:"Noto Sans Georgian",sans-serif;font-size:10.5px;letter-spacing:2.5px;'
     +   'text-transform:uppercase;color:var(--muted,#6b6b6b);padding:9px 0 10px;border-bottom:1px solid var(--border,#d9d4c8);margin-bottom:14px;}'
     + '.tpm-pagetitle b{color:var(--ink,#1a1a1a);letter-spacing:3px;}'
@@ -114,38 +109,13 @@
       return '<a href="' + p.href + '"' + active + '>' + p.label + '</a>';
     }).join('');
   }
-  function menuItems() {
+  // sub-nav links (cabinet tools) — active = current page
+  function subnavLinks() {
     return MENU.map(function (p) {
       var active = (p.href.split('#')[0] === path) ? ' class="active"' : '';
       return '<a href="' + p.href + '"' + active + '>' + p.label + '</a>';
     }).join('');
   }
-  function dropdown() {
-    return '<span class="tpm-dd">'
-      + '<button type="button" aria-haspopup="true" aria-expanded="false">კაბინეტი <span class="caret">▾</span></button>'
-      + '<span class="tpm-dd-menu">' + menuItems() + '</span>'
-      + '</span>';
-  }
-  function fullNav() { return tabLinks() + dropdown(); }
-
-  // wire up every dropdown that exists (header + sticky + mini)
-  function wireDropdowns(root) {
-    (root || document).querySelectorAll('.tpm-dd').forEach(function (dd) {
-      var btn = dd.querySelector('button');
-      if (!btn || btn._tpmWired) return;
-      btn._tpmWired = true;
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var wasOpen = dd.classList.contains('open');
-        document.querySelectorAll('.tpm-dd.open').forEach(function (o) { o.classList.remove('open'); o.querySelector('button').setAttribute('aria-expanded', 'false'); });
-        if (!wasOpen) { dd.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-      });
-    });
-  }
-  document.addEventListener('click', function () {
-    document.querySelectorAll('.tpm-dd.open').forEach(function (o) { o.classList.remove('open'); o.querySelector('button').setAttribute('aria-expanded', 'false'); });
-  });
 
   // ---------- date --------------------------------------------------------
   var MONTHS = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
@@ -161,6 +131,8 @@
     if (oh) pageTitle = (oh.textContent || '').trim();
     if (ot) pageTag = (ot.textContent || '').trim();
     if (pageTitle === 'The Trading Paper') { pageTitle = ''; pageTag = ''; }
+    // The cabinet dashboard breadcrumb is replaced by the sub-nav tab row.
+    if (pageTitle === 'ჩემი კაბინეტი') { pageTitle = ''; pageTag = ''; }
   }
 
   // ---------- build header -------------------------------------------------
@@ -177,27 +149,35 @@
     +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
-    + '<nav class="tpm-nav">' + fullNav() + '</nav>';
+    + '<nav class="tpm-nav">' + tabLinks() + '</nav>';
 
   if (old) old.replaceWith(header);
   else document.body.insertBefore(header, document.body.firstChild);
-  wireDropdowns(header);
+
+  // secondary sub-nav (cabinet tools) — only inside the Cabinet area
+  var anchor = header;
+  if (inCabArea) {
+    var sub = document.createElement('nav');
+    sub.className = 'tpm-subnav no-print';
+    sub.innerHTML = subnavLinks();
+    header.insertAdjacentElement('afterend', sub);
+    anchor = sub;
+  }
 
   // page-title strip (preserves e.g. "ყოველთვიური წიგნი" on ledger)
   if (pageTitle) {
     var strip = document.createElement('div');
     strip.className = 'tpm-pagetitle';
     strip.innerHTML = '<b>' + pageTitle + '</b>' + (pageTag ? ' · ' + pageTag : '');
-    header.insertAdjacentElement('afterend', strip);
+    anchor.insertAdjacentElement('afterend', strip);
   }
 
   // ---------- sticky -------------------------------------------------------
   function makeSticky() {
     var bar = document.createElement('div');
     bar.id = 'tpm-sticky';
-    bar.innerHTML = '<a class="b" href="/meportfolio/">The Trading Paper</a><nav>' + fullNav() + '</nav>';
+    bar.innerHTML = '<a class="b" href="/meportfolio/">The Trading Paper</a><nav>' + tabLinks() + '</nav>';
     document.body.appendChild(bar);
-    wireDropdowns(bar);
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
         bar.classList.toggle('show', !en[0].isIntersecting);
@@ -222,9 +202,8 @@
         if (brand && !mini.querySelector('.tpm-mini-nav')) {
           var nv = document.createElement('span');
           nv.className = 'tpm-mini-nav';
-          nv.innerHTML = fullNav();
+          nv.innerHTML = tabLinks();
           brand.insertAdjacentElement('afterend', nv);
-          wireDropdowns(nv.parentNode);
         }
       } else if (tries > 15) { clearInterval(t); makeSticky(); }
     }, 250);
