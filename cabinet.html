@@ -1265,7 +1265,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (stats) stats.innerHTML = `
       <div class="c">
         <div class="l">სრული ჩარიცხული <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a></div>
-        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(dep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span> &nbsp;·&nbsp; დივ: <span style="color:#166534;font-weight:700;">${fmtUSD(totalDividends())}</span></div>
+        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(dep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span></div>
         <div class="v">${fmtUSD(netDep)}</div>
       </div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
@@ -1288,7 +1288,17 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       });
       const projNet = totalGross * 0.70;
       const divYieldPct = val > 0 ? (projNet / val * 100) : 0;
-      html += `<tr class="clickable-row" style="cursor:pointer;" onclick="window.location.href='dividends.html'"><td><span class="sw" style="background:#166534;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:10px;width:15px;height:15px;border-radius:4px;margin-right:7px;vertical-align:middle;line-height:1;">T</span><span class="nm" style="color:#166534;font-weight:900;">წლიური დივიდენდი (T DCA)</span></td><td class="vv" style="color:#166534;font-weight:900;">${fmtUSD(projNet)}</td><td class="pp" style="color:#166534;font-weight:900;">${divYieldPct.toFixed(1)}%</td></tr>`;
+      html += `<tr class="clickable-row" style="cursor:pointer;" onclick="window.location.href='dividends.html'">
+        <td style="vertical-align:middle;padding:6px 0;">
+          <div style="display:flex;align-items:center;">
+            <span class="sw" style="background:#166534;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:10px;width:15px;height:15px;border-radius:4px;margin-right:7px;line-height:1;">T</span>
+            <span class="nm" style="color:#166534;font-weight:900;">წლიური დივიდენდი (T DCA)</span>
+          </div>
+          <div style="font-size:9.5px;color:var(--muted);margin-left:22px;margin-top:2px;">მიღებული: <span style="color:#166534;font-weight:700;">${fmtUSD(totalDividends())}</span> &nbsp;·&nbsp; საპროგნოზო: <span style="color:#166534;font-weight:700;">${fmtUSD(projNet)}</span></div>
+        </td>
+        <td class="vv" style="color:#166534;font-weight:900;vertical-align:middle;padding:6px 0;">${fmtUSD(projNet)}</td>
+        <td class="pp" style="color:#166534;font-weight:900;vertical-align:middle;padding:6px 0;">${divYieldPct.toFixed(1)}%</td>
+      </tr>`;
       leg.innerHTML = html;
     }
     const cv = document.getElementById('total-donut');
