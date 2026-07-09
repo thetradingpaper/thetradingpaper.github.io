@@ -224,6 +224,112 @@
     margin-top: 3px;
   }
 
+  /* Sidebar Leaders Widget */
+  .sidebar-markets {
+    margin-top: 24px;
+    padding: 22px 24px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+  }
+  .leaders-section {
+    margin-bottom: 12px;
+  }
+  .leaders-section:last-child {
+    margin-bottom: 0;
+  }
+  .leaders-title {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 4px;
+  }
+  .leaders-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .leader-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  html[data-theme="dark"] .leader-row {
+    border-bottom-color: rgba(255,255,255,0.05);
+  }
+  .leader-row:last-child {
+    border-bottom: none;
+  }
+  .leader-col-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    flex: 1;
+  }
+  .leader-ticker {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 14.5px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px dashed var(--muted);
+    align-self: start;
+    line-height: 1.2;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .leader-ticker:hover {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+  .leader-name {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  .leader-col-spark {
+    width: 60px;
+    text-align: center;
+    padding: 0 4px;
+  }
+  .leader-sparkline-svg {
+    display: block;
+    width: 50px;
+    height: 18px;
+  }
+  .leader-col-val {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 80px;
+  }
+  .leader-price {
+    color: var(--ink);
+  }
+  .leader-change {
+    font-size: 11.5px;
+    margin-top: 2px;
+  }
+  .leader-change.pos { color: var(--green); }
+  .leader-change.neg { color: var(--red); }
+  .leaders-empty {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 16px 0;
+    text-align: center;
+  }
+
   /* Empty state */
   .picks-empty {
     font-family: 'Noto Sans Georgian', sans-serif;
@@ -286,6 +392,27 @@
           <div class="m-title">5. კატალიზატორები (Upcoming Catalysts)</div>
           <p class="m-text">მნიშვნელოვანი მოვლენები: კვარტალური ანგარიშები (Earnings), შერწყმა/შესყიდვა (M&A), ახალი პროდუქტები ან FDA ნებართვები.</p>
           <p class="m-text-en">Key events such as earnings announcements, M&A chatter, regulatory decisions, or new product cycles.</p>
+        </div>
+      </div>
+      
+      <!-- Day Leaders Widget -->
+      <div class="sidebar-markets widget">
+        <div class="m-head">დღის ლიდერები / Leaders</div>
+        
+        <div class="leaders-section">
+          <div class="leaders-title" style="color: var(--green);">Top Gainers</div>
+          <div class="leaders-list" id="gainers-list">
+            <div class="leaders-empty">ჩატვირთვა…</div>
+          </div>
+        </div>
+        
+        <hr style="border: none; border-top: 1px dashed var(--border); margin: 20px 0;">
+        
+        <div class="leaders-section">
+          <div class="leaders-title" style="color: var(--red);">Top Losers</div>
+          <div class="leaders-list" id="losers-list">
+            <div class="leaders-empty">ჩატვირთვა…</div>
+          </div>
         </div>
       </div>
     </div>
@@ -423,6 +550,72 @@
         }).join('');
         
         listEl.innerHTML = html;
+        
+        // Render Top Gainers
+        var gainersList = document.getElementById('gainers-list');
+        var gainers = data.gainers || [];
+        if (gainersList) {
+          if (gainers.length === 0) {
+            gainersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+          } else {
+            gainersList.innerHTML = gainers.map(function(p) {
+              var isPos = p.change >= 0;
+              var changeClass = isPos ? 'pos' : 'neg';
+              var spPath = generateSparkline(p.change, 50, 18);
+              var sign = isPos ? '+' : '−';
+              var chText = sign + Math.abs(p.changePct).toFixed(2) + '%';
+              
+              return '<div class="leader-row">' +
+                '<div class="leader-col-info">' +
+                  '<a class="leader-ticker" href="https://finance.yahoo.com/quote/' + esc(p.ticker) + '" target="_blank" rel="noopener">' + esc(p.ticker) + '</a>' +
+                  '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+                '</div>' +
+                '<div class="leader-col-spark">' +
+                  '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                    '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                  '</svg>' +
+                '</div>' +
+                '<div class="leader-col-val">' +
+                  '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                  '<span class="leader-change ' + changeClass + '">' + chText + '</span>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+        }
+
+        // Render Top Losers
+        var losersList = document.getElementById('losers-list');
+        var losers = data.losers || [];
+        if (losersList) {
+          if (losers.length === 0) {
+            losersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+          } else {
+            losersList.innerHTML = losers.map(function(p) {
+              var isPos = p.change >= 0;
+              var changeClass = isPos ? 'pos' : 'neg';
+              var spPath = generateSparkline(p.change, 50, 18);
+              var sign = isPos ? '+' : '−';
+              var chText = sign + Math.abs(p.changePct).toFixed(2) + '%';
+              
+              return '<div class="leader-row">' +
+                '<div class="leader-col-info">' +
+                  '<a class="leader-ticker" href="https://finance.yahoo.com/quote/' + esc(p.ticker) + '" target="_blank" rel="noopener">' + esc(p.ticker) + '</a>' +
+                  '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+                '</div>' +
+                '<div class="leader-col-spark">' +
+                  '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                    '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                  '</svg>' +
+                '</div>' +
+                '<div class="leader-col-val">' +
+                  '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                  '<span class="leader-change ' + changeClass + '">' + chText + '</span>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+        }
         
       } catch (e) {
         listEl.innerHTML = '<div class="picks-empty" style="color:var(--red);">⚠️ მონაცემების ჩატვირთვა ვერ მოხერხდა. (Failed to load picks.)</div>';

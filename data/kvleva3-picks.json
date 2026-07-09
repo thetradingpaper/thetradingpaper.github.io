@@ -64,5 +64,79 @@
       "changePct": 1.50,
       "reason": "ინფრასტრუქტურული პროექტების სტაბილური პორტფელი და მდგრადი საოპერაციო მარჟა. (Robust infrastructure project backlog and highly resilient operating margins.)"
     }
+  ],
+  "gainers": [
+    {
+      "ticker": "PENG",
+      "name": "Penguin Solutions...",
+      "price": 78.47,
+      "change": 15.76,
+      "changePct": 25.13
+    },
+    {
+      "ticker": "WULF",
+      "name": "TeraWulf Inc.",
+      "price": 22.83,
+      "change": 2.59,
+      "changePct": 12.80
+    },
+    {
+      "ticker": "PARR",
+      "name": "Par Pacific Holdin...",
+      "price": 68.57,
+      "change": 7.11,
+      "changePct": 11.57
+    },
+    {
+      "ticker": "KC",
+      "name": "Kingsoft Cloud Ho...",
+      "price": 10.52,
+      "change": 1.08,
+      "changePct": 11.44
+    },
+    {
+      "ticker": "UCTT",
+      "name": "Ultra Clean Holdin...",
+      "price": 100.91,
+      "change": 10.13,
+      "changePct": 11.16
+    }
+  ],
+  "losers": [
+    {
+      "ticker": "PLBL",
+      "name": "Polibeli Group Ltd",
+      "price": 7.47,
+      "change": -2.54,
+      "changePct": -25.37
+    },
+    {
+      "ticker": "ALHC",
+      "name": "Alignment Health...",
+      "price": 20.03,
+      "change": -4.02,
+      "changePct": -16.72
+    },
+    {
+      "ticker": "MAAS",
+      "name": "Maase Inc.",
+      "price": 14.03,
+      "change": -2.57,
+      "changePct": -15.48
+    },
+    {
+      "ticker": "IQMX",
+      "name": "IQM Quantum Co...",
+      "price": 11.47,
+      "change": -1.42,
+      "changePct": -11.02
+    },
+    {
+      "ticker": "SYF",
+      "name": "Synchrony Financial",
+      "price": 68.26,
+      "change": -7.26,
+      "changePct": -9.61
+    }
   ]
 }
