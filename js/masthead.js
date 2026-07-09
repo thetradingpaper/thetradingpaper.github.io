@@ -18,7 +18,7 @@
     { href: '/',                   label: 'ჩემი კაბინეტი',   re: /^\/(index\.html)?$/ },
     { href: '/notes.html',         label: 'ბაზრის ჩანაწერი', re: /^\/notes/ },
     { href: '/meportfolio/',       label: 'ანალიზი',         re: /^\/meportfolio/ },
-    { href: '/notes.html#journal', label: 'ჟურნალი',         re: /^\/never$/ }
+    { href: '/journal.html',       label: 'ჟურნალი',         re: /^\/journal/ }
   ];
 
   // ---- SECONDARY dropdown menu (cabinet tools) ---------------------------
