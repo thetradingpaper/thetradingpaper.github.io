@@ -44,16 +44,16 @@ function aggregate(p) {
   let sold = 0, fees = 0, withdrawn = 0;
   for (const tx of p.transactions) {
     if (tx.type === 'deposit') deposits += tx.amount;
-    if (tx.type === 'withdraw') withdrawn += tx.amount; // cash taken OUT — deposits are NEVER reduced
+    if (tx.type === 'withdraw') withdrawn += tx.amount; // cash taken OUT
     if (tx.type === 'buy') { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
     if (tx.type === 'sell') { sold += tx.shares * tx.price; fees += (tx.commission || 0); }
     if (tx.type === 'fee') fees += tx.amount;
   }
   const currentValue = p.holdings.reduce((s,h) => s + h.value, 0) + p.cash;
-  const netInvested = deposits;
+  const netInvested = deposits - withdrawn;
   // withdrawn cash is realized value that left the book — count it so P/L stays honest
   const pnl = currentValue + withdrawn - deposits;
-  const pnlPct = deposits > 0 ? (pnl / deposits) * 100 : 0;
+  const pnlPct = netInvested > 0 ? (pnl / netInvested) * 100 : 0;
   const hasHistory = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
   return { deposits, bought, sold, fees, withdrawn, currentValue, netInvested, pnl, pnlPct, hasHistory };
 }
@@ -121,7 +121,15 @@ function renderStatBanner(containerId, portfolioKey) {
   const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
   const pnlStr = a.hasHistory ? fmtMoney(a.pnl) : '—';
   const pctStr = a.hasHistory ? fmtPct(a.pnlPct) : '—';
-  const depStr = a.hasHistory ? fmtMoney(a.deposits) : '—';
+  let depStr = '—';
+  if (a.hasHistory) {
+    if (a.withdrawn > 0) {
+      depStr = `<div style="font-size:9.5px;color:var(--muted);margin-bottom:3px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;font-weight:400;text-transform:none;line-height:1.2;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtMoney(a.deposits)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtMoney(a.withdrawn)}</span></div>
+      <div>${fmtMoney(a.netInvested)}</div>`;
+    } else {
+      depStr = fmtMoney(a.netInvested);
+    }
+  }
 
   // Annual dividend — sum across holdings that have a divYield, then net after 30% GE withholding.
   // Only show the cell when at least one holding actually pays a dividend.
