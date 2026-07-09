@@ -112,7 +112,9 @@
   // sub-nav links (cabinet tools) — active = current page
   function subnavLinks() {
     return MENU.map(function (p) {
-      var active = (p.href.split('#')[0] === path) ? ' class="active"' : '';
+      // tolerant match so the active underline works on clean URLs (/ledger) and /ledger.html
+      var base = p.href.split('#')[0].replace(/\.html$/, '');
+      var active = (path === base || path === base + '.html' || path === base + '/') ? ' class="active"' : '';
       return '<a href="' + p.href + '"' + active + '>' + p.label + '</a>';
     }).join('');
   }
