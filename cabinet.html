@@ -449,29 +449,6 @@
 
 <main class="container">
 
-  <!-- Ticker tape · Market Pulse -->
-  <div class="no-print" style="background: var(--paper); border: 1px solid var(--border); padding: 10px 14px; margin: 10px 0 20px;">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {"description": "S&P 500", "proName": "FOREXCOM:SPXUSD"},
-          {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
-          {"description": "DAX", "proName": "XETR:DAX"},
-          {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
-          {"description": "Gold", "proName": "TVC:GOLD"},
-          {"description": "EUR/USD", "proName": "FX:EURUSD"},
-          {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
-          {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
-        ],
-        "isTransparent": true, "showSymbolLogo": true, "displayMode": "regular",
-        "colorTheme": "light", "locale": "en"
-      }
-      </script>
-    </div>
-  </div>
-
   <!-- ============================================================ -->
   <!-- VIEW SWITCHER · მთლიანი პორტფელი / აქტივების დეტალები          -->
   <!-- ============================================================ -->
@@ -1261,12 +1238,17 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       dep += a.deposits; val += a.currentValue; wd += (a.withdrawn || 0);
       parts.push({ k, name: p.name, value: a.currentValue, color: TOTAL_COLORS[k] });
     }
-    // deposits are NEVER reduced by withdrawals; withdrawn cash counts as realized value in P/L
-    const pl = val + wd - dep, plp = dep>0 ? (pl/dep*100) : 0;
+    const netDep = dep - wd;
+    // deposits are reduced by withdrawals for net deposited; withdrawn cash counts as realized value in P/L
+    const pl = val - netDep, plp = netDep>0 ? (pl/netDep*100) : 0;
     const cls = pl>=0 ? 'pos' : 'neg';
     const stats = document.getElementById('total-stats');
     if (stats) stats.innerHTML = `
-      <div class="c"><div class="l">სრული ჩარიცხული</div><div class="v">${fmtUSD(dep)}</div></div>
+      <div class="c">
+        <div class="l">სრული ჩარიცხული</div>
+        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: ${fmtUSD(dep)} &nbsp;·&nbsp; გატ: ${fmtUSD(wd)}</div>
+        <div class="v">${fmtUSD(netDep)}</div>
+      </div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
       <div class="c"><div class="l">გატანილი</div><div class="v">${fmtUSD(wd)}</div></div>
       <div class="c"><div class="l">წმინდა P/L</div><div class="v ${cls}">${fmtUSD(pl)}</div></div>
