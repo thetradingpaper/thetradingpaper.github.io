@@ -164,6 +164,45 @@
     line-height: 1.5;
     margin-bottom: 16px;
   }
+  .zoomable-img {
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .zoomable-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(26,26,26,0.12);
+  }
+  
+  /* Zoom Modal Overlay */
+  .image-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.85);
+    z-index: 20000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    padding: 20px;
+  }
+  .image-modal-overlay.open {
+    display: flex;
+    opacity: 1;
+  }
+  .image-modal-overlay img {
+    max-width: 95%;
+    max-height: 90vh;
+    border: 2px solid var(--border);
+    background: var(--paper);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.25s cubic-bezier(0.1, 0.8, 0.25, 1);
+  }
+  .image-modal-overlay.open img {
+    transform: scale(1);
+  }
 </style>
 </head>
 <body>
@@ -220,11 +259,11 @@
 
         <div class="projection-images">
           <div>
-            <img src="images/projection_bog.jpg" alt="BOG საპროგნოზო გრაფიკი">
+            <img src="images/projection_bog.jpg" alt="BOG საპროგნოზო გრაფიკი" class="zoomable-img">
             <div class="image-caption">სურათი 1: BOG წიგნის 20-წლიანი საპროგნოზო ზრდის მრუდი (12% CAGR)</div>
           </div>
           <div>
-            <img src="images/projection_tbc.jpg" alt="TBC საპროგნოზო გრაფიკი">
+            <img src="images/projection_tbc.jpg" alt="TBC საპროგნოზო გრაფიკი" class="zoomable-img">
             <div class="image-caption">სურათი 2: TBC წიგნის დაგროვებითი და დივიდენდური კომპაუნდინგი (8% CAGR)</div>
           </div>
         </div>
@@ -233,6 +272,11 @@
   </div>
 </main>
 
+<!-- Lightbox Zoom Modal Overlay -->
+<div class="image-modal-overlay" id="zoom-modal" role="dialog" aria-modal="true" aria-label="სურათის გადიდება">
+  <img id="zoom-img" src="" alt="გადიდებული სურათი">
+</div>
+
 <footer>
   © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
   ეს არ არის ფინანსური რჩევა · This is not financial advice
@@ -240,5 +284,31 @@
 
 <script src="js/masthead.js"></script>
 <script src="js/clocks.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('zoom-modal');
+    const zoomImg = document.getElementById('zoom-img');
+    
+    document.querySelectorAll('.zoomable-img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        zoomImg.src = this.src;
+        modal.classList.add('open');
+      });
+    });
+    
+    modal.addEventListener('click', function () {
+      modal.classList.remove('open');
+      setTimeout(() => { zoomImg.src = ''; }, 250);
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+        setTimeout(() => { zoomImg.src = ''; }, 250);
+      }
+    });
+  });
+</script>
 </body>
 </html>
