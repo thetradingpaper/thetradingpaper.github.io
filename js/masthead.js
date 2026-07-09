@@ -88,14 +88,20 @@
     + '.tpm-mini-nav a{color:var(--ink,#1a1a1a);text-decoration:none;}'
     + '.tpm-mini-nav a.active{color:#b91c1c;font-weight:700;}'
     + '@media print{header.tpm,#tpm-sticky{display:none!important;}}'
-    + '#tpm-center-ticker{display:flex;align-items:center;gap:10px;font-family:"Noto Sans Georgian",sans-serif;'
-    +   'font-size:11.5px;color:var(--muted,#6b6b6b);border:1px dashed var(--border,#d9d4c8);padding:5px 12px;'
-    +   'background:var(--paper,#fffdf7);border-radius:4px;max-width:420px;overflow:hidden;white-space:nowrap;line-height:1.2;}'
-    + '#tpm-center-ticker a{text-decoration:none;color:inherit;display:flex;align-items:center;gap:6px;}'
-    + '#tpm-center-ticker a:hover{color:var(--red,#b91c1c);}'
-    + '#tpm-center-ticker .tk{font-family:"Noto Serif Georgian",serif;font-weight:700;color:var(--ink,#1a1a1a);}'
-    + '#tpm-center-ticker .pos{color:var(--green,#166534);font-weight:700;}'
-    + '#tpm-center-ticker .neg{color:var(--red,#b91c1c);font-weight:700;}'
+    + '#tpm-center-ticker{display:flex;align-items:center;border:1px dashed var(--border,#d9d4c8);'
+    +   'padding:5px 0;background:var(--paper,#fffdf7);border-radius:4px;width:380px;overflow:hidden;'
+    +   'white-space:nowrap;position:relative;line-height:1.2;}'
+    + '#tpm-center-ticker::before,#tpm-center-ticker::after{content:"";position:absolute;top:0;bottom:0;width:20px;pointer-events:none;z-index:2;}'
+    + '#tpm-center-ticker::before{left:0;background:linear-gradient(to right,var(--paper,#fffdf7),transparent);}'
+    + '#tpm-center-ticker::after{right:0;background:linear-gradient(to left,var(--paper,#fffdf7),transparent);}'
+    + '.tpm-marquee-wrap{display:inline-flex;gap:24px;padding-left:12px;animation:tpm-marquee-scroll 25s linear infinite;}'
+    + '.tpm-marquee-wrap:hover{animation-play-state:paused;}'
+    + '.tpm-marquee-wrap a{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;}'
+    + '.tpm-marquee-wrap a:hover{color:var(--red,#b91c1c);}'
+    + '.tpm-marquee-wrap .tk{font-family:"Noto Serif Georgian",serif;font-weight:700;color:var(--ink,#1a1a1a);}'
+    + '.tpm-marquee-wrap .pos{color:var(--green,#166534);font-weight:700;}'
+    + '.tpm-marquee-wrap .neg{color:var(--red,#b91c1c);font-weight:700;}'
+    + '@keyframes tpm-marquee-scroll{0%{transform:translate3d(0,0,0);}100%{transform:translate3d(-50%,0,0);}}'
     + '@media(max-width:1200px){#tpm-center-ticker{display:none;}}';
   var st = document.createElement('style');
   st.textContent = css;
@@ -230,24 +236,36 @@
   (function() {
     var el = document.getElementById('tpm-center-ticker');
     if (!el) return;
-    var base = (location.pathname.indexOf('/articles/') !== -1) ? '../' : '';
+    
+    // Universal path resolver for both web server and local file system
+    var base = '/';
+    if (location.protocol === 'file:') {
+      var path = location.pathname.toLowerCase();
+      if (path.indexOf('/meportfolio/') !== -1) base = '../';
+      else if (path.indexOf('/articles/') !== -1) base = '../';
+      else if (path.indexOf('/stock/ttp-issue10-update/') !== -1) base = '../../';
+      else if (path.indexOf('/stock/') !== -1) base = '../';
+      else base = '';
+    }
+    
     fetch(base + 'data/kvleva3-picks.json?t=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(data) {
         var picks = data.picks || [];
         if (picks.length === 0) { el.style.display = 'none'; return; }
         
-        var html = '<a href="/kvleva3.html" title="კვლევა 3.0: ყოველდღიური სკაუტინგი">'
-          + '<span style="font-weight:700;color:var(--red,#b91c1c);letter-spacing:0.5px;">კვლევა 3.0:</span>&nbsp;&nbsp;';
+        var html = '<div class="tpm-marquee-wrap">';
+        var itemsHtml = '<span style="font-weight:700;color:var(--red,#b91c1c);letter-spacing:0.5px;">კვლევა 3.0:</span>&nbsp;&nbsp;';
         
-        var items = picks.slice(0, 4).map(function(p) {
+        itemsHtml += picks.slice(0, 5).map(function(p) {
           var isPos = p.change >= 0;
           var sign = isPos ? '+' : '−';
-          return '<span class="tk">' + p.ticker + '</span> '
-            + '<span class="' + (isPos ? 'pos' : 'neg') + '">' + sign + Math.abs(p.changePct).toFixed(1) + '%</span>';
-        });
+          return '<a href="/kvleva3.html"><span class="tk">' + p.ticker + '</span> '
+            + '<span class="' + (isPos ? 'pos' : 'neg') + '">' + sign + Math.abs(p.changePct).toFixed(1) + '%</span></a>';
+        }).join('&nbsp;·&nbsp;&nbsp;');
         
-        html += items.join('&nbsp;·&nbsp;&nbsp;') + '</a>';
+        // Duplicate for seamless infinite scrolling loop
+        html += itemsHtml + '&nbsp;&nbsp;·&nbsp;&nbsp;' + itemsHtml + '</div>';
         el.innerHTML = html;
       })
       .catch(function() {
