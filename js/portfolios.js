@@ -161,7 +161,7 @@ function renderStatBanner(containerId, portfolioKey) {
   const wdCell = (a.withdrawn > 0) ? `
 <div class="stat-cell">
 <div class="stat-label">გატანილი · Withdrawn</div>
-<div class="stat-val">${fmtMoney(a.withdrawn)}</div>
+<div class="stat-val pos">${fmtMoney(a.withdrawn)}</div>
 </div>` : '';
 
   const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
