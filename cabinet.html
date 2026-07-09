@@ -1250,7 +1250,9 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       dep += a.deposits; val += a.currentValue; wd += (a.withdrawn || 0);
       parts.push({ k, name: p.name, value: a.currentValue, color: TOTAL_COLORS[k] });
     }
-    const netDep = dep - wd;
+    const platformFees = D.marginFinancingEst || 0;
+    const grossDep = dep + platformFees;
+    const netDep = grossDep - wd;
     // deposits are reduced by withdrawals for net deposited; withdrawn cash counts as realized value in P/L
     const pl = val - netDep, plp = netDep>0 ? (pl/netDep*100) : 0;
     const cls = pl>=0 ? 'pos' : 'neg';
@@ -1258,7 +1260,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (stats) stats.innerHTML = `
       <div class="c">
         <div class="l">სრული ჩარიცხული <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a></div>
-        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(dep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span></div>
+        <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(grossDep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span></div>
         <div class="v">${fmtUSD(netDep)}</div>
       </div>
       <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>

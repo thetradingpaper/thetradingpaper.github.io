@@ -11,7 +11,7 @@ window.MEPORTF = {
     { book: 'BOG', amount: 9.1, note: 'ისტორიის საკომისიოები' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
-  marginFinancingEst: 1.96,
+  marginFinancingEst: 0,
   // BOG: the 24 Jun GALT→BOG transfer is now recorded directly in
   // js/portfolios.js as a dated deposit (and was deployed on 25 Jun into stocks),
   // so it is no longer re-applied here.
