@@ -338,6 +338,34 @@
     padding: 48px;
     text-align: center;
   }
+
+  /* Compact Screener Rows */
+  .scr-row {
+    display: grid;
+    grid-template-columns: 140px 180px 120px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scr-row:last-child {
+    border-bottom: none;
+  }
+  .scr-row:hover {
+    background: rgba(185, 28, 28, 0.02);
+  }
+  @media(max-width: 640px) {
+    .scr-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+    .scr-row div:last-child {
+      display: none;
+    }
+    .scr-col-sparkline {
+      justify-self: end;
+    }
+  }
 </style>
 </head>
 <body>
@@ -427,6 +455,23 @@
         
         <div class="picks-list" id="picks-list">
           <div class="picks-empty">იტვირთება მონაცემები…</div>
+        </div>
+      </div>
+
+      <!-- Popular Screeners Widget -->
+      <div class="screeners-box widget" style="margin-top: 24px;">
+        <div class="picks-head" style="border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <span class="picks-head-title" style="letter-spacing: 2px;">სკრინერები · Popular Screeners</span>
+          <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex;">
+            <button id="scr-active" class="on" onclick="setScreener('most_active')">Most Active</button>
+            <button id="scr-growth" onclick="setScreener('undervalued_growth')">Undervalued Growth</button>
+            <button id="scr-tech" onclick="setScreener('growth_tech')">Growth Tech</button>
+            <button id="scr-penny" onclick="setScreener('penny_stocks')">Penny Stocks</button>
+          </div>
+        </div>
+        
+        <div class="picks-list" id="screeners-list">
+          <div class="picks-empty">ჩატვირთვა…</div>
         </div>
       </div>
     </div>
@@ -617,10 +662,69 @@
           }
         }
         
+        // Save screeners data globally and run default screener
+        window.screenersData = data.screeners || {};
+        setScreener('most_active');
+        
       } catch (e) {
         listEl.innerHTML = '<div class="picks-empty" style="color:var(--red);">⚠️ მონაცემების ჩატვირთვა ვერ მოხერხდა. (Failed to load picks.)</div>';
       }
     }
+
+    // Toggle and render selected screener
+    window.setScreener = function(key) {
+      var keys = ['most_active', 'undervalued_growth', 'growth_tech', 'penny_stocks'];
+      var idMap = {
+        'most_active': 'scr-active',
+        'undervalued_growth': 'scr-growth',
+        'growth_tech': 'scr-tech',
+        'penny_stocks': 'scr-penny'
+      };
+      
+      keys.forEach(function(k) {
+        var btn = document.getElementById(idMap[k]);
+        if (btn) {
+          if (k === key) btn.classList.add('on');
+          else btn.classList.remove('on');
+        }
+      });
+      
+      var listEl = document.getElementById('screeners-list');
+      if (!listEl || !window.screenersData) return;
+      
+      var list = window.screenersData[key] || [];
+      if (list.length === 0) {
+        listEl.innerHTML = '<div class="picks-empty">მონაცემები არ არის. (No data available.)</div>';
+        return;
+      }
+      
+      listEl.innerHTML = list.map(function(p) {
+        var isPos = p.change >= 0;
+        var changeClass = isPos ? 'pos' : 'neg';
+        var spPath = generateSparkline(p.change, 70, 24);
+        
+        return '<div class="scr-row">' +
+          // Ticker & Name
+          '<div class="pick-col-ticker">' +
+            '<a class="pick-ticker" href="https://finance.yahoo.com/quote/' + esc(p.ticker) + '" target="_blank" rel="noopener">' + esc(p.ticker) + '</a>' +
+            '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+          '</div>' +
+          // Price & Change
+          '<div class="pick-price-box">' +
+            '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
+            '<span class="pick-change ' + changeClass + '">' + fmtChange(p.change, p.changePct) + '</span>' +
+          '</div>' +
+          // Sparkline
+          '<div class="scr-col-sparkline">' +
+            '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
+              '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
+            '</svg>' +
+          '</div>' +
+          // Spacer/Gap
+          '<div></div>' +
+        '</div>';
+      }).join('');
+    };
     
     loadPicks();
   })();
