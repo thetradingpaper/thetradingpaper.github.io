@@ -92,29 +92,16 @@ button:active { transform: translateY(1px); }
 ::-webkit-scrollbar-thumb:hover { background: #b3a997; }
 
 /* ==========================================================
-   Scroll-reveal — modern browsers only (Chrome/Edge).
-   Gated by @supports so unsupported browsers just show content
-   normally (no JS, no flash-of-hidden-content risk).
+   Scroll-reveal — driven by enhance.js (initReveal there).
+   Content is visible by default; JS adds .ttp-pre only to
+   below-fold sections, so nothing can ever be stuck hidden.
+   (Replaced animation-timeline:view(), which left sections
+   at opacity:0 on some Chrome builds.)
    ========================================================== */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .book-header,
-    .alloc-mountain,
-    .holdings-head,
-    .acc,
-    .rules-box,
-    .tx-header,
-    .tp-archwrap,
-    .total-hero {
-      animation: ttp-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 32%;
-    }
-    @keyframes ttp-rise {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-  }
+@media (prefers-reduced-motion: no-preference) {
+  .ttp-pre { opacity: 0; transform: translateY(24px); }
+  .ttp-in  { opacity: 1; transform: none;
+             transition: opacity .55s ease-out, transform .55s ease-out; }
 }
 
 /* ---- respect reduced-motion globally ---- */
