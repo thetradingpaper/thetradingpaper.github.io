@@ -132,10 +132,56 @@
   }
 
   // ---------------------------------------------------------
+  // 4. SCROLL-REVEAL — replaces the old CSS animation-timeline:
+  //    view() rule, which could leave whole sections stuck at
+  //    opacity:0. Below-fold sections get .ttp-pre and are shown
+  //    (.ttp-in) as they scroll into view; timed failsafe reveals
+  //    anything left over so content can never stay hidden.
+  // ---------------------------------------------------------
+  function initReveal() {
+    if (reduce) return;
+    var sel = '.book-header, .alloc-mountain, .holdings-head, .acc, .rules-box, .tx-header, .tp-archwrap';
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    if (!els.length) return;
+    var pending = [];
+    els.forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight + 8) {
+        el.classList.add('ttp-pre');
+        pending.push(el);
+      }
+    });
+    if (!pending.length) return;
+    var ticking = false;
+    function show(el) { el.classList.add('ttp-in'); el.classList.remove('ttp-pre'); }
+    function sweep() {
+      ticking = false;
+      for (var i = pending.length - 1; i >= 0; i--) {
+        if (pending[i].getBoundingClientRect().top < window.innerHeight - 30) {
+          show(pending[i]);
+          pending.splice(i, 1);
+        }
+      }
+      if (!pending.length) document.removeEventListener('scroll', onScroll, true);
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(sweep); }
+    }
+    // capture:true so scrolls inside nested containers also trigger sweeps
+    document.addEventListener('scroll', onScroll, true);
+    setTimeout(sweep, 1000);   // catch layout shifts from fonts/charts
+    setTimeout(function () {   // absolute failsafe
+      pending.slice().forEach(show);
+      pending.length = 0;
+      document.removeEventListener('scroll', onScroll, true);
+    }, 15000);
+  }
+
+  // ---------------------------------------------------------
   function init() {
     buildThemeButton();
     buildMiniHeader();
     runCountUp();
+    initReveal();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

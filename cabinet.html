@@ -13,7 +13,7 @@
 <meta property="og:image" content="images/lasha.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/enhance.css?v=20260630b">
+<link rel="stylesheet" href="css/enhance.css?v=20260710a">
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -1300,11 +1300,10 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 
   function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal); }
   refreshAllBooks();
-  // 12s poll (faster live refresh; Finnhub real-time primary). History: 5s flooded the public CORS proxies (56 req/cycle) → rate-limited.
-  // Now each quote uses a hedged proxy race (~1.3 req/ticker, see fetchLiveQuote) +
-  // a cache-busting nonce, so 20s here keeps the SAME ~0.9 req/s sustained proxy load
-  // as the old 60s did — but prices repaint 3× more often and aren't served stale.
-  const POLL_MS = 12000;
+  // 20s poll. Finnhub free tier = 60 calls/min; 16 tickers × 3 cycles/min = 48,
+  // which fits. 12s (5 cycles/min = 80 calls) tripped 429s after ~40s and live
+  // prices silently stopped updating — don't go below 20s without batching.
+  const POLL_MS = 20000;
   let _refreshTimer = setInterval(refreshAllBooks, POLL_MS);
   // Repaint immediately when the user returns to the tab; pause while hidden.
   document.addEventListener('visibilitychange', () => {
@@ -1407,7 +1406,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
 
 
 <script src="js/mountain-range.js"></script>
-<script src="js/enhance.js?v=20260701"></script>
+<script src="js/enhance.js?v=20260710a"></script>
 <script src="js/masthead.js?v=5"></script>
 <script src="js/i18n.js?v=1"></script>
 <script src="js/clocks.js?v=1"></script></body>
