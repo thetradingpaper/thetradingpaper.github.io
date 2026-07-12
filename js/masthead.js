@@ -14,12 +14,13 @@
 // ============================================================
 (function () {
   // ---- PRIMARY horizontal tabs -------------------------------------------
-  // My Cabinet · Market Notes · Analysis · Kvleva 3.0
+  // My Cabinet · Market Notes · Analysis · Kvleva 3.0 · Kvleva 5.0 (BETA)
   var TABS = [
     { href: '/',                   label: 'ჩემი კაბინეტი',   re: /^\/(index\.html)?$/ },
     { href: '/notes.html',         label: 'ბაზრის ჩანაწერი', re: /^\/notes/ },
     { href: '/meportfolio/',       label: 'ანალიზი',         re: /^\/meportfolio/ },
-    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ }
+    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ },
+    { href: '/kvleva5/',           label: 'კვლევა 5.0',      re: /^\/kvleva5/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
