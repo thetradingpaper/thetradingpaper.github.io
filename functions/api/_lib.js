@@ -74,16 +74,19 @@ async function cached(env, key, ttlSeconds, producer) {
    ============================================================ */
 
 /* ---- Finnhub (free tier: quote, profile2, metric, news) --- */
-async function finnhub(env, path) {
+// `timeoutMs` lets callers tighten the per-request budget (e.g. /api/quotes
+// uses 4s so a slow provider can't stall a whole batch). Defaults preserve
+// the original 8s behaviour for existing callers (dossier).
+async function finnhub(env, path, timeoutMs = 8000) {
   const key = env.FINNHUB_API_KEY;
   if (!key) return { _unavailable: "no-finnhub-key" };
   const sep = path.includes("?") ? "&" : "?";
-  return await fetchJson(`https://finnhub.io/api/v1${path}${sep}token=${encodeURIComponent(key)}`);
+  return await fetchJson(`https://finnhub.io/api/v1${path}${sep}token=${encodeURIComponent(key)}`, {}, timeoutMs);
 }
 
-export async function fhQuote(env, ticker) {
+export async function fhQuote(env, ticker, timeoutMs = 8000) {
   return await cached(env, `q:${ticker}:${Math.floor(Date.now() / 60000)}`, 90, () =>
-    finnhub(env, `/quote?symbol=${encodeURIComponent(ticker)}`));
+    finnhub(env, `/quote?symbol=${encodeURIComponent(ticker)}`, timeoutMs));
 }
 export async function fhProfile(env, ticker) {
   return await cached(env, `p:${ticker}:${todayUTC()}`, 86400, () =>
@@ -101,13 +104,13 @@ export async function fhNews(env, ticker) {
 }
 
 /* ---- Alpha Vantage: one daily series → all momentum maths -- */
-export async function avDailyMetrics(env, ticker) {
+export async function avDailyMetrics(env, ticker, timeoutMs = 12000) {
   const key = env.ALPHAVANTAGE_API_KEY;
   if (!key) return { status: "unavailable", reason: "no-alphavantage-key" };
   return await cached(env, `av:${ticker}:${todayUTC()}`, 86400, async () => {
     const js = await fetchJson(
       `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${encodeURIComponent(ticker)}&outputsize=full&apikey=${encodeURIComponent(key)}`,
-      {}, 12000);
+      {}, timeoutMs);
     if (js._httpError || js._fetchError) return { status: "unavailable", reason: "network" };
     if (js.Note || js.Information) return { status: "unavailable", reason: "rate-limited" };
     if (js["Error Message"] || !js["Time Series (Daily)"]) return { status: "unavailable", reason: "no-series" };
@@ -460,13 +463,231 @@ export async function writeSignal(env, rec) {
   if (!store) return { stored: false, reason: "kv-not-configured", signal };
   try {
     const arr = (await store.get(SIG_KEY, "json")) || [];
+    // Make sure every existing entry is already notarized before we link
+    // the new one onto the head (one-time backfill for pre-chain logs).
+    const { head } = await ensureChainInPlace(arr);
+    // Notarize the new entry: hash( content + prev_hash-of-current-head ).
+    signal.prev_hash = head || "";
+    signal.hash = await computeEntryHash(signal, signal.prev_hash);
     arr.unshift(signal);                       // newest first
     if (arr.length > SIG_CAP) arr.length = SIG_CAP;
     await store.put(SIG_KEY, JSON.stringify(arr));
+    await store.put(CHAIN_HEAD_KEY, signal.hash);
     return { stored: true, signal, count: arr.length };
   } catch (e) {
     return { stored: false, reason: String(e && e.message || e), signal };
   }
+}
+
+/* ============================================================
+   TAMPER-EVIDENT HASH CHAIN over the signal log
+   Each entry stores SHA-256( canonicalJSON(content) + prev_hash ).
+   Any silent edit, reorder, or deletion within the retained window
+   breaks verification — that is what makes "real prediction" claims
+   defensible. chain_head is the notarized head hash shown on the page.
+   ============================================================ */
+export const CHAIN_HEAD_KEY = "kvleva5:chain_head";
+
+// Only these fields are notarized. Additive/display fields (hash,
+// prev_hash, muted, …) are deliberately excluded so the hash is stable.
+function chainContent(s) {
+  return {
+    id: s.id ?? null,
+    ts: s.ts ?? null,
+    date: s.date ?? null,
+    ticker: s.ticker ?? null,
+    price: s.price ?? null,
+    score: s.score ?? null,
+    band: s.band ?? null,
+    bandKa: s.bandKa ?? null,
+  };
+}
+
+// Deterministic JSON: keys sorted recursively so the same logical object
+// always hashes identically regardless of insertion order.
+export function canonicalJSON(value) {
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) return "[" + value.map(canonicalJSON).join(",") + "]";
+  const keys = Object.keys(value).sort();
+  return "{" + keys.map((k) => JSON.stringify(k) + ":" + canonicalJSON(value[k])).join(",") + "}";
+}
+
+export async function sha256hex(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  const bytes = new Uint8Array(buf);
+  let hex = "";
+  for (let i = 0; i < bytes.length; i++) hex += bytes[i].toString(16).padStart(2, "0");
+  return hex;
+}
+
+export async function computeEntryHash(sig, prevHash) {
+  return await sha256hex(canonicalJSON({ content: chainContent(sig), prev_hash: prevHash || "" }));
+}
+
+// arr is newest-first. Recompute the whole chain oldest→newest, writing
+// hash/prev_hash onto each entry in place. Returns the head (newest hash).
+async function rebuildChainInPlace(arr) {
+  let prev = "";
+  for (let i = arr.length - 1; i >= 0; i--) {   // oldest → newest
+    arr[i].prev_hash = prev;
+    arr[i].hash = await computeEntryHash(arr[i], prev);
+    prev = arr[i].hash;
+  }
+  return arr.length ? arr[0].hash : "";
+}
+
+// Only rebuilds when something is missing a hash (one-time backfill);
+// otherwise trusts the existing chain and returns the current head.
+async function ensureChainInPlace(arr) {
+  if (arr.length === 0) return { head: "", rebuilt: false };
+  const missing = arr.some((s) => !s.hash || !("prev_hash" in s));
+  if (missing) return { head: await rebuildChainInPlace(arr), rebuilt: true };
+  return { head: arr[0].hash, rebuilt: false };
+}
+
+// Verify the retained window: each entry's hash must recompute from its own
+// content + stored prev_hash, and each prev_hash must link to the previous
+// (older) entry's hash. The oldest retained entry is the anchor — its
+// prev_hash may reference an entry already dropped by the SIG_CAP window.
+export async function verifyChain(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return { valid: true, head: "" };
+  for (let i = arr.length - 1; i >= 0; i--) {   // oldest → newest
+    const e = arr[i];
+    if (!e.hash) return { valid: false, head: arr[0].hash || "" };
+    if ((await computeEntryHash(e, e.prev_hash || "")) !== e.hash) {
+      return { valid: false, head: arr[0].hash || "" };
+    }
+    if (i < arr.length - 1 && e.prev_hash !== arr[i + 1].hash) {
+      return { valid: false, head: arr[0].hash || "" };
+    }
+  }
+  return { valid: true, head: arr[0].hash };
+}
+
+// Read the log, backfill the chain once if needed (persisting it), and
+// verify. Never throws — on any KV hiccup it reports chain_valid:true with
+// whatever it has, so /api/journal never fails on notarization alone.
+export async function ensureChain(env) {
+  const store = kv(env);
+  const { source, signals } = await readSignals(env);
+  if (!store || signals.length === 0) {
+    return { signals, chain_head: signals[0]?.hash || null, chain_valid: true, source };
+  }
+  const { head, rebuilt } = await ensureChainInPlace(signals);
+  if (rebuilt) {
+    try {
+      await store.put(SIG_KEY, JSON.stringify(signals));
+      await store.put(CHAIN_HEAD_KEY, head);
+    } catch (_) {}
+  }
+  const v = await verifyChain(signals);
+  let storedHead = null;
+  try { storedHead = await store.get(CHAIN_HEAD_KEY); } catch (_) {}
+  const chain_valid = v.valid && (storedHead == null || storedHead === head);
+  return { signals, chain_head: head, chain_valid, source };
+}
+
+/* ============================================================
+   DAILY PRICE SNAPSHOTS — one immutable point per ticker per UTC day.
+   key: kvleva5:snapshots:<TICKER>:<YYYY-MM-DD>  value: { price, ts }
+   The price is duplicated into KV metadata {p,t} so a whole sparkline
+   series rebuilds from a single list() call — no per-key gets, no extra
+   provider calls. The journal literally grows richer the longer it lives.
+   ============================================================ */
+export const SNAP_PREFIX = "kvleva5:snapshots:";
+
+// Write today's snapshot for a ticker if (and only if) it doesn't exist
+// yet today. Immutable once written. Returns true if a new point was stored.
+export async function writeSnapshotIfAbsent(env, ticker, price, ts) {
+  const store = kv(env);
+  if (!store || price == null || !isFinite(price)) return false;
+  const key = `${SNAP_PREFIX}${ticker}:${todayUTC()}`;
+  try {
+    if ((await store.get(key)) !== null) return false;   // already snapped today
+    const rec = { price: +(+price).toFixed(4), ts: ts || new Date().toISOString() };
+    await store.put(key, JSON.stringify(rec), { metadata: { p: rec.price, t: rec.ts } });
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+// Ascending [{date, price}] for a ticker, read cheaply from list() metadata.
+export async function readSnapshotSeries(env, ticker) {
+  const store = kv(env);
+  if (!store) return [];
+  const prefix = `${SNAP_PREFIX}${ticker}:`;
+  const out = [];
+  try {
+    let cursor;
+    do {
+      const res = await store.list({ prefix, cursor, limit: 1000 });
+      for (const k of res.keys) {
+        const p = k.metadata && k.metadata.p;
+        if (p == null) continue;                            // skip metadata-less keys (cheap path)
+        out.push({ date: k.name.slice(prefix.length), price: +p });
+      }
+      cursor = res.list_complete ? null : res.cursor;
+    } while (cursor);
+  } catch (_) {
+    return out;
+  }
+  out.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  return out;
+}
+
+/* ============================================================
+   FROZEN GRADES — immutable verdicts. Written once, NEVER overwritten.
+   key: kvleva5:grades:<signalId>:<horizon>  value:
+     { horizon, graded_at, as_of, price_at_grade, signal_price,
+       return_pct, verdict, source }
+   Frozen grades are the ONLY input to hit-rate / avg-return stats, so a
+   verdict can never retroactively change once the horizon has passed.
+   ============================================================ */
+export const GRADE_PREFIX = "kvleva5:grades:";
+
+export function gradeKey(signalId, horizon) { return `${GRADE_PREFIX}${signalId}:${horizon}`; }
+
+export async function readGrade(env, signalId, horizon) {
+  const store = kv(env);
+  if (!store) return null;
+  try { return await store.get(gradeKey(signalId, horizon), "json"); } catch (_) { return null; }
+}
+
+// Write once. If a record already exists it is returned untouched — a
+// frozen grade is permanent (no TTL). Returns the record actually in force.
+export async function freezeGrade(env, signalId, horizon, record) {
+  const store = kv(env);
+  if (!store) return record;
+  const key = gradeKey(signalId, horizon);
+  try {
+    const existing = await store.get(key, "json");
+    if (existing) return existing;                          // immutable — never overwrite
+    await store.put(key, JSON.stringify(record));           // no TTL — permanent
+    return record;
+  } catch (_) {
+    return record;
+  }
+}
+
+/* ---------- gradability + verdicts ------------------------- */
+// Only directional research calls are gradable. WATCH/NEUTRAL/WEAK are
+// observations, not predictions, so they are never scored.
+export const GRADABLE_BANDS = new Set(["STRONG RESEARCH INTEREST", "SHORT-SIDE CANDIDATE"]);
+
+export function isGradableBand(band) {
+  return GRADABLE_BANDS.has(String(band || "").toUpperCase());
+}
+
+// Thesis-adjusted verdict. rawPct = (grade_price - signal_price)/signal_price*100.
+// A short-side thesis profits when price FALLS, so the sign is flipped.
+// FLAT = |move| < 1% (thesis neither confirmed nor denied).
+export function verdictFor(band, rawPct) {
+  if (rawPct == null || !isFinite(rawPct)) return "PENDING";
+  const thesis = String(band || "").toUpperCase() === "SHORT-SIDE CANDIDATE" ? -rawPct : rawPct;
+  if (thesis >= 1) return "HIT";
+  if (thesis <= -1) return "MISS";
+  return "FLAT";
 }
 
 /* end · კვლევა 5.0 shared library */

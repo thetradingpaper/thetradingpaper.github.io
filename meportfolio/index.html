@@ -163,7 +163,7 @@
   <div class="widget" style="margin-top:26px;">
     <div class="widget-title" style="display:flex; justify-content:space-between; align-items:center;">
       <span>ბაზარი · კვლევა 3.0</span>
-      <a href="/kvleva3" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
+      <a href="/research.html?tab=searcher" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
     </div>
     <div id="kvleva3-ticker-block" style="padding:16px 20px;">
       <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);">იტვირთება მონაცემები…</div>
@@ -436,7 +436,7 @@ if(typeof portfolios!=='undefined'){
             var isPos = p.change >= 0;
             var sign = isPos ? '+' : '−';
             var chVal = sign + '$' + Math.abs(p.change).toFixed(2) + ' (' + (isPos ? '+' : '−') + Math.abs(p.changePct).toFixed(2) + '%)';
-            return '<a class="kv3-ticker-item" href="/kvleva3">' +
+            return '<a class="kv3-ticker-item" href="/research.html?tab=searcher">' +
               '<span class="tk">' + esc(p.ticker) + '</span>' +
               '<span class="pr">$' + (+p.price).toFixed(2) + '</span>' +
               '<span class="ch ' + (isPos ? 'pos' : 'neg') + '">' + chVal + '</span>' +

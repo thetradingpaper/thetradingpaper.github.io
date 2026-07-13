@@ -20,12 +20,8 @@
   // My Cabinet · Market Notes · Analysis · Kvleva 3.0 · Kvleva 5.0 (BETA)
   var TABS = [
     { href: '/',                   label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/(index\.html)?$/ },
-    { href: '/notes.html',         label: lang === 'ka' ? 'ბაზრის ჩანაწერი' : 'Market Notes', re: /^\/notes/ },
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ანალიზი' : 'Analysis',         re: /^\/meportfolio/ },
-    { href: '/kvleva3.html',       label: lang === 'ka' ? 'კვლევა 3.0' : 'Kvleva 3.0',      re: /^\/kvleva3/ },
-    { href: '/kvleva5/',           label: lang === 'ka' ? 'კვლევა 5.0' : 'Kvleva 5.0',      re: /^\/kvleva5\/$/ },
-    { href: '/kvleva5/journal/',   label: lang === 'ka' ? 'ჟურნალი' : 'Journal', re: /^\/kvleva5\/journal/ },
-    { href: '/kvleva5/legal/',     label: lang === 'ka' ? 'სამართლებრივი' : 'Legal', re: /^\/kvleva5\/legal/ }
+    { href: '/research.html',      label: lang === 'ka' ? 'კვლევითი ცენტრი' : 'Research Center', re: /^\/(research|kvleva)/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------

@@ -3,212 +3,1963 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Trading Paper — Research Desk · კვლევის ბოტი</title>
+<title>კვლევითი ცენტრი · The Trading Paper</title>
+<meta name="description" content="The Trading Paper — კვლევითი ცენტრი: სტოკ მრჩეველი, მაძიებელი, შემფასებელი და სიგნალების ჟურნალი.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=mkt1">
+<link rel="stylesheet" href="/css/enhance.css?v=20260710a">
+<script>
+  (function(){
+    try {
+      if(localStorage.getItem('tp_theme')==='dark') document.documentElement.setAttribute('data-theme','dark');
+      var lang = localStorage.getItem('tp_lang') || 'ka';
+      document.documentElement.setAttribute('lang', lang);
+    } catch(e){}
+  })();
+</script>
 <style>
-  :root{
-    --paper:#f5f0e6; --ink:#1d1a14; --muted:#6b6357; --line:#c9bfa9;
-    --green:#1d6b45; --red:#9c2b2b; --amber:#9a6a14; --card:#fbf8f1;
+  /* Bilingual Support */
+  html[lang="ka"] [lang="en"] { display: none !important; }
+  html[lang="en"] [lang="ka"] { display: none !important; }
+
+  /* Tab Sub-Navigation */
+  .research-subnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--rule, #1d1a14);
+    margin-bottom: 24px;
+    font-family: "Noto Sans Georgian", sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{background:var(--paper); color:var(--ink);
-       font-family:Georgia,"Times New Roman",serif; line-height:1.6;}
-  .wrap{max-width:980px; margin:0 auto; padding:18px;}
-  header{text-align:center; border-bottom:3px double var(--ink); padding:14px 0 10px;}
-  .kicker{font-size:12px; letter-spacing:2px; color:var(--muted); text-transform:uppercase;}
-  h1{font-size:42px; letter-spacing:1px;}
-  .sub{font-style:italic; color:var(--muted); font-size:14px;}
-  nav{display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
-      border-bottom:1px solid var(--line); padding:8px 0; font-size:14px;}
-  nav a{color:var(--ink); text-decoration:none;}
-  nav a:hover{text-decoration:underline;}
-  .book{font-style:italic; text-align:center; color:var(--muted); margin:16px 0 4px;}
-  .notif{background:var(--card); border:1px solid var(--line); border-left:6px solid var(--green);
-         padding:18px; margin:18px 0; font-size:18px;}
-  .notif.WAIT{border-left-color:var(--muted);}
-  .notif.STARTER{border-left-color:var(--amber);}
-  .notif .mode{font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:6px;}
-  .meta{font-size:13px; color:var(--muted); text-align:center; margin:6px 0 14px;}
-  .stale{background:#f3dede; border:1px solid var(--red); color:var(--red);
-         padding:10px; font-size:14px; margin:10px 0; display:none;}
-  .pick{background:var(--card); border:1px solid var(--line); margin:12px 0; padding:14px 16px;}
-  .pick h3{font-size:20px; display:flex; justify-content:space-between; align-items:baseline;}
-  .score{font-size:14px; color:var(--green);}
-  .horizon{font-size:12px; color:var(--muted); font-style:italic;}
-  .cat{font-size:14px; margin:6px 0 2px; padding-left:10px; border-left:3px solid var(--line);}
-  .cat b{color:var(--green); font-weight:normal; font-variant:small-caps;}
-  .plan{font-size:14px; margin-top:8px; color:var(--ink);}
-  .plan span{margin-right:14px;}
-  .plan .t{color:var(--green);} .plan .s{color:var(--red);}
-  table{width:100%; border-collapse:collapse; font-size:14px; margin:10px 0;}
-  th,td{border-bottom:1px solid var(--line); padding:6px 8px; text-align:left;}
-  th{font-size:12px; letter-spacing:1px; color:var(--muted); text-transform:uppercase;}
-  h2{font-size:22px; margin:26px 0 6px; border-bottom:1px solid var(--line); padding-bottom:4px;}
-  .rules{font-size:14px; color:var(--muted); margin:14px 0;}
-  .rules li{margin:4px 0 4px 18px;}
-  footer{text-align:center; font-size:13px; color:var(--muted);
-         border-top:3px double var(--ink); margin-top:30px; padding:14px 0;}
-  .labgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;}
-  .labcard{background:var(--card); border:1px solid var(--line); border-top:3px solid var(--muted); padding:10px 12px;}
-  .labcard h4{font-size:15px; margin-bottom:2px;}
-  .labcard .eq{font-size:20px; font-weight:bold;}
-  .labcard .ret.pos{color:var(--green);} .labcard .ret.neg{color:var(--red);}
-  .labcard .small{font-size:11.5px; color:var(--muted); line-height:1.45;}
-  @media(max-width:600px){ h1{font-size:30px;} .notif{font-size:16px;} }
+  .research-subnav a {
+    color: var(--muted, #6b6357);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.15s, border-bottom-color 0.15s;
+  }
+  .research-subnav a:hover {
+    color: var(--ink, #1d1a14);
+    border-bottom-color: var(--muted, #6b6357);
+  }
+  .research-subnav a.active {
+    color: var(--red, #b91c1c);
+    border-bottom-color: var(--red, #b91c1c);
+  }
+
+  /* Information Boxes (Structured Explanations) */
+  .research-info-box {
+    background: var(--paper, #f5f0e6);
+    border: 1px solid var(--border, #c9bfa9);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.01);
+  }
+  .research-info-box .info-badge {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red, #b91c1c);
+    margin-bottom: 12px;
+    border-bottom: 1px dashed var(--border, #c9bfa9);
+    padding-bottom: 6px;
+  }
+  .research-info-box .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .research-info-box .info-col {
+    border-right: 1px dashed var(--border, #c9bfa9);
+    padding-right: 16px;
+  }
+  .research-info-box .info-col:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+  @media (max-width: 768px) {
+    .research-info-box .info-col {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: 1px dashed var(--border, #c9bfa9);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+    .research-info-box .info-col:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+  .research-info-box .info-title {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--ink, #1d1a14);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .research-info-box .info-text {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--muted, #6b6357);
+  }
+
+  /* ========================================================
+     Styles: Advisor (Research Bot)
+     ======================================================== */
+  .advisor-wrap { max-width: 980px; margin: 0 auto; }
+  .advisor-book { font-style: italic; text-align: center; color: var(--muted); margin: 16px 0 4px; }
+  .advisor-testchip { display: inline-block; border: 2px solid var(--red); color: var(--red); padding: 4px 14px; font-size: 12px; letter-spacing: 3px; font-weight: bold; }
+  .advisor-meta { font-size: 13px; color: var(--muted); text-align: center; margin: 6px 0 14px; }
+  .advisor-stale { background: #f3dede; border: 1px solid var(--red); color: var(--red); padding: 10px; font-size: 14px; margin: 10px 0; display: none; }
+  .advisor-notif { background: var(--bg); border: 1px solid var(--border); border-left: 6px solid var(--green); padding: 18px; margin: 18px 0; font-size: 18px; }
+  .advisor-notif.WAIT { border-left-color: var(--muted); }
+  .advisor-notif.STARTER { border-left-color: var(--accent); }
+  .advisor-notif .mode { font-size: 11px; letter-spacing: 2px; color: var(--muted); display: block; margin-bottom: 6px; text-transform: uppercase; }
+  
+  .advisor-pick { background: var(--bg); border: 1px solid var(--border); margin: 12px 0; padding: 16px 18px; }
+  .advisor-pick h3 { font-size: 20px; display: flex; justify-content: space-between; align-items: baseline; font-family: 'Noto Serif Georgian', serif; }
+  .advisor-pick .score { font-size: 14px; color: var(--green); font-family: 'Noto Sans Georgian', sans-serif; }
+  .advisor-pick .horizon { font-size: 12px; color: var(--muted); font-style: italic; }
+  .advisor-pick .cat { font-size: 13.5px; margin: 6px 0 2px; padding-left: 10px; border-left: 3px solid var(--border); }
+  .advisor-pick .cat b { color: var(--green); font-weight: 700; font-variant: small-caps; }
+  .advisor-pick .plan { font-size: 13.5px; margin-top: 8px; color: var(--ink); }
+  .advisor-pick .plan span { margin-right: 14px; }
+  .advisor-pick .plan .t { color: var(--green); font-weight: 700; }
+  .advisor-pick .plan .s { color: var(--red); font-weight: 700; }
+  
+  .advisor-labgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .advisor-labcard { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid var(--muted); padding: 12px 14px; }
+  .advisor-labcard h4 { font-size: 14.5px; margin-bottom: 2px; font-family: 'Noto Serif Georgian', serif; }
+  .advisor-labcard .eq { font-size: 19px; font-weight: bold; font-family: ui-monospace, monospace; margin: 4px 0; }
+  .advisor-labcard .ret.pos { color: var(--green); } 
+  .advisor-labcard .ret.neg { color: var(--red); }
+  .advisor-labcard .small { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+  .advisor-rules { font-size: 13.5px; color: var(--muted); margin: 14px 0; line-height: 1.6; }
+  .advisor-rules li { margin: 6px 0 6px 20px; }
+
+  /* ========================================================
+     Styles: Searcher (Research 3.0)
+     ======================================================== */
+  .kv3-container { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
+  @media(max-width: 990px) { .kv3-container { grid-template-columns: 1fr; } }
+  .kv3-sidebar { display: flex; flex-direction: column; gap: 20px; }
+  .methodology-box { padding: 20px 22px; background: var(--bg); border: 1px solid var(--border); }
+  .m-head { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--rule); padding-bottom: 8px; margin-bottom: 16px; font-weight: 700; }
+  .m-desc { font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .m-desc-en { font-size: 11.5px; line-height: 1.5; color: var(--muted); font-style: italic; margin-bottom: 18px; }
+  .m-item { margin-bottom: 18px; }
+  .m-item:last-child { margin-bottom: 0; }
+  .m-title { font-family: 'Noto Serif Georgian', serif; font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+  .m-text { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; line-height: 1.5; margin-bottom: 2px; }
+  .m-text-en { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; line-height: 1.4; color: var(--muted); font-style: italic; }
+
+  .picks-box { background: var(--bg); border: 1px solid var(--border); }
+  .picks-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 2px solid var(--rule); }
+  .picks-head-title { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .picks-date-stamp { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--muted); }
+  
+  .picks-list { display: flex; flex-direction: column; }
+  .pick-row { display: grid; grid-template-columns: 110px 130px 100px 110px 40px 1fr; gap: 16px; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+  .pick-row:last-child { border-bottom: none; }
+  .pick-row:hover { background: rgba(185, 28, 28, 0.01); }
+  @media(max-width: 820px) {
+    .pick-row { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+    .pick-col-thesis { grid-column: span 2; border-top: 1px dashed var(--border); padding-top: 10px; margin-top: 4px; }
+    .pick-col-sparkline { justify-self: end; }
+  }
+
+  .pick-col-ticker { display: flex; flex-direction: column; }
+  .pick-ticker { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 17px; text-decoration: none; color: var(--ink); border-bottom: 1px dashed var(--muted); align-self: start; line-height: 1.2; }
+  .pick-ticker:hover { color: var(--red); border-bottom-color: var(--red); }
+  .pick-name { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pick-sector { font-family: 'Noto Sans Georgian', sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); background: rgba(26, 26, 26, 0.04); border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; align-self: start; display: inline-block; }
+  html[data-theme="dark"] .pick-sector { background: rgba(255, 255, 255, 0.04); }
+  .pick-price-box { display: flex; flex-direction: column; font-family: ui-monospace, monospace; font-weight: 700; }
+  .pick-price { font-size: 15px; color: var(--ink); }
+  .pick-change { font-size: 12px; margin-top: 2px; }
+  .pick-change.pos { color: var(--green); }
+  .pick-change.neg { color: var(--red); }
+  .pick-sparkline-svg { display: block; width: 70px; height: 24px; }
+  .pick-thesis { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12.5px; line-height: 1.5; color: var(--ink); }
+  .pick-thesis-en { display: block; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  .sidebar-markets { padding: 20px 22px; background: var(--bg); border: 1px solid var(--border); }
+  .leaders-section { margin-bottom: 12px; }
+  .leaders-section:last-child { margin-bottom: 0; }
+  .leaders-title { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 4px; }
+  .leaders-list { display: flex; flex-direction: column; }
+  .leader-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  html[data-theme="dark"] .leader-row { border-bottom-color: rgba(255,255,255,0.04); }
+  .leader-row:last-child { border-bottom: none; }
+  .leader-col-info { display: flex; flex-direction: column; min-width: 90px; flex: 1; }
+  .leader-ticker { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 14px; text-decoration: none; color: var(--ink); border-bottom: 1px dashed var(--muted); align-self: start; line-height: 1.2; }
+  .leader-ticker:hover { color: var(--red); border-bottom-color: var(--red); }
+  .leader-name { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100px; }
+  .leader-col-spark { width: 50px; text-align: center; }
+  .leader-sparkline-svg { display: block; width: 50px; height: 18px; }
+  .leader-col-val { display: flex; flex-direction: column; align-items: flex-end; font-family: ui-monospace, monospace; font-weight: 700; font-size: 12.5px; min-width: 75px; }
+  .leader-price { color: var(--ink); }
+  .leader-change { font-size: 11px; margin-top: 2px; }
+  .leader-change.pos { color: var(--green); }
+  .leader-change.neg { color: var(--red); }
+  .leaders-empty, .picks-empty { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--muted); padding: 16px; text-align: center; }
+  .picks-empty { padding: 48px; }
+
+  .scr-row { display: grid; grid-template-columns: 140px 170px 110px 1fr; gap: 16px; align-items: center; padding: 10px 20px; border-bottom: 1px solid var(--border); }
+  .scr-row:last-child { border-bottom: none; }
+  .scr-row:hover { background: rgba(185, 28, 28, 0.01); }
+  @media(max-width: 640px) {
+    .scr-row { grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+    .scr-row div:last-child { display: none; }
+    .scr-col-sparkline { justify-self: end; }
+  }
+  .sort-toggle { border: 1px solid var(--border); display: inline-flex; flex-wrap: wrap; }
+  .sort-toggle button { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; padding: 4px 10px; border: none; background: transparent; color: var(--muted); cursor: pointer; }
+  .sort-toggle button.on { background: var(--ink); color: var(--paper); font-weight: 700; }
+
+  /* ========================================================
+     Styles: Evaluator (Research 5.0)
+     ======================================================== */
+  .kv5-beta { display: inline-block; font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #fff; background: var(--red); padding: 2px 7px; border-radius: 3px; vertical-align: middle; margin-left: 8px; }
+  .kv5-live { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); display: inline-flex; align-items: center; gap: 6px; }
+  .kv5-live .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 5px rgba(22, 101, 52, .6); }
+  .kv5-live.sample { color: var(--accent); }
+  .kv5-live.sample .dot { background: var(--accent); box-shadow: none; }
+
+  .kv5-search { background: var(--bg); border: 1px solid var(--border); border-top: 3px double var(--rule); padding: 20px 22px; }
+  .kv5-search-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: stretch; }
+  .kv5-search input { flex: 1; min-width: 200px; font-family: 'Noto Serif Georgian', serif; font-size: 20px; font-weight: 700; padding: 10px 14px; border: 1px solid var(--border); background: var(--paper); color: var(--ink); letter-spacing: 1px; text-transform: uppercase; }
+  .kv5-search input:focus { outline: 2px solid var(--red); outline-offset: -1px; }
+  .kv5-btn { font-family: 'Noto Sans Georgian', sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 1px; padding: 10px 24px; border: 1px solid var(--border); background: var(--ink); color: var(--paper); cursor: pointer; text-transform: uppercase; transition: background .15s; white-space: nowrap; }
+  .kv5-btn:hover { background: var(--red); border-color: var(--red); }
+  .kv5-btn:disabled { opacity: .5; cursor: not-allowed; }
+  .kv5-btn.ghost { background: transparent; color: var(--ink); }
+  .kv5-btn.ghost:hover { background: var(--ink); color: var(--paper); }
+  .kv5-examples { margin-top: 10px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11.5px; color: var(--muted); }
+  .kv5-examples a { color: var(--red); text-decoration: none; border-bottom: 1px dashed var(--red); cursor: pointer; margin: 0 4px; }
+  .kv5-examples a:hover { color: var(--ink); border-color: var(--ink); }
+
+  .kv5-disclaimer { border: 2px solid var(--rule); background: repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(185,28,28,.02) 9px,rgba(185,28,28,.02) 18px); padding: 14px 20px; margin: 16px 0; }
+  .kv5-disclaimer .d-ka { font-family: 'Noto Serif Georgian', serif; font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.5; }
+  .kv5-disclaimer .d-en { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--muted); font-style: italic; line-height: 1.5; margin-top: 5px; }
+  .kv5-disclaimer .d-tag { font-family: 'Noto Sans Georgian', sans-serif; font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--red); font-weight: 700; display: block; margin-bottom: 6px; }
+
+  .kv5-demobar { display: none; background: rgba(139, 105, 20, 0.06); border: 1px dashed var(--accent); color: var(--accent); font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; line-height: 1.5; padding: 10px 16px; margin: 16px 0; }
+  .kv5-demobar.on { display: block; }
+  .kv5-grid { display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: start; margin-top: 16px; }
+  @media(max-width: 980px) { .kv5-grid { grid-template-columns: 1fr; } }
+
+  .kv5-hero { position: relative; background: var(--bg); border: 1px solid var(--border); border-top: 3px double var(--rule); padding: 20px; overflow: hidden; }
+  .kv5-hero.sample::after { content: 'SAMPLE'; position: absolute; top: 12px; right: -30px; transform: rotate(45deg); background: var(--accent); color: #fff; font-family: 'Noto Sans Georgian', sans-serif; font-size: 8px; font-weight: 700; letter-spacing: 2px; padding: 3px 30px; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+  .kv5-hero-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; }
+  .kv5-tk { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 30px; line-height: 1; color: var(--ink); }
+  .kv5-nm { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .kv5-hero-price { text-align: right; font-family: ui-monospace, monospace; }
+  .kv5-hero-price .p { font-size: 22px; font-weight: 700; color: var(--ink); }
+  .kv5-hero-price .c { font-size: 13px; font-weight: 700; margin-top: 2px; }
+  .kv5-scorewrap { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: center; }
+  @media(max-width: 560px) { .kv5-scorewrap { grid-template-columns: 1fr; } }
+  .kv5-scorenum .big { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 68px; line-height: .9; color: var(--ink); }
+  .kv5-scorenum .out { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11.5px; color: var(--muted); letter-spacing: 0.5px; }
+  .kv5-band { display: inline-block; font-family: 'Noto Sans Georgian', sans-serif; font-weight: 700; font-size: 13.5px; letter-spacing: .5px; padding: 4px 10px; border-radius: 3px; color: #fff; margin-top: 6px; }
+  .kv5-band-ka { font-family: 'Noto Serif Georgian', serif; font-weight: 700; font-size: 14.5px; margin-top: 6px; color: var(--ink); }
+  
+  .kv5-meter { margin-top: 4px; }
+  .kv5-meter .bar { position: relative; height: 14px; border: 1px solid var(--border); display: flex; overflow: hidden; background: rgba(0,0,0,0.02); }
+  .kv5-meter .seg { height: 100%; }
+  .kv5-meter .ptr { position: absolute; top: -5px; width: 2px; height: 24px; background: var(--ink); }
+  .kv5-meter .ptr::after { content: '▼'; position: absolute; top: -11px; left: -5px; font-size: 10px; color: var(--ink); }
+  .kv5-meter .labels { display: flex; justify-content: space-between; font-family: 'Noto Sans Georgian', sans-serif; font-size: 9px; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .kv5-band-note { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); font-style: italic; margin-top: 10px; line-height: 1.5; }
+
+  .kv5-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  @media(max-width: 680px) { .kv5-sections { grid-template-columns: 1fr; } }
+  .kv5-card { background: var(--bg); border: 1px solid var(--border); padding: 16px; }
+  .kv5-card.wide { grid-column: 1 / -1; }
+  .kv5-card h3 { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--rule); padding-bottom: 6px; margin: 0 0 12px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .kv5-card h3 .num { color: var(--red); font-weight: 900; }
+  .kv5-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 6px 0; border-bottom: 1px dotted var(--border); }
+  .kv5-row:last-child { border-bottom: none; }
+  .kv5-row .k { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--ink); }
+  .kv5-row .k small { color: var(--muted); font-style: italic; }
+  .kv5-row .v { font-family: ui-monospace, monospace; font-size: 13px; font-weight: 700; color: var(--ink); text-align: right; white-space: nowrap; }
+  .kv5-row .v.pos { color: var(--green); }
+  .kv5-row .v.neg { color: var(--red); }
+  .kv5-unavail { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--muted); font-style: italic; padding: 12px 0; text-align: center; }
+  .kv5-note { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; line-height: 1.5; color: var(--ink); background: rgba(26,26,26,.02); border-left: 3px solid var(--accent); padding: 8px 10px; margin-top: 10px; }
+  html[data-theme="dark"] .kv5-note { background: rgba(255,255,255,.02); }
+  .kv5-hl { display: flex; gap: 8px; align-items: flex-start; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; padding: 5px 0; border-bottom: 1px dotted var(--border); line-height: 1.4; }
+  .kv5-hl:last-child { border-bottom: none; }
+  .kv5-hl .mk { font-weight: 900; flex-shrink: 0; }
+  .kv5-hl .mk.pos { color: var(--green); }
+  .kv5-hl .mk.neg { color: var(--red); }
+  .kv5-fng { display: flex; align-items: center; gap: 12px; }
+  .kv5-fng .num { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 34px; line-height: 1; }
+  .kv5-fng .meta { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11.5px; color: var(--muted); }
+
+  .kv5-analyst-wrap { margin-top: 16px; }
+  .kv5-analyst-out { display: none; background: var(--bg); border: 1px solid var(--border); border-left: 4px solid var(--red); padding: 18px 20px; margin-top: 12px; font-family: 'Noto Serif Georgian', serif; font-size: 14px; line-height: 1.65; white-space: pre-wrap; }
+  .kv5-analyst-out.on { display: block; }
+  .kv5-analyst-out .byline { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 10px; }
+
+  .kv5-side .box { background: var(--bg); border: 1px solid var(--border); padding: 16px 18px; margin-bottom: 18px; }
+  .kv5-side h4 { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--rule); padding-bottom: 6px; margin: 0 0 12px; font-weight: 700; }
+  .kv5-bandkey { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11.5px; }
+  .kv5-bandkey .sw { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .kv5-bandkey .rng { font-family: ui-monospace, monospace; color: var(--muted); margin-left: auto; font-size: 10.5px; }
+  .kv5-method p { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11.5px; line-height: 1.55; color: var(--ink); margin: 0 0 8px; }
+  .kv5-method p.en { color: var(--muted); font-style: italic; font-size: 10.5px; }
+  .kv5-weights { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
+  .kv5-sig { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px dotted var(--border); font-family: ui-monospace, monospace; font-size: 11.5px; }
+  .kv5-sig:last-child { border-bottom: none; }
+  .kv5-sig .t { font-weight: 700; color: var(--ink); }
+  .kv5-sig .d { color: var(--muted); font-size: 10px; }
+  .kv5-sig .sc { font-weight: 700; }
+  .kv5-placeholder { background: var(--bg); border: 1px dashed var(--border); padding: 48px 24px; text-align: center; font-family: 'Noto Sans Georgian', sans-serif; color: var(--muted); }
+  .kv5-placeholder .big { font-size: 38px; margin-bottom: 8px; opacity: .5; }
+  .kv5-loading { text-align: center; padding: 40px; font-family: 'Noto Sans Georgian', sans-serif; color: var(--muted); }
+  .kv5-spin { display: inline-block; width: 22px; height: 22px; border: 3px solid var(--border); border-top-color: var(--red); border-radius: 50%; animation: kv5spin .8s linear infinite; vertical-align: middle; }
+  @keyframes kv5spin { to { transform: rotate(360deg); } }
+
+  /* ========================================================
+     Styles: Journal (KvlEva 5.0 Journal)
+     ======================================================== */
+  .skeleton-shimmer { position: relative; overflow: hidden; background-color: var(--border); border-radius: 3px; }
+  .skeleton-shimmer::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform: translateX(-100%); background-image: linear-gradient(90deg, rgba(253,251,247,0) 0%, rgba(253,251,247,0.45) 20%, rgba(253,251,247,0.6) 60%, rgba(253,251,247,0) 100%); animation: shimmer 1.6s infinite; }
+  @keyframes shimmer { 100% { transform: translateX(100%); } }
+
+  .kv5-disclaimer-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 12px 0 20px; flex-wrap: wrap; }
+  .kv5-disclaimer-wrapper .kv5-disclaimer { margin: 0; flex: 1; min-width: 280px; }
+
+  .ticker-tape { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); padding: 5px 0; margin: 0 0 20px; overflow: hidden; white-space: nowrap; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; font-weight: 700; }
+  .ticker-tape-wrap { display: inline-block; animation: ticker-marquee 35s linear infinite; padding-left: 50%; }
+  .ticker-tape:hover .ticker-tape-wrap { animation-play-state: paused; }
+  @keyframes ticker-marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
+  .ticker-item { display: inline-block; margin-right: 28px; font-variant: small-caps; }
+  .ticker-item .pos { color: var(--green); font-weight: bold; }
+  .ticker-item .neg { color: var(--red); font-weight: bold; }
+
+  .notary-seal-wrapper { position: relative; display: inline-block; vertical-align: middle; margin: 8px 12px; flex-shrink: 0; }
+  .notary-seal { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 72px; height: 72px; border: 2px dashed rgba(185, 28, 28, 0.4); border-radius: 50%; color: rgba(185, 28, 28, 0.7); font-family: 'Noto Serif Georgian', Georgia, serif; font-size: 8px; font-weight: 700; text-align: center; transform: rotate(-5deg); background: rgba(185, 28, 28, 0.01); line-height: 1.25; }
+  .notary-seal .hash { font-family: ui-monospace, monospace; font-size: 7.5px; letter-spacing: 0.5px; margin-top: 2px; font-weight: 900; }
+  .notary-failed { display: inline-flex; align-items: center; justify-content: center; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); border: 1px dashed var(--border); padding: 5px 10px; background: var(--bg); transform: rotate(-2deg); }
+  .notary-tooltip { visibility: hidden; position: absolute; bottom: 82px; left: 50%; transform: translateX(-50%); width: 220px; background: var(--ink); color: var(--paper); padding: 8px 12px; border-radius: 4px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; line-height: 1.45; z-index: 100; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); text-align: center; opacity: 0; transition: opacity 0.2s, visibility 0.2s; pointer-events: none; }
+  .notary-seal-wrapper:hover .notary-tooltip { visibility: visible; opacity: 1; }
+  .notary-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--ink); }
+
+  .summary-banner { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 18px 0; margin: 20px 0; text-align: center; background: var(--bg); }
+  @media(max-width: 768px) { .summary-banner { grid-template-columns: repeat(2, 1fr); gap: 14px 0; } }
+  @media(max-width: 480px) { .summary-banner { grid-template-columns: 1fr; gap: 14px; } }
+  .summary-col { border-right: 1px solid var(--border); }
+  .summary-col:last-child { border-right: none; }
+  @media(max-width: 768px) { .summary-col:nth-child(2) { border-right: none; } }
+  .summary-label { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+  .summary-val { font-family: ui-monospace, monospace; font-size: 26px; font-weight: 700; color: var(--ink); }
+  .summary-sub { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  .headline-card .summary-val { font-size: 34px; color: var(--red); font-weight: 900; }
+  .headline-underline { height: 2px; background: var(--red); width: 0%; margin: 4px auto 6px; transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1); }
+  .headline-underline.draw { width: 75%; }
+
+  .ledger-container { background: var(--bg); border: 1px solid var(--border); margin-bottom: 24px; overflow-x: auto; }
+  .ledger-table { width: 100%; border-collapse: collapse; font-family: 'Noto Sans Georgian', sans-serif; font-size: 13px; }
+  .ledger-table th, .ledger-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .ledger-table th { background: var(--ink); color: var(--paper); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; border-bottom: 2px solid var(--rule); white-space: nowrap; }
+  .ledger-table tr { opacity: 0; transform: translateY(6px); }
+  .ledger-table tr.fade-in { animation: row-entrance 0.45s ease-out forwards; }
+  @keyframes row-entrance { to { opacity: 1; transform: translateY(0); } }
+  .ledger-table tr:hover { background: rgba(185, 28, 28, 0.01); }
+  .ledger-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, monospace; font-weight: 600; }
+  
+  .ticker-link { font-family: 'Noto Serif Georgian', Georgia, serif; font-weight: 900; font-size: 14px; color: var(--ink); text-decoration: none; border-bottom: 1px dashed var(--muted); }
+  .ticker-link:hover { color: var(--red); border-bottom-color: var(--red); }
+  .sig-muted { opacity: 0.45; }
+  .tag-badge { font-size: 8.5px; font-weight: 700; text-transform: uppercase; padding: 1.5px 4px; border-radius: 2.5px; display: inline-block; vertical-align: middle; margin-left: 5px; }
+  .tag-dup { background: rgba(107, 107, 107, 0.1); color: var(--muted); border: 1px solid var(--border); }
+  
+  .band-badge { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 5px; border-radius: 3px; display: inline-block; }
+  .band-strong { background: rgba(22, 101, 52, 0.06); color: var(--green); border: 1px solid var(--green); }
+  .band-short { background: rgba(185, 28, 28, 0.06); color: var(--red); border: 1px solid var(--red); }
+  .band-other { background: rgba(107, 107, 107, 0.06); color: var(--muted); border: 1px solid var(--border); }
+
+  .verdict-stamp { display: inline-block; padding: 2px 6px; font-family: 'Noto Serif Georgian', Georgia, serif; font-size: 9.5px; font-weight: 900; text-transform: uppercase; border-radius: 3.5px; opacity: 0; transform: rotate(var(--stamp-rot)) scale(1.5); letter-spacing: 0.5px; white-space: nowrap; transform-origin: center; }
+  .verdict-stamp.slam { animation: stamp-slam-anim 0.22s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards; }
+  @keyframes stamp-slam-anim { to { opacity: 1; transform: rotate(var(--stamp-rot)) scale(1); } }
+  .verdict-stamp.hit { color: #166534; border: 2px solid #166534; background: rgba(22, 101, 52, 0.02); outline: 1px solid rgba(22, 101, 52, 0.3); outline-offset: -3px; }
+  .verdict-stamp.miss { color: #b91c1c; border: 2px solid #b91c1c; background: rgba(185, 28, 28, 0.02); outline: 1px solid rgba(185, 28, 28, 0.3); outline-offset: -3px; }
+  .verdict-flat { color: var(--muted); font-weight: bold; font-size: 13px; }
+  .verdict-pending { color: var(--muted); font-style: italic; font-size: 10.5px; }
+
+  .sparkline-svg { display: block; overflow: visible; }
+  .sparkline-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+  .sparkline-dot { opacity: 0; transition: opacity 0.3s ease-out; }
+
+  @keyframes flash-up-anim { 0% { background-color: rgba(22, 101, 52, 0.2); } 100% { background-color: transparent; } }
+  @keyframes flash-down-anim { 0% { background-color: rgba(185, 28, 28, 0.2); } 100% { background-color: transparent; } }
+  .flash-up { animation: flash-up-anim 1.2s ease-out forwards; }
+  .flash-down { animation: flash-down-anim 1.2s ease-out forwards; }
+
+  .empty-state { text-align: center; font-family: 'Noto Serif Georgian', Georgia, serif; padding: 40px 24px; border: 1px dashed var(--border); background: var(--bg); margin: 20px 0; }
+  .empty-state .icon { font-size: 32px; margin-bottom: 10px; opacity: 0.6; }
+  .empty-state .text { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .empty-state .sub { font-size: 12px; color: var(--muted); }
+
+  /* ========================================================
+     Styles: Legal & Methodology
+     ======================================================== */
+  .legal-container { background: var(--bg); border: 1px solid var(--border); padding: 30px 36px; margin-bottom: 24px; }
+  @media(max-width: 640px) { .legal-container { padding: 20px; } }
+  .editorial-title { font-family: 'Noto Serif Georgian', Georgia, serif; font-weight: 900; font-size: 24px; text-align: center; border-bottom: 3px double var(--rule); padding-bottom: 10px; margin-bottom: 24px; color: var(--ink); line-height: 1.3; }
+  .editorial-title span { display: block; }
+  .editorial-title .sub { font-size: 13px; font-weight: 400; font-family: 'Noto Sans Georgian', sans-serif; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+  .legal-section { margin-bottom: 28px; }
+  .legal-section:last-child { margin-bottom: 0; }
+  .section-headline { font-family: 'Noto Serif Georgian', Georgia, serif; font-weight: 700; font-size: 17.5px; color: var(--red); border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-bottom: 14px; }
+  .item-title { font-family: 'Noto Serif Georgian', Georgia, serif; font-weight: 700; font-size: 13.5px; color: var(--ink); margin-top: 16px; margin-bottom: 5px; }
+  .para-text { font-family: 'Noto Sans Georgian', sans-serif; font-size: 13px; line-height: 1.6; color: var(--ink); margin: 0 0 12px; }
+  .para-text:last-child { margin-bottom: 0; }
+  .band-table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; }
+  .band-table th, .band-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  .band-table th { background: var(--bg); font-weight: 700; border-bottom: 2px solid var(--rule); }
+  .band-table td.num { font-family: ui-monospace, monospace; font-weight: 600; text-align: right; }
+  .band-color-box { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="kicker">გამოცემა №08 · ვისბადენი</div>
-    <h1>The Trading Paper</h1>
-    <div class="sub">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</div>
-  </header>
-  <nav>
-    <a href="index.html">ბაზარი</a>
-    <a href="articles.html">სტატიები</a>
-    <a href="legends.html">ლეგენდები</a>
-    <a href="cabinet.html">პორტფელი</a>
-    <a href="margin.html">ბერკეტი</a>
-    <a href="signals.html">ბოტი</a>
-    <a href="research.html"><b>კვლევა</b></a>
-    <a href="strategy.html">სტრატეგია</a>
-    <a href="startup.html">სტარტაფი</a>
+
+<header class="masthead">
+  <h1>კვლევითი ცენტრი</h1>
+  <p class="tagline">Trading Paper Research Center · Analysis Desk</p>
+</header>
+
+<main class="container">
+  <!-- Tab Sub-Navigation (Georgian main headers, English labels inside titles/badges) -->
+  <nav class="research-subnav no-print" aria-label="Research tools">
+    <a id="tab-btn-advisor" class="research-tab-btn active" onclick="switchResearchTab('advisor')">სტოკ მრჩეველი (ბოტი 2.0)</a>
+    <a id="tab-btn-searcher" class="research-tab-btn" onclick="switchResearchTab('searcher')">სტოკ მაძიებელი (კვლევა 3.0)</a>
+    <a id="tab-btn-evaluator" class="research-tab-btn" onclick="switchResearchTab('evaluator')">სტოკ შემფასებელი (კვლევა 5.0)</a>
+    <a id="tab-btn-journal" class="research-tab-btn" onclick="switchResearchTab('journal')">სიგნალების ჟურნალი</a>
+    <a id="tab-btn-legal" class="research-tab-btn" onclick="switchResearchTab('legal')">მეთოდოლოგია &amp; წესები</a>
   </nav>
 
-  <p class="book">წიგნი მეოთხე · <i>The Bot</i> — Research Desk · Wisdom Tree ეტაპი II</p>
-  <p style="text-align:center; margin:10px 0;">
-    <span style="display:inline-block; border:2px solid var(--red); color:var(--red); padding:4px 14px;
-                 font-size:12px; letter-spacing:3px; font-weight:bold;">⚠ სატესტო ვერსია · TEST BUILD</span>
-    <span style="display:block; font-size:12px; color:var(--muted); margin-top:6px;">
-      მიმდინარეობს ექსპერიმენტები ქაღალდის ფულით — არცერთი ციფრი არ არის რეალური ვაჭრობა ·
-      <a href="pdfs/bot-devlog-01.pdf" style="color:var(--red);">📄 როგორ ვავითარებთ ბოტს — Dev Log 01 (PDF)</a>
-    </span>
-  </p>
-  <p class="meta" id="meta">● იტვირთება…</p>
-  <div class="stale" id="stale">⚠ მონაცემები მოძველებულია — ბოტი შესაძლოა არ მუშაობს.
-    <a href="https://github.com/thetradingpaper/thetradingpaper.github.io/actions">შეამოწმე Actions</a></div>
+  <!-- ========================================================
+       Section: Advisor (Research Bot)
+       ======================================================== -->
+  <section id="research-sec-advisor" class="research-section">
+    <!-- Structured Explanation Box -->
+    <div class="research-info-box widget">
+      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Research Bot Info</div>
+      <div class="info-grid">
+        <div class="info-col">
+          <div class="info-title">💡 იდეა (Idea)</div>
+          <div class="info-text">6,000-მდე ამერიკული აქციის ყოველდღიური სკრინინგი, რათა გამოიყოს მაქსიმუმ 10 ყველაზე პერსპექტიული აქტივი ძლიერი კატალიზატორებითა და კონკრეტული სავაჭრო გეგმებით (შესვლა, სტოპი, თარგეთი).</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
+          <div class="info-text">ალგორითმი აანალიზებს ბოლო 72 საათის სიახლეებს, უთავსებს მათ ტექნიკურ ინდიკატორებს და ანიჭებს ქულებს ნასწავლი კატალიზატორების წონების მიხედვით (RSI, მოცულობის ზრდა, მოგების ანგარიშები, FDA და ა.შ.).</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
+          <div class="info-text">ყოველდღიური ავტომატური სერვერული პროცესი (GitHub Actions) განაახლებს მონაცემებს და აწარმოებს 5 სატესტო პორტფელის (ბოტ-ლაბი) სიმულაციას სხვადასხვა ფულის მართვის სტრატეგიით.</div>
+        </div>
+      </div>
+    </div>
 
-  <div class="notif" id="notif" style="display:none">
-    <span class="mode" id="mode"></span>
-    <span id="notifText"></span>
-  </div>
+    <div class="advisor-wrap">
+      <p class="advisor-book">წიგნი მეოთხე · <i>The Bot</i> — Research Desk · Wisdom Tree ეტაპი II</p>
+      <p style="text-align:center; margin:10px 0;">
+        <span class="advisor-testchip">⚠ სატესტო ვერსია · TEST BUILD</span>
+        <span style="display:block; font-size:12px; color:var(--muted); margin-top:6px;">
+          მიმდინარეობს ექსპერიმენტები ქაღალდის ფულით — არცერთი ციფრი არ არის რეალური ვაჭრობა ·
+          <a href="/pdfs/bot-devlog-01.pdf" style="color:var(--red);" target="_blank">📄 ბოტის დეველოგერი — Dev Log 01 (PDF)</a>
+        </span>
+      </p>
+      <p class="advisor-meta" id="advisor-meta">● იტვირთება…</p>
+      <div class="advisor-stale" id="advisor-stale">⚠ მონაცემები მოძველებულია — ბოტი შესაძლოა არ მუშაობს.</div>
 
-  <h2>ბოტ-ლაბი · 5 სატესტო პორტფელი ერთსა და იმავე სიგნალებზე</h2>
-  <p class="rules" style="margin:6px 0">ხუთივე ბოტი ერთსა და იმავე დღიურ კვლევას იღებს — განსხვავდება მხოლოდ ფულის მართვა.
-  ექსპერიმენტის კითხვა: რომელი სტილი გადარჩება. ბოტი 5 იმეორებს რეალურ Galt &amp; Taggart CFD სეტაპს ($1000 · 2.5× · $10 საკომისიო · ლიკვიდაცია −11.3%).</p>
-  <div id="lab" class="labgrid">● იტვირთება…</div>
+      <div class="advisor-notif" id="advisor-notif" style="display:none">
+        <span class="mode" id="advisor-mode"></span>
+        <span id="advisor-notifText"></span>
+      </div>
 
-  <h2>დღევანდელი კვლევა · მაქს. 10 აქცია მთელი ბაზრიდან</h2>
-  <div id="picks">● იტვირთება…</div>
+      <h2>ბოტ-ლაბი · 5 სატესტო პორტფელი ერთსა და იმავე სიგნალებზე</h2>
+      <p class="advisor-rules" style="margin:6px 0">ხუთივე ბოტი ერთსა და იმავე დღიურ კვლევას იღებს — განსხვავდება მხოლოდ ფულის მართვა.
+      ექსპერიმენტის კითხვა: რომელი სტილი გადარჩება. ბოტი 5 იმეორებს რეალურ Galt &amp; Taggart CFD სეტაპს ($1000 · 2.5× · $10 საკომისიო · ლიკვიდაცია −11.3%).</p>
+      <div id="advisor-lab" class="advisor-labgrid" style="margin-bottom: 24px;">● იტვირთება…</div>
 
-  <h2>რა ისწავლა ბოტმა · კატალიზატორების win rate</h2>
-  <p class="rules" style="margin:6px 0">ბოტი ყოველ არჩევანს 7 დღის შემდეგ აფასებს: გაიზარდა თუ არა.
-  კატალიზატორი რომელიც მუშაობს — მეტ წონას იღებს. რომელიც არ მუშაობს — ნაკლებს.</p>
-  <table id="learnedTbl" style="display:none">
-    <thead><tr><th>კატალიზატორი</th><th>შემთხვევა</th><th>Win rate</th><th>საშ. შედეგი</th><th>წონა ახლა</th></tr></thead>
-    <tbody id="learnedBody"></tbody>
-  </table>
-  <p id="learnedEmpty" class="rules">ჯერ საკმარისი ისტორია არ არის — ბოტი აგროვებს მონაცემებს.</p>
+      <h2>დღევანდელი კვლევა · მაქს. 10 აქცია მთელი ბაზრიდან</h2>
+      <div id="advisor-picks" style="margin-bottom: 24px;">● იტვირთება…</div>
 
-  <h2>როგორ მუშაობს</h2>
-  <ul class="rules">
-    <li><b>სკანი:</b> ~6,000 ამერიკული აქცია ყოველდღე → ფილტრი (ფასი, მოცულობა, მოძრაობა) → ~120 კანდიდატი</li>
-    <li><b>ამბები:</b> თითო კანდიდატის ბოლო 72 საათის სათაურები — earnings, კონტრაქტები, FDA, M&amp;A, upgrade/downgrade</li>
-    <li><b>ქულა:</b> ტექნიკური სურათი + ამბის ძალა × ნასწავლი წონა. მხოლოდ პოზიტიური კატალიზატორით შედის სიაში</li>
-    <li><b>ერთი პასუხი:</b> კონცენტრაცია / დივერსიფიკაცია / ლოდინი — ხმაურის გარეშე</li>
-    <li><b>პატიოსნება:</b> ყველა არჩევანი ლოგში იწერება და ფასდება. ქაღალდის ვაჭრობა — რეალურ გადაწყვეტილებას ადამიანი იღებს</li>
-  </ul>
+      <h2>რა ისწავლა ბოტმა · კატალიზატორების win rate</h2>
+      <p class="advisor-rules" style="margin:6px 0">ბოტი ყოველ არჩევანს 7 დღის შემდეგ აფასებს: გაიზარდა თუ არა.
+      კატალიზატორი რომელიც მუშაობს — მეტ წონას იღებს. რომელიც არ მუშაობს — ნაკლებს.</p>
+      <div class="ledger-container" id="advisor-learnedTbl-container" style="display:none; margin-bottom: 24px;">
+        <table class="ledger-table" id="advisor-learnedTbl">
+          <thead><tr><th>კატალიზატორი</th><th>შემთხვევა</th><th>Win rate</th><th>საშ. შედეგი</th><th>წონა ახლა</th></tr></thead>
+          <tbody id="advisor-learnedBody"></tbody>
+        </table>
+      </div>
+      <p id="advisor-learnedEmpty" class="advisor-rules">ჯერ საკმარისი ისტორია არ არის — ბოტი აგროვებს მონაცემებს.</p>
 
-  <footer>
-    განახლება დღეში ერთხელ, ბაზრის გახსნიდან ~3 საათში (GitHub Actions)<br>
-    ეს არ არის ფინანსური რჩევა — ბოტი ინფორმაციას იძლევა, გადაწყვეტილება ყოველთვის შენია<br><br>
-    © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი
-  </footer>
-</div>
+      <h2>როგორ მუშაობს</h2>
+      <ul class="advisor-rules">
+        <li><b>სკანი:</b> ~6,000 ამერიკული აქცია ყოველდღე → ფილტრი (ფასი, მოცულობა, მოძრაობა) → ~120 კანდიდატი</li>
+        <li><b>ამბები:</b> თითო კანდიდატის ბოლო 72 საათის სათაურები — earnings, კონტრაქტები, FDA, M&amp;A, upgrade/downgrade</li>
+        <li><b>ქულა:</b> ტექნიკური სურათი + ამბის ძალა × ნასწავლი წონა. მხოლოდ პოზიტიური კატალიზატორით შედის სიაში</li>
+        <li><b>ერთი პასუხი:</b> კონცენტრაცია / დივერსიფიკაცია / ლოდინი — ხმაურის გარეშე</li>
+        <li><b>პატიოსნება:</b> ყველა არჩევანი ლოგში იწერება და ფასდება. ქაღალდის ვაჭრობა — რეალურ გადაწყვეტილებას ადამიანი იღებს</li>
+      </ul>
+    </div>
+  </section>
 
+  <!-- ========================================================
+       Section: Searcher (Research 3.0)
+       ======================================================== -->
+  <section id="research-sec-searcher" class="research-section" style="display:none;">
+    <!-- Structured Explanation Box -->
+    <div class="research-info-box widget">
+      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Stock Scouter Info</div>
+      <div class="info-grid">
+        <div class="info-col">
+          <div class="info-title">💡 იდეა (Idea)</div>
+          <div class="info-text">ყოველდღიური სექტორული როტაციისა და მსხვილი მოთამაშეების (Smart Money) აქტივობის მონიტორინგი, რათა გამოვლინდეს ბაზარზე მიმდინარე კაპიტალის მოძრაობის მიმართულებები.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
+          <div class="info-text">ალგორითმი ეძებს აქტივებს, რომელთა სავაჭრო მოცულობა 2-5x აჭარბებს ნორმას და ინარჩუნებენ აღმავალ ტრენდს (50დღიან და 200დღიან საშუალოებზე ზემოთ).</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
+          <div class="info-text">წაკითხული `kvleva3-picks.json` ფაილიდან გვაწვდის დღის ლიდერებს (Top Gainers/Losers) და ფილტრავს სხვადასხვა პოპულარულ სკრინერებს (Undervalued Growth, Tech და სხვ.).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kv3-container">
+      <!-- Left Column: Methodology & Day Leaders -->
+      <aside class="kv3-sidebar">
+        <div class="methodology-box widget">
+          <div class="m-head">მეთოდოლოგია / Approach</div>
+          <p class="m-desc">
+            <strong>კვლევა 3.0</strong> არის ყოველდღიური სკაუტინგის პლატფორმა. მიზანია ყოველდღიურად გამოვავლინოთ 5-10 ყველაზე მიმზიდველი აქტივი სხვადასხვა სექტორიდან. შერჩევა ეფუძნება Wisdom Tree-სა და Research Desk II-ის ალგორითმულ ფილტრებს.
+          </p>
+          <p class="m-desc-en">
+            <strong>Research 3.0</strong> is a daily stock-scouting engine to identify 5-10 of the most compelling equities across different sectors.
+          </p>
+          
+          <hr style="border: none; border-top: 1px dashed var(--border); margin: 16px 0;">
+          
+          <div class="m-item">
+            <div class="m-title">1. სექტორული როტაცია (Sector Rotation)</div>
+            <p class="m-text">კაპიტალის მოძრაობის ანალიზი. ვეძებთ სექტორებს, სადაც იწყება ინსტიტუციონალური სახსრების შემოდინება.</p>
+            <p class="m-text-en">Analyzing capital flows to identify sectors receiving institutional accumulation.</p>
+          </div>
+          <div class="m-item">
+            <div class="m-title">2. ფასის მომენტი (Momentum)</div>
+            <p class="m-text">აქტივები, რომლებიც აჩვენებენ ძლიერ აღმავალ ტრენდს და მხარდაჭერას 50 და 200-დღიან საშუალოებზე (MA).</p>
+            <p class="m-text-en">Assets demonstrating strong upward trend persistence above key moving averages.</p>
+          </div>
+          <div class="m-item">
+            <div class="m-title">3. მოცულობის ანომალია (Volume Anomalies)</div>
+            <p class="m-text">ჩვეულებრივზე 2-5-ჯერ მეტი სავაჭრო მოცულობა, რაც მიანიშნებს მსხვილი მოთამაშეების (Smart Money) აქტივობაზე.</p>
+            <p class="m-text-en">Surges in daily trading volume 2-5x above average, indicating heavy institutional accumulation.</p>
+          </div>
+          <div class="m-item">
+            <div class="m-title">4. შედარებითი შეფასება (Relative Valuation)</div>
+            <p class="m-text">მულტიპლიკატორების (P/E, P/S, EV/EBITDA) შედარება სექტორის საშუალო მაჩვენებლებთან და კონკურენტებთან.</p>
+            <p class="m-text-en">Comparing key valuation metrics against industry benchmarks to find discounts.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-markets widget">
+          <div class="m-head">დღის ლიდერები / Leaders</div>
+          <div class="leaders-section">
+            <div class="leaders-title" style="color: var(--green);">Top Gainers</div>
+            <div class="leaders-list" id="gainers-list">
+              <div class="leaders-empty">ჩატვირთვა…</div>
+            </div>
+          </div>
+          <hr style="border: none; border-top: 1px dashed var(--border); margin: 16px 0;">
+          <div class="leaders-section">
+            <div class="leaders-title" style="color: var(--red);">Top Losers</div>
+            <div class="leaders-list" id="losers-list">
+              <div class="leaders-empty">ჩატვირთვა…</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Column: Picks & Screeners -->
+      <div class="kv3-main">
+        <div class="picks-box widget">
+          <div class="picks-head">
+            <span class="picks-head-title">დღევანდელი აქტივები</span>
+            <span class="picks-date-stamp" id="picks-date">📅 ჩატვირთვა…</span>
+          </div>
+          <div class="picks-list" id="picks-list">
+            <div class="picks-empty">იტვირთება მონაცემები…</div>
+          </div>
+        </div>
+
+        <div class="screeners-box widget" style="margin-top: 24px;">
+          <div class="picks-head" style="border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <span class="picks-head-title" style="letter-spacing: 2px;">სკრინერები · Screeners</span>
+            <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex; flex-wrap: wrap;">
+              <button id="scr-active" class="on" onclick="setScreener('most_active')">Most Active</button>
+              <button id="scr-growth" onclick="setScreener('undervalued_growth')">Undervalued Growth</button>
+              <button id="scr-tech" onclick="setScreener('growth_tech')">Growth Tech</button>
+              <button id="scr-penny" onclick="setScreener('penny_stocks')">Penny Stocks</button>
+              <button id="scr-fifty-two" onclick="setScreener('fifty_two_week_gainers')">52 Wk Gainers</button>
+            </div>
+          </div>
+          <div class="picks-list" id="screeners-list">
+            <div class="picks-empty">ჩატვირთვა…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Section: Evaluator (Research 5.0)
+       ======================================================== -->
+  <section id="research-sec-evaluator" class="research-section" style="display:none;">
+    <!-- Structured Explanation Box -->
+    <div class="research-info-box widget">
+      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Stock Evaluator Info</div>
+      <div class="info-grid">
+        <div class="info-col">
+          <div class="info-title">💡 იდეა (Idea)</div>
+          <div class="info-text">კონკრეტული აქტივის ყოვლისმომცველი, ობიექტური შეფასება 0-დან 100-მდე კომპოზიტური ქულის მეშვეობით, რათა დადგინდეს მისი საინვესტიციო ან სავაჭრო მიმზიდველობა.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
+          <div class="info-text">სისტემა აერთიანებს 5 დამოუკიდებელ სექტორს: მომენტი (30%), ტრენდი (20%), სენტიმენტი (20%), ფუნდამენტური მულტიპლიკატორები (15%) და CFD ვოლატილობა (15%).</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
+          <div class="info-text">ნებისმიერი ტიკერის ძებნისას სერვერული API აგროვებს უახლეს ციფრებს და აგენერირებს დოსიეს. თუ API მიუწვდომელია, იტვირთება ნიშანდებული დემო მონაცემები.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="kv5-search widget">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+        <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);font-weight:700;">
+          კვლევითი დოსიე <span class="kv5-beta">BETA</span>
+        </span>
+        <span id="kv5-live" class="kv5-live live-stamp" style="visibility:hidden;"><span class="dot"></span><span>Live მონაცემები</span></span>
+      </div>
+      <div class="kv5-search-row">
+        <input id="kv5-ticker" type="text" placeholder="ტიკერი / TICKER — მაგ. AAPL" maxlength="12" autocomplete="off" spellcheck="false" aria-label="Ticker">
+        <button id="kv5-go" class="kv5-btn">კვლევა · Research</button>
+      </div>
+      <div class="kv5-examples">
+        მაგალითები:
+        <a data-tk="AAPL" onclick="doEvaluatorSearch('AAPL')">AAPL</a>·<a data-tk="NVDA" onclick="doEvaluatorSearch('NVDA')">NVDA</a>·<a data-tk="TSLA" onclick="doEvaluatorSearch('TSLA')">TSLA</a>·<a data-tk="MSFT" onclick="doEvaluatorSearch('MSFT')">MSFT</a>·<a data-tk="JPM" onclick="doEvaluatorSearch('JPM')">JPM</a>
+      </div>
+    </div>
+
+    <!-- Demo banner -->
+    <div id="kv5-demobar" class="kv5-demobar">
+      <b>დემო რეჟიმი / DEMO MODE.</b> ცოცხალი მონაცემების პროვაიდერები ჯერ არ არის კონფიგურირებული (API გასაღებები).
+      ქვემოთ ნაჩვენებია <b>ნიმუშის მონაცემები</b>.
+    </div>
+
+    <!-- Mandatory disclaimer -->
+    <div class="kv5-disclaimer">
+      <span class="d-tag">⚠ განცხადება / Disclaimer</span>
+      <div class="d-ka">ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა. პირადი გარემოებები არ არის გათვალისწინებული. თქვენ თავად იღებთ გადაწყვეტილებას.</div>
+      <div class="d-en">This is research information, not investment advice. No personal circumstances are considered. You make your own decisions.</div>
+    </div>
+
+    <!-- Results layout -->
+    <div class="kv5-grid">
+      <div class="kv5-main">
+        <div id="kv5-results">
+          <div class="kv5-placeholder">
+            <div class="big">🔍</div>
+            <div style="font-size:15px;color:var(--ink);font-weight:700;margin-bottom:6px;">შეიყვანე ტიკერი და დაიწყე კვლევა</div>
+            <div style="font-size:12.5px;">Enter a ticker above to assemble its research dossier and composite score.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="kv5-side">
+        <div class="box widget">
+          <h4>ქულის ზოლები / Score bands</h4>
+          <div class="kv5-bandkey"><span class="sw" style="background:#166534;"></span> ძლიერი კვლევითი ინტერესი <span class="rng">75–100</span></div>
+          <div class="kv5-bandkey"><span class="sw" style="background:#8b6914;"></span> სათვალყურო · Watch <span class="rng">60–74</span></div>
+          <div class="kv5-bandkey"><span class="sw" style="background:#6b6b6b;"></span> ნეიტრალური · Neutral <span class="rng">45–59</span></div>
+          <div class="kv5-bandkey"><span class="sw" style="background:#b45309;"></span> სუსტი · Weak <span class="rng">30–44</span></div>
+          <div class="kv5-bandkey"><span class="sw" style="background:#b91c1c;"></span> ქვევითი მოძრაობის კანდიდატი <span class="rng">0–29</span></div>
+        </div>
+
+        <div class="box widget kv5-method">
+          <h4>მეთოდოლოგია / Method</h4>
+          <p>კომპოზიტური ქულა 0–100 იწონის ხუთ განზომილებას გამჭვირვალედ. ხელმისაწვდომი მონაცემების მიხედვით ქულა ხელახლა ნორმდება.</p>
+          <p class="en">The 0–100 composite transparently weights momentum (30%), trend (20%), sentiment (20%), valuation (15%), and CFD risk (15%).</p>
+        </div>
+
+        <div class="box widget">
+          <h4>ბოლო სიგნალები / Recent signals</h4>
+          <div id="kv5-signals"><div class="kv5-empty">ჩატვირთვა…</div></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Section: Journal (Signal Journal)
+       ======================================================== -->
+  <section id="research-sec-journal" class="research-section" style="display:none;">
+    <!-- Structured Explanation Box -->
+    <div class="research-info-box widget">
+      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Signal Journal Info</div>
+      <div class="info-grid">
+        <div class="info-col">
+          <div class="info-title">💡 იდეა (Idea)</div>
+          <div class="info-text">კვლევა 5.0-ის მიერ გენერირებული ყველა ოფიციალური სიგნალის გამჭვირვალე რეესტრი, რათა მოხდეს სისტემის სიზუსტის საჯარო მონიტორინგი.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
+          <div class="info-text">სისტემა აფასებს სიგნალებს (HIT/MISS) 7, 30 და 90 დღიანი ჰორიზონტების გასვლის შემდეგ. თაღლითობისგან დასაცავად ჩანაწერები დაცულია კრიპტოგრაფიული ჰეშ-ჯაჭვით.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
+          <div class="info-text">API `/api/journal`-დან იკითხება სიგნალების ლოგი, ამოწმებს ჰეშ-ჯაჭვს, ახდენს ფასების ფლეშ-განახლებებს და აჩვენებს სტატისტიკურ Win Rate-სა და სპარკლაინებს.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticker Tape -->
+    <div class="ticker-tape" id="ticker-tape" style="display:none;"></div>
+
+    <div class="kv5-disclaimer-wrapper">
+      <div class="kv5-disclaimer">
+        <span class="d-tag">⚠ განცხადება / Disclaimer</span>
+        <div class="d-ka">ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა. პირადი გარემოებები არ არის გათვალისწინებული. თქვენ თავად იღებთ გადაწყვეტილებას.</div>
+        <div class="d-en">This is research information, not investment advice. No personal circumstances are considered. You make your own decisions.</div>
+      </div>
+      <div id="notary-seal-area"></div>
+    </div>
+
+    <!-- Summary Banner -->
+    <div class="summary-banner" id="summary-banner">
+      <div class="summary-col">
+        <div class="summary-label"><span lang="ka">სულ სიგნალი</span><span lang="en">Total Signals</span></div>
+        <div class="summary-val" id="stat-total"><div class="skeleton-shimmer" style="width:50px; height:28px; margin: 4px auto;"></div></div>
+        <div class="summary-sub" lang="ka">სისტემის მიერ გენერირებული</div>
+        <div class="summary-sub" lang="en">Total generated by system</div>
+      </div>
+      <div class="summary-col">
+        <div class="summary-label"><span lang="ka">ფასდება</span><span lang="en">Graded Signals</span></div>
+        <div class="summary-val" id="stat-graded"><div class="skeleton-shimmer" style="width:50px; height:28px; margin: 4px auto;"></div></div>
+        <div class="summary-sub" lang="ka">STRONG &amp; SHORT-SIDE</div>
+        <div class="summary-sub" lang="en">STRONG &amp; SHORT-SIDE only</div>
+      </div>
+      <div class="summary-col headline-card">
+        <div class="summary-label"><span lang="ka">30დღ+ სიზუსტე</span><span lang="en">30d+ Hit Rate</span></div>
+        <div class="summary-val" id="stat-hitrate"><div class="skeleton-shimmer" style="width:70px; height:32px; margin: 4px auto;"></div></div>
+        <div class="headline-underline" id="hitrate-underline"></div>
+        <div class="summary-sub" id="stat-hitrate-sub">—</div>
+      </div>
+      <div class="summary-col">
+        <div class="summary-label"><span lang="ka">საშუალო ამონაგები</span><span lang="en">Avg Graded Return</span></div>
+        <div class="summary-val" id="stat-avgreturn"><div class="skeleton-shimmer" style="width:70px; height:28px; margin: 4px auto;"></div></div>
+        <div class="summary-sub" lang="ka">პოზიციის მიხედვით</div>
+        <div class="summary-sub" lang="en">By thesis direction</div>
+      </div>
+    </div>
+
+    <!-- Ledger Table -->
+    <div id="journal-content-area">
+      <div class="ledger-container">
+        <table class="ledger-table" id="journal-ledger-table">
+          <thead>
+            <tr>
+              <th><span lang="ka">თარიღი (UTC)</span><span lang="en">Date (UTC)</span></th>
+              <th><span lang="ka">ტიკერი</span><span lang="en">Ticker</span></th>
+              <th><span lang="ka">კლასიფიკაცია</span><span lang="en">Research Band</span></th>
+              <th style="text-align:right;"><span lang="ka">ქულა</span><span lang="en">Score</span></th>
+              <th style="text-align:right;"><span lang="ka">ფასი სიგნალზე</span><span lang="en">Price @ Sig</span></th>
+              <th style="text-align:right;"><span lang="ka">მიმდინარე ფასი</span><span lang="en">Current Price</span></th>
+              <th style="text-align:right;"><span lang="ka">ამონაგები</span><span lang="en">Return %</span></th>
+              <th style="text-align:center;">7d+</th>
+              <th style="text-align:center;">30d+</th>
+              <th style="text-align:center;">90d+</th>
+              <th style="text-align:center; width:130px;"><span lang="ka">ტრენდი</span><span lang="en">Trend</span></th>
+            </tr>
+          </thead>
+          <tbody id="journal-ledger-body">
+            <!-- Skeleton Rows -->
+            <tr class="skeleton-row fade-in" style="opacity: 1; transform: translateY(0);">
+              <td><div class="skeleton-shimmer" style="width:80px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:50px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:120px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:30px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:60px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:60px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:50px; height:14px; margin-left: auto;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:100px; height:24px; margin:0 auto;"></div></td>
+            </tr>
+            <tr class="skeleton-row fade-in" style="opacity: 1; transform: translateY(0);">
+              <td><div class="skeleton-shimmer" style="width:80px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:50px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:120px; height:14px;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:30px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:60px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:60px; height:14px; margin-left: auto;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:50px; height:14px; margin-left: auto;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td style="text-align:center;"><div class="skeleton-shimmer" style="width:40px; height:14px; display:inline-block;"></div></td>
+              <td><div class="skeleton-shimmer" style="width:100px; height:24px; margin:0 auto;"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Section: Legal & Methodology
+       ======================================================== -->
+  <section id="research-sec-legal" class="research-section" style="display:none;">
+    <div class="kv5-disclaimer">
+      <span class="d-tag">⚠ განცხადება / Disclaimer</span>
+      <div class="d-ka">ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა. პირადი გარემოებები არ არის გათვალისწინებული. თქვენ თავად იღებთ გადაწყვეტილებას.</div>
+      <div class="d-en">This is research information, not investment advice. No personal circumstances are considered. You make your own decisions.</div>
+    </div>
+
+    <div class="legal-container">
+      <div class="editorial-title">
+        <span lang="ka">მეთოდოლოგია და სამართლებრივი დეკლარაცია</span>
+        <span lang="en">Methodology & Legal Declaration</span>
+        <div class="sub">KvlEva 5.0 · Charter</div>
+      </div>
+
+      <div class="legal-section">
+        <div class="section-headline">
+          <span lang="ka">1. რა არის კვლევა 5.0</span>
+          <span lang="en">1. What is KvlEva 5.0</span>
+        </div>
+        <p class="para-text" lang="ka">
+          <strong>კვლევა 5.0</strong> არის აქციების კვლევის ავტომატიზებული კლასიფიკაციის ძრავა, რომელიც ახდენს სხვადასხვა ბაზრის მაჩვენებლების აგრეგირებას ერთ კომპოზიტურ სარეიტინგო ქულაში (0-დან 100-მდე). მოდელი შექმნილია იმისათვის, რომ უზრუნველყოს ფასიანი ქაღალდების სრულიად ობიექტური, ალგორითმული ანალიზი ადამიანური ემოციების ან მიკერძოების გარეშე.
+        </p>
+        <p class="para-text" lang="en">
+          <strong>KvlEva 5.0</strong> is an automated equity research classification engine that aggregates multiple market indicators into a single composite score ranging from 0 to 100.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <div class="section-headline">
+          <span lang="ka">2. ქულების მეთოდოლოგია</span>
+          <span lang="en">2. Scoring Methodology</span>
+        </div>
+        <p class="para-text" lang="ka">
+          კომპოზიტური ქულა ითვლის ხუთი კატეგორიის საშუალო შეწონილს. თითოეულ კატეგორიას აქვს თავისი ფიქსირებული მაქსიმალური წონა:
+        </p>
+        <ul style="font-family:'Noto Sans Georgian', sans-serif; font-size:13px; line-height:1.7; margin-bottom:14px; padding-left:20px; color:var(--ink);">
+          <li><span lang="ka"><strong>მომენტი / Momentum (30%):</strong> RSI, მოძრავი საშუალოები და მოცულობის ანომალიები.</span><span lang="en"><strong>Momentum (30%):</strong> RSI, SMA, volume anomalies.</span></li>
+          <li><span lang="ka"><strong>ფასი და ტრენდი / Price &amp; Trend (20%):</strong> 52-კვირიანი დიაპაზონი და თვის ცვლილება.</span><span lang="en"><strong>Price &amp; Trend (20%):</strong> 52-wk range position, monthly change.</span></li>
+          <li><span lang="ka"><strong>სენტიმენტი / Sentiment (20%):</strong> ბაზრის Fear &amp; Greed და მედიის სათაურების ტონი.</span><span lang="en"><strong>Sentiment (20%):</strong> CNN Fear &amp; Greed index, headline tone.</span></li>
+          <li><span lang="ka"><strong>შეფასება / Valuation (15%):</strong> P/E კოეფიციენტი სექტორთან მიმართებაში.</span><span lang="en"><strong>Valuation (15%):</strong> P/E relative to sector.</span></li>
+          <li><span lang="ka"><strong>CFD და ვოლატილობა / Volatility (15%):</strong> ისტორიული ვოლატილობა და ATR.</span><span lang="en"><strong>Volatility (15%):</strong> Historical volatility, ATR.</span></li>
+        </ul>
+        <table class="band-table">
+          <thead>
+            <tr>
+              <th><span lang="ka">ქულა</span><span lang="en">Score</span></th>
+              <th><span lang="ka">კლასიფიკაცია (ქართული)</span><span lang="en">Classification (EN)</span></th>
+              <th style="text-align:right;"><span lang="ka">სარეიტინგო შეფასება</span><span lang="en">Grading Status</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">75–100</td>
+              <td><span class="band-color-box" style="background:#166534;"></span> <span lang="ka">ძლიერი კვლევითი ინტერესი</span><span lang="en">STRONG RESEARCH INTEREST</span></td>
+              <td style="text-align:right; font-weight:bold; color:var(--green);"><span lang="ka">ფასდება (Bullish)</span><span lang="en">Graded (Bullish)</span></td>
+            </tr>
+            <tr>
+              <td class="num">60–74</td>
+              <td><span class="band-color-box" style="background:#8b6914;"></span> <span lang="ka">სათვალყურო</span><span lang="en">WATCH</span></td>
+              <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+            </tr>
+            <tr>
+              <td class="num">45–59</td>
+              <td><span class="band-color-box" style="background:#6b6b6b;"></span> <span lang="ka">ნეიტრალური</span><span lang="en">NEUTRAL</span></td>
+              <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+            </tr>
+            <tr>
+              <td class="num">30–44</td>
+              <td><span class="band-color-box" style="background:#b45309;"></span> <span lang="ka">სუსტი</span><span lang="en">WEAK</span></td>
+              <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+            </tr>
+            <tr>
+              <td class="num">0–29</td>
+              <td><span class="band-color-box" style="background:#b91c1c;"></span> <span lang="ka">ქვევითი მოძრაობის კანდიდატი</span><span lang="en">SHORT-SIDE CANDIDATE</span></td>
+              <td style="text-align:right; font-weight:bold; color:var(--red);"><span lang="ka">ფასდება (Bearish)</span><span lang="en">Graded (Bearish)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legal-section">
+        <div class="section-headline">
+          <span lang="ka">3. პასუხისმგებლობის შეზღუდვა</span>
+          <span lang="en">3. Limitation of Liability</span>
+        </div>
+        <p class="para-text" lang="ka">
+          საიტის ოპერატორი და ავტორები არ იღებენ არავითარ პასუხისმგებლობას ნებისმიერ ფინანსურ ზარალზე. ფინანსურ ბაზრებზე ვაჭრობა და CFD ინსტრუმენტების გამოყენება დაკავშირებულია კაპიტალის დაკარგვის მაღალ რისკთან. წარსული სიგნალები და ჟურნალში ასახული ისტორიული შედეგები არ წარმოადგენს მომავალი წარმატების გარანტიას. საიტზე განთავსებული ინფორმაცია არ წარმოადგენს პერსონალურ საინვესტიციო რჩევას.
+        </p>
+        <p class="para-text" lang="en">
+          The site operator and authors accept no liability for any financial losses. No publication or composite score on this site constitutes a personalized recommendation or investment advice.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 The Trading Paper · ვისბადენი · ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა
+</footer>
+
+<script src="/js/masthead.js"></script>
+<script src="/js/clocks.js"></script>
+<script defer src="/js/auth-ui.js"></script>
+<script defer src="/js/engage-ui.js"></script>
+
+<!-- ========================================================
+     Routing & Tab Switching Logic
+     ======================================================== -->
 <script>
-fetch('data/bot-lab.json?t=' + Date.now())
-  .then(r => r.json())
-  .then(d => {
-    const box = document.getElementById('lab');
-    box.innerHTML = Object.values(d.bots).map(b => {
-      const ret = b.stats ? b.stats.return_pct : 0;
-      const cls = ret >= 0 ? 'pos' : 'neg';
-      const pos = b.positions.map(p =>
-        `${p.ticker}${p.leverage ? ' ' + p.leverage + '×' : ''} @ $${(+p.entry).toFixed(2)}`).join(', ') || 'ცარიელი — ელოდება';
-      const last = b.trades.length ? b.trades[b.trades.length - 1] : null;
-      return `
-      <div class="labcard">
-        <h4>${b.name_ka}</h4>
-        <div class="small">${b.desc_ka}</div>
-        <div class="eq">$${b.equity.toFixed(2)}</div>
-        <div class="ret ${cls}">${ret >= 0 ? '+' : ''}${ret}% · სტარტი $${b.start}</div>
-        <div class="small">პოზიცია: ${pos}</div>
-        <div class="small">ვაჭრობა: ${b.stats && b.stats.trades ? b.stats.trades + ' · win rate ' + (b.stats.win_rate ?? '—') + '%' : 'ჯერ 0'}</div>
-        ${last ? `<div class="small">ბოლო: ${last.ticker} ${last.ret_pct >= 0 ? '+' : ''}${last.ret_pct}% (${last.reason})</div>` : ''}
-      </div>`;
+  function switchResearchTab(tabId, pushState = true) {
+    document.querySelectorAll('.research-section').forEach(sec => {
+      sec.style.display = 'none';
+    });
+    
+    const targetSec = document.getElementById('research-sec-' + tabId);
+    if (targetSec) {
+      targetSec.style.display = 'block';
+    }
+    
+    document.querySelectorAll('.research-tab-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    
+    const targetBtn = document.getElementById('tab-btn-' + tabId);
+    if (targetBtn) {
+      targetBtn.classList.add('active');
+    }
+    
+    if (pushState) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('tab', tabId);
+      window.history.pushState({}, '', url.toString());
+    }
+  }
+
+  // Intercept ticker link clicks from the journal or other pages
+  window.showTickerInEvaluator = function(ticker) {
+    switchResearchTab('evaluator');
+    const input = document.getElementById('kv5-ticker');
+    if (input) {
+      input.value = ticker;
+      const goBtn = document.getElementById('kv5-go');
+      if (goBtn) goBtn.click();
+    }
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let initialTab = urlParams.get('tab') || 'advisor';
+    const validTabs = ['advisor', 'searcher', 'evaluator', 'journal', 'legal'];
+    if (!validTabs.includes(initialTab)) {
+      initialTab = 'advisor';
+    }
+    switchResearchTab(initialTab, false);
+
+    if (initialTab === 'evaluator') {
+      const ticker = urlParams.get('ticker');
+      if (ticker) {
+        window.showTickerInEvaluator(ticker);
+      }
+    }
+  });
+</script>
+
+<!-- ========================================================
+     JS: Advisor (Research Bot)
+     ======================================================== -->
+<script>
+(function() {
+  'use strict';
+  
+  const CAT_KA = {
+    earnings_beat:"მოგებამ აჯობა", guidance_raise:"პროგნოზი აწია", analyst_upgrade:"ანალიტიკოსის upgrade",
+    big_contract:"დიდი კონტრაქტი", fda_approval:"FDA / კვლევა", m_and_a:"M&A",
+    buyback_dividend:"buyback / დივიდენდი", growth_news:"ზრდის ამბავი",
+    earnings_miss:"მოგება ჩავარდა", analyst_downgrade:"downgrade", dilution:"დილუცია",
+    legal_trouble:"სამართლებრივი", short_report:"short report"
+  };
+
+  fetch('/data/bot-lab.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(d => {
+      const box = document.getElementById('advisor-lab');
+      if(!box) return;
+      box.innerHTML = Object.values(d.bots).map(b => {
+        const ret = b.stats ? b.stats.return_pct : 0;
+        const cls = ret >= 0 ? 'pos' : 'neg';
+        const pos = b.positions.map(p =>
+          `${p.ticker}${p.leverage ? ' ' + p.leverage + '×' : ''} @ $${(+p.entry).toFixed(2)}`).join(', ') || 'ცარიელი — ელოდება';
+        const last = b.trades.length ? b.trades[b.trades.length - 1] : null;
+        return `
+        <div class="advisor-labcard">
+          <h4>${b.name_ka}</h4>
+          <div class="small">${b.desc_ka}</div>
+          <div class="eq">$${b.equity.toFixed(2)}</div>
+          <div class="ret ${cls}">${ret >= 0 ? '+' : ''}${ret}% · სტარტი $${b.start}</div>
+          <div class="small">პოზიცია: ${pos}</div>
+          <div class="small">ვაჭრობა: ${b.stats && b.stats.trades ? b.stats.trades + ' · win rate ' + (b.stats.win_rate ?? '—') + '%' : 'ჯერ 0'}</div>
+          ${last ? `<div class="small">ბოლო: ${last.ticker} ${last.ret_pct >= 0 ? '+' : ''}${last.ret_pct}% (${last.reason})</div>` : ''}
+        </div>`;
+      }).join('');
+    })
+    .catch(() => {
+      const box = document.getElementById('advisor-lab');
+      if (box) box.innerHTML = '<p class="advisor-rules">data/bot-lab.json ჯერ არ არსებობს — გაუშვი workflow.</p>';
+    });
+
+  fetch('/data/research.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(d => {
+      const upd = new Date(d.updated);
+      const ageH = (Date.now() - upd.getTime()) / 36e5;
+      
+      const metaEl = document.getElementById('advisor-meta');
+      if (metaEl) {
+        metaEl.textContent = `განახლდა: ${upd.toLocaleString('ka-GE')} · დასკანერდა ${d.scanned} აქცია · შორთლისტი ${d.shortlisted}`;
+      }
+      
+      const day = upd.getDay();
+      if (ageH > 30 && day >= 1 && day <= 5) {
+        const staleEl = document.getElementById('advisor-stale');
+        if (staleEl) staleEl.style.display = 'block';
+      }
+
+      const n = document.getElementById('advisor-notif');
+      if (n) {
+        n.style.display = 'block';
+        n.classList.add(d.mode);
+        const modeEl = document.getElementById('advisor-mode');
+        const txtEl = document.getElementById('advisor-notifText');
+        if (modeEl) modeEl.textContent = d.mode;
+        if (txtEl) txtEl.textContent = d.notification;
+      }
+
+      const box = document.getElementById('advisor-picks');
+      if (box) {
+        if (!d.picks || !d.picks.length) {
+          box.innerHTML = '<p class="advisor-rules">ბოტი ელოდება — დღეს სუფთა სეტაპი არ არის.</p>';
+        } else {
+          box.innerHTML = d.picks.map((p, i) => `
+            <div class="advisor-pick">
+              <h3><span>${i + 1}. ${p.ticker} · $${p.price}</span>
+                  <span class="score">ქულა ${p.score}</span></h3>
+              <div class="horizon">${p.horizon === 'long' ? 'გრძელვადიანი კანდიდატი' : 'მოკლევადიანი სვინგი'} ·
+                RSI ${p.rsi} · 5დღ ${p.mom5 > 0 ? '+' : ''}${p.mom5}% · მოცულობა ${p.vol_surge}×</div>
+              ${p.catalysts.map(c => `<p class="cat"><b>${CAT_KA[c.category] || c.category}</b> · ${c.headline}
+                <span style="color:var(--muted)">(${Math.round(c.age_h)}სთ წინ · ${c.points > 0 ? '+' : ''}${c.points})</span></p>`).join('')}
+              <p class="plan"><span>შესვლა ${p.plan.entry}</span>
+                <span class="t">target ${p.plan.target}</span>
+                <span class="s">stop ${p.plan.stop}</span>
+                <span>${p.plan.hold}</span></p>
+            </div>`).join('');
+        }
+      }
+
+      if (d.learned && d.learned.length) {
+        const tblCont = document.getElementById('advisor-learnedTbl-container');
+        const emptyEl = document.getElementById('advisor-learnedEmpty');
+        const bodyEl = document.getElementById('advisor-learnedBody');
+        
+        if (tblCont) tblCont.style.display = 'block';
+        if (emptyEl) emptyEl.style.display = 'none';
+        if (bodyEl) {
+          bodyEl.innerHTML = d.learned.map(l => `
+            <tr><td>${CAT_KA[l.category] || l.category}</td><td>${l.n}</td>
+            <td>${l.win_rate}%</td><td>${l.avg_return > 0 ? '+' : ''}${l.avg_return}%</td>
+            <td>${l.weight_now}×</td></tr>`).join('');
+        }
+      }
+    })
+    .catch(() => {
+      const metaEl = document.getElementById('advisor-meta');
+      if (metaEl) {
+        metaEl.textContent = 'data/research.json ჯერ არ არსებობს — გაუშვი workflow.';
+      }
+    });
+})();
+</script>
+
+<!-- ========================================================
+     JS: Searcher (Research 3.0)
+     ======================================================== -->
+<script>
+(function() {
+  'use strict';
+  
+  function generateSparkline(change, width, height) {
+    var points = 8;
+    var coords = [];
+    var isPositive = change >= 0;
+    
+    var startY = isPositive ? height - 5 : 5;
+    var endY = isPositive ? 5 : height - 5;
+    
+    coords.push({x: 0, y: startY});
+    for (var i = 1; i < points - 1; i++) {
+      var x = (width / (points - 1)) * i;
+      var linearY = startY + ((endY - startY) / (points - 1)) * i;
+      var noise = (Math.random() - 0.5) * (height * 0.35);
+      var y = Math.max(3, Math.min(height - 3, linearY + noise));
+      coords.push({x: x, y: y});
+    }
+    coords.push({x: width, y: endY});
+    
+    var path = "M " + coords[0].x + "," + coords[0].y;
+    for (var i = 1; i < coords.length; i++) {
+      path += " L " + coords[i].x + "," + coords[i].y;
+    }
+    return path;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  
+  function fmtMoney(v) {
+    return '$' + (+v).toFixed(2);
+  }
+  
+  function fmtChange(val, pct) {
+    var sign = val >= 0 ? '+' : '−';
+    return sign + '$' + Math.abs(val).toFixed(2) + ' (' + (val >= 0 ? '+' : '−') + Math.abs(pct).toFixed(2) + '%)';
+  }
+
+  async function loadPicks() {
+    var listEl = document.getElementById('picks-list');
+    var dateEl = document.getElementById('picks-date');
+    if (!listEl) return;
+    
+    try {
+      var res = await fetch('/data/kvleva3-picks.json?t=' + Date.now());
+      if (!res.ok) throw new Error('Network error');
+      var data = await res.json();
+      
+      if (data.date && dateEl) {
+        dateEl.textContent = '📅 ' + data.date;
+      }
+      
+      var picks = data.picks || [];
+      if (picks.length === 0) {
+        listEl.innerHTML = '<div class="picks-empty">დღეს არჩევანი არ არის. (No picks today.)</div>';
+        return;
+      }
+      
+      var html = picks.map(function(p) {
+        var isPos = p.change >= 0;
+        var changeClass = isPos ? 'pos' : 'neg';
+        var spPath = generateSparkline(p.change, 70, 24);
+        
+        var geoReason = p.reason;
+        var engReason = '';
+        var m = p.reason.match(/\(([^)]+)\)/);
+        if (m) {
+          geoReason = p.reason.replace(/\s*\([^)]+\)\s*/g, '').trim();
+          engReason = m[1];
+        }
+        
+        return '<div class="pick-row">' +
+          '<div class="pick-col-ticker">' +
+            '<a class="pick-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+            '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+          '</div>' +
+          '<div>' +
+            '<span class="pick-sector">' + esc(p.sector) + '</span>' +
+          '</div>' +
+          '<div class="pick-price-box">' +
+            '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
+            '<span class="pick-change ' + changeClass + '">' + fmtChange(p.change, p.changePct) + '</span>' +
+          '</div>' +
+          '<div class="pick-col-sparkline">' +
+            '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
+              '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
+            '</svg>' +
+          '</div>' +
+          '<div></div>' +
+          '<div class="pick-col-thesis">' +
+            '<div class="pick-thesis">' + esc(geoReason) + 
+              (engReason ? '<span class="pick-thesis-en">' + esc(engReason) + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      
+      listEl.innerHTML = html;
+      
+      var gainersList = document.getElementById('gainers-list');
+      var gainers = data.gainers || [];
+      if (gainersList) {
+        if (gainers.length === 0) {
+          gainersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+        } else {
+          gainersList.innerHTML = gainers.map(function(p) {
+            var isPos = p.change >= 0;
+            var changeClass = isPos ? 'pos' : 'neg';
+            var spPath = generateSparkline(p.change, 50, 18);
+            var sign = isPos ? '+' : '−';
+            
+            return '<div class="leader-row">' +
+              '<div class="leader-col-info">' +
+                '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+                '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+              '</div>' +
+              '<div class="leader-col-spark">' +
+                '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                  '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                '</svg>' +
+              '</div>' +
+              '<div class="leader-col-val">' +
+                '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                '<span class="leader-change ' + changeClass + '">' + sign + Math.abs(p.changePct).toFixed(2) + '%</span>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+        }
+      }
+
+      var losersList = document.getElementById('losers-list');
+      var losers = data.losers || [];
+      if (losersList) {
+        if (losers.length === 0) {
+          losersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+        } else {
+          losersList.innerHTML = losers.map(function(p) {
+            var isPos = p.change >= 0;
+            var changeClass = isPos ? 'pos' : 'neg';
+            var spPath = generateSparkline(p.change, 50, 18);
+            var sign = isPos ? '+' : '−';
+            
+            return '<div class="leader-row">' +
+              '<div class="leader-col-info">' +
+                '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+                '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+              '</div>' +
+              '<div class="leader-col-spark">' +
+                '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                  '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                '</svg>' +
+              '</div>' +
+              <div class="leader-col-val">' +
+                '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                '<span class="leader-change ' + changeClass + '">' + sign + Math.abs(p.changePct).toFixed(2) + '%</span>' +
+              '</div>' +
+            '</div>';
+          }).join('');
+        }
+      }
+      
+      window.screenersData = data.screeners || {};
+      setScreener('most_active');
+      
+    } catch (e) {
+      if (listEl) listEl.innerHTML = '<div class="picks-empty" style="color:var(--red);">⚠️ მონაცემების ჩატვირთვა ვერ მოხერხდა. (Failed to load picks.)</div>';
+    }
+  }
+
+  window.setScreener = function(key) {
+    var keys = ['most_active', 'undervalued_growth', 'growth_tech', 'penny_stocks', 'fifty_two_week_gainers'];
+    var idMap = {
+      'most_active': 'scr-active',
+      'undervalued_growth': 'scr-growth',
+      'growth_tech': 'scr-tech',
+      'penny_stocks': 'scr-penny',
+      'fifty_two_week_gainers': 'scr-fifty-two'
+    };
+    
+    keys.forEach(function(k) {
+      var btn = document.getElementById(idMap[k]);
+      if (btn) {
+        if (k === key) btn.classList.add('on');
+        else btn.classList.remove('on');
+      }
+    });
+    
+    var listEl = document.getElementById('screeners-list');
+    if (!listEl || !window.screenersData) return;
+    
+    var list = window.screenersData[key] || [];
+    if (list.length === 0) {
+      listEl.innerHTML = '<div class="picks-empty">მონაცემები არ არის. (No data available.)</div>';
+      return;
+    }
+    
+    listEl.innerHTML = list.map(function(p) {
+      var isPos = p.change >= 0;
+      var changeClass = isPos ? 'pos' : 'neg';
+      var spPath = generateSparkline(p.change, 70, 24);
+      
+      var badge = '';
+      if (p.yearlyChange != null) {
+        var yisPos = p.yearlyChange >= 0;
+        var ysign = yisPos ? '+' : '−';
+        var ycolor = yisPos ? 'var(--green)' : 'var(--red)';
+        badge = '<span class="yearly-badge" style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:9px;font-weight:700;color:' + ycolor + ';border:1px solid ' + ycolor + ';padding:1.5px 5px;border-radius:3px;margin-left:8px;white-space:nowrap;display:inline-block;vertical-align:middle;line-height:1;">52 Wk: ' + ysign + Math.abs(p.yearlyChange).toLocaleString() + '%</span>';
+      }
+      
+      return '<div class="scr-row">' +
+        '<div class="pick-col-ticker">' +
+          '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">' +
+            '<a class="pick-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+            badge +
+          '</div>' +
+          '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+        '</div>' +
+        '<div class="pick-price-box">' +
+          '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
+          '<span class="pick-change ' + changeClass + '">' + fmtChange(p.change, p.changePct) + '</span>' +
+        '</div>' +
+        '<div class="scr-col-sparkline">' +
+          '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
+            '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
+          '</svg>' +
+        '</div>' +
+        '<div></div>' +
+      '</div>';
     }).join('');
-  })
-  .catch(() => {
-    document.getElementById('lab').innerHTML =
-      '<p class="rules">data/bot-lab.json ჯერ არ არსებობს — გაუშვი workflow (Actions → research-bot).</p>';
-  });
+  };
+  
+  loadPicks();
+})();
+</script>
 
-const CAT_KA = {
-  earnings_beat:"მოგებამ აჯობა", guidance_raise:"პროგნოზი აწია", analyst_upgrade:"ანალიტიკოსის upgrade",
-  big_contract:"დიდი კონტრაქტი", fda_approval:"FDA / კვლევა", m_and_a:"M&A",
-  buyback_dividend:"buyback / დივიდენდი", growth_news:"ზრდის ამბავი",
-  earnings_miss:"მოგება ჩავარდა", analyst_downgrade:"downgrade", dilution:"დილუცია",
-  legal_trouble:"სამართლებრივი", short_report:"short report"
-};
-fetch('data/research.json?t=' + Date.now())
-  .then(r => r.json())
-  .then(d => {
-    const upd = new Date(d.updated);
-    const ageH = (Date.now() - upd.getTime()) / 36e5;
-    document.getElementById('meta').textContent =
-      `განახლდა: ${upd.toLocaleString('ka-GE')} · დასკანერდა ${d.scanned} აქცია · შორთლისტი ${d.shortlisted}`;
-    const day = upd.getDay();
-    if (ageH > 30 && day >= 1 && day <= 5) document.getElementById('stale').style.display = 'block';
+<!-- ========================================================
+     JS: Evaluator (Research 5.0)
+     ======================================================== -->
+<script>
+(function(){
+  'use strict';
+  var CONFIG = { analyst:false, providers:{finnhub:false,alphavantage:false}, kv:false };
+  var current = null;
 
-    const n = document.getElementById('notif');
-    n.style.display = 'block';
-    n.classList.add(d.mode);
-    document.getElementById('mode').textContent = d.mode;
-    document.getElementById('notifText').textContent = d.notification;
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function el(id){return document.getElementById(id);}
+  function n(x){return (x==null||x==='');}
+  function fmtN(x,d){return n(x)?'—':(+x).toFixed(d==null?2:d);}
+  function pctStr(x){ if(n(x))return '—'; var s=x>=0?'+':'−'; return s+Math.abs(x).toFixed(2)+'%'; }
+  function pctCls(x){ return n(x)?'':(x>=0?'pos':'neg'); }
+  function sign0(x){ if(n(x))return '—'; var s=x>=0?'+':'−'; return s+Math.abs(Math.round(x))+'%'; }
 
-    const box = document.getElementById('picks');
-    if (!d.picks || !d.picks.length) {
-      box.innerHTML = '<p class="rules">ბოტი ელოდება — დღეს სუფთა სეტაპი არ არის.</p>';
+  function unavail(){ return '<div class="kv5-unavail">მონაცემი მიუწვდომელია / data unavailable</div>'; }
+  function row(k,ksmall,v,cls){ return '<div class="kv5-row"><span class="k">'+k+(ksmall?' <small>'+ksmall+'</small>':'')+'</span><span class="v '+(cls||'')+'">'+v+'</span></div>'; }
+
+  function priceCard(p,cur){
+    var b='<div class="kv5-card"><h3><span><span class="num">1.</span> ფასი &amp; მოძრაობა</span><span style="font-weight:400;color:var(--muted);">Price</span></h3>';
+    if(!p||p.status!=='ok') return b+unavail()+'</div>';
+    b+=row('მიმდინარე ფასი','price',(cur||'$')+' '+fmtN(p.price),'');
+    b+=row('დღის ცვლილება','day',pctStr(p.dayChangePct),pctCls(p.dayChangePct));
+    b+=row('კვირის ცვლილება','week',pctStr(p.weekChangePct),pctCls(p.weekChangePct));
+    b+=row('თვის ცვლილება','month',pctStr(p.monthChangePct),pctCls(p.monthChangePct));
+    b+=row('52-კვ. დიაპაზონი','52-wk range', n(p.lo52)?'—':('$'+fmtN(p.lo52,0)+' – $'+fmtN(p.hi52,0)));
+    b+=row('პოზიცია დიაპაზონში','range pos', n(p.rangePosPct)?'—':(p.rangePosPct+'%'));
+    return b+'</div>';
+  }
+  function momentumCard(m){
+    var b='<div class="kv5-card"><h3><span><span class="num">2.</span> მომენტი</span><span style="font-weight:400;color:var(--muted);">Momentum</span></h3>';
+    if(!m||m.status!=='ok') return b+unavail()+'</div>';
+    b+=row('RSI (14)','', n(m.rsi14)?'—':m.rsi14.toFixed(1), (m.rsi14>=70?'neg':(m.rsi14<=30?'pos':'')));
+    b+=row('ფასი vs 50-დღ MA','', sign0(m.priceVs50Pct), pctCls(m.priceVs50Pct));
+    b+=row('ფასი vs 200-დღ MA','', sign0(m.priceVs200Pct), pctCls(m.priceVs200Pct));
+    b+=row('მოცულობა vs 30-დღ საშ.','vol', sign0(m.volVsAvgPct), pctCls(m.volVsAvgPct));
+    b+=row('50 / 200 MA','', n(m.sma50)?'—':('$'+fmtN(m.sma50,0)+' / '+(n(m.sma200)?'—':'$'+fmtN(m.sma200,0))));
+    return b+'</div>';
+  }
+  function sentimentCard(s){
+    var b='<div class="kv5-card wide"><h3><span><span class="num">3.</span> სენტიმენტი</span><span style="font-weight:400;color:var(--muted);">Sentiment</span></h3>';
+    if(!s||s.status!=='ok') return b+unavail()+'</div>';
+    b+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">';
+    b+='<div>';
+    var mk=s.market||{};
+    if(mk.status==='ok'){
+      var col = mk.score<25?'#b91c1c':mk.score<45?'#b45309':mk.score<=55?'#6b6b6b':mk.score<=75?'#8b6914':'#166534';
+      b+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">CNN Fear &amp; Greed (ბაზარი)</div>';
+      b+='<div class="kv5-fng"><span class="num" style="color:'+col+';">'+mk.score+'</span><div class="meta"><b>'+esc(mk.rating||'')+'</b><br>წინა კვირა: '+(n(mk.prevWeek)?'—':mk.prevWeek)+'</div></div>';
+    } else { b+=unavail(); }
+    b+='</div>';
+    b+='<div>';
+    var hl=s.headlines||{};
+    if(hl.status==='ok'){
+      b+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">სათაურების ტონი · Headline tone — <b style="color:var(--ink);">'+esc(hl.label)+'</b></div>';
+      b+='<div class="kv5-headlines">';
+      (hl.recent||[]).slice(0,4).forEach(function(h){
+        var mk2=h.dir>0?'<span class="mk pos">▲</span>':h.dir<0?'<span class="mk neg">▼</span>':'<span class="mk" style="color:var(--muted);">■</span>';
+        b+='<div class="kv5-hl">'+mk2+'<span>'+esc(h.headline)+'</span></div>';
+      });
+      if(!(hl.recent&&hl.recent.length)) b+='<div class="kv5-unavail">ბოლო სათაურები არ არის</div>';
+      b+='</div>';
+    } else { b+=unavail(); }
+    b+='</div></div>';
+    return b+'</div>';
+  }
+  function valuationCard(v){
+    var b='<div class="kv5-card"><h3><span><span class="num">4.</span> შეფასება</span><span style="font-weight:400;color:var(--muted);">Valuation</span></h3>';
+    if(!v||v.status!=='ok') return b+unavail()+'</div>';
+    b+=row('P/E (TTM)','', n(v.peTTM)?'— (n/a)':v.peTTM.toFixed(1));
+    b+=row('სექტ. მედიანა P/E','sector', n(v.sectorMedianPE)?'—':('~'+v.sectorMedianPE));
+    b+=row('P/E vs სექტორი','', n(v.peVsSectorPct)?'—':sign0(v.peVsSectorPct), (v.peVsSectorPct<=0?'pos':'neg'));
+    b+=row('საბაზრო კაპ.','mkt cap', n(v.marketCapBn)?'—':('$'+v.marketCapBn.toFixed(2)+'B'));
+    b+=row('კაპ. კატეგორია','tier', (v.capTierKa?esc(v.capTierKa):'—')+(v.capTier?' / '+esc(v.capTier):''));
+    return b+'</div>';
+  }
+  function cfdCard(c){
+    var b='<div class="kv5-card"><h3><span><span class="num">5.</span> CFD პანელი</span><span style="font-weight:400;color:var(--muted);">CFD</span></h3>';
+    if(!c||c.status!=='ok') return b+unavail()+'</div>';
+    b+=row('30-დღ ვოლატილობა','annualised', n(c.vol30Pct)?'—':(c.vol30Pct.toFixed(1)+'%'), (c.vol30Pct>50?'neg':''));
+    b+=row('ATR (14)','', n(c.atr14)?'—':('$'+c.atr14.toFixed(2)));
+    b+=row('ATR % ფასის','', n(c.atr14Pct)?'—':(c.atr14Pct.toFixed(2)+'%'));
+    if(c.financingNote) b+='<div class="kv5-note">'+esc(c.financingNote)+'</div>';
+    return b+'</div>';
+  }
+
+  function meterHTML(score){
+    var segs=[[0,30,'#b91c1c'],[30,45,'#b45309'],[45,60,'#6b6b6b'],[60,75,'#8b6914'],[75,100,'#166534']];
+    var bar='';
+    segs.forEach(function(s){ bar+='<div class="seg" style="width:'+(s[1]-s[0])+'%;background:'+s[2]+';opacity:.32;"></div>'; });
+    var ptr = score==null?'':'<div class="ptr" style="left:'+Math.max(0,Math.min(100,score))+'%;"></div>';
+    return '<div class="kv5-meter"><div class="bar">'+bar+ptr+'</div>'+
+      '<div class="labels"><span>0</span><span>Short</span><span>Weak</span><span>Neutral</span><span>Watch</span><span>Strong</span><span>100</span></div></div>';
+  }
+
+  function renderDossier(d,isDemo){
+    current=d;
+    var band=d.band||{en:'—',ka:'—',color:'#6b6b6b'};
+    var p=(d.sections&&d.sections.price)||{};
+    var priceStr = (p.status==='ok')?((d.currency||'$')+' '+fmtN(p.price)):'—';
+    var chCls=pctCls(p.dayChangePct), chStr=pctStr(p.dayChangePct);
+
+    var html='<div class="kv5-hero widget'+(isDemo?' sample':'')+'">'+
+      '<div class="kv5-hero-head"><div><div class="kv5-tk">'+esc(d.ticker)+'</div><div class="kv5-nm">'+esc(d.name||'')+(d.sector?' · '+esc(d.sector):'')+'</div></div>'+
+        '<div class="kv5-hero-price"><div class="p">'+priceStr+'</div><div class="c '+chCls+'">'+chStr+'</div></div></div>'+
+      '<div class="kv5-scorewrap">'+
+        '<div class="kv5-scorenum"><div class="big" style="color:'+band.color+';">'+(d.score==null?'—':d.score)+'</div><div class="out">/ 100 კომპოზიტური ქულა</div></div>'+
+        '<div><span class="kv5-band" style="background:'+band.color+';">'+esc(band.en)+'</span>'+
+          '<div class="kv5-band-ka">'+esc(band.ka)+'</div>'+
+          meterHTML(d.score)+
+          '<div class="kv5-band-note">ზოლი კვლევითი კლასიფიკაციაა — არა ყიდვის/გაყიდვის რჩევა. '+(d.score==null?'არასაკმარისი მონაცემები.':('ხელმისაწვდომი წონა: '+(d.availableWeight||0)+'/100.'))+'</div>'+
+        '</div>'+
+      '</div></div>';
+
+    html+='<div class="kv5-sections">'+
+      priceCard(d.sections&&d.sections.price,d.currency)+
+      momentumCard(d.sections&&d.sections.momentum)+
+      sentimentCard(d.sections&&d.sections.sentiment)+
+      valuationCard(d.sections&&d.sections.valuation)+
+      cfdCard(d.sections&&d.sections.cfd)+
+    '</div>';
+
+    html+='<div class="kv5-analyst-wrap">';
+    if(CONFIG.analyst && !isDemo){
+      html+='<button id="kv5-analyst-btn" class="kv5-btn ghost">📰 ანალიტიკოსი · Ask the analyst</button>';
+    } else if(isDemo){
+      html+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11.5px;color:var(--muted);font-style:italic;">ანალიტიკოსი ხელმისაწვდომია ცოცხალ რეჟიმში (Need ANTHROPIC_API_KEY).</div>';
+    }
+    html+='<div id="kv5-analyst-out" class="kv5-analyst-out"></div></div>';
+
+    el('kv5-results').innerHTML=html;
+
+    var live=el('kv5-live');
+    live.style.visibility='visible';
+    if(isDemo){ live.className='kv5-live sample'; live.querySelector('span:last-child').textContent='ნიმუში / Sample'; }
+    else { live.className='kv5-live live-stamp'; live.querySelector('span:last-child').textContent='Live მონაცემები'; }
+
+    var ab=el('kv5-analyst-btn');
+    if(ab) ab.addEventListener('click',loadAnalyst);
+  }
+
+  async function loadAnalyst(){
+    var btn=el('kv5-analyst-btn'), out=el('kv5-analyst-out');
+    if(!current) return;
+    btn.disabled=true; btn.textContent='⏳ იტვირთება…';
+    out.className='kv5-analyst-out on'; out.innerHTML='<div class="byline">The Trading Paper · Research Desk</div><span class="kv5-spin"></span>';
+    try{
+      var r=await fetch('/api/analyst',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(current)});
+      var j=await r.json();
+      if(j.ok){ out.innerHTML='<div class="byline">The Trading Paper · Research Desk · '+esc(j.model||'')+'</div>'+esc(j.narrative); }
+      else { out.innerHTML='<div class="byline">Research Desk</div><span style="color:var(--red);">ანალიტიკოსი ვერ ჩაიტვირთა: '+esc(j.error||'error')+'</span>'; }
+    }catch(e){ out.innerHTML='<div class="byline">Research Desk</div><span style="color:var(--red);">ქსელის შეცდომა.</span>'; }
+    btn.disabled=false; btn.textContent='📰 ანალიტიკოსი · Ask the analyst';
+  }
+
+  async function loadSignals(){
+    var box=el('kv5-signals');
+    if(!box) return;
+    async function fromApi(){ var r=await fetch('/api/signals',{cache:'no-store'}); if(!r.ok)throw 0; return (await r.json()).signals||[]; }
+    async function fromSeed(){ var r=await fetch('/data/kvleva5-signals.json?t='+Date.now()); if(!r.ok)throw 0; return await r.json(); }
+    var sigs=[];
+    try{ sigs=await fromApi(); }catch(e){ try{ sigs=await fromSeed(); }catch(e2){ sigs=[]; } }
+    if(!sigs.length){ box.innerHTML='<div class="kv5-empty">ჯერ არ არის სიგნალები.<br>No signals logged yet.</div>'; return; }
+    box.innerHTML=sigs.slice(0,8).map(function(s){
+      var col=(s.score>=75?'#166534':s.score>=60?'#8b6914':s.score>=45?'#6b6b6b':s.score>=30?'#b45309':'#b91c1c');
+      return '<div class="kv5-sig"><span><span class="t">'+esc(s.ticker)+'</span> <span class="d">'+esc(s.date||'')+'</span></span>'+
+        '<span class="sc" style="color:'+col+';">'+(s.score==null?'—':s.score)+'</span></div>';
+    }).join('');
+  }
+
+  window.doEvaluatorSearch = async function(tk){
+    tk=String(tk||el('kv5-ticker').value||'').trim().toUpperCase();
+    if(!tk) return;
+    el('kv5-ticker').value=tk;
+    el('kv5-results').innerHTML='<div class="kv5-loading"><div class="kv5-spin"></div><div style="margin-top:14px;">იკვლევა '+esc(tk)+'… / researching…</div></div>';
+    try{
+      var r=await fetch('/api/dossier?ticker='+encodeURIComponent(tk),{cache:'no-store'});
+      if(!r.ok) throw new Error('http '+r.status);
+      var d=await r.json();
+      if(!d||!d.ok) throw new Error('bad payload');
+      var anyOk = d.sections && Object.keys(d.sections).some(function(k){ var s=d.sections[k]; return s && s.status==='ok'; });
+      if(!d.configured && !anyOk && DEMO[tk]){ el('kv5-demobar').classList.add('on'); renderDossier(DEMO[tk],true); loadSignals(); return; }
+      el('kv5-demobar').classList.toggle('on', !d.configured);
+      renderDossier(d,false);
+      loadSignals();
+    }catch(e){
+      if(DEMO[tk]){ el('kv5-demobar').classList.add('on'); renderDossier(DEMO[tk],true); loadSignals(); }
+      else {
+        el('kv5-demobar').classList.add('on');
+        el('kv5-results').innerHTML='<div class="kv5-placeholder"><div class="big">📡</div>'+
+          '<div style="font-size:14px;color:var(--ink);font-weight:700;margin-bottom:6px;">ცოცხალი მონაცემები მიუწვდომელია</div>'+
+          '<div style="font-size:12px;">API ვერ იტვირთა. სცადე დემო: <a class="kv5-ex" onclick="doEvaluatorSearch(\'AAPL\')" style="color:var(--red);cursor:pointer;">AAPL</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'NVDA\')" style="color:var(--red);cursor:pointer;">NVDA</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'TSLA\')" style="color:var(--red);cursor:pointer;">TSLA</a></div></div>';
+      }
+    }
+  };
+
+  var DEMO={
+    AAPL:{ok:true,ticker:'AAPL',name:'Apple Inc.',sector:'Technology',currency:'$',exchange:'NASDAQ',asOf:new Date().toISOString(),configured:false,
+      sections:{
+        price:{status:'ok',price:227.50,dayChange:2.10,dayChangePct:0.93,prevClose:225.40,weekChangePct:1.8,monthChangePct:5.4,hi52:237.23,lo52:164.08,rangePosPct:86.8},
+        momentum:{status:'ok',rsi14:58.4,sma50:214.30,sma200:198.70,priceVs50Pct:6.2,priceVs200Pct:14.5,avgVol30:52000000,latestVol:61000000,volVsAvgPct:17,dataPoints:5000},
+        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:0.4,count:18,scored:9,label:'დადებითი / Positive',recent:[{headline:'Apple services revenue hits record as iPhone demand holds',dir:1,source:'Demo'},{headline:'Analysts raise targets ahead of product cycle',dir:1,source:'Demo'},{headline:'Regulatory probe in EU continues',dir:-1,source:'Demo'}]}},
+        valuation:{status:'ok',peTTM:29.4,sectorMedianPE:30,peVsSectorPct:-2,marketCapBn:3450,capTier:'Mega',capTierKa:'მეგა',sector:'Technology'},
+        cfd:{status:'ok',vol30Pct:22.6,atr14:3.85,atr14Pct:1.69,financingNote:'ზომიერი ვოლატილობა — სტანდარტული სტოპ-მართვა CFD-სთვის. (Moderate volatility.)'}
+      },score:79,band:{en:'STRONG RESEARCH INTEREST',ka:'ძლიერი კვლევითი ინტერესი',color:'#166534'},availableWeight:100,contributions:{}},
+    NVDA:{ok:true,ticker:'NVDA',name:'NVIDIA Corp.',sector:'Semiconductors',currency:'$',exchange:'NASDAQ',asOf:new Date().toISOString(),configured:false,
+      sections:{
+        price:{status:'ok',price:131.20,dayChange:-1.80,dayChangePct:-1.35,prevClose:133.00,weekChangePct:-3.2,monthChangePct:11.8,hi52:140.76,lo52:39.23,rangePosPct:90.5},
+        momentum:{status:'ok',rsi14:71.6,sma50:118.40,sma200:98.10,priceVs50Pct:10.8,priceVs200Pct:33.7,avgVol30:310000000,latestVol:520000000,volVsAvgPct:68,dataPoints:5000},
+        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:0.2,count:24,scored:14,label:'დადებითი / Positive',recent:[{headline:'NVIDIA data-center demand surges on AI buildout',dir:1,source:'Demo'},{headline:'Supply constraints warn of near-term volatility',dir:-1,source:'Demo'},{headline:'New chip generation beats expectations',dir:1,source:'Demo'}]}},
+        valuation:{status:'ok',peTTM:64.2,sectorMedianPE:26,peVsSectorPct:147,marketCapBn:3230,capTier:'Mega',capTierKa:'მეგა',sector:'Semiconductors'},
+        cfd:{status:'ok',vol30Pct:48.3,atr14:5.10,atr14Pct:3.89,financingNote:'მაღალი ვოლატილობა — გააფართოვე სტოპები. (High volatility — widen stops.)'}
+      },score:68,band:{en:'WATCH',ka:'სათვალყურო',color:'#8b6914'},availableWeight:100,contributions:{}},
+    TSLA:{ok:true,ticker:'TSLA',name:'Tesla Inc.',sector:'Automobiles',currency:'$',exchange:'NASDAQ',asOf:new Date().toISOString(),configured:false,
+      sections:{
+        price:{status:'ok',price:248.90,dayChange:4.30,dayChangePct:1.76,prevClose:244.60,weekChangePct:2.1,monthChangePct:-6.4,hi52:299.29,lo52:138.80,rangePosPct:68.6},
+        momentum:{status:'ok',rsi14:49.2,sma50:246.10,sma200:232.40,priceVs50Pct:1.1,priceVs200Pct:7.1,avgVol30:98000000,latestVol:90000000,volVsAvgPct:-8,dataPoints:3500},
+        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:-0.1,count:20,scored:12,label:'ნეიტრალური / Neutral',recent:[{headline:'Deliveries miss the highest estimates',dir:-1,source:'Demo'},{headline:'Energy storage business posts strong growth',dir:1,source:'Demo'},{headline:'Price cuts pressure margins',dir:-1,source:'Demo'}]}},
+        valuation:{status:'ok',peTTM:58.7,sectorMedianPE:15,peVsSectorPct:291,marketCapBn:795,capTier:'Mega',capTierKa:'მეგა',sector:'Automobiles'},
+        cfd:{status:'ok',vol30Pct:54.9,atr14:9.40,atr14Pct:3.78,financingNote:'მაღალი ვოლატილობა. (High volatility.)'}
+      },score:52,band:{en:'NEUTRAL',ka:'ნეიტრალური',color:'#6b6b6b'},availableWeight:100,contributions:{}}
+  };
+
+  async function init(){
+    try{ var r=await fetch('/api/config',{cache:'no-store'}); if(r.ok){ var c=await r.json(); CONFIG=c; } }catch(e){}
+    if(!(CONFIG.providers&&(CONFIG.providers.finnhub||CONFIG.providers.alphavantage))){ el('kv5-demobar').classList.add('on'); }
+    
+    const goBtn = el('kv5-go');
+    if (goBtn) {
+      goBtn.addEventListener('click', function(){ window.doEvaluatorSearch(); });
+    }
+    const tickInput = el('kv5-ticker');
+    if (tickInput) {
+      tickInput.addEventListener('keydown', function(e){ if(e.key==='Enter') window.doEvaluatorSearch(); });
+    }
+    loadSignals();
+  }
+  
+  init();
+})();
+</script>
+
+<!-- ========================================================
+     JS: Journal (Signal Journal)
+     ======================================================== -->
+<script>
+(function(){
+  'use strict';
+
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function pctStr(x){ if(x==null||isNaN(x)) return '—'; var s=x>=0?'+':'−'; return s+Math.abs(x).toFixed(2)+'%'; }
+  function pctCls(x){ return (x==null||isNaN(x)) ? '' : (x>=0?'pos':'neg'); }
+
+  function countUp(element, endVal, isPercentage, isInteger) {
+    const duration = 1200;
+    const startVal = 0;
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      element.textContent = formatValue(endVal, isPercentage, isInteger);
+      return;
+    }
+    
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const currentVal = startVal + eased * (endVal - startVal);
+      
+      element.textContent = formatValue(currentVal, isPercentage, isInteger);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  function formatValue(val, isPercentage, isInteger) {
+    if (val == null || isNaN(val)) return '—';
+    if (isPercentage) return val.toFixed(1) + '%';
+    if (isInteger) return Math.round(val);
+    return (val >= 0 ? '+' : '') + val.toFixed(2) + '%';
+  }
+
+  function getDeterministicRotation(id) {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+      hash = id.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const angle = (hash % 9); 
+    return angle + 'deg';
+  }
+
+  function generateSparklineSVG(sparklineData, returnPct) {
+    if (!sparklineData || sparklineData.length < 3) {
+      return `<svg class="sparkline-svg" width="120" height="32" viewBox="0 0 120 32">
+        <line x1="0" y1="16" x2="120" y2="16" stroke="var(--border)" stroke-width="1.2" stroke-dasharray="2,2" />
+      </svg>`;
+    }
+
+    const prices = sparklineData.map(p => p.price);
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
+    const range = max - min || 1;
+
+    const padding = 4;
+    const width = 120;
+    const height = 32;
+    const points = sparklineData.map((p, idx) => {
+      const x = (idx / (sparklineData.length - 1)) * width;
+      const y = height - padding - ((p.price - min) / range) * (height - 2 * padding);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    });
+
+    const pathD = `M ${points.join(' L ')}`;
+    const lastIdx = sparklineData.length - 1;
+    const lastX = width;
+    const lastY = height - padding - ((prices[lastIdx] - min) / range) * (height - 2 * padding);
+    
+    const dotColor = returnPct >= 0.01 ? 'var(--green)' : (returnPct <= -0.01 ? 'var(--red)' : 'var(--muted)');
+
+    return `<svg class="sparkline-svg" width="120" height="32" viewBox="0 0 120 32">
+      <path class="sparkline-path" d="${pathD}" fill="none" stroke="var(--ink)" stroke-width="1.2" />
+      <circle class="sparkline-dot" cx="${lastX}" cy="${lastY}" r="3" fill="${dotColor}" style="opacity:1;" />
+    </svg>`;
+  }
+
+  function getVerdictHTML(verdict, id) {
+    if (verdict === 'PENDING') {
+      return '<span class="verdict-pending"><span lang="ka">მოლოდინში</span><span lang="en">Pending</span></span>';
+    }
+    if (verdict === 'FLAT') {
+      return '<span class="verdict-flat">—</span>';
+    }
+    if (verdict === 'HIT') {
+      const rot = getDeterministicRotation(id);
+      return `<span class="verdict-stamp hit slam" style="--stamp-rot: ${rot};">✓ <span lang="ka">HIT</span><span lang="en">HIT</span></span>`;
+    }
+    if (verdict === 'MISS') {
+      const rot = getDeterministicRotation(id);
+      return `<span class="verdict-stamp miss slam" style="--stamp-rot: ${rot};">✗ <span lang="ka">MISS</span><span lang="en">MISS</span></span>`;
+    }
+    return '—';
+  }
+
+  function getBandLabelHTML(band) {
+    const b = String(band || '').toUpperCase();
+    if (b === 'STRONG RESEARCH INTEREST') {
+      return '<span class="band-badge band-strong"><span lang="ka">ძლიერი ინტერესი</span><span lang="en">STRONG INTEREST</span></span>';
+    }
+    if (b === 'SHORT-SIDE CANDIDATE') {
+      return '<span class="band-badge band-short"><span lang="ka">ქვევითი კანდიდატი</span><span lang="en">SHORT-SIDE</span></span>';
+    }
+    if (b === 'WATCH') {
+      return '<span class="band-badge band-other"><span lang="ka">სათვალყურო</span><span lang="en">WATCH</span></span>';
+    }
+    if (b === 'NEUTRAL') {
+      return '<span class="band-badge band-other"><span lang="ka">ნეიტრალური</span><span lang="en">NEUTRAL</span></span>';
+    }
+    if (b === 'WEAK') {
+      return '<span class="band-badge band-other"><span lang="ka">სუსტი</span><span lang="en">WEAK</span></span>';
+    }
+    return '<span class="band-badge band-other"><span>' + esc(band) + '</span></span>';
+  }
+
+  function buildTickerTapeHTML(signals) {
+    const active = signals.filter(s => !s.muted);
+    if (!active.length) return '';
+    
+    const itemsHTML = active.slice(0, 10).map(s => {
+      const change = s.return_pct != null ? s.return_pct : 0;
+      const arrow = change >= 0 ? '<span class="pos">▲</span>' : '<span class="neg">▼</span>';
+      const changeStr = s.return_pct != null ? (s.return_pct >= 0 ? '+' : '') + s.return_pct.toFixed(1) + '%' : '—';
+      const bandShort = s.band.replace(' RESEARCH INTEREST', '').replace(' CANDIDATE', '');
+      const verdict30 = s.verdicts && s.verdicts.d30 ? s.verdicts.d30 : 'PENDING';
+      const vSymbol = verdict30 === 'HIT' ? '✓' : (verdict30 === 'MISS' ? '✗' : '—');
+      
+      return `<span class="ticker-item">${esc(s.ticker)} ${arrow} ${changeStr} · ${esc(bandShort)} · 30d: ${verdict30} ${vSymbol}</span>`;
+    }).join(' <span style="color:var(--border)">·</span> ');
+    
+    return `<div class="ticker-tape-wrap">${itemsHTML} &nbsp;&nbsp;·&nbsp;&nbsp; ${itemsHTML}</div>`;
+  }
+
+  function renderNotarySeal(head, valid) {
+    const area = document.getElementById('notary-seal-area');
+    if (!area) return;
+
+    if (!head) {
+      area.innerHTML = '';
+      return;
+    }
+
+    if (valid) {
+      area.innerHTML = `
+        <div class="notary-seal-wrapper">
+          <div class="notary-seal">
+            <span style="font-size:7px; letter-spacing:0.5px; text-transform:uppercase;"><span lang="ka">დამოწმებულია</span><span lang="en">NOTARIZED</span></span>
+            <span class="hash">${esc(head.slice(0, 10))}</span>
+            <span style="font-size:5px; margin-top:2px; opacity:0.8; letter-spacing:0.2px;">CHAIN HEAD</span>
+          </div>
+          <div class="notary-tooltip">
+            <span lang="ka">ყოველი სიგნალი არის ჰეშ-ჯაჭვური; ჩანაწერის ჩუმად შეცვლა შეუძლებელია.</span>
+            <span lang="en">Every signal is hash-chained; the record cannot be silently altered.</span>
+          </div>
+        </div>
+      `;
     } else {
-      box.innerHTML = d.picks.map((p, i) => `
-        <div class="pick">
-          <h3><span>${i + 1}. ${p.ticker} · $${p.price}</span>
-              <span class="score">ქულა ${p.score}</span></h3>
-          <div class="horizon">${p.horizon === 'long' ? 'გრძელვადიანი კანდიდატი' : 'მოკლევადიანი სვინგი'} ·
-            RSI ${p.rsi} · 5დღ ${p.mom5 > 0 ? '+' : ''}${p.mom5}% · მოცულობა ${p.vol_surge}×</div>
-          ${p.catalysts.map(c => `<p class="cat"><b>${CAT_KA[c.category] || c.category}</b> · ${c.headline}
-            <span style="color:var(--muted)">(${Math.round(c.age_h)}სთ წინ · ${c.points > 0 ? '+' : ''}${c.points})</span></p>`).join('')}
-          <p class="plan"><span>შესვლა ${p.plan.entry}</span>
-            <span class="t">target ${p.plan.target}</span>
-            <span class="s">stop ${p.plan.stop}</span>
-            <span>${p.plan.hold}</span></p>
-        </div>`).join('');
+      area.innerHTML = `
+        <div class="notary-seal-wrapper">
+          <div class="notary-failed">
+            <span lang="ka">⚠ შემოწმება ჩავარდა</span>
+            <span lang="en">⚠ Verification Failed</span>
+          </div>
+          <div class="notary-tooltip">
+            <span lang="ka">სიგნალების ჰეშ-ჯაჭვის ვალიდაცია ჩავარდა! მონაცემები შეიძლება შეცვლილი იყოს.</span>
+            <span lang="en">Signal hash chain validation failed! The records may have been altered.</span>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  async function updateLivePrices() {
+    try {
+      const res = await fetch('/api/journal?t=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !data.signals) return;
+      
+      data.signals.forEach(s => {
+        const priceCell = document.getElementById(`price-${s.id}`);
+        const returnCell = document.getElementById(`return-${s.id}`);
+        
+        if (priceCell) {
+          const oldPrice = parseFloat(priceCell.getAttribute('data-price'));
+          const newPrice = s.current_price;
+          
+          if (newPrice !== null && oldPrice !== newPrice) {
+            const up = newPrice > oldPrice;
+            priceCell.textContent = '$' + newPrice.toFixed(2);
+            priceCell.setAttribute('data-price', newPrice);
+            
+            if (returnCell) {
+              returnCell.textContent = s.return_pct != null ? (s.return_pct >= 0 ? '+' : '') + s.return_pct.toFixed(2) + '%' : '—';
+              returnCell.className = `num ${s.return_pct >= 0 ? 'pos' : 'neg'}`;
+            }
+            
+            priceCell.classList.remove('flash-up', 'flash-down');
+            priceCell.getBoundingClientRect(); 
+            priceCell.classList.add(up ? 'flash-up' : 'flash-down');
+          }
+        }
+      });
+    } catch (e) {}
+  }
+
+  let pollInterval = null;
+  function startPolling() {
+    if (pollInterval) clearInterval(pollInterval);
+    pollInterval = setInterval(async () => {
+      if (document.visibilityState === 'visible') {
+        await updateLivePrices();
+      }
+    }, 5 * 60 * 1000);
+  }
+
+  async function init() {
+    const contentEl = document.getElementById('journal-content-area');
+    const bannerEl = document.getElementById('summary-banner');
+    if (!contentEl) return;
+
+    let data = null;
+    try {
+      const res = await fetch('/api/journal?t=' + Date.now(), { cache: 'no-store' });
+      if (!res.ok) throw 0;
+      data = await res.json();
+    } catch(e) {
+      contentEl.innerHTML = '<div class="empty-state">' +
+        '<div class="icon">📡</div>' +
+        '<div class="text" lang="ka">მონაცემების ჩატვირთვა ვერ მოხერხდა</div>' +
+        '<div class="text" lang="en">Failed to load journal records</div>' +
+        '<div class="sub" lang="ka">გთხოვთ სცადოთ მოგვიანებით.</div>' +
+        '<div class="sub" lang="en">Please try again later.</div>' +
+        '</div>';
+      if (bannerEl) bannerEl.innerHTML = '';
+      return;
     }
 
-    if (d.learned && d.learned.length) {
-      document.getElementById('learnedTbl').style.display = 'table';
-      document.getElementById('learnedEmpty').style.display = 'none';
-      document.getElementById('learnedBody').innerHTML = d.learned.map(l => `
-        <tr><td>${CAT_KA[l.category] || l.category}</td><td>${l.n}</td>
-        <td>${l.win_rate}%</td><td>${l.avg_return > 0 ? '+' : ''}${l.avg_return}%</td>
-        <td>${l.weight_now}×</td></tr>`).join('');
+    const signals = data.signals || [];
+    if (!signals.length) {
+      contentEl.innerHTML = '<div class="empty-state">' +
+        '<div class="icon">📭</div>' +
+        '<div class="text" lang="ka">ჟურნალი ცარიელია. პირველი სიგნალი აქ გამოჩნდება.</div>' +
+        '<div class="text" lang="en">The journal is empty.</div>' +
+        '</div>';
+      if (bannerEl) bannerEl.innerHTML = '';
+      return;
     }
-  })
-  .catch(() => {
-    document.getElementById('meta').textContent =
-      'data/research.json ჯერ არ არსებობს — გაუშვი workflow ერთხელ ხელით (Actions → research-bot → Run workflow).';
-  });
+
+    const tape = document.getElementById('ticker-tape');
+    if (tape) {
+      tape.innerHTML = buildTickerTapeHTML(signals);
+      tape.style.display = 'block';
+    }
+    renderNotarySeal(data.chain_head, data.chain_valid);
+
+    const sTotal = document.getElementById('stat-total');
+    const sGraded = document.getElementById('stat-graded');
+    const sHitrate = document.getElementById('stat-hitrate');
+    const sHitrateSub = document.getElementById('stat-hitrate-sub');
+    const sAvgreturn = document.getElementById('stat-avgreturn');
+    const hrUnderline = document.getElementById('hitrate-underline');
+
+    if (sTotal) countUp(sTotal, data.stats.total, false, true);
+    if (sGraded) countUp(sGraded, data.stats.graded, false, true);
+    if (sHitrate) {
+      countUp(sHitrate, data.stats.hit_rate_30d_pct, true, false);
+      if (sHitrateSub) {
+        sHitrateSub.textContent = `სულ ${data.stats.closed_30d} კვლევიდან · Out of ${data.stats.closed_30d}`;
+      }
+      setTimeout(() => { if(hrUnderline) hrUnderline.classList.add('draw'); }, 200);
+    }
+    if (sAvgreturn) countUp(sAvgreturn, data.stats.avg_graded_return_pct, false, false);
+
+    let html = '<div class="ledger-container">' +
+      '<table class="ledger-table">' +
+        '<thead>' +
+          '<tr>' +
+            '<th><span lang="ka">თარიღი (UTC)</span><span lang="en">Date (UTC)</span></th>' +
+            '<th><span lang="ka">ტიკერი</span><span lang="en">Ticker</span></th>' +
+            '<th><span lang="ka">კლასიფიკაცია</span><span lang="en">Research Band</span></th>' +
+            '<th style="text-align:right;"><span lang="ka">ქულა</span><span lang="en">Score</span></th>' +
+            '<th style="text-align:right;"><span lang="ka">ფასი სიგნალზე</span><span lang="en">Price @ Sig</span></th>' +
+            '<th style="text-align:right;"><span lang="ka">მიმდინარე ფასი</span><span lang="en">Current Price</span></th>' +
+            '<th style="text-align:right;"><span lang="ka">ამონაგები</span><span lang="en">Return %</span></th>' +
+            '<th style="text-align:center;">7d+</th>' +
+            '<th style="text-align:center;">30d+</th>' +
+            '<th style="text-align:center;">90d+</th>' +
+            '<th style="text-align:center; width:130px;"><span lang="ka">ტრენდი</span><span lang="en">Trend</span></th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody id="journal-ledger-body">';
+
+    signals.forEach(function(s, idx) {
+      const scoreDisp = s.score != null ? Math.round(s.score) : '—';
+      const sigPriceDisp = s.signal_price != null ? '$' + s.signal_price.toFixed(2) : '—';
+      const livePriceDisp = s.current_price != null ? '$' + s.current_price.toFixed(2) : '—';
+      const returnDisp = s.return_pct != null ? pctStr(s.return_pct) : '—';
+      const returnClass = s.return_pct != null ? pctCls(s.return_pct) : '';
+
+      const trClass = s.muted ? 'class="sig-muted fade-in"' : 'class="fade-in"';
+      const dupBadge = s.muted ? ' <span class="tag-badge tag-dup"><span lang="ka">დუბლიკატი</span><span lang="en">dup</span></span>' : '';
+
+      const d7Verdict = s.muted ? '—' : getVerdictHTML(s.verdicts.d7, s.id);
+      const d30Verdict = s.muted ? '—' : getVerdictHTML(s.verdicts.d30, s.id);
+      const d90Verdict = s.muted ? '—' : getVerdictHTML(s.verdicts.d90, s.id);
+
+      const delay = idx * 0.05;
+      const sparklineHTML = generateSparklineSVG(s.sparkline, s.return_pct);
+
+      html += `<tr ${trClass} style="animation-delay: ${delay}s;">` +
+        '<td>' + esc(s.date_utc) + '</td>' +
+        '<td><a class="ticker-link" href="?tab=evaluator&ticker=' + encodeURIComponent(s.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(s.ticker) + '\')">' + esc(s.ticker) + '</a>' + dupBadge + '</td>' +
+        '<td>' + getBandLabelHTML(s.band) + '</td>' +
+        '<td class="num">' + scoreDisp + '</td>' +
+        '<td class="num">' + sigPriceDisp + '</td>' +
+        `<td class="num" id="price-${s.id}" data-price="${s.current_price || ''}">` + livePriceDisp + '</td>' +
+        `<td class="num ${returnClass}" id="return-${s.id}">` + returnDisp + '</td>' +
+        '<td style="text-align:center;">' + d7Verdict + '</td>' +
+        '<td style="text-align:center;">' + d30Verdict + '</td>' +
+        '<td style="text-align:center;">' + d90Verdict + '</td>' +
+        '<td>' + sparklineHTML + '</td>' +
+      '</tr>';
+    });
+
+    html += '</tbody></table></div>';
+    contentEl.innerHTML = html;
+
+    setTimeout(() => {
+      document.querySelectorAll('#journal-ledger-body tr').forEach(r => {
+        r.classList.add('fade-in');
+      });
+      document.querySelectorAll('.verdict-stamp').forEach(s => {
+        s.classList.add('slam');
+      });
+    }, 100);
+
+    startPolling();
+  }
+
+  init();
+})();
 </script>
 </body>
 </html>
