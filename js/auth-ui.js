@@ -1,33 +1,35 @@
 // ============================================================
 // The Trading Paper — Auth UI (top-right corner button)
-// Injects a "რეგისტრაცია" or "@handle ▾" button into the masthead
+// Injects a "შესვლა" or "გასვლა" button into the masthead based on /api/me
 // ============================================================
 
 (function () {
-  function getSession() {
+  async function checkAuth() {
+    let authed = false;
+    let streak = 0;
     try {
-      const raw = localStorage.getItem('ttp_session');
-      return raw ? JSON.parse(raw) : null;
-    } catch { return null; }
-  }
-  function getCurrentUser() {
-    const s = getSession();
-    if (!s) return null;
-    try {
-      const users = JSON.parse(localStorage.getItem('ttp_users') || '{}');
-      return users[s.handle] || null;
-    } catch { return null; }
+      const r = await fetch('/api/me');
+      if (r.ok) {
+        const d = await r.json();
+        authed = !!d.authed;
+        streak = d.streak || 0;
+      }
+    } catch(e) {}
+    return { authed, streak };
   }
 
-  function inject() {
+  async function inject() {
     const topBar = document.querySelector('.masthead .top-bar');
-    if (!topBar || topBar.querySelector('.auth-btn')) return;
+    if (!topBar) return;
+    
+    // Remove any existing auth-btn
+    const existing = document.querySelector('.masthead .auth-btn');
+    if (existing) existing.remove();
 
-    const u = getCurrentUser();
+    const { authed, streak } = await checkAuth();
 
-    // The top-bar is flex with two spans (date · issue). We'll wrap them and add the button at the right edge.
     const btn = document.createElement('a');
-    btn.className = 'auth-btn';
+    btn.className = 'auth-btn no-print';
     btn.style.cssText = `
       position:absolute;
       top:10px; right:24px;
@@ -44,43 +46,53 @@
       z-index:10;
     `;
 
-    if (u) {
-      btn.href = 'my-portfolio.html';
-      const av = u.avatarImg
-        ? `<img src="${u.avatarImg}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:6px;">`
-        : `<span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:${u.accent || '#fffdf7'};color:var(--red);font-weight:700;font-size:9px;text-align:center;line-height:18px;vertical-align:middle;margin-right:6px;">${u.avatar || (u.handle||'').slice(1,3).toUpperCase()}</span>`;
-      btn.innerHTML = `${av} ${u.handle || '@' + u.id}`;
-      btn.title = 'ჩემი პორტფელი';
+    if (authed) {
+      btn.href = '/tp-logout';
+      let streakHtml = streak > 0 ? `🔥 ${streak} დღე · ` : '';
+      btn.innerHTML = `${streakHtml}გასვლა`;
+      btn.title = 'გასვლა სისტემიდან';
     } else {
-      btn.href = 'register.html';
-      btn.textContent = '+ რეგისტრაცია';
+      const isIndex = location.pathname === '/' || location.pathname.endsWith('index.html');
+      btn.href = isIndex ? '#login-experience' : '/';
+      btn.textContent = 'შესვლა';
+      
+      if (isIndex) {
+        btn.addEventListener('click', (e) => {
+          const target = document.getElementById('login-experience');
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            const input = target.querySelector('input');
+            if (input) setTimeout(() => input.focus(), 500);
+          }
+        });
+      }
     }
 
-    // Make masthead position relative if not already
     const masthead = document.querySelector('.masthead');
     if (masthead && getComputedStyle(masthead).position === 'static') {
       masthead.style.position = 'relative';
     }
     masthead.appendChild(btn);
-
-    // Hover state
+    
     btn.addEventListener('mouseenter', () => { btn.style.opacity = '0.85'; });
     btn.addEventListener('mouseleave', () => { btn.style.opacity = '1'; });
   }
 
+  function navResearch() {
+    const nav = document.querySelector('.masthead nav');
+    if (!nav || nav.querySelector('a[href="research.html"]')) return;
+    const a = document.createElement('a');
+    a.href = 'research.html';
+    a.textContent = 'კვლევა';
+    const sig = nav.querySelector('a[href="signals.html"]');
+    if (sig && sig.nextSibling) { nav.insertBefore(a, sig.nextSibling); } else { nav.appendChild(a); }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inject);
+    document.addEventListener('DOMContentLoaded', () => { inject(); navResearch(); });
   } else {
     inject();
+    navResearch();
   }
-function navResearch() {
-const nav = document.querySelector('.masthead nav');
-if (!nav || nav.querySelector('a[href="research.html"]')) return;
-const a = document.createElement('a');
-a.href = 'research.html';
-a.textContent = 'კვლევა';
-const sig = nav.querySelector('a[href="signals.html"]');
-if (sig && sig.nextSibling) { nav.insertBefore(a, sig.nextSibling); } else { nav.appendChild(a); }
-}
-if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', navResearch); } else { navResearch(); }
 })();

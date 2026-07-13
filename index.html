@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ka">
 <head>
 <meta charset="UTF-8">
@@ -170,8 +170,36 @@
     <p>ცოცხალი პორტფელი ორ წიგნად, ბაზრის ყოველდღიური ჩანაწერი, დივიდენდების ისტორია და
        ყოველთვიური ბიუჯეტის წიგნი — ძველი გაზეთის ესთეტიკით, ახალი ბაზრის მონაცემებით.</p>
     <a href="#packets" class="cta dark">გამოწერის პაკეტები ↓</a>
-    <a href="#" class="cta line" data-open-login>შესვლა · Sign in</a>
+    <a href="#login-experience" class="cta line" id="hero-signin-btn">შესვლა · Sign in</a>
   </div>
+
+  <!-- Elegant Login / Welcome Experience Section -->
+  <div id="login-experience" style="display: none; max-width: 440px; margin: 0 auto 30px; background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 28px 24px; text-align: center; box-shadow: 0 1px 3px rgba(26,26,26,0.05);">
+    <div id="login-guest-view">
+      <h3 style="font-family:'Noto Serif Georgian', serif; font-size: 20px; font-weight:900; margin:0 0 6px; color:var(--red);">შესვლა რედაქციაში</h3>
+      <p style="font-family:'Noto Sans Georgian', sans-serif; font-size:11px; color:var(--muted); margin:0 0 20px; text-transform:uppercase; letter-spacing:1.5px;">Private Access · Sign In</p>
+      
+      <form method="POST" action="/tp-login" style="text-align: left;">
+        <div style="margin-bottom: 12px;">
+          <label for="u" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">მომხმარებელი · Username</label>
+          <input id="u" name="user" type="text" autocomplete="username" autocapitalize="off" required style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label for="p" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">პაროლი · Password</label>
+          <input id="p" name="pass" type="password" autocomplete="current-password" required style="width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
+        </div>
+        <button type="submit" class="cta dark" style="width:100%; padding:12px; border:none; font-family:'Noto Sans Georgian', sans-serif; font-size:11.5px; letter-spacing:2px; text-transform:uppercase; font-weight:bold; cursor:pointer; background:var(--ink); color:var(--paper);">შესვლა</button>
+        <div class="err" id="tp-login-err" style="color:var(--red); font-family:'Noto Sans Georgian', sans-serif; font-size:11.5px; margin-top:12px; min-height:18px; text-align:center; font-weight:bold;"></div>
+      </form>
+    </div>
+    <div id="login-authed-view" style="display: none;">
+      <h3 style="font-family:'Noto Serif Georgian', serif; font-size: 20px; font-weight:900; margin:0 0 6px; color:var(--green);">სისტემაში შესული ხართ</h3>
+      <p style="font-family:'Noto Sans Georgian', sans-serif; font-size:11px; color:var(--muted); margin:0 0 20px; text-transform:uppercase; letter-spacing:1.5px;">Welcome Back</p>
+      <p style="font-size: 14.5px; line-height: 1.6; margin-bottom: 20px;">თქვენ უკვე გაქვთ აქტიური სესია The Trading Paper-ის რედაქციაში.</p>
+      <a href="cabinet.html" class="cta dark" style="display:block; text-decoration:none; padding:12px; font-family:'Noto Sans Georgian', sans-serif; font-size:11.5px; letter-spacing:2px; text-transform:uppercase; font-weight:bold;">გადადი ჩემს კაბინეტში →</a>
+    </div>
+  </div>
+
 
   <!-- Locked live books teaser -->
   <div class="section-head2"><span>ცოცხალი ანგარიში</span><span class="en">Live Books · Subscribers only</span></div>
@@ -203,6 +231,56 @@
     <div><b>ჩემი კაბინეტი 🔒</b><span>ორი ცოცხალი წიგნი — TBC და BOG — ღირებულება, P/L და უკუგება რეალურ დროში.</span></div>
     <div><b>დივიდენდები 🔒</b><span>მიღებული დივიდენდების სრული ისტორია, თარიღებით და ჯამებით.</span></div>
     <div><b>ბიუჯეტი 🔒</b><span>ყოველთვიური წიგნი — შემოსავალი, ხარჯი, დანაზოგი, გეგმა.</span></div>
+
+  <!-- Curiosity Gap signals block -->
+  <div id="signals-teaser-section" style="margin-bottom: 30px;">
+    <div class="section-head2"><span>კვლევა 5.0 · სიგნალების ჟურნალი</span><span class="en">Research 5.0 · Signals Preview</span></div>
+    <div class="lock-wrap">
+      <div class="lock-books" style="display:block; padding:16px; filter:blur(4px); opacity:0.85;" aria-hidden="true">
+        <table style="width:100%; border-collapse:collapse; font-family:'Noto Sans Georgian', sans-serif; font-size:12px; text-align:left;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--ink); font-weight:700; text-transform:uppercase; color:var(--muted); font-size:10px; letter-spacing:1px;">
+              <th style="padding:8px;">თარიღი</th>
+              <th style="padding:8px;">აქცია</th>
+              <th style="padding:8px;">კატეგორია</th>
+              <th style="padding:8px;">ქულა</th>
+              <th style="padding:8px;">ვერდიქტი (30d)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px;">12.07.2026</td>
+              <td style="padding:8px; font-weight:bold;">AAPL</td>
+              <td style="padding:8px;"><span style="background:#166534; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">STRONG INTEREST</span></td>
+              <td style="padding:8px; font-family:monospace; font-weight:bold;">87</td>
+              <td style="padding:8px;"><span style="border:1px solid #166534; color:#166534; padding:2px 6px; font-size:9px; font-weight:bold;">HIT</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px;">09.07.2026</td>
+              <td style="padding:8px; font-weight:bold;">MSFT</td>
+              <td style="padding:8px;"><span style="background:#b45309; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">SOME INTEREST</span></td>
+              <td style="padding:8px; font-family:monospace; font-weight:bold;">74</td>
+              <td style="padding:8px;"><span style="border:1px solid #b45309; color:#b45309; padding:2px 6px; font-size:9px; font-weight:bold;">PENDING</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px;">05.07.2026</td>
+              <td style="padding:8px; font-weight:bold;">TSLA</td>
+              <td style="padding:8px;"><span style="background:#b91c1c; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">STRONG INTEREST</span></td>
+              <td style="padding:8px; font-family:monospace; font-weight:bold;">81</td>
+              <td style="padding:8px;"><span style="border:1px solid #b91c1c; color:#b91c1c; padding:2px 6px; font-size:9px; font-weight:bold;">MISS</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="lock-over" id="signals-teaser-overlay">
+        <div class="padlock">🔒</div>
+        <div class="lt">ანალიტიკა დახურულია</div>
+        <div class="ls">კვლევა 5.0 სიგნალების სრული ისტორიის სანახავად შედით სისტემაში</div>
+        <a class="go" href="#login-experience" id="signals-teaser-auth-btn">ავტორიზაცია</a>
+      </div>
+    </div>
+  </div>
+
   </div>
 
   <!-- Free charts -->
@@ -272,6 +350,33 @@
   </div>
   <div class="pk-note">ონლაინ გადახდა მალე დაემატება — ჯერჯერობით მოთხოვნა იგზავნება რედაქციაში ელფოსტით.</div>
 
+  <!-- Inline Subscription Form -->
+  <div id="subscription-experience" style="max-width: 440px; margin: 20px auto 30px; background: var(--paper); border: 1px dashed var(--border); padding: 24px; text-align: center;">
+    <h3 style="font-family:'Noto Serif Georgian', serif; font-size: 18px; font-weight:900; margin:0 0 6px; color:var(--ink);">გამოწერის მოთხოვნა</h3>
+    <p style="font-family:'Noto Sans Georgian', sans-serif; font-size:11px; color:var(--muted); margin:0 0 16px; text-transform:uppercase; letter-spacing:1.5px;">Subscribe Request</p>
+    
+    <form id="tp-reg-form" style="text-align: left;">
+      <div style="margin-bottom: 12px;">
+        <label for="rn" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">სახელი · Name</label>
+        <input id="rn" name="name" type="text" required style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
+      </div>
+      <div style="margin-bottom: 12px;">
+        <label for="re" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">ელფოსტა · Email</label>
+        <input id="re" name="email" type="email" required style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label for="rp" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">პაკეტი · Packet</label>
+        <select id="rp" name="packet" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
+          <option>Reader (Free)</option>
+          <option selected>Investor (€5/mo)</option>
+          <option>Partner (€15/mo)</option>
+        </select>
+      </div>
+      <button type="submit" class="cta dark" style="width:100%; padding:10px; border:none; font-family:'Noto Sans Georgian', sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:bold; cursor:pointer; background:var(--ink); color:var(--paper);">მოთხოვნის გაგზავნა</button>
+    </form>
+  </div>
+
+
   <!-- News -->
   <div class="section-head2"><span>ბაზრის სიახლეები</span><span class="en">Top stories</span></div>
   <div class="pub-widget" style="min-height:440px;">
@@ -292,120 +397,92 @@
   ეს არ არის ფინანსური რჩევა · This is not financial advice
 </footer>
 
-<!-- ============ LOGIN MODAL ============ -->
-<div class="tp-modal-bg" id="tp-login-modal" role="dialog" aria-modal="true" aria-label="შესვლა">
-  <form class="tp-card" method="POST" action="/tp-login">
-    <button type="button" class="x" data-close>&times;</button>
-    <h1>The Trading Paper</h1>
-    <div class="sub">Private · შესვლა / Sign in</div>
-    <label for="u">მომხმარებელი · Username</label>
-    <input id="u" name="user" type="text" autocomplete="username" autocapitalize="off" required>
-    <label for="p">პაროლი · Password</label>
-    <input id="p" name="pass" type="password" autocomplete="current-password" required>
-    <button type="submit" class="main">შესვლა</button>
-    <div class="err" id="tp-login-err"></div>
-    <span class="swap">არ გაქვს ანგარიში? <a data-swap-reg>გამოწერა →</a></span>
-    <div class="foot">© The Trading Paper · ვისბადენი</div>
-  </form>
-</div>
-
-<!-- ============ REGISTER / SUBSCRIBE MODAL ============ -->
-<div class="tp-modal-bg" id="tp-reg-modal" role="dialog" aria-modal="true" aria-label="გამოწერა">
-  <form class="tp-card" id="tp-reg-form">
-    <button type="button" class="x" data-close>&times;</button>
-    <h1>The Trading Paper</h1>
-    <div class="sub">გამოწერა · Subscribe</div>
-    <div class="note">ონლაინ გადახდა მალე დაემატება · მოთხოვნა გაიგზავნება რედაქციაში</div>
-    <label for="rn">სახელი · Name</label>
-    <input id="rn" name="name" type="text" required>
-    <label for="re">ელფოსტა · Email</label>
-    <input id="re" name="email" type="email" required>
-    <label for="rp">პაკეტი · Packet</label>
-    <select id="rp" name="packet">
-      <option>Reader (Free)</option>
-      <option selected>Investor (€5/mo)</option>
-      <option>Partner (€15/mo)</option>
-    </select>
-    <button type="submit" class="main">მოთხოვნის გაგზავნა</button>
-    <div class="err"></div>
-    <span class="swap">უკვე გაქვს ანგარიში? <a data-swap-login>შესვლა →</a></span>
-    <div class="foot">© The Trading Paper · ვისბადენი</div>
-  </form>
-</div>
-
 <script src="/js/masthead.js"></script>
 <script src="/js/clocks.js"></script>
+<script defer src="/js/auth-ui.js"></script>
+<script defer src="/js/engage-ui.js"></script>
 <script>
 (function () {
-  // ---- payment links (paste real Stripe/Paddle checkout URLs here later;
-  //      when set, packet buttons go straight to checkout) -----------------
-  var PAY_LINKS = {
-    'Investor (€5/mo)': '',
-    'Partner (€15/mo)': ''
-  };
-  var EDITOR_EMAIL = 'lasha.pkhakadze2000@gmail.com';
+  var q = new URLSearchParams(location.search);
+  var exp = document.getElementById('login-experience');
+  var guestView = document.getElementById('login-guest-view');
+  var authedView = document.getElementById('login-authed-view');
+  var errEl = document.getElementById('tp-login-err');
 
-  // On github.io there is no login server — send the visitor to the
-  // Cloudflare edition, where this same page opens the popup.
-  var LOGIN_HOST = 'https://thetradingpaper.pages.dev';
-  var CROSS = /github\.io$/i.test(location.hostname);
+  // Check auth
+  fetch('/api/me')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (exp) exp.style.display = 'block';
+      if (data && data.authed) {
+        if (guestView) guestView.style.display = 'none';
+        if (authedView) authedView.style.display = 'block';
+        var heroBtn = document.getElementById('hero-signin-btn');
+        if (heroBtn) heroBtn.style.display = 'none';
+      } else {
+        if (guestView) guestView.style.display = 'block';
+        if (authedView) authedView.style.display = 'none';
+        
+        if (q.get('login') === 'wrong') {
+          if (errEl) errEl.textContent = 'არასწორი მომხმარებელი ან პაროლი · Wrong credentials';
+          setTimeout(function() {
+            if (exp) exp.scrollIntoView({ behavior: 'smooth' });
+            var pInput = document.getElementById('p');
+            if (pInput) pInput.focus();
+          }, 300);
+        }
+      }
+    })
+    .catch(function () {
+      if (exp) exp.style.display = 'block';
+      if (guestView) guestView.style.display = 'block';
+      if (authedView) authedView.style.display = 'none';
+    });
 
-  var loginM = document.getElementById('tp-login-modal');
-  var regM = document.getElementById('tp-reg-modal');
+  // Smooth scroll for hero sign-in
+  var heroBtn = document.getElementById('hero-signin-btn');
+  if (heroBtn && exp) {
+    heroBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      exp.scrollIntoView({ behavior: 'smooth' });
+      var uInput = document.getElementById('u');
+      if (uInput) setTimeout(function() { uInput.focus(); }, 500);
+    });
+  }
 
-  function open(m) {
-    if (CROSS && m === loginM) { location.href = LOGIN_HOST + '/?login=1'; return; }
-    close(loginM); close(regM); m.classList.add('open'); document.body.style.overflow = 'hidden';
-    var f = m.querySelector('input'); if (f) setTimeout(function(){ f.focus(); }, 60); }
-  function close(m) { m.classList.remove('open'); document.body.style.overflow = ''; }
-  function closeAll() { close(loginM); close(regM); }
-
-  // open triggers
-  document.addEventListener('tp-open-login', function () { open(loginM); });
-  document.querySelectorAll('[data-open-login]').forEach(function (a) {
-    a.addEventListener('click', function (e) { e.preventDefault(); open(loginM); });
-  });
-  // packet buttons
+  // Handle data-packet clicks
   document.querySelectorAll('.pk button[data-packet]').forEach(function (b) {
     b.addEventListener('click', function () {
       var pk = b.getAttribute('data-packet');
-      if (PAY_LINKS[pk]) { location.href = PAY_LINKS[pk]; return; }
       var sel = document.getElementById('rp');
-      for (var i = 0; i < sel.options.length; i++) if (sel.options[i].text === pk) sel.selectedIndex = i;
-      open(regM);
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text === pk) sel.selectedIndex = i;
+        }
+      }
+      var subExp = document.getElementById('subscription-experience');
+      if (subExp) {
+        subExp.scrollIntoView({ behavior: 'smooth' });
+        var rnInput = document.getElementById('rn');
+        if (rnInput) setTimeout(function() { rnInput.focus(); }, 500);
+      }
     });
   });
-  // swaps & closes
-  document.querySelectorAll('[data-swap-reg]').forEach(function (a) { a.addEventListener('click', function(){ open(regM); }); });
-  document.querySelectorAll('[data-swap-login]').forEach(function (a) { a.addEventListener('click', function(){ open(loginM); }); });
-  document.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', closeAll); });
-  [loginM, regM].forEach(function (m) {
-    m.addEventListener('click', function (e) { if (e.target === m) closeAll(); });
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 
-  // register → email request to the editor
-  document.getElementById('tp-reg-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var n = document.getElementById('rn').value.trim();
-    var em = document.getElementById('re').value.trim();
-    var pk = document.getElementById('rp').value;
-    var subject = 'The Trading Paper — გამოწერის მოთხოვნა: ' + pk;
-    var body = 'სახელი: ' + n + '\nელფოსტა: ' + em + '\nპაკეტი: ' + pk + '\n\n(გაგზავნილია public გვერდიდან)';
-    location.href = 'mailto:' + EDITOR_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  });
-
-  // URL params from middleware: ?login=1 (open) / ?login=wrong (open + error)
-  var q = new URLSearchParams(location.search);
-  if (q.get('login')) {
-    if (q.get('login') === 'wrong') {
-      document.getElementById('tp-login-err').textContent = 'არასწორი მონაცემები · Wrong credentials';
-    }
-    open(loginM);
-    history.replaceState(null, '', location.pathname);
+  // subscription request
+  var regForm = document.getElementById('tp-reg-form');
+  if (regForm) {
+    regForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = document.getElementById('rn').value.trim();
+      var em = document.getElementById('re').value.trim();
+      var pk = document.getElementById('rp').value;
+      var subject = 'The Trading Paper — გამოწერის მოთხოვნა: ' + pk;
+      var body = 'სახელი: ' + n + '\nელფოსტა: ' + em + '\nპაკეტი: ' + pk + '\n\n(გაგზავნილია public გვერდიდან)';
+      location.href = 'mailto:lasha.pkhakadze2000@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
   }
 })();
 </script>
-
 </body>
 </html>
