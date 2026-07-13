@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ka">
 <head>
 <meta charset="UTF-8">
@@ -438,6 +438,34 @@
       if (guestView) guestView.style.display = 'block';
       if (authedView) authedView.style.display = 'none';
     });
+
+  // Intercept login and POST to Supabase Auth API
+  var loginForm = document.querySelector('#login-guest-view form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var uVal = document.getElementById('u').value.trim();
+      var pVal = document.getElementById('p').value;
+      if (errEl) errEl.textContent = 'მიმდინარეობს შესვლა...';
+
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: uVal, password: pVal })
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.ok) {
+          location.reload();
+        } else {
+          if (errEl) errEl.textContent = (data && data.error) || 'არასწორი მომხმარებელი ან პაროლი · Wrong credentials';
+        }
+      })
+      .catch(function () {
+        if (errEl) errEl.textContent = 'კავშირის შეცდომა · Network error';
+      });
+    });
+  }
 
   // Smooth scroll for hero sign-in
   var heroBtn = document.getElementById('hero-signin-btn');

@@ -167,8 +167,8 @@
     <h2>გახდი წევრი</h2>
     <p class="lead">დარეგისტრირდი, ააწყე საკუთარი პორტფელი, დაწერე სტატიები — და გაიხედე სხვა ტრეიდერების მუშაობა.</p>
 
-    <div class="demo-note">
-      ⚠ ეს არის ბრაუზერული დემო-რეგისტრაცია — შენი მონაცემები ინახება მხოლოდ ამ ბრაუზერში (localStorage). ნამდვილი მრავალ-მომხმარებლიანი ვერსიისთვის საჭიროა backend (Firebase / Supabase).
+    <div class="demo-note" style="border: 1px solid var(--red); color: var(--red); background: rgba(185, 28, 28, 0.03);">
+      ⚠ ეს არის პირადი რეგისტრაციის პორტალი — საინვესტიციო ჟურნალის წვდომის მისაღებად გამოიყენეთ Supabase ავტორიზაცია.
     </div>
 
     <div class="auth-tabs">
@@ -178,41 +178,16 @@
 
     <div id="form-register">
       <div class="field">
-        <label for="reg-name">სახელი</label>
+        <label for="reg-name">სახელი / Full Name</label>
         <input id="reg-name" type="text" placeholder="მაგ. გიორგი ბერიძე" />
       </div>
       <div class="field">
-        <label for="reg-handle">@handle</label>
-        <input id="reg-handle" type="text" placeholder="giorgi" pattern="[a-z0-9_]+" />
-        <div class="field-hint">მხოლოდ პატარა ასოები / რიცხვები / _ · ეს იქნება შენი URL: trader.html?id=…</div>
+        <label for="reg-email">ელფოსტა / Email</label>
+        <input id="reg-email" type="email" placeholder="email@example.com" />
       </div>
       <div class="field">
-        <label for="reg-password">პაროლი</label>
-        <input id="reg-password" type="password" placeholder="მინიმუმ 4 სიმბოლო" />
-      </div>
-      <div class="field">
-        <label for="reg-city">ქალაქი</label>
-        <input id="reg-city" type="text" placeholder="თბილისი · GE" />
-      </div>
-      <div class="field">
-        <label for="reg-broker">საბროკერო</label>
-        <select id="reg-broker" style="width:100%;padding:10px 12px;background:#fffdf7;border:1px solid var(--border);font-family:'Noto Serif Georgian',serif;font-size:14px;color:var(--ink);border-radius:2px;">
-          <option value="">— აირჩიე საბროკერო —</option>
-          <option value="BOG">BOG · Bank of Georgia</option>
-          <option value="TBC">TBC Capital</option>
-          <option value="GALT">Galt &amp; Taggart</option>
-          <option value="IBKR">Interactive Brokers</option>
-          <option value="ROBINHOOD">Robinhood</option>
-          <option value="ETORO">eToro</option>
-          <option value="TRADE212">Trading 212</option>
-          <option value="REVOLUT">Revolut</option>
-          <option value="OTHER">სხვა</option>
-        </select>
-        <div class="field-hint">საიდანაც ვაჭრობ — ნახულობს მხოლოდ შენი გვერდის სათაურში</div>
-      </div>
-      <div class="field">
-        <label for="reg-bio">მოკლე bio (არასავალდებულო)</label>
-        <textarea id="reg-bio" rows="2" placeholder="რას ვაჭრობ, რა მიყვარს, რა მძულს…"></textarea>
+        <label for="reg-password">პაროლი / Password</label>
+        <input id="reg-password" type="password" placeholder="მინიმუმ 6 სიმბოლო" />
       </div>
       <div id="reg-msg"></div>
       <button class="btn-primary" onclick="doRegister()">რეგისტრაცია →</button>
@@ -220,11 +195,11 @@
 
     <div id="form-login" style="display:none;">
       <div class="field">
-        <label for="login-handle">@handle</label>
-        <input id="login-handle" type="text" placeholder="giorgi" />
+        <label for="login-email">ელფოსტა / Email</label>
+        <input id="login-email" type="email" placeholder="email@example.com" />
       </div>
       <div class="field">
-        <label for="login-password">პაროლი</label>
+        <label for="login-password">პაროლი / Password</label>
         <input id="login-password" type="password" />
       </div>
       <div id="login-msg"></div>
@@ -232,7 +207,6 @@
     </div>
 
     <p class="foot-note">
-      რეგისტრაციით თანახმა ხარ, რომ მონაცემები ინახება შენი ბრაუზერის ლოკალურ მეხსიერებაში.<br>
       ეს არ არის ფინანსური რჩევა.
     </p>
   </div>
@@ -244,16 +218,19 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script src="js/traders.js?v=20260525-com"></script>
 <script>
   const months = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
   const d = new Date();
   document.getElementById('today-date').textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 
-  // If already logged in, jump to my-portfolio
-  if (currentUser()) {
-    location.href = 'my-portfolio.html';
-  }
+  // If already logged in, jump to homepage
+  fetch('/api/me')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.authed) {
+        location.href = '/';
+      }
+    });
 
   function switchTab(which) {
     document.getElementById('tab-register').classList.toggle('active', which === 'register');
@@ -268,37 +245,62 @@
 
   function doRegister() {
     const name     = document.getElementById('reg-name').value.trim();
-    const handle   = document.getElementById('reg-handle').value.trim().toLowerCase().replace(/^@/, '');
+    const email    = document.getElementById('reg-email').value.trim();
     const password = document.getElementById('reg-password').value;
-    const city     = document.getElementById('reg-city').value.trim();
-    const broker   = document.getElementById('reg-broker').value;
-    const bio      = document.getElementById('reg-bio').value.trim();
 
-    if (!name)                       return showMsg('reg-msg', 'err', 'სახელი აუცილებელია');
-    if (!/^[a-z0-9_]{2,20}$/.test(handle)) return showMsg('reg-msg', 'err', 'handle: 2-20 სიმბოლო, მხოლოდ a-z 0-9 _');
-    if (password.length < 4)         return showMsg('reg-msg', 'err', 'პაროლი მინიმუმ 4 სიმბოლო');
-    if (!broker)                     return showMsg('reg-msg', 'err', 'აირჩიე საბროკერო');
+    if (!name) return showMsg('reg-msg', 'err', 'სახელი აუცილებელია');
+    if (!email) return showMsg('reg-msg', 'err', 'ელფოსტა აუცილებელია');
+    if (password.length < 6) return showMsg('reg-msg', 'err', 'პაროლი მინიმუმ 6 სიმბოლო');
 
-    try {
-      registerUser({ name, handle, password, city, bio, broker });
-      showMsg('reg-msg', 'ok', '✓ რეგისტრაცია წარმატებულია — გადაგამისამართებ…');
-      setTimeout(() => location.href = 'my-portfolio.html', 800);
-    } catch (e) {
-      showMsg('reg-msg', 'err', '✗ ' + e.message);
-    }
+    showMsg('reg-msg', 'ok', 'მიმდინარეობს რეგისტრაცია...');
+
+    fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password, display_name: name })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data && data.ok) {
+        if (data.needs_confirm) {
+          showMsg('reg-msg', 'ok', '✓ რეგისტრაცია წარმატებულია — გთხოვთ დაადასტუროთ ელფოსტა');
+        } else {
+          showMsg('reg-msg', 'ok', '✓ რეგისტრაცია წარმატებულია — გადაგამისამართებ…');
+          setTimeout(() => location.href = '/', 800);
+        }
+      } else {
+        showMsg('reg-msg', 'err', '✗ ' + ((data && data.error) || 'რეგისტრაცია ვერ მოხერხდა'));
+      }
+    })
+    .catch(() => {
+      showMsg('reg-msg', 'err', 'კავშირის შეცდომა · Network error');
+    });
   }
 
   function doLogin() {
-    const handle   = document.getElementById('login-handle').value.trim();
+    const email    = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
-    if (!handle || !password) return showMsg('login-msg', 'err', 'შეავსე ორივე ველი');
-    try {
-      loginUser(handle, password);
-      showMsg('login-msg', 'ok', '✓ მოგესალმები — გადაგამისამართებ…');
-      setTimeout(() => location.href = 'my-portfolio.html', 600);
-    } catch (e) {
-      showMsg('login-msg', 'err', '✗ ' + e.message);
-    }
+    if (!email || !password) return showMsg('login-msg', 'err', 'შეავსე ორივე ველი');
+    
+    showMsg('login-msg', 'ok', 'მიმდინარეობს შესვლა...');
+
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data && data.ok) {
+        showMsg('login-msg', 'ok', '✓ მოგესალმები — გადაგამისამართებ…');
+        setTimeout(() => location.href = '/', 600);
+      } else {
+        showMsg('login-msg', 'err', '✗ ' + ((data && data.error) || 'ავტორიზაცია ვერ მოხერხდა'));
+      }
+    })
+    .catch(() => {
+      showMsg('login-msg', 'err', 'კავშირის შეცდომა · Network error');
+    });
   }
 </script>
 
