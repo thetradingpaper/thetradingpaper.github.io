@@ -376,5 +376,115 @@
    "m_and_a"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235091+00:00",
+  "ticker": "TCBK",
+  "entry": 59.66,
+  "score": 67.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235098+00:00",
+  "ticker": "VOD",
+  "entry": 15.55,
+  "score": 58.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235102+00:00",
+  "ticker": "CNMD",
+  "entry": 41.98,
+  "score": 48.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235106+00:00",
+  "ticker": "FHB",
+  "entry": 28.92,
+  "score": 40.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235110+00:00",
+  "ticker": "VEEE",
+  "entry": 22.0,
+  "score": 39.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235113+00:00",
+  "ticker": "PARR",
+  "entry": 70.36,
+  "score": 39.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235117+00:00",
+  "ticker": "INTC",
+  "entry": 103.88,
+  "score": 26.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235124+00:00",
+  "ticker": "IONS",
+  "entry": 56.54,
+  "score": 19.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235128+00:00",
+  "ticker": "PL",
+  "entry": 26.43,
+  "score": 7.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-13T16:14:54.235131+00:00",
+  "ticker": "BE",
+  "entry": 237.25,
+  "score": 3.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]
