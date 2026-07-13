@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-11T09:50:28.277Z",
+  "updated": "2026-07-13T10:56:10.961Z",
   "quotes": {
     "SPCX": {
       "price": 145.3,
@@ -7,7 +7,7 @@
     },
     "SMH": {
       "price": 611.03,
-      "previousClose": 607.73
+      "previousClose": 607.73004
     },
     "VOO": {
       "price": 693.86,
