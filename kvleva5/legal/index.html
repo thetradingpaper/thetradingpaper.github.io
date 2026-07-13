@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title lang="ka">მეთოდოლოგია და დისკლეიმერი · The Trading Paper</title>
+<title lang="en">Methodology & Legal Charter · The Trading Paper</title>
+<meta name="description" content="კვლევა 5.0 — ალგორითმული მეთოდოლოგია, სამართლებრივი დისკლეიმერი და მონაცემთა წყაროები.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=mkt1">
+<link rel="stylesheet" href="/css/enhance.css?v=20260710a">
+<script>
+  (function(){
+    try {
+      if(localStorage.getItem('tp_theme')==='dark') document.documentElement.setAttribute('data-theme','dark');
+      var lang = localStorage.getItem('tp_lang') || 'ka';
+      document.documentElement.setAttribute('lang', lang);
+    } catch(e){}
+  })();
+</script>
+<style>
+  /* Bilingual support */
+  html[lang="ka"] [lang="en"] { display: none !important; }
+  html[lang="en"] [lang="ka"] { display: none !important; }
+
+  /* Legal-specific styling */
+  .kv5-disclaimer {
+    border: 2px solid var(--rule);
+    background: repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(185,28,28,.03) 9px,rgba(185,28,28,.03) 18px);
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+  }
+  .kv5-disclaimer .d-ka { font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:14.5px; color:var(--ink); line-height:1.5; }
+  .kv5-disclaimer .d-en { font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted); font-style:italic; line-height:1.5; margin-top:5px; }
+  .kv5-disclaimer .d-tag { font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--red); font-weight:700; display:block; margin-bottom:7px; }
+
+  .legal-container {
+    background: var(--paper, #fffdf7);
+    border: 1px solid var(--border, #d4cfc4);
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 2px rgba(26,26,26,0.04), 0 14px 30px -22px rgba(26,26,26,0.35);
+  }
+  @media(max-width: 640px) {
+    .legal-container { padding: 24px 20px; }
+  }
+
+  .editorial-title {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-weight: 900;
+    font-size: 28px;
+    text-align: center;
+    border-bottom: 3px double var(--rule, #1a1a1a);
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    color: var(--ink, #1a1a1a);
+    line-height: 1.3;
+  }
+  .editorial-title span { display: block; }
+  .editorial-title .sub { font-size: 14px; font-weight: 400; font-family: 'Noto Sans Georgian', sans-serif; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+
+  .legal-section { margin-bottom: 32px; }
+  .legal-section:last-child { margin-bottom: 0; }
+  
+  .section-headline {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--red, #b91c1c);
+    border-bottom: 1px solid var(--border, #d4cfc4);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+
+  .item-title { font-family: 'Noto Serif Georgian', Georgia, serif; font-weight: 700; font-size: 14.5px; color: var(--ink, #1a1a1a); margin-top: 18px; margin-bottom: 6px; }
+  
+  .para-text { font-family: 'Noto Sans Georgian', sans-serif; font-size: 13.5px; line-height: 1.65; color: var(--ink, #1a1a1a); margin: 0 0 14px; }
+  .para-text:last-child { margin-bottom: 0; }
+  
+  /* Band table styling */
+  .band-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-family: 'Noto Sans Georgian', sans-serif; font-size: 12.5px; }
+  .band-table th, .band-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .band-table th { background: var(--bg); font-weight: 700; border-bottom: 2px solid var(--rule); }
+  .band-table td.num { font-family: ui-monospace, monospace; font-weight: 600; text-align: right; }
+  .band-color-box { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+
+  .page-footer { text-align: center; font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); border-top: 3px double var(--rule); margin-top: 44px; padding: 24px 10px 40px; line-height: 1.8; }
+  .footer-links { margin-bottom: 12px; font-size: 13px; }
+  .footer-links a { color: var(--red); text-decoration: none; font-weight: 700; border-bottom: 1px solid transparent; }
+  .footer-links a:hover { border-bottom-color: var(--red); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1 lang="ka">კვლევა 5.0 · სამართლებრივი</h1>
+  <h1 lang="en">KvlEva 5.0 · Legal</h1>
+  <p class="tagline" lang="ka">მეთოდოლოგია და დისკლეიმერი / Methodology & Disclaimer</p>
+  <p class="tagline" lang="en">Algorithmic methodology and legal charter</p>
+</header>
+
+<main class="container narrow">
+  <!-- Mandatory Disclaimer Block -->
+  <div class="kv5-disclaimer">
+    <span class="d-tag">⚠ განცხადება / Disclaimer</span>
+    <div class="d-ka">ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა. პირადი გარემოებები არ არის გათვალისწინებული. თქვენ თავად იღებთ გადაწყვეტილებას.</div>
+    <div class="d-en">This is research information, not investment advice. No personal circumstances are considered. You make your own decisions.</div>
+  </div>
+
+  <div class="legal-container">
+    <div class="editorial-title">
+      <span lang="ka">მეთოდოლოგია და სამართლებრივი დეკლარაცია</span>
+      <span lang="en">Methodology & Legal Declaration</span>
+      <div class="sub">KvlEva 5.0 · Charter</div>
+    </div>
+
+    <!-- Section 1: What is KvlEva 5.0 -->
+    <div class="legal-section">
+      <div class="section-headline">
+        <span lang="ka">1. რა არის კვლევა 5.0</span>
+        <span lang="en">1. What is KvlEva 5.0</span>
+      </div>
+      <p class="para-text" lang="ka">
+        <strong>კვლევა 5.0</strong> არის აქციების კვლევის ავტომატიზებული კლასიფიკაციის ძრავა, რომელიც ახდენს სხვადასხვა ბაზრის მაჩვენებლების აგრეგირებას ერთ კომპოზიტურ სარეიტინგო ქულაში (0-დან 100-მდე). მოდელი შექმნილია იმისათვის, რომ უზრუნველყოს ფასიანი ქაღალდების სრულიად ობიექტური, ალგორითმული ანალიზი ადამიანური ემოციების ან მიკერძოების გარეშე.
+      </p>
+      <p class="para-text" lang="en">
+        <strong>KvlEva 5.0</strong> is an automated equity research classification engine that aggregates multiple market indicators into a single composite score ranging from 0 to 100. The model is designed to provide completely objective, algorithmic security analysis free from human emotion or bias.
+      </p>
+      <p class="para-text" lang="ka">
+        ძრავა აანალიზებს ფინანსური ინსტრუმენტების ხუთ ძირითად განზომილებას: ფასის მოძრაობას და ტრენდს, ტექნიკურ მომენტს (RSI და მოძრავი საშუალოები), ბაზრისა და მედიის სენტიმენტს, ფუნდამენტურ შეფასებას და ვოლატილობას (CFD-სპეციფიკური რეკომენდაციებით). ეს მონაცემები მუდმივად მუშავდება და განახლდება ყოველი სავაჭრო სესიის დასრულების შემდეგ.
+      </p>
+      <p class="para-text" lang="en">
+        The engine evaluates five key dimensions of financial instruments: price action and trend, technical momentum (RSI and moving averages), market and media sentiment, fundamental valuation metrics, and volatility structures (with CFD-specific guidance). This dataset is continuously reprocessed and updated following the close of each trading session.
+      </p>
+    </div>
+
+    <!-- Section 2: Scoring Methodology -->
+    <div class="legal-section">
+      <div class="section-headline">
+        <span lang="ka">2. ქულების მეთოდოლოგია</span>
+        <span lang="en">2. Scoring Methodology</span>
+      </div>
+      <p class="para-text" lang="ka">
+        კომპოზიტური ქულა ითვლის ხუთი კატეგორიის საშუალო შეწონილს. თითოეულ კატეგორიას აქვს თავისი ფიქსირებული მაქსიმალური წონა:
+      </p>
+      <p class="para-text" lang="en">
+        The composite score is calculated as a weighted average of five core categories, each carrying a fixed maximum weight:
+      </p>
+      
+      <ul style="font-family:'Noto Sans Georgian', sans-serif; font-size:13px; line-height:1.7; margin-bottom:14px; padding-left:20px; color:var(--ink);">
+        <li><span lang="ka"><strong>მომენტი / Momentum (30%):</strong> RSI, მოძრავი საშუალოები და მოცულობის ანომალიები.</span><span lang="en"><strong>Momentum (30%):</strong> RSI metrics, moving average positionings, and volume anomalies.</span></li>
+        <li><span lang="ka"><strong>ფასი და ტრენდი / Price &amp; Trend (20%):</strong> 52-კვირიანი დიაპაზონის პოზიცია და თვის ცვლილება.</span><span lang="en"><strong>Price &amp; Trend (20%):</strong> 52-week range positioning and short-term performance momentum.</span></li>
+        <li><span lang="ka"><strong>სენტიმენტი / Sentiment (20%):</strong> ბაზრის Fear &amp; Greed ინდექსი და მედიის სათაურების ტონი.</span><span lang="en"><strong>Sentiment (20%):</strong> Market-wide Fear & Greed inputs and headline text sentiment.</span></li>
+        <li><span lang="ka"><strong>შეფასება / Valuation (15%):</strong> P/E კოეფიციენტი სექტორულ მედიანასთან მიმართებაში და საბაზრო კაპიტალიზაცია.</span><span lang="en"><strong>Valuation (15%):</strong> Trailing P/E ratios relative to long-term sector medians and cap size factors.</span></li>
+        <li><span lang="ka"><strong>CFD და ვოლატილობა / Volatility &amp; CFD (15%):</strong> ისტორიული ვოლატილობა და ATR მაჩვენებლები.</span><span lang="en"><strong>Volatility &amp; CFD (15%):</strong> Annualised historical volatility and ATR stop-loss calibrations.</span></li>
+      </ul>
+
+      <p class="para-text" lang="ka">
+        თუ რომელიმე განზომილების მონაცემები მიუწვდომელია (მაგ. კომპანიას არ აქვს მოგება და P/E კოეფიციენტი ვერ განისაზღვრება), კომპოზიტური ქულა <strong>ავტომატურად ხელახლა ნორმდება</strong> მხოლოდ ხელმისაწვდომი კატეგორიების წონების პროპორციულად. ქულა იანგარიშება მხოლოდ იმ შემთხვევაში, თუ მონაცემთა საერთო ხელმისაწვდომი წონა არის 35% ან მეტი.
+      </p>
+      <p class="para-text" lang="en">
+        If data for a particular category is missing (e.g., a company has negative earnings and lacks a P/E ratio), the composite score <strong>automatically renormalizes</strong> over the remaining available category weights. A score is only calculated if the total available data weight is 35% or higher.
+      </p>
+
+      <div class="item-title" lang="ka">ქულების ინტერპრეტაცია (კლასიფიკაციის ზოლები)</div>
+      <div class="item-title" lang="en">Score Interpretation (Classification Bands)</div>
+
+      <table class="band-table">
+        <thead>
+          <tr>
+            <th><span lang="ka">ქულა</span><span lang="en">Score</span></th>
+            <th><span lang="ka">კლასიფიკაცია (ქართული)</span><span lang="en">Classification (EN)</span></th>
+            <th style="text-align:right;"><span lang="ka">სარეიტინგო შეფასება</span><span lang="en">Grading Status</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">75–100</td>
+            <td><span class="band-color-box" style="background:#166534;"></span> <span lang="ka">ძლიერი კვლევითი ინტერესი</span><span lang="en">STRONG RESEARCH INTEREST</span></td>
+            <td style="text-align:right; font-weight:bold; color:var(--green);"><span lang="ka">ფასდება (Bullish)</span><span lang="en">Graded (Bullish)</span></td>
+          </tr>
+          <tr>
+            <td class="num">60–74</td>
+            <td><span class="band-color-box" style="background:#8b6914;"></span> <span lang="ka">სათვალყურო</span><span lang="en">WATCH</span></td>
+            <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+          </tr>
+          <tr>
+            <td class="num">45–59</td>
+            <td><span class="band-color-box" style="background:#6b6b6b;"></span> <span lang="ka">ნეიტრალური</span><span lang="en">NEUTRAL</span></td>
+            <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+          </tr>
+          <tr>
+            <td class="num">30–44</td>
+            <td><span class="band-color-box" style="background:#b45309;"></span> <span lang="ka">სუსტი</span><span lang="en">WEAK</span></td>
+            <td style="text-align:right; color:var(--muted);"><span lang="ka">არ ფასდება</span><span lang="en">Not Graded</span></td>
+          </tr>
+          <tr>
+            <td class="num">0–29</td>
+            <td><span class="band-color-box" style="background:#b91c1c;"></span> <span lang="ka">ქვევითი მოძრაობის კანდიდატი</span><span lang="en">SHORT-SIDE CANDIDATE</span></td>
+            <td style="text-align:right; font-weight:bold; color:var(--red);"><span lang="ka">ფასდება (Bearish)</span><span lang="en">Graded (Bearish)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 3: Data Sources -->
+    <div class="legal-section">
+      <div class="section-headline">
+        <span lang="ka">3. მონაცემთა წყაროები</span>
+        <span lang="en">3. Data Sources</span>
+      </div>
+      <p class="para-text" lang="ka">
+        კვლევა 5.0 იყენებს მესამე მხარის ფინანსური მონაცემების პროვაიდერებს, მათ შორის Finnhub API, Alpha Vantage API და Yahoo Finance API სერვისებს. ბაზრის ფართო მაჩვენებლებისთვის (Fear &amp; Greed ინდექსი) მონაცემები მიიღება CNN Business სერვისებიდან.
+      </p>
+      <p class="para-text" lang="en">
+        KvlEva 5.0 relies on third-party financial data providers, including Finnhub API, Alpha Vantage API, and Yahoo Finance API integrations. Market-wide Fear & Greed indicators are fetched from CNN Business dataviz graphs.
+      </p>
+      <p class="para-text" lang="ka">
+        მონაცემები შეიძლება იყოს დაგვიანებული, არაზუსტი ან არასრული მესამე მხარის სისტემებში არსებული შეფერხებების გამო. პლატფორმა არ იძლევა გარანტიას მონაცემთა სიზუსტეზე, სისრულეზე ან უწყვეტ ხელმისაწვდომობაზე.
+      </p>
+      <p class="para-text" lang="en">
+        Data may be delayed, inaccurate, or incomplete due to provider transmission latency. The platform makes no guarantees regarding the accuracy, completeness, or uninterrupted availability of these external feeds.
+      </p>
+    </div>
+
+    <!-- Section 4: Limitation of Liability -->
+    <div class="legal-section">
+      <div class="section-headline">
+        <span lang="ka">4. პასუხისმგებლობის შეზღუდვა</span>
+        <span lang="en">4. Limitation of Liability</span>
+      </div>
+      <p class="para-text" lang="ka">
+        საიტის ოპერატორი და ავტორები არ იღებენ არავითარ პასუხისმგებლობას ნებისმიერ პირდაპირ ან ირიბ ფინანსურ ზარალზე, რომელიც შეიძლება მოჰყვეს ამ პლატფორმაზე განთავსებული ინფორმაციის ან სიგნალების გამოყენებას.
+      </p>
+      <p class="para-text" lang="en">
+        The site operator and authors accept no liability for any direct or indirect financial losses arising from the use of information, calculations, or signals published on this platform.
+      </p>
+      <p class="para-text" lang="ka">
+        ფინანსურ ბაზრებზე ვაჭრობა და CFD ინსტრუმენტების გამოყენება დაკავშირებულია კაპიტალის დაკარგვის უაღრესად მაღალ რისკთან. წარსული სიგნალები და ჟურნალში ასახული ისტორიული შედეგები არ წარმოადგენს მომავალი წარმატების ან მოგების გარანტიას.
+      </p>
+      <p class="para-text" lang="en">
+        Financial market trading and CFD leverage involve an exceptionally high degree of risk to capital. Past signal performance and historical records presented in the Journal are for transparency purposes only and do not guarantee future performance.
+      </p>
+    </div>
+
+    <!-- Section 5: No Advisory Relationship -->
+    <div class="legal-section">
+      <div class="section-headline">
+        <span lang="ka">5. არავითარი ურთიერთობა</span>
+        <span lang="en">5. No Advisory Relationship</span>
+      </div>
+      <p class="para-text" lang="ka">
+        საიტზე განთავსებული არცერთი ჩანაწერი, კომპოზიტური ქულა ან კლასიფიკაციის ზოლი არ წარმოადგენს პერსონალურ რეკომენდაციას ან საინვესტიციო რჩევას. პლატფორმის ოპერატორი არ არის ლიცენზირებული ფინანსური მრჩეველი ან ბროკერ-დილერი.
+      </p>
+      <p class="para-text" lang="en">
+        No publication, composite score, or research classification band on this site constitutes a personalized recommendation or investment advice. The operator is not a licensed financial adviser, broker-dealer, or portfolio manager.
+      </p>
+      <p class="para-text" lang="ka">
+        ამ ვებგვერდით სარგებლობა არ წარმოშობს კლიენტურ, საკონსულტაციო ან სხვა სახის სახელშეკრულებო ურთიერთობას მომხმარებელსა და საიტის მფლობელს შორის. ნებისმიერი საინვესტიციო გადაწყვეტილება მიღებულ უნდა იქნას ინდივიდუალურად, საკუთარი კვლევის ან ლიცენზირებულ მრჩეველთან კონსულტაციის საფუძველზე.
+      </p>
+      <p class="para-text" lang="en">
+        Accessing or using this website does not establish a client, fiduciary, advisory, or contractual relationship between the user and the site operator. Any investment decision must be made independently, based on personal research or consultation with a licensed advisor.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <div class="footer-links">
+    <a href="/kvleva5/journal/"><span lang="ka">← უკან სიგნალების ჟურნალში</span><span lang="en">← Back to Signal Journal</span></a>
+  </div>
+  <div class="footer-copyright">
+    © 2026 The Trading Paper · ვისბადენი<br>
+    <span lang="ka">ეს არის კვლევითი ინფორმაცია და არა საინვესტიციო რჩევა</span>
+    <span lang="en">This is research information, not investment advice</span>
+  </div>
+</footer>
+
+<script src="/js/masthead.js"></script>
+<script src="/js/clocks.js"></script>
+</body>
+</html>

@@ -13,25 +13,30 @@
 // the TABS / MENU arrays below — it updates every page at once.
 // ============================================================
 (function () {
+  var lang = 'ka';
+  try { lang = localStorage.getItem('tp_lang') === 'en' ? 'en' : 'ka'; } catch (e) {}
+
   // ---- PRIMARY horizontal tabs -------------------------------------------
   // My Cabinet · Market Notes · Analysis · Kvleva 3.0 · Kvleva 5.0 (BETA)
   var TABS = [
-    { href: '/',                   label: 'ჩემი კაბინეტი',   re: /^\/(index\.html)?$/ },
-    { href: '/notes.html',         label: 'ბაზრის ჩანაწერი', re: /^\/notes/ },
-    { href: '/meportfolio/',       label: 'ანალიზი',         re: /^\/meportfolio/ },
-    { href: '/kvleva3.html',       label: 'კვლევა 3.0',      re: /^\/kvleva3/ },
-    { href: '/kvleva5/',           label: 'კვლევა 5.0',      re: /^\/kvleva5/ }
+    { href: '/',                   label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/(index\.html)?$/ },
+    { href: '/notes.html',         label: lang === 'ka' ? 'ბაზრის ჩანაწერი' : 'Market Notes', re: /^\/notes/ },
+    { href: '/meportfolio/',       label: lang === 'ka' ? 'ანალიზი' : 'Analysis',         re: /^\/meportfolio/ },
+    { href: '/kvleva3.html',       label: lang === 'ka' ? 'კვლევა 3.0' : 'Kvleva 3.0',      re: /^\/kvleva3/ },
+    { href: '/kvleva5/',           label: lang === 'ka' ? 'კვლევა 5.0' : 'Kvleva 5.0',      re: /^\/kvleva5\/$/ },
+    { href: '/kvleva5/journal/',   label: lang === 'ka' ? 'ჟურნალი' : 'Journal', re: /^\/kvleva5\/journal/ },
+    { href: '/kvleva5/legal/',     label: lang === 'ka' ? 'სამართლებრივი' : 'Legal', re: /^\/kvleva5\/legal/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
   // Shown as a red-underline sub-nav line when inside the Cabinet area
   // (dashboard + its tools). Replaced the old "კაბინეტი ▾" dropdown.
   var MENU = [
-    { href: '/goals.html',     label: 'მიზნები' },
-    { href: '/notes.html',     label: 'ჩემი ჩანაწერები' },
-    { href: '/ledger.html',    label: 'ბიუჯეტი' },
-    { href: '/dividends.html', label: 'დივიდენდები' },
-    { href: '/edit.html',      label: 'რედაქტირება' }
+    { href: '/goals.html',     label: lang === 'ka' ? 'მიზნები' : 'Goals' },
+    { href: '/notes.html',     label: lang === 'ka' ? 'ჩემი ჩანაწერები' : 'My Notes' },
+    { href: '/ledger.html',    label: lang === 'ka' ? 'ბიუჯეტი' : 'Ledger' },
+    { href: '/dividends.html', label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
+    { href: '/edit.html',      label: lang === 'ka' ? 'რედაქტირება' : 'Edit' }
   ];
 
   var path = location.pathname;
@@ -121,9 +126,12 @@
   }
 
   // ---------- date --------------------------------------------------------
-  var MONTHS = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  var MONTHS_KA = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  var MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   var d = new Date();
-  var dateStr = d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+  var dateStr = lang === 'ka'
+    ? d.getDate() + ' ' + MONTHS_KA[d.getMonth()] + ' ' + d.getFullYear()
+    : MONTHS_EN[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
 
   // ---------- capture old header's page title (if any) --------------------
   var old = document.querySelector('header.masthead');
@@ -144,11 +152,13 @@
   header.innerHTML =
       '<div class="tpm-top top-bar">'
     +   '<span id="today-date">' + dateStr + '</span>'
-    +   '<span>გამოცემა · ვისბადენი &nbsp;·&nbsp; <a href="/tp-logout" class="tpm-out no-print">გასვლა</a></span>'
+    +   '<span>' + (lang === 'ka' ? 'გამოცემა · ვისბადენი' : 'Edition · Wiesbaden') + ' &nbsp;·&nbsp; '
+    +   '<a id="tp-lang-btn" style="cursor:pointer;font-weight:bold;margin-right:8px;" class="no-print">' + (lang === 'ka' ? 'EN' : 'KA') + '</a> &nbsp;·&nbsp; '
+    +   '<a href="/tp-logout" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
     + '</div>'
     + '<div class="tpm-row">'
     +   '<div class="tpm-brand"><h1><a href="/meportfolio/">The Trading Paper</a></h1>'
-    +   '<p class="tpm-tag tagline">ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი</p></div>'
+    +   '<p class="tpm-tag tagline">' + (lang === 'ka' ? 'ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი' : 'Market · Live Indicators · Rating') + '</p></div>'
     +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
@@ -156,6 +166,16 @@
 
   if (old) old.replaceWith(header);
   else document.body.insertBefore(header, document.body.firstChild);
+
+  // language toggle handler
+  var lBtn = document.getElementById('tp-lang-btn');
+  if (lBtn) {
+    lBtn.addEventListener('click', function () {
+      var next = lang === 'ka' ? 'en' : 'ka';
+      try { localStorage.setItem('tp_lang', next); } catch (e) {}
+      location.reload();
+    });
+  }
 
   // secondary sub-nav (cabinet tools) — only inside the Cabinet area
   var anchor = header;
