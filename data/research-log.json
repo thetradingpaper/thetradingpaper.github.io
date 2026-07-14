@@ -486,5 +486,118 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337187+00:00",
+  "ticker": "QTTB",
+  "entry": 22.56,
+  "score": 56.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337195+00:00",
+  "ticker": "VOD",
+  "entry": 15.6,
+  "score": 47.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337200+00:00",
+  "ticker": "VEEE",
+  "entry": 37.82,
+  "score": 47.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337203+00:00",
+  "ticker": "HPE",
+  "entry": 49.81,
+  "score": 46.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337207+00:00",
+  "ticker": "TSEM",
+  "entry": 263.67,
+  "score": 41.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337210+00:00",
+  "ticker": "PARR",
+  "entry": 72.14,
+  "score": 39.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "big_contract",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337214+00:00",
+  "ticker": "CNMD",
+  "entry": 41.45,
+  "score": 39.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337221+00:00",
+  "ticker": "LITE",
+  "entry": 820.35,
+  "score": 38.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337225+00:00",
+  "ticker": "LASR",
+  "entry": 71.4,
+  "score": 31.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-14T15:23:46.337229+00:00",
+  "ticker": "COCO",
+  "entry": 74.98,
+  "score": 30.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "analyst_upgrade"
+  ],
+  "status": "open"
  }
 ]
