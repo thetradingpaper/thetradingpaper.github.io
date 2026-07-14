@@ -1668,11 +1668,18 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     // Aggregates
     let deposits = 0, withdrawals = 0, fees = 0, dividends = 0, bought = 0, sold = 0;
     filtered.forEach(function(tx) {
+      const isTransfer = tx.note && /transfer|გადატანა|გადმოტანა/i.test(tx.note);
+      
       if (tx.type === 'deposit') {
-        if (tx.amount >= 0) deposits += tx.amount;
-        else withdrawals += Math.abs(tx.amount);
+        if (tx.amount >= 0) {
+          if (!isTransfer) deposits += tx.amount;
+        } else {
+          if (!isTransfer) withdrawals += Math.abs(tx.amount);
+        }
       }
-      else if (tx.type === 'withdraw') withdrawals += tx.amount;
+      else if (tx.type === 'withdraw') {
+        if (!isTransfer) withdrawals += tx.amount;
+      }
       else if (tx.type === 'fee') fees += tx.amount;
       else if (tx.type === 'dividend') dividends += tx.amount;
       else if (tx.type === 'buy') {
@@ -1690,11 +1697,11 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       summaryEl.innerHTML = `
         <div class="summary-grid" style="margin-bottom: 24px;">
           <div class="summary-card">
-            <div class="summary-label">ჯამური ჩარიცხვა</div>
+            <div class="summary-label">სუფთა ჩარიცხვა</div>
             <div class="summary-value" style="color:var(--green);">${fmtMoney(deposits)}</div>
           </div>
           <div class="summary-card">
-            <div class="summary-label">ჯამური გატანა</div>
+            <div class="summary-label">სუფთა გატანა</div>
             <div class="summary-value" style="color:var(--muted);">${fmtMoney(withdrawals)}</div>
           </div>
           <div class="summary-card">
