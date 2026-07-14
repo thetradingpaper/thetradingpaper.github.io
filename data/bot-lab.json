@@ -17,7 +17,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 59.35
+     "last_price": 59.560001373291016
     }
    ],
    "trades": [
@@ -32,7 +32,7 @@
      "leverage": 1
     }
    ],
-   "equity": 95.59,
+   "equity": 95.92,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -53,17 +53,13 @@
     {
      "date": "2026-07-13",
      "equity": 95.92
-    },
-    {
-     "date": "2026-07-14",
-     "equity": 95.59
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -4.41
+    "return_pct": -4.08
    }
   },
   "bot2": {
@@ -71,7 +67,7 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 0.0,
+   "cash": 17.349757922692106,
    "positions": [
     {
      "ticker": "CRNX",
@@ -81,7 +77,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.73
+     "last_price": 83.67
     },
     {
      "ticker": "TCBK",
@@ -91,7 +87,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 59.35
+     "last_price": 59.560001373291016
     },
     {
      "ticker": "VOD",
@@ -101,7 +97,7 @@
      "target": 16.33,
      "stop": 15.08,
      "max_days": 7,
-     "last_price": 15.6
+     "last_price": 15.555000305175781
     },
     {
      "ticker": "CNMD",
@@ -111,17 +107,7 @@
      "target": 46.58,
      "stop": 39.22,
      "max_days": 7,
-     "last_price": 41.45
-    },
-    {
-     "ticker": "QTTB",
-     "shares": 0.747052,
-     "entry": 22.55500030517578,
-     "entry_date": "2026-07-14",
-     "target": 29.46,
-     "stop": 19.79,
-     "max_days": 7,
-     "last_price": 22.55500030517578
+     "last_price": 41.97999954223633
     }
    ],
    "trades": [
@@ -176,7 +162,7 @@
      "leverage": 1
     }
    ],
-   "equity": 84.07,
+   "equity": 84.78,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -197,17 +183,13 @@
     {
      "date": "2026-07-13",
      "equity": 84.78
-    },
-    {
-     "date": "2026-07-14",
-     "equity": 84.07
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -15.93
+    "return_pct": -15.22
    }
   },
   "bot3": {
@@ -225,7 +207,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.42
+     "last_price": 19.82
     },
     {
      "ticker": "BTDR",
@@ -235,7 +217,7 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 12.56
+     "last_price": 12.48
     },
     {
      "ticker": "FCEL",
@@ -245,7 +227,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 21.67
+     "last_price": 19.51
     }
    ],
    "trades": [
@@ -270,7 +252,7 @@
      "leverage": 1
     }
    ],
-   "equity": 76.31,
+   "equity": 73.04,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -291,17 +273,13 @@
     {
      "date": "2026-07-13",
      "equity": 73.04
-    },
-    {
-     "date": "2026-07-14",
-     "equity": 76.31
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -23.69
+    "return_pct": -26.96
    }
   },
   "bot4": {
@@ -319,7 +297,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.73
+     "last_price": 83.67
     }
    ],
    "trades": [
@@ -334,7 +312,7 @@
      "leverage": 1
     }
    ],
-   "equity": 97.82,
+   "equity": 97.8,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -355,17 +333,13 @@
     {
      "date": "2026-07-13",
      "equity": 97.8
-    },
-    {
-     "date": "2026-07-14",
-     "equity": 97.82
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -2.18
+    "return_pct": -2.2
    }
   },
   "bot5": {
@@ -408,10 +382,6 @@
     {
      "date": "2026-07-13",
      "equity": 903.22
-    },
-    {
-     "date": "2026-07-14",
-     "equity": 903.22
     }
    ],
    "stats": {
@@ -422,5 +392,5 @@
    }
   }
  },
- "updated": "2026-07-14T15:23:47.651052+00:00"
+ "updated": "2026-07-13T16:14:55.333080+00:00"
 }

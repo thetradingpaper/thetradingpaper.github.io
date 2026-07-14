@@ -1,77 +1,77 @@
 {
-  "updated": "2026-07-14T16:01:48.143Z",
+  "updated": "2026-07-13T16:00:27.826Z",
   "quotes": {
     "SPCX": {
-      "price": 142.06,
-      "previousClose": 139.14
+      "price": 139.775,
+      "previousClose": 145.3
     },
     "SMH": {
       "price": 611.03,
       "previousClose": 607.73004
     },
     "VOO": {
-      "price": 689.89,
-      "previousClose": 688.5
+      "price": 690.365,
+      "previousClose": 693.86
     },
     "ASX": {
-      "price": 40.69,
-      "previousClose": 40.56
+      "price": 41.135,
+      "previousClose": 42.66
     },
     "SSRM": {
-      "price": 28.12,
-      "previousClose": 27.89
+      "price": 27.98,
+      "previousClose": 28.58
     },
     "KOID": {
-      "price": 38.81,
-      "previousClose": 38.18
+      "price": 38.55,
+      "previousClose": 39.95
     },
     "MP": {
-      "price": 50.875,
-      "previousClose": 49.5
+      "price": 49.945,
+      "previousClose": 52.21
     },
     "VRT": {
-      "price": 302.975,
-      "previousClose": 305.87
+      "price": 308.03,
+      "previousClose": 318.86
     },
     "WMT": {
-      "price": 114.59,
-      "previousClose": 114.78
+      "price": 114.33,
+      "previousClose": 113.9
     },
     "WQTM": {
-      "price": 33.636,
-      "previousClose": 33.38
+      "price": 33.815,
+      "previousClose": 34.76
     },
     "MNST": {
-      "price": 97.81,
-      "previousClose": 97.07
+      "price": 97.07,
+      "previousClose": 97.39
     },
     "MSTR": {
-      "price": 96.86,
-      "previousClose": 92.1
+      "price": 92.33,
+      "previousClose": 94.64
     },
     "CRDO": {
-      "price": 241.79,
-      "previousClose": 236.88
+      "price": 243.63,
+      "previousClose": 257.79
     },
     "ARCC": {
-      "price": 18.69,
-      "previousClose": 18.64
+      "price": 18.77,
+      "previousClose": 18.78
     },
     "MAIN": {
-      "price": 52.671,
-      "previousClose": 52.51
+      "price": 53.02,
+      "previousClose": 52.84
     },
     "BXSL": {
-      "price": 23.41,
-      "previousClose": 23.37
+      "price": 23.595,
+      "previousClose": 23.44
     },
     "LYG": {
-      "price": 5.955,
-      "previousClose": 5.89
+      "price": 5.91,
+      "previousClose": 6
     },
     "SNDK": {
-      "price": 1744,
-      "previousClose": 1673.97
+      "price": 1710.795,
+      "previousClose": 1915.92
     }
   }
 }

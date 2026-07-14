@@ -1,273 +1,255 @@
 {
- "updated": "2026-07-14T15:23:46.337257+00:00",
+ "updated": "2026-07-13T16:14:54.235156+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on QTTB (score 56.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on TCBK (score 67.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "QTTB",
-   "price": 22.56,
-   "score": 56.0,
-   "tech_score": 28.0,
-   "news_score": 28.0,
-   "rsi": 75.0,
-   "mom5": 62.63,
-   "vol_surge": 0.71,
+   "ticker": "TCBK",
+   "price": 59.66,
+   "score": 67.8,
+   "tech_score": 48.0,
+   "news_score": 19.8,
+   "rsi": 78.0,
+   "mom5": 10.15,
+   "vol_surge": 5.68,
    "catalysts": [
     {
-     "category": "fda_approval",
-     "headline": "Q32 Bio (QTTB) After Positive Trial Data Is It A Buy Or Already Fairly Valued",
-     "age_h": 5.1,
-     "points": 28.0
+     "category": "m_and_a",
+     "headline": "First Hawaiian Shares Drop as TriCo Bancshares Agrees to All-Stock Merger (FHB)",
+     "age_h": 3.3,
+     "points": 19.8
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 22.56,
-    "target": 29.46,
-    "stop": 19.79,
-    "hold": "2-8 კვირა"
+    "entry": 59.66,
+    "target": 62.6,
+    "stop": 57.89,
+    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "VOD",
-   "price": 15.6,
-   "score": 47.9,
-   "tech_score": 30.0,
-   "news_score": 17.9,
-   "rsi": 69.3,
-   "mom5": 19.66,
-   "vol_surge": 0.47,
+   "price": 15.55,
+   "score": 58.3,
+   "tech_score": 38.5,
+   "news_score": 19.8,
+   "rsi": 67.8,
+   "mom5": 18.92,
+   "vol_surge": 1.06,
    "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "AST SpaceMobile’s Next Launches Could Decide Whether Its Rally Regains Orbit",
-     "age_h": 25.6,
-     "points": 6.0
-    },
     {
      "category": "m_and_a",
      "headline": "Niel family’s Vega to acquire 16.2% Vodafone stake from e& for $5.95bn",
-     "age_h": 29.5,
-     "points": 11.9
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 15.6,
-    "target": 16.82,
-    "stop": 15.12,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "VEEE",
-   "price": 37.82,
-   "score": 47.8,
-   "tech_score": 28.0,
-   "news_score": 19.8,
-   "rsi": 93.0,
-   "mom5": 563.06,
-   "vol_surge": 2.64,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Twin Vee PowerCats shares surge after merger agreement to combine public company with USFM subsidiary",
-     "age_h": 22.8,
+     "age_h": 6.4,
      "points": 19.8
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 37.82,
-    "target": 47.33,
-    "stop": 32.12,
+    "entry": 15.55,
+    "target": 16.33,
+    "stop": 15.08,
     "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "HPE",
-   "price": 49.81,
-   "score": 46.0,
-   "tech_score": 36.0,
-   "news_score": 10.0,
-   "rsi": 51.9,
-   "mom5": 14.46,
-   "vol_surge": 0.24,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "HPE (HPE) Details AI And Data Center Energy Progress In New Sustainability Report",
-     "age_h": 5.1,
-     "points": 10.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 49.81,
-    "target": 57.71,
-    "stop": 46.64,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "TSEM",
-   "price": 263.67,
-   "score": 41.1,
-   "tech_score": 31.1,
-   "news_score": 10.0,
-   "rsi": 43.7,
-   "mom5": 24.47,
-   "vol_surge": 1.39,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Tower Semiconductor Unveils $3 Billion Japan Expansion to Boost AI Chip Production (TSEM)",
-     "age_h": 4.6,
-     "points": 10.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 263.67,
-    "target": 329.33,
-    "stop": 237.41,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "PARR",
-   "price": 72.14,
-   "score": 39.9,
-   "tech_score": 10.0,
-   "news_score": 29.9,
-   "rsi": 86.6,
-   "mom5": 17.44,
-   "vol_surge": 0.26,
-   "catalysts": [
-    {
-     "category": "big_contract",
-     "headline": "Halliburton Wins Contract for TotalEnergies' Offshore Suriname Project",
-     "age_h": 1.5,
-     "points": 18.0
-    },
-    {
-     "category": "m_and_a",
-     "headline": "Petrobras Completes Block 3 Acquisition, Boosts Africa Strategy",
-     "age_h": 25.0,
-     "points": 11.9
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 72.14,
-    "target": 82.01,
-    "stop": 68.18,
-    "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "CNMD",
-   "price": 41.45,
-   "score": 39.8,
-   "tech_score": 20.0,
+   "price": 41.98,
+   "score": 48.0,
+   "tech_score": 28.2,
    "news_score": 19.8,
-   "rsi": 68.5,
-   "mom5": 21.93,
-   "vol_surge": 0.29,
+   "rsi": 72.9,
+   "mom5": 19.74,
+   "vol_surge": 2.03,
    "catalysts": [
     {
      "category": "m_and_a",
      "headline": "Conmed Surges Within Striking Distance Of A Breakout On Buyout Rumors",
-     "age_h": 18.5,
+     "age_h": 0.8,
      "points": 19.8
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 41.45,
-    "target": 46.05,
-    "stop": 38.69,
+    "entry": 41.98,
+    "target": 46.58,
+    "stop": 39.22,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "LITE",
-   "price": 820.35,
-   "score": 38.0,
-   "tech_score": 28.0,
-   "news_score": 10.0,
-   "rsi": 49.2,
-   "mom5": 17.19,
-   "vol_surge": 0.37,
+   "ticker": "FHB",
+   "price": 28.92,
+   "score": 40.9,
+   "tech_score": 21.1,
+   "news_score": 19.8,
+   "rsi": 55.0,
+   "mom5": -4.88,
+   "vol_surge": 2.48,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Applied Optoelectronics Rallies 6%, Lumentum Climbs 5% as Texas Expansion Fuels AI Optics Trade",
-     "age_h": 0.9,
-     "points": 10.0
+     "category": "m_and_a",
+     "headline": "First Hawaiian Shares Drop as TriCo Bancshares Agrees to All-Stock Merger (FHB)",
+     "age_h": 3.3,
+     "points": 19.8
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 820.35,
-    "target": 1018.47,
-    "stop": 741.11,
-    "hold": "2-8 კვირა"
+    "entry": 28.92,
+    "target": 30.52,
+    "stop": 27.95,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "LASR",
-   "price": 71.4,
-   "score": 31.0,
-   "tech_score": 28.0,
+   "ticker": "VEEE",
+   "price": 22.0,
+   "score": 39.8,
+   "tech_score": 20.0,
+   "news_score": 19.8,
+   "rsi": 87.9,
+   "mom5": 328.57,
+   "vol_surge": 17.52,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Twin Vee PowerCats Shares Soar After Announcing Merger With USFM Corporation (VEEE)",
+     "age_h": 2.1,
+     "points": 19.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 22.0,
+    "target": 26.8,
+    "stop": 19.12,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PARR",
+   "price": 70.36,
+   "score": 39.8,
+   "tech_score": 20.0,
+   "news_score": 19.8,
+   "rsi": 84.6,
+   "mom5": 15.84,
+   "vol_surge": 0.33,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Petrobras Completes Block 3 Acquisition, Boosts Africa Strategy",
+     "age_h": 1.8,
+     "points": 19.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 70.36,
+    "target": 76.65,
+    "stop": 66.58,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "INTC",
+   "price": 103.88,
+   "score": 26.0,
+   "tech_score": 4.0,
+   "news_score": 22.0,
+   "rsi": 23.7,
+   "mom5": -14.83,
+   "vol_surge": 0.36,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Why TSMC’s Record Revenue Isn’t Reviving the AI Trade",
+     "age_h": 2.4,
+     "points": 22.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 103.88,
+    "target": 123.72,
+    "stop": 91.97,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IONS",
+   "price": 56.54,
+   "score": 19.0,
+   "tech_score": 4.0,
+   "news_score": 15.0,
+   "rsi": 28.1,
+   "mom5": -32.04,
+   "vol_surge": 0.53,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Biogen Stock Is Upgraded to Buy Ahead of Key Alzheimer’s Drug Study Details",
+     "age_h": 1.5,
+     "points": 15.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 56.54,
+    "target": 64.98,
+    "stop": 51.48,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PL",
+   "price": 26.43,
+   "score": 7.0,
+   "tech_score": -8.0,
+   "news_score": 15.0,
+   "rsi": 43.0,
+   "mom5": -14.34,
+   "vol_surge": 0.18,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Planet Labs (PL) Down 12% Over the Past Month, Wedbush Initiates the Stock With a Buy Rating",
+     "age_h": 6.2,
+     "points": 15.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 26.43,
+    "target": 31.2,
+    "stop": 23.57,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "BE",
+   "price": 237.25,
+   "score": 3.0,
+   "tech_score": 0.0,
    "news_score": 3.0,
-   "rsi": 54.7,
-   "mom5": 21.25,
-   "vol_surge": 0.08,
+   "rsi": 30.0,
+   "mom5": -19.88,
+   "vol_surge": 0.3,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "These 5 Optical Chip Stocks Are Cashing in on AI Data Center Bandwidth",
-     "age_h": 50.4,
+     "headline": "Bloom Energy (BE) Is Down 9.7% After Scandium Supply Dispute And $25B AI Power Deal Expansion",
+     "age_h": 66.0,
      "points": 3.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 71.4,
-    "target": 89.77,
-    "stop": 64.06,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "COCO",
-   "price": 74.98,
-   "score": 30.0,
-   "tech_score": 18.0,
-   "news_score": 12.0,
-   "rsi": 38.5,
-   "mom5": 13.98,
-   "vol_surge": 0.12,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Vita Coco (COCO) Stock May Be 12% Undervalued Despite Raised Guidance",
-     "age_h": 65.3,
-     "points": 7.5
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Vita Coco Company (COCO) Could Be 5% Undervalued Following Analyst Upgrades",
-     "age_h": 69.3,
-     "points": 4.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 74.98,
-    "target": 87.42,
-    "stop": 70.0,
+    "entry": 237.25,
+    "target": 346.82,
+    "stop": 193.42,
     "hold": "2-8 კვირა"
    }
   }
@@ -295,7 +277,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5976,
+ "scanned": 5980,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

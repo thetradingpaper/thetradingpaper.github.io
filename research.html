@@ -868,7 +868,13 @@
           <strong>კვლევა 5.0</strong> არის აქციების კვლევის ავტომატიზებული კლასიფიკაციის ძრავა, რომელიც ახდენს სხვადასხვა ბაზრის მაჩვენებლების აგრეგირებას ერთ კომპოზიტურ სარეიტინგო ქულაში (0-დან 100-მდე). მოდელი შექმნილია იმისათვის, რომ უზრუნველყოს ფასიანი ქაღალდების სრულიად ობიექტური, ალგორითმული ანალიზი ადამიანური ემოციების ან მიკერძოების გარეშე.
         </p>
         <p class="para-text" lang="en">
-          <strong>KvlEva 5.0</strong> is an automated equity research classification engine that aggregates multiple market indicators into a single composite score ranging from 0 to 100.
+          <strong>KvlEva 5.0</strong> is an automated equity research classification engine that aggregates multiple market indicators into a single composite score ranging from 0 to 100. The model is designed to provide completely objective, algorithmic security analysis free from human emotion or bias.
+        </p>
+        <p class="para-text" lang="ka">
+          ძრავა აანალიზებს ფინანსური ინსტრუმენტების ხუთ ძირითად განზომილებას: ფასის მოძრაობას და ტრენდს, ტექნიკურ მომენტს (RSI და მოძრავი საშუალოები), ბაზრისა და მედიის სენტიმენტს, ფუნდამენტურ შეფასებას და ვოლატილობას (CFD-სპეციფიკური რეკომენდაციებით). ეს მონაცემები მუდმივად მუშავდება და განახლდება ყოველი სავაჭრო სესიის დასრულების შემდეგ.
+        </p>
+        <p class="para-text" lang="en">
+          The engine evaluates five key dimensions of financial instruments: price action and trend, technical momentum (RSI and moving averages), market and media sentiment, fundamental valuation metrics, and volatility structures (with CFD-specific guidance). This dataset is continuously reprocessed and updated following the close of each trading session.
         </p>
       </div>
 
@@ -880,13 +886,28 @@
         <p class="para-text" lang="ka">
           კომპოზიტური ქულა ითვლის ხუთი კატეგორიის საშუალო შეწონილს. თითოეულ კატეგორიას აქვს თავისი ფიქსირებული მაქსიმალური წონა:
         </p>
+        <p class="para-text" lang="en">
+          The composite score is calculated as a weighted average of five core categories, each carrying a fixed maximum weight:
+        </p>
+        
         <ul style="font-family:'Noto Sans Georgian', sans-serif; font-size:13px; line-height:1.7; margin-bottom:14px; padding-left:20px; color:var(--ink);">
-          <li><span lang="ka"><strong>მომენტი / Momentum (30%):</strong> RSI, მოძრავი საშუალოები და მოცულობის ანომალიები.</span><span lang="en"><strong>Momentum (30%):</strong> RSI, SMA, volume anomalies.</span></li>
-          <li><span lang="ka"><strong>ფასი და ტრენდი / Price &amp; Trend (20%):</strong> 52-კვირიანი დიაპაზონი და თვის ცვლილება.</span><span lang="en"><strong>Price &amp; Trend (20%):</strong> 52-wk range position, monthly change.</span></li>
-          <li><span lang="ka"><strong>სენტიმენტი / Sentiment (20%):</strong> ბაზრის Fear &amp; Greed და მედიის სათაურების ტონი.</span><span lang="en"><strong>Sentiment (20%):</strong> CNN Fear &amp; Greed index, headline tone.</span></li>
-          <li><span lang="ka"><strong>შეფასება / Valuation (15%):</strong> P/E კოეფიციენტი სექტორთან მიმართებაში.</span><span lang="en"><strong>Valuation (15%):</strong> P/E relative to sector.</span></li>
-          <li><span lang="ka"><strong>CFD და ვოლატილობა / Volatility (15%):</strong> ისტორიული ვოლატილობა და ATR.</span><span lang="en"><strong>Volatility (15%):</strong> Historical volatility, ATR.</span></li>
+          <li><span lang="ka"><strong>მომენტი / Momentum (30%):</strong> RSI, მოძრავი საშუალოები და მოცულობის ანომალიები.</span><span lang="en"><strong>Momentum (30%):</strong> RSI metrics, moving average positionings, and volume anomalies.</span></li>
+          <li><span lang="ka"><strong>ფასი და ტრენდი / Price &amp; Trend (20%):</strong> 52-კვირიანი დიაპაზონის პოზიცია და თვის ცვლილება.</span><span lang="en"><strong>Price &amp; Trend (20%):</strong> 52-week range positioning and short-term performance momentum.</span></li>
+          <li><span lang="ka"><strong>სენტიმენტი / Sentiment (20%):</strong> ბაზრის Fear &amp; Greed ინდექსი და მედიის სათაურების ტონი.</span><span lang="en"><strong>Sentiment (20%):</strong> Market-wide Fear & Greed inputs and headline text sentiment.</span></li>
+          <li><span lang="ka"><strong>შეფასება / Valuation (15%):</strong> P/E კოეფიციენტი სექტორულ მედიანასთან მიმართებაში და საბაზრო კაპიტალიზაცია.</span><span lang="en"><strong>Valuation (15%):</strong> Trailing P/E ratios relative to long-term sector medians and cap size factors.</span></li>
+          <li><span lang="ka"><strong>CFD და ვოლატილობა / Volatility &amp; CFD (15%):</strong> ისტორიული ვოლატილობა და ATR მაჩვენებლები.</span><span lang="en"><strong>Volatility &amp; CFD (15%):</strong> Annualised historical volatility and ATR stop-loss calibrations.</span></li>
         </ul>
+
+        <p class="para-text" lang="ka">
+          თუ რომელიმე განზომილების მონაცემები მიუწვდომელია (მაგ. კომპანიას არ აქვს მოგება და P/E კოეფიციენტი ვერ განისაზღვრება), კომპოზიტური ქულა <strong>ავტომატურად ხელახლა ნორმდება</strong> მხოლოდ ხელმისაწვდომი კატეგორიების წონების პროპორციულად. ქულა იანგარიშება მხოლოდ იმ შემთხვევაში, თუ მონაცემთა საერთო ხელმისაწვდომი წონა არის 35% ან მეტი.
+        </p>
+        <p class="para-text" lang="en">
+          If data for a particular category is missing (e.g., a company has negative earnings and lacks a P/E ratio), the composite score <strong>automatically renormalizes</strong> over the remaining available category weights. A score is only calculated if the total available data weight is 35% or higher.
+        </p>
+
+        <div class="item-title" lang="ka">ქულების ინტერპრეტაცია (კლასიფიკაციის ზოლები)</div>
+        <div class="item-title" lang="en">Score Interpretation (Classification Bands)</div>
+
         <table class="band-table">
           <thead>
             <tr>
@@ -927,14 +948,58 @@
 
       <div class="legal-section">
         <div class="section-headline">
-          <span lang="ka">3. პასუხისმგებლობის შეზღუდვა</span>
-          <span lang="en">3. Limitation of Liability</span>
+          <span lang="ka">3. მონაცემთა წყაროები</span>
+          <span lang="en">3. Data Sources</span>
         </div>
         <p class="para-text" lang="ka">
-          საიტის ოპერატორი და ავტორები არ იღებენ არავითარ პასუხისმგებლობას ნებისმიერ ფინანსურ ზარალზე. ფინანსურ ბაზრებზე ვაჭრობა და CFD ინსტრუმენტების გამოყენება დაკავშირებულია კაპიტალის დაკარგვის მაღალ რისკთან. წარსული სიგნალები და ჟურნალში ასახული ისტორიული შედეგები არ წარმოადგენს მომავალი წარმატების გარანტიას. საიტზე განთავსებული ინფორმაცია არ წარმოადგენს პერსონალურ საინვესტიციო რჩევას.
+          კვლევა 5.0 იყენებს მესამე მხარის ფინანსური მონაცემების პროვაიდერებს, მათ შორის Finnhub API, Alpha Vantage API და Yahoo Finance API სერვისებს. ბაზრის ფართო მაჩვენებლებისთვის (Fear &amp; Greed ინდექსი) მონაცემები მიიღება CNN Business სერვისებიდან.
         </p>
         <p class="para-text" lang="en">
-          The site operator and authors accept no liability for any financial losses. No publication or composite score on this site constitutes a personalized recommendation or investment advice.
+          KvlEva 5.0 relies on third-party financial data providers, including Finnhub API, Alpha Vantage API, and Yahoo Finance API integrations. Market-wide Fear & Greed indicators are fetched from CNN Business dataviz graphs.
+        </p>
+        <p class="para-text" lang="ka">
+          მონაცემები შეიძლება იყოს დაგვიანებული, არაზუსტი ან არასრული მესამე მხარის სისტემებში არსებული შეფერხებების გამო. პლატფორმა არ იძლევა გარანტიას მონაცემთა სიზუსტეზე, სისრულეზე ან უწყვეტ ხელმისაწვდომობაზე.
+        </p>
+        <p class="para-text" lang="en">
+          Data may be delayed, inaccurate, or incomplete due to provider transmission latency. The platform makes no guarantees regarding the accuracy, completeness, or uninterrupted availability of these external feeds.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <div class="section-headline">
+          <span lang="ka">4. პასუხისმგებლობის შეზღუდვა</span>
+          <span lang="en">4. Limitation of Liability</span>
+        </div>
+        <p class="para-text" lang="ka">
+          საიტის ოპერატორი და ავტორები არ იღებენ არავითარ პასუხისმგებლობას ნებისმიერ პირდაპირ ან ირიბ ფინანსურ ზარალზე, რომელიც შეიძლება მოჰყვეს ამ პლატფორმაზე განთავსებული ინფორმაციის ან სიგნალების გამოყენებას.
+        </p>
+        <p class="para-text" lang="en">
+          The site operator and authors accept no liability for any direct or indirect financial losses arising from the use of information, calculations, or signals published on this platform.
+        </p>
+        <p class="para-text" lang="ka">
+          ფინანსურ ბაზრებზე ვაჭრობა და CFD ინსტრუმენტების გამოყენება დაკავშირებულია კაპიტალის დაკარგვის უაღრესად მაღალ რისკთან. წარსული სიგნალები და ჟურნალში ასახული ისტორიული შედეგები არ წარმოადგენს მომავალი წარმატების ან მოგების გარანტიას.
+        </p>
+        <p class="para-text" lang="en">
+          Financial market trading and CFD leverage involve an exceptionally high degree of risk to capital. Past signal performance and historical records presented in the Journal are for transparency purposes only and do not guarantee future performance.
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <div class="section-headline">
+          <span lang="ka">5. არავითარი ურთიერთობა</span>
+          <span lang="en">5. No Advisory Relationship</span>
+        </div>
+        <p class="para-text" lang="ka">
+          საიტზე განთავსებული არცერთი ჩანაწერი, კომპოზიტური ქულა ან კლასიფიკაციის ზოლი არ წარმოადგენს პერსონალურ რეკომენდაციას ან საინვესტიციო რჩევას. პლატფორმის ოპერატორი არ არის ლიცენზირებული ფინანსური მრჩეველი ან ბროკერ-დილერი.
+        </p>
+        <p class="para-text" lang="en">
+          No publication, composite score, or research classification band on this site constitutes a personalized recommendation or investment advice. The operator is not a licensed financial adviser, broker-dealer, or portfolio manager.
+        </p>
+        <p class="para-text" lang="ka">
+          ამ ვებგვერდით სარგებლობა არ წარმოშობს კლიენტურ, საკონსულტაციო ან სხვა სახის სახელშეკრულებო ურთიერთობას მომხმარებელსა და საიტის მფლობელს შორის. ნებისმიერი საინვესტიციო გადაწყვეტილება მიღებულ უნდა იქნას ინდივიდუალურად, საკუთარი კვლევის ან ლიცენზირებულ მრჩეველთან კონსულტაციის საფუძველზე.
+        </p>
+        <p class="para-text" lang="en">
+          Accessing or using this website does not establish a client, fiduciary, advisory, or contractual relationship between the user and the site operator. Any investment decision must be made independently, based on personal research or consultation with a licensed advisor.
         </p>
       </div>
     </div>

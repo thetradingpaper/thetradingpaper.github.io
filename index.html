@@ -409,35 +409,48 @@
   var authedView = document.getElementById('login-authed-view');
   var errEl = document.getElementById('tp-login-err');
 
-  // Check auth
-  fetch('/api/me')
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (exp) exp.style.display = 'block';
-      if (data && data.authed) {
-        if (guestView) guestView.style.display = 'none';
-        if (authedView) authedView.style.display = 'block';
-        var heroBtn = document.getElementById('hero-signin-btn');
-        if (heroBtn) heroBtn.style.display = 'none';
-      } else {
+  // GitHub Pages (github.io) is a static host — it cannot run the /api auth
+  // backend. The login-capable deployment is Cloudflare Pages. On the static
+  // mirror we skip the dead /api calls and send sign-in there instead.
+  var ON_STATIC = /(^|\.)github\.io$/i.test(location.hostname);
+  var AUTH_ORIGIN = 'https://thetradingpaper.pages.dev';
+
+  if (ON_STATIC) {
+    // No backend here — just present the guest sign-in prompt.
+    if (exp) exp.style.display = 'block';
+    if (guestView) guestView.style.display = 'block';
+    if (authedView) authedView.style.display = 'none';
+  } else {
+    // Check auth
+    fetch('/api/me')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (exp) exp.style.display = 'block';
+        if (data && data.authed) {
+          if (guestView) guestView.style.display = 'none';
+          if (authedView) authedView.style.display = 'block';
+          var heroBtn = document.getElementById('hero-signin-btn');
+          if (heroBtn) heroBtn.style.display = 'none';
+        } else {
+          if (guestView) guestView.style.display = 'block';
+          if (authedView) authedView.style.display = 'none';
+
+          if (q.get('login') === 'wrong') {
+            if (errEl) errEl.textContent = 'არასწორი მომხმარებელი ან პაროლი · Wrong credentials';
+            setTimeout(function() {
+              if (exp) exp.scrollIntoView({ behavior: 'smooth' });
+              var pInput = document.getElementById('p');
+              if (pInput) pInput.focus();
+            }, 300);
+          }
+        }
+      })
+      .catch(function () {
+        if (exp) exp.style.display = 'block';
         if (guestView) guestView.style.display = 'block';
         if (authedView) authedView.style.display = 'none';
-        
-        if (q.get('login') === 'wrong') {
-          if (errEl) errEl.textContent = 'არასწორი მომხმარებელი ან პაროლი · Wrong credentials';
-          setTimeout(function() {
-            if (exp) exp.scrollIntoView({ behavior: 'smooth' });
-            var pInput = document.getElementById('p');
-            if (pInput) pInput.focus();
-          }, 300);
-        }
-      }
-    })
-    .catch(function () {
-      if (exp) exp.style.display = 'block';
-      if (guestView) guestView.style.display = 'block';
-      if (authedView) authedView.style.display = 'none';
-    });
+      });
+  }
 
   // Intercept login and POST to Supabase Auth API
   var loginForm = document.querySelector('#login-guest-view form');
@@ -446,6 +459,15 @@
       e.preventDefault();
       var uVal = document.getElementById('u').value.trim();
       var pVal = document.getElementById('p').value;
+
+      if (ON_STATIC) {
+        // Auth backend lives on Cloudflare Pages, not on github.io — send the
+        // user there to sign in (cookies must be set on that origin anyway).
+        if (errEl) errEl.textContent = 'გადამისამართება უსაფრთხო შესვლაზე...';
+        location.href = AUTH_ORIGIN + '/?login=1#login-experience';
+        return;
+      }
+
       if (errEl) errEl.textContent = 'მიმდინარეობს შესვლა...';
 
       fetch('/api/auth/login', {

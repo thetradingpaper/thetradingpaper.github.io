@@ -19,7 +19,7 @@ window.PORTFOLIOS = {
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 11.73, color: '#0f3057', divYield: 0.00 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.43807493, avgBuy: 633.25, invested: 277.41, value: 295.77, color: '#166534', divYield: 1.11 },
-      { ticker: 'ASX', name: 'ASE Industrial Holding', shares: 9.99266799, avgBuy: 37.24, invested: 372.13, value: 415.79, color: '#8b6914', divYield: 1.52 },
+      { ticker: 'ASX', name: 'ASE Industrial Holding', shares: 16.74832191, avgBuy: 38.88, invested: 651.10, value: 696.88, color: '#8b6914', divYield: 1.52 },
       { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 3.40788323, avgBuy: 31.25, invested: 106.50, value: 98.39, color: '#0891b2', divYield: 0.00 },
       { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy: 40.15, invested: 134.11, value: 134.34, color: '#4b5563', divYield: 0.01 },
       { ticker: 'MP', name: 'MP Materials Corp', shares: 1.03896426, avgBuy: 64.97, invested: 67.50, value: 57.85, color: '#b5651d', divYield: 0.00 },
@@ -29,11 +29,13 @@ window.PORTFOLIOS = {
       { ticker: 'MNST', name: 'Monster Beverage Corporation', shares: 1.67377224, avgBuy: 97.04, invested: 162.43, value: 163.04, color: '#65a30d', divYield: 0.00 },
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 265.29, invested: 28.03, value: 28.03, color: '#9d174d', divYield: 0.00 },
     ],
-    cash: 279.81, // 14 Jul 2026: sold all SNDK (gross $280.65 − $0.84 fee = $279.81 net) → cash
+    cash: 0.00, // 14 Jul 2026: sold all SNDK (+$279.81) then bought ASX (−$279.81) — cash nets to $0
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-14', type: 'buy', ticker: 'ASX', shares: 6.00000000, price: 41.295, commission: 0.84 },
+      { date: '2026-07-14', type: 'buy', ticker: 'ASX', shares: 0.75565392, price: 41.29, commission: 0 },
       { date: '2026-07-14', type: 'sell', ticker: 'SNDK', shares: 0.15652776, price: 1792.97, commission: 0.84 },
       { date: '2026-07-13', type: 'buy', ticker: 'SNDK', shares: 0.15652776, price: 1716.79, commission: 0.81 },
       { date: '2026-07-13', type: 'deposit', amount: 0.28 },

@@ -507,6 +507,7 @@
   <div class="tp-tabs no-print" role="tablist">
     <button class="tp-tab-btn active" data-pane="tab-total" role="tab" aria-selected="true">მთლიანი პორტფელი</button>
     <button class="tp-tab-btn" data-pane="tab-assets" role="tab" aria-selected="false">აქტივების დეტალები</button>
+    <button class="tp-tab-btn" data-pane="tab-history" role="tab" aria-selected="false">ტრანზაქციების ისტორია</button>
   </div>
 
   <div id="tab-total" class="tp-tab-pane active">
@@ -675,69 +676,12 @@
   <!-- Open Holdings moved to the "აქტივების დეტალები" tab (grouped by book). -->
   <div class="live-stamp"><span id="bog-live-stamp">● იტვირთება…</span></div>
 
-  <!-- Live TradingView charts -->
-  <details class="acc">
-    <summary>ცოცხალი ფასები <span class="acc-sub">BOG · TradingView</span></summary>
-    <div class="acc-body">
-      <div class="grid cols-2">
-        <div class="widget" style="min-height:260px;">
-          <div class="widget-title">SMH · ცოცხალი ფასი</div>
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            {"symbol":"NASDAQ:SMH","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-            </script>
-          </div>
-        </div>
-        <div class="widget" style="min-height:260px;">
-          <div class="widget-title">VOO · ცოცხალი ფასი</div>
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            {"symbol":"AMEX:VOO","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-            </script>
-          </div>
-        </div>
-        <div class="widget" style="min-height:260px;">
-          <div class="widget-title">ASX · ცოცხალი ფასი</div>
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            {"symbol":"NYSE:ASX","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-            </script>
-          </div>
-        </div>
-        <div class="widget" style="min-height:260px;">
-          <div class="widget-title">KOID · ცოცხალი ფასი</div>
-          <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            {"symbol":"NASDAQ:KOID","width":"100%","height":220,"locale":"en","dateRange":"12M","colorTheme":"light","isTransparent":true,"autosize":true}
-            </script>
-          </div>
-        </div>
-      </div>
-    </div>
-  </details>
-
   <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">BOG · ბოლო ტრანზაქციები</h3>
   </div>
   <div id="bog-tx" class="tx-list"></div>
   <div id="bog-pager" class="pagination"></div>
-
-  <!-- Rules -->
-  <div class="rules-box">
-    <div class="rules-title">Dogma წესები</div>
-    <ul>
-      <li>თვიური $100-200 DCA — დისციპლინა მნიშვნელოვანია</li>
-      <li>გრძელვადიანი ETF-ების / აქციების შეგროვება</li>
-      <li>არ ვყიდი — ვამოწმებ მხოლოდ ფასი ეცემაა თუ იზრდება</li>
-      <li>ფასი ეცემა → DCA. ფასი იზრდება → ვფლობ</li>
-      <li>მიზანი: <strong>35% წლიური ზრდა</strong></li>
-    </ul>
-  </div>
 
   <!-- ============================================================ -->
   <!-- BOOK TWO · TBC (Active)                                      -->
@@ -776,40 +720,12 @@
   <!-- Open Holdings moved to the "აქტივების დეტალები" tab (grouped by book). -->
   <div class="live-stamp"><span id="tbc-live-stamp">● იტვირთება…</span></div>
 
-  <!-- Live MSTR chart -->
-  <details class="acc">
-    <summary>ცოცხალი ფასები <span class="acc-sub">TBC · MSTR</span></summary>
-    <div class="acc-body">
-      <div class="widget" style="min-height:300px;">
-        <div class="widget-title">MSTR · Strategy Inc</div>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"NASDAQ:MSTR","width":"100%","height":260,"locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":true}
-          </script>
-        </div>
-      </div>
-    </div>
-  </details>
-
   <!-- Transactions -->
   <div class="tx-header">
     <h3 class="tx-title">TBC · ბოლო ტრანზაქციები</h3>
   </div>
   <div id="tbc-tx" class="tx-list"></div>
   <div id="tbc-pager" class="pagination"></div>
-
-  <!-- Rules -->
-  <div class="rules-box" style="border-left-color: var(--ink);">
-    <div class="rules-title">TBC · სტაბილური შემოსავლის წესები</div>
-    <ul>
-      <li>დივიდენდის გადამხდელი კომპანიების თანდათანობითი შეგროვება</li>
-      <li>უსაფრთხოება და სტაბილურობა — აგრესიულ ზრდაზე მაღლა</li>
-      <li>ხარისხი და მდგრადი დივიდენდი, არა მაღალი რისკი</li>
-      <li>თვიური დამატება · რეინვესტირებული დივიდენდი</li>
-      <li>მიზანი: <strong>გრძელვადიანი პასიური შემოსავალი</strong></li>
-    </ul>
-  </div>
 
   <!-- ============================================================ -->
   <!-- BOOK THREE · GALT (Margin / Leverage)                        -->
@@ -869,6 +785,133 @@
     <p class="assets-sub">პოზიციები დაჯგუფებულია წიგნების მიხედვით — BOG · TBC · GALT. დააჭირე ტიკერს და გაიხსნება სრული დეტალები. დღიური ცვლილება ცოცხალია.</p>
     <div id="assets-groups"></div>
     <p class="assets-note">დღიური ცვლილება = მიმდინარე ფასი vs წინა დახურვა. ფასები ცოცხალია (BOG · TBC), ~20 წამში ერთხელ ახლდება. GALT დახურულია.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 3 · ტრანზაქციების ისტორია · consolidated transaction history   -->
+  <!-- ============================================================ -->
+  <div id="tab-history" class="tp-tab-pane">
+    <style>
+      .filter-panel {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-top: 2px solid var(--rule);
+        padding: 16px;
+        margin: 14px 0 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-end;
+        font-family: 'Noto Sans Georgian', sans-serif;
+        font-size: 12px;
+      }
+      .filter-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+        min-width: 140px;
+      }
+      .filter-field.search {
+        flex: 2;
+        min-width: 200px;
+      }
+      .filter-field label {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 9.5px;
+        color: var(--muted);
+        letter-spacing: 1px;
+      }
+      .filter-field input, .filter-field select {
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        background: var(--paper);
+        color: var(--ink);
+        font-family: inherit;
+        font-size: 13px;
+        outline: none;
+        transition: border-color 0.15s;
+        height: 36px;
+      }
+      .filter-field input:focus, .filter-field select:focus {
+        border-color: var(--red);
+      }
+      .tx-hist {
+        display: grid;
+        grid-template-columns: 110px 90px 110px 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--border);
+        font-family: 'Noto Sans Georgian', sans-serif;
+        font-size: 13.5px;
+      }
+      .tx-hist:first-child { border-top: 1px solid var(--border); }
+      .tx-hist:hover { background: rgba(0,0,0,0.02); }
+      @media (max-width: 760px) {
+        .tx-hist { grid-template-columns: 1fr; gap: 6px; }
+      }
+    </style>
+    
+    <div class="assets-head">
+      <div class="ah-t">ტრანზაქციების ისტორია <em>Transaction History</em></div>
+    </div>
+    
+    <!-- Filter Panel -->
+    <div class="filter-panel">
+      <div class="filter-field search">
+        <label for="hist-search">ძებნა (ტიკერი/კომენტარი)</label>
+        <input type="text" id="hist-search" placeholder="მაგ. VOO, deposit, MSTR...">
+      </div>
+      
+      <div class="filter-field">
+        <label for="hist-filter-book">წიგნი / ბროკერი</label>
+        <select id="hist-filter-book">
+          <option value="all">ყველა წიგნი</option>
+          <option value="bog">BOG · Dogma</option>
+          <option value="tbc">TBC · Income</option>
+          <option value="galt">GALT · Leverage</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="hist-filter-type">ოპერაცია</label>
+        <select id="hist-filter-type">
+          <option value="all">ყველა ოპერაცია</option>
+          <option value="buy">BUY (ყიდვა)</option>
+          <option value="sell">SELL (გაყიდვა)</option>
+          <option value="deposit">DEPOSIT (დეპოზიტი)</option>
+          <option value="withdraw">WITHDRAW (გატანა)</option>
+          <option value="dividend">DIVIDEND (დივიდენდი)</option>
+          <option value="fee">FEE (საკომისიო)</option>
+        </select>
+      </div>
+
+      <div class="filter-field">
+        <label for="hist-date-start">თარიღიდან</label>
+        <input type="date" id="hist-date-start">
+      </div>
+
+      <div class="filter-field">
+        <label for="hist-date-end">თარიღამდე</label>
+        <input type="date" id="hist-date-end">
+      </div>
+      
+      <div>
+        <button id="hist-reset" style="padding: 8px 16px; background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer; font-family: inherit; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; transition: all 0.15s; height: 36px;">გასუფთავება</button>
+      </div>
+    </div>
+
+    <!-- Live stats summary for search/filtered subset -->
+    <div id="hist-summary"></div>
+
+    <!-- Filtered transaction list -->
+    <div id="hist-tx-list" class="tx-list"></div>
+    
+    <!-- Filtered list pagination -->
+    <div id="hist-pager" class="pagination" style="margin-bottom: 24px;"></div>
   </div>
 
 </main>
@@ -1399,11 +1442,337 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       btns.forEach(function(b){ var on=(b===btn); b.classList.toggle('active',on); b.setAttribute('aria-selected',on?'true':'false'); });
       panes.forEach(function(p){ p.classList.toggle('active', p.id===id); });
       if(id==='tab-assets') renderAssetsGrouped();
+      if(id==='tab-history') drawHistory();
       window.scrollTo({top:0,behavior:'smooth'});
     });
   });
   renderAssetsGrouped();
   setInterval(function(){ var pane=document.getElementById('tab-assets'); if(pane && pane.classList.contains('active')) renderAssetsGrouped(); }, 20000);
+
+  // ============================================================
+  // TAB 3 · ტრანზაქციების ისტორია · combined transaction history logic
+  // ============================================================
+  let allTx = [];
+  let histPage = 1;
+  const histPerPage = 15;
+
+  function initCombinedHistory() {
+    const P = window.PORTFOLIOS; if(!P) return;
+    allTx = [];
+    const bookMeta = {
+      bog: { name: 'BOG · Dogma', color: '#b91c1c' },
+      tbc: { name: 'TBC · Income', color: '#1a1a1a' },
+      galt: { name: 'GALT · Leverage', color: '#8b6914' }
+    };
+    
+    // Merge all portfolios' transactions
+    for (const key in bookMeta) {
+      if (P[key] && P[key].transactions) {
+        P[key].transactions.forEach(function(tx) {
+          allTx.push(Object.assign({}, tx, {
+            bookKey: key,
+            bookName: bookMeta[key].name,
+            bookColor: bookMeta[key].color
+          }));
+        });
+      }
+    }
+    
+    // Sort all by date descending (newest first).
+    allTx.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+    
+    // Load saved filters
+    loadFilters();
+    
+    // Event listeners
+    const searchEl = document.getElementById('hist-search');
+    const bookEl = document.getElementById('hist-filter-book');
+    const typeEl = document.getElementById('hist-filter-type');
+    const startEl = document.getElementById('hist-date-start');
+    const endEl = document.getElementById('hist-date-end');
+    const resetEl = document.getElementById('hist-reset');
+    
+    if (searchEl) searchEl.addEventListener('input', onFilterChange);
+    if (bookEl) bookEl.addEventListener('change', onFilterChange);
+    if (typeEl) typeEl.addEventListener('change', onFilterChange);
+    if (startEl) startEl.addEventListener('change', onFilterChange);
+    if (endEl) endEl.addEventListener('change', onFilterChange);
+    
+    if (resetEl) {
+      resetEl.addEventListener('click', function() {
+        if (searchEl) searchEl.value = '';
+        if (bookEl) bookEl.value = 'all';
+        if (typeEl) typeEl.value = 'all';
+        if (startEl) startEl.value = '';
+        if (endEl) endEl.value = '';
+        saveFilters();
+        histPage = 1;
+        drawHistory();
+      });
+    }
+    
+    // Draw immediately if history tab is active
+    const activeBtn = document.querySelector('.tp-tab-btn.active');
+    if (activeBtn && activeBtn.getAttribute('data-pane') === 'tab-history') {
+      drawHistory();
+    }
+  }
+
+  function onFilterChange() {
+    saveFilters();
+    histPage = 1;
+    drawHistory();
+  }
+
+  function loadFilters() {
+    try {
+      const s = localStorage.getItem('hist_search') || '';
+      const b = localStorage.getItem('hist_book') || 'all';
+      const t = localStorage.getItem('hist_type') || 'all';
+      const sd = localStorage.getItem('hist_start') || '';
+      const ed = localStorage.getItem('hist_end') || '';
+      
+      const searchEl = document.getElementById('hist-search');
+      const bookEl = document.getElementById('hist-filter-book');
+      const typeEl = document.getElementById('hist-filter-type');
+      const startEl = document.getElementById('hist-date-start');
+      const endEl = document.getElementById('hist-date-end');
+      
+      if (searchEl) searchEl.value = s;
+      if (bookEl) bookEl.value = b;
+      if (typeEl) typeEl.value = t;
+      if (startEl) startEl.value = sd;
+      if (endEl) endEl.value = ed;
+    } catch(e) {}
+  }
+
+  function saveFilters() {
+    try {
+      const searchEl = document.getElementById('hist-search');
+      const bookEl = document.getElementById('hist-filter-book');
+      const typeEl = document.getElementById('hist-filter-type');
+      const startEl = document.getElementById('hist-date-start');
+      const endEl = document.getElementById('hist-date-end');
+      
+      localStorage.setItem('hist_search', searchEl ? searchEl.value : '');
+      localStorage.setItem('hist_book', bookEl ? bookEl.value : 'all');
+      localStorage.setItem('hist_type', typeEl ? typeEl.value : 'all');
+      localStorage.setItem('hist_start', startEl ? startEl.value : '');
+      localStorage.setItem('hist_end', endEl ? endEl.value : '');
+    } catch(e) {}
+  }
+
+  function renderTxHist(tx) {
+    const dateStr = typeof fmtDate === 'function' ? fmtDate(tx.date) : tx.date;
+    const date = `<span class="tx-date">${dateStr}</span>`;
+    const bookBadge = `<span class="tx-book-badge" style="background:${tx.bookColor}; color:#fff; display:inline-block; padding:3px 8px; border-radius:2px; font-size:10px; font-weight:700; letter-spacing:1px; text-align:center; text-transform:uppercase; min-width:90px;">${tx.bookKey.toUpperCase()}</span>`;
+    
+    // Commission helper
+    const comm = tx.commission || 0;
+    const totalBuyPaid = tx.shares * tx.price + comm;
+    const totalSellRecv = tx.shares * tx.price - comm;
+
+    if (tx.type === 'deposit') {
+      const isTransfer = tx.amount < 0 || /transfer|გადატანა|გადმოტანა/i.test(tx.note || '');
+      const badgeText = isTransfer ? 'TRANSFER' : 'DEPOSIT';
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-deposit">${badgeText}</span>
+        ${bookBadge}
+        <span class="tx-line"><strong>${tx.amount < 0 ? '-' : '+'}${fmtMoney(Math.abs(tx.amount))}</strong> &nbsp;${tx.note ? tx.note : 'CASH'}</span>
+      </div>`;
+    }
+    
+    if (tx.type === 'withdraw') {
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-sell">WITHDRAW</span>
+        ${bookBadge}
+        <span class="tx-line"><strong>-${fmtMoney(tx.amount)}</strong> &nbsp;CASH გატანა${tx.note ? ` · <span class="muted">${tx.note}</span>` : ''}</span>
+      </div>`;
+    }
+    
+    if (tx.type === 'buy') {
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-buy">BUY</span>
+        ${bookBadge}
+        <span class="tx-line">
+          <strong>${tx.ticker}</strong> ·
+          ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+          paid <strong>${fmtMoney(totalBuyPaid)}</strong>
+        </span>
+      </div>`;
+    }
+    
+    if (tx.type === 'sell') {
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-sell">SELL</span>
+        ${bookBadge}
+        <span class="tx-line">
+          <strong>${tx.ticker}</strong> ·
+          ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
+          received <strong>${fmtMoney(totalSellRecv)}</strong>
+        </span>
+      </div>`;
+    }
+    
+    if (tx.type === 'dividend') {
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-deposit">DIVIDEND</span>
+        ${bookBadge}
+        <span class="tx-line"><strong>${tx.ticker || ''}</strong> &nbsp;+${fmtMoney(tx.amount)}${tx.note ? ` · <span class="muted">${tx.note}</span>` : ''}</span>
+      </div>`;
+    }
+    
+    if (tx.type === 'fee') {
+      return `<div class="tx-hist">
+        ${date}
+        <span class="tx-badge badge-fee">FEE</span>
+        ${bookBadge}
+        <span class="tx-line">-${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
+      </div>`;
+    }
+    
+    return '';
+  }
+
+  window.drawHistory = function() {
+    const searchEl = document.getElementById('hist-search');
+    const bookEl = document.getElementById('hist-filter-book');
+    const typeEl = document.getElementById('hist-filter-type');
+    const startEl = document.getElementById('hist-date-start');
+    const endEl = document.getElementById('hist-date-end');
+
+    const searchVal = searchEl ? searchEl.value.toLowerCase().trim() : '';
+    const bookVal = bookEl ? bookEl.value : 'all';
+    const typeVal = typeEl ? typeEl.value : 'all';
+    const startVal = startEl ? startEl.value : '';
+    const endVal = endEl ? endEl.value : '';
+    
+    const filtered = allTx.filter(function(tx) {
+      if (searchVal) {
+        const tickerMatch = tx.ticker && tx.ticker.toLowerCase().includes(searchVal);
+        const noteMatch = tx.note && tx.note.toLowerCase().includes(searchVal);
+        if (!tickerMatch && !noteMatch) return false;
+      }
+      if (bookVal !== 'all' && tx.bookKey !== bookVal) return false;
+      if (typeVal !== 'all' && tx.type !== typeVal) return false;
+      if (startVal && tx.date < startVal) return false;
+      if (endVal && tx.date > endVal) return false;
+      return true;
+    });
+    
+    // Aggregates
+    let deposits = 0, withdrawals = 0, fees = 0, dividends = 0, bought = 0, sold = 0;
+    filtered.forEach(function(tx) {
+      if (tx.type === 'deposit') {
+        if (tx.amount >= 0) deposits += tx.amount;
+        else withdrawals += Math.abs(tx.amount);
+      }
+      else if (tx.type === 'withdraw') withdrawals += tx.amount;
+      else if (tx.type === 'fee') fees += tx.amount;
+      else if (tx.type === 'dividend') dividends += tx.amount;
+      else if (tx.type === 'buy') {
+        bought += tx.shares * tx.price;
+        if (tx.commission) fees += tx.commission;
+      }
+      else if (tx.type === 'sell') {
+        sold += tx.shares * tx.price;
+        if (tx.commission) fees += tx.commission;
+      }
+    });
+    
+    const summaryEl = document.getElementById('hist-summary');
+    if (summaryEl) {
+      summaryEl.innerHTML = `
+        <div class="summary-grid" style="margin-bottom: 24px;">
+          <div class="summary-card">
+            <div class="summary-label">ჯამური ჩარიცხვა</div>
+            <div class="summary-value" style="color:var(--green);">${fmtMoney(deposits)}</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">ჯამური გატანა</div>
+            <div class="summary-value" style="color:var(--muted);">${fmtMoney(withdrawals)}</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">დივიდენდები</div>
+            <div class="summary-value" style="color:#0284c7;">${fmtMoney(dividends)}</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">ჯამური საკომისიო</div>
+            <div class="summary-value" style="color:var(--red);">${fmtMoney(fees)}</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">ნაყიდი აქტივები</div>
+            <div class="summary-value">${fmtMoney(bought)}</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">გაყიდული აქტივები</div>
+            <div class="summary-value">${fmtMoney(sold)}</div>
+          </div>
+        </div>
+      `;
+    }
+    
+    const listContainer = document.getElementById('hist-tx-list');
+    const pagerContainer = document.getElementById('hist-pager');
+    
+    if (!listContainer) return;
+    
+    if (filtered.length === 0) {
+      listContainer.innerHTML = `<div class="empty-state" style="padding:40px 14px; text-align:center; color:var(--muted); font-family:sans-serif; background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--rule);">ტრანზაქციები მოცემული ფილტრით ვერ მოიძებნა.</div>`;
+      if (pagerContainer) pagerContainer.innerHTML = '';
+      return;
+    }
+    
+    const totalPages = Math.ceil(filtered.length / histPerPage);
+    if (histPage > totalPages) histPage = totalPages;
+    if (histPage < 1) histPage = 1;
+    
+    const startIdx = (histPage - 1) * histPerPage;
+    const pageSlice = filtered.slice(startIdx, startIdx + histPerPage);
+    
+    listContainer.innerHTML = pageSlice.map(renderTxHist).join('');
+    
+    if (pagerContainer) {
+      let pagerHtml = '';
+      if (histPage > 1) {
+        pagerHtml += `<button class="page-link" data-hp="${histPage - 1}">← წინა</button>`;
+      }
+      for (let p = 1; p <= totalPages; p++) {
+        pagerHtml += p === histPage 
+          ? `<span class="page-current">${p}</span>` 
+          : `<button class="page-link" data-hp="${p}">${p}</button>`;
+      }
+      if (histPage < totalPages) {
+        pagerHtml += `<button class="page-link" data-hp="${histPage + 1}">შემდეგი →</button>`;
+      }
+      pagerContainer.innerHTML = pagerHtml;
+      
+      pagerContainer.querySelectorAll('button').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          histPage = +btn.dataset.hp;
+          drawHistory();
+        });
+      });
+    }
+  };
+
+  // Wait for portfolios to load, then initialize
+  if (window.PORTFOLIOS) {
+    initCombinedHistory();
+  } else {
+    // If not loaded yet, check every 100ms
+    const checkInt = setInterval(function() {
+      if (window.PORTFOLIOS) {
+        clearInterval(checkInt);
+        initCombinedHistory();
+      }
+    }, 100);
+  }
 })();
 </script>
 

@@ -6,15 +6,15 @@
 // ============================================================
 window.MEPORTF = {
   lastUpdated: '2026-07-14',
-  feesPaid: 51.56,                      // running total of all commissions + taxes (+$0.84: SNDK sell, 14 Jul)
+  feesPaid: 52.40,                      // running total of all commissions + taxes (+$1.68: SNDK sell + ASX buy, 14 Jul)
   feesByBook: [
-    { book: 'BOG', amount: 11.56, note: 'ისტორიის საკომისიოები' },
+    { book: 'BOG', amount: 12.40, note: 'ისტორიის საკომისიოები' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG: the 24 Jun GALT→BOG transfer is now recorded directly in
-  // js/portfolios.js as a dated deposit (and was deployed on 25 Jun into stocks),
-  // so it is no longer re-applied here.
+  // BOG uninvested cash for the meportfolio page (index.html sets
+  // portfolios.bog.cash = cashAdded). 14 Jul 2026: SNDK proceeds ($279.81) were
+  // immediately redeployed into ASX, so cash nets to $0.
   bog: { cashAdded: 0, countedAsDeposit: false },
   galt: {
     closed: true,
