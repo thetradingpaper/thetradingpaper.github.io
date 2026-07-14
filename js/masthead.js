@@ -19,7 +19,7 @@
   // ---- PRIMARY horizontal tabs -------------------------------------------
   // My Cabinet · Market Notes · Analysis · Kvleva 3.0 · Kvleva 5.0 (BETA)
   var TABS = [
-    { href: '/',                   label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/(index\.html)?$/ },
+    { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ანალიზი' : 'Analysis',         re: /^\/meportfolio/ },
     { href: '/research.html',      label: lang === 'ka' ? 'კვლევითი ცენტრი' : 'Research Center', re: /^\/(research|kvleva)/ }
   ];
