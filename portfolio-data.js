@@ -19,7 +19,7 @@ window.MEPORTF = {
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
-    statusNote: 'ანგარიში დახურულია უვადო საჱ!��სები — ველოდები დამატებით სახსრებს.',
+    statusNote: 'ანგარიში დახურულია უვადო დროით — ველოდები დამატებით სახსრებს.',
     deposit: 290,
     fees: 40,
     withdrawnToBOG: 211.37,
