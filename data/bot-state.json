@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 15.71,
+ "cash": 35.92,
  "positions": [
-  {
-   "ticker": "PLTR",
-   "opened": "2026-07-08T20:06:22.874Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 132.22,
-   "shares": 0.151263,
-   "cost": 20,
-   "target": 146.26,
-   "stop": 121.69
-  },
   {
    "ticker": "TSLA",
    "opened": "2026-07-09T18:20:37.951Z",
@@ -88,6 +77,10 @@
   {
    "date": "2026-07-14",
    "equity": 95.56
+  },
+  {
+   "date": "2026-07-15",
+   "equity": 96.59
   }
  ]
 }
