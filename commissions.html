@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჯამური საკომისიო · mePortfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js?v=1"></script>
+<script src="portfolio-data.js?v=1"></script>
+<style>
+  :root{ --bg:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:14px; }
+  .back:hover{ color:var(--red); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:18px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 180px; border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fff; }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
+  .neg{ color:var(--red); }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:20px; margin:8px 0 12px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--ink); border-radius:4px; padding:2px 7px; }
+  .badge.b-bog{ background:var(--red); } .badge.b-galt{ background:#8b6914; } .badge.b-tbc{ background:#1a1a1a; }
+  .info{ background:#fdf4f4; border:1px solid #ecd4d4; border-left:4px solid var(--red); padding:14px 18px; margin-bottom:24px; font-size:13px; line-height:1.6; border-radius:8px; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:30px; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · ჩემი კაბინეტი</a>
+    <span style="font-size:12px;color:var(--muted)">საკომისიოების ჟურნალი</span>
+  </div>
+  <h1>ჯამური საკომისიო</h1>
+  <div class="sub">Total Commissions · ყველა გადახდილი საკომისიო წიგნების მიხედვით · ხაზ-ხაზ</div>
+
+  <div class="info">
+    <strong>რატომ არის მნიშვნელოვანი:</strong> ყოველი საკომისიო პირდაპირ აკლდება უკუგებას.
+    ეს გვერდი ითვლება პირდაპირ ტრანზაქციების ჟურნალიდან — ყოველი ყიდვის/გაყიდვის fee ცალ-ცალკე.
+    Galt &amp; Taggart-ის 4 × $10 საკომისიო იყო მთელი იმ წიგნის წაგების მთავარი მიზეზი.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">სულ გადახდილი</div><div class="val neg" id="c-total">—</div></div>
+    <div class="card"><div class="lab">საკომისიოების რაოდენობა</div><div class="val" id="c-count">—</div></div>
+    <div class="card"><div class="lab">საშუალო / ტრანზაქცია</div><div class="val" id="c-avg">—</div></div>
+  </div>
+
+  <div class="sec">წიგნების მიხედვით · By book</div>
+  <table>
+    <thead><tr><th>წიგნი</th><th class="num">საკომისიო</th><th class="num">რაოდენობა</th><th class="num">წილი</th></tr></thead>
+    <tbody id="bookBody"></tbody>
+  </table>
+
+  <div class="sec" style="margin-top:28px;">ყველა საკომისიო · ქრონოლოგიური (ახალი ზემოთ)</div>
+  <table>
+    <thead><tr><th>თარიღი</th><th>წიგნი</th><th>ოპერაცია</th><th class="num">საკომისიო</th><th class="num">ჯამი</th></tr></thead>
+    <tbody id="feeBody"></tbody>
+  </table>
+
+  <div class="foot" id="recon"></div>
+  <div class="foot">© 2026 mePortfolio · ლაშა ფხაკაძე · ვისბადენი · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  var P = window.PORTFOLIOS || {}, M = window.MEPORTF || {};
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  function fmtDate(s){ var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; var d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
+  var OPS = { buy:'ყიდვა', sell:'გაყიდვა', deposit:'დეპოზიტი', withdraw:'გატანა', dividend:'დივიდენდი' };
+
+  var fees=[];
+  ['bog','tbc','galt'].forEach(function(k){
+    var p=P[k]; if(!p||!p.transactions) return;
+    p.transactions.forEach(function(t){
+      var c=+t.commission||0;
+      if(c>0) fees.push({date:t.date, book:p.name, bkey:k, op:(OPS[t.type]||t.type)+(t.ticker?' · '+t.ticker:'')+(t.shares?' × '+(+t.shares).toFixed(4).replace(/\.?0+$/,''):''), amount:c});
+    });
+  });
+  fees.sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
+
+  var total=fees.reduce(function(s,f){return s+f.amount;},0);
+  document.getElementById('c-total').textContent=fmt(total);
+  document.getElementById('c-count').textContent=fees.length;
+  document.getElementById('c-avg').textContent=fees.length?fmt(total/fees.length):'—';
+
+  // by book
+  var byBook={};
+  fees.forEach(function(f){ if(!byBook[f.book]) byBook[f.book]={sum:0,n:0,k:f.bkey}; byBook[f.book].sum+=f.amount; byBook[f.book].n++; });
+  var bb=document.getElementById('bookBody'), rows=[];
+  Object.keys(byBook).sort(function(a,b){return byBook[b].sum-byBook[a].sum;}).forEach(function(name){
+    var x=byBook[name];
+    rows.push('<tr><td><span class="badge b-'+x.k+'">'+name+'</span></td><td class="num" style="color:var(--red)">'+fmt(x.sum)+'</td><td class="num">'+x.n+'</td><td class="num">'+(total>0?(x.sum/total*100).toFixed(1):'0.0')+'%</td></tr>');
+  });
+  bb.innerHTML=rows.length?rows.join(''):'<tr><td colspan="4" style="color:var(--muted);text-align:center;">საკომისიოები არ არის</td></tr>';
+
+  // line-by-line, newest first, running total
+  var cum=0; fees.forEach(function(f){ cum+=f.amount; f._cum=cum; });
+  var fb=document.getElementById('feeBody'), frows=[];
+  for(var i=fees.length-1;i>=0;i--){ var f=fees[i];
+    frows.push('<tr><td>'+fmtDate(f.date)+'</td><td><span class="badge b-'+f.bkey+'">'+f.book+'</span></td><td style="color:var(--muted)">'+f.op+'</td><td class="num" style="color:var(--red)">−'+fmt(f.amount)+'</td><td class="num">'+fmt(f._cum)+'</td></tr>');
+  }
+  fb.innerHTML=frows.length?frows.join(''):'<tr><td colspan="5" style="color:var(--muted);text-align:center;">საკომისიოები არ არის</td></tr>';
+
+  // reconciliation vs recorded MEPORTF.feesPaid
+  var rec=+M.feesPaid||0, diff=Math.abs(rec-total);
+  document.getElementById('recon').textContent = diff<0.005
+    ? 'შეჯერებულია: ტრანზაქციების ჯამი ემთხვევა ჩაწერილ ჯამს ('+fmt(rec)+') ✓'
+    : '⚠ ჩაწერილი ჯამი ('+fmt(rec)+') არ ემთხვევა ტრანზაქციების ჯამს ('+fmt(total)+') — გასასწორებელია portfolio-data.js';
+})();
+</script>
+<script src="js/masthead.js?v=5"></script>
+<script src="js/clocks.js?v=1"></script>
+</body>
+</html>

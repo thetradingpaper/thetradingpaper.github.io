@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>პლატფორმის მომსახურება · mePortfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js?v=1"></script>
+<script src="portfolio-data.js?v=1"></script>
+<style>
+  :root{ --bg:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:14px; }
+  .back:hover{ color:var(--red); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:18px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 200px; border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fff; }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:20px; margin:8px 0 12px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; border-radius:4px; padding:2px 7px; background:var(--ink); }
+  .badge.b-bog{ background:var(--red); } .badge.b-tbc{ background:#1a1a1a; } .badge.b-galt{ background:#8b6914; }
+  .info{ background:#f7f5ef; border:1px solid var(--line); border-left:4px solid var(--ink); padding:14px 18px; margin-bottom:24px; font-size:13px; line-height:1.7; border-radius:8px; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:30px; text-align:center; }
+  .lnk{ color:var(--red); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · ჩემი კაბინეტი</a>
+    <span style="font-size:12px;color:var(--muted)">პლატფორმის ხარჯები</span>
+  </div>
+  <h1>პლატფორმის მომსახურება</h1>
+  <div class="sub">Service Fee · ბროკერის პლატფორმის / მარჟის დაფინანსების ხარჯები · ცალკე საკომისიოებისგან</div>
+
+  <div class="info">
+    <strong>რა არის ეს:</strong> პლატფორმის მომსახურება = ბროკერის ფიქსირებული გადასახადები
+    (ანგარიშის მომსახურება, მარჟის დაფინანსება/ღამის გადატანა, მონაცემების ხარჯი) —
+    ცალკეა ტრეიდის საკომისიოებისგან, რომლებიც სრულად აღრიცხულია
+    <a class="lnk" href="commissions.html">საკომისიოების ჟურნალში →</a>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">მიმდინარე პლატფორმის ხარჯი</div><div class="val" id="s-est" style="color:var(--red)">—</div></div>
+    <div class="card"><div class="lab">ტრეიდის საკომისიოები (ცალკე)</div><div class="val" id="s-comm" style="color:var(--red)">—</div></div>
+  </div>
+
+  <div class="sec">წიგნების მიხედვით · By broker</div>
+  <table>
+    <thead><tr><th>ბროკერი</th><th>პლატფორმის გადასახადი</th><th>სტატუსი</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge b-bog">BOG</span> Bank of Georgia</td>
+        <td>არ აქვს ფიქსირებული პლატფორმის გადასახადი — მხოლოდ საკომისიო ტრეიდზე</td>
+        <td style="color:var(--green);font-weight:700;">$0.00 / თვე</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-tbc">TBC</span> TBC Capital</td>
+        <td>T DCA დივიდენდის წიგნი — პლატფორმის გადასახადი არ აღრიცხულა, საკომისიო $0</td>
+        <td style="color:var(--green);font-weight:700;">$0.00 / თვე</td>
+      </tr>
+      <tr>
+        <td><span class="badge b-galt">GALT</span> Galt &amp; Taggart</td>
+        <td id="galt-note">ანგარიში დახურულია — ხარჯი იყო მხოლოდ 4 × $10 საკომისიო (CFD)</td>
+        <td style="color:var(--muted);font-weight:700;">დახურულია</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sec" style="margin-top:28px;">წესი</div>
+  <div class="info" style="border-left-color:var(--red);">
+    თუ რომელიმე ბროკერი დააწესებს მომსახურების გადასახადს ან გამოჩნდება მარჟის დაფინანსების ხარჯი —
+    ის ჩაიწერება <code>portfolio-data.js → marginFinancingEst</code>-ში და ავტომატურად აისახება
+    კაბინეტის ბარათზეც და ამ გვერდზეც. სანამ $0.00-ია — ვერაფერს გვაჭმევს ბროკერი.
+  </div>
+
+  <div class="foot">© 2026 mePortfolio · ლაშა ფხაკაძე · ვისბადენი · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  var P = window.PORTFOLIOS || {}, M = window.MEPORTF || {};
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  document.getElementById('s-est').textContent = fmt(+M.marginFinancingEst||0);
+  var comm=0;
+  ['bog','tbc','galt'].forEach(function(k){
+    var p=P[k]; if(!p||!p.transactions) return;
+    p.transactions.forEach(function(t){ comm += (+t.commission||0); });
+  });
+  document.getElementById('s-comm').textContent = fmt(comm);
+  if(M.galt && M.galt.statusNote){ document.getElementById('galt-note').textContent = M.galt.statusNote + ' ხარჯი: 4 × $10 საკომისიო.'; }
+})();
+</script>
+<script src="js/masthead.js?v=5"></script>
+<script src="js/clocks.js?v=1"></script>
+</body>
+</html>

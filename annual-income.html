@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>წლიური დივიდენდი · mePortfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js?v=1"></script>
+<style>
+  :root{ --bg:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:860px; margin:0 auto; padding:28px 20px 60px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:14px; }
+  .back:hover{ color:var(--red); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:18px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 180px; border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fff; }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
+  .pos{ color:var(--green); }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:20px; margin:8px 0 12px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  tr.total td{ font-weight:800; border-top:2px solid var(--ink); }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; border-radius:4px; padding:2px 7px; background:var(--ink); }
+  .badge.b-bog{ background:var(--red); } .badge.b-tbc{ background:#1a1a1a; }
+  .info{ background:#f4f9f4; border:1px solid #d0e6d0; border-left:4px solid var(--green); padding:14px 18px; margin-bottom:24px; font-size:13px; line-height:1.6; border-radius:8px; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:30px; text-align:center; }
+  .lnk{ color:var(--green); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · ჩემი კაბინეტი</a>
+    <span style="font-size:12px;color:var(--muted)">წლიური სავარაუდო შემოსავალი</span>
+  </div>
+  <h1>წლიური დივიდენდი (წმინდა)</h1>
+  <div class="sub">Annual Income · სავარაუდო წლიური დივიდენდი პოზიციების მიხედვით · 30% GE გადასახადის შემდეგ</div>
+
+  <div class="info">
+    <strong>როგორ ითვლება:</strong> ყოველი პოზიციისთვის — მიმდინარე ღირებულება × წლიური yield.
+    ეს არის მთლიანი (gross) თანხა; საქართველოში დივიდენდი იბეგრება 30%-ით წყაროსთან,
+    ამიტომ წმინდა (net) = gross × 0.70. რეალურად მიღებული დივიდენდები იხილე
+    <a class="lnk" href="dividends.html">დივიდენდების ისტორიაში →</a>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">წლიური · მთლიანი (gross)</div><div class="val" id="a-gross">—</div></div>
+    <div class="card"><div class="lab">წლიური · წმინდა (net)</div><div class="val pos" id="a-net">—</div></div>
+    <div class="card"><div class="lab">≈ თვეში (net)</div><div class="val pos" id="a-month">—</div></div>
+  </div>
+
+  <div class="sec">გადამხდელი პოზიციები · Dividend payers</div>
+  <table>
+    <thead><tr><th>აქცია</th><th>წიგნი</th><th class="num">ღირებულება</th><th class="num">Yield</th><th class="num">წლიური gross</th><th class="num">წლიური net</th></tr></thead>
+    <tbody id="payBody"></tbody>
+  </table>
+
+  <div class="sec" style="margin-top:28px;">არაგადამხდელი პოზიციები</div>
+  <div id="nonPay" style="font-size:13px;color:var(--muted);line-height:1.8;"></div>
+
+  <div class="foot">yield-ები ინახება js/portfolios.data.js-ში (divYield) და ახლდება ხელით · ეს არ არის ფინანსური რჩევა</div>
+  <div class="foot">© 2026 mePortfolio · ლაშა ფხაკაძე · ვისბადენი</div>
+</div>
+
+<script>
+(function(){
+  var P = window.PORTFOLIOS || {};
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+
+  var payers=[], nonpayers=[], gross=0;
+  ['bog','tbc'].forEach(function(k){
+    var p=P[k]; if(!p||!p.holdings) return;
+    p.holdings.forEach(function(h){
+      if(typeof h.divYield==='number' && h.divYield>0){
+        var g=h.value*(h.divYield/100);
+        gross+=g;
+        payers.push({ticker:h.ticker, name:h.name||'', book:p.name, bkey:k, value:h.value, yld:h.divYield, gross:g, net:g*0.70});
+      } else {
+        nonpayers.push(h.ticker+' ('+p.name+')');
+      }
+    });
+  });
+  payers.sort(function(a,b){ return b.net-a.net; });
+  var net=gross*0.70;
+
+  document.getElementById('a-gross').textContent=fmt(gross);
+  document.getElementById('a-net').textContent=fmt(net);
+  document.getElementById('a-month').textContent=fmt(net/12);
+
+  var rows=payers.map(function(x){
+    return '<tr><td><strong>'+x.ticker+'</strong><div style="font-size:11px;color:var(--muted)">'+x.name+'</div></td>'
+      +'<td><span class="badge b-'+x.bkey+'">'+x.book+'</span></td>'
+      +'<td class="num">'+fmt(x.value)+'</td>'
+      +'<td class="num">'+x.yld.toFixed(2)+'%</td>'
+      +'<td class="num">'+fmt(x.gross)+'</td>'
+      +'<td class="num" style="color:var(--green);font-weight:700;">'+fmt(x.net)+'</td></tr>';
+  });
+  rows.push('<tr class="total"><td colspan="4">სულ</td><td class="num">'+fmt(gross)+'</td><td class="num" style="color:var(--green)">'+fmt(net)+'</td></tr>');
+  document.getElementById('payBody').innerHTML=rows.join('');
+
+  document.getElementById('nonPay').textContent = nonpayers.length
+    ? nonpayers.join(' · ')+' — ეს პოზიციები ამჟამად დივიდენდს არ იხდიან; მათი როლი ზრდაა.'
+    : '—';
+})();
+</script>
+<script src="js/masthead.js?v=5"></script>
+<script src="js/clocks.js?v=1"></script>
+</body>
+</html>
