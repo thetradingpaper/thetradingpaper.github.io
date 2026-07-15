@@ -10,20 +10,8 @@
 </head>
 <body>
 <header class="masthead">
-  <div class="top-bar"><span id="today-date"></span><span>გამოცემა №08 · ვისბადენი</span></div>
   <h1>The Trading Paper</h1>
   <p class="tagline">ბაზრის ჩანაწერი · ანალიზი · ჟურნალი</p>
-  <nav>
-    <a href="index.html">ბაზარი</a>
-    <a href="articles.html">სტატიები</a>
-    <a href="legends.html">ლეგენდები</a>
-    <a href="cabinet.html" class="active">პორტფელი</a>
-    <a href="margin.html">ბერკეტი</a>
-    <a href="signals.html">ბოტი</a>
-<a href="research.html">კვლევა</a>
-    <a href="strategy.html">სტრატეგია</a>
-    <a href="startup.html">სტარტაფი</a>
-  </nav>
 </header>
 <main class="container">
   <div class="hero">
@@ -47,15 +35,15 @@
   © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>
   ეს არ არის ფინანსური რჩევა
 </footer>
+<script src="js/portfolios.data.js?v=1"></script>
 <script src="js/portfolios.js?v=20260610-snap1"></script>
 <script>
-  const months=['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
-  const d=new Date();
-  document.getElementById('today-date').textContent=`${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
   renderStatBanner('tbc-banner','tbc');
   renderSummary('summary','tbc');
   renderAllTx('tx-all','tbc');
   renderChart('chart','tbc');
 </script>
+<script src="js/masthead.js?v=5"></script>
+<script src="js/clocks.js?v=1"></script>
 </body>
 </html>

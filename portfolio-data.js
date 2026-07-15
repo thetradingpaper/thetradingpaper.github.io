@@ -5,10 +5,10 @@
 // Last updated: 2026-07-14
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-14',
-  feesPaid: 52.40,                      // running total of all commissions + taxes (+$1.68: SNDK sell + ASX buy, 14 Jul)
+  lastUpdated: '2026-07-15',
+  feesPaid: 56.21,                      // reconciled 15 Jul 2026 to the transaction log: BOG $16.21 (27 fees) + Galt $40.00
   feesByBook: [
-    { book: 'BOG', amount: 12.40, note: 'ისტორიის საკომისიოები' },
+    { book: 'BOG', amount: 16.21, note: '27 საკომისიო · ტრანზაქციების ჟურნალიდან' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
