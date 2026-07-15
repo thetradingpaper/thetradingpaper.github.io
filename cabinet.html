@@ -485,7 +485,11 @@
     .assets-note{font-family:'Noto Sans Georgian',sans-serif;font-size:10.5px;color:var(--muted);margin:12px 0 26px;line-height:1.6;}
     /* grouped-by-book asset accordion (აქტივების დეტალები) */
     .asset-group{margin:0 0 16px;border:1px solid var(--border);border-top:2px solid var(--rule);background:var(--paper);}
-    .ag-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.015);}
+    .ag-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 10px;padding:10px 14px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.015);}
+    .ag-grand{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 10px;padding:12px 14px;margin:0 0 14px;border:1px solid var(--border);border-top:3px solid var(--ink);background:rgba(0,0,0,.02);}
+    .ag-grand .ag-grand-l{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;color:var(--ink);}
+    .ag-grand .ag-sum{font-family:ui-monospace,monospace;font-size:12px;color:var(--muted);}
+    .ag-grand .pos{color:var(--green);font-weight:700;}.ag-grand .neg{color:var(--red);font-weight:700;}
     .ag-head .ag-book{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:15px;color:var(--ink);display:flex;align-items:center;gap:8px;}
     .ag-head .ag-book .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
     .ag-head .ag-sum{font-family:ui-monospace,monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
@@ -1399,14 +1403,28 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     var openTk={};
     host.querySelectorAll('details.ag-row[open]').forEach(function(d){ openTk[d.getAttribute('data-tk')]=1; });
     var out='';
+    var totInv=0,totVal=0,totDayD=0,totDayBase=0;
     books.forEach(function(b){
       var p=P[b.k]; var hs=(p&&p.holdings)?p.holdings.slice():[];
       var gVal=0,gInv=0; hs.forEach(function(h){ gVal+=(+h.value||0); gInv+=(+h.invested||0); });
       var gpl=gVal-gInv, gcls=gpl>=0?'pos':'neg';
+      var gplPct=gInv>0?(gpl/gInv*100):0;
+      // group daily change: sum of (price − prevClose)×shares over holdings with live data
+      var gDayD=0,gDayBase=0;
+      hs.forEach(function(h){
+        if(h.previousClose&&h.shares!==undefined){
+          var pr=h.livePrice||h.avgBuy||0;
+          gDayD+=(pr-h.previousClose)*h.shares;
+          gDayBase+=h.previousClose*h.shares;
+        }
+      });
+      var gDayPct=gDayBase>0?(gDayD/gDayBase*100):null;
+      totInv+=gInv; totVal+=gVal; totDayD+=gDayD; totDayBase+=gDayBase;
+      var dTxt=(gDayPct===null)?'':' · დღეს <span class="'+(gDayD>=0?'pos':'neg')+'">'+(gDayPct>=0?'+':'−')+Math.abs(gDayPct).toFixed(2)+'%</span>';
       out+='<div class="asset-group"><div class="ag-head">'
         +'<span class="ag-book"><span class="dot" style="background:'+b.c+'"></span>'+b.name+'</span>';
       out+= hs.length
-        ? '<span class="ag-sum">'+hs.length+' პოზ · '+fmtUSD2(gVal)+' · <span class="'+gcls+'">'+(gpl>=0?'+$':'−$')+Math.abs(gpl).toFixed(2)+'</span></span>'
+        ? '<span class="ag-sum">'+hs.length+' პოზ · ჩად. '+fmtUSD2(gInv)+' → '+fmtUSD2(gVal)+' · <span class="'+gcls+'">'+(gpl>=0?'+$':'−$')+Math.abs(gpl).toFixed(2)+' ('+(gpl>=0?'+':'−')+Math.abs(gplPct).toFixed(2)+'%)</span>'+dTxt+'</span>'
         : '<span class="ag-sum">დახურული · $0.00</span>';
       out+='</div>';
       if(!hs.length){
@@ -1430,7 +1448,12 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       }
       out+='</div>';
     });
-    host.innerHTML=out;
+    // grand total across all books: invested → now · overall % · daily %
+    var tp=totVal-totInv, tpc=totInv>0?(tp/totInv*100):0, tcls=tp>=0?'pos':'neg';
+    var tDayPct=totDayBase>0?(totDayD/totDayBase*100):null;
+    var tDayTxt=(tDayPct===null)?'':' · დღეს <span class="'+(totDayD>=0?'pos':'neg')+'">'+(tDayPct>=0?'+':'−')+Math.abs(tDayPct).toFixed(2)+'% ('+(totDayD>=0?'+$':'−$')+Math.abs(totDayD).toFixed(2)+')</span>';
+    var grand='<div class="ag-grand"><span class="ag-grand-l">სულ · ALL BOOKS</span><span class="ag-sum">ჩადებული '+fmtUSD2(totInv)+' → ახლა '+fmtUSD2(totVal)+' · <span class="'+tcls+'">'+(tp>=0?'+$':'−$')+Math.abs(tp).toFixed(2)+' ('+(tp>=0?'+':'−')+Math.abs(tpc).toFixed(2)+'%)</span>'+tDayTxt+'</span></div>';
+    host.innerHTML=grand+out;
     var stamp=document.getElementById('assets-live-stamp');
     if(stamp){ var n=new Date(); stamp.textContent='● LIVE · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'); }
   }
@@ -1481,6 +1504,32 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     
     // Sort all by date descending (newest first).
     allTx.sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+
+    // Realized P/L per SELL — average cost method, fees on BOTH sides included:
+    // buy cost = shares×price + buy fee; on sell: P/L = (shares×price − sell fee) − proportional cost basis.
+    (function(){
+      var asc = allTx.slice().sort(function(a,b){ return new Date(a.date) - new Date(b.date); });
+      var pos = {}; // bookKey|ticker → { sh, cost }
+      asc.forEach(function(tx){
+        if (!tx.ticker) return;
+        var k = tx.bookKey + '|' + tx.ticker;
+        if (tx.type === 'buy') {
+          var st = pos[k] || (pos[k] = { sh: 0, cost: 0 });
+          st.sh   += (+tx.shares || 0);
+          st.cost += (+tx.shares || 0) * (+tx.price || 0) + (+tx.commission || 0);
+        } else if (tx.type === 'sell') {
+          var st2 = pos[k];
+          if (st2 && st2.sh > 0) {
+            var s = Math.min(+tx.shares || 0, st2.sh);
+            var costOut  = st2.cost * (s / st2.sh);
+            var proceeds = s * (+tx.price || 0) - (+tx.commission || 0);
+            tx._pl    = +(proceeds - costOut).toFixed(2);
+            tx._plPct = costOut > 0 ? ((proceeds - costOut) / costOut) * 100 : 0;
+            st2.sh -= s; st2.cost -= costOut;
+          }
+        }
+      });
+    })();
     
     // Load saved filters
     loadFilters();
@@ -1607,6 +1656,9 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     }
     
     if (tx.type === 'sell') {
+      const plTxt = (tx._pl !== undefined)
+        ? ` · <strong style="color:${tx._pl >= 0 ? 'var(--green)' : 'var(--red)'}">P/L ${tx._pl >= 0 ? '+' : '−'}${fmtMoney(Math.abs(tx._pl))} (${tx._pl >= 0 ? '+' : '−'}${Math.abs(tx._plPct).toFixed(2)}%)</strong>`
+        : '';
       return `<div class="tx-hist">
         ${date}
         <span class="tx-badge badge-sell">SELL</span>
@@ -1614,7 +1666,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         <span class="tx-line">
           <strong>${tx.ticker}</strong> ·
           ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-          received <strong>${fmtMoney(totalSellRecv)}</strong>
+          received <strong>${fmtMoney(totalSellRecv)}</strong>${plTxt}
         </span>
       </div>`;
     }
@@ -1698,97 +1750,4 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       summaryEl.innerHTML = `
         <div class="summary-grid" style="margin-bottom: 24px;">
           <div class="summary-card">
-            <div class="summary-label">სუფთა ჩარიცხვა</div>
-            <div class="summary-value" style="color:var(--green);">${fmtMoney(deposits)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">სუფთა გატანა</div>
-            <div class="summary-value" style="color:var(--muted);">${fmtMoney(withdrawals)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">დივიდენდები</div>
-            <div class="summary-value" style="color:#0284c7;">${fmtMoney(dividends)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">ჯამური საკომისიო</div>
-            <div class="summary-value" style="color:var(--red);">${fmtMoney(fees)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">ნაყიდი აქტივები</div>
-            <div class="summary-value">${fmtMoney(bought)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">გაყიდული აქტივები</div>
-            <div class="summary-value">${fmtMoney(sold)}</div>
-          </div>
-        </div>
-      `;
-    }
-    
-    const listContainer = document.getElementById('hist-tx-list');
-    const pagerContainer = document.getElementById('hist-pager');
-    
-    if (!listContainer) return;
-    
-    if (filtered.length === 0) {
-      listContainer.innerHTML = `<div class="empty-state" style="padding:40px 14px; text-align:center; color:var(--muted); font-family:sans-serif; background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--rule);">ტრანზაქციები მოცემული ფილტრით ვერ მოიძებნა.</div>`;
-      if (pagerContainer) pagerContainer.innerHTML = '';
-      return;
-    }
-    
-    const totalPages = Math.ceil(filtered.length / histPerPage);
-    if (histPage > totalPages) histPage = totalPages;
-    if (histPage < 1) histPage = 1;
-    
-    const startIdx = (histPage - 1) * histPerPage;
-    const pageSlice = filtered.slice(startIdx, startIdx + histPerPage);
-    
-    listContainer.innerHTML = pageSlice.map(renderTxHist).join('');
-    
-    if (pagerContainer) {
-      let pagerHtml = '';
-      if (histPage > 1) {
-        pagerHtml += `<button class="page-link" data-hp="${histPage - 1}">← წინა</button>`;
-      }
-      for (let p = 1; p <= totalPages; p++) {
-        pagerHtml += p === histPage 
-          ? `<span class="page-current">${p}</span>` 
-          : `<button class="page-link" data-hp="${p}">${p}</button>`;
-      }
-      if (histPage < totalPages) {
-        pagerHtml += `<button class="page-link" data-hp="${histPage + 1}">შემდეგი →</button>`;
-      }
-      pagerContainer.innerHTML = pagerHtml;
-      
-      pagerContainer.querySelectorAll('button').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          histPage = +btn.dataset.hp;
-          drawHistory();
-        });
-      });
-    }
-  };
-
-  // Wait for portfolios to load, then initialize
-  if (window.PORTFOLIOS) {
-    initCombinedHistory();
-  } else {
-    // If not loaded yet, check every 100ms
-    const checkInt = setInterval(function() {
-      if (window.PORTFOLIOS) {
-        clearInterval(checkInt);
-        initCombinedHistory();
-      }
-    }, 100);
-  }
-})();
-</script>
-
-
-<script src="js/mountain-range.js"></script>
-<script src="js/enhance.js?v=20260710a"></script>
-<script src="js/masthead.js?v=5"></script>
-<script src="js/i18n.js?v=1"></script>
-<script src="js/clocks.js?v=1"></script>
-</body>
-</html>
+            <div class="summary-label">სუფთა ჩარიც
