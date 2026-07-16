@@ -764,7 +764,7 @@
     </div>
   </div>
 
-    <div id="galt-stats" class="awaiting-row"></div>
+    <div id="galt-stats" class="stat-row"></div>
   <div id="galt-note" class="rules-box" style="border-left-color:#8b6914;"></div>
   <div class="tx-header"><h3 class="tx-title">GALT · ტრანზაქციების ისტორია</h3></div>
   <div id="galt-trades" class="rules-box" style="border-left-color:#8b6914;"></div>
@@ -937,7 +937,22 @@ if(typeof portfolios!=='undefined'){
 function M(n){return (n<0?'−$':'$')+Math.abs(+n||0).toFixed(2);}
 var g=D.galt||{};
 var st=document.getElementById('galt-stats');
-if(st){st.innerHTML='<div class="awaiting-box"><span class="stat-label">ჩარიცხული · Deposit</span><span class="stat-val">'+M(g.deposit)+'</span></div><div class="awaiting-box"><span class="stat-label">საკომისიო · Fees</span><span class="stat-val neg">−$'+(+g.fees||0).toFixed(2)+'</span></div><div class="awaiting-box"><span class="stat-label">გატანილი → BOG</span><span class="stat-val">'+M(g.withdrawnToBOG)+'</span></div><div class="awaiting-box"><span class="stat-label">წმინდა შედეგი · Net</span><span class="stat-val neg">'+M(g.net)+'</span><span class="stat-note">დახურული</span></div>';}
+if(st){
+ // GALT rendered in the same stat-banner format as BOG/TBC (closed book).
+ var gpct=(+g.deposit>0)?((+g.net||0)/(+g.deposit)*100):0;
+ var gfeeCount=(g.trades||[]).filter(function(t){return t.fee&&t.fee!=='—';}).length;
+ st.innerHTML='<div class="stat-banner">'
+  +'<div class="stat-banner-head"><span class="stat-name">GALT · GALT &amp; TAGGART</span><span class="stat-tag">2.5× ბერკეტი · '+(g.statusShort||'დახურულია')+'</span></div>'
+  +'<div class="stat-grid with-div">'
+  +'<div class="stat-cell"><div class="stat-label">სრული ჩარიცხული</div><div class="stat-val">'+M(g.deposit)+'</div></div>'
+  +'<div class="stat-cell"><div class="stat-label">პორტფელის ღირებულება</div><div class="stat-val">$0.00</div></div>'
+  +'<div class="stat-cell"><div class="stat-label">წმინდა P/L</div><div class="stat-val neg">'+M(g.net)+'</div></div>'
+  +'<div class="stat-cell"><div class="stat-label">უკუგება</div><div class="stat-val neg">'+(gpct<0?'−':'+')+Math.abs(gpct).toFixed(2)+'%</div></div>'
+  +'<div class="stat-cell"><div class="stat-label">გატანილი → BOG</div><div class="stat-val pos">'+M(g.withdrawnToBOG)+'</div></div>'
+  +'<div class="stat-cell" style="grid-column:-2/-1;border-left:1px solid var(--border,#d9d4c8);border-top:1px solid var(--border,#d9d4c8);padding-top:10px;"><div class="stat-label">გადახდილი საკომისიო <a href="commissions.html" class="no-print" style="text-decoration:none;color:#b91c1c;font-weight:800" title="საკომისიოების ჟურნალი">↗</a></div><div class="stat-val neg">−$'+(+g.fees||0).toFixed(2)+'<span class="stat-sub">'+gfeeCount+' საკომისიო · Commissions</span></div></div>'
+  +'</div>'
+  +'<div class="stat-foot"><span>თვალყურის დევნება დაიწყო: 29 მაი 2026</span><span style="letter-spacing:1px;">დახურულია · CLOSED</span></div>'
+  +'</div>';}
 var nt=document.getElementById('galt-note');
 if(nt){nt.innerHTML='<div class="rules-title">Galt &amp; Taggart — '+(g.statusShort||'')+'</div><ul><li>'+(g.statusNote||'')+'</li><li><strong>დეპოზიტი:</strong> '+M(g.deposit)+' · <strong>საკომისიო:</strong> $'+(+g.fees||0).toFixed(2)+' · <strong>გატანილი:</strong> '+M(g.withdrawnToBOG)+'</li></ul>';}
 var hd='<tr style="text-align:left;color:var(--muted);font-size:9px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);"><th style="padding:6px 4px;">თარიღი</th><th>ოპერაცია</th><th style="text-align:right;">ფასი</th><th style="text-align:right;">საკომისიო</th></tr>';
@@ -1661,186 +1676,4 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         : '';
       return `<div class="tx-hist">
         ${date}
-        <span class="tx-badge badge-sell">SELL</span>
-        ${bookBadge}
-        <span class="tx-line">
-          <strong>${tx.ticker}</strong> ·
-          ${tx.shares} sh @ ${fmtMoney(tx.price)}${tx.commission ? ` · <span class="muted">fee ${fmtMoney(tx.commission)}</span>` : ''} ·
-          received <strong>${fmtMoney(totalSellRecv)}</strong>${plTxt}
-        </span>
-      </div>`;
-    }
-    
-    if (tx.type === 'dividend') {
-      return `<div class="tx-hist">
-        ${date}
-        <span class="tx-badge badge-deposit">DIVIDEND</span>
-        ${bookBadge}
-        <span class="tx-line"><strong>${tx.ticker || ''}</strong> &nbsp;+${fmtMoney(tx.amount)}${tx.note ? ` · <span class="muted">${tx.note}</span>` : ''}</span>
-      </div>`;
-    }
-    
-    if (tx.type === 'fee') {
-      return `<div class="tx-hist">
-        ${date}
-        <span class="tx-badge badge-fee">FEE</span>
-        ${bookBadge}
-        <span class="tx-line">-${fmtMoney(tx.amount)} ${tx.note ? '· ' + tx.note : ''}</span>
-      </div>`;
-    }
-    
-    return '';
-  }
-
-  window.drawHistory = function() {
-    const searchEl = document.getElementById('hist-search');
-    const bookEl = document.getElementById('hist-filter-book');
-    const typeEl = document.getElementById('hist-filter-type');
-    const startEl = document.getElementById('hist-date-start');
-    const endEl = document.getElementById('hist-date-end');
-
-    const searchVal = searchEl ? searchEl.value.toLowerCase().trim() : '';
-    const bookVal = bookEl ? bookEl.value : 'all';
-    const typeVal = typeEl ? typeEl.value : 'all';
-    const startVal = startEl ? startEl.value : '';
-    const endVal = endEl ? endEl.value : '';
-    
-    const filtered = allTx.filter(function(tx) {
-      if (searchVal) {
-        const tickerMatch = tx.ticker && tx.ticker.toLowerCase().includes(searchVal);
-        const noteMatch = tx.note && tx.note.toLowerCase().includes(searchVal);
-        if (!tickerMatch && !noteMatch) return false;
-      }
-      if (bookVal !== 'all' && tx.bookKey !== bookVal) return false;
-      if (typeVal !== 'all' && tx.type !== typeVal) return false;
-      if (startVal && tx.date < startVal) return false;
-      if (endVal && tx.date > endVal) return false;
-      return true;
-    });
-    
-    // Aggregates
-    let deposits = 0, withdrawals = 0, fees = 0, dividends = 0, bought = 0, sold = 0;
-    filtered.forEach(function(tx) {
-      const isTransfer = tx.note && /transfer|გადატანა|გადმოტანა/i.test(tx.note);
-      
-      if (tx.type === 'deposit') {
-        if (tx.amount >= 0) {
-          if (!isTransfer) deposits += tx.amount;
-        } else {
-          if (!isTransfer) withdrawals += Math.abs(tx.amount);
-        }
-      }
-      else if (tx.type === 'withdraw') {
-        if (!isTransfer) withdrawals += tx.amount;
-      }
-      else if (tx.type === 'fee') fees += tx.amount;
-      else if (tx.type === 'dividend') dividends += tx.amount;
-      else if (tx.type === 'buy') {
-        bought += tx.shares * tx.price;
-        if (tx.commission) fees += tx.commission;
-      }
-      else if (tx.type === 'sell') {
-        sold += tx.shares * tx.price;
-        if (tx.commission) fees += tx.commission;
-      }
-    });
-    
-    const summaryEl = document.getElementById('hist-summary');
-    if (summaryEl) {
-      summaryEl.innerHTML = `
-        <div class="summary-grid" style="margin-bottom: 24px;">
-          <div class="summary-card">
-            <div class="summary-label">სუფთა ჩარიცხვა</div>
-            <div class="summary-value" style="color:var(--green);">${fmtMoney(deposits)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">სუფთა გატანა</div>
-            <div class="summary-value" style="color:var(--muted);">${fmtMoney(withdrawals)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">დივიდენდები</div>
-            <div class="summary-value" style="color:#0284c7;">${fmtMoney(dividends)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">ჯამური საკომისიო</div>
-            <div class="summary-value" style="color:var(--red);">${fmtMoney(fees)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">ნაყიდი აქტივები</div>
-            <div class="summary-value">${fmtMoney(bought)}</div>
-          </div>
-          <div class="summary-card">
-            <div class="summary-label">გაყიდული აქტივები</div>
-            <div class="summary-value">${fmtMoney(sold)}</div>
-          </div>
-        </div>
-      `;
-    }
-    
-    const listContainer = document.getElementById('hist-tx-list');
-    const pagerContainer = document.getElementById('hist-pager');
-    
-    if (!listContainer) return;
-    
-    if (filtered.length === 0) {
-      listContainer.innerHTML = `<div class="empty-state" style="padding:40px 14px; text-align:center; color:var(--muted); font-family:sans-serif; background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--rule);">ტრანზაქციები მოცემული ფილტრით ვერ მოიძებნა.</div>`;
-      if (pagerContainer) pagerContainer.innerHTML = '';
-      return;
-    }
-    
-    const totalPages = Math.ceil(filtered.length / histPerPage);
-    if (histPage > totalPages) histPage = totalPages;
-    if (histPage < 1) histPage = 1;
-    
-    const startIdx = (histPage - 1) * histPerPage;
-    const pageSlice = filtered.slice(startIdx, startIdx + histPerPage);
-    
-    listContainer.innerHTML = pageSlice.map(renderTxHist).join('');
-    
-    if (pagerContainer) {
-      let pagerHtml = '';
-      if (histPage > 1) {
-        pagerHtml += `<button class="page-link" data-hp="${histPage - 1}">← წინა</button>`;
-      }
-      for (let p = 1; p <= totalPages; p++) {
-        pagerHtml += p === histPage 
-          ? `<span class="page-current">${p}</span>` 
-          : `<button class="page-link" data-hp="${p}">${p}</button>`;
-      }
-      if (histPage < totalPages) {
-        pagerHtml += `<button class="page-link" data-hp="${histPage + 1}">შემდეგი →</button>`;
-      }
-      pagerContainer.innerHTML = pagerHtml;
-      
-      pagerContainer.querySelectorAll('button').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          histPage = +btn.dataset.hp;
-          drawHistory();
-        });
-      });
-    }
-  };
-
-  // Wait for portfolios to load, then initialize
-  if (window.PORTFOLIOS) {
-    initCombinedHistory();
-  } else {
-    // If not loaded yet, check every 100ms
-    const checkInt = setInterval(function() {
-      if (window.PORTFOLIOS) {
-        clearInterval(checkInt);
-        initCombinedHistory();
-      }
-    }, 100);
-  }
-})();
-</script>
-
-
-<script src="js/mountain-range.js"></script>
-<script src="js/enhance.js?v=20260710a"></script>
-<script src="js/masthead.js?v=5"></script>
-<script src="js/i18n.js?v=1"></script>
-<script src="js/clocks.js?v=1"></script>
-</body>
-</html>
+        <span class="tx-badge badge-sel

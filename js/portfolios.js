@@ -164,6 +164,19 @@ function renderStatBanner(containerId, portfolioKey) {
 <div class="stat-val pos">${fmtMoney(a.withdrawn)}</div>
 </div>` : '';
 
+  // Commissions already paid on this book — from the transaction log.
+  // Always shown, pinned to the LAST grid column, separated by its own rules.
+  let commPaid = 0, commCount = 0;
+  for (const tx of p.transactions) {
+    const c = +tx.commission || 0;
+    if (c > 0) { commPaid += c; commCount++; }
+  }
+  const commCell = `
+<div class="stat-cell" style="grid-column:-2/-1;border-left:1px solid var(--border,#d9d4c8);border-top:1px solid var(--border,#d9d4c8);padding-top:10px;">
+<div class="stat-label">გადახდილი საკომისიო <a href="commissions.html" class="no-print" style="text-decoration:none;color:#b91c1c;font-weight:800" title="საკომისიოების ჟურნალი">↗</a></div>
+<div class="stat-val ${commPaid > 0 ? 'neg' : ''}">${commPaid > 0 ? '−' : ''}${fmtMoney(commPaid)}<span class="stat-sub">${commCount} საკომისიო · Commissions</span></div>
+</div>`;
+
   const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
 
   el.innerHTML = `
@@ -188,7 +201,7 @@ function renderStatBanner(containerId, portfolioKey) {
 <div class="stat-cell">
 <div class="stat-label">უკუგება</div>
 <div class="stat-val ${pnlClass}">${pctStr}</div>
-</div>${wdCell}${divCell}${recvCell}
+</div>${wdCell}${divCell}${recvCell}${commCell}
 </div>
 <div class="stat-foot">
 <span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
