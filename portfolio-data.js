@@ -5,7 +5,7 @@
 // Last updated: 2026-07-14
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-15',
+  lastUpdated: '2026-07-16',
   feesPaid: 56.21,                      // reconciled 15 Jul 2026 to the transaction log: BOG $16.21 (27 fees) + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 16.21, note: '27 საკომისიო · ტრანზაქციების ჟურნალიდან' },

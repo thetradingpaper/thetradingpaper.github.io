@@ -99,8 +99,9 @@ window.PORTFOLIOS = {
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 9.75831896, avgBuy: 6.1486, invested: 60.00, value: 60.00, color: '#006a4d', divYield: 3.66 },
     ],
-    cash: 0,
+    cash: 0.02,
     transactions: [
+      { date: '2026-07-15', type: 'dividend', ticker: 'MAIN', amount: 0.02, note: 'დივიდენდის ჩარიცხვა $0.03 − გადასახადი $0.01 = წმინდა $0.02' },
       { date: '2026-07-09', type: 'deposit', amount: 102.00, note: 'გადმოტანა ← BOG' },
       { date: '2026-07-09', type: 'buy', ticker: 'MAIN', shares: 0.29584541, price: 51.75, commission: 0 },
       { date: '2026-07-09', type: 'buy', ticker: 'ARCC', shares: 2.00000000, price: 18.48, commission: 0 },
