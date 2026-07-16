@@ -7,7 +7,7 @@
 <meta name="description" content="The Trading Paper — ბაზარი. ცოცხალი ინდექსები, ბაზრის რუკა, სიახლეები და პორტფელების რეიტინგი.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=mkt1">
+<link rel="stylesheet" href="../css/style.css?v=mkt1">
 <style>
   /* --- masthead row: logo + clocks --------------------------- */
   .mast-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:10px 0 4px;}
@@ -78,9 +78,9 @@
   <div class="top-bar">
     <span id="today-date"></span>
     <span>გამოცემა · ვისბადენი &nbsp;·&nbsp;
-      <a href="/" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">ჩემი კაბინეტი</a>
-      <a href="/ledger.html" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a>
-      <a href="/tp-logout" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a>
+      <a href="../cabinet.html" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">ჩემი კაბინეტი</a>
+      <a href="../ledger.html" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;">§ ბიუჯეტი</a>
+      <a href="../tp-logout" style="text-decoration:none;border:1px solid var(--rule);padding:1px 8px;border-radius:3px;font-size:11px;color:var(--red);">გასვლა</a>
     </span>
   </div>
 
@@ -93,11 +93,11 @@
   </div>
 
   <nav>
-    <a href="/meportfolio/" class="active">ბაზარი</a>
-    <a href="/">ჩემი კაბინეტი</a>
-    <a href="/ledger.html">ბიუჯეტი</a>
-    <a href="/dividends.html">დივიდენდები</a>
-    <a href="/edit.html">რედაქტირება</a>
+    <a href="index.html" class="active">ბაზარი</a>
+    <a href="../cabinet.html">ჩემი კაბინეტი</a>
+    <a href="../ledger.html">ბიუჯეტი</a>
+    <a href="../dividends.html">დივიდენდები</a>
+    <a href="../edit.html">რედაქტირება</a>
   </nav>
 </header>
 
@@ -163,7 +163,7 @@
   <div class="widget" style="margin-top:26px;">
     <div class="widget-title" style="display:flex; justify-content:space-between; align-items:center;">
       <span>ბაზარი · კვლევა 3.0</span>
-      <a href="/research.html?tab=searcher" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
+      <a href="../research.html?tab=searcher" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
     </div>
     <div id="kvleva3-ticker-block" style="padding:16px 20px;">
       <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);">იტვირთება მონაცემები…</div>
@@ -295,17 +295,17 @@
   ეს არ არის ფინანსური რჩევა
 </footer>
 
-<script>document.write('<scr'+'ipt src="/portfolio-data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
-<script>document.write('<scr'+'ipt src="/js/portfolios.data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
-<script>document.write('<scr'+'ipt src="/js/portfolios.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="../portfolio-data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="../js/portfolios.data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="../js/portfolios.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
 <script>try{
 var D=window.MEPORTF||{};
 if(typeof portfolios!=='undefined'){
  if(portfolios.bog&&D.bog){portfolios.bog.cash=D.bog.cashAdded||0;if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
 }
 }catch(e){console.warn('meportf merge',e);}</script>
-<script src="/js/masthead.js?v=1"></script>
-<script src="/js/clocks.js?v=1"></script>
+<script src="../js/masthead.js?v=1"></script>
+<script src="../js/clocks.js?v=1"></script>
 <script>
   // date in top bar
   (function(){
@@ -436,7 +436,7 @@ if(typeof portfolios!=='undefined'){
             var isPos = p.change >= 0;
             var sign = isPos ? '+' : '−';
             var chVal = sign + '$' + Math.abs(p.change).toFixed(2) + ' (' + (isPos ? '+' : '−') + Math.abs(p.changePct).toFixed(2) + '%)';
-            return '<a class="kv3-ticker-item" href="/research.html?tab=searcher">' +
+            return '<a class="kv3-ticker-item" href="../research.html?tab=searcher">' +
               '<span class="tk">' + esc(p.ticker) + '</span>' +
               '<span class="pr">$' + (+p.price).toFixed(2) + '</span>' +
               '<span class="ch ' + (isPos ? 'pos' : 'neg') + '">' + chVal + '</span>' +
