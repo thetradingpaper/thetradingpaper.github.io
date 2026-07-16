@@ -79,20 +79,9 @@
     btn.addEventListener('mouseleave', () => { btn.style.opacity = '1'; });
   }
 
-  function navResearch() {
-    const nav = document.querySelector('.masthead nav');
-    if (!nav || nav.querySelector('a[href="research.html"]')) return;
-    const a = document.createElement('a');
-    a.href = 'research.html';
-    a.textContent = 'კვლევა';
-    const sig = nav.querySelector('a[href="signals.html"]');
-    if (sig && sig.nextSibling) { nav.insertBefore(a, sig.nextSibling); } else { nav.appendChild(a); }
-  }
-
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { inject(); navResearch(); });
+    document.addEventListener('DOMContentLoaded', () => { inject(); });
   } else {
     inject();
-    navResearch();
   }
 })();

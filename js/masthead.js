@@ -35,10 +35,41 @@
   ];
 
   var path = location.pathname;
-  var isCabinet = /^\/(index\.html)?$/.test(path);
+  var pathLower = path.toLowerCase();
+  var filename = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
+  if (location.protocol === 'file:') {
+    filename = path.substring(Math.max(path.lastIndexOf('/'), path.lastIndexOf('\\')) + 1).toLowerCase();
+  }
+
+  var basePrefix = '';
+  if (location.protocol === 'file:') {
+    if (pathLower.indexOf('/meportfolio/') !== -1 || pathLower.indexOf('\\meportfolio\\') !== -1) {
+      basePrefix = '../';
+    } else if (pathLower.indexOf('/kvleva5/journal/') !== -1 || pathLower.indexOf('\\kvleva5\\journal\\') !== -1
+               || pathLower.indexOf('/kvleva5/legal/') !== -1 || pathLower.indexOf('\\kvleva5\\legal\\') !== -1) {
+      basePrefix = '../../';
+    } else if (pathLower.indexOf('/kvleva5/') !== -1 || pathLower.indexOf('\\kvleva5\\') !== -1) {
+      basePrefix = '../';
+    }
+  } else {
+    basePrefix = '/';
+  }
+
+  function resolveUrl(url) {
+    if (!url) return '';
+    if (url.indexOf('http') === 0 || url.indexOf('#') === 0 || url.indexOf('javascript:') === 0) return url;
+    if (url.indexOf('/') === 0) {
+      if (basePrefix === '/') return url;
+      return basePrefix + url.substring(1);
+    }
+    return basePrefix + url;
+  }
+
+  var isCabinet = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
+    && (filename === '' || filename === 'index.html' || filename === 'cabinet.html');
   // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
-  var inCabArea = (path === '/' || path === '/index.html'
-    || /^\/(goals|notes|ledger|dividends|edit)/.test(path));
+  var inCabArea = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
+    && (isCabinet || /^(goals|notes|ledger|dividends|edit)/.test(filename));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
@@ -107,16 +138,16 @@
   function tabLinks() {
     return TABS.map(function (p) {
       var active = p.re.test(path) ? ' class="active"' : '';
-      return '<a href="' + p.href + '"' + active + '>' + p.label + '</a>';
+      return '<a href="' + resolveUrl(p.href) + '"' + active + '>' + p.label + '</a>';
     }).join('');
   }
   // sub-nav links (cabinet tools) — active = current page
   function subnavLinks() {
     return MENU.map(function (p) {
-      // tolerant match so the active underline works on clean URLs (/ledger) and /ledger.html
       var base = p.href.split('#')[0].replace(/\.html$/, '');
-      var active = (path === base || path === base + '.html' || path === base + '/') ? ' class="active"' : '';
-      return '<a href="' + p.href + '"' + active + '>' + p.label + '</a>';
+      var cleanBase = base.replace(/^\//, '');
+      var active = (filename.indexOf(cleanBase) === 0) ? ' class="active"' : '';
+      return '<a href="' + resolveUrl(p.href) + '"' + active + '>' + p.label + '</a>';
     }).join('');
   }
 
@@ -149,10 +180,10 @@
     +   '<span id="today-date">' + dateStr + '</span>'
     +   '<span>' + (lang === 'ka' ? 'გამოცემა · ვისბადენი' : 'Edition · Wiesbaden') + ' &nbsp;·&nbsp; '
     +   '<a id="tp-lang-btn" style="cursor:pointer;font-weight:bold;margin-right:8px;" class="no-print">' + (lang === 'ka' ? 'EN' : 'KA') + '</a> &nbsp;·&nbsp; '
-    +   '<a href="/tp-logout" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
+    +   '<a href="' + resolveUrl('/tp-logout') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
     + '</div>'
     + '<div class="tpm-row">'
-    +   '<div class="tpm-brand"><h1><a href="/meportfolio/">The Trading Paper</a></h1>'
+    +   '<div class="tpm-brand"><h1><a href="' + resolveUrl('/meportfolio/') + '">The Trading Paper</a></h1>'
     +   '<p class="tpm-tag tagline">' + (lang === 'ka' ? 'ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი' : 'Market · Live Indicators · Rating') + '</p></div>'
     +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
@@ -194,7 +225,7 @@
   function makeSticky() {
     var bar = document.createElement('div');
     bar.id = 'tpm-sticky';
-    bar.innerHTML = '<a class="b" href="/meportfolio/">The Trading Paper</a><nav>' + tabLinks() + '</nav>';
+    bar.innerHTML = '<a class="b" href="' + resolveUrl('/meportfolio/') + '">The Trading Paper</a><nav>' + tabLinks() + '</nav>';
     document.body.appendChild(bar);
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
@@ -234,18 +265,7 @@
     var el = document.getElementById('tpm-center-ticker');
     if (!el) return;
     
-    // Universal path resolver for both web server and local file system
-    var base = '/';
-    if (location.protocol === 'file:') {
-      var path = location.pathname.toLowerCase();
-      if (path.indexOf('/meportfolio/') !== -1) base = '../';
-      else if (path.indexOf('/articles/') !== -1) base = '../';
-      else if (path.indexOf('/stock/ttp-issue10-update/') !== -1) base = '../../';
-      else if (path.indexOf('/stock/') !== -1) base = '../';
-      else base = '';
-    }
-    
-    fetch(base + 'data/kvleva3-picks.json?t=' + Date.now())
+    fetch(resolveUrl('/data/kvleva3-picks.json') + '?t=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(data) {
         var picks = data.picks || [];
