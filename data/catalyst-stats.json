@@ -1,22 +1,22 @@
 {
  "m_and_a": {
-  "n": 5,
+  "n": 7,
   "wins": 1,
-  "sum_ret": -10.55
+  "sum_ret": -8.96
  },
  "earnings_beat": {
-  "n": 3,
+  "n": 5,
   "wins": 1,
-  "sum_ret": 13.72
+  "sum_ret": 4.69
  },
  "analyst_upgrade": {
-  "n": 4,
+  "n": 8,
   "wins": 0,
-  "sum_ret": -56.8
+  "sum_ret": -99.19
  },
  "growth_news": {
-  "n": 2,
+  "n": 4,
   "wins": 0,
-  "sum_ret": -56.5
+  "sum_ret": -69.4
  }
 }

@@ -165,7 +165,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 83.9,
+  "return_pct": 0.48,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-08T15:59:04.559825+00:00",
@@ -176,7 +179,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 10.24,
+  "return_pct": -2.38,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-08T15:59:04.559829+00:00",
@@ -187,7 +193,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 5.41,
+  "return_pct": -10.36,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-08T15:59:04.559832+00:00",
@@ -198,7 +207,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 22.8,
+  "return_pct": 1.11,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-08T15:59:04.559836+00:00",
@@ -209,7 +221,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.3,
+  "return_pct": -27.9,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-08T15:59:04.559840+00:00",
@@ -220,7 +235,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 1456.95,
+  "return_pct": -8.87,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-08T15:59:04.559843+00:00",
@@ -231,7 +249,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 330.99,
+  "return_pct": -1.75,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-08T15:59:04.559850+00:00",
@@ -242,7 +263,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 645.14,
+  "return_pct": -0.16,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-08T15:59:04.559854+00:00",
@@ -253,7 +277,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.78,
+  "return_pct": -9.0,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-08T15:59:04.559857+00:00",
@@ -264,7 +291,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 11.57,
+  "return_pct": -3.9,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-09T16:23:31.377127+00:00",
@@ -481,6 +511,116 @@
   "ticker": "BE",
   "entry": 237.25,
   "score": 3.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680755+00:00",
+  "ticker": "ATAI",
+  "entry": 7.14,
+  "score": 66.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680764+00:00",
+  "ticker": "MAN",
+  "entry": 51.67,
+  "score": 48.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680768+00:00",
+  "ticker": "ANGO",
+  "entry": 15.06,
+  "score": 48.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680771+00:00",
+  "ticker": "QTTB",
+  "entry": 15.27,
+  "score": 44.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680775+00:00",
+  "ticker": "CNMD",
+  "entry": 44.74,
+  "score": 43.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680778+00:00",
+  "ticker": "VEEE",
+  "entry": 34.7,
+  "score": 35.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680782+00:00",
+  "ticker": "PYPL",
+  "entry": 56.98,
+  "score": 31.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680789+00:00",
+  "ticker": "CELC",
+  "entry": 87.39,
+  "score": 20.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680793+00:00",
+  "ticker": "NXTC",
+  "entry": 6.02,
+  "score": 15.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-16T15:29:11.680797+00:00",
+  "ticker": "CIFR",
+  "entry": 18.35,
+  "score": 14.0,
   "horizon": "long",
   "catalyst_cats": [
    "growth_news"
