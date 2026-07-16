@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-07-16T15:09:59.640Z",
+  "opened": "2026-07-09T18:20:37.951Z",
+  "ticker": "TSLA",
+  "rule": "R3",
+  "entry": 405.94,
+  "exit": 393.78,
+  "exitType": "TIME",
+  "pnl": -0.6,
+  "pnlPct": -3
+ },
+ {
   "closed": "2026-07-15T14:58:59.710Z",
   "opened": "2026-07-08T20:06:22.874Z",
   "ticker": "PLTR",
