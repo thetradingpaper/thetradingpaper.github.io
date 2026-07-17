@@ -38,7 +38,7 @@ export async function onRequest(context) {
   const ticker = cleanTicker(url.searchParams.get("ticker"));
   if (!ticker) return badRequest("ticker required");
 
-  const configured = !!(env.FINNHUB_API_KEY || env.ALPHAVANTAGE_API_KEY);
+  const configured = !!(env.FINNHUB_API_KEY || "d91t069r01qsj27o4k8gd91t069r01qsj27o4k90" || env.ALPHAVANTAGE_API_KEY);
 
   // Fire all providers in parallel; each degrades on its own.
   const [quote, profile, metrics, news, av, fng] = await Promise.all([

@@ -14,7 +14,7 @@ export async function onRequest(context) {
     analyst: !!env.ANTHROPIC_API_KEY,
     kv: !!env.TP_KV,
     providers: {
-      finnhub: !!env.FINNHUB_API_KEY,
+      finnhub: !!(env.FINNHUB_API_KEY || "d91t069r01qsj27o4k8gd91t069r01qsj27o4k90"),
       alphavantage: !!env.ALPHAVANTAGE_API_KEY,
     },
   });

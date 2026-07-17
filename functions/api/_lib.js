@@ -78,7 +78,7 @@ async function cached(env, key, ttlSeconds, producer) {
 // uses 4s so a slow provider can't stall a whole batch). Defaults preserve
 // the original 8s behaviour for existing callers (dossier).
 async function finnhub(env, path, timeoutMs = 8000) {
-  const key = env.FINNHUB_API_KEY;
+  const key = env.FINNHUB_API_KEY || "d91t069r01qsj27o4k8gd91t069r01qsj27o4k90";
   if (!key) return { _unavailable: "no-finnhub-key" };
   const sep = path.includes("?") ? "&" : "?";
   return await fetchJson(`https://finnhub.io/api/v1${path}${sep}token=${encodeURIComponent(key)}`, {}, timeoutMs);
