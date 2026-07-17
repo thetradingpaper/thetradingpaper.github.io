@@ -85,3 +85,22 @@ Book Four: a mechanical swing-signal bot, **paper trading only** — it never to
   hand-edit bot data files except to reset (restore the seeded empty shapes).
 - The page must always keep the disclaimer: signals are mechanical rules, not advice;
   the user decides real trades. Never frame bot output as guaranteed profit.
+
+## Research Center — ONE page (2026-07-17)
+
+All research tools live in **research.html** as tabs: advisor · searcher · evaluator ·
+journal · legal · **apilib** (API Library). `kvleva3.html` and `kvleva5/{,journal/,legal/}`
+are now redirect stubs to the matching tab — never add content back there.
+
+- **Evaluator (the stock analyzer)** resolves data in this order:
+  1. server `/api/dossier` (Cloudflare env keys, if ever configured) →
+  2. **browser keys**: free Finnhub (+ optional Alpha Vantage) entered via the 🔑 panel
+     on the page, stored in localStorage `tp_fh_key`/`tp_av_key`, scored client-side with
+     an exact port of `functions/api/_lib.js` (same weights/bands) →
+  3. labelled DEMO fallback.
+  Browser-key lookups also log to localStorage `tp_kv5_local_signals` (merged into the
+  signals sidebar) and fire-and-forget POST `/api/signals`.
+- **API Library tab** loads the catalog live from github.com/public-apis/public-apis
+  (jsDelivr → raw.githubusercontent → committed snapshot `data/public-apis.json`),
+  cached 24h in localStorage `tp_apilib_v1`. Finnhub / Alpha Vantage rows are badged
+  "USED HERE". Refresh the snapshot occasionally by re-parsing the repo README.

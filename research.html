@@ -456,6 +456,7 @@
     <a id="tab-btn-evaluator" class="research-tab-btn" onclick="switchResearchTab('evaluator')">სტოკ შემფასებელი (კვლევა 5.0)</a>
     <a id="tab-btn-journal" class="research-tab-btn" onclick="switchResearchTab('journal')">სიგნალების ჟურნალი</a>
     <a id="tab-btn-legal" class="research-tab-btn" onclick="switchResearchTab('legal')">მეთოდოლოგია &amp; წესები</a>
+    <a id="tab-btn-apilib" class="research-tab-btn" onclick="switchResearchTab('apilib')">API ბიბლიოთეკა (public-apis)</a>
   </nav>
 
   <!-- ========================================================
@@ -675,12 +676,38 @@
         მაგალითები:
         <a data-tk="AAPL" onclick="doEvaluatorSearch('AAPL')">AAPL</a>·<a data-tk="NVDA" onclick="doEvaluatorSearch('NVDA')">NVDA</a>·<a data-tk="TSLA" onclick="doEvaluatorSearch('TSLA')">TSLA</a>·<a data-tk="MSFT" onclick="doEvaluatorSearch('MSFT')">MSFT</a>·<a data-tk="JPM" onclick="doEvaluatorSearch('JPM')">JPM</a>
       </div>
+      <div class="kv5-keys" style="margin-top:12px;border-top:1px dashed var(--rule,#1d1a14);padding-top:10px;font-family:'Noto Sans Georgian',sans-serif;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <a id="kv5-keys-toggle" style="cursor:pointer;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-decoration:none;">🔑 API გასაღებები · keys</a>
+          <span id="kv5-keys-status" style="font-size:10.5px;color:var(--muted);"></span>
+        </div>
+        <div id="kv5-keys-panel" style="display:none;margin-top:10px;">
+          <div style="font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:8px;">
+            ჩასვი <b>უფასო</b> გასაღებები და შემფასებელი ცოცხალ მონაცემებზე გადავა — პირდაპირ ბრაუზერიდან, ნებისმიერ ტიკერზე.
+            გასაღები ინახება მხოლოდ შენს ბრაუზერში (localStorage) და ჩვენს სერვერზე არასდროს იგზავნება.
+            <span style="white-space:nowrap;">(Free keys, stored only in your browser.)</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:560px;">
+            <label style="font-size:11px;font-weight:700;color:var(--ink);">Finnhub <span style="color:var(--red);">*</span> <span style="font-weight:400;color:var(--muted);">— ფასი, ფუნდამენტები, სიახლეები · <a href="https://finnhub.io/register" target="_blank" rel="noopener" style="color:var(--red);">უფასო რეგისტრაცია →</a></span>
+              <input id="kv5-key-fh" type="text" placeholder="finnhub API key" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
+            </label>
+            <label style="font-size:11px;font-weight:700;color:var(--ink);">Alpha Vantage <span style="font-weight:400;color:var(--muted);">— არასავალდებულო: ამატებს RSI/MA/ATR/ვოლატილობას · <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener" style="color:var(--red);">უფასო გასაღები →</a></span>
+              <input id="kv5-key-av" type="text" placeholder="alpha vantage API key (optional)" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
+            </label>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+            <button id="kv5-keys-save" class="kv5-btn" type="button">შენახვა · Save</button>
+            <button id="kv5-keys-clear" class="kv5-btn ghost" type="button">წაშლა · Clear</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Demo banner -->
     <div id="kv5-demobar" class="kv5-demobar">
       <b>დემო რეჟიმი / DEMO MODE.</b> ცოცხალი მონაცემების პროვაიდერები ჯერ არ არის კონფიგურირებული (API გასაღებები).
       ქვემოთ ნაჩვენებია <b>ნიმუშის მონაცემები</b>.
+      <a id="kv5-demobar-keys" style="cursor:pointer;text-decoration:underline;color:inherit;font-weight:700;">ჩასვი უფასო API გასაღები →</a>
     </div>
 
     <!-- Mandatory disclaimer -->
@@ -1004,6 +1031,125 @@
       </div>
     </div>
   </section>
+
+  <!-- ========================================================
+       Section: API Library (public-apis) — the connected catalog
+       ======================================================== -->
+  <style>
+    .apilib-stamp {
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; letter-spacing:0.6px;
+      color:var(--muted); border:1px solid var(--rule,#1d1a14); border-left:4px solid #1e4a6d;
+      padding:8px 12px; margin-bottom:16px; background:rgba(30,74,109,0.04);
+    }
+    .apilib-stamp .dot { width:7px; height:7px; border-radius:50%; background:#166534; display:inline-block; animation:apilibPulse 2s infinite; }
+    @keyframes apilibPulse { 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+    .apilib-stamp a { color:#1e4a6d; font-weight:700; text-decoration:none; border-bottom:1px dotted #1e4a6d; }
+    .apilib-used {
+      border:1px solid var(--rule,#1d1a14); padding:12px 14px; margin-bottom:16px;
+      font-family:'Noto Sans Georgian',sans-serif;
+    }
+    .apilib-used .t { font-size:10.5px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--muted); margin-bottom:8px; }
+    .apilib-chip {
+      display:inline-block; cursor:pointer; margin:2px 6px 2px 0; padding:4px 10px;
+      border:1px solid #1e4a6d; color:#1e4a6d; font-size:11px; font-weight:700; border-radius:2px;
+      font-family:ui-monospace,monospace;
+    }
+    .apilib-chip:hover { background:#1e4a6d; color:#fff; }
+    .apilib-chip small { font-weight:400; font-family:'Noto Sans Georgian',sans-serif; }
+    .apilib-controls {
+      display:grid; grid-template-columns:2fr 1.4fr 1fr; gap:10px; margin-bottom:8px;
+      font-family:'Noto Sans Georgian',sans-serif;
+    }
+    @media (max-width:720px){ .apilib-controls { grid-template-columns:1fr; } }
+    .apilib-controls input[type=text], .apilib-controls select {
+      width:100%; box-sizing:border-box; padding:9px 11px; font-size:13px; color:var(--ink);
+      border:1px solid var(--rule,#1d1a14); background:transparent; font-family:inherit;
+    }
+    .apilib-flags { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-bottom:12px;
+      font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; color:var(--muted); }
+    .apilib-flags label { cursor:pointer; display:flex; align-items:center; gap:5px; }
+    .apilib-count { font-family:ui-monospace,monospace; font-size:11px; color:var(--muted); margin-bottom:10px; border-bottom:2px solid var(--rule,#1d1a14); padding-bottom:6px; }
+    .apilib-row {
+      display:grid; grid-template-columns:minmax(140px,1.2fr) 2.2fr auto; gap:8px 14px; align-items:baseline;
+      padding:9px 2px; border-bottom:1px dotted var(--rule,#1d1a14);
+    }
+    @media (max-width:720px){ .apilib-row { grid-template-columns:1fr; gap:3px; } }
+    .apilib-row .nm a { font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:14.5px; color:var(--ink); text-decoration:none; border-bottom:1px solid transparent; }
+    .apilib-row .nm a:hover { color:#1e4a6d; border-bottom-color:#1e4a6d; }
+    .apilib-row .ds { font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted); line-height:1.5; }
+    .apilib-row .bd { display:flex; gap:5px; flex-wrap:wrap; justify-content:flex-end; }
+    @media (max-width:720px){ .apilib-row .bd { justify-content:flex-start; } }
+    .apilib-b { font-family:ui-monospace,monospace; font-size:9.5px; letter-spacing:0.5px; padding:2px 6px; border:1px solid var(--rule,#1d1a14); color:var(--muted); white-space:nowrap; }
+    .apilib-b.cat { color:#1e4a6d; border-color:#1e4a6d; cursor:pointer; }
+    .apilib-b.ok { color:var(--green,#166534); border-color:var(--green,#166534); }
+    .apilib-b.no { color:var(--red,#b91c1c); border-color:var(--red,#b91c1c); }
+    .apilib-b.used { background:#1e4a6d; color:#fff; border-color:#1e4a6d; }
+    .apilib-more { display:block; margin:16px auto 4px; padding:9px 22px; cursor:pointer;
+      font-family:'Noto Sans Georgian',sans-serif; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+      border:1px solid var(--ink); background:transparent; color:var(--ink); }
+    .apilib-more:hover { background:var(--ink); color:var(--paper,#f4efe6); }
+    .apilib-src { text-align:center; font-family:ui-monospace,monospace; font-size:10px; color:var(--muted); margin-top:10px; }
+    .apilib-loading { text-align:center; padding:50px 0; font-family:'Noto Sans Georgian',sans-serif; color:var(--muted); font-size:12.5px; }
+  </style>
+  <section id="research-sec-apilib" class="research-section" style="display:none;">
+    <!-- Structured Explanation Box (house pattern) -->
+    <div class="research-info-box widget">
+      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / API Library Info</div>
+      <div class="info-grid">
+        <div class="info-col">
+          <div class="info-title">💡 იდეა (Idea)</div>
+          <div class="info-text">ერთი ცოცხალი კატალოგი ყველა უფასო, საჯარო API-სთვის — მონაცემთა წყაროების ბიბლიოთეკა, საიდანაც ამ საიტის კვლევითი ხელსაწყოები იკვებება და ახალი იდეები იბადება.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
+          <div class="info-text">კატალოგი პირდაპირ უკავშირდება GitHub-ის public-apis რეპოზიტორიას (1500+ API, 50 კატეგორია) და იტვირთება CDN-ით. ძებნა, კატეგორია და ფილტრები (გასაღები/CORS/HTTPS) მუშაობს ლოკალურად, მყისიერად.</div>
+        </div>
+        <div class="info-col">
+          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
+          <div class="info-text">ყოველ გახსნაზე მოწმდება რეპოზიტორიის უახლესი ვერსია; თუ ქსელი მიუწვდომელია, იტვირთება საიტზე შენახული ასლი. ფინანსური კატეგორიები ყოველთვის პირველია.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="apilib-stamp">
+      <span class="dot"></span>
+      <span>დაკავშირებულია რეპოზიტორიასთან:</span>
+      <a href="https://github.com/public-apis/public-apis" target="_blank" rel="noopener">github.com/public-apis/public-apis</a>
+      <span>· <span id="apilib-count-top">—</span> API · <span id="apilib-cats-top">—</span> კატეგორია · განახლდა: <span id="apilib-upd">—</span></span>
+    </div>
+
+    <div class="apilib-used widget">
+      <div class="t">ამ საიტის ცოცხალი მონაცემთა წყაროები · data sources used by this site</div>
+      <span class="apilib-chip" onclick="apilibFind('Finnhub')">Finnhub <small>— შემფასებელი: ფასი · ფუნდამენტები · სიახლეები</small></span>
+      <span class="apilib-chip" onclick="apilibFind('Alpha Vantage')">Alpha Vantage <small>— შემფასებელი: RSI · MA · ATR</small></span>
+      <span class="apilib-chip" style="cursor:default;border-style:dashed;" title="hourly GitHub Action">Yahoo Finance <small>— საათობრივი ფასების სნეპშოტი</small></span>
+      <div style="margin-top:8px;font-family:'Noto Sans Georgian',sans-serif;font-size:11px;color:var(--muted);">
+        ამ ბიბლიოთეკიდან ორი API უკვე ამუშავებს სტოკ შემფასებელს — <a style="color:var(--red);cursor:pointer;font-weight:700;" onclick="switchResearchTab('evaluator')">გახსენი შემფასებელი →</a>
+      </div>
+    </div>
+
+    <div class="apilib-controls widget">
+      <input id="apilib-q" type="text" placeholder="ძებნა · search — მაგ. stock, weather, crypto…" autocomplete="off">
+      <select id="apilib-cat"><option value="">ყველა კატეგორია · all categories</option></select>
+      <select id="apilib-auth">
+        <option value="">Auth: ყველა</option>
+        <option value="no">გასაღების გარეშე · no key</option>
+        <option value="apiKey">apiKey</option>
+        <option value="OAuth">OAuth</option>
+      </select>
+    </div>
+    <div class="apilib-flags">
+      <label><input id="apilib-cors" type="checkbox"> მხოლოდ CORS: Yes <span style="font-size:9.5px;">(ბრაუზერიდან პირდაპირ გამოძახებადი)</span></label>
+      <label><input id="apilib-https" type="checkbox" checked> მხოლოდ HTTPS</label>
+    </div>
+
+    <div id="apilib-countline" class="apilib-count">—</div>
+    <div id="apilib-list"><div class="apilib-loading">იტვირთება კატალოგი… / loading catalog…</div></div>
+    <button id="apilib-more" class="apilib-more" style="display:none;" type="button">მეტის ჩვენება · show more</button>
+    <div id="apilib-src" class="apilib-src">—</div>
+  </section>
+
 </main>
 
 <footer>
@@ -1059,7 +1205,7 @@
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     let initialTab = urlParams.get('tab') || 'advisor';
-    const validTabs = ['advisor', 'searcher', 'evaluator', 'journal', 'legal'];
+    const validTabs = ['advisor', 'searcher', 'evaluator', 'journal', 'legal', 'apilib'];
     if (!validTabs.includes(initialTab)) {
       initialTab = 'advisor';
     }
@@ -1595,6 +1741,14 @@
     async function fromSeed(){ var r=await fetch('/data/kvleva5-signals.json?t='+Date.now()); if(!r.ok)throw 0; return await r.json(); }
     var sigs=[];
     try{ sigs=await fromApi(); }catch(e){ try{ sigs=await fromSeed(); }catch(e2){ sigs=[]; } }
+    try{
+      var loc=localSignals();
+      if(loc.length){
+        var seen={}; sigs.forEach(function(s){ seen[s.ticker+'|'+(s.date||'')]=1; });
+        loc.forEach(function(s){ if(!seen[s.ticker+'|'+(s.date||'')]) sigs.push(s); });
+        sigs.sort(function(a,b){ return String(b.date||'').localeCompare(String(a.date||'')); });
+      }
+    }catch(eL){}
     if(!sigs.length){ box.innerHTML='<div class="kv5-empty">ჯერ არ არის სიგნალები.<br>No signals logged yet.</div>'; return; }
     box.innerHTML=sigs.slice(0,8).map(function(s){
       var col=(s.score>=75?'#166534':s.score>=60?'#8b6914':s.score>=45?'#6b6b6b':s.score>=30?'#b45309':'#b91c1c');
@@ -1603,28 +1757,179 @@
     }).join('');
   }
 
+  /* ============================================================
+     LIVE VIA BROWSER KEYS — client-side provider layer.
+     Mirrors functions/api/_lib.js (same weights, same bands) so the
+     evaluator works on the static github.io mirror too. Keys are
+     stored ONLY in this browser (localStorage), never on a server.
+     ============================================================ */
+  var LS_FH='tp_fh_key', LS_AV='tp_av_key', LS_SIG='tp_kv5_local_signals';
+  function fhKey(){ try{return (localStorage.getItem(LS_FH)||'').trim();}catch(e){return '';} }
+  function avKey(){ try{return (localStorage.getItem(LS_AV)||'').trim();}catch(e){return '';} }
+  function hasBrowserKey(){ return !!fhKey(); }
+  function tmoFetch(url,ms){ return new Promise(function(res){ var ctl=new AbortController(); var t=setTimeout(function(){ctl.abort();res(null);},ms||8000); fetch(url,{signal:ctl.signal}).then(function(r){clearTimeout(t);(r&&r.ok)?r.json().then(res,function(){res(null);}):res(null);}).catch(function(){clearTimeout(t);res(null);}); }); }
+  function fh(path){ return tmoFetch('https://finnhub.io/api/v1'+path+(path.indexOf('?')>-1?'&':'?')+'token='+encodeURIComponent(fhKey()),8000); }
+
+  /* ---- scoring library (verbatim port of functions/api/_lib.js) ---- */
+  var SECTOR_PE={"Technology":30,"Semiconductors":26,"Software":34,"Communication Services":22,"Media":20,"Consumer Cyclical":22,"Retail":21,"Consumer Defensive":21,"Financial Services":13,"Banking":12,"Insurance":13,"Healthcare":24,"Biotechnology":25,"Pharmaceuticals":18,"Energy":12,"Utilities":18,"Industrials":20,"Basic Materials":15,"Real Estate":30,"Automobiles":15,"Airlines":10,"Telecommunication":16};
+  function sectorMedianPE(sector){ if(!sector)return 20; if(SECTOR_PE[sector]!=null)return SECTOR_PE[sector]; var s=sector.toLowerCase(); for(var k in SECTOR_PE) if(s.indexOf(k.toLowerCase())>-1)return SECTOR_PE[k]; return 20; }
+  function marketCapTier(capMillions){ if(capMillions==null||!isFinite(capMillions))return null; var b=capMillions/1000;
+    if(b>=200)return{tier:"Mega",ka:"მეგა",bn:b}; if(b>=10)return{tier:"Large",ka:"მსხვილი",bn:b}; if(b>=2)return{tier:"Mid",ka:"საშუალო",bn:b};
+    if(b>=0.3)return{tier:"Small",ka:"მცირე",bn:b}; if(b>=0.05)return{tier:"Micro",ka:"მიკრო",bn:b}; return{tier:"Nano",ka:"ნანო",bn:b}; }
+  var BANDS=[{min:75,en:"STRONG RESEARCH INTEREST",ka:"ძლიერი კვლევითი ინტერესი",color:"#166534"},{min:60,en:"WATCH",ka:"სათვალყურო",color:"#8b6914"},{min:45,en:"NEUTRAL",ka:"ნეიტრალური",color:"#6b6b6b"},{min:30,en:"WEAK",ka:"სუსტი",color:"#b45309"},{min:0,en:"SHORT-SIDE CANDIDATE",ka:"ქვევითი მოძრაობის კანდიდატი",color:"#b91c1c"}];
+  function bandFor(score){ if(score==null)return{en:"INSUFFICIENT DATA",ka:"არასაკმარისი მონაცემები",color:"#6b6b6b"}; for(var i=0;i<BANDS.length;i++) if(score>=BANDS[i].min)return BANDS[i]; return BANDS[BANDS.length-1]; }
+  function clamp01(x){ return Math.max(0,Math.min(1,x)); }
+  function rsiScore(r){ if(r==null)return null; if(r<30)return 0.28; if(r<45)return 0.28+((r-30)/15)*0.27; if(r<=60)return 0.55+((r-45)/15)*0.40; if(r<=70)return 0.95+((r-60)/10)*0.05; if(r<=80)return 1.00-((r-70)/10)*0.50; return Math.max(0.25,0.50-((r-80)/20)*0.25); }
+  function maScore(price,s50,s200){ var sum=0,w=0; if(s50!=null){sum+=(price>s50?1:0.15)*0.5;w+=0.5;} if(s200!=null){sum+=(price>s200?1:0.15)*0.35;w+=0.35;} if(s50!=null&&s200!=null){sum+=(s50>s200?1:0.2)*0.15;w+=0.15;} return w?sum/w:null; }
+  function volScore(ratio){ if(ratio==null||!isFinite(ratio))return null; if(ratio<0.5)return 0.35; if(ratio<1)return 0.55; if(ratio<1.5)return 0.72; if(ratio<3)return 0.90; return 0.75; }
+  function rangeScore(p){ if(p==null)return null; var s=clamp01(0.15+0.85*p); if(p>0.97)s*=0.9; return s; }
+  function changeScore(m){ if(m==null)return null; if(m<-15)return 0.22; if(m<0)return 0.35+((m+15)/15)*0.15; if(m<=15)return 0.50+(m/15)*0.38; return 0.82; }
+  function fngScore(f){ if(f==null)return null; if(f<25)return 0.45; if(f<45)return 0.58; if(f<=65)return 0.75; if(f<=80)return 0.60; return 0.38; }
+  function peScore(pe,median){ if(pe==null||pe<=0)return 0.5; var ratio=pe/median; if(ratio<0.7)return 0.90; if(ratio<1.0)return 0.75; if(ratio<1.3)return 0.55; if(ratio<2.0)return 0.40; return 0.30; }
+  function capScore(tier){ var t={Mega:0.80,Large:0.75,Mid:0.60,Small:0.50,Micro:0.40,Nano:0.30}[tier]; return t==null?null:t; }
+  function volFitScore(vol){ if(vol==null)return null; if(vol<10)return 0.45; if(vol<18)return 0.65; if(vol<=35)return 0.85; if(vol<=50)return 0.55; return 0.32; }
+  function blend(parts){ var sum=0,w=0; for(var i=0;i<parts.length;i++){ var v=parts[i][0],wt=parts[i][1]; if(v!=null){sum+=v*wt;w+=wt;} } return w?sum/w:null; }
+  function computeScore(inp){
+    var momentum=blend([[rsiScore(inp.rsi),0.40],[maScore(inp.price,inp.sma50,inp.sma200),0.40],[volScore(inp.volRatio),0.20]]);
+    var trend=blend([[rangeScore(inp.rangePos),0.60],[changeScore(inp.monthChange),0.40]]);
+    var sentiment=blend([[fngScore(inp.fng),0.50],[inp.headlineNet==null?null:clamp01(0.5+0.5*inp.headlineNet),0.50]]);
+    var valuation=blend([[inp.pe===undefined?null:peScore(inp.pe,inp.sectorMedianPE||20),0.70],[capScore(inp.capTier),0.30]]);
+    var cfd=volFitScore(inp.vol30);
+    var sections=[["momentum",momentum,30],["trend",trend,20],["sentiment",sentiment,20],["valuation",valuation,15],["cfd",cfd,15]];
+    var sum=0,avail=0,contributions={};
+    for(var i=0;i<sections.length;i++){ var nm=sections[i][0],val=sections[i][1],weight=sections[i][2];
+      contributions[nm]={subScore:val==null?null:+val.toFixed(3),weight:weight,available:val!=null};
+      if(val!=null){sum+=val*weight;avail+=weight;} }
+    var score=avail>=35?Math.round((sum/avail)*100):null;
+    return{score:score,availableWeight:avail,band:bandFor(score),contributions:contributions};
+  }
+  var SENT_POS=["beat","beats","surge","surges","soar","soars","rally","record","profit","growth","upgrade","upgraded","raise","raised","strong","gains","gain","jump","jumps","outperform","bullish","expansion","wins","win","approval","approved","positive","boost","rebound","top","tops"];
+  var SENT_NEG=["miss","misses","plunge","plunges","fall","falls","drop","drops","cut","cuts","downgrade","downgraded","loss","losses","weak","warn","warns","warning","lawsuit","probe","investigation","bearish","decline","slump","slumps","recall","layoff","layoffs","fraud","bankruptcy","sink","sinks","slash"];
+  function headlineSent(news){
+    if(!Array.isArray(news)||news.length===0)return{status:"unavailable"};
+    var items=news.slice(0,30),net=0,scored=0,recent=[];
+    for(var i=0;i<items.length;i++){ var a=items[i],t=String(a.headline||"").toLowerCase(); if(!t)continue; var s=0,j;
+      for(j=0;j<SENT_POS.length;j++)if(t.indexOf(SENT_POS[j])>-1)s+=1;
+      for(j=0;j<SENT_NEG.length;j++)if(t.indexOf(SENT_NEG[j])>-1)s-=1;
+      var dir=s>0?1:(s<0?-1:0); if(dir!==0)scored++; net+=dir;
+      if(recent.length<5)recent.push({headline:a.headline,dir:dir,source:a.source||""}); }
+    var norm=scored?Math.max(-1,Math.min(1,net/scored)):0;
+    var label="ნეიტრალური / Neutral";
+    if(norm>0.25)label="დადებითი / Positive"; else if(norm<-0.25)label="უარყოფითი / Negative";
+    return{status:"ok",net:+norm.toFixed(2),count:items.length,scored:scored,label:label,recent:recent};
+  }
+  function rsiCalc(cAsc,period){ period=period||14; var n=cAsc.length; if(n<period+1)return null; var gains=0,losses=0,i,ch;
+    for(i=1;i<=period;i++){ch=cAsc[i]-cAsc[i-1]; if(ch>=0)gains+=ch; else losses-=ch;}
+    var avgG=gains/period,avgL=losses/period;
+    for(i=period+1;i<n;i++){ch=cAsc[i]-cAsc[i-1]; var g=ch>0?ch:0,l=ch<0?-ch:0; avgG=(avgG*(period-1)+g)/period; avgL=(avgL*(period-1)+l)/period;}
+    if(avgL===0)return 100; return 100-100/(1+avgG/avgL); }
+  function smaTail(cAsc,period){ var n=cAsc.length; if(n<period)return null; var s=0; for(var i=n-period;i<n;i++)s+=cAsc[i]; return s/period; }
+  function avgTailC(arr,window){ var n=arr.length; if(n<1)return null; var w=Math.min(window,n),s=0; for(var i=n-w;i<n;i++)s+=arr[i]; return s/w; }
+  function atrCalc(hAsc,lAsc,cAsc,period){ period=period||14; var n=cAsc.length; if(n<period+1)return null; var trs=[],i;
+    for(i=1;i<n;i++)trs.push(Math.max(hAsc[i]-lAsc[i],Math.abs(hAsc[i]-cAsc[i-1]),Math.abs(lAsc[i]-cAsc[i-1])));
+    var a=0; for(i=0;i<period;i++)a+=trs[i]; a/=period;
+    for(i=period;i<trs.length;i++)a=(a*(period-1)+trs[i])/period; return a; }
+  function volatilityCalc(cAsc,window){ window=window||30; var n=cAsc.length; if(n<window+1)return null; var rets=[],i;
+    for(i=n-window;i<n;i++)rets.push(Math.log(cAsc[i]/cAsc[i-1]));
+    var mean=0; for(i=0;i<rets.length;i++)mean+=rets[i]; mean/=rets.length;
+    var varr=0; for(i=0;i<rets.length;i++)varr+=(rets[i]-mean)*(rets[i]-mean); varr/=(rets.length-1);
+    return Math.sqrt(varr)*Math.sqrt(252)*100; }
+
+  async function avDaily(tk){
+    if(!avKey())return null;
+    var j=await tmoFetch('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+encodeURIComponent(tk)+'&outputsize=compact&apikey='+encodeURIComponent(avKey()),12000);
+    var ts=j&&j['Time Series (Daily)']; if(!ts)return null;
+    var dates=Object.keys(ts).sort(); var c=[],h=[],l=[],v=[];
+    for(var i=0;i<dates.length;i++){ var r=ts[dates[i]]; c.push(+r['4. close']); h.push(+r['2. high']); l.push(+r['3. low']); v.push(+r['5. volume']); }
+    if(c.length<15)return null;
+    var n=c.length;
+    return{ lastClose:c[n-1], rsi14:rsiCalc(c,14), sma50:n>=50?smaTail(c,50):null, sma200:null,
+      avgVol30:avgTailC(v,30), latestVol:v[n-1], atr14:atrCalc(h,l,c,14), vol30:volatilityCalc(c,30),
+      weekChangePct:n>=6?((c[n-1]/c[n-6]-1)*100):null, monthChangePct:n>=22?((c[n-1]/c[n-22]-1)*100):null, dataPoints:n };
+  }
+  function numOr(x){ return (x==null||!isFinite(x))?null:+x; }
+
+  async function clientDossier(tk){
+    var from=new Date(Date.now()-14*86400000), to=new Date();
+    function d10(x){ return x.toISOString().slice(0,10); }
+    var rs=await Promise.all([ fh('/quote?symbol='+encodeURIComponent(tk)), fh('/stock/profile2?symbol='+encodeURIComponent(tk)), fh('/stock/metric?symbol='+encodeURIComponent(tk)+'&metric=all'), fh('/company-news?symbol='+encodeURIComponent(tk)+'&from='+d10(from)+'&to='+d10(to)), avDaily(tk) ]);
+    var q=rs[0], prof=rs[1]||{}, met=(rs[2]&&rs[2].metric)||{}, news=rs[3], av=rs[4];
+    var price=numOr(q&&q.c); if(price===0)price=null;
+    if(price==null&&av)price=numOr(av.lastClose);
+    if(price==null)throw new Error('no-price');
+    var hi52=numOr(met['52WeekHigh']), lo52=numOr(met['52WeekLow']);
+    var rangePos=(hi52!=null&&lo52!=null&&hi52>lo52)?(price-lo52)/(hi52-lo52):null;
+    var weekCh=av?numOr(av.weekChangePct):numOr(met['5DayPriceReturnDaily']);
+    var monthCh=av?numOr(av.monthChangePct):(numOr(met['4WeekPriceReturnDaily'])!=null?numOr(met['4WeekPriceReturnDaily']):numOr(met['monthToDatePriceReturnDaily']));
+    var priceSec={status:'ok',price:price,dayChange:numOr(q&&q.d),dayChangePct:numOr(q&&q.dp),prevClose:numOr(q&&q.pc),weekChangePct:weekCh==null?null:+weekCh.toFixed(1),monthChangePct:monthCh==null?null:+monthCh.toFixed(1),hi52:hi52,lo52:lo52,rangePosPct:rangePos==null?null:+(rangePos*100).toFixed(1)};
+    var rsiV=av?numOr(av.rsi14):null, sma50=av?numOr(av.sma50):null, sma200=av?numOr(av.sma200):null;
+    var avgV=av?numOr(av.avgVol30):(numOr(met['10DayAverageTradingVolume'])!=null?met['10DayAverageTradingVolume']*1e6:null);
+    var latV=av?numOr(av.latestVol):null;
+    var volRatio=(latV!=null&&avgV)?latV/avgV:null;
+    var momSec=(rsiV!=null||sma50!=null||volRatio!=null)
+      ? {status:'ok',rsi14:rsiV==null?null:+rsiV.toFixed(1),sma50:sma50,sma200:sma200,priceVs50Pct:(sma50?+((price/sma50-1)*100).toFixed(1):null),priceVs200Pct:(sma200?+((price/sma200-1)*100).toFixed(1):null),avgVol30:avgV,latestVol:latV,volVsAvgPct:(volRatio==null?null:Math.round((volRatio-1)*100)),dataPoints:av?av.dataPoints:null}
+      : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    var heads=headlineSent(Array.isArray(news)?news:[]);
+    var sentSec={status:(heads.status==='ok')?'ok':'unavailable',market:{status:'unavailable'},headlines:heads};
+    var pe=numOr(met['peTTM']); if(pe==null)pe=numOr(met['peBasicExclExtraTTM']); if(pe==null)pe=numOr(met['peInclExtraTTM']);
+    var sector=prof.finnhubIndustry||null, medPE=sectorMedianPE(sector);
+    var capM=numOr(prof.marketCapitalization), tier=marketCapTier(capM);
+    var valSec=(pe!=null||tier)?{status:'ok',peTTM:pe,sectorMedianPE:medPE,peVsSectorPct:(pe&&medPE?Math.round((pe/medPE-1)*100):null),marketCapBn:tier?+tier.bn.toFixed(0):null,capTier:tier?tier.tier:null,capTierKa:tier?tier.ka:null,sector:sector}:{status:'unavailable'};
+    var vol30=av?numOr(av.vol30):null, atrV=av?numOr(av.atr14):null;
+    var cfdSec=(vol30!=null)
+      ? {status:'ok',vol30Pct:+vol30.toFixed(1),atr14:atrV==null?null:+atrV.toFixed(2),atr14Pct:(atrV&&price?+((atrV/price)*100).toFixed(2):null),financingNote:(vol30>50?'ძალიან მაღალი ვოლატილობა — CFD ფრთხილად. (Very high volatility.)':vol30>35?'მაღალი ვოლატილობა — გააფართოვე სტოპები. (High volatility — widen stops.)':vol30>=18?'ზომიერი ვოლატილობა — სტანდარტული სტოპ-მართვა CFD-სთვის. (Moderate volatility.)':'დაბალი ვოლატილობა. (Low volatility.)')}
+      : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    var comp=computeScore({price:price,rsi:rsiV,sma50:sma50,sma200:sma200,volRatio:volRatio,rangePos:rangePos,monthChange:monthCh,fng:null,headlineNet:(heads.status==='ok'?heads.net:null),pe:(valSec.status==='ok'?pe:undefined),sectorMedianPE:medPE,capTier:tier?tier.tier:null,vol30:vol30});
+    var d={ok:true,ticker:tk,name:prof.name||tk,sector:sector,currency:'$',exchange:prof.exchange||'',asOf:new Date().toISOString(),configured:true,_src:'browser',
+      sections:{price:priceSec,momentum:momSec,sentiment:sentSec,valuation:valSec,cfd:cfdSec},
+      score:comp.score,band:comp.band,availableWeight:comp.availableWeight,contributions:comp.contributions,
+      signal:{date:new Date().toISOString().slice(0,10),ticker:tk,price:price,score:comp.score}};
+    try{ logLocalSignal(d); }catch(eSig){}
+    return d;
+  }
+  function localSignals(){ try{ return JSON.parse(localStorage.getItem(LS_SIG)||'[]'); }catch(e){ return []; } }
+  function logLocalSignal(d){
+    if(d.score==null)return;
+    var arr=localSignals(), dt=d.signal.date;
+    arr=arr.filter(function(s){ return !(s.ticker===d.ticker&&s.date===dt); });
+    arr.unshift({date:dt,ticker:d.ticker,price:d.signal.price,score:d.score,band:d.band&&d.band.en,local:true});
+    try{ localStorage.setItem(LS_SIG,JSON.stringify(arr.slice(0,200))); }catch(e){}
+    try{ fetch('/api/signals',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ticker:d.ticker,price:d.signal.price,score:d.score})}).catch(function(){}); }catch(e){}
+  }
+
+
   window.doEvaluatorSearch = async function(tk){
     tk=String(tk||el('kv5-ticker').value||'').trim().toUpperCase();
     if(!tk) return;
     el('kv5-ticker').value=tk;
     el('kv5-results').innerHTML='<div class="kv5-loading"><div class="kv5-spin"></div><div style="margin-top:14px;">იკვლევა '+esc(tk)+'… / researching…</div></div>';
     try{
-      var r=await fetch('/api/dossier?ticker='+encodeURIComponent(tk),{cache:'no-store'});
-      if(!r.ok) throw new Error('http '+r.status);
-      var d=await r.json();
-      if(!d||!d.ok) throw new Error('bad payload');
-      var anyOk = d.sections && Object.keys(d.sections).some(function(k){ var s=d.sections[k]; return s && s.status==='ok'; });
-      if(!d.configured && !anyOk && DEMO[tk]){ el('kv5-demobar').classList.add('on'); renderDossier(DEMO[tk],true); loadSignals(); return; }
-      el('kv5-demobar').classList.toggle('on', !d.configured);
-      renderDossier(d,false);
-      loadSignals();
+      var d=null;
+      try{
+        var r=await fetch('/api/dossier?ticker='+encodeURIComponent(tk),{cache:'no-store'});
+        if(r.ok){ var j=await r.json(); if(j&&j.ok) d=j; }
+      }catch(e0){}
+      var anyOk = d && d.sections && Object.keys(d.sections).some(function(k){ var s=d.sections[k]; return s && s.status==='ok'; });
+      if(d && d.configured && anyOk){
+        el('kv5-demobar').classList.remove('on');
+        renderDossier(d,false); loadSignals(); return;
+      }
+      if(hasBrowserKey()){
+        var d2=await clientDossier(tk);
+        el('kv5-demobar').classList.remove('on');
+        renderDossier(d2,false);
+        var lv=el('kv5-live'); if(lv){ lv.querySelector('span:last-child').textContent='Live · ბრაუზერის გასაღები / browser key'; }
+        loadSignals(); return;
+      }
+      if(DEMO[tk]){ el('kv5-demobar').classList.add('on'); renderDossier(DEMO[tk],true); loadSignals(); return; }
+      throw new Error('no-data');
     }catch(e){
       if(DEMO[tk]){ el('kv5-demobar').classList.add('on'); renderDossier(DEMO[tk],true); loadSignals(); }
       else {
         el('kv5-demobar').classList.add('on');
         el('kv5-results').innerHTML='<div class="kv5-placeholder"><div class="big">📡</div>'+
           '<div style="font-size:14px;color:var(--ink);font-weight:700;margin-bottom:6px;">ცოცხალი მონაცემები მიუწვდომელია</div>'+
-          '<div style="font-size:12px;">API ვერ იტვირთა. სცადე დემო: <a class="kv5-ex" onclick="doEvaluatorSearch(\'AAPL\')" style="color:var(--red);cursor:pointer;">AAPL</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'NVDA\')" style="color:var(--red);cursor:pointer;">NVDA</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'TSLA\')" style="color:var(--red);cursor:pointer;">TSLA</a></div></div>';
+          '<div style="font-size:12px;">'+(hasBrowserKey()?'პროვაიდერმა ვერ დააბრუნა მონაცემები ამ ტიკერზე — შეამოწმე სიმბოლო ან სცადე მოგვიანებით. სცადე დემო: ':'ჩასვი უფასო API გასაღები (🔑 ზემოთ) ან სცადე დემო: ')+'<a class="kv5-ex" onclick="doEvaluatorSearch(\'AAPL\')" style="color:var(--red);cursor:pointer;">AAPL</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'NVDA\')" style="color:var(--red);cursor:pointer;">NVDA</a> · <a class="kv5-ex" onclick="doEvaluatorSearch(\'TSLA\')" style="color:var(--red);cursor:pointer;">TSLA</a></div></div>';
       }
     }
   };
@@ -1656,9 +1961,38 @@
       },score:52,band:{en:'NEUTRAL',ka:'ნეიტრალური',color:'#6b6b6b'},availableWeight:100,contributions:{}}
   };
 
+  function keysStatusText(){
+    if(fhKey()&&avKey()) return '● ცოცხალი რეჟიმი: Finnhub + Alpha Vantage';
+    if(fhKey()) return '● ცოცხალი რეჟიმი: Finnhub';
+    return '○ გასაღები არ არის — დემო რეჟიმი';
+  }
+  function initKeysUI(){
+    var tog=el('kv5-keys-toggle'), pan=el('kv5-keys-panel'), st=el('kv5-keys-status');
+    if(!tog||!pan) return;
+    function refresh(){ if(st){ st.textContent=keysStatusText(); st.style.color=fhKey()?'var(--green,#166534)':'var(--muted)'; } }
+    refresh();
+    el('kv5-key-fh').value=fhKey(); el('kv5-key-av').value=avKey();
+    tog.addEventListener('click',function(){ pan.style.display=(pan.style.display==='none'||!pan.style.display)?'block':'none'; });
+    var db=el('kv5-demobar-keys');
+    if(db) db.addEventListener('click',function(){ pan.style.display='block'; try{ el('kv5-key-fh').focus(); }catch(e){} });
+    el('kv5-keys-save').addEventListener('click',function(){
+      try{ localStorage.setItem(LS_FH,el('kv5-key-fh').value.trim()); localStorage.setItem(LS_AV,el('kv5-key-av').value.trim()); }catch(e){}
+      refresh();
+      if(hasBrowserKey()){ el('kv5-demobar').classList.remove('on'); pan.style.display='none'; var t=el('kv5-ticker'); if(t&&t.value) window.doEvaluatorSearch(); }
+      else { el('kv5-demobar').classList.add('on'); }
+    });
+    el('kv5-keys-clear').addEventListener('click',function(){
+      try{ localStorage.removeItem(LS_FH); localStorage.removeItem(LS_AV); }catch(e){}
+      el('kv5-key-fh').value=''; el('kv5-key-av').value='';
+      refresh(); el('kv5-demobar').classList.add('on');
+    });
+  }
+
   async function init(){
     try{ var r=await fetch('/api/config',{cache:'no-store'}); if(r.ok){ var c=await r.json(); CONFIG=c; } }catch(e){}
-    if(!(CONFIG.providers&&(CONFIG.providers.finnhub||CONFIG.providers.alphavantage))){ el('kv5-demobar').classList.add('on'); }
+    var serverLive=!!(CONFIG.providers&&(CONFIG.providers.finnhub||CONFIG.providers.alphavantage));
+    if(!serverLive && !hasBrowserKey()){ el('kv5-demobar').classList.add('on'); }
+    initKeysUI();
     
     const goBtn = el('kv5-go');
     if (goBtn) {
@@ -2026,5 +2360,139 @@
   init();
 })();
 </script>
+
+<!-- ========================================================
+     JS: API Library (public-apis live catalog)
+     ======================================================== -->
+<script>
+(function(){
+  'use strict';
+  var LS='tp_apilib_v1', TTL=24*3600*1000, PAGE=150;
+  var DATA=null, shown=PAGE, loadedOnce=false, refreshing=false;
+  var PIN=['Finance','Cryptocurrency','Currency Exchange'];
+  var USED={'Finnhub':1,'Alpha Vantage':1};
+  function el(id){ return document.getElementById(id); }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  /* --- parse the public-apis README (same table format as the repo) --- */
+  function parseReadme(md){
+    var lines=md.split('\n'), cat=null, apis=[], cats=[];
+    var skip={'APIs Covered Under APILayer Suite!':1};
+    var rowRe=/^\|\s*\[([^\]]+)\]\(([^)]+)\)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|/;
+    for(var i=0;i<lines.length;i++){
+      var ln=lines[i];
+      var h=ln.match(/^### (.+?)\s*$/);
+      if(h){ cat=skip[h[1].trim()]?null:h[1].trim(); if(cat&&cats.indexOf(cat)<0)cats.push(cat); continue; }
+      if(!cat)continue;
+      var m=ln.match(rowRe);
+      if(m){
+        var cl=function(x){ return x.trim().replace(/`/g,''); };
+        apis.push({c:cat,n:m[1].trim(),u:m[2].trim(),d:cl(m[3]),a:cl(m[4])||'No',h:cl(m[5]),o:cl(m[6])});
+      }
+    }
+    return { updated:new Date().toISOString().slice(0,10), source:'', count:apis.length, categories:cats, apis:apis };
+  }
+  function cached(){ try{ var j=JSON.parse(localStorage.getItem(LS)||'null'); return (j&&j.t&&j.data)?j:null; }catch(e){ return null; } }
+  function saveCache(data){ try{ localStorage.setItem(LS,JSON.stringify({t:Date.now(),data:data})); }catch(e){} }
+  function fetchText(url,ms){ return new Promise(function(res){ var ctl=new AbortController(); var t=setTimeout(function(){ctl.abort();res(null);},ms||15000); fetch(url,{signal:ctl.signal}).then(function(r){clearTimeout(t);(r&&r.ok)?r.text().then(res,function(){res(null);}):res(null);}).catch(function(){clearTimeout(t);res(null);}); }); }
+
+  async function loadCatalog(force){
+    var c=cached();
+    if(c&&!force){ apply(c.data,c.data._src||'cache'); if(Date.now()-c.t<TTL) return; }
+    if(refreshing)return; refreshing=true;
+    var md=await fetchText('https://cdn.jsdelivr.net/gh/public-apis/public-apis@master/README.md',15000);
+    var src='cdn.jsdelivr.net · live';
+    if(!md){ md=await fetchText('https://raw.githubusercontent.com/public-apis/public-apis/master/README.md',15000); src='raw.githubusercontent.com · live'; }
+    if(md){
+      var data=parseReadme(md);
+      if(data.apis.length>300){ data._src=src; saveCache(data); apply(data,src); refreshing=false; return; }
+    }
+    if(!DATA){
+      try{
+        var r=await fetch('/data/public-apis.json?t='+Date.now());
+        if(r.ok){ var snap=await r.json(); snap._src='ლოკალური ასლი · local snapshot'; apply(snap,snap._src); }
+        else throw 0;
+      }catch(e){ el('apilib-list').innerHTML='<div class="apilib-loading">კატალოგი ვერ ჩაიტვირთა. სცადე მოგვიანებით. / catalog unavailable.</div>'; }
+    }
+    refreshing=false;
+  }
+
+  function apply(data,src){
+    DATA=data;
+    el('apilib-count-top').textContent=data.count;
+    el('apilib-cats-top').textContent=data.categories.length;
+    el('apilib-upd').textContent=data.updated||'—';
+    el('apilib-src').textContent='წყარო · source: '+(src||'—');
+    var sel=el('apilib-cat'), keep=sel.value;
+    var rest=data.categories.filter(function(c){ return PIN.indexOf(c)<0; }).sort();
+    var opts='<option value="">ყველა კატეგორია · all categories</option>';
+    PIN.forEach(function(c){ if(data.categories.indexOf(c)>-1) opts+='<option value="'+esc(c)+'">💰 '+esc(c)+'</option>'; });
+    opts+='<option value="" disabled>──────────</option>';
+    rest.forEach(function(c){ opts+='<option value="'+esc(c)+'">'+esc(c)+'</option>'; });
+    sel.innerHTML=opts; sel.value=keep||'';
+    render();
+  }
+
+  function filtered(){
+    if(!DATA)return [];
+    var q=el('apilib-q').value.trim().toLowerCase();
+    var cat=el('apilib-cat').value, auth=el('apilib-auth').value;
+    var cors=el('apilib-cors').checked, https=el('apilib-https').checked;
+    return DATA.apis.filter(function(a){
+      if(cat&&a.c!==cat)return false;
+      if(auth==='no'&&a.a!=='No')return false;
+      if(auth==='apiKey'&&a.a.indexOf('apiKey')<0)return false;
+      if(auth==='OAuth'&&a.a.indexOf('OAuth')<0)return false;
+      if(cors&&a.o!=='Yes')return false;
+      if(https&&a.h!=='Yes')return false;
+      if(q&&(a.n+' '+a.d+' '+a.c).toLowerCase().indexOf(q)<0)return false;
+      return true;
+    });
+  }
+
+  function render(){
+    if(!DATA)return;
+    var list=filtered();
+    var pinned=[],restRows=[];
+    list.forEach(function(a){ (PIN.indexOf(a.c)>-1?pinned:restRows).push(a); });
+    var ordered=pinned.concat(restRows);
+    el('apilib-countline').textContent='ნაპოვნია '+list.length+' / '+DATA.count+' API'+(pinned.length?' · ფინანსური: '+pinned.length:'');
+    var out=ordered.slice(0,shown).map(function(a){
+      var authB=(a.a==='No')?'<span class="apilib-b ok">no key</span>':'<span class="apilib-b">'+esc(a.a)+'</span>';
+      var corsB=(a.o==='Yes')?'<span class="apilib-b ok">CORS</span>':(a.o==='No'?'<span class="apilib-b no">no CORS</span>':'<span class="apilib-b">CORS?</span>');
+      var httpsB=(a.h==='Yes')?'':'<span class="apilib-b no">http</span>';
+      var usedB=USED[a.n]?'<span class="apilib-b used" title="გამოიყენება სტოკ შემფასებელში">USED HERE</span>':'';
+      return '<div class="apilib-row">'+
+        '<span class="nm"><a href="'+esc(a.u)+'" target="_blank" rel="noopener nofollow">'+esc(a.n)+'</a></span>'+
+        '<span class="ds">'+esc(a.d)+'</span>'+
+        '<span class="bd">'+usedB+'<span class="apilib-b cat" onclick="apilibCat(\''+esc(a.c).replace(/'/g,"\\'")+'\')">'+esc(a.c)+'</span>'+authB+corsB+httpsB+'</span>'+
+      '</div>';
+    }).join('');
+    el('apilib-list').innerHTML=out||'<div class="apilib-loading">ვერაფერი მოიძებნა ამ ფილტრებით. / nothing found.</div>';
+    el('apilib-more').style.display=(ordered.length>shown)?'block':'none';
+  }
+
+  window.apilibCat=function(c){ el('apilib-cat').value=c; shown=PAGE; render(); };
+  window.apilibFind=function(name){
+    el('apilib-q').value=name; el('apilib-cat').value=''; el('apilib-auth').value='';
+    el('apilib-cors').checked=false; el('apilib-https').checked=false;
+    shown=PAGE; render();
+  };
+
+  function ensureLoaded(){ if(loadedOnce)return; loadedOnce=true; loadCatalog(false); }
+
+  window.addEventListener('DOMContentLoaded',function(){
+    ['apilib-q','apilib-cat','apilib-auth','apilib-cors','apilib-https'].forEach(function(id){
+      var n=el(id); if(!n)return;
+      n.addEventListener(n.tagName==='INPUT'&&n.type==='text'?'input':'change',function(){ shown=PAGE; render(); });
+    });
+    el('apilib-more').addEventListener('click',function(){ shown+=PAGE; render(); });
+    var btn=document.getElementById('tab-btn-apilib');
+    if(btn) btn.addEventListener('click',ensureLoaded);
+    try{ if(new URLSearchParams(window.location.search).get('tab')==='apilib') ensureLoaded(); }catch(e){}
+  });
+})();
+</script>
+
 </body>
 </html>
