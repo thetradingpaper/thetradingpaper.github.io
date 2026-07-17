@@ -15,7 +15,7 @@ export async function onRequest(context) {
     kv: !!env.TP_KV,
     providers: {
       finnhub: !!(env.FINNHUB_API_KEY || "d91t069r01qsj27o4k8gd91t069r01qsj27o4k90"),
-      alphavantage: !!env.ALPHAVANTAGE_API_KEY,
+      alphavantage: !!(env.ALPHAVANTAGE_API_KEY || "G4TTTXBXU3I9YBGO"),
     },
   });
 }

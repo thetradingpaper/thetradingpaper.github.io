@@ -1765,7 +1765,7 @@
      ============================================================ */
   var LS_FH='tp_fh_key', LS_AV='tp_av_key', LS_SIG='tp_kv5_local_signals';
   function fhKey(){ try{return (localStorage.getItem(LS_FH)||'d91t069r01qsj27o4k8gd91t069r01qsj27o4k90').trim();}catch(e){return 'd91t069r01qsj27o4k8gd91t069r01qsj27o4k90';} }
-  function avKey(){ try{return (localStorage.getItem(LS_AV)||'').trim();}catch(e){return '';} }
+  function avKey(){ try{return (localStorage.getItem(LS_AV)||'G4TTTXBXU3I9YBGO').trim();}catch(e){return 'G4TTTXBXU3I9YBGO';} }
   function hasBrowserKey(){ return !!fhKey(); }
   function tmoFetch(url,ms){ return new Promise(function(res){ var ctl=new AbortController(); var t=setTimeout(function(){ctl.abort();res(null);},ms||8000); fetch(url,{signal:ctl.signal}).then(function(r){clearTimeout(t);(r&&r.ok)?r.json().then(res,function(){res(null);}):res(null);}).catch(function(){clearTimeout(t);res(null);}); }); }
   function fh(path){ return tmoFetch('https://finnhub.io/api/v1'+path+(path.indexOf('?')>-1?'&':'?')+'token='+encodeURIComponent(fhKey()),8000); }

@@ -105,7 +105,7 @@ export async function fhNews(env, ticker) {
 
 /* ---- Alpha Vantage: one daily series → all momentum maths -- */
 export async function avDailyMetrics(env, ticker, timeoutMs = 12000) {
-  const key = env.ALPHAVANTAGE_API_KEY;
+  const key = env.ALPHAVANTAGE_API_KEY || "G4TTTXBXU3I9YBGO";
   if (!key) return { status: "unavailable", reason: "no-alphavantage-key" };
   return await cached(env, `av:${ticker}:${todayUTC()}`, 86400, async () => {
     const js = await fetchJson(
