@@ -17,7 +17,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 61.28
+     "last_price": 61.2
     }
    ],
    "trades": [
@@ -32,7 +32,7 @@
      "leverage": 1
     }
    ],
-   "equity": 98.69,
+   "equity": 98.56,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -61,13 +61,17 @@
     {
      "date": "2026-07-16",
      "equity": 98.69
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 98.56
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -1.31
+    "return_pct": -1.44
    }
   },
   "bot2": {
@@ -85,7 +89,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.89
+     "last_price": 83.86
     },
     {
      "ticker": "TCBK",
@@ -95,7 +99,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 61.28
+     "last_price": 61.2
     },
     {
      "ticker": "VOD",
@@ -105,7 +109,7 @@
      "target": 16.33,
      "stop": 15.08,
      "max_days": 7,
-     "last_price": 15.57
+     "last_price": 15.85
     },
     {
      "ticker": "CNMD",
@@ -115,7 +119,7 @@
      "target": 46.58,
      "stop": 39.22,
      "max_days": 7,
-     "last_price": 44.67
+     "last_price": 44.0
     },
     {
      "ticker": "ATAI",
@@ -125,7 +129,7 @@
      "target": 8.3,
      "stop": 6.45,
      "max_days": 7,
-     "last_price": 7.1402997970581055
+     "last_price": 7.19
     }
    ],
    "trades": [
@@ -180,7 +184,7 @@
      "leverage": 1
     }
    ],
-   "equity": 85.91,
+   "equity": 86.04,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -209,13 +213,17 @@
     {
      "date": "2026-07-16",
      "equity": 85.91
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 86.04
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -14.09
+    "return_pct": -13.96
    }
   },
   "bot3": {
@@ -233,7 +241,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 18.79
+     "last_price": 18.22
     },
     {
      "ticker": "BTDR",
@@ -253,7 +261,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 19.51
+     "last_price": 18.59
     }
    ],
    "trades": [
@@ -278,7 +286,7 @@
      "leverage": 1
     }
    ],
-   "equity": 69.85,
+   "equity": 68.14,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -307,13 +315,17 @@
     {
      "date": "2026-07-16",
      "equity": 69.85
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 68.14
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -30.15
+    "return_pct": -31.86
    }
   },
   "bot4": {
@@ -331,7 +343,7 @@
      "target": 92.79,
      "stop": 77.92,
      "max_days": 7,
-     "last_price": 83.89
+     "last_price": 83.86
     }
    ],
    "trades": [
@@ -346,7 +358,7 @@
      "leverage": 1
     }
    ],
-   "equity": 97.87,
+   "equity": 97.86,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -375,13 +387,17 @@
     {
      "date": "2026-07-16",
      "equity": 97.87
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 97.86
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -2.13
+    "return_pct": -2.14
    }
   },
   "bot5": {
@@ -432,6 +448,10 @@
     {
      "date": "2026-07-16",
      "equity": 903.22
+    },
+    {
+     "date": "2026-07-17",
+     "equity": 903.22
     }
    ],
    "stats": {
@@ -442,5 +462,5 @@
    }
   }
  },
- "updated": "2026-07-16T15:29:12.981486+00:00"
+ "updated": "2026-07-17T15:15:16.442976+00:00"
 }
