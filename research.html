@@ -855,10 +855,15 @@
   function sign0(x){ if(n(x))return '—'; var s=x>=0?'+':'−'; return s+Math.abs(Math.round(x))+'%'; }
 
   function unavail(){ return '<div class="kv5-unavail">მონაცემი მიუწვდომელია / data unavailable</div>'; }
+  // truly-unavailable cards: show the reason + a fix hint that scrolls to the keys box
+  function unavailKeys(){ return '<div class="kv5-unavail" style="line-height:1.5;">სრული ინდიკატორებისთვის (RSI/MA/ATR) ჩასვი უფასო Alpha Vantage გასაღები — <a onclick="try{var t=document.getElementById(\'kv5-keys-toggle\');if(t){var p=document.getElementById(\'kv5-keys-panel\');if(p)p.style.display=\'block\';t.scrollIntoView({behavior:\'smooth\',block:\'center\'});}}catch(e){}" style="color:var(--red);cursor:pointer;font-weight:700;text-decoration:underline;">🔑 ქვემოთ</a></div>'; }
+  function hint(t){ return '<div class="kv5-hint" style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;color:var(--muted);margin:-4px 0 10px;line-height:1.4;">'+t+'</div>'; }
   function row(k,ksmall,v,cls){ return '<div class="kv5-row"><span class="k">'+k+(ksmall?' <small>'+ksmall+'</small>':'')+'</span><span class="v '+(cls||'')+'">'+v+'</span></div>'; }
+  function fmtPctVal(x){ return n(x)?'—':((+x>=0?'':'−')+Math.abs(+x).toFixed(2)+'%'); }
+  function fmtBn(x){ if(n(x))return '—'; var v=+x; return v>=1000?('$'+(v/1000).toFixed(2)+'T'):('$'+v.toFixed(2)+'B'); }
 
   function priceCard(p,cur){
-    var b='<div class="kv5-card"><h3><span><span class="num">1.</span> ფასი &amp; მოძრაობა</span><span style="font-weight:400;color:var(--muted);">Price</span></h3>';
+    var b='<div class="kv5-card"><h3><span><span class="num">1.</span> ფასი &amp; მოძრაობა</span><span style="font-weight:400;color:var(--muted);">Price</span></h3>'+hint('სად დგას ფასი დღეს და ბოლო პერიოდში');
     if(!p||p.status!=='ok') return b+unavail()+'</div>';
     b+=row('მიმდინარე ფასი','price',(cur||'$')+' '+fmtN(p.price),'');
     b+=row('დღის ცვლილება','day',pctStr(p.dayChangePct),pctCls(p.dayChangePct));
@@ -869,25 +874,52 @@
     return b+'</div>';
   }
   function momentumCard(m){
-    var b='<div class="kv5-card"><h3><span><span class="num">2.</span> მომენტი</span><span style="font-weight:400;color:var(--muted);">Momentum</span></h3>';
-    if(!m||m.status!=='ok') return b+unavail()+'</div>';
+    var b='<div class="kv5-card"><h3><span><span class="num">2.</span> მომენტი</span><span style="font-weight:400;color:var(--muted);">Momentum</span></h3>'+hint('რამდენად ძლიერად და რა მიმართულებით მოძრაობს აქცია');
+    if(!m||m.status!=='ok') return b+unavailKeys()+'</div>';
+    if(m.mode==='metric'){
+      b+=row('5 დღე','5d', fmtPctVal(m.ret5), pctCls(m.ret5));
+      b+=row('3 თვე','13w', fmtPctVal(m.ret13), pctCls(m.ret13));
+      b+=row('6 თვე','26w', fmtPctVal(m.ret26), pctCls(m.ret26));
+      b+=row('52 კვირა','52w', fmtPctVal(m.ret52), pctCls(m.ret52));
+      b+=row('ბეტა','beta', fmtN(m.beta,2), '');
+      b+=row('მოცულობის ტრენდი','vol', sign0(m.volTrend), pctCls(m.volTrend));
+      return b+'</div>';
+    }
     b+=row('RSI (14)','', n(m.rsi14)?'—':m.rsi14.toFixed(1), (m.rsi14>=70?'neg':(m.rsi14<=30?'pos':'')));
     b+=row('ფასი vs 50-დღ MA','', sign0(m.priceVs50Pct), pctCls(m.priceVs50Pct));
     b+=row('ფასი vs 200-დღ MA','', sign0(m.priceVs200Pct), pctCls(m.priceVs200Pct));
     b+=row('მოცულობა vs 30-დღ საშ.','vol', sign0(m.volVsAvgPct), pctCls(m.volVsAvgPct));
     b+=row('50 / 200 MA','', n(m.sma50)?'—':('$'+fmtN(m.sma50,0)+' / '+(n(m.sma200)?'—':'$'+fmtN(m.sma200,0))));
+    if(!n(m.beta)) b+=row('ბეტა','beta', fmtN(m.beta,2), '');
     return b+'</div>';
   }
-  function sentimentCard(s){
-    var b='<div class="kv5-card wide"><h3><span><span class="num">3.</span> სენტიმენტი</span><span style="font-weight:400;color:var(--muted);">Sentiment</span></h3>';
+  function consensusBar(rc){
+    var sb=+rc.strongBuy||0, bu=+rc.buy||0, ho=+rc.hold||0, se=+rc.sell||0, ss=+rc.strongSell||0;
+    var tot=sb+bu+ho+se+ss; if(!tot) return '';
+    var segs=[[sb,'#166534','ძლიერი ყიდვა'],[bu,'#4d9a5f','ყიდვა'],[ho,'#8b6914','დაცდა'],[se,'#c2703a','გაყიდვა'],[ss,'#b91c1c','ძლიერი გაყიდვა']];
+    var bar='<div style="display:flex;height:16px;border-radius:3px;overflow:hidden;border:1px solid var(--rule,#1d1a14);">';
+    segs.forEach(function(g){ if(g[0]>0) bar+='<div title="'+g[2]+': '+g[0]+'" style="width:'+(g[0]/tot*100)+'%;background:'+g[1]+';"></div>'; });
+    bar+='</div>';
+    var legend='<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:6px;font-family:ui-monospace,monospace;"><span style="color:#166534;font-weight:700;">'+ (sb+bu) +' ყიდვა</span><span>'+ho+' დაცდა</span><span style="color:#b91c1c;font-weight:700;">'+(se+ss)+' გაყიდვა</span></div>';
+    return bar+legend;
+  }
+  function sentimentCard(s,extras){
+    var b='<div class="kv5-card wide"><h3><span><span class="num">3.</span> სენტიმენტი</span><span style="font-weight:400;color:var(--muted);">Sentiment</span></h3>'+hint('რას ფიქრობენ ბაზარი და ანალიტიკოსები');
     if(!s||s.status!=='ok') return b+unavail()+'</div>';
     b+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">';
     b+='<div>';
     var mk=s.market||{};
+    var rc=(s.consensus)||(extras&&extras.recs)||null;
     if(mk.status==='ok'){
       var col = mk.score<25?'#b91c1c':mk.score<45?'#b45309':mk.score<=55?'#6b6b6b':mk.score<=75?'#8b6914':'#166534';
       b+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">CNN Fear &amp; Greed (ბაზარი)</div>';
       b+='<div class="kv5-fng"><span class="num" style="color:'+col+';">'+mk.score+'</span><div class="meta"><b>'+esc(mk.rating||'')+'</b><br>წინა კვირა: '+(n(mk.prevWeek)?'—':mk.prevWeek)+'</div></div>';
+    } else if(rc && (( +rc.strongBuy||0)+( +rc.buy||0)+( +rc.hold||0)+( +rc.sell||0)+( +rc.strongSell||0))>0){
+      b+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">ანალიტიკოსების კონსენსუსი'+(rc.period?' · '+esc(rc.period):'')+'</div>';
+      b+=consensusBar(rc);
+    } else if(s.headlines && s.headlines.status==='ok'){
+      b+='<div style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">გაშუქება · Coverage</div>';
+      b+='<div class="kv5-fng"><span class="num" style="color:var(--muted);">'+(s.headlines.count||0)+'</span><div class="meta"><b>სათაური</b><br>ბოლო 14 დღე</div></div>';
     } else { b+=unavail(); }
     b+='</div>';
     b+='<div>';
@@ -906,7 +938,7 @@
     return b+'</div>';
   }
   function valuationCard(v){
-    var b='<div class="kv5-card"><h3><span><span class="num">4.</span> შეფასება</span><span style="font-weight:400;color:var(--muted);">Valuation</span></h3>';
+    var b='<div class="kv5-card"><h3><span><span class="num">4.</span> შეფასება</span><span style="font-weight:400;color:var(--muted);">Valuation</span></h3>'+hint('ძვირია თუ იაფი მოგებასთან შედარებით');
     if(!v||v.status!=='ok') return b+unavail()+'</div>';
     b+=row('P/E (TTM)','', n(v.peTTM)?'— (n/a)':v.peTTM.toFixed(1));
     b+=row('სექტ. მედიანა P/E','sector', n(v.sectorMedianPE)?'—':('~'+v.sectorMedianPE));
@@ -916,12 +948,52 @@
     return b+'</div>';
   }
   function cfdCard(c){
-    var b='<div class="kv5-card"><h3><span><span class="num">5.</span> CFD პანელი</span><span style="font-weight:400;color:var(--muted);">CFD</span></h3>';
-    if(!c||c.status!=='ok') return b+unavail()+'</div>';
+    var b='<div class="kv5-card"><h3><span><span class="num">5.</span> CFD პანელი</span><span style="font-weight:400;color:var(--muted);">CFD</span></h3>'+hint('რამდენად მერყევია ფასი — რისკის ზომა');
+    if(!c||c.status!=='ok') return b+unavailKeys()+'</div>';
+    if(c.mode==='metric'){
+      b+=row('3-თვ ვოლ. (std)','3m', n(c.adStd3m)?'—':(c.adStd3m.toFixed(2)+'%'), '');
+      b+=row('ბეტა','beta', fmtN(c.beta,2), (c.beta>1.5?'neg':''));
+      if(c.financingNote) b+='<div class="kv5-note">'+esc(c.financingNote)+'</div>';
+      return b+'</div>';
+    }
     b+=row('30-დღ ვოლატილობა','annualised', n(c.vol30Pct)?'—':(c.vol30Pct.toFixed(1)+'%'), (c.vol30Pct>50?'neg':''));
     b+=row('ATR (14)','', n(c.atr14)?'—':('$'+c.atr14.toFixed(2)));
     b+=row('ATR % ფასის','', n(c.atr14Pct)?'—':(c.atr14Pct.toFixed(2)+'%'));
     if(c.financingNote) b+='<div class="kv5-note">'+esc(c.financingNote)+'</div>';
+    return b+'</div>';
+  }
+  function fundamentalsCard(x){
+    var b='<div class="kv5-card"><h3><span><span class="num">6.</span> ფუნდამენტები</span><span style="font-weight:400;color:var(--muted);">Fundamentals</span></h3>'+hint('ბიზნესის ჯანმრთელობა: ზრდა, მარჟები, ვალი');
+    var m=(x&&x.metrics)||null; if(!m) return '';
+    var g=function(k){return numOr(m[k]);};
+    var rows=[
+      ['შემოსავლის ზრდა','rev YoY', fmtPctVal(g('revenueGrowthTTMYoy')), pctCls(g('revenueGrowthTTMYoy'))],
+      ['EPS ზრდა','eps YoY', fmtPctVal(g('epsGrowthTTMYoy')), pctCls(g('epsGrowthTTMYoy'))],
+      ['მთლიანი მარჟა','gross', n(g('grossMarginTTM'))?'—':g('grossMarginTTM').toFixed(1)+'%',''],
+      ['საოპერაციო მარჟა','op', n(g('operatingMarginTTM'))?'—':g('operatingMarginTTM').toFixed(1)+'%',''],
+      ['წმინდა მარჟა','net', n(g('netProfitMarginTTM'))?'—':g('netProfitMarginTTM').toFixed(1)+'%',''],
+      ['ROE','', n(g('roeTTM'))?'—':g('roeTTM').toFixed(1)+'%',''],
+      ['P/B','', fmtN(g('pb'),2),''],
+      ['P/S','', fmtN(g('psTTM'),2),''],
+      ['ვალი/კაპიტალი','D/E', fmtN(g('totalDebt/totalEquityQuarterly'),2),''],
+      ['მიმდ. კოეფ.','current', fmtN(g('currentRatioQuarterly'),2),''],
+      ['დივ. payout','payout', n(g('payoutRatioTTM'))?'—':g('payoutRatioTTM').toFixed(1)+'%','']
+    ];
+    var anyVal=rows.some(function(r){ return r[2]!=='—'; });
+    if(!anyVal) return '';
+    rows.forEach(function(r){ b+=row(r[0],r[1],r[2],r[3]); });
+    return b+'</div>';
+  }
+  function earningsCard(x){
+    var b='<div class="kv5-card"><h3><span><span class="num">7.</span> მოგებები</span><span style="font-weight:400;color:var(--muted);">Earnings</span></h3>'+hint('ბოლო კვარტლების შედეგები მოლოდინთან შედარებით');
+    var e=(x&&x.earnings)||null; if(!e||!e.length) return '';
+    e.slice(0,4).forEach(function(q){
+      var sp=numOr(q.surprisePercent);
+      var mark=sp==null?'':(sp>=0?'<span class="mk pos">▲</span> ':'<span class="mk neg">▼</span> ');
+      var val=(n(q.estimate)?'—':('E '+(+q.estimate).toFixed(2)))+' → '+(n(q.actual)?'—':('A '+(+q.actual).toFixed(2)))
+        +(sp==null?'':' <small style="color:'+(sp>=0?'#166534':'#b91c1c')+';">'+mark+Math.abs(sp).toFixed(1)+'%</small>');
+      b+=row(esc(q.period||''),'', val, '');
+    });
     return b+'</div>';
   }
 
@@ -934,6 +1006,21 @@
       '<div class="labels"><span>0</span><span>Short</span><span>Weak</span><span>Neutral</span><span>Watch</span><span>Strong</span><span>100</span></div></div>';
   }
 
+  function profileStrip(d){
+    var x=d.extras||{}, prof=x.profile||{}, m=x.metrics||{};
+    var parts=[];
+    if(prof.exchange) parts.push(esc(prof.exchange));
+    if(d.sector) parts.push(esc(d.sector));
+    var ipoY=prof.ipo?String(prof.ipo).slice(0,4):''; if(ipoY) parts.push('IPO '+ipoY);
+    var capM=numOr(m.marketCapitalization); if(capM!=null) parts.push(fmtBn(capM/1000));
+    var dy=numOr(m.currentDividendYieldTTM); if(dy==null)dy=numOr(m.dividendYieldIndicatedAnnual);
+    if(dy!=null) parts.push('div '+dy.toFixed(2)+'%');
+    var logo=prof.logo?'<img src="'+esc(prof.logo)+'" alt="" style="width:22px;height:22px;border-radius:4px;vertical-align:middle;margin-right:8px;object-fit:contain;" onerror="this.style.display=\'none\'">':'';
+    var web=prof.weburl?' · <a href="'+esc(prof.weburl)+'" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;">საიტი ↗</a>':'';
+    if(!parts.length && !logo && !web) return '';
+    return '<div class="kv5-profile" style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;font-family:\'Noto Sans Georgian\',sans-serif;font-size:11.5px;color:var(--muted);margin:4px 0 2px;">'+logo+'<span>'+parts.join(' · ')+web+'</span></div>';
+  }
+
   function renderDossier(d,isDemo){
     current=d;
     var band=d.band||{en:'—',ka:'—',color:'#6b6b6b'};
@@ -944,6 +1031,7 @@
     var html='<div class="kv5-hero widget'+(isDemo?' sample':'')+'">'+
       '<div class="kv5-hero-head"><div><div class="kv5-tk">'+esc(d.ticker)+'</div><div class="kv5-nm">'+esc(d.name||'')+(d.sector?' · '+esc(d.sector):'')+'</div></div>'+
         '<div class="kv5-hero-price"><div class="p">'+priceStr+'</div><div class="c '+chCls+'">'+chStr+'</div></div></div>'+
+      profileStrip(d)+
       '<div class="kv5-scorewrap">'+
         '<div class="kv5-scorenum"><div class="big" style="color:'+band.color+';">'+(d.score==null?'—':d.score)+'</div><div class="out">/ 100 კომპოზიტური ქულა</div></div>'+
         '<div><span class="kv5-band" style="background:'+band.color+';">'+esc(band.en)+'</span>'+
@@ -956,9 +1044,11 @@
     html+='<div class="kv5-sections">'+
       priceCard(d.sections&&d.sections.price,d.currency)+
       momentumCard(d.sections&&d.sections.momentum)+
-      sentimentCard(d.sections&&d.sections.sentiment)+
+      sentimentCard(d.sections&&d.sections.sentiment,d.extras)+
       valuationCard(d.sections&&d.sections.valuation)+
       cfdCard(d.sections&&d.sections.cfd)+
+      fundamentalsCard(d.extras)+
+      earningsCard(d.extras)+
     '</div>';
 
     html+='<div class="kv5-analyst-wrap">';
@@ -1112,8 +1202,9 @@
   async function clientDossier(tk){
     var from=new Date(Date.now()-14*86400000), to=new Date();
     function d10(x){ return x.toISOString().slice(0,10); }
-    var rs=await Promise.all([ fh('/quote?symbol='+encodeURIComponent(tk)), fh('/stock/profile2?symbol='+encodeURIComponent(tk)), fh('/stock/metric?symbol='+encodeURIComponent(tk)+'&metric=all'), fh('/company-news?symbol='+encodeURIComponent(tk)+'&from='+d10(from)+'&to='+d10(to)), avDaily(tk) ]);
+    var rs=await Promise.all([ fh('/quote?symbol='+encodeURIComponent(tk)), fh('/stock/profile2?symbol='+encodeURIComponent(tk)), fh('/stock/metric?symbol='+encodeURIComponent(tk)+'&metric=all'), fh('/company-news?symbol='+encodeURIComponent(tk)+'&from='+d10(from)+'&to='+d10(to)), avDaily(tk), fh('/stock/recommendation?symbol='+encodeURIComponent(tk)), fh('/stock/earnings?symbol='+encodeURIComponent(tk)) ]);
     var q=rs[0], prof=rs[1]||{}, met=(rs[2]&&rs[2].metric)||{}, news=rs[3], av=rs[4];
+    var recArr=Array.isArray(rs[5])?rs[5]:null, earnArr=Array.isArray(rs[6])?rs[6]:null;
     var price=numOr(q&&q.c); if(price===0)price=null;
     if(price==null&&av)price=numOr(av.lastClose);
     if(price==null)throw new Error('no-price');
@@ -1126,22 +1217,48 @@
     var avgV=av?numOr(av.avgVol30):(numOr(met['10DayAverageTradingVolume'])!=null?met['10DayAverageTradingVolume']*1e6:null);
     var latV=av?numOr(av.latestVol):null;
     var volRatio=(latV!=null&&avgV)?latV/avgV:null;
-    var momSec=(rsiV!=null||sma50!=null||volRatio!=null)
-      ? {status:'ok',rsi14:rsiV==null?null:+rsiV.toFixed(1),sma50:sma50,sma200:sma200,priceVs50Pct:(sma50?+((price/sma50-1)*100).toFixed(1):null),priceVs200Pct:(sma200?+((price/sma200-1)*100).toFixed(1):null),avgVol30:avgV,latestVol:latV,volVsAvgPct:(volRatio==null?null:Math.round((volRatio-1)*100)),dataPoints:av?av.dataPoints:null}
-      : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    var betaV=numOr(met['beta']);
+    var momSec;
+    if(rsiV!=null||sma50!=null||volRatio!=null){
+      momSec={status:'ok',mode:'full',rsi14:rsiV==null?null:+rsiV.toFixed(1),sma50:sma50,sma200:sma200,priceVs50Pct:(sma50?+((price/sma50-1)*100).toFixed(1):null),priceVs200Pct:(sma200?+((price/sma200-1)*100).toFixed(1):null),avgVol30:avgV,latestVol:latV,volVsAvgPct:(volRatio==null?null:Math.round((volRatio-1)*100)),beta:betaV,dataPoints:av?av.dataPoints:null};
+    } else {
+      // display-only fallback from metric=all (no Alpha Vantage) — does NOT feed the score
+      var r5=numOr(met['5DayPriceReturnDaily']), r13=numOr(met['13WeekPriceReturnDaily']), r26=numOr(met['26WeekPriceReturnDaily']), r52=numOr(met['52WeekPriceReturnDaily']);
+      var v10m=numOr(met['10DayAverageTradingVolume']), v3m=numOr(met['3MonthAverageTradingVolume']);
+      var volTrend=(v10m!=null&&v3m)?Math.round((v10m/v3m-1)*100):null;
+      momSec=(r5!=null||r13!=null||r26!=null||r52!=null||betaV!=null)
+        ? {status:'ok',mode:'metric',ret5:r5,ret13:r13,ret26:r26,ret52:r52,beta:betaV,volTrend:volTrend}
+        : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    }
     var heads=headlineSent(Array.isArray(news)?news:[]);
-    var sentSec={status:(heads.status==='ok')?'ok':'unavailable',market:{status:'unavailable'},headlines:heads};
+    var consensus=(recArr&&recArr.length)?recArr[0]:null;
+    var sentSec={status:((heads.status==='ok')||consensus)?'ok':'unavailable',market:{status:'unavailable'},consensus:consensus,headlines:heads};
     var pe=numOr(met['peTTM']); if(pe==null)pe=numOr(met['peBasicExclExtraTTM']); if(pe==null)pe=numOr(met['peInclExtraTTM']);
     var sector=prof.finnhubIndustry||null, medPE=sectorMedianPE(sector);
     var capM=numOr(prof.marketCapitalization), tier=marketCapTier(capM);
     var valSec=(pe!=null||tier)?{status:'ok',peTTM:pe,sectorMedianPE:medPE,peVsSectorPct:(pe&&medPE?Math.round((pe/medPE-1)*100):null),marketCapBn:tier?+tier.bn.toFixed(0):null,capTier:tier?tier.tier:null,capTierKa:tier?tier.ka:null,sector:sector}:{status:'unavailable'};
     var vol30=av?numOr(av.vol30):null, atrV=av?numOr(av.atr14):null;
-    var cfdSec=(vol30!=null)
-      ? {status:'ok',vol30Pct:+vol30.toFixed(1),atr14:atrV==null?null:+atrV.toFixed(2),atr14Pct:(atrV&&price?+((atrV/price)*100).toFixed(2):null),financingNote:(vol30>50?'ძალიან მაღალი ვოლატილობა — CFD ფრთხილად. (Very high volatility.)':vol30>35?'მაღალი ვოლატილობა — გააფართოვე სტოპები. (High volatility — widen stops.)':vol30>=18?'ზომიერი ვოლატილობა — სტანდარტული სტოპ-მართვა CFD-სთვის. (Moderate volatility.)':'დაბალი ვოლატილობა. (Low volatility.)')}
-      : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    function volNote(v){ return v>50?'ძალიან მაღალი ვოლატილობა — CFD ფრთხილად. (Very high volatility.)':v>35?'მაღალი ვოლატილობა — გააფართოვე სტოპები. (High volatility — widen stops.)':v>=18?'ზომიერი ვოლატილობა — სტანდარტული სტოპ-მართვა CFD-სთვის. (Moderate volatility.)':'დაბალი ვოლატილობა. (Low volatility.)'; }
+    var cfdSec;
+    if(vol30!=null){
+      cfdSec={status:'ok',mode:'full',vol30Pct:+vol30.toFixed(1),atr14:atrV==null?null:+atrV.toFixed(2),atr14Pct:(atrV&&price?+((atrV/price)*100).toFixed(2):null),financingNote:volNote(vol30)};
+    } else {
+      // display-only fallback from metric=all — does NOT feed the score
+      var adStd=numOr(met['3MonthADReturnStd']);
+      var noteBeta=(betaV==null)?'':(betaV>1.5?'მაღალი ბეტა — ფასი ბაზარზე მეტად მერყევია; გააფართოვე სტოპები.':betaV>=1?'ბაზრის დონის მერყეობა — სტანდარტული სტოპ-მართვა.':'ბაზარზე ნაკლებად მერყევი — დაბალი ვოლატილობა.');
+      cfdSec=(adStd!=null||betaV!=null)
+        ? {status:'ok',mode:'metric',adStd3m:(adStd==null?null:+adStd.toFixed(2)),beta:betaV,financingNote:noteBeta}
+        : {status:'unavailable',reason:'needs Alpha Vantage key'};
+    }
     var comp=computeScore({price:price,rsi:rsiV,sma50:sma50,sma200:sma200,volRatio:volRatio,rangePos:rangePos,monthChange:monthCh,fng:null,headlineNet:(heads.status==='ok'?heads.net:null),pe:(valSec.status==='ok'?pe:undefined),sectorMedianPE:medPE,capTier:tier?tier.tier:null,vol30:vol30});
     var d={ok:true,ticker:tk,name:prof.name||tk,sector:sector,currency:'$',exchange:prof.exchange||'',asOf:new Date().toISOString(),configured:true,_src:'browser',
       sections:{price:priceSec,momentum:momSec,sentiment:sentSec,valuation:valSec,cfd:cfdSec},
+      extras:{
+        recs:consensus,
+        earnings:earnArr?earnArr.slice(0,4):null,
+        profile:{logo:prof.logo||'',weburl:prof.weburl||'',exchange:prof.exchange||'',ipo:prof.ipo||'',shareOutstanding:numOr(prof.shareOutstanding)},
+        metrics:met
+      },
       score:comp.score,band:comp.band,availableWeight:comp.availableWeight,contributions:comp.contributions,
       signal:{date:new Date().toISOString().slice(0,10),ticker:tk,price:price,score:comp.score}};
     try{ logLocalSignal(d); }catch(eSig){}
@@ -1199,25 +1316,43 @@
       sections:{
         price:{status:'ok',price:227.50,dayChange:2.10,dayChangePct:0.93,prevClose:225.40,weekChangePct:1.8,monthChangePct:5.4,hi52:237.23,lo52:164.08,rangePosPct:86.8},
         momentum:{status:'ok',rsi14:58.4,sma50:214.30,sma200:198.70,priceVs50Pct:6.2,priceVs200Pct:14.5,avgVol30:52000000,latestVol:61000000,volVsAvgPct:17,dataPoints:5000},
-        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:0.4,count:18,scored:9,label:'დადებითი / Positive',recent:[{headline:'Apple services revenue hits record as iPhone demand holds',dir:1,source:'Demo'},{headline:'Analysts raise targets ahead of product cycle',dir:1,source:'Demo'},{headline:'Regulatory probe in EU continues',dir:-1,source:'Demo'}]}},
+        sentiment:{status:'ok',market:{status:'unavailable'},headlines:{status:'ok',net:0.4,count:18,scored:9,label:'დადებითი / Positive',recent:[{headline:'Apple services revenue hits record as iPhone demand holds',dir:1,source:'Demo'},{headline:'Analysts raise targets ahead of product cycle',dir:1,source:'Demo'},{headline:'Regulatory probe in EU continues',dir:-1,source:'Demo'}]}},
         valuation:{status:'ok',peTTM:29.4,sectorMedianPE:30,peVsSectorPct:-2,marketCapBn:3450,capTier:'Mega',capTierKa:'მეგა',sector:'Technology'},
         cfd:{status:'ok',vol30Pct:22.6,atr14:3.85,atr14Pct:1.69,financingNote:'ზომიერი ვოლატილობა — სტანდარტული სტოპ-მართვა CFD-სთვის. (Moderate volatility.)'}
+      },
+      extras:{
+        recs:{strongBuy:12,buy:20,hold:10,sell:2,strongSell:1,period:'2026-07-01'},
+        earnings:[{period:'2026-06-30',actual:1.52,estimate:1.45,surprisePercent:4.8},{period:'2026-03-31',actual:1.63,estimate:1.60,surprisePercent:1.9},{period:'2025-12-31',actual:2.18,estimate:2.10,surprisePercent:3.8},{period:'2025-09-30',actual:1.46,estimate:1.40,surprisePercent:4.3}],
+        profile:{logo:'',weburl:'https://www.apple.com',exchange:'NASDAQ',ipo:'1980-12-12',shareOutstanding:15200},
+        metrics:{marketCapitalization:3450000,currentDividendYieldTTM:0.44,revenueGrowthTTMYoy:6.1,epsGrowthTTMYoy:9.4,grossMarginTTM:46.2,operatingMarginTTM:31.5,netProfitMarginTTM:25.3,roeTTM:150.1,pb:58.2,psTTM:9.1,'totalDebt/totalEquityQuarterly':1.87,currentRatioQuarterly:0.87,payoutRatioTTM:15.4,beta:1.20}
       },score:79,band:{en:'STRONG RESEARCH INTEREST',ka:'ძლიერი კვლევითი ინტერესი',color:'#166534'},availableWeight:100,contributions:{}},
     NVDA:{ok:true,ticker:'NVDA',name:'NVIDIA Corp.',sector:'Semiconductors',currency:'$',exchange:'NASDAQ',asOf:new Date().toISOString(),configured:false,
       sections:{
         price:{status:'ok',price:131.20,dayChange:-1.80,dayChangePct:-1.35,prevClose:133.00,weekChangePct:-3.2,monthChangePct:11.8,hi52:140.76,lo52:39.23,rangePosPct:90.5},
         momentum:{status:'ok',rsi14:71.6,sma50:118.40,sma200:98.10,priceVs50Pct:10.8,priceVs200Pct:33.7,avgVol30:310000000,latestVol:520000000,volVsAvgPct:68,dataPoints:5000},
-        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:0.2,count:24,scored:14,label:'დადებითი / Positive',recent:[{headline:'NVIDIA data-center demand surges on AI buildout',dir:1,source:'Demo'},{headline:'Supply constraints warn of near-term volatility',dir:-1,source:'Demo'},{headline:'New chip generation beats expectations',dir:1,source:'Demo'}]}},
+        sentiment:{status:'ok',market:{status:'unavailable'},headlines:{status:'ok',net:0.2,count:24,scored:14,label:'დადებითი / Positive',recent:[{headline:'NVIDIA data-center demand surges on AI buildout',dir:1,source:'Demo'},{headline:'Supply constraints warn of near-term volatility',dir:-1,source:'Demo'},{headline:'New chip generation beats expectations',dir:1,source:'Demo'}]}},
         valuation:{status:'ok',peTTM:64.2,sectorMedianPE:26,peVsSectorPct:147,marketCapBn:3230,capTier:'Mega',capTierKa:'მეგა',sector:'Semiconductors'},
         cfd:{status:'ok',vol30Pct:48.3,atr14:5.10,atr14Pct:3.89,financingNote:'მაღალი ვოლატილობა — გააფართოვე სტოპები. (High volatility — widen stops.)'}
+      },
+      extras:{
+        recs:{strongBuy:28,buy:14,hold:5,sell:1,strongSell:0,period:'2026-07-01'},
+        earnings:[{period:'2026-06-30',actual:0.72,estimate:0.64,surprisePercent:12.5},{period:'2026-03-31',actual:0.61,estimate:0.59,surprisePercent:3.4},{period:'2025-12-31',actual:0.52,estimate:0.48,surprisePercent:8.3},{period:'2025-09-30',actual:0.40,estimate:0.35,surprisePercent:14.3}],
+        profile:{logo:'',weburl:'https://www.nvidia.com',exchange:'NASDAQ',ipo:'1999-01-22',shareOutstanding:24600},
+        metrics:{marketCapitalization:3230000,currentDividendYieldTTM:0.03,revenueGrowthTTMYoy:114.2,epsGrowthTTMYoy:132.5,grossMarginTTM:74.6,operatingMarginTTM:62.1,netProfitMarginTTM:55.8,roeTTM:119.3,pb:48.7,psTTM:32.4,'totalDebt/totalEquityQuarterly':0.16,currentRatioQuarterly:4.10,payoutRatioTTM:1.2,beta:1.68}
       },score:68,band:{en:'WATCH',ka:'სათვალყურო',color:'#8b6914'},availableWeight:100,contributions:{}},
     TSLA:{ok:true,ticker:'TSLA',name:'Tesla Inc.',sector:'Automobiles',currency:'$',exchange:'NASDAQ',asOf:new Date().toISOString(),configured:false,
       sections:{
         price:{status:'ok',price:248.90,dayChange:4.30,dayChangePct:1.76,prevClose:244.60,weekChangePct:2.1,monthChangePct:-6.4,hi52:299.29,lo52:138.80,rangePosPct:68.6},
         momentum:{status:'ok',rsi14:49.2,sma50:246.10,sma200:232.40,priceVs50Pct:1.1,priceVs200Pct:7.1,avgVol30:98000000,latestVol:90000000,volVsAvgPct:-8,dataPoints:3500},
-        sentiment:{status:'ok',market:{status:'ok',score:54,rating:'Neutral',prevClose:52,prevWeek:49},headlines:{status:'ok',net:-0.1,count:20,scored:12,label:'ნეიტრალური / Neutral',recent:[{headline:'Deliveries miss the highest estimates',dir:-1,source:'Demo'},{headline:'Energy storage business posts strong growth',dir:1,source:'Demo'},{headline:'Price cuts pressure margins',dir:-1,source:'Demo'}]}},
+        sentiment:{status:'ok',market:{status:'unavailable'},headlines:{status:'ok',net:-0.1,count:20,scored:12,label:'ნეიტრალური / Neutral',recent:[{headline:'Deliveries miss the highest estimates',dir:-1,source:'Demo'},{headline:'Energy storage business posts strong growth',dir:1,source:'Demo'},{headline:'Price cuts pressure margins',dir:-1,source:'Demo'}]}},
         valuation:{status:'ok',peTTM:58.7,sectorMedianPE:15,peVsSectorPct:291,marketCapBn:795,capTier:'Mega',capTierKa:'მეგა',sector:'Automobiles'},
         cfd:{status:'ok',vol30Pct:54.9,atr14:9.40,atr14Pct:3.78,financingNote:'მაღალი ვოლატილობა. (High volatility.)'}
+      },
+      extras:{
+        recs:{strongBuy:8,buy:10,hold:14,sell:6,strongSell:3,period:'2026-07-01'},
+        earnings:[{period:'2026-06-30',actual:0.42,estimate:0.51,surprisePercent:-17.6},{period:'2026-03-31',actual:0.45,estimate:0.49,surprisePercent:-8.2},{period:'2025-12-31',actual:0.66,estimate:0.62,surprisePercent:6.5},{period:'2025-09-30',actual:0.72,estimate:0.60,surprisePercent:20.0}],
+        profile:{logo:'',weburl:'https://www.tesla.com',exchange:'NASDAQ',ipo:'2010-06-29',shareOutstanding:3190},
+        metrics:{marketCapitalization:795000,currentDividendYieldTTM:null,dividendYieldIndicatedAnnual:null,revenueGrowthTTMYoy:1.2,epsGrowthTTMYoy:-38.5,grossMarginTTM:17.9,operatingMarginTTM:7.6,netProfitMarginTTM:7.3,roeTTM:9.8,pb:11.4,psTTM:8.2,'totalDebt/totalEquityQuarterly':0.11,currentRatioQuarterly:1.90,payoutRatioTTM:0,beta:2.30}
       },score:52,band:{en:'NEUTRAL',ka:'ნეიტრალური',color:'#6b6b6b'},availableWeight:100,contributions:{}}
   };
 
