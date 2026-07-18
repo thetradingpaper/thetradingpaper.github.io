@@ -17,8 +17,9 @@
   try { lang = localStorage.getItem('tp_lang') === 'en' ? 'en' : 'ka'; } catch (e) {}
 
   // ---- PRIMARY horizontal tabs -------------------------------------------
-  // My Cabinet · Market Notes · Analysis · Kvleva 3.0 · Kvleva 5.0 (BETA)
+  // Market · My Cabinet · Research Center
   var TABS = [
+    { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
     { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
     { href: '/research.html',      label: lang === 'ka' ? 'კვლევითი ცენტრი' : 'Research Center', re: /^\/(research|kvleva)/ }
   ];

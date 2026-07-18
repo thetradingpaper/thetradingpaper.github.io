@@ -276,22 +276,6 @@
     <!-- MIDDLE COLUMN: Main Content -->
     <div class="middle-column">
 
-      <!-- ============================================================ -->
-      <!-- RANKED PORTFOLIO BOOKS                                       -->
-  <!-- ============================================================ -->
-  <div class="section-head">პორტფელების რეიტინგი</div>
-
-  <div class="rank-tools">
-    <span class="lbl">სამი წიგნი — ცოცხალი ფასებით, საუკეთესოდან</span>
-    <span class="live-note" id="books-live-stamp">● იტვირთება…</span>
-    <div class="sort-toggle" role="tablist">
-      <button id="sort-total" class="on" onclick="setSort('total')">ჯამური %</button>
-      <button id="sort-day" onclick="setSort('day')">დღიური %</button>
-    </div>
-  </div>
-
-  <div class="books-grid" id="books-grid"></div>
-
   <!-- ============================================================ -->
   <!-- MARKET PULSE                                                 -->
   <!-- ============================================================ -->
@@ -492,107 +476,7 @@ if(typeof portfolios!=='undefined'){
     document.getElementById('today-date').textContent = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
   })();
 
-  // ============================================================
-  // RANKED PORTFOLIO BOOKS — live, sortable
-  // ============================================================
-  var BOOKS = [
-    { key:'bog',  title:'BOG',  label:'Dogma',  sub:'გრძელვადიანი წიგნი', href:'/#book-bog'  },
-    { key:'tbc',  title:'TBC',  label:'Active', sub:'სარისკო წიგნი',      href:'/#book-tbc'  },
-    { key:'galt', title:'GALT', label:'Margin', sub:'ბერკეტი 2.5×',       href:'/#book-galt' }
-  ];
-  var sortMode = 'total';
 
-  function bookStats(key) {
-    var p = portfolios[key];
-    var D = window.MEPORTF || {};
-    if (key === 'galt' && D.galt && D.galt.closed) {
-      var dep = +D.galt.deposit || 0, net = +D.galt.net || 0;
-      return { key: key, value: 0, deposits: dep, pnl: net,
-               pnlPct: dep > 0 ? (net / dep) * 100 : 0,
-               dayPnl: 0, dayPct: 0, havePrev: false, closed: true };
-    }
-    var a = aggregate(p);
-    var prevVal = 0, nowVal = 0, havePrev = false;
-    (p.holdings || []).forEach(function (h) {
-      var price = h.livePrice || (h.shares ? h.value / h.shares : 0);
-      if (h.previousClose && h.shares) {
-        prevVal += h.previousClose * h.shares;
-        nowVal  += price * h.shares;
-        havePrev = true;
-      }
-    });
-    var dayPnl = havePrev ? nowVal - prevVal : 0;
-    var base = prevVal + (p.cash || 0);
-    var dayPct = (havePrev && base !== 0) ? (dayPnl / Math.abs(base)) * 100 : 0;
-    return { key: key, value: a.currentValue, deposits: a.deposits, pnl: a.pnl, pnlPct: a.pnlPct,
-             dayPnl: dayPnl, dayPct: dayPct, havePrev: havePrev };
-  }
-
-  function fmtSigned(n, suffix) {
-    var sign = n >= 0 ? '+' : '−';
-    return sign + Math.abs(n).toFixed(2) + (suffix || '');
-  }
-
-  function renderBooks() {
-    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return;
-    var stats = BOOKS.map(function (b) {
-      var s = bookStats(b.key); s.meta = b; return s;
-    });
-    stats.sort(function (a, b) {
-      if (!!a.closed !== !!b.closed) return a.closed ? 1 : -1; // closed books last
-      return sortMode === 'day' ? b.dayPct - a.dayPct : b.pnlPct - a.pnlPct;
-    });
-    var html = stats.map(function (s, i) {
-      var cls = s.closed ? 'closed' : (s.pnl >= 0 ? 'pos' : 'neg');
-      var dayCls = s.dayPnl >= 0 ? 'up' : 'dn';
-      var totCls = s.pnl >= 0 ? 'up' : 'dn';
-      return '<a class="bookcard" href="' + s.meta.href + '">'
-        + '<div class="bk ' + cls + '">'
-        + '<div class="rank-no">' + (i + 1) + '</div>'
-        + '<div class="inner">'
-        + '<div class="b-name">' + s.meta.title + '</div>'
-        + '<div class="b-sub">' + (s.closed ? 'დახურულია · CLOSED' : s.meta.sub + ' · ' + s.meta.label) + '</div>'
-        + '<hr>'
-        + '<div class="b-cap">მიმდინარე ღირებულება</div>'
-        + '<div class="b-val">' + fmtMoney(s.value) + '</div>'
-        + '<div class="b-row">'
-        + '<div class="cell"><div class="b-cap">P / L</div><div class="v ' + totCls + '">' + fmtSigned(s.pnl, '').replace(/^([+−])/, '$1$') + '</div></div>'
-        + '<div class="cell"><div class="b-cap">ჯამური</div><div class="v ' + totCls + '">' + fmtSigned(s.pnlPct, '%') + '</div></div>'
-        + '<div class="cell"><div class="b-cap">დღიური</div><div class="v ' + dayCls + '">' + (s.havePrev ? fmtSigned(s.dayPct, '%') : '—') + '</div></div>'
-        + '</div>'
-        + '<div class="b-dep">ჩარიცხული · ' + fmtMoney(s.deposits) + '</div>'
-        + '<div class="b-open">' + (s.closed ? 'ისტორია →' : 'გახსენი წიგნი →') + '</div>'
-        + '</div></div></a>';
-    }).join('');
-    document.getElementById('books-grid').innerHTML = html;
-  }
-
-  function setSort(mode) {
-    sortMode = mode;
-    document.getElementById('sort-total').className = mode === 'total' ? 'on' : '';
-    document.getElementById('sort-day').className = mode === 'day' ? 'on' : '';
-    renderBooks();
-  }
-
-  (function initBooks() {
-    if (typeof portfolios === 'undefined') { setTimeout(initBooks, 200); return; }
-    renderBooks(); // cached paint
-    function stampNow() {
-      var n = new Date();
-      document.getElementById('books-live-stamp').textContent =
-        '● LIVE · ' + String(n.getHours()).padStart(2, '0') + ':' + String(n.getMinutes()).padStart(2, '0');
-    }
-    async function refreshAll() {
-      try {
-        await Promise.all(BOOKS.filter(function (b) {
-          return (portfolios[b.key].holdings || []).length > 0;
-        }).map(function (b) { return refreshLivePrices(b.key); }));
-        renderBooks(); stampNow();
-      } catch (e) { /* network — keep cached */ }
-    }
-    refreshAll();
-    setInterval(refreshAll, 60000);
-  })();
 
   // Load Kvleva 3.0 picks & screeners into side columns
   (function() {

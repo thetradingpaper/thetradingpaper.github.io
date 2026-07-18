@@ -604,6 +604,38 @@
     .tp-journey ul{margin:0 0 6px;padding-left:18px;}
     .tp-journey li{font-size:12px;line-height:1.6;color:var(--muted);margin-bottom:3px;}
     .tp-journey li strong{color:var(--ink);}
+
+    /* --- ranked portfolio books --- */
+    .rank-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0 18px;}
+    .rank-tools .lbl{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+    .sort-toggle{display:inline-flex;border:1px solid var(--border);background:var(--paper);}
+    .sort-toggle button{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;color:var(--muted);}
+    .sort-toggle button:last-child{border-right:none;}
+    .sort-toggle button.on{background:var(--ink);color:var(--paper);font-weight:700;}
+    .books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:8px;}
+    @media(max-width:900px){.books-grid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto;}}
+    a.bookcard{display:block;text-decoration:none;position:relative;transition:transform .15s ease;}
+    a.bookcard:hover{transform:translateY(-4px);}
+    .bk{position:relative;border:2px solid #1a1a1a;padding:26px 22px 22px 36px;color:#fffdf7;box-shadow:10px 10px 0 rgba(26,26,26,0.12);min-height:330px;}
+    .bk::before{content:'';position:absolute;left:0;top:0;bottom:0;width:16px;border-right:2px solid #1a1a1a;background:rgba(0,0,0,0.28);}
+    .bk .inner{border:1.5px dashed rgba(255,253,247,0.85);padding:18px 14px;text-align:center;height:100%;}
+    .bk.pos{background:#166534;}.bk.pos::before{background:#0d4023;}
+    .bk.neg{background:#b91c1c;}.bk.neg::before{background:#7f1313;}
+    .bk.closed{background:#4b5563;}.bk.closed::before{background:#2f3742;}
+    .bk .rank-no{position:absolute;top:-13px;right:-13px;width:34px;height:34px;border-radius:50%;background:#fffdf7;color:#1a1a1a;border:2px solid #1a1a1a;font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 rgba(26,26,26,0.2);}
+    .bk .b-name{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:34px;line-height:1;}
+    .bk .b-sub{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;opacity:0.85;margin-top:7px;}
+    .bk hr{border:none;border-top:1px solid rgba(255,253,247,0.75);margin:13px 22px;}
+    .bk .b-cap{font-family:'Noto Sans Georgian',sans-serif;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;opacity:0.8;}
+    .bk .b-val{font-size:34px;font-weight:900;margin:6px 0 14px;font-variant-numeric:tabular-nums;color:#fffdf7;}
+    .bk .b-row{display:flex;justify-content:space-between;gap:8px;margin-bottom:14px;}
+    .bk .b-row .cell{text-align:center;flex:1;}
+    .bk .b-row .v{font-size:13.5px;font-weight:700;font-family:ui-monospace,monospace;margin-top:4px;}
+    .bk .b-row .v.up{color:#54d38a;}
+    .bk .b-row .v.dn{color:#ff7c7c;}
+    .bk .b-dep{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;color:rgba(255,253,247,0.75);margin-bottom:12px;}
+    .bk .b-open{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,253,247,0.4);padding:6px 12px;background:rgba(255,253,247,0.06);transition:background .15s,border-color .15s;}
+    .bk:hover .b-open{background:rgba(255,253,247,0.16);border-color:#fffdf7;}
   </style>
 
   <section class="total-hero">
@@ -630,6 +662,22 @@
         <table class="th-legend" id="total-legend"></table>
       </div>
     </div>
+
+    <!-- ============================================================ -->
+    <!-- RANKED PORTFOLIO BOOKS (Moved from Market page)             -->
+    <!-- ============================================================ -->
+    <div class="section-head">პორტფელების რეიტინგი</div>
+
+    <div class="rank-tools">
+      <span class="lbl">სამი წიგნი — ცოცხალი ფასებით, საუკეთესოდან</span>
+      <span class="live-note" id="books-live-stamp">● იტვირთება…</span>
+      <div class="sort-toggle" role="tablist">
+        <button id="sort-total" class="on" onclick="setSort('total')">ჯამური %</button>
+        <button id="sort-day" onclick="setSort('day')">დღიური %</button>
+      </div>
+    </div>
+
+    <div class="books-grid" id="books-grid"></div>
 
     <!-- Combined "The Mountain" — total value vs total deposited (all books) · §3 -->
     <div class="th-mountain">
@@ -1364,7 +1412,102 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   renderTotal();
   renderTotalMountain();
 
-  function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal); }
+  // ----- Portfolios Rating (Books) JS -----
+  var BOOKS = [
+    { key:'bog',  title:'BOG',  label:'Dogma',  sub:'გრძელვადიანი წიგნი', href:'#book-bog'  },
+    { key:'tbc',  title:'TBC',  label:'Active', sub:'სარისკო წიგნი',      href:'#book-tbc'  },
+    { key:'galt', title:'GALT', label:'Margin', sub:'ბერკეტი 2.5×',       href:'#book-galt' }
+  ];
+  var sortMode = 'total';
+
+  function bookStats(key) {
+    var p = portfolios[key];
+    var D = window.MEPORTF || {};
+    if (key === 'galt' && D.galt && D.galt.closed) {
+      var dep = +D.galt.deposit || 0, net = +D.galt.net || 0;
+      return { key: key, value: 0, deposits: dep, pnl: net,
+               pnlPct: dep > 0 ? (net / dep) * 100 : 0,
+               dayPnl: 0, dayPct: 0, havePrev: false, closed: true };
+    }
+    var a = aggregate(p);
+    var prevVal = 0, nowVal = 0, havePrev = false;
+    (p.holdings || []).forEach(function (h) {
+      var price = h.livePrice || (h.shares ? h.value / h.shares : 0);
+      if (h.previousClose && h.shares) {
+        prevVal += h.previousClose * h.shares;
+        nowVal  += price * h.shares;
+        havePrev = true;
+      }
+    });
+    var dayPnl = havePrev ? nowVal - prevVal : 0;
+    var base = prevVal + (p.cash || 0);
+    var dayPct = (havePrev && base !== 0) ? (dayPnl / Math.abs(base)) * 100 : 0;
+    return { key: key, value: a.currentValue, deposits: a.deposits, pnl: a.pnl, pnlPct: a.pnlPct,
+             dayPnl: dayPnl, dayPct: dayPct, havePrev: havePrev };
+  }
+
+  function fmtMoney(v) {
+    return '$' + (+v).toFixed(2);
+  }
+
+  function fmtSigned(n, suffix) {
+    var sign = n >= 0 ? '+' : '−';
+    return sign + Math.abs(n).toFixed(2) + (suffix || '');
+  }
+
+  function renderBooks() {
+    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return;
+    var stats = BOOKS.map(function (b) {
+      var s = bookStats(b.key); s.meta = b; return s;
+    });
+    stats.sort(function (a, b) {
+      if (!!a.closed !== !!b.closed) return a.closed ? 1 : -1; // closed books last
+      return sortMode === 'day' ? b.dayPct - a.dayPct : b.pnlPct - a.pnlPct;
+    });
+    var html = stats.map(function (s, i) {
+      var cls = s.closed ? 'closed' : (s.pnl >= 0 ? 'pos' : 'neg');
+      var dayCls = s.dayPnl >= 0 ? 'up' : 'dn';
+      var totCls = s.pnl >= 0 ? 'up' : 'dn';
+      return '<a class="bookcard" href="' + s.meta.href + '">'
+        + '<div class="bk ' + cls + '">'
+        + '<div class="rank-no">' + (i + 1) + '</div>'
+        + '<div class="inner">'
+        + '<div class="b-name">' + s.meta.title + '</div>'
+        + '<div class="b-sub">' + (s.closed ? 'დახურულია · CLOSED' : s.meta.sub + ' · ' + s.meta.label) + '</div>'
+        + '<hr>'
+        + '<div class="b-cap">მიმდინარე ღირებულება</div>'
+        + '<div class="b-val">' + fmtMoney(s.value) + '</div>'
+        + '<div class="b-row">'
+        + '<div class="cell"><div class="b-cap">P / L</div><div class="v ' + totCls + '">' + fmtSigned(s.pnl, '').replace(/^([+−])/, '$1$') + '</div></div>'
+        + '<div class="cell"><div class="b-cap">ჯამური</div><div class="v ' + totCls + '">' + fmtSigned(s.pnlPct, '%') + '</div></div>'
+        + '<div class="cell"><div class="b-cap">დღიური</div><div class="v ' + dayCls + '">' + (s.havePrev ? fmtSigned(s.dayPct, '%') : '—') + '</div></div>'
+        + '</div>'
+        + '<div class="b-dep">ჩარიცხული · ' + fmtMoney(s.deposits) + '</div>'
+        + '<div class="b-open">' + (s.closed ? 'ისტორია →' : 'გახსენი წიგნი →') + '</div>'
+        + '</div></div></a>';
+    }).join('');
+    var gridEl = document.getElementById('books-grid');
+    if (gridEl) gridEl.innerHTML = html;
+    
+    var stamp = document.getElementById('books-live-stamp');
+    if (stamp) {
+      var n = new Date();
+      stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2, '0')}:${String(n.getMinutes()).padStart(2, '0')}`;
+    }
+  }
+
+  window.setSort = function(mode) {
+    sortMode = mode;
+    var btnTotal = document.getElementById('sort-total');
+    var btnDay = document.getElementById('sort-day');
+    if (btnTotal) btnTotal.className = mode === 'total' ? 'on' : '';
+    if (btnDay) btnDay.className = mode === 'day' ? 'on' : '';
+    renderBooks();
+  }
+
+  renderBooks();
+
+  function refreshAllBooks(){ return Promise.all([refreshAll('bog'), refreshAll('tbc')]).then(renderTotal).then(renderBooks); }
   refreshAllBooks();
   // 20s poll. Finnhub free tier = 60 calls/min; 16 tickers × 3 cycles/min = 48,
   // which fits. 12s (5 cycles/min = 80 calls) tripped 429s after ~40s and live
