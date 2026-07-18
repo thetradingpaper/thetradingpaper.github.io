@@ -70,7 +70,7 @@
     && (filename === '' || filename === 'index.html' || filename === 'cabinet.html');
   // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
   var inCabArea = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
-    && (isCabinet || /^(goals|notes|ledger|dividends|edit)/.test(filename));
+    && (isCabinet || /^(goals|notes|ledger|annual-income|edit)/.test(filename));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
