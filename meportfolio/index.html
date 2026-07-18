@@ -70,6 +70,137 @@
   .kv3-ticker-item .ch { font-family: ui-monospace, monospace; font-weight: 700; }
   .kv3-ticker-item .ch.pos { color: var(--green); }
   .kv3-ticker-item .ch.neg { color: var(--red); }
+
+  /* --- 3-column sticky layout --- */
+  .main-layout-wrapper {
+    display: grid;
+    grid-template-columns: 310px 1fr 340px;
+    gap: 26px;
+    align-items: start;
+    margin-top: 20px;
+  }
+  @media(max-width: 1250px) {
+    .main-layout-wrapper {
+      grid-template-columns: 290px 1fr;
+    }
+    .right-side {
+      grid-column: span 2;
+      position: static;
+      max-height: none;
+    }
+  }
+  @media(max-width: 900px) {
+    .main-layout-wrapper {
+      grid-template-columns: 1fr;
+    }
+    .left-side, .right-side {
+      grid-column: span 1;
+      position: static;
+      max-height: none;
+    }
+  }
+  .middle-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    min-width: 0; /* prevent flex blowout */
+  }
+  .side-column {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .side-column::-webkit-scrollbar {
+    width: 4px;
+  }
+  .side-column::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  /* --- styles for Kvleva 3.0 elements ported to main page --- */
+  .sidebar-markets { padding: 18px 20px; background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); }
+  .leaders-section { margin-bottom: 12px; }
+  .leaders-section:last-child { margin-bottom: 0; }
+  .leaders-title { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; border-bottom: 1px dashed var(--border); padding-bottom: 4px; }
+  .leaders-list { display: flex; flex-direction: column; }
+  .leader-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .leader-row:last-child { border-bottom: none; }
+  .leader-col-info { display: flex; flex-direction: column; min-width: 90px; flex: 1; }
+  .leader-ticker { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 14px; text-decoration: none; color: var(--ink); border-bottom: 1px dashed var(--muted); align-self: start; line-height: 1.2; }
+  .leader-ticker:hover { color: var(--red); border-bottom-color: var(--red); }
+  .leader-name { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100px; }
+  .leader-col-spark { width: 50px; text-align: center; }
+  .leader-sparkline-svg { display: block; width: 50px; height: 18px; }
+  .leader-col-val { display: flex; flex-direction: column; align-items: flex-end; font-family: ui-monospace, monospace; font-weight: 700; font-size: 12.5px; min-width: 75px; }
+  .leader-price { color: var(--ink); }
+  .leader-change { font-size: 11px; margin-top: 2px; }
+  .leader-change.pos { color: var(--green); }
+  .leader-change.neg { color: var(--red); }
+  .leaders-empty, .picks-empty { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; color: var(--muted); padding: 16px; text-align: center; }
+  
+  .picks-box { background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); }
+  .picks-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 2px solid var(--rule); }
+  .picks-head-title { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .picks-date-stamp { font-family: ui-monospace, monospace; font-size: 11.5px; color: var(--muted); }
+  
+  .picks-list { display: flex; flex-direction: column; }
+  .right-side .pick-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .right-side .pick-row:last-child {
+    border-bottom: none;
+  }
+  .right-side .pick-row:hover { background: rgba(185, 28, 28, 0.01); }
+  .right-side .pick-col-ticker { display: flex; flex-direction: column; }
+  .right-side .pick-ticker { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 16px; text-decoration: none; color: var(--ink); border-bottom: 1px dashed var(--muted); align-self: start; line-height: 1.2; }
+  .right-side .pick-ticker:hover { color: var(--red); border-bottom-color: var(--red); }
+  .right-side .pick-name { font-family: 'Noto Sans Georgian', sans-serif; font-size: 11px; color: var(--muted); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .right-side .pick-sector { font-family: 'Noto Sans Georgian', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--muted); background: rgba(26, 26, 26, 0.04); border: 1px solid var(--border); padding: 2px 5px; border-radius: 3px; align-self: start; display: inline-block; }
+  .right-side .pick-price-box { display: flex; flex-direction: column; font-family: ui-monospace, monospace; font-weight: 700; align-items: flex-end; }
+  .right-side .pick-price { font-size: 14px; color: var(--ink); }
+  .right-side .pick-change { font-size: 11px; margin-top: 2px; }
+  .right-side .pick-change.pos { color: var(--green); }
+  .right-side .pick-change.neg { color: var(--red); }
+  .right-side .pick-col-sparkline { justify-self: end; }
+  .right-side .pick-sparkline-svg { display: block; width: 70px; height: 24px; }
+  .right-side .pick-col-thesis { grid-column: span 2; border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 2px; }
+  .right-side .pick-thesis { font-family: 'Noto Sans Georgian', sans-serif; font-size: 12px; line-height: 1.5; color: var(--ink); }
+  .right-side .pick-thesis-en { display: block; font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  .screeners-box { background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); }
+  .left-side .scr-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .left-side .scr-row:last-child {
+    border-bottom: none;
+  }
+  .left-side .scr-row:hover { background: rgba(185, 28, 28, 0.01); }
+  .left-side .pick-col-ticker { display: flex; flex-direction: column; }
+  .left-side .pick-ticker { font-family: 'Noto Serif Georgian', serif; font-weight: 900; font-size: 14px; text-decoration: none; color: var(--ink); border-bottom: 1px dashed var(--muted); align-self: start; line-height: 1.2; }
+  .left-side .pick-ticker:hover { color: var(--red); border-bottom-color: var(--red); }
+  .left-side .pick-name { font-family: 'Noto Sans Georgian', sans-serif; font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+  .left-side .pick-price-box { display: flex; flex-direction: column; font-family: ui-monospace, monospace; font-weight: 700; align-items: flex-end; }
+  .left-side .pick-price { font-size: 13.5px; color: var(--ink); }
+  .left-side .pick-change { font-size: 11px; margin-top: 2px; }
+  .left-side .pick-change.pos { color: var(--green); }
+  .left-side .pick-change.neg { color: var(--red); }
+  .left-side .scr-col-sparkline { justify-self: end; }
+  .left-side .scr-row div:last-child { display: none; } /* Hide description */
 </style>
 </head>
 <body>
@@ -102,9 +233,51 @@
 </header>
 
 <main class="container">
+  <div class="main-layout-wrapper">
+    
+    <!-- LEFT SIDEBAR: Day Leaders & Screeners (Sticky) -->
+    <aside class="side-column left-side no-print">
+      <!-- Day Leaders Widget -->
+      <div class="sidebar-markets widget">
+        <div class="m-head">დღის ლიდერები / Leaders</div>
+        <div class="leaders-section">
+          <div class="leaders-title" style="color: var(--green);">Top Gainers</div>
+          <div class="leaders-list" id="gainers-list">
+            <div class="leaders-empty">ჩატვირთვა…</div>
+          </div>
+        </div>
+        <hr style="border: none; border-top: 1px dashed var(--border); margin: 16px 0;">
+        <div class="leaders-section">
+          <div class="leaders-title" style="color: var(--red);">Top Losers</div>
+          <div class="leaders-list" id="losers-list">
+            <div class="leaders-empty">ჩატვირთვა…</div>
+          </div>
+        </div>
+      </div>
 
-  <!-- ============================================================ -->
-  <!-- RANKED PORTFOLIO BOOKS                                       -->
+      <!-- Screeners Widget -->
+      <div class="screeners-box widget">
+        <div class="picks-head" style="border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 8px; align-items: stretch;">
+          <span class="picks-head-title" style="letter-spacing: 2px;">სკრინერები · Screeners</span>
+          <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex; flex-wrap: wrap;">
+            <button id="scr-active" class="on" onclick="setScreener('most_active')">Active</button>
+            <button id="scr-growth" onclick="setScreener('undervalued_growth')">Growth</button>
+            <button id="scr-tech" onclick="setScreener('growth_tech')">Tech</button>
+            <button id="scr-penny" onclick="setScreener('penny_stocks')">Penny</button>
+            <button id="scr-fifty-two" onclick="setScreener('fifty_two_week_gainers')">52Wk</button>
+          </div>
+        </div>
+        <div class="picks-list" id="screeners-list">
+          <div class="picks-empty">ჩატვირთვა…</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MIDDLE COLUMN: Main Content -->
+    <div class="middle-column">
+
+      <!-- ============================================================ -->
+      <!-- RANKED PORTFOLIO BOOKS                                       -->
   <!-- ============================================================ -->
   <div class="section-head">პორტფელების რეიტინგი</div>
 
@@ -157,18 +330,7 @@
     </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- MARKET PICKS (KVLEVA 3.0)                                    -->
-  <!-- ============================================================ -->
-  <div class="widget" style="margin-top:26px;">
-    <div class="widget-title" style="display:flex; justify-content:space-between; align-items:center;">
-      <span>ბაზარი · კვლევა 3.0</span>
-      <a href="../research.html?tab=searcher" style="font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; color:var(--red); font-weight:700;">ყველა აქტივი →</a>
-    </div>
-    <div id="kvleva3-ticker-block" style="padding:16px 20px;">
-      <div style="font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);">იტვირთება მონაცემები…</div>
-    </div>
-  </div>
+
 
   <!-- ============================================================ -->
   <!-- TODAY ON THE MARKET — 4 charts                               -->
@@ -288,6 +450,22 @@
     </div>
   </div>
 
+    </div><!-- End middle-column -->
+
+    <!-- RIGHT SIDEBAR: Today's Assets (Daily Picks) (Sticky) -->
+    <aside class="side-column right-side no-print">
+      <div class="picks-box widget">
+        <div class="picks-head">
+          <span class="picks-head-title">დღევანდელი აქტივები</span>
+          <span class="picks-date-stamp" id="picks-date">📅 ჩატვირთვა…</span>
+        </div>
+        <div class="picks-list" id="picks-list">
+          <div class="picks-empty">იტვირთება მონაცემები…</div>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- End main-layout-wrapper -->
 </main>
 
 <footer>
@@ -416,42 +594,246 @@ if(typeof portfolios!=='undefined'){
     setInterval(refreshAll, 60000);
   })();
 
-  // Load Kvleva 3.0 picks
+  // Load Kvleva 3.0 picks & screeners into side columns
   (function() {
     'use strict';
-    async function loadKvleva3() {
-      var box = document.getElementById('kvleva3-ticker-block');
-      if (!box) return;
-      try {
-        var res = await fetch('/data/kvleva3-picks.json?t=' + Date.now());
-        if (!res.ok) throw new Error();
-        var data = await res.json();
-        var picks = data.picks || [];
-        if (picks.length === 0) {
-          box.innerHTML = '<div style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:12px; color:var(--muted);">დღეს აქტივები არ არის.</div>';
-          return;
-        }
-        var html = '<div class="kv3-ticker-list">' +
-          picks.map(function(p) {
-            var isPos = p.change >= 0;
-            var sign = isPos ? '+' : '−';
-            var chVal = sign + '$' + Math.abs(p.change).toFixed(2) + ' (' + (isPos ? '+' : '−') + Math.abs(p.changePct).toFixed(2) + '%)';
-            return '<a class="kv3-ticker-item" href="../research.html?tab=searcher">' +
-              '<span class="tk">' + esc(p.ticker) + '</span>' +
-              '<span class="pr">$' + (+p.price).toFixed(2) + '</span>' +
-              '<span class="ch ' + (isPos ? 'pos' : 'neg') + '">' + chVal + '</span>' +
-            '</a>';
-          }).join('') +
-        '</div>';
-        box.innerHTML = html;
-      } catch (e) {
-        box.innerHTML = '<div style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:12px; color:var(--red);">⚠️ მონაცემები ვერ ჩაიტვირთა.</div>';
+    
+    window.showTickerInEvaluator = function(ticker) {
+      window.location.href = '../research.html?tab=evaluator&ticker=' + encodeURIComponent(ticker);
+    };
+
+    function generateSparkline(change, width, height) {
+      var points = 8;
+      var coords = [];
+      var isPositive = change >= 0;
+      
+      var startY = isPositive ? height - 5 : 5;
+      var endY = isPositive ? 5 : height - 5;
+      
+      coords.push({x: 0, y: startY});
+      for (var i = 1; i < points - 1; i++) {
+        var x = (width / (points - 1)) * i;
+        var linearY = startY + ((endY - startY) / (points - 1)) * i;
+        var noise = (Math.random() - 0.5) * (height * 0.35);
+        var y = Math.max(3, Math.min(height - 3, linearY + noise));
+        coords.push({x: x, y: y});
       }
+      coords.push({x: width, y: endY});
+      
+      var path = "M " + coords[0].x + "," + coords[0].y;
+      for (var i = 1; i < coords.length; i++) {
+        path += " L " + coords[i].x + "," + coords[i].y;
+      }
+      return path;
     }
+
     function esc(s) {
       return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
-    loadKvleva3();
+    
+    function fmtMoney(v) {
+      return '$' + (+v).toFixed(2);
+    }
+    
+    function fmtChange(val, pct) {
+      var sign = val >= 0 ? '+' : '−';
+      return sign + '$' + Math.abs(val).toFixed(2) + ' (' + (val >= 0 ? '+' : '−') + Math.abs(pct).toFixed(2) + '%)';
+    }
+
+    async function loadPicks() {
+      var listEl = document.getElementById('picks-list');
+      var dateEl = document.getElementById('picks-date');
+      if (!listEl) return;
+      
+      try {
+        var res = await fetch('/data/kvleva3-picks.json?t=' + Date.now());
+        if (!res.ok) throw new Error('Network error');
+        var data = await res.json();
+        
+        if (data.date && dateEl) {
+          dateEl.textContent = '📅 ' + data.date;
+        }
+        
+        var picks = data.picks || [];
+        if (picks.length === 0) {
+          listEl.innerHTML = '<div class="picks-empty">დღეს არჩევანი არ არის. (No picks today.)</div>';
+          return;
+        }
+        
+        var html = picks.map(function(p) {
+          var isPos = p.change >= 0;
+          var changeClass = isPos ? 'pos' : 'neg';
+          var spPath = generateSparkline(p.change, 70, 24);
+          
+          var geoReason = p.reason;
+          var engReason = '';
+          var m = p.reason.match(/\(([^)]+)\)/);
+          if (m) {
+            geoReason = p.reason.replace(/\s*\([^)]+\)\s*/g, '').trim();
+            engReason = m[1];
+          }
+          
+          return '<div class="pick-row">' +
+            '<div class="pick-col-ticker">' +
+              '<a class="pick-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+              '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+            '</div>' +
+            '<div>' +
+              '<span class="pick-sector">' + esc(p.sector) + '</span>' +
+            '</div>' +
+            '<div class="pick-price-box">' +
+              '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
+              '<span class="pick-change ' + changeClass + '">' + fmtChange(p.change, p.changePct) + '</span>' +
+            '</div>' +
+            '<div class="pick-col-sparkline">' +
+              '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
+                '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
+              '</svg>' +
+            '</div>' +
+            '<div></div>' +
+            '<div class="pick-col-thesis">' +
+              '<div class="pick-thesis">' + esc(geoReason) + 
+                (engReason ? '<span class="pick-thesis-en">' + esc(engReason) + '</span>' : '') +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+        
+        listEl.innerHTML = html;
+        
+        var gainersList = document.getElementById('gainers-list');
+        var gainers = data.gainers || [];
+        if (gainersList) {
+          if (gainers.length === 0) {
+            gainersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+          } else {
+            gainersList.innerHTML = gainers.map(function(p) {
+              var isPos = p.change >= 0;
+              var changeClass = isPos ? 'pos' : 'neg';
+              var spPath = generateSparkline(p.change, 50, 18);
+              var sign = isPos ? '+' : '−';
+              
+              return '<div class="leader-row">' +
+                '<div class="leader-col-info">' +
+                  '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+                  '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+                '</div>' +
+                '<div class="leader-col-spark">' +
+                  '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                    '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                  '</svg>' +
+                '</div>' +
+                '<div class="leader-col-val">' +
+                  '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                  '<span class="leader-change ' + changeClass + '">' + sign + Math.abs(p.changePct).toFixed(2) + '%</span>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+        }
+
+        var losersList = document.getElementById('losers-list');
+        var losers = data.losers || [];
+        if (losersList) {
+          if (losers.length === 0) {
+            losersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
+          } else {
+            losersList.innerHTML = losers.map(function(p) {
+              var isPos = p.change >= 0;
+              var changeClass = isPos ? 'pos' : 'neg';
+              var spPath = generateSparkline(p.change, 50, 18);
+              var sign = isPos ? '+' : '−';
+              
+              return '<div class="leader-row">' +
+                '<div class="leader-col-info">' +
+                  '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+                  '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+                '</div>' +
+                '<div class="leader-col-spark">' +
+                  '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
+                    '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
+                  '</svg>' +
+                '</div>' +
+                '<div class="leader-col-val">' +
+                  '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
+                  '<span class="leader-change ' + changeClass + '">' + sign + Math.abs(p.changePct).toFixed(2) + '%</span>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+        }
+        
+        window.screenersData = data.screeners || {};
+        setScreener('most_active');
+        
+      } catch (e) {
+        if (listEl) listEl.innerHTML = '<div class="picks-empty" style="color:var(--red);">⚠️ მონაცემების ჩატვირთვა ვერ მოხერხდა. (Failed to load picks.)</div>';
+      }
+    }
+
+    window.setScreener = function(key) {
+      var keys = ['most_active', 'undervalued_growth', 'growth_tech', 'penny_stocks', 'fifty_two_week_gainers'];
+      var idMap = {
+        'most_active': 'scr-active',
+        'undervalued_growth': 'scr-growth',
+        'growth_tech': 'scr-tech',
+        'penny_stocks': 'scr-penny',
+        'fifty_two_week_gainers': 'scr-fifty-two'
+      };
+      
+      keys.forEach(function(k) {
+        var btn = document.getElementById(idMap[k]);
+        if (btn) {
+          if (k === key) btn.classList.add('on');
+          else btn.classList.remove('on');
+        }
+      });
+      
+      var listEl = document.getElementById('screeners-list');
+      if (!listEl || !window.screenersData) return;
+      
+      var list = window.screenersData[key] || [];
+      if (list.length === 0) {
+        listEl.innerHTML = '<div class="picks-empty">მონაცემები არ არის. (No data available.)</div>';
+        return;
+      }
+      
+      listEl.innerHTML = list.map(function(p) {
+        var isPos = p.change >= 0;
+        var changeClass = isPos ? 'pos' : 'neg';
+        var spPath = generateSparkline(p.change, 70, 24);
+        
+        var badge = '';
+        if (p.yearlyChange != null) {
+          var yisPos = p.yearlyChange >= 0;
+          var ysign = yisPos ? '+' : '−';
+          var ycolor = yisPos ? 'var(--green)' : 'var(--red)';
+          badge = '<span class="yearly-badge" style="font-family:\'Noto Sans Georgian\',sans-serif;font-size:9px;font-weight:700;color:' + ycolor + ';border:1px solid ' + ycolor + ';padding:1.5px 5px;border-radius:3px;margin-left:8px;white-space:nowrap;display:inline-block;vertical-align:middle;line-height:1;">52Wk: ' + ysign + Math.abs(p.yearlyChange).toLocaleString() + '%</span>';
+        }
+        
+        return '<div class="scr-row">' +
+          '<div class="pick-col-ticker">' +
+            '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">' +
+              '<a class="pick-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
+              badge +
+            '</div>' +
+            '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
+          '</div>' +
+          '<div class="pick-price-box">' +
+            '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
+            '<span class="pick-change ' + changeClass + '">' + (p.changePct >= 0 ? '+' : '−') + Math.abs(p.changePct).toFixed(2) + '%</span>' +
+          '</div>' +
+          '<div class="scr-col-sparkline">' +
+            '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
+              '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
+            '</svg>' +
+          '</div>' +
+          '<div></div>' +
+        '</div>';
+      }).join('');
+    };
+
+    loadPicks();
   })();
 </script>
 
