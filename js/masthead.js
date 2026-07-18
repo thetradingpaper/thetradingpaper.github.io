@@ -270,11 +270,34 @@
     fetch(resolveUrl('/data/kvleva3-picks.json') + '?t=' + Date.now())
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        var picks = data.picks || [];
-        if (picks.length === 0) { el.style.display = 'none'; return; }
+        var allStocks = {};
+        
+        // Gather from picks
+        (data.picks || []).forEach(function(s) { allStocks[s.ticker] = s; });
+        // Gather from screeners
+        if (data.screeners) {
+          Object.keys(data.screeners).forEach(function(key) {
+            (data.screeners[key] || []).forEach(function(s) { allStocks[s.ticker] = s; });
+          });
+        }
+        // Gather from gainers/losers
+        (data.gainers || []).forEach(function(s) { allStocks[s.ticker] = s; });
+        (data.losers || []).forEach(function(s) { allStocks[s.ticker] = s; });
+        
+        // Define top 10 global tickers by market cap
+        var top10Tickers = ['MSFT', 'AAPL', 'NVDA', 'GOOGL', 'AMZN', 'META', 'LLY', 'AVGO', 'TSLA', 'JPM'];
+        
+        var list = [];
+        top10Tickers.forEach(function(symbol) {
+          if (allStocks[symbol]) {
+            list.push(allStocks[symbol]);
+          }
+        });
+        
+        if (list.length === 0) { el.style.display = 'none'; return; }
         
         var html = '<div class="tpm-marquee-wrap">';
-        var itemsHtml = picks.map(function(p) {
+        var itemsHtml = list.map(function(p) {
           var isPos = p.change >= 0;
           var arrow = isPos ? '▲' : '▼';
           var changeClass = isPos ? 'pos' : 'neg';
