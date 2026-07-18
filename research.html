@@ -460,25 +460,6 @@
        Section: Evaluator (Research 5.0)
        ======================================================== -->
   <section id="research-sec-evaluator" class="research-section">
-    <!-- Structured Explanation Box -->
-    <div class="research-info-box widget">
-      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Stock Evaluator Info</div>
-      <div class="info-grid">
-        <div class="info-col">
-          <div class="info-title">💡 იდეა (Idea)</div>
-          <div class="info-text">კონკრეტული აქტივის ყოვლისმომცველი, ობიექტური შეფასება 0-დან 100-მდე კომპოზიტური ქულის მეშვეობით, რათა დადგინდეს მისი საინვესტიციო ან სავაჭრო მიმზიდველობა.</div>
-        </div>
-        <div class="info-col">
-          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
-          <div class="info-text">სისტემა აერთიანებს 5 დამოუკიდებელ სექტორს: მომენტი (30%), ტრენდი (20%), სენტიმენტი (20%), ფუნდამენტური მულტიპლიკატორები (15%) და CFD ვოლატილობა (15%).</div>
-        </div>
-        <div class="info-col">
-          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
-          <div class="info-text">ნებისმიერი ტიკერის ძებნისას სერვერული API აგროვებს უახლეს ციფრებს და აგენერირებს დოსიეს. თუ API მიუწვდომელია, იტვირთება ნიშანდებული დემო მონაცემები.</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Search bar -->
     <div class="kv5-search widget">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
@@ -494,31 +475,6 @@
       <div class="kv5-examples">
         მაგალითები:
         <a data-tk="AAPL" onclick="doEvaluatorSearch('AAPL')">AAPL</a>·<a data-tk="NVDA" onclick="doEvaluatorSearch('NVDA')">NVDA</a>·<a data-tk="TSLA" onclick="doEvaluatorSearch('TSLA')">TSLA</a>·<a data-tk="MSFT" onclick="doEvaluatorSearch('MSFT')">MSFT</a>·<a data-tk="JPM" onclick="doEvaluatorSearch('JPM')">JPM</a>
-      </div>
-      <div class="kv5-keys" style="margin-top:12px;border-top:1px dashed var(--rule,#1d1a14);padding-top:10px;font-family:'Noto Sans Georgian',sans-serif;">
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <a id="kv5-keys-toggle" style="cursor:pointer;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-decoration:none;">🔑 API გასაღებები · keys</a>
-          <span id="kv5-keys-status" style="font-size:10.5px;color:var(--muted);"></span>
-        </div>
-        <div id="kv5-keys-panel" style="display:none;margin-top:10px;">
-          <div style="font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:8px;">
-            ჩასვი <b>უფასო</b> გასაღებები და შემფასებელი ცოცხალ მონაცემებზე გადავა — პირდაპირ ბრაუზერიდან, ნებისმიერ ტიკერზე.
-            გასაღები ინახება მხოლოდ შენს ბრაუზერში (localStorage) და ჩვენს სერვერზე არასდროს იგზავნება.
-            <span style="white-space:nowrap;">(Free keys, stored only in your browser.)</span>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:560px;">
-            <label style="font-size:11px;font-weight:700;color:var(--ink);">Finnhub <span style="color:var(--red);">*</span> <span style="font-weight:400;color:var(--muted);">— ფასი, ფუნდამენტები, სიახლეები · <a href="https://finnhub.io/register" target="_blank" rel="noopener" style="color:var(--red);">უფასო რეგისტრაცია →</a></span>
-              <input id="kv5-key-fh" type="text" placeholder="finnhub API key" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
-            </label>
-            <label style="font-size:11px;font-weight:700;color:var(--ink);">Alpha Vantage <span style="font-weight:400;color:var(--muted);">— არასავალდებულო: ამატებს RSI/MA/ATR/ვოლატილობას · <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener" style="color:var(--red);">უფასო გასაღები →</a></span>
-              <input id="kv5-key-av" type="text" placeholder="alpha vantage API key (optional)" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
-            </label>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
-            <button id="kv5-keys-save" class="kv5-btn" type="button">შენახვა · Save</button>
-            <button id="kv5-keys-clear" class="kv5-btn ghost" type="button">წაშლა · Clear</button>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -569,6 +525,33 @@
           <div id="kv5-signals"><div class="kv5-empty">ჩატვირთვა…</div></div>
         </div>
       </aside>
+    </div>
+
+    <!-- API keys (moved below results — set once to switch DEMO → live data) -->
+    <div class="kv5-keys widget" style="margin-top:22px;border:1px solid var(--rule,#1d1a14);padding:14px 16px;font-family:'Noto Sans Georgian',sans-serif;">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <a id="kv5-keys-toggle" style="cursor:pointer;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-decoration:none;">🔑 API გასაღებები · keys</a>
+        <span id="kv5-keys-status" style="font-size:10.5px;color:var(--muted);"></span>
+      </div>
+      <div id="kv5-keys-panel" style="display:none;margin-top:10px;">
+        <div style="font-size:11.5px;color:var(--muted);line-height:1.55;margin-bottom:8px;">
+          ჩასვი <b>უფასო</b> გასაღებები და შემფასებელი ცოცხალ მონაცემებზე გადავა — პირდაპირ ბრაუზერიდან, ნებისმიერ ტიკერზე.
+          გასაღები ინახება მხოლოდ შენს ბრაუზერში (localStorage) და ჩვენს სერვერზე არასდროს იგზავნება.
+          <span style="white-space:nowrap;">(Free keys, stored only in your browser.)</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:8px;max-width:560px;">
+          <label style="font-size:11px;font-weight:700;color:var(--ink);">Finnhub <span style="color:var(--red);">*</span> <span style="font-weight:400;color:var(--muted);">— ფასი, ფუნდამენტები, სიახლეები · <a href="https://finnhub.io/register" target="_blank" rel="noopener" style="color:var(--red);">უფასო რეგისტრაცია →</a></span>
+            <input id="kv5-key-fh" type="text" placeholder="finnhub API key" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
+          </label>
+          <label style="font-size:11px;font-weight:700;color:var(--ink);">Alpha Vantage <span style="font-weight:400;color:var(--muted);">— არასავალდებულო: ამატებს RSI/MA/ATR/ვოლატილობას · <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener" style="color:var(--red);">უფასო გასაღები →</a></span>
+            <input id="kv5-key-av" type="text" placeholder="alpha vantage API key (optional)" autocomplete="off" spellcheck="false" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--rule,#1d1a14);background:transparent;font-family:ui-monospace,monospace;font-size:12px;color:var(--ink);box-sizing:border-box;">
+          </label>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+          <button id="kv5-keys-save" class="kv5-btn" type="button">შენახვა · Save</button>
+          <button id="kv5-keys-clear" class="kv5-btn ghost" type="button">წაშლა · Clear</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1251,7 +1234,7 @@
     el('kv5-key-fh').value=fhKey(); el('kv5-key-av').value=avKey();
     tog.addEventListener('click',function(){ pan.style.display=(pan.style.display==='none'||!pan.style.display)?'block':'none'; });
     var db=el('kv5-demobar-keys');
-    if(db) db.addEventListener('click',function(){ pan.style.display='block'; try{ el('kv5-key-fh').focus(); }catch(e){} });
+    if(db) db.addEventListener('click',function(){ pan.style.display='block'; try{ tog.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){} try{ el('kv5-key-fh').focus({preventScroll:true}); }catch(e){} });
     el('kv5-keys-save').addEventListener('click',function(){
       try{ localStorage.setItem(LS_FH,el('kv5-key-fh').value.trim()); localStorage.setItem(LS_AV,el('kv5-key-av').value.trim()); }catch(e){}
       refresh();
