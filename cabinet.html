@@ -612,9 +612,84 @@
     .sort-toggle button{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;color:var(--muted);}
     .sort-toggle button:last-child{border-right:none;}
     .sort-toggle button.on{background:var(--ink);color:var(--paper);font-weight:700;}
-    .books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:8px;}
-    @media(max-width:900px){.books-grid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto;}}
-    a.bookcard{display:block;text-decoration:none;position:relative;transition:transform .15s ease;}
+    .books-carousel-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .books-grid-viewport {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      width: 100%;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .books-grid-viewport::-webkit-scrollbar {
+      display: none;
+    }
+    .books-grid {
+      display: flex;
+      gap: 26px;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+    a.bookcard {
+      flex: 0 0 calc((100% - 52px) / 3);
+      display: block;
+      text-decoration: none;
+      position: relative;
+      transition: transform .15s ease;
+    }
+    @media(max-width:900px){
+      a.bookcard {
+        flex: 0 0 290px;
+      }
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 3px 3px 0 rgba(26,26,26,0.15);
+      transition: background 0.15s, transform 0.15s, opacity 0.15s;
+    }
+    .carousel-btn:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .carousel-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    .carousel-btn.prev {
+      left: -20px;
+    }
+    .carousel-btn.next {
+      right: -20px;
+    }
+    .carousel-btn.disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+    @media(max-width:980px) {
+      .carousel-btn.prev { left: -10px; }
+      .carousel-btn.next { right: -10px; }
+    }
+    @media(max-width:600px) {
+      .carousel-btn { display: none !important; }
+    }
     a.bookcard:hover{transform:translateY(-4px);}
     .bk{position:relative;border:2px solid #1a1a1a;padding:26px 22px 22px 36px;color:#fffdf7;box-shadow:10px 10px 0 rgba(26,26,26,0.12);min-height:330px;}
     .bk::before{content:'';position:absolute;left:0;top:0;bottom:0;width:16px;border-right:2px solid #1a1a1a;background:rgba(0,0,0,0.28);}
@@ -677,7 +752,13 @@
       </div>
     </div>
 
-    <div class="books-grid" id="books-grid"></div>
+    <div class="books-carousel-wrapper">
+      <button id="books-carousel-prev" class="carousel-btn prev disabled" onclick="slideBooks('prev')" aria-label="Previous book">❮</button>
+      <div class="books-grid-viewport" id="books-grid-viewport">
+        <div class="books-grid" id="books-grid"></div>
+      </div>
+      <button id="books-carousel-next" class="carousel-btn next" onclick="slideBooks('next')" aria-label="Next book">❯</button>
+    </div>
 
     <!-- Combined "The Mountain" — total value vs total deposited (all books) · §3 -->
     <div class="th-mountain">
@@ -1494,7 +1575,52 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       var n = new Date();
       stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2, '0')}:${String(n.getMinutes()).padStart(2, '0')}`;
     }
+
+    var viewport = document.getElementById('books-grid-viewport');
+    if (viewport && !viewport.dataset.hasListener) {
+      viewport.addEventListener('scroll', updateCarouselArrows);
+      window.addEventListener('resize', updateCarouselArrows);
+      viewport.dataset.hasListener = 'true';
+    }
+    setTimeout(updateCarouselArrows, 100);
   }
+
+  function updateCarouselArrows() {
+    var viewport = document.getElementById('books-grid-viewport');
+    var btnPrev = document.getElementById('books-carousel-prev');
+    var btnNext = document.getElementById('books-carousel-next');
+    if (!viewport || !btnPrev || !btnNext) return;
+    
+    var scrollLeft = viewport.scrollLeft;
+    var maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    
+    if (scrollLeft <= 5) {
+      btnPrev.classList.add('disabled');
+    } else {
+      btnPrev.classList.remove('disabled');
+    }
+    
+    if (scrollLeft >= maxScrollLeft - 5) {
+      btnNext.classList.add('disabled');
+    } else {
+      btnNext.classList.remove('disabled');
+    }
+  }
+
+  window.slideBooks = function(direction) {
+    var viewport = document.getElementById('books-grid-viewport');
+    if (!viewport) return;
+    var cards = viewport.getElementsByClassName('bookcard');
+    if (cards.length === 0) return;
+    var cardWidth = cards[0].offsetWidth;
+    var gap = 26;
+    var step = cardWidth + gap;
+    if (direction === 'prev') {
+      viewport.scrollBy({ left: -step, behavior: 'smooth' });
+    } else {
+      viewport.scrollBy({ left: step, behavior: 'smooth' });
+    }
+  };
 
   window.setSort = function(mode) {
     sortMode = mode;
