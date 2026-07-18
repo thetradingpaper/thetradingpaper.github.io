@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>წლიური დივიდენდი · mePortfolio</title>
+<script src="js/theme.js?v=1"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="js/portfolios.data.js?v=1"></script>
@@ -48,6 +49,8 @@
   .side .link-more{ display:inline-block; margin-top:12px; color:var(--red); font-size:11px; font-weight:700; text-decoration:none; }
   .side .link-more:hover{ text-decoration:underline; }
   @media (max-width:900px){ .layout{ grid-template-columns:1fr; } .side{ position:static; margin-top:8px; } }
+  html[data-theme="dark"]{ --bg:#14130f; --paper:#1d1b16; --ink:#ece7db; --muted:#a39c8c; --line:#36322a; --red:#ef4444; --green:#22c55e; }
+  html[data-theme="dark"] .info{ background:rgba(34,197,94,0.07); border-color:rgba(34,197,94,0.25); }
 </style>
 </head>
 <body>

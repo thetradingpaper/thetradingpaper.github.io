@@ -1,0 +1,4 @@
+# FUSE mount artifacts (created when a still-open file is renamed/deleted
+# on the desktop-mounted filesystem; not real project files)
+.fuse_hidden*
+*.junk*

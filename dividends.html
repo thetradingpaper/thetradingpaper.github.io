@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>დივიდენდები · mePortfolio</title>
+<script src="js/theme.js?v=1"></script>
 <script>
   // soft gate: only reachable when already unlocked on the main page
   /* server-side login (Cloudflare) protects all pages now */
@@ -37,6 +38,9 @@
   .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--green); border-radius:4px; padding:2px 7px; }
   .empty{ color:var(--muted); padding:20px; text-align:center; }
   .foot{ color:var(--muted); font-size:12px; margin-top:30px; text-align:center; }
+  .info{ background:#f4f9f4; border:1px solid #d0e6d0; }
+  html[data-theme="dark"]{ --bg:#14130f; --paper:#1d1b16; --ink:#ece7db; --muted:#a39c8c; --line:#36322a; --red:#ef4444; --green:#22c55e; }
+  html[data-theme="dark"] .info{ background:rgba(34,197,94,0.07); border-color:rgba(34,197,94,0.25); }
 </style>
 </head>
 <body>
@@ -48,7 +52,7 @@
   <h1>მიღებული დივიდენდები</h1>
   <div class="sub">Received Dividends · ჩარიცხული დივიდენდები ხაზ-ხაზ · წმინდა მიღებული</div>
 
-  <div style="background:#f4f9f4;border:1px solid #d0e6d0;border-left:4px solid var(--green);padding:14px 18px;margin-bottom:24px;font-size:13px;line-height:1.6;font-family:'Noto Sans Georgian',sans-serif;color:var(--ink);border-radius:0;">
+  <div class="info" style="border-left:4px solid var(--green);padding:14px 18px;margin-bottom:24px;font-size:13px;line-height:1.6;font-family:'Noto Sans Georgian',sans-serif;color:var(--ink);border-radius:0;">
     <strong>საინფორმაციო დაფა · Info Panel:</strong><br>
     <span id="d-payers">—</span><br>
     სავარაუდო წლიური შემოსავალი პოზიციების მიხედვით → <a href="annual-income.html" style="color:var(--green);font-weight:700;text-decoration:none;">წლიური დივიდენდი ↗</a>

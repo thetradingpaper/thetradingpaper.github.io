@@ -181,6 +181,7 @@
       '<div class="tpm-top top-bar">'
     +   '<span id="today-date">' + dateStr + '</span>'
     +   '<span>' + (lang === 'ka' ? 'გამოცემა · ვისბადენი' : 'Edition · Wiesbaden') + ' &nbsp;·&nbsp; '
+    +   '<a id="tp-theme-btn" style="cursor:pointer;" class="no-print" title="ბნელი / ნათელი თემა">' + (document.documentElement.getAttribute('data-theme')==='dark' ? '☀' : '☾') + '</a> &nbsp;·&nbsp; '
     +   '<a id="tp-lang-btn" style="cursor:pointer;font-weight:bold;margin-right:8px;" class="no-print">' + (lang === 'ka' ? 'EN' : 'KA') + '</a> &nbsp;·&nbsp; '
     +   '<a href="' + resolveUrl('/tp-logout') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
     + '</div>'
@@ -201,6 +202,18 @@
     lBtn.addEventListener('click', function () {
       var next = lang === 'ka' ? 'en' : 'ka';
       try { localStorage.setItem('tp_lang', next); } catch (e) {}
+      location.reload();
+    });
+  }
+
+  // theme toggle handler (theme.js provides tpToggleTheme; inline fallback otherwise)
+  var thBtn = document.getElementById('tp-theme-btn');
+  if (thBtn) {
+    thBtn.addEventListener('click', function () {
+      if (window.tpToggleTheme) { window.tpToggleTheme(); return; }
+      var cur = 'light';
+      try { cur = localStorage.getItem('tp_theme') === 'dark' ? 'dark' : 'light'; } catch (e) {}
+      try { localStorage.setItem('tp_theme', cur === 'dark' ? 'light' : 'dark'); } catch (e) {}
       location.reload();
     });
   }

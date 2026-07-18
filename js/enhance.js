@@ -12,24 +12,7 @@
   // ---------------------------------------------------------
   // 1. THEME TOGGLE  (reloads so charts redraw theme-correct)
   // ---------------------------------------------------------
-  function currentTheme() {
-    try { return localStorage.getItem('tp_theme') === 'dark' ? 'dark' : 'light'; }
-    catch (e) { return 'light'; }
-  }
-  function buildThemeButton() {
-    var btn = document.createElement('button');
-    btn.id = 'tp-theme-btn';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'თემის გადართვა — ბნელი/ნათელი');
-    btn.title = 'ბნელი / ნათელი თემა';
-    btn.textContent = currentTheme() === 'dark' ? '☀' : '☾';
-    btn.addEventListener('click', function () {
-      var next = currentTheme() === 'dark' ? 'light' : 'dark';
-      try { localStorage.setItem('tp_theme', next); } catch (e) {}
-      location.reload();
-    });
-    document.body.appendChild(btn);
-  }
+  // Theme toggle now lives in js/theme.js (bootstrap) + js/masthead.js (button).
 
   // ---------------------------------------------------------
   // 2. STICKY MINI-HEADER
@@ -178,7 +161,6 @@
 
   // ---------------------------------------------------------
   function init() {
-    buildThemeButton();
     buildMiniHeader();
     runCountUp();
     initReveal();

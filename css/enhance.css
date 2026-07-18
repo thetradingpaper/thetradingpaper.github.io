@@ -116,20 +116,7 @@ button:active { transform: translateY(1px); }
   .container { padding: 24px 18px; }
 }
 
-/* ==========================================================
-   THEME TOGGLE BUTTON
-   ========================================================== */
-#tp-theme-btn {
-  position: fixed; top: 14px; right: 16px; z-index: 50;
-  width: 42px; height: 42px; border-radius: 50%;
-  border: 1px solid var(--border); background: var(--paper); color: var(--ink);
-  font-size: 18px; line-height: 1; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 6px 18px -8px rgba(26,26,26,0.55);
-  transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
-}
-#tp-theme-btn:hover { transform: translateY(-2px) rotate(-12deg); border-color: var(--red); color: var(--red); }
-#tp-theme-btn:active { transform: translateY(0); }
+/* Theme toggle button now lives in the masthead top bar (js/masthead.js). */
 
 /* ==========================================================
    STICKY MINI-HEADER
@@ -162,25 +149,11 @@ button:active { transform: translateY(1px); }
 }
 
 /* ==========================================================
-   DARK THEME
-   Swap the design tokens; override the few hard-coded surfaces.
+   DARK THEME — component-specific overrides only.
+   The design-token block + body background now live at the END of
+   css/style.css so every page (not just the 5 that load enhance.css)
+   gets dark support. Keep only the component fixes here.
    ========================================================== */
-html[data-theme="dark"] {
-  --bg:     #14130f;
-  --paper:  #1d1b16;
-  --ink:    #ece7db;
-  --muted:  #a39c8c;
-  --rule:   #524c41;
-  --red:    #ef4444;
-  --green:  #22c55e;
-  --accent: #d8af4e;
-  --border: #36322a;
-}
-html[data-theme="dark"] body {
-  background:
-    radial-gradient(1200px 600px at 50% -200px, rgba(239,68,68,0.06), transparent 60%),
-    var(--bg);
-}
 /* surfaces that hard-code light colours */
 html[data-theme="dark"] .tp-card.latest { background: rgba(239,68,68,0.10); }
 html[data-theme="dark"] #tp-arch-search {

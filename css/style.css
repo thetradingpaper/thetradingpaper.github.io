@@ -672,3 +672,26 @@ li { margin-bottom: 8px; }
 }
 .day-chg.pos { color: var(--green, #166534); }
 .day-chg.neg { color: var(--red,   #b91c1c); }
+
+/* ==========================================================
+   DARK THEME TOKENS (moved here from enhance.css so EVERY page
+   loading style.css gets dark support — activated by
+   <html data-theme="dark"> set in js/theme.js). Component-specific
+   dark fixes stay in css/enhance.css.
+   ========================================================== */
+html[data-theme="dark"] {
+  --bg:     #14130f;
+  --paper:  #1d1b16;
+  --ink:    #ece7db;
+  --muted:  #a39c8c;
+  --rule:   #524c41;
+  --red:    #ef4444;
+  --green:  #22c55e;
+  --accent: #d8af4e;
+  --border: #36322a;
+}
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(1200px 600px at 50% -200px, rgba(239,68,68,0.06), transparent 60%),
+    var(--bg);
+}
