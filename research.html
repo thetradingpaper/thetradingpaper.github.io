@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>კვლევითი ცენტრი · The Trading Paper</title>
-<meta name="description" content="The Trading Paper — კვლევითი ცენტრი: სტოკ მრჩეველი, მაძიებელი, შემფასებელი და სიგნალების ჟურნალი.">
+<title>კვლევა · The Trading Paper</title>
+<meta name="description" content="The Trading Paper — კვლევა: სტოკ შემფასებელი.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css?v=mkt1">
@@ -444,130 +444,22 @@
 <body>
 
 <header class="masthead">
-  <h1>კვლევითი ცენტრი</h1>
-  <p class="tagline">Trading Paper Research Center · Analysis Desk</p>
+  <h1>კვლევა</h1>
+  <p class="tagline">Trading Paper Research · Analysis Desk</p>
 </header>
 
 <main class="container">
-  <!-- Tab Sub-Navigation (Georgian main headers, English labels inside titles/badges) -->
-  <nav class="research-subnav no-print" aria-label="Research tools">
-    <a id="tab-btn-searcher" class="research-tab-btn active" onclick="switchResearchTab('searcher')">სტოკ მაძიებელი (კვლევა 3.0)</a>
-    <a id="tab-btn-evaluator" class="research-tab-btn" onclick="switchResearchTab('evaluator')">სტოკ შემფასებელი (კვლევა 5.0)</a>
-    <a id="tab-btn-apilib" class="research-tab-btn" onclick="switchResearchTab('apilib')">API ბიბლიოთეკა (public-apis)</a>
+  <!-- Tab Sub-Navigation (Georgian main headers, English labels inside titles/badges) — hidden to directly show evaluator -->
+  <nav class="research-subnav no-print" aria-label="Research tools" style="display: none !important;">
+    <a id="tab-btn-searcher" class="research-tab-btn" onclick="switchResearchTab('searcher')">სტოკ მაძიებელი</a>
+    <a id="tab-btn-evaluator" class="research-tab-btn active" onclick="switchResearchTab('evaluator')">სტოკ შემფასებელი</a>
+    <a id="tab-btn-apilib" class="research-tab-btn" onclick="switchResearchTab('apilib')">API ბიბლიოთეკა</a>
   </nav>
-
-  <!-- ========================================================
-       Section: Searcher (Research 3.0)
-       ======================================================== -->
-  <section id="research-sec-searcher" class="research-section">
-    <!-- Structured Explanation Box -->
-    <div class="research-info-box widget">
-      <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Stock Scouter Info</div>
-      <div class="info-grid">
-        <div class="info-col">
-          <div class="info-title">💡 იდეა (Idea)</div>
-          <div class="info-text">ყოველდღიური სექტორული როტაციისა და მსხვილი მოთამაშეების (Smart Money) აქტივობის მონიტორინგი, რათა გამოვლინდეს ბაზარზე მიმდინარე კაპიტალის მოძრაობის მიმართულებები.</div>
-        </div>
-        <div class="info-col">
-          <div class="info-title">🛠️ მექანიზმი (Mechanism)</div>
-          <div class="info-text">ალგორითმი ეძებს აქტივებს, რომელთა სავაჭრო მოცულობა 2-5x აჭარბებს ნორმას და ინარჩუნებენ აღმავალ ტრენდს (50დღიან და 200დღიან საშუალოებზე ზემოთ).</div>
-        </div>
-        <div class="info-col">
-          <div class="info-title">🔄 ფუნქციონირება (Functioning)</div>
-          <div class="info-text">წაკითხული `kvleva3-picks.json` ფაილიდან გვაწვდის დღის ლიდერებს (Top Gainers/Losers) და ფილტრავს სხვადასხვა პოპულარულ სკრინერებს (Undervalued Growth, Tech და სხვ.).</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="kv3-container">
-      <!-- Left Column: Methodology & Day Leaders -->
-      <aside class="kv3-sidebar">
-        <div class="methodology-box widget">
-          <div class="m-head">მეთოდოლოგია / Approach</div>
-          <p class="m-desc">
-            <strong>კვლევა 3.0</strong> არის ყოველდღიური სკაუტინგის პლატფორმა. მიზანია ყოველდღიურად გამოვავლინოთ 5-10 ყველაზე მიმზიდველი აქტივი სხვადასხვა სექტორიდან. შერჩევა ეფუძნება Wisdom Tree-სა და Research Desk II-ის ალგორითმულ ფილტრებს.
-          </p>
-          <p class="m-desc-en">
-            <strong>Research 3.0</strong> is a daily stock-scouting engine to identify 5-10 of the most compelling equities across different sectors.
-          </p>
-          
-          <hr style="border: none; border-top: 1px dashed var(--border); margin: 16px 0;">
-          
-          <div class="m-item">
-            <div class="m-title">1. სექტორული როტაცია (Sector Rotation)</div>
-            <p class="m-text">კაპიტალის მოძრაობის ანალიზი. ვეძებთ სექტორებს, სადაც იწყება ინსტიტუციონალური სახსრების შემოდინება.</p>
-            <p class="m-text-en">Analyzing capital flows to identify sectors receiving institutional accumulation.</p>
-          </div>
-          <div class="m-item">
-            <div class="m-title">2. ფასის მომენტი (Momentum)</div>
-            <p class="m-text">აქტივები, რომლებიც აჩვენებენ ძლიერ აღმავალ ტრენდს და მხარდაჭერას 50 და 200-დღიან საშუალოებზე (MA).</p>
-            <p class="m-text-en">Assets demonstrating strong upward trend persistence above key moving averages.</p>
-          </div>
-          <div class="m-item">
-            <div class="m-title">3. მოცულობის ანომალია (Volume Anomalies)</div>
-            <p class="m-text">ჩვეულებრივზე 2-5-ჯერ მეტი სავაჭრო მოცულობა, რაც მიანიშნებს მსხვილი მოთამაშეების (Smart Money) აქტივობაზე.</p>
-            <p class="m-text-en">Surges in daily trading volume 2-5x above average, indicating heavy institutional accumulation.</p>
-          </div>
-          <div class="m-item">
-            <div class="m-title">4. შედარებითი შეფასება (Relative Valuation)</div>
-            <p class="m-text">მულტიპლიკატორების (P/E, P/S, EV/EBITDA) შედარება სექტორის საშუალო მაჩვენებლებთან და კონკურენტებთან.</p>
-            <p class="m-text-en">Comparing key valuation metrics against industry benchmarks to find discounts.</p>
-          </div>
-        </div>
-
-        <div class="sidebar-markets widget">
-          <div class="m-head">დღის ლიდერები / Leaders</div>
-          <div class="leaders-section">
-            <div class="leaders-title" style="color: var(--green);">Top Gainers</div>
-            <div class="leaders-list" id="gainers-list">
-              <div class="leaders-empty">ჩატვირთვა…</div>
-            </div>
-          </div>
-          <hr style="border: none; border-top: 1px dashed var(--border); margin: 16px 0;">
-          <div class="leaders-section">
-            <div class="leaders-title" style="color: var(--red);">Top Losers</div>
-            <div class="leaders-list" id="losers-list">
-              <div class="leaders-empty">ჩატვირთვა…</div>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Right Column: Picks & Screeners -->
-      <div class="kv3-main">
-        <div class="picks-box widget">
-          <div class="picks-head">
-            <span class="picks-head-title">დღევანდელი აქტივები</span>
-            <span class="picks-date-stamp" id="picks-date">📅 ჩატვირთვა…</span>
-          </div>
-          <div class="picks-list" id="picks-list">
-            <div class="picks-empty">იტვირთება მონაცემები…</div>
-          </div>
-        </div>
-
-        <div class="screeners-box widget" style="margin-top: 24px;">
-          <div class="picks-head" style="border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-            <span class="picks-head-title" style="letter-spacing: 2px;">სკრინერები · Screeners</span>
-            <div class="sort-toggle" style="border: 1px solid var(--border); display: inline-flex; flex-wrap: wrap;">
-              <button id="scr-active" class="on" onclick="setScreener('most_active')">Most Active</button>
-              <button id="scr-growth" onclick="setScreener('undervalued_growth')">Undervalued Growth</button>
-              <button id="scr-tech" onclick="setScreener('growth_tech')">Growth Tech</button>
-              <button id="scr-penny" onclick="setScreener('penny_stocks')">Penny Stocks</button>
-              <button id="scr-fifty-two" onclick="setScreener('fifty_two_week_gainers')">52 Wk Gainers</button>
-            </div>
-          </div>
-          <div class="picks-list" id="screeners-list">
-            <div class="picks-empty">ჩატვირთვა…</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ========================================================
        Section: Evaluator (Research 5.0)
        ======================================================== -->
-  <section id="research-sec-evaluator" class="research-section" style="display:none;">
+  <section id="research-sec-evaluator" class="research-section">
     <!-- Structured Explanation Box -->
     <div class="research-info-box widget">
       <div class="info-badge">ხელსაწყოს ახსნა-განმარტება / Stock Evaluator Info</div>
@@ -858,10 +750,10 @@
 
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
-    let initialTab = urlParams.get('tab') || 'searcher';
-    const validTabs = ['searcher', 'evaluator', 'apilib'];
+    let initialTab = urlParams.get('tab') || 'evaluator';
+    const validTabs = ['evaluator', 'apilib'];
     if (!validTabs.includes(initialTab)) {
-      initialTab = 'searcher';
+      initialTab = 'evaluator';
     }
     switchResearchTab(initialTab, false);
 
@@ -875,160 +767,6 @@
 </script>
 
 <!-- ========================================================
-     JS: Searcher (Research 3.0)
-     ======================================================== -->
-<script>
-(function() {
-  'use strict';
-  
-  function generateSparkline(change, width, height) {
-    var points = 8;
-    var coords = [];
-    var isPositive = change >= 0;
-    
-    var startY = isPositive ? height - 5 : 5;
-    var endY = isPositive ? 5 : height - 5;
-    
-    coords.push({x: 0, y: startY});
-    for (var i = 1; i < points - 1; i++) {
-      var x = (width / (points - 1)) * i;
-      var linearY = startY + ((endY - startY) / (points - 1)) * i;
-      var noise = (Math.random() - 0.5) * (height * 0.35);
-      var y = Math.max(3, Math.min(height - 3, linearY + noise));
-      coords.push({x: x, y: y});
-    }
-    coords.push({x: width, y: endY});
-    
-    var path = "M " + coords[0].x + "," + coords[0].y;
-    for (var i = 1; i < coords.length; i++) {
-      path += " L " + coords[i].x + "," + coords[i].y;
-    }
-    return path;
-  }
-
-  function esc(s) {
-    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-  
-  function fmtMoney(v) {
-    return '$' + (+v).toFixed(2);
-  }
-  
-  function fmtChange(val, pct) {
-    var sign = val >= 0 ? '+' : '−';
-    return sign + '$' + Math.abs(val).toFixed(2) + ' (' + (val >= 0 ? '+' : '−') + Math.abs(pct).toFixed(2) + '%)';
-  }
-
-  async function loadPicks() {
-    var listEl = document.getElementById('picks-list');
-    var dateEl = document.getElementById('picks-date');
-    if (!listEl) return;
-    
-    try {
-      var res = await fetch('/data/kvleva3-picks.json?t=' + Date.now());
-      if (!res.ok) throw new Error('Network error');
-      var data = await res.json();
-      
-      if (data.date && dateEl) {
-        dateEl.textContent = '📅 ' + data.date;
-      }
-      
-      var picks = data.picks || [];
-      if (picks.length === 0) {
-        listEl.innerHTML = '<div class="picks-empty">დღეს არჩევანი არ არის. (No picks today.)</div>';
-        return;
-      }
-      
-      var html = picks.map(function(p) {
-        var isPos = p.change >= 0;
-        var changeClass = isPos ? 'pos' : 'neg';
-        var spPath = generateSparkline(p.change, 70, 24);
-        
-        var geoReason = p.reason;
-        var engReason = '';
-        var m = p.reason.match(/\(([^)]+)\)/);
-        if (m) {
-          geoReason = p.reason.replace(/\s*\([^)]+\)\s*/g, '').trim();
-          engReason = m[1];
-        }
-        
-        return '<div class="pick-row">' +
-          '<div class="pick-col-ticker">' +
-            '<a class="pick-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
-            '<span class="pick-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
-          '</div>' +
-          '<div>' +
-            '<span class="pick-sector">' + esc(p.sector) + '</span>' +
-          '</div>' +
-          '<div class="pick-price-box">' +
-            '<span class="pick-price">' + fmtMoney(p.price) + '</span>' +
-            '<span class="pick-change ' + changeClass + '">' + fmtChange(p.change, p.changePct) + '</span>' +
-          '</div>' +
-          '<div class="pick-col-sparkline">' +
-            '<svg class="pick-sparkline-svg" viewBox="0 0 70 24" aria-hidden="true">' +
-              '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />' +
-            '</svg>' +
-          '</div>' +
-          '<div></div>' +
-          '<div class="pick-col-thesis">' +
-            '<div class="pick-thesis">' + esc(geoReason) + 
-              (engReason ? '<span class="pick-thesis-en">' + esc(engReason) + '</span>' : '') +
-            '</div>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-      
-      listEl.innerHTML = html;
-      
-      var gainersList = document.getElementById('gainers-list');
-      var gainers = data.gainers || [];
-      if (gainersList) {
-        if (gainers.length === 0) {
-          gainersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
-        } else {
-          gainersList.innerHTML = gainers.map(function(p) {
-            var isPos = p.change >= 0;
-            var changeClass = isPos ? 'pos' : 'neg';
-            var spPath = generateSparkline(p.change, 50, 18);
-            var sign = isPos ? '+' : '−';
-            
-            return '<div class="leader-row">' +
-              '<div class="leader-col-info">' +
-                '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
-                '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
-              '</div>' +
-              '<div class="leader-col-spark">' +
-                '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
-                  '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
-                '</svg>' +
-              '</div>' +
-              '<div class="leader-col-val">' +
-                '<span class="leader-price">$' + (+p.price).toFixed(2) + '</span>' +
-                '<span class="leader-change ' + changeClass + '">' + sign + Math.abs(p.changePct).toFixed(2) + '%</span>' +
-              '</div>' +
-            '</div>';
-          }).join('');
-        }
-      }
-
-      var losersList = document.getElementById('losers-list');
-      var losers = data.losers || [];
-      if (losersList) {
-        if (losers.length === 0) {
-          losersList.innerHTML = '<div class="leaders-empty">მონაცემები არ არის.</div>';
-        } else {
-          losersList.innerHTML = losers.map(function(p) {
-            var isPos = p.change >= 0;
-            var changeClass = isPos ? 'pos' : 'neg';
-            var spPath = generateSparkline(p.change, 50, 18);
-            var sign = isPos ? '+' : '−';
-            
-            return '<div class="leader-row">' +
-              '<div class="leader-col-info">' +
-                '<a class="leader-ticker" href="?tab=evaluator&ticker=' + encodeURIComponent(p.ticker) + '" onclick="event.preventDefault(); showTickerInEvaluator(\'' + esc(p.ticker) + '\')">' + esc(p.ticker) + '</a>' +
-                '<span class="leader-name" title="' + esc(p.name) + '">' + esc(p.name) + '</span>' +
-              '</div>' +
-              '<div class="leader-col-spark">' +
                 '<svg class="leader-sparkline-svg" viewBox="0 0 50 18" aria-hidden="true">' +
                   '<path d="' + spPath + '" fill="none" stroke="' + (isPos ? 'var(--green)' : 'var(--red)') + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />' +
                 '</svg>' +
