@@ -99,39 +99,8 @@
     background: var(--red);
     color: #fff;
   }
-  .report-card .r-del {
-    background: none;
-    border: none;
-    color: var(--muted);
-    font-size: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    line-height: 1;
-    padding: 2px 6px;
-    border-radius: 4px;
-    transition: color 0.15s, background 0.15s;
-  }
-  .report-card .r-del:hover {
-    color: var(--red);
-    background: rgba(185, 28, 28, 0.08);
-  }
 
-  /* Form and controls */
   .cab-empty{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);padding:16px;text-align:center;border:1px dashed var(--border);}
-  .cab-form{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--accent,#8b6914);margin:22px 0;overflow:hidden;}
-  .cab-form>summary{cursor:pointer;list-style:none;padding:12px 18px;font-family:'Noto Sans Georgian',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);}
-  .cab-form>summary::-webkit-details-marker{display:none;}
-  .cab-form>summary::after{content:'+';float:right;color:var(--red);font-size:18px;line-height:1;}
-  .cab-form[open]>summary::after{content:'−';}
-  .cab-form .fb{padding:6px 18px 18px;border-top:1px solid var(--border);}
-  .cab-form label{display:block;font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;}
-  .cab-form input,.cab-form textarea{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--border);border-radius:5px;font-family:inherit;font-size:13px;background:var(--bg,#fffdf7);color:var(--ink);}
-  .cab-form textarea{min-height:100px;resize:vertical;line-height:1.6;}
-  .cab-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  @media(max-width:560px){.cab-form .row{grid-template-columns:1fr;}}
-  .cab-btn{margin-top:14px;padding:9px 22px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;border-radius:4px;}
   
   /* Pagination */
   .tp-pager .tp-pg{min-width:30px;height:30px;border:1px solid #d9d2c4;background:#fff;color:#1a1a1a;border-radius:6px;cursor:pointer;font-size:13px;padding:0 9px;flex:0 0 auto;}
@@ -148,7 +117,7 @@
 </header>
 
 <main class="container">
-  <p class="cab-lead">The Trading Paper ყოველთვიური ჟურნალი. აქ ინახება გამოქვეყნებული PDF ვერსიები და პორტფელის მიმოხილვები. ყოველი თვის ბოლოს შეგიძლია დაამატო ახალი PDF ფაილი შესაბამისი აღწერით.</p>
+  <p class="cab-lead">The Trading Paper ყოველთვიური ჟურნალი. აქ ინახება გამოქვეყნებული PDF ვერსიები და პორტფელის მდგომარეობის დეტალური აღწერები.</p>
 
   <div class="cab-sec">
     <span class="t">გამოცემები</span>
@@ -161,83 +130,25 @@
 
   <div class="report-grid" id="report-grid"></div>
   <div class="tp-pager" id="tp-pager" style="display:flex;gap:6px;align-items:center;justify-content:center;margin-top:14px;margin-bottom:20px;"></div>
-
-  <details class="cab-form">
-    <summary>ახალი ანგარიშის დამატება</summary>
-    <div class="fb">
-      <div class="row">
-        <div>
-          <label>თარიღი</label>
-          <input id="f-date" type="date">
-        </div>
-        <div>
-          <label>გამოცემა / სათაური</label>
-          <input id="f-title" type="text" placeholder="მაგ. გამოცემა №15">
-        </div>
-      </div>
-      
-      <label>PDF ფაილის ლინკი</label>
-      <input id="f-pdf" type="text" placeholder="მაგ. pdfs/thetradingpaper15.pdf">
-      
-      <label>პორტფელის მდგომარეობის აღწერა</label>
-      <textarea id="f-desc" placeholder="აღწერე რა მდგომარეობაა პორტფელზე ამ თვეში, რა ცვლილებები განხორციელდა…"></textarea>
-      
-      <button class="cab-btn" id="f-add">დამატება</button>
-    </div>
-  </details>
 </main>
 
 <footer>
   © 2026 The Trading Paper · ლაშა ფხაკაძე · ვისბადენი<br>ეს არ არის ფინანსური რჩევა
 </footer>
 
+<script src="js/cabinet.data.js?t=1"></script>
 <script>
 (function(){
   'use strict';
-
-  var SEED_REPORTS = [
-    { id: 'seed-14', n: 14, title: 'გამოცემა №14', date: '2026-07-14', desc: 'BOG-ის proceeds შესყიდვები და TBC დივიდენდების დაგეგმვა.', pdf: 'pdfs/thetradingpaper14.pdf', permanent: true },
-    { id: 'seed-13', n: 13, title: 'გამოცემა №13', date: '2026-06-29', desc: 'პორტფელის სტრატეგიული რეორგანიზაცია და კორექტირებები.', pdf: 'pdfs/thetradingpaper13.pdf', permanent: true },
-    { id: 'seed-12', n: 12, title: 'გამოცემა №12', date: '2026-06-25', desc: 'სექტორული ანალიზი და რისკების მართვის დანერგვა.', pdf: 'pdfs/thetradingpaper12.pdf', permanent: true },
-    { id: 'seed-11', n: 11, title: 'გამოცემა №11', date: '2026-06-25', desc: 'აქტიური ვაჭრობის შედეგები და GALT-ის განხილვა.', pdf: 'pdfs/thetradingpaper11.pdf', permanent: true },
-    { id: 'seed-10', n: 10, title: 'გამოცემა №10', date: '2026-06-15', desc: 'საპროცენტო განაკვეთები და დივიდენდური სტრატეგიები.', pdf: 'pdfs/thetradingpaper10.pdf', permanent: true },
-    { id: 'seed-9',  n: 9,  title: 'გამოცემა №9',  date: '2026-06-12', desc: 'ტექნოლოგიური სექტორის აქტივობა და AI-ის ტრენდები.', pdf: 'pdfs/thetradingpaper9.pdf', permanent: true },
-    { id: 'seed-8',  n: 8,  title: 'გამოცემა №8',  date: '2026-06-11', desc: 'პირველი კვარტლის შეჯამება და ბაზრის მოლოდინები.', pdf: 'pdfs/thetradingpaper8.pdf', permanent: true },
-    { id: 'seed-7',  n: 7,  title: 'გამოცემა №7',  date: '2026-05-29', desc: 'TBC პორტფელის გახსნა და პირველი შესყიდვები.', pdf: 'pdfs/thetradingpaper7.pdf', permanent: true },
-    { id: 'seed-6',  n: 6,  title: 'გამოცემა №6',  date: '2026-05-27', desc: 'საფონდო ბირჟის ზოგადი მიმოხილვა და DCA ლოგიკა.', pdf: 'pdfs/thetradingpaper6.pdf', permanent: true },
-    { id: 'seed-5',  n: 5,  title: 'გამოცემა №5',  date: '2026-05-22', desc: 'BOG პორტფელის ეტაპობრივი ზრდის ანალიტიკა.', pdf: 'pdfs/thetradingpaper5.pdf', permanent: true },
-    { id: 'seed-4',  n: 4,  title: 'გამოცემა №4',  date: '2026-05-21', desc: 'პოზიციების გადანაწილება და ბერკეტის რისკები.', pdf: 'pdfs/thetradingpaper4.pdf', permanent: true },
-    { id: 'seed-3',  n: 3,  title: 'გამოცემა №3',  date: '2026-05-11', desc: 'MSTR CFD ვაჭრობის დეტალური განხილვა.', pdf: 'pdfs/thetradingpaper3.pdf', permanent: true },
-    { id: 'seed-2',  n: 2,  title: 'გამოცემა №2',  date: '2026-05-09', desc: 'პირველი საინვესტიციო ნაბიჯები და მიზნების დასახვა.', pdf: 'pdfs/thetradingpaper2.pdf', permanent: true },
-    { id: 'seed-1',  n: 1,  title: 'გამოცემა №1 (Anchor)', date: '2026-01-01', desc: 'საწყისი კაპიტალის დაგროვება და The Trading Paper-ის დაარსება.', pdf: 'pdfs/thetradingpaper1.pdf', permanent: true }
-  ];
-
-  var DATA = { reports: [] };
-
-  // Load user added reports from localStorage
-  try {
-    var saved = localStorage.getItem('tp_reports');
-    if (saved) {
-      DATA.reports = JSON.parse(saved);
-    }
-  } catch (e) {
-    DATA.reports = [];
-  }
-
-  function saveReports() {
-    try {
-      localStorage.setItem('tp_reports', JSON.stringify(DATA.reports));
-    } catch(e) {}
-  }
 
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
   var perPage = 4, page = 1, searchQuery = '';
   
   function getCombinedList() {
-    var list = SEED_REPORTS.concat(DATA.reports);
+    var list = (window.CABINET && window.CABINET.reports) || [];
     // Sort by date desc
-    return list.sort(function(a, b) {
+    return list.slice().sort(function(a, b) {
       return (b.date || '').localeCompare(a.date || '');
     });
   }
@@ -252,13 +163,6 @@
              (it.date || '').toLowerCase().indexOf(s) >= 0;
     });
   }
-
-  window.deleteReport = function(id) {
-    if (!confirm('ნამდვილად გსურთ ამ ანგარიშის წაშლა?')) return;
-    DATA.reports = DATA.reports.filter(function(x) { return x.id !== id; });
-    saveReports();
-    render();
-  };
 
   function render() {
     var grid = document.getElementById('report-grid');
@@ -276,15 +180,11 @@
 
     grid.innerHTML = items.length ? items.map(function(it, idx) {
       var isLatest = (idx === 0 && page === 1) ? ' latest' : '';
-      var delBtn = !it.permanent 
-        ? '<button class="r-del" onclick="deleteReport(\'' + it.id + '\')" title="წაშლა">×</button>' 
-        : '';
-        
+      
       var formattedDate = new Date(it.date).toLocaleDateString('ka-GE', { year: 'numeric', month: 'long', day: 'numeric' });
-      if (it.date === '2026-01-01' && it.n === 1) formattedDate = 'Anchor · 2026';
+      if (it.date === '2026-01-01') formattedDate = 'Anchor · 2026';
 
       return '<div class="report-card' + isLatest + '">'
-        + delBtn
         + '<div class="r-header">'
         +   '<span class="r-title">' + esc(it.title) + '</span>'
         +   '<span class="r-date">' + esc(formattedDate) + '</span>'
@@ -315,47 +215,6 @@
       });
     });
   }
-
-  // Setup form submission
-  var dEl = document.getElementById('f-date');
-  var tEl = document.getElementById('f-title');
-  var pEl = document.getElementById('f-pdf');
-  var descEl = document.getElementById('f-desc');
-
-  dEl.value = new Date().toISOString().slice(0, 10);
-
-  document.getElementById('f-add').addEventListener('click', function() {
-    var title = tEl.value.trim();
-    var pdf = pEl.value.trim();
-    var desc = descEl.value.trim();
-    var date = dEl.value || new Date().toISOString().slice(0, 10);
-
-    if (!title) { tEl.focus(); return; }
-    if (!pdf) { pEl.focus(); return; }
-    if (!desc) { descEl.focus(); return; }
-
-    DATA.reports.push({
-      id: 'usr-' + Date.now(),
-      title: title,
-      date: date,
-      desc: desc,
-      pdf: pdf,
-      permanent: false
-    });
-
-    saveReports();
-    page = 1; // Go to first page to see the added item
-    render();
-
-    // Clear inputs
-    tEl.value = '';
-    pEl.value = '';
-    descEl.value = '';
-    dEl.value = new Date().toISOString().slice(0, 10);
-
-    // Close details form
-    document.querySelector('.cab-form').removeAttribute('open');
-  });
 
   // Search input event
   var searchInput = document.getElementById('tp-arch-search');
