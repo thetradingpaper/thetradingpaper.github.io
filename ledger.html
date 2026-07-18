@@ -97,13 +97,134 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 4px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     transition: all 0.15s ease;
   }
   .add-item-btn:hover {
     border-color: var(--ink);
     color: var(--ink);
     background: rgba(0,0,0,0.02);
+  }
+
+  /* Dynamic groups styling */
+  .group-block {
+    margin-bottom: 28px;
+    border: 1px solid transparent;
+  }
+  .lg-sect-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 22px 0 4px;
+    position: relative;
+  }
+  .lg-sect-header .n {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .lg-sect-header .editable-group-name {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 700;
+    font-size: 17px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ink);
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+    flex: 1;
+    box-sizing: border-box;
+  }
+  .lg-sect-header .editable-group-name:focus,
+  .lg-sect-header .editable-group-name:hover {
+    border-color: var(--border);
+    background: #fbfaf5;
+  }
+  .lg-sect-header .del-group-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 6px;
+    transition: color 0.15s;
+  }
+  .lg-sect-header .del-group-btn:hover {
+    color: var(--red);
+  }
+  .lg-sect-note-row {
+    margin-bottom: 8px;
+    padding-left: 20px;
+  }
+  .lg-sect-note-row .editable-group-note {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 2px 6px;
+    border-radius: 4px;
+    width: 90%;
+    box-sizing: border-box;
+    transition: all 0.15s ease;
+  }
+  .lg-sect-note-row .editable-group-note:focus,
+  .lg-sect-note-row .editable-group-note:hover {
+    border-color: var(--border);
+    background: #fbfaf5;
+  }
+
+  .add-group-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 2px dashed var(--border);
+    color: var(--muted);
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 14px;
+    margin-bottom: 24px;
+    transition: all 0.15s ease;
+  }
+  .add-group-btn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    background: rgba(0,0,0,0.02);
+  }
+
+  /* Toolbar controls & currency picker */
+  .lg-toolbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .lg-currency-picker {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .lg-currency-picker select {
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
   }
 
   .lg-line { display:flex; justify-content:space-between; align-items:baseline;
@@ -147,50 +268,28 @@
   <!-- autosave status + reset -->
   <div class="lg-toolbar">
     <div id="num-saved">● ცვლილებები ავტომატურად ინახება ამ ბრაუზერში</div>
-    <button type="button" id="lg-reset" class="lg-reset">↺ საწყის მაჩვენებლებზე დაბრუნება</button>
+    <div class="lg-toolbar-controls">
+      <div class="lg-currency-picker">
+        <label for="currency-select">ვალუტა: </label>
+        <select id="currency-select" onchange="changeCurrency(this.value)">
+          <option value="₾">₾ GEL</option>
+          <option value="$">$ USD</option>
+          <option value="€">€ EUR</option>
+          <option value="£">£ GBP</option>
+        </select>
+      </div>
+      <button type="button" id="lg-reset" class="lg-reset">↺ საწყის მაჩვენებლებზე დაბრუნება</button>
+    </div>
   </div>
 
   <div class="lg-cols">
     <div class="lg-col">
-      <!-- Income List -->
-      <div class="lg-sect"><span class="n">✎</span><h3>თვიური შემოსავალი</h3><hr></div>
-      <div id="group-income-list"></div>
-      <button type="button" class="add-item-btn" onclick="addNewItem('income')">+ შემოსავლის დამატება</button>
-
-      <!-- Fixed Expenses List -->
-      <div class="lg-sect"><span class="n">I</span><h3>ფიქსირებული ხარჯები</h3>
-        <div class="note">სახურავი და საბაზისო — ყოველთვე ერთი და იგივე</div><hr></div>
-      <div id="group-fixed-list"></div>
-      <button type="button" class="add-item-btn" onclick="addNewItem('fixed')">+ ფიქსირებული ხარჯის დამატება</button>
-
-      <!-- Future Savings List -->
-      <div class="lg-sect"><span class="n">II</span><h3>მომავალი</h3>
-        <div class="note">ხელფასის დღეს — პირველ რიგში, ავტომატურად</div><hr></div>
-      <div id="group-future-list"></div>
-      <button type="button" class="add-item-btn" onclick="addNewItem('future')">+ დანაზოგის/DCA დამატება</button>
-
-      <!-- Life/Discretionary List -->
-      <div class="lg-sect"><span class="n">III</span><h3>ჩემი ცხოვრება</h3>
-        <div class="note">ის, რისთვისაც ღირს</div><hr></div>
-      <div id="group-life-list"></div>
-      <button type="button" class="add-item-btn" onclick="addNewItem('life')">+ ხარჯის დამატება</button>
+      <div id="groups-container"></div>
+      <button type="button" class="add-group-btn" onclick="addNewGroup()">+ ახალი კატეგორიის დამატება</button>
     </div>
 
     <div class="lg-col">
-      <div class="lg-sect"><span class="n">§</span><h3>შედეგი</h3>
-        <div class="note">შემოსავალი — ზემოდან ქვემოთ</div><hr></div>
-
-      <div class="lg-line"><span>შემოსავალი</span><b id="r-inc">€0</b></div>
-      <div class="lg-line"><span>− ფიქსირებული ხარჯები</span><b id="r-ess" style="color:#3a3630;">−€0</b></div>
-      <div class="lg-subtotal"><em>ფიქსირებულის შემდეგ</em><b id="r-after-ess">€0</b></div>
-      <div class="lg-line"><span>− მომავალი</span><b id="r-fut" style="color:var(--green);">−€0</b></div>
-      <div class="lg-subtotal"><em>საცხოვრებლად დარჩა</em><b id="r-after-fut">€0</b></div>
-      <div class="lg-line"><span>− ჩემი ცხოვრება</span><b id="r-life" style="color:var(--red);">−€0</b></div>
-
-      <div class="lg-total" id="total-box">
-        <span style="font-weight:700;font-size:15px;">= თავისუფალი დასახარჯი</span>
-        <b id="r-free">€0</b>
-      </div>
+      <!-- Will be populated dynamically via JavaScript -->
     </div>
   </div>
 
@@ -201,50 +300,69 @@
 (function(){
   "use strict";
 
-  var DEFAULT_ITEMS = [
-    { id: '1', group: 'income', name: 'თვიური შემოსავალი', value: 1765, step: 50, legacyKey: 'income' },
-    { id: '2', group: 'fixed', name: 'ქირა (თბილი)', value: 550, step: 25, legacyKey: 'rent' },
-    { id: '3', group: 'fixed', name: 'საკვები', value: 300, step: 25, legacyKey: 'groceries' },
-    { id: '4', group: 'fixed', name: 'ტელეფონი + ინტერნეტი', value: 35, step: 5, legacyKey: 'phone' },
-    { id: '5', group: 'fixed', name: 'დენი', value: 40, step: 5, legacyKey: 'power' },
-    { id: '6', group: 'fixed', name: 'Rundfunkbeitrag', value: 18, step: 1, legacyKey: 'rundfunk' },
-    { id: '7', group: 'fixed', name: 'Deutschlandticket', value: 58, step: 1, legacyKey: 'ticket' },
-    { id: '8', group: 'future', name: 'ინვესტიცია (DCA)', value: 200, step: 25, legacyKey: 'invest' },
-    { id: '9', group: 'future', name: 'ბუფერი', value: 200, step: 25, legacyKey: 'buffer' },
-    { id: '10', group: 'life', name: 'საბრძოლო კლუბი (MMA)', value: 70, step: 5, legacyKey: 'mma' },
-    { id: '11', group: 'life', name: 'დარბაზი', value: 30, step: 5, legacyKey: 'gym' },
-    { id: '12', group: 'life', name: 'წიგნები / სწავლა', value: 40, step: 5, legacyKey: 'books' },
-    { id: '13', group: 'life', name: 'გასვლები ბუნებაში', value: 30, step: 5, legacyKey: 'trips' }
+  var DEFAULT_GROUPS = [
+    { id: 'income', name: 'თვიური შემოსავალი', note: 'შემოსავლის წყაროები', role: 'income', color: '#8b6914' },
+    { id: 'fixed', name: 'ფიქსირებული ხარჯები', note: 'სახურავი და საბაზისო — ყოველთვე ერთი და იგივე', role: 'expense', color: '#3a3630' },
+    { id: 'future', name: 'მომავალი', note: 'ხელფასის დღეს — პირველ რიგში, ავტომატურად', role: 'expense', color: '#166534' },
+    { id: 'life', name: 'ჩემი ცხოვრება', note: 'ის, რისთვისაც ღირს', role: 'expense', color: '#b91c1c' }
   ];
 
-  var state = { items: [] };
+  var DEFAULT_ITEMS = [
+    { id: '1', groupId: 'income', name: 'თვიური შემოსავალი', value: 1765, step: 50, legacyKey: 'income' },
+    { id: '2', groupId: 'fixed', name: 'ქირა (თბილი)', value: 550, step: 25, legacyKey: 'rent' },
+    { id: '3', groupId: 'fixed', name: 'საკვები', value: 300, step: 25, legacyKey: 'groceries' },
+    { id: '4', groupId: 'fixed', name: 'ტელეფონი + ინტერნეტი', value: 35, step: 5, legacyKey: 'phone' },
+    { id: '5', groupId: 'fixed', name: 'დენი', value: 40, step: 5, legacyKey: 'power' },
+    { id: '6', groupId: 'fixed', name: 'Rundfunkbeitrag', value: 18, step: 1, legacyKey: 'rundfunk' },
+    { id: '7', groupId: 'fixed', name: 'Deutschlandticket', value: 58, step: 1, legacyKey: 'ticket' },
+    { id: '8', groupId: 'future', name: 'ინვესტიცია (DCA)', value: 200, step: 25, legacyKey: 'invest' },
+    { id: '9', groupId: 'future', name: 'ბუფერი', value: 200, step: 25, legacyKey: 'buffer' },
+    { id: '10', groupId: 'life', name: 'საბრძოლო კლუბი (MMA)', value: 70, step: 5, legacyKey: 'mma' },
+    { id: '11', groupId: 'life', name: 'დარბაზი', value: 30, step: 5, legacyKey: 'gym' },
+    { id: '12', groupId: 'life', name: 'წიგნები / სწავლა', value: 40, step: 5, legacyKey: 'books' },
+    { id: '13', groupId: 'life', name: 'გასვლები ბუნებაში', value: 30, step: 5, legacyKey: 'trips' }
+  ];
+
+  var state = { currency: '€', groups: [], items: [] };
   
   // Load state and handle legacy data migration
   try {
     var raw = localStorage.getItem("tp_ledger");
     if (raw) {
       var parsed = JSON.parse(raw);
-      if (parsed.items && Array.isArray(parsed.items)) {
-        state.items = parsed.items;
+      state.currency = parsed.currency || '€';
+      if (parsed.groups && Array.isArray(parsed.groups)) {
+        state.groups = parsed.groups;
       } else {
-        // Migrate legacy flat object to items array
+        state.groups = JSON.parse(JSON.stringify(DEFAULT_GROUPS));
+      }
+      
+      if (parsed.items && Array.isArray(parsed.items)) {
+        state.items = parsed.items.map(function(item) {
+          if (item.group && !item.groupId) {
+            item.groupId = item.group;
+            delete item.group;
+          }
+          return item;
+        });
+      } else {
         state.items = DEFAULT_ITEMS.map(function(item) {
-          var copy = { id: item.id, group: item.group, name: item.name, value: item.value, step: item.step };
-          if (item.legacyKey && parsed[item.legacyKey] !== undefined) {
+          var copy = { id: item.id, groupId: item.groupId, name: item.name, value: item.value, step: item.step };
+          if (parsed[item.legacyKey] !== undefined) {
             copy.value = Number(parsed[item.legacyKey]) || 0;
           }
           return copy;
         });
       }
     } else {
-      state.items = DEFAULT_ITEMS.map(function(item) {
-        return { id: item.id, group: item.group, name: item.name, value: item.value, step: item.step };
-      });
+      state.currency = '€';
+      state.groups = JSON.parse(JSON.stringify(DEFAULT_GROUPS));
+      state.items = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
     }
   } catch(e) {
-    state.items = DEFAULT_ITEMS.map(function(item) {
-      return { id: item.id, group: item.group, name: item.name, value: item.value, step: item.step };
-    });
+    state.currency = '€';
+    state.groups = JSON.parse(JSON.stringify(DEFAULT_GROUPS));
+    state.items = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
   }
 
   var ready = false;                 // don't flash "saved" during the first render
@@ -264,17 +382,63 @@
   }
 
   function save(){ try{ localStorage.setItem("tp_ledger", JSON.stringify(state)); }catch(e){} flashSaved(); }
-  function fmt(n){ return "€" + Math.round(n).toLocaleString("de-DE"); }
+  function fmt(n){ return (state.currency || '€') + Math.round(n).toLocaleString("de-DE"); }
   
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-  window.addNewItem = function(group) {
-    var defaultNames = {
-      income: 'ახალი შემოსავალი',
-      fixed: 'ახალი ხარჯი',
-      future: 'ინვესტიცია / დანაზოგი',
-      life: 'ახალი ხარჯი'
-    };
+  window.addNewGroup = function() {
+    var newId = 'group-' + Date.now();
+    // Choose a color that doesn't overlap too much
+    var colors = ['#0f3057', '#dc2626', '#166534', '#b91c1c', '#3a3630', '#8b6914', '#0891b2', '#2563eb', '#9d174d'];
+    var col = colors[state.groups.length % colors.length];
+    
+    state.groups.push({
+      id: newId,
+      name: 'ახალი კატეგორია',
+      note: 'აღწერა…',
+      role: 'expense',
+      color: col
+    });
+    save();
+    render();
+  };
+
+  window.deleteGroup = function(id) {
+    var group = state.groups.find(function(g) { return g.id === id; });
+    if (!group) return;
+    if (group.role === 'income') {
+      alert('შემოსავლის კატეგორიის წაშლა შეუძლებელია!');
+      return;
+    }
+    if (!confirm('ნამდვილად გსურთ წაშალოთ კატეგორია "' + group.name + '" და ყველა მასში შემავალი ხაზი?')) return;
+    
+    state.groups = state.groups.filter(function(g) { return g.id !== id; });
+    state.items = state.items.filter(function(it) { return it.groupId !== id; });
+    
+    save();
+    render();
+  };
+
+  window.updateGroupName = function(id, val) {
+    state.groups.forEach(function(g) {
+      if (g.id === id) {
+        g.name = val.trim() || 'კატეგორია';
+      }
+    });
+    save();
+    recalc();
+  };
+
+  window.updateGroupNote = function(id, val) {
+    state.groups.forEach(function(g) {
+      if (g.id === id) {
+        g.note = val.trim();
+      }
+    });
+    save();
+  };
+
+  window.addNewItem = function(groupId) {
     var defaultSteps = {
       income: 50,
       fixed: 25,
@@ -283,10 +447,10 @@
     };
     var newItem = {
       id: 'item-' + Date.now() + '-' + Math.floor(Math.random()*1000),
-      group: group,
-      name: defaultNames[group],
+      groupId: groupId,
+      name: 'ახალი ხარჯი',
       value: 0,
-      step: defaultSteps[group] || 10
+      step: defaultSteps[groupId] || 10
     };
     state.items.push(newItem);
     save();
@@ -335,88 +499,148 @@
     recalc();
   };
 
+  window.changeCurrency = function(val) {
+    state.currency = val;
+    save();
+    render();
+  };
+
   function render() {
-    var groups = ['income', 'fixed', 'future', 'life'];
+    var container = document.getElementById('groups-container');
+    if (!container) return;
     
-    groups.forEach(function(group) {
-      var container = document.getElementById('group-' + group + '-list');
-      if (!container) return;
+    container.innerHTML = state.groups.map(function(g, index) {
+      var numLabel = g.role === 'income' ? '✎' : (index).toString();
+      var isIncome = g.role === 'income';
+      var delBtn = isIncome ? '' : '<button type="button" class="del-group-btn" onclick="deleteGroup(\'' + g.id + '\')" title="კატეგორიის წაშლა">×</button>';
       
-      var items = state.items.filter(function(it) { return it.group === group; });
+      var groupItems = state.items.filter(function(it) { return it.groupId === g.id; });
       
-      container.innerHTML = items.map(function(it) {
+      var itemsHtml = groupItems.map(function(it) {
         return '<div class="lg-field" data-id="' + it.id + '">'
           + '<input type="text" class="editable-name" value="' + esc(it.name) + '" onchange="updateItemName(\'' + it.id + '\', this.value)" placeholder="დასახელება">'
           + '<div class="lg-in">'
           +   '<button type="button" onclick="adjustValue(\'' + it.id + '\', -1)">−</button>'
-          +   '<div class="box"><span>€</span><input type="number" value="' + it.value + '" onchange="updateItemValue(\'' + it.id + '\', this.value)"></div>'
+          +   '<div class="box"><span>' + state.currency + '</span><input type="number" value="' + it.value + '" onchange="updateItemValue(\'' + it.id + '\', this.value)"></div>'
           +   '<button type="button" onclick="adjustValue(\'' + it.id + '\', 1)">+</button>'
           + '</div>'
           + '<button type="button" class="del-item-btn" onclick="deleteItem(\'' + it.id + '\')" title="წაშლა">×</button>'
           + '</div>';
       }).join('');
-    });
+      
+      return '<div class="group-block" data-group-id="' + g.id + '">'
+        + '<div class="lg-sect-header">'
+        +   '<span class="n">' + numLabel + '</span>'
+        +   '<input type="text" class="editable-group-name" value="' + esc(g.name) + '" onchange="updateGroupName(\'' + g.id + '\', this.value)" placeholder="კატეგორია">'
+        +   delBtn
+        + '</div>'
+        + '<div class="lg-sect-note-row">'
+        +   '<input type="text" class="editable-group-note" value="' + esc(g.note) + '" onchange="updateGroupNote(\'' + g.id + '\', this.value)" placeholder="კატეგორიის აღწერა…">'
+        + '</div>'
+        + '<hr style="border:none; border-top:1px solid var(--border); margin-top:2px; margin-bottom:12px;">'
+        + '<div class="group-items-list">' + itemsHtml + '</div>'
+        + '<button type="button" class="add-item-btn" onclick="addNewItem(\'' + g.id + '\')">+ ხაზის დამატება</button>'
+        + '</div>';
+    }).join('');
+    
+    // Set active currency select option
+    var currencySelect = document.getElementById('currency-select');
+    if (currencySelect) currencySelect.value = state.currency;
     
     recalc();
   }
 
   function recalc(){
-    var inc = 0;
-    var fixedSum = 0;
-    var futureSum = 0;
-    var lifeSum = 0;
+    if (state.groups.length === 0) return;
+    
+    var incomeGroup = state.groups[0];
+    var incomeSum = 0;
     
     state.items.forEach(function(it) {
-      var val = Number(it.value) || 0;
-      if (it.group === 'income') inc += val;
-      else if (it.group === 'fixed') fixedSum += val;
-      else if (it.group === 'future') futureSum += val;
-      else if (it.group === 'life') lifeSum += val;
+      if (it.groupId === incomeGroup.id) {
+        incomeSum += Number(it.value) || 0;
+      }
     });
     
-    var free = inc - fixedSum - futureSum - lifeSum;
+    var expenseGroups = state.groups.slice(1);
+    var groupSums = {};
+    var totalExpenses = 0;
+    
+    expenseGroups.forEach(function(g) {
+      var sum = 0;
+      state.items.forEach(function(it) {
+        if (it.groupId === g.id) {
+          sum += Number(it.value) || 0;
+        }
+      });
+      groupSums[g.id] = sum;
+      totalExpenses += sum;
+    });
+    
+    var free = incomeSum - totalExpenses;
     var over = free < 0;
 
-    var rInc = document.getElementById("r-inc");
-    var rEss = document.getElementById("r-ess");
-    var rAfterEss = document.getElementById("r-after-ess");
-    var rFut = document.getElementById("r-fut");
-    var rAfterFut = document.getElementById("r-after-fut");
-    var rLife = document.getElementById("r-life");
-    var rFree = document.getElementById("r-free");
+    var resultsCol = document.querySelector('.lg-cols > .lg-col:last-child');
+    if (resultsCol) {
+      var linesHtml = '';
+      var runningRemaining = incomeSum;
+      
+      linesHtml += '<div class="lg-line"><span>' + esc(incomeGroup.name) + '</span><b id="r-inc">' + fmt(incomeSum) + '</b></div>';
+      
+      expenseGroups.forEach(function(g) {
+        var sum = groupSums[g.id] || 0;
+        runningRemaining -= sum;
+        linesHtml += '<div class="lg-line"><span>− ' + esc(g.name) + '</span><b style="color:' + g.color + ';">−' + fmt(sum) + '</b></div>';
+        linesHtml += '<div class="lg-subtotal"><em>' + esc(g.name) + '-ის შემდეგ</em><b>' + fmt(runningRemaining) + '</b></div>';
+      });
+      
+      resultsCol.innerHTML = '<div class="lg-sect"><span class="n">§</span><h3>შედეგი</h3>'
+        + '<div class="note">შემოსავალი — ზემოდან ქვემოთ</div><hr></div>'
+        + linesHtml
+        + '<div class="lg-total ' + (over ? 'over' : '') + '" id="total-box">'
+        + '  <span style="font-weight:700;font-size:15px;">= თავისუფალი დასახარჯი</span>'
+        + '  <b id="r-free">' + fmt(free) + '</b>'
+        + '</div>';
+    }
+    
     var heroNum = document.getElementById("hero-num");
     var heroLabel = document.getElementById("hero-label");
     var hero = document.getElementById("hero");
-    var totalBox = document.getElementById("total-box");
     
-    if (rInc) rInc.textContent = fmt(inc);
-    if (rEss) rEss.textContent = "−" + fmt(fixedSum);
-    if (rAfterEss) rAfterEss.textContent = fmt(inc - fixedSum);
-    if (rFut) rFut.textContent = "−" + fmt(futureSum);
-    if (rAfterFut) rAfterFut.textContent = fmt(inc - fixedSum - futureSum);
-    if (rLife) rLife.textContent = "−" + fmt(lifeSum);
-    if (rFree) rFree.textContent = fmt(free);
     if (heroNum) {
       heroNum.textContent = fmt(free);
       heroNum.style.color = over ? "var(--red)" : "var(--green)";
     }
     if (heroLabel) heroLabel.textContent = over ? "ბიუჯეტს გადააჭარბე — შეამცირე" : "თავისუფალი დასახარჯი";
     if (hero) hero.classList.toggle("over", over);
-    if (totalBox) totalBox.classList.toggle("over", over);
 
     // Update bar percentage and legends
     var bar = document.getElementById("bar"), leg = document.getElementById("legend");
     if (bar && leg) {
       bar.innerHTML = ""; leg.innerHTML = "";
-      var sums = [fixedSum, futureSum, lifeSum, Math.max(0, free)];
-      var colors = ["#3a3630", "#166534", "#b91c1c", "#8b6914"];
-      var labels = ["ფიქსირებული", "მომავალი", "ცხოვრება", "თავისუფალი"];
+      
+      var sums = [incomeSum];
+      var colors = [incomeGroup.color];
+      var labels = [incomeGroup.name];
+      
+      expenseGroups.forEach(function(g) {
+        sums.push(groupSums[g.id] || 0);
+        colors.push(g.color);
+        labels.push(g.name);
+      });
+      
+      sums.push(Math.max(0, free));
+      colors.push("#8b6914");
+      labels.push("თავისუფალი");
       
       labels.forEach(function(label, i) {
-        var pct = inc > 0 ? Math.max(0, sums[i] / inc * 100) : 0;
-        var d = document.createElement("div");
-        d.style.width = pct + "%"; d.style.background = colors[i];
-        bar.appendChild(d);
+        var pct = incomeSum > 0 ? Math.max(0, (i === 0 ? incomeSum : sums[i]) / incomeSum * 100) : 0;
+        if (i > 0) {
+          var d = document.createElement("div");
+          d.style.width = pct + "%"; d.style.background = colors[i];
+          bar.appendChild(d);
+        }
+        
         var l = document.createElement("span");
         l.innerHTML = '<i style="background:' + colors[i] + '"></i>' + label + " " + Math.round(pct) + "%";
         leg.appendChild(l);
@@ -425,16 +649,50 @@
     save();
   }
 
-  // Reset to defaults
+  // Reset to defaults with double confirmation and timer
   var resetBtn = document.getElementById("lg-reset");
-  if (resetBtn) resetBtn.addEventListener("click", function(){
-    if(!confirm("დავაბრუნო საწყის მაჩვენებლებზე? ახლანდელი ცვლილებები წაიშლება.")) return;
-    state.items = DEFAULT_ITEMS.map(function(it) {
-      return { id: it.id, group: it.group, name: it.name, value: it.value, step: it.step };
+  var resetConfirmState = false;
+  var resetTimer = null;
+  
+  if (resetBtn) {
+    resetBtn.style.transition = "all 0.2s ease";
+    
+    resetBtn.addEventListener("click", function(){
+      if (!resetConfirmState) {
+        resetConfirmState = true;
+        resetBtn.textContent = "⚠️ ნამდვილად გსურთ განულება? (კლიკი დასადასტურებლად)";
+        resetBtn.style.borderColor = "var(--red)";
+        resetBtn.style.color = "var(--red)";
+        resetBtn.style.fontWeight = "bold";
+        
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function(){
+          revertResetBtn();
+        }, 5000);
+      } else {
+        clearTimeout(resetTimer);
+        revertResetBtn();
+        
+        state.currency = '€';
+        state.groups = JSON.parse(JSON.stringify(DEFAULT_GROUPS));
+        state.items = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
+        save();
+        
+        render();
+        flashSaved();
+      }
     });
-    save();
-    render();
-  });
+  }
+  
+  function revertResetBtn() {
+    resetConfirmState = false;
+    if (resetBtn) {
+      resetBtn.textContent = "↺ საწყის მაჩვენებლებზე დაბრუნება";
+      resetBtn.style.borderColor = "var(--border)";
+      resetBtn.style.color = "var(--muted)";
+      resetBtn.style.fontWeight = "normal";
+    }
+  }
 
   // Date in top bar
   var d = new Date();
@@ -442,7 +700,7 @@
   if (el) el.textContent = d.toLocaleDateString("ka-GE", { day:"numeric", month:"long", year:"numeric" });
 
   render();
-  ready = true;   // subsequent edits will show the "✓ შენახულია" confirmation
+  ready = true;
 })();
 </script>
 <script src="js/i18n.js"></script>
