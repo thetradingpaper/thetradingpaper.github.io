@@ -41,11 +41,26 @@
   .cab-form .chk{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:var(--ink);}
   .cab-form .chk input{width:auto;}
   .cab-btn{margin-top:14px;padding:9px 22px;background:#1a1a1a;color:#fff;border:none;font-size:12px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;border-radius:4px;}
-  .cab-export{margin-top:14px;display:none;}
-  .cab-export.show{display:block;}
-  .cab-export p{font-size:11px;color:var(--muted);margin:0 0 6px;line-height:1.5;}
-  .cab-export textarea{width:100%;box-sizing:border-box;height:150px;font-family:ui-monospace,monospace;font-size:11px;padding:10px;border:1px solid var(--border);border-radius:5px;background:var(--bg,#fffdf7);color:var(--ink);}
-  .cab-copy{margin-top:8px;padding:7px 16px;background:var(--red,#b91c1c);color:#fff;border:none;font-size:11px;letter-spacing:1.5px;cursor:pointer;text-transform:uppercase;border-radius:4px;}
+  .cab-form select {width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--border);border-radius:5px;font-family:inherit;font-size:13px;background:var(--bg,#fffdf7);color:var(--ink);margin-top:2px;}
+  .goal { position: relative; }
+  .goal .goal-del-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .goal .goal-del-btn:hover {
+    color: var(--red);
+    background: rgba(185, 28, 28, 0.08);
+  }
 </style>
 </head>
 <body>
@@ -65,20 +80,40 @@
     <summary>ახალი მიზნის დამატება</summary>
     <div class="fb">
       <label>სათაური</label>
-      <input id="f-title" type="text" placeholder="მაგ. €10,000 პორტფელი">
+      <input id="f-title" type="text" placeholder="მაგ. სახლის ყიდვა" required>
+      
       <label>დეტალი</label>
-      <input id="f-detail" type="text" placeholder="მოკლე აღწერა / წიგნი">
+      <input id="f-detail" type="text" placeholder="მოკლე აღწერა / წიგნი / შენიშვნა">
+      
       <div class="row">
-        <div><label>ვადა (YYYY-MM-DD)</label><input id="f-deadline" type="date"></div>
-        <div><label>პროგრესი %</label><input id="f-progress" type="number" min="0" max="100" value="0"></div>
+        <div>
+          <label>სამიზნე თანხა ($)</label>
+          <input id="f-target" type="number" placeholder="მაგ. 1000000" min="1" required>
+        </div>
+        <div>
+          <label>ვადა (YYYY-MM-DD)</label>
+          <input id="f-deadline" type="date">
+        </div>
       </div>
-      <div class="chk"><input id="f-done" type="checkbox"><span>შესრულებულია</span></div>
+      
+      <div class="row">
+        <div>
+          <label>მიბმული პორტფელი</label>
+          <select id="f-portfolio" onchange="toggleManualProgress()">
+            <option value="none">არცერთი (მექანიკური პროგრესი)</option>
+            <option value="bog">BOG (DOGMA)</option>
+            <option value="tbc">TBC (ACTIVE)</option>
+            <option value="galt">GALT (MARGIN)</option>
+            <option value="total">მთლიანი პორტფელი (Total Portfolio)</option>
+          </select>
+        </div>
+        <div id="manual-progress-box">
+          <label>მიმდინარე თანხა ($)</label>
+          <input id="f-current" type="number" min="0" value="0">
+        </div>
+      </div>
+      
       <button class="cab-btn" id="f-add">დამატება</button>
-      <div class="cab-export" id="exp">
-        <p>დაემატა ქვემოთ. მუდმივად რომ შეინახო: დააკოპირე ეს და ჩააგდე <b>js/cabinet.data.js</b>-ში (ან გამომიგზავნე და მე ავტვირთავ GitHub-ზე).</p>
-        <textarea id="exp-txt" readonly></textarea>
-        <button class="cab-copy" id="exp-copy">📋 კოდის კოპირება</button>
-      </div>
     </div>
   </details>
 </main>
@@ -88,53 +123,148 @@
 </footer>
 
 <script src="js/cabinet.data.js?t=1"></script>
+<script>document.write('<scr'+'ipt src="/portfolio-data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="js/portfolios.data.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
+<script>document.write('<scr'+'ipt src="js/portfolios.js?t='+Date.now()+'"><\/scr'+'ipt>');</script>
 <script>
 (function(){
-  var DATA = JSON.parse(JSON.stringify(window.CABINET || {goals:[],notes:[],watchlist:[]}));
-  if(!DATA.goals) DATA.goals=[];
+  var DATA = { goals: [] };
+  
+  // Load from localStorage, fallback to empty array
+  try {
+    var saved = localStorage.getItem('tp_goals');
+    if (saved) {
+      DATA.goals = JSON.parse(saved);
+    } else {
+      DATA.goals = [];
+    }
+  } catch (e) {
+    DATA.goals = [];
+  }
+
+  function saveData() {
+    try {
+      localStorage.setItem('tp_goals', JSON.stringify(DATA.goals));
+    } catch(e) {}
+  }
+
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  function getPortfolioValue(key) {
+    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') return 0;
+    if (key === 'total') {
+      var bog = aggregate(portfolios.bog).currentValue;
+      var tbc = aggregate(portfolios.tbc).currentValue;
+      var galt = aggregate(portfolios.galt).currentValue;
+      return bog + tbc + galt;
+    }
+    var p = portfolios[key];
+    if (!p) return 0;
+    return aggregate(p).currentValue;
+  }
+
+  window.toggleManualProgress = function() {
+    var pSelect = document.getElementById('f-portfolio');
+    var pBox = document.getElementById('manual-progress-box');
+    if (pSelect && pBox) {
+      if (pSelect.value === 'none') {
+        pBox.style.display = 'block';
+      } else {
+        pBox.style.display = 'none';
+      }
+    }
+  }
+
+  window.deleteGoal = function(id) {
+    if (!confirm('ნამდვილად გსურთ ამ მიზნის წაშლა?')) return;
+    DATA.goals = DATA.goals.filter(function(x) { return x.id !== id; });
+    saveData();
+    render();
+  };
+
   function render(){
     var grid=document.getElementById('goal-grid'), g=DATA.goals;
     document.getElementById('goal-count').textContent=g.length+' მიზანი';
     if(!g.length){grid.innerHTML='<div class="cab-empty" style="grid-column:1/-1;">ჯერ არაფერია — დაამატე პირველი მიზანი ქვემოთ.</div>';return;}
     grid.innerHTML=g.map(function(x){
-      var p=Math.max(0,Math.min(100,+x.progress||0));
-      var dl=x.deadline?('ვადა: '+esc(x.deadline)):'';
-      return '<div class="goal'+(x.done?' done':'')+'">'
-        +'<div class="g-title">'+esc(x.title)+(x.done?' ✓':'')+'</div>'
-        +(x.detail?'<div class="g-detail">'+esc(x.detail)+'</div>':'')
+      var currentVal = 0;
+      var detailSuffix = '';
+      if (x.portfolio && x.portfolio !== 'none') {
+        currentVal = getPortfolioValue(x.portfolio);
+        var labelMap = { bog: 'BOG', tbc: 'TBC', galt: 'GALT', total: 'მთლიანი პორტფელი' };
+        detailSuffix = ' (მიბმულია: ' + labelMap[x.portfolio] + ')';
+      } else {
+        currentVal = +x.current || 0;
+      }
+      
+      var targetVal = +x.target || 1;
+      var p = Math.max(0, Math.min(100, (currentVal / targetVal) * 100));
+      var dl = x.deadline?('ვადა: '+esc(x.deadline)):'';
+      var isDone = x.done || (p >= 100);
+      
+      var currentStr = '$' + currentVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      var targetStr = '$' + targetVal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+      return '<div class="goal'+(isDone?' done':'')+'">'
+        +'<button class="goal-del-btn" onclick="deleteGoal('+x.id+')" title="წაშლა">×</button>'
+        +'<div class="g-title">'+esc(x.title)+(isDone?' ✓':'')+'</div>'
+        +'<div class="g-detail">'+esc(x.detail || '') + '<span style="color:var(--accent); font-weight:700;">' + detailSuffix + '</span></div>'
+        +'<div style="font-size:11px; margin-bottom:8px; font-family:ui-monospace,monospace; font-weight:700;">'
+        +  '<span style="color:var(--green);">' + currentStr + '</span> / <span style="color:var(--muted);">' + targetStr + '</span>'
+        +'</div>'
         +'<div class="g-bar"><div class="g-fill" style="width:'+p+'%"></div></div>'
-        +'<div class="g-foot"><span>'+dl+'</span><span class="g-pct">'+p+'%</span></div>'
+        +'<div class="g-foot"><span>'+dl+'</span><span class="g-pct">'+p.toFixed(1)+'%</span></div>'
         +'</div>';
     }).join('');
   }
-  function buildFile(){
-    return '// The Trading Paper — Cabinet data (generated on '+new Date().toISOString().slice(0,10)+')\n'
-      +'// Paste this WHOLE block into js/cabinet.data.js and commit.\n'
-      +'window.CABINET = '+JSON.stringify(DATA,null,2)+';\n';
-  }
+
   document.getElementById('f-add').addEventListener('click',function(){
     var title=document.getElementById('f-title').value.trim();
+    var target = +document.getElementById('f-target').value || 0;
     if(!title){document.getElementById('f-title').focus();return;}
+    if(target <= 0){document.getElementById('f-target').focus();return;}
+    
+    var portfolio = document.getElementById('f-portfolio').value;
+    var currentVal = 0;
+    if (portfolio === 'none') {
+      currentVal = +document.getElementById('f-current').value || 0;
+    }
+
     DATA.goals.push({
-      title:title,
-      detail:document.getElementById('f-detail').value.trim(),
-      deadline:document.getElementById('f-deadline').value,
-      progress:+document.getElementById('f-progress').value||0,
-      done:document.getElementById('f-done').checked
+      id: Date.now(),
+      title: title,
+      detail: document.getElementById('f-detail').value.trim(),
+      target: target,
+      portfolio: portfolio,
+      current: currentVal,
+      deadline: document.getElementById('f-deadline').value,
+      done: false
     });
+    
+    saveData();
     render();
-    document.getElementById('exp-txt').value=buildFile();
-    document.getElementById('exp').classList.add('show');
-    document.getElementById('f-title').value='';document.getElementById('f-detail').value='';
-    document.getElementById('f-progress').value='0';document.getElementById('f-done').checked=false;
+    
+    document.getElementById('f-title').value='';
+    document.getElementById('f-detail').value='';
+    document.getElementById('f-target').value='';
+    document.getElementById('f-portfolio').value='none';
+    document.getElementById('f-current').value='0';
+    document.getElementById('f-deadline').value='';
+    toggleManualProgress();
+    
+    document.querySelector('.cab-form').removeAttribute('open');
   });
-  document.getElementById('exp-copy').addEventListener('click',function(){
-    var t=document.getElementById('exp-txt');t.select();
-    try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}
-    this.textContent='✓ დაკოპირდა';var b=this;setTimeout(function(){b.textContent='📋 კოდის კოპირება';},1500);
-  });
-  render();
+
+  // Check portfolios load before initial render
+  function init() {
+    if (typeof portfolios === 'undefined' || typeof aggregate === 'undefined') {
+      setTimeout(init, 100);
+      return;
+    }
+    render();
+  }
+  
+  init();
 })();
 </script>
 <script src="js/masthead.js?v=6"></script>
