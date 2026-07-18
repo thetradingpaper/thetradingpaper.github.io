@@ -17,8 +17,6 @@ window.CABINET = {
   // { date:'YYYY-MM-DD', title, body }
   // Note: the journal page also stores your own notes in the browser
   // (localStorage) so they persist across restarts — see notes.html.
-  notes: [
-    { date: '2026-07-03', title: 'დღიურის დასაწყისი', body: 'ეს არის ჩემი ჩანაწერების გვერდი — იდეები, თეზისები, ბაზრის დაკვირვებები და გაკვეთილები. სანამ შევდივარ პოზიციაში, თეზისი ჯერ აქ ჩავიწერო.' }
-  ]
+  notes: []
 
 };
