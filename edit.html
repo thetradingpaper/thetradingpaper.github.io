@@ -161,7 +161,90 @@ table.ed-tbl tr.hit{background:rgba(185,28,28,.10);}
   }
 
   function save(){ try { localStorage.setItem(DRAFT_KEY, JSON.stringify(draft)); } catch(e){} }
-  function touched(){ setDirty(true); save(); renderPreview(); }
+  
+  function autoSyncHoldings(p) {
+    if (!p || !p.transactions) return;
+    p.holdings = p.holdings || [];
+    
+    var txShares = {};
+    var txInvested = {};
+    var txDividends = {};
+    
+    // Sort transactions oldest to newest to compute running cost basis correctly
+    var sortedTx = p.transactions.slice().sort(function(a,b){ return a.date < b.date ? -1 : (a.date > b.date ? 1 : 0); });
+    
+    sortedTx.forEach(function(tx) {
+      if (!tx.ticker) return;
+      var t = tx.ticker.toUpperCase();
+      if (!txShares[t]) {
+        txShares[t] = 0;
+        txInvested[t] = 0;
+        txDividends[t] = 0;
+      }
+      
+      if (tx.type === 'buy') {
+        var qty = Number(tx.shares) || 0;
+        var price = Number(tx.price) || 0;
+        var comm = Number(tx.commission) || 0;
+        txShares[t] += qty;
+        txInvested[t] += (qty * price) + comm;
+      } else if (tx.type === 'sell') {
+        var qty = Number(tx.shares) || 0;
+        var price = Number(tx.price) || 0;
+        var comm = Number(tx.commission) || 0;
+        txShares[t] -= qty;
+        txInvested[t] -= (qty * price) - comm;
+      } else if (tx.type === 'dividend') {
+        txDividends[t] += Number(tx.amount) || 0;
+      }
+    });
+
+    Object.keys(txShares).forEach(function(t) {
+      var shares = txShares[t];
+      if (shares > 0) {
+        var existing = p.holdings.find(function(h) { return h.ticker.toUpperCase() === t; });
+        var avgBuy = txShares[t] > 0 ? (txInvested[t] / txShares[t]) : 0;
+        
+        if (existing) {
+          existing.shares = shares;
+          existing.avgBuy = Number(avgBuy.toFixed(4));
+          existing.invested = Number(txInvested[t].toFixed(2));
+        } else {
+          var colors = ['#0f3057', '#dc2626', '#8b6914', '#0891b2', '#4b5563', '#b5651d', '#3d8c7a', '#7a8c2a', '#2563eb', '#9d174d'];
+          var randomColor = colors[Math.floor(Math.random() * colors.length)];
+          
+          p.holdings.push({
+            ticker: t,
+            name: t,
+            shares: shares,
+            avgBuy: Number(avgBuy.toFixed(4)),
+            invested: Number(txInvested[t].toFixed(2)),
+            value: Number((shares * (avgBuy || 1)).toFixed(2)),
+            color: randomColor,
+            divYield: 0.00
+          });
+        }
+      }
+    });
+
+    p.holdings = p.holdings.filter(function(h) {
+      if (!h.ticker) return false;
+      var t = h.ticker.toUpperCase();
+      if (txShares[t] !== undefined) {
+        return txShares[t] > 0;
+      }
+      return true;
+    });
+  }
+
+  function touched(){
+    if (activeKey && activeKey !== '__bot' && draft[activeKey]) {
+      autoSyncHoldings(draft[activeKey]);
+    }
+    setDirty(true);
+    save();
+    renderPreview();
+  }
 
   // ---------- tabs ----------
   function renderTabs(){

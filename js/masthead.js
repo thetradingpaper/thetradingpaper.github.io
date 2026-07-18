@@ -31,7 +31,7 @@
     { href: '/goals.html',     label: lang === 'ka' ? 'მიზნები' : 'Goals' },
     { href: '/notes.html',     label: lang === 'ka' ? 'ჩემი ჩანაწერები' : 'My Notes' },
     { href: '/ledger.html',    label: lang === 'ka' ? 'ბიუჯეტი' : 'Ledger' },
-    { href: '/dividends.html', label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
+    { href: '/annual-income.html', label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
     { href: '/edit.html',      label: lang === 'ka' ? 'რედაქტირება' : 'Edit' }
   ];
 

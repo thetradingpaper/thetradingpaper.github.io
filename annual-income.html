@@ -79,10 +79,36 @@
   ['bog','tbc'].forEach(function(k){
     var p=P[k]; if(!p||!p.holdings) return;
     p.holdings.forEach(function(h){
-      if(typeof h.divYield==='number' && h.divYield>0){
-        var g=h.value*(h.divYield/100);
-        gross+=g;
-        payers.push({ticker:h.ticker, name:h.name||'', book:p.name, bkey:k, value:h.value, yld:h.divYield, gross:g, net:g*0.70});
+      var ticker = h.ticker.toUpperCase();
+      var divsReceivedLastYear = 0;
+      var hasDividends = false;
+      
+      if (p.transactions) {
+        var oneYearAgo = new Date();
+        oneYearAgo.setDate(oneYearAgo.getDate() - 365);
+        var oneYearAgoIso = oneYearAgo.toISOString().slice(0,10);
+        
+        p.transactions.forEach(function(tx) {
+          if (tx.type === 'dividend' && tx.ticker && tx.ticker.toUpperCase() === ticker) {
+            hasDividends = true;
+            if (tx.date >= oneYearAgoIso) {
+              divsReceivedLastYear += Number(tx.amount) || 0;
+            }
+          }
+        });
+      }
+
+      var yld = Number(h.divYield) || 0;
+      
+      if (yld > 0 || hasDividends) {
+        if (yld === 0 && h.value > 0) {
+          var grossEstimated = divsReceivedLastYear / 0.70;
+          yld = (grossEstimated / h.value) * 100;
+        }
+        
+        var g = h.value * (yld / 100);
+        gross += g;
+        payers.push({ticker:h.ticker, name:h.name||'', book:p.name, bkey:k, value:h.value, yld:yld, gross:g, net:g*0.70});
       } else {
         nonpayers.push(h.ticker+' ('+p.name+')');
       }

@@ -581,6 +581,22 @@
     .th-belt .l{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
     .th-belt .v{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:700;font-size:22px;letter-spacing:-0.5px;color:var(--ink);}
     .th-belt .n{font-family:'Noto Sans Georgian',sans-serif;font-size:9px;color:var(--muted);margin-top:3px;}
+    
+    /* recent dividends widget */
+    .th-recent-divs{border:1px solid var(--border);background:var(--paper);padding:16px 18px;margin-top:16px;font-family:'Noto Sans Georgian',sans-serif;}
+    .th-recent-divs .divs-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:12px;}
+    .th-recent-divs .divs-head .title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;color:var(--ink);}
+    .th-recent-divs .divs-head .link-more{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;color:var(--red);text-decoration:none;font-weight:700;}
+    .th-recent-divs .divs-head .link-more:hover{text-decoration:underline;}
+    .th-recent-divs .divs-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+    @media (max-width:800px){ .th-recent-divs .divs-list{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:480px){ .th-recent-divs .divs-list{grid-template-columns:1fr;} }
+    .th-recent-divs .div-item{border:1px solid var(--border);border-radius:6px;padding:10px 12px;background:#fff;display:flex;flex-direction:column;gap:4px;transition:transform 0.15s ease,box-shadow 0.15s ease;}
+    .th-recent-divs .div-item:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.03);}
+    .th-recent-divs .div-item .ticker-badge{align-self:flex-start;font-family:'Noto Sans Georgian',sans-serif;font-size:9.5px;font-weight:700;color:#fff;background:var(--green);padding:2px 6px;border-radius:4px;letter-spacing:0.5px;}
+    .th-recent-divs .div-item .date{font-family:ui-monospace,monospace;font-size:10px;color:var(--muted);}
+    .th-recent-divs .div-item .amount{font-family:ui-monospace,monospace;font-weight:700;font-size:15px;color:var(--green);margin-top:2px;}
+    .th-recent-divs .div-item .note{font-family:'Noto Sans Georgian',sans-serif;font-size:9.5px;color:var(--muted);line-height:1.35;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:26px;}
     /* portfolio dividend goal card (change spec §5) */
     .div-goal{background:var(--paper);border:1px solid var(--border);border-left:3px solid var(--green,#15803d);padding:16px 20px;margin:10px 0 26px;font-family:'Noto Sans Georgian',sans-serif;}
     .div-goal .dg-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;}
@@ -770,8 +786,17 @@
     <div class="th-belt">
       <a href="history-bog.html" class="cell" id="total-platform-fees"></a>
       <a href="dividends.html" class="cell" id="total-dividends-received"></a>
-      <a href="dividends.html" class="cell" id="total-dividends-projected"></a>
+      <a href="annual-income.html" class="cell" id="total-dividends-projected"></a>
       <a href="history-bog.html" class="cell" id="total-commissions-belt"></a>
+    </div>
+
+    <!-- Last 5 Dividends -->
+    <div class="th-recent-divs" id="recent-dividends-container">
+      <div class="divs-head">
+        <span class="title">ბოლო 5 დივიდენდი · Recent Dividends</span>
+        <a href="dividends.html" class="link-more">ყველას ნახვა →</a>
+      </div>
+      <div class="divs-list" id="recent-dividends-list"></div>
     </div>
   </section>
 
@@ -1402,6 +1427,51 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       const breakdown = (D.feesByBook || []).map(f => f.book + ': ' + fmtUSD(f.amount)).join(' · ');
       commEl.innerHTML = '<div class="l">ჯამური საკომისიო <a href="commissions.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;">↗</a> · Total Commissions</div><div class="v" style="color:var(--red)">'+fmtUSD(fees)+'</div><div class="n">' + breakdown + '</div>';
     }
+
+    renderRecentDividends();
+  }
+
+  function renderRecentDividends() {
+    var divs = [];
+    ['bog','tbc','galt'].forEach(k => {
+      const p = portfolios[k]; if (!p || !p.transactions) return;
+      p.transactions.forEach(t => {
+        if (t.type === 'dividend') {
+          divs.push({
+            date: t.date,
+            ticker: t.ticker || '',
+            amount: +t.amount || 0,
+            note: t.note || '',
+            bookName: p.name
+          });
+        }
+      });
+    });
+    
+    divs.sort(function(a,b){
+      if (a.date < b.date) return 1;
+      if (a.date > b.date) return -1;
+      return 0;
+    });
+    
+    var last5 = divs.slice(0, 5);
+    var container = document.getElementById('recent-dividends-list');
+    if (!container) return;
+    
+    if (last5.length === 0) {
+      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--muted); font-size: 12px; padding: 10px 0;">ჯერ დივიდენდები არ არის ჩარიცხული</div>';
+      return;
+    }
+    
+    container.innerHTML = last5.map(d => {
+      var badgeColor = TOTAL_COLORS[d.bookName.toLowerCase()] || 'var(--green)';
+      return '<div class="div-item">'
+        + '<div class="ticker-badge" style="background:' + badgeColor + '">' + d.ticker + '</div>'
+        + '<div class="date">' + fmtDate(d.date) + '</div>'
+        + '<div class="amount">+' + fmtUSD(d.amount) + '</div>'
+        + '<div class="note" title="' + d.note + '">' + (d.note || 'დივიდენდი') + '</div>'
+        + '</div>';
+    }).join('');
   }
 
   function renderTotal(){
