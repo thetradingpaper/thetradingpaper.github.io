@@ -116,17 +116,18 @@
     + '.tpm-mini-nav a{color:var(--ink,#1a1a1a);text-decoration:none;}'
     + '.tpm-mini-nav a.active{color:#b91c1c;font-weight:700;}'
     + '@media print{header.tpm,#tpm-sticky{display:none!important;}}'
-    + '#tpm-center-ticker{display:flex;align-items:center;border:1px dashed var(--border,#d9d4c8);'
-    +   'padding:5px 0;background:var(--paper,#fffdf7);border-radius:4px;width:380px;overflow:hidden;'
-    +   'white-space:nowrap;position:relative;line-height:1.2;}'
-    + '#tpm-center-ticker::before,#tpm-center-ticker::after{content:"";position:absolute;top:0;bottom:0;width:20px;pointer-events:none;z-index:2;}'
+    + '#tpm-center-ticker{display:inline-flex;align-items:center;border:1px solid var(--border,#d9d4c8);'
+    +   'background:var(--paper,#fffdf7);border-radius:99px;width:480px;height:32px;box-sizing:border-box;'
+    +   'padding:0 16px;overflow:hidden;white-space:nowrap;position:relative;line-height:1;'
+    +   'box-shadow:inset 0 1px 3px rgba(0,0,0,0.03);margin:0 10px;}'
+    + '#tpm-center-ticker::before,#tpm-center-ticker::after{content:"";position:absolute;top:0;bottom:0;width:30px;pointer-events:none;z-index:2;}'
     + '#tpm-center-ticker::before{left:0;background:linear-gradient(to right,var(--paper,#fffdf7),transparent);}'
     + '#tpm-center-ticker::after{right:0;background:linear-gradient(to left,var(--paper,#fffdf7),transparent);}'
-    + '.tpm-marquee-wrap{display:inline-flex;gap:24px;padding-left:12px;animation:tpm-marquee-scroll 25s linear infinite;}'
+    + '.tpm-marquee-wrap{display:inline-flex;gap:28px;align-items:center;animation:tpm-marquee-scroll 22s linear infinite;}'
     + '.tpm-marquee-wrap:hover{animation-play-state:paused;}'
-    + '.tpm-marquee-wrap a{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;}'
+    + '.tpm-marquee-wrap a{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px;font-family:"Noto Sans Georgian",sans-serif;font-size:12px;}'
     + '.tpm-marquee-wrap a:hover{color:var(--red,#b91c1c);}'
-    + '.tpm-marquee-wrap .tk{font-family:"Noto Serif Georgian",serif;font-weight:700;color:var(--ink,#1a1a1a);}'
+    + '.tpm-marquee-wrap .tk{font-family:"Noto Sans Georgian",sans-serif;font-weight:700;color:var(--ink,#1a1a1a);}'
     + '.tpm-marquee-wrap .pos{color:var(--green,#166534);font-weight:700;}'
     + '.tpm-marquee-wrap .neg{color:var(--red,#b91c1c);font-weight:700;}'
     + '@keyframes tpm-marquee-scroll{0%{transform:translate3d(0,0,0);}100%{transform:translate3d(-50%,0,0);}}'
@@ -273,14 +274,14 @@
         if (picks.length === 0) { el.style.display = 'none'; return; }
         
         var html = '<div class="tpm-marquee-wrap">';
-        var itemsHtml = '<span style="font-weight:700;color:var(--red,#b91c1c);letter-spacing:0.5px;">კვლევა 3.0:</span>&nbsp;&nbsp;';
-        
-        itemsHtml += picks.slice(0, 5).map(function(p) {
+        var itemsHtml = picks.map(function(p) {
           var isPos = p.change >= 0;
-          var sign = isPos ? '+' : '−';
-          return '<a href="/kvleva3.html"><span class="tk">' + p.ticker + '</span> '
-            + '<span class="' + (isPos ? 'pos' : 'neg') + '">' + sign + Math.abs(p.changePct).toFixed(1) + '%</span></a>';
-        }).join('&nbsp;·&nbsp;&nbsp;');
+          var arrow = isPos ? '▲' : '▼';
+          var changeClass = isPos ? 'pos' : 'neg';
+          var href = resolveUrl('/research.html?tab=evaluator&ticker=' + encodeURIComponent(p.ticker));
+          return '<a href="' + href + '"><span class="tk">' + p.ticker + '</span> '
+            + '<span class="' + changeClass + '">' + arrow + ' ' + Math.abs(p.changePct).toFixed(1) + '%</span></a>';
+        }).join('&nbsp;&nbsp;·&nbsp;&nbsp;');
         
         // Duplicate for seamless infinite scrolling loop
         html += itemsHtml + '&nbsp;&nbsp;·&nbsp;&nbsp;' + itemsHtml + '</div>';
