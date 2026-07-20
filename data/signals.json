@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-20T15:18:36.081Z",
+ "updated": "2026-07-20T17:03:26.595Z",
  "watchlist": [
   "NVDA",
   "TSLA",
@@ -11,69 +11,14 @@
   {
    "ok": true,
    "ticker": "NVDA",
-   "price": 206.09,
-   "rsi": 59.5,
-   "sma5": 208.12,
-   "sma20": 201.89,
+   "price": 203.69,
+   "rsi": 57.8,
+   "sma5": 207.64,
+   "sma20": 201.77,
    "atr": 7.24,
    "high20": 213.99,
-   "vol": 29254681,
+   "vol": 44535824,
    "avgVol20": 144982100,
-   "chg1d": 1.62,
-   "signal": "WAIT",
-   "reasons": [],
-   "plan": null
-  },
-  {
-   "ok": true,
-   "ticker": "TSLA",
-   "price": 373.91,
-   "rsi": 37.2,
-   "sma5": 387.29,
-   "sma20": 396.52,
-   "atr": 17.19,
-   "high20": 432.86,
-   "vol": 12164023,
-   "avgVol20": 41922680,
-   "chg1d": -1.82,
-   "signal": "WAIT",
-   "reasons": [],
-   "plan": null
-  },
-  {
-   "ok": true,
-   "ticker": "MSTR",
-   "price": 97.19,
-   "rsi": 55.4,
-   "sma5": 96.22,
-   "sma20": 95.13,
-   "atr": 6.72,
-   "high20": 120,
-   "vol": 4243565,
-   "avgVol20": 26373725,
-   "chg1d": 2.47,
-   "signal": "BUY",
-   "reasons": [
-    "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს"
-   ],
-   "plan": {
-    "entry": 97.19,
-    "target": 110.63,
-    "stop": 87.11,
-    "horizon": "5 სავაჭრო დღე max"
-   }
-  },
-  {
-   "ok": true,
-   "ticker": "PLTR",
-   "price": 132.94,
-   "rsi": 73.6,
-   "sma5": 133.45,
-   "sma20": 125.48,
-   "atr": 6.99,
-   "high20": 138.9,
-   "vol": 9029653,
-   "avgVol20": 45125490,
    "chg1d": 0.43,
    "signal": "WAIT",
    "reasons": [],
@@ -81,28 +26,90 @@
   },
   {
    "ok": true,
+   "ticker": "TSLA",
+   "price": 372.79,
+   "rsi": 36.9,
+   "sma5": 387.07,
+   "sma20": 396.47,
+   "atr": 17.28,
+   "high20": 432.86,
+   "vol": 19085436,
+   "avgVol20": 41922680,
+   "chg1d": -2.11,
+   "signal": "WAIT",
+   "reasons": [],
+   "plan": null
+  },
+  {
+   "ok": true,
+   "ticker": "MSTR",
+   "price": 99.53,
+   "rsi": 57.7,
+   "sma5": 96.69,
+   "sma20": 95.25,
+   "atr": 6.9,
+   "high20": 120,
+   "vol": 7825998,
+   "avgVol20": 26373725,
+   "chg1d": 4.93,
+   "signal": "BUY",
+   "reasons": [
+    "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს"
+   ],
+   "plan": {
+    "entry": 99.53,
+    "target": 113.33,
+    "stop": 89.18,
+    "horizon": "5 სავაჭრო დღე max"
+   }
+  },
+  {
+   "ok": true,
+   "ticker": "PLTR",
+   "price": 134.45,
+   "rsi": 74.7,
+   "sma5": 133.75,
+   "sma20": 125.55,
+   "atr": 7.02,
+   "high20": 138.9,
+   "vol": 14394550,
+   "avgVol20": 45125490,
+   "chg1d": 1.56,
+   "signal": "BUY",
+   "reasons": [
+    "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს"
+   ],
+   "plan": {
+    "entry": 134.45,
+    "target": 148.49,
+    "stop": 123.92,
+    "horizon": "5 სავაჭრო დღე max"
+   }
+  },
+  {
+   "ok": true,
    "ticker": "BABA",
-   "price": 119.54,
-   "rsi": 86.2,
-   "sma5": 116.4,
-   "sma20": 105.29,
-   "atr": 4.08,
+   "price": 121.25,
+   "rsi": 86.8,
+   "sma5": 116.74,
+   "sma20": 105.37,
+   "atr": 4.24,
    "high20": 121.22,
-   "vol": 4144929,
+   "vol": 9183182,
    "avgVol20": 14843090,
-   "chg1d": 3.97,
+   "chg1d": 5.46,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
   }
  ],
  "stats": {
-  "closedTrades": 6,
-  "wins": 2,
+  "closedTrades": 7,
+  "wins": 3,
   "losses": 4,
-  "winRate": 33.3,
-  "totalPnl": -5.3,
-  "equity": 96.01,
-  "returnPct": -3.99
+  "winRate": 42.9,
+  "totalPnl": -3.74,
+  "equity": 97.02,
+  "returnPct": -2.98
  }
 }

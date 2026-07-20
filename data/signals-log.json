@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-07-20T17:03:26.595Z",
+  "opened": "2026-07-14T17:43:38.642Z",
+  "ticker": "BABA",
+  "rule": "R3",
+  "entry": 112.48,
+  "exit": 121.25,
+  "exitType": "TARGET",
+  "pnl": 1.56,
+  "pnlPct": 7.8
+ },
+ {
   "closed": "2026-07-17T14:50:22.125Z",
   "opened": "2026-07-10T17:54:59.397Z",
   "ticker": "NVDA",
