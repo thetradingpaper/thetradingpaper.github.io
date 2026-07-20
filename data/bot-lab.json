@@ -17,7 +17,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 61.2
+     "last_price": 60.13
     }
    ],
    "trades": [
@@ -32,7 +32,7 @@
      "leverage": 1
     }
    ],
-   "equity": 98.56,
+   "equity": 96.84,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -65,13 +65,17 @@
     {
      "date": "2026-07-17",
      "equity": 98.56
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 96.84
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -1.44
+    "return_pct": -3.16
    }
   },
   "bot2": {
@@ -82,16 +86,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "CRNX",
-     "shares": 0.201806,
-     "entry": 83.49500274658203,
-     "entry_date": "2026-07-08",
-     "target": 92.79,
-     "stop": 77.92,
-     "max_days": 7,
-     "last_price": 83.86
-    },
-    {
      "ticker": "TCBK",
      "shares": 0.282904,
      "entry": 59.560001373291016,
@@ -99,7 +93,7 @@
      "target": 62.6,
      "stop": 57.89,
      "max_days": 7,
-     "last_price": 61.2
+     "last_price": 60.13
     },
     {
      "ticker": "VOD",
@@ -109,7 +103,7 @@
      "target": 16.33,
      "stop": 15.08,
      "max_days": 7,
-     "last_price": 15.85
+     "last_price": 15.4
     },
     {
      "ticker": "CNMD",
@@ -119,7 +113,7 @@
      "target": 46.58,
      "stop": 39.22,
      "max_days": 7,
-     "last_price": 44.0
+     "last_price": 43.53
     },
     {
      "ticker": "ATAI",
@@ -129,7 +123,17 @@
      "target": 8.3,
      "stop": 6.45,
      "max_days": 7,
-     "last_price": 7.19
+     "last_price": 7.13
+    },
+    {
+     "ticker": "LXP",
+     "shares": 0.261357,
+     "entry": 60.93000030517578,
+     "entry_date": "2026-07-20",
+     "target": 63.49,
+     "stop": 59.38,
+     "max_days": 7,
+     "last_price": 60.93000030517578
     }
    ],
    "trades": [
@@ -182,9 +186,19 @@
      "ret_pct": -31.34,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "CRNX",
+     "entry": 83.49500274658203,
+     "exit": 83.86,
+     "entry_date": "2026-07-08",
+     "exit_date": "2026-07-20",
+     "ret_pct": -5.33,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 86.04,
+   "equity": 83.92,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -217,13 +231,17 @@
     {
      "date": "2026-07-17",
      "equity": 86.04
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 83.92
     }
    ],
    "stats": {
-    "trades": 5,
+    "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -13.96
+    "return_pct": -16.08
    }
   },
   "bot3": {
@@ -241,7 +259,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 18.22
+     "last_price": 19.53
     },
     {
      "ticker": "BTDR",
@@ -251,7 +269,7 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 11.6
+     "last_price": 11.36
     },
     {
      "ticker": "FCEL",
@@ -261,7 +279,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 18.59
+     "last_price": 19.61
     }
    ],
    "trades": [
@@ -286,7 +304,7 @@
      "leverage": 1
     }
    ],
-   "equity": 68.14,
+   "equity": 70.37,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -319,13 +337,17 @@
     {
      "date": "2026-07-17",
      "equity": 68.14
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 70.37
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -31.86
+    "return_pct": -29.63
    }
   },
   "bot4": {
@@ -333,17 +355,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 68.38611974133302,
+   "cash": 68.00817606040957,
    "positions": [
     {
-     "ticker": "CRNX",
-     "shares": 0.351518,
-     "entry": 83.49500274658203,
-     "entry_date": "2026-07-08",
-     "target": 92.79,
-     "stop": 77.92,
+     "ticker": "LXP",
+     "shares": 0.473625,
+     "entry": 60.93000030517578,
+     "entry_date": "2026-07-20",
+     "target": 63.49,
+     "stop": 59.38,
      "max_days": 7,
-     "last_price": 83.86
+     "last_price": 60.93000030517578
     }
    ],
    "trades": [
@@ -356,9 +378,19 @@
      "ret_pct": -5.88,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "CRNX",
+     "entry": 83.49500274658203,
+     "exit": 83.86,
+     "entry_date": "2026-07-08",
+     "exit_date": "2026-07-20",
+     "ret_pct": -2.91,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 97.86,
+   "equity": 96.87,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -391,13 +423,17 @@
     {
      "date": "2026-07-17",
      "equity": 97.86
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 96.87
     }
    ],
    "stats": {
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -2.14
+    "return_pct": -3.13
    }
   },
   "bot5": {
@@ -452,6 +488,10 @@
     {
      "date": "2026-07-17",
      "equity": 903.22
+    },
+    {
+     "date": "2026-07-20",
+     "equity": 903.22
     }
    ],
    "stats": {
@@ -462,5 +502,5 @@
    }
   }
  },
- "updated": "2026-07-17T15:15:16.442976+00:00"
+ "updated": "2026-07-20T15:37:57.942407+00:00"
 }

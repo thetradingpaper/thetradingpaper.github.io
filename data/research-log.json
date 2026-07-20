@@ -767,5 +767,104 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512803+00:00",
+  "ticker": "LXP",
+  "entry": 60.92,
+  "score": 51.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512815+00:00",
+  "ticker": "PYPL",
+  "entry": 56.87,
+  "score": 45.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512820+00:00",
+  "ticker": "PSNL",
+  "entry": 13.4,
+  "score": 28.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512824+00:00",
+  "ticker": "NUAI",
+  "entry": 4.97,
+  "score": 22.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512829+00:00",
+  "ticker": "TEM",
+  "entry": 47.57,
+  "score": 17.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512857+00:00",
+  "ticker": "ALAB",
+  "entry": 317.22,
+  "score": 13.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512861+00:00",
+  "ticker": "PENG",
+  "entry": 54.57,
+  "score": 9.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512870+00:00",
+  "ticker": "SNDK",
+  "entry": 1432.02,
+  "score": 6.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-20T15:37:56.512874+00:00",
+  "ticker": "BE",
+  "entry": 203.8,
+  "score": -6.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]
