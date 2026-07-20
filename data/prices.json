@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-20T13:02:38.957Z",
+  "updated": "2026-07-20T15:17:03.162Z",
   "quotes": {
     "SPCX": {
-      "price": 123.99,
-      "previousClose": 131.11
+      "price": 122.38,
+      "previousClose": 123.99
     },
     "SMH": {
       "price": 611.03,
@@ -14,64 +14,64 @@
       "previousClose": 691.1
     },
     "ASX": {
-      "price": 38.41,
-      "previousClose": 39.51
+      "price": 37.825,
+      "previousClose": 38.41
     },
     "SSRM": {
-      "price": 25.57,
-      "previousClose": 25.89
+      "price": 25.28,
+      "previousClose": 25.57
     },
     "KOID": {
-      "price": 36.55,
-      "previousClose": 37.399998
+      "price": 36.38,
+      "previousClose": 36.55
     },
     "MP": {
-      "price": 45.24,
-      "previousClose": 45.46
+      "price": 44.17,
+      "previousClose": 45.24
     },
     "VRT": {
-      "price": 289.56,
-      "previousClose": 294.11
+      "price": 294.86,
+      "previousClose": 289.56
     },
     "WMT": {
-      "price": 114.24,
-      "previousClose": 114.95
+      "price": 113.45,
+      "previousClose": 114.24
     },
     "WQTM": {
-      "price": 31.06,
-      "previousClose": 31.43
+      "price": 31.281,
+      "previousClose": 31.06
     },
     "MNST": {
       "price": 98.41,
       "previousClose": 98.005
     },
     "MSTR": {
-      "price": 94.85,
-      "previousClose": 94.03
+      "price": 97.36,
+      "previousClose": 94.85
     },
     "CRDO": {
-      "price": 202.68,
-      "previousClose": 207.96999
+      "price": 216.84,
+      "previousClose": 202.68
     },
     "ARCC": {
-      "price": 19.17,
-      "previousClose": 19.210001
+      "price": 18.955,
+      "previousClose": 19.17
     },
     "MAIN": {
-      "price": 55.37,
-      "previousClose": 55.54
+      "price": 54.352,
+      "previousClose": 55.37
     },
     "BXSL": {
-      "price": 23.82,
-      "previousClose": 24.19
+      "price": 23.38,
+      "previousClose": 23.82
     },
     "LYG": {
-      "price": 5.96,
-      "previousClose": 6.03
+      "price": 5.931,
+      "previousClose": 5.96
     },
     "SNDK": {
-      "price": 1354.82,
-      "previousClose": 1411.08
+      "price": 1421,
+      "previousClose": 1354.82
     }
   }
 }
