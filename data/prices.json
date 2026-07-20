@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-18T09:47:59.610Z",
+  "updated": "2026-07-20T10:47:11.737Z",
   "quotes": {
     "SPCX": {
       "price": 123.99,
@@ -23,7 +23,7 @@
     },
     "KOID": {
       "price": 36.55,
-      "previousClose": 37.4
+      "previousClose": 37.399998
     },
     "MP": {
       "price": 45.24,
@@ -51,11 +51,11 @@
     },
     "CRDO": {
       "price": 202.68,
-      "previousClose": 207.97
+      "previousClose": 207.96999
     },
     "ARCC": {
       "price": 19.17,
-      "previousClose": 19.21
+      "previousClose": 19.210001
     },
     "MAIN": {
       "price": 55.37,
