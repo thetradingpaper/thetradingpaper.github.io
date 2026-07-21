@@ -1,265 +1,39 @@
 {
- "updated": "2026-07-20T15:37:56.512911+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on LXP (score 51.3). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
- "picks": [
-  {
-   "ticker": "LXP",
-   "price": 60.92,
-   "score": 51.3,
-   "tech_score": 33.6,
-   "news_score": 17.7,
-   "rsi": 78.2,
-   "mom5": 11.4,
-   "vol_surge": 1.7,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "LXP Industrial Trust Agrees to Go Private in $5.2 Billion Acquisition Deal",
-     "age_h": 1.1,
-     "points": 17.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 60.92,
-    "target": 63.49,
-    "stop": 59.38,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "PYPL",
-   "price": 56.87,
-   "score": 45.7,
-   "tech_score": 28.0,
-   "news_score": 17.7,
-   "rsi": 83.2,
-   "mom5": 19.46,
-   "vol_surge": 0.44,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "How PayPal went from Wall Street favorite to unwilling merger target",
-     "age_h": 5.6,
-     "points": 17.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 56.87,
-    "target": 61.18,
-    "stop": 54.28,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "PSNL",
-   "price": 13.4,
-   "score": 28.1,
-   "tech_score": 10.4,
-   "news_score": 17.7,
-   "rsi": 47.6,
-   "mom5": -10.37,
-   "vol_surge": 1.3,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Tempus AI to acquire cancer-monitoring firm Personalis for $1.5B",
-     "age_h": 0.2,
-     "points": 17.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 13.4,
-    "target": 16.05,
-    "stop": 11.8,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NUAI",
-   "price": 4.97,
-   "score": 22.0,
-   "tech_score": 18.4,
-   "news_score": 3.6,
-   "rsi": 37.3,
-   "mom5": 20.51,
-   "vol_surge": 1.05,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "New Era Energy & Digital (NUAI) Is Down 8.0% After FERC Questions PJM Tariff For Data Center Grid Access - Has The Bull Case Changed?",
-     "age_h": 32.5,
-     "points": 3.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 4.97,
-    "target": 6.78,
-    "stop": 4.25,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "TEM",
-   "price": 47.57,
-   "score": 17.7,
-   "tech_score": 0.0,
-   "news_score": 17.7,
-   "rsi": 33.7,
-   "mom5": -14.97,
-   "vol_surge": 0.94,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Tempus AI to acquire cancer-monitoring firm Personalis for $1.5B",
-     "age_h": 0.2,
-     "points": 17.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 47.57,
-    "target": 55.97,
-    "stop": 42.53,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ALAB",
-   "price": 317.22,
-   "score": 13.9,
-   "tech_score": 4.0,
-   "news_score": 9.9,
-   "rsi": 29.7,
-   "mom5": -12.3,
-   "vol_surge": 0.21,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Barclays upgrades Lumentum, cuts Allegro, Penguin before chip earnings",
-     "age_h": 2.5,
-     "points": 9.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 317.22,
-    "target": 401.86,
-    "stop": 266.44,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "PENG",
-   "price": 54.57,
-   "score": 9.9,
-   "tech_score": 0.0,
-   "news_score": 9.9,
-   "rsi": 41.7,
-   "mom5": -29.24,
-   "vol_surge": 0.63,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Barclays upgrades Lumentum, cuts Allegro, Penguin before chip earnings",
-     "age_h": 2.5,
-     "points": 9.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 54.57,
-    "target": 74.53,
-    "stop": 42.6,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SNDK",
-   "price": 1432.02,
-   "score": 6.0,
-   "tech_score": 0.0,
-   "news_score": 6.0,
-   "rsi": 34.4,
-   "mom5": -14.4,
-   "vol_surge": 0.45,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Stock Market Today: Nasdaq Climbs On Peace Hopes; Sandisk Rebounds, Data Center Plays Rally (Live Coverage)",
-     "age_h": 1.1,
-     "points": 6.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 1432.02,
-    "target": 2069.19,
-    "stop": 1177.14,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "BE",
-   "price": 203.8,
-   "score": -6.2,
-   "tech_score": -8.0,
-   "news_score": 1.8,
-   "rsi": 33.6,
-   "mom5": -12.56,
-   "vol_surge": 0.47,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Bloom Energy’s AI Data Center Growth Story Is Starting to Crack",
-     "age_h": 51.4,
-     "points": 1.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 203.8,
-    "target": 294.8,
-    "stop": 167.41,
-    "hold": "2-8 კვირა"
-   }
-  }
- ],
+ "updated": "2026-07-21T15:31:38.955085+00:00",
+ "mode": "WAIT",
+ "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
+ "picks": [],
  "learned": [
   {
-   "category": "analyst_upgrade",
-   "n": 13,
-   "win_rate": 7.7,
-   "avg_return": -10.7,
-   "weight_now": 0.66
+   "category": "m_and_a",
+   "n": 16,
+   "win_rate": 18.8,
+   "avg_return": 1.52,
+   "weight_now": 0.75
   },
   {
-   "category": "m_and_a",
-   "n": 10,
-   "win_rate": 10.0,
-   "avg_return": -1.58,
-   "weight_now": 0.68
+   "category": "analyst_upgrade",
+   "n": 15,
+   "win_rate": 6.7,
+   "avg_return": -10.46,
+   "weight_now": 0.65
   },
   {
    "category": "growth_news",
-   "n": 6,
+   "n": 7,
    "win_rate": 0.0,
-   "avg_return": -16.78,
+   "avg_return": -15.29,
    "weight_now": 0.6
   },
   {
    "category": "earnings_beat",
-   "n": 5,
-   "win_rate": 20.0,
-   "avg_return": 0.94,
-   "weight_now": 0.76
+   "n": 6,
+   "win_rate": 16.7,
+   "avg_return": 0.85,
+   "weight_now": 0.73
   }
  ],
- "scanned": 5972,
+ "scanned": 5969,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

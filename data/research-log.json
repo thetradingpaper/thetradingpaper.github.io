@@ -446,7 +446,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 59.72,
+  "return_pct": 0.11,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-13T16:14:54.235098+00:00",
@@ -457,7 +460,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 15.23,
+  "return_pct": -2.06,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-13T16:14:54.235102+00:00",
@@ -468,7 +474,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.72,
+  "return_pct": 1.75,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-13T16:14:54.235106+00:00",
@@ -479,7 +488,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 28.9,
+  "return_pct": -0.07,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-13T16:14:54.235110+00:00",
@@ -490,7 +502,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 28.24,
+  "return_pct": 28.36,
+  "outcome": "win"
  },
  {
   "date": "2026-07-13T16:14:54.235113+00:00",
@@ -501,7 +516,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 78.84,
+  "return_pct": 12.05,
+  "outcome": "win"
  },
  {
   "date": "2026-07-13T16:14:54.235117+00:00",
@@ -512,7 +530,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 104.29,
+  "return_pct": 0.39,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-13T16:14:54.235124+00:00",
@@ -523,7 +544,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 53.51,
+  "return_pct": -5.37,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-13T16:14:54.235128+00:00",
@@ -534,7 +558,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.12,
+  "return_pct": -12.52,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-13T16:14:54.235131+00:00",
@@ -545,7 +572,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 222.11,
+  "return_pct": -6.38,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-16T15:29:11.680755+00:00",

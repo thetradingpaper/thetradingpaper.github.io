@@ -1,23 +1,23 @@
 {
  "m_and_a": {
-  "n": 10,
-  "wins": 1,
-  "sum_ret": -15.82
+  "n": 16,
+  "wins": 3,
+  "sum_ret": 24.32
  },
  "earnings_beat": {
-  "n": 5,
+  "n": 6,
   "wins": 1,
-  "sum_ret": 4.69
+  "sum_ret": 5.08
  },
  "analyst_upgrade": {
-  "n": 13,
+  "n": 15,
   "wins": 1,
-  "sum_ret": -139.04
+  "sum_ret": -156.93
  },
  "growth_news": {
-  "n": 6,
+  "n": 7,
   "wins": 0,
-  "sum_ret": -100.65
+  "sum_ret": -107.03
  },
  "big_contract": {
   "n": 1,
