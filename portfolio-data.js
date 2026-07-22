@@ -2,20 +2,19 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-07-14
+// Last updated: 2026-07-22
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-16',
-  feesPaid: 56.21,                      // reconciled 15 Jul 2026 to the transaction log: BOG $16.21 (27 fees) + Galt $40.00
+  lastUpdated: '2026-07-22',
+  feesPaid: 59.70,                      // reconciled 22 Jul 2026 to the transaction log: BOG $19.70 (29 fees) + Galt $40.00
   feesByBook: [
-    { book: 'BOG', amount: 16.21, note: '27 საკომისიო · ტრანზაქციების ჟურნალიდან' },
+    { book: 'BOG', amount: 19.70, note: '29 საკომისიო · ტრანზაქციების ჟურნალიდან' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 14 Jul 2026: SNDK proceeds ($279.81) were
-  // immediately redeployed into ASX, so cash nets to $0.
-  bog: { cashAdded: 0, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 22 Jul 2026: SNDK and ASX sold, cash nets to $1161.44.
+  bog: { cashAdded: 1161.44, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',

@@ -18,8 +18,6 @@ window.PORTFOLIOS = {
       // Cached values from Issue 06 snapshot — live prices repaint these every 10s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 11.73, color: '#0f3057', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.30257297, avgBuy: 1538.44, invested: 465.49, value: 465.49, color: '#dc2626', divYield: 0.00 },
-      { ticker: 'ASX', name: 'ASE Industrial Holding', shares: 16.74832191, avgBuy: 38.88, invested: 651.10, value: 696.88, color: '#8b6914', divYield: 1.52 },
       { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 3.40788323, avgBuy: 31.25, invested: 106.50, value: 98.39, color: '#0891b2', divYield: 0.00 },
       { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy: 40.15, invested: 134.11, value: 134.34, color: '#4b5563', divYield: 0.01 },
       { ticker: 'MP', name: 'MP Materials Corp', shares: 1.03896426, avgBuy: 64.97, invested: 67.50, value: 57.85, color: '#b5651d', divYield: 0.00 },
@@ -28,11 +26,15 @@ window.PORTFOLIOS = {
       { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy: 38.68, invested: 65.13, value: 60.90, color: '#2563eb', divYield: 0.00 },
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 265.29, invested: 28.03, value: 28.03, color: '#9d174d', divYield: 0.00 },
     ],
-    cash: 0.00, // 15 Jul 2026: sold VOO and MNST to buy SNDK — cash nets to $0
+    cash: 1161.44, // 22 Jul 2026: sold SNDK ($484.93) and ASX ($678.83), deposited $1.17, minus fees ($3.49) -> cash $1161.44
     priorDeposits: 907.76,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-22', type: 'sell', ticker: 'ASX', shares: 0.74832191, price: 40.5307, commission: 0 },
+      { date: '2026-07-22', type: 'sell', ticker: 'ASX', shares: 16.00000000, price: 40.53125, commission: 2.04 },
+      { date: '2026-07-22', type: 'deposit', amount: 1.17 },
+      { date: '2026-07-22', type: 'sell', ticker: 'SNDK', shares: 0.30257297, price: 1602.69, commission: 1.45 },
       { date: '2026-07-15', type: 'buy', ticker: 'SNDK', shares: 0.30257297, price: 1538.44, commission: 1.40 },
       { date: '2026-07-15', type: 'sell', ticker: 'VOO', shares: 0.43807493, price: 692.55, commission: 0.91 },
       { date: '2026-07-15', type: 'sell', ticker: 'MNST', shares: 0.67377222, price: 98.52, commission: 0.50 },
