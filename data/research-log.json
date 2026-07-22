@@ -896,5 +896,116 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191348+00:00",
+  "ticker": "ARWR",
+  "entry": 91.74,
+  "score": 65.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191356+00:00",
+  "ticker": "WAB",
+  "entry": 293.33,
+  "score": 57.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191359+00:00",
+  "ticker": "TRV",
+  "entry": 369.96,
+  "score": 57.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191362+00:00",
+  "ticker": "VG",
+  "entry": 14.65,
+  "score": 46.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191365+00:00",
+  "ticker": "DOCN",
+  "entry": 143.02,
+  "score": 37.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191368+00:00",
+  "ticker": "DK",
+  "entry": 66.93,
+  "score": 37.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191371+00:00",
+  "ticker": "CBRS",
+  "entry": 222.25,
+  "score": 34.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191377+00:00",
+  "ticker": "CIFR",
+  "entry": 23.9,
+  "score": 33.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191380+00:00",
+  "ticker": "LITE",
+  "entry": 851.7,
+  "score": 33.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-22T15:28:49.191384+00:00",
+  "ticker": "IREN",
+  "entry": 42.98,
+  "score": 31.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]
