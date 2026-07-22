@@ -27,7 +27,7 @@ window.PORTFOLIOS = {
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 8.73, color: '#0f3057', divYield: 0.00 },
     ],
     cash: 1161.44, // 22 Jul 2026: sold SNDK ($484.93) and ASX ($678.83), deposited $1.17, minus fees ($3.49) -> cash $1161.44
-    priorDeposits: 907.76,
+    priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
