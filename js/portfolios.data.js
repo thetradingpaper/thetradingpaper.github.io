@@ -15,22 +15,30 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values from Issue 06 snapshot — live prices repaint these every 10s.
+      // Cached values from Issue 07 snapshot — live prices repaint these every 10s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 1.02519351, avgBuy: 92.82, invested: 95.16, value: 95.16, color: '#1a1a1a', divYield: 0.00 },
       { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy: 40.15, invested: 134.11, value: 125.72, color: '#4b5563', divYield: 0.01 },
-      { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 3.40788323, avgBuy: 31.397, invested: 107.00, value: 95.69, color: '#0891b2', divYield: 0.00 },
-      { ticker: 'WQTM', name: 'WisdomTree Quantum Computing Fund', shares: 1.68379924, avgBuy: 38.68, invested: 65.13, value: 54.02, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 5.12306947, avgBuy: 29.73, invested: 152.32, value: 147.90, color: '#0891b2', divYield: 0.00 },
       { ticker: 'VRT', name: 'Vertiv Holdings Co', shares: 0.16056065, avgBuy: 314.52, invested: 50.50, value: 48.35, color: '#3d8c7a', divYield: 0.08 },
-      { ticker: 'MP', name: 'MP Materials Corp', shares: 1.03896426, avgBuy: 64.97, invested: 67.50, value: 47.46, color: '#b5651d', divYield: 0.00 },
-      { ticker: 'WMT', name: 'Walmart Inc', shares: 0.22569679, avgBuy: 117.41, invested: 26.50, value: 24.68, color: '#7a8c2a', divYield: 0.90 },
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 270.02, invested: 28.53, value: 24.12, color: '#9d174d', divYield: 0.00 },
-      { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 8.73, color: '#0f3057', divYield: 0.00 },
     ],
     cash: 0.00, // 23 Jul 2026: withdrew full $1,161.44 ($1,140 transfer to TBC, $9.44 pocket, $12 bank fee)
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 0.02519351, price: 92.88, commission: 0 },
+      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 1.00000000, price: 92.82, commission: 0 },
+      { date: '2026-07-23', type: 'deposit', amount: 9.44 },
+      { date: '2026-07-23', type: 'sell', ticker: 'WQTM', shares: 0.68379924, price: 31.37, commission: 0 },
+      { date: '2026-07-23', type: 'sell', ticker: 'WQTM', shares: 1.00000000, price: 31.36, commission: 0 },
+      { date: '2026-07-23', type: 'sell', ticker: 'WMT',  shares: 0.22569679, price: 108.02, commission: 0 },
+      { date: '2026-07-23', type: 'sell', ticker: 'SPCX', shares: 0.07576271, price: 112.59, commission: 0 },
+      { date: '2026-07-23', type: 'buy',  ticker: 'SSRM', shares: 0.71518624, price: 26.72, commission: 0 },
+      { date: '2026-07-23', type: 'buy',  ticker: 'SSRM', shares: 1.00000000, price: 26.71, commission: 0 },
+      { date: '2026-07-23', type: 'sell', ticker: 'MP',   shares: 0.03896426, price: 44.14, commission: 0 },
+      { date: '2026-07-23', type: 'sell', ticker: 'MP',   shares: 1.00000000, price: 44.10, commission: 0 },
       { date: '2026-07-23', type: 'fee', amount: 12.00, note: 'ბანკის საკომისიო · გადარიცხვა' },
       { date: '2026-07-23', type: 'withdraw', amount: 9.44, note: 'ჯიბეში შენახვა' },
       { date: '2026-07-23', type: 'deposit', amount: -1140.00, note: 'გადატანა → TBC' },
