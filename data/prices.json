@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-23T20:31:56.828Z",
+  "updated": "2026-07-23T21:38:19.793Z",
   "quotes": {
     "SPCX": {
       "price": 113.326,
@@ -47,7 +47,7 @@
     },
     "MSTR": {
       "price": 93.63,
-      "previousClose": 100.01
+      "previousClose": 100.009995
     },
     "CRDO": {
       "price": 236.5,
