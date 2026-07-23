@@ -492,6 +492,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     <button class="tp-tab-btn active" data-pane="tab-total" role="tab" aria-selected="true">მთლიანი პორტფელი</button>
     <button class="tp-tab-btn" data-pane="tab-assets" role="tab" aria-selected="false">აქტივების დეტალები</button>
     <button class="tp-tab-btn" data-pane="tab-history" role="tab" aria-selected="false">ტრანზაქციების ისტორია</button>
+    <button class="tp-tab-btn" data-pane="tab-issues" role="tab" aria-selected="false">Issues</button>
   </div>
 
   <div id="tab-total" class="tp-tab-pane active">
@@ -748,10 +749,10 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 
     <!-- Fees & Dividends belt -->
     <div class="th-belt">
-      <a href="history-bog.html" class="cell" id="total-platform-fees"></a>
-      <a href="dividends.html" class="cell" id="total-dividends-received"></a>
-      <a href="annual-income.html" class="cell" id="total-dividends-projected"></a>
-      <a href="history-bog.html" class="cell" id="total-commissions-belt"></a>
+      <div class="cell" id="total-platform-fees"></div>
+      <div class="cell" id="total-dividends-received"></div>
+      <div class="cell" id="total-dividends-projected"></div>
+      <div class="cell" id="total-commissions-belt"></div>
     </div>
   </section>
 
@@ -883,7 +884,8 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
   <div class="tx-header"><h3 class="tx-title">📄 Trading Paper — ამობეჭდვა / PDF</h3></div>
   <div class="rules-box no-print" style="text-align:center;border-left-color:#8b6914;">
     <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">დააჭირე ღილაკს და შეინახე ეს გვერდი PDF-ად ან ამობეჭდე.</p>
-    <button onclick="window.print()" style="padding:10px 26px;background:#1a1a1a;color:#fff;border:none;font-size:13px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:sans-serif;">🖨 ამობეჭდვა / Save as PDF</button>
+    <button onclick="window.print()" style="padding:10px 26px;background:#1a1a1a;color:#fff;border:none;font-size:13px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:'Noto Sans Georgian',sans-serif;">🖨 ამობეჭდვა / Save as PDF</button>
+    <div style="font-size:10.5px;color:var(--muted);margin-top:8px;">Save the file into the /issues/ folder and add it to issues.json to archive it.</div>
   </div>
 
   </div><!-- /#tab-total -->
@@ -1027,6 +1029,24 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     <!-- Filtered list pagination -->
     <div id="hist-pager" class="pagination" style="margin-bottom: 24px;"></div>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 4 · Issues (PDF Archive)                                 -->
+  <!-- ============================================================ -->
+  <div id="tab-issues" class="tp-tab-pane">
+    <div class="assets-head">
+      <div class="ah-t">Issues Archive <em>PDF გამოცემების არქივი</em></div>
+    </div>
+    <p class="assets-sub">The Trading Paper-ის გამოცემების არქივი. შეგიძლიათ ნახოთ ან ჩამოტვირთოთ PDF ფაილები.</p>
+
+    <div id="issues-list" style="margin-bottom: 24px;"></div>
+
+    <div class="rules-box no-print" style="text-align:center; border-left-color:#8b6914; margin-top:20px;">
+      <p style="font-size:12px; color:var(--muted); margin-bottom:10px;">დააჭირე ღილაკს და შეინახე ეს გვერდი PDF-ად ან ამობეჭდე.</p>
+      <button onclick="window.print()" style="padding:10px 26px; background:#1a1a1a; color:#fff; border:none; font-size:13px; letter-spacing:2px; cursor:pointer; text-transform:uppercase; font-family:'Noto Sans Georgian',sans-serif;">🖨 ამობეჭდვა / Save as PDF</button>
+      <div style="font-size:10.5px; color:var(--muted); margin-top:8px;">Save the file into the /issues/ folder and add it to issues.json to archive it.</div>
+    </div>
+  </div><!-- /#tab-issues -->
 
 </main>
 
@@ -1722,6 +1742,44 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if(stamp){ var n=new Date(); stamp.textContent='● LIVE · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0'); }
   }
 
+  function renderIssuesTab() {
+    var container = document.getElementById('issues-list');
+    if (!container) return;
+    fetch('issues/issues.json')
+      .then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = '<div class="empty-state" style="padding:40px 14px; text-align:center; color:var(--muted); font-family:\'Noto Sans Georgian\',sans-serif; background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--rule);">No issues yet — press Save as PDF to create one.</div>';
+          return;
+        }
+        data.sort(function(a, b) { return new Date(b.date || 0) - new Date(a.date || 0); });
+        var html = '<div style="display:grid; gap:12px;">';
+        data.forEach(function(issue) {
+          var title = issue.title || issue.file || 'Issue';
+          var dateStr = issue.date ? (typeof fmtDate === 'function' ? fmtDate(issue.date) : issue.date) : '';
+          var filePath = 'issues/' + issue.file;
+          html += '<div style="background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--ink); padding:14px 18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">'
+            + '<div>'
+            + '<div style="font-family:\'Noto Serif Georgian\',serif; font-weight:800; font-size:18px; color:var(--ink);">' + title + '</div>'
+            + (dateStr ? '<div style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:11px; color:var(--muted); margin-top:3px;">' + dateStr + '</div>' : '')
+            + '</div>'
+            + '<div style="display:flex; gap:8px;">'
+            + '<a href="' + filePath + '" target="_blank" style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:11px; font-weight:700; color:var(--ink); border:1px solid var(--border); padding:6px 12px; text-decoration:none; text-transform:uppercase; letter-spacing:1px; background:var(--bg);">View ↗</a>'
+            + '<a href="' + filePath + '" download style="font-family:\'Noto Sans Georgian\',sans-serif; font-size:11px; font-weight:700; color:var(--red); border:1px solid var(--red); padding:6px 12px; text-decoration:none; text-transform:uppercase; letter-spacing:1px; background:var(--paper);">Download ⤓</a>'
+            + '</div>'
+            + '</div>';
+        });
+        html += '</div>';
+        container.innerHTML = html;
+      })
+      .catch(function() {
+        container.innerHTML = '<div class="empty-state" style="padding:40px 14px; text-align:center; color:var(--muted); font-family:\'Noto Sans Georgian\',sans-serif; background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--rule);">No issues yet — press Save as PDF to create one.</div>';
+      });
+  }
+
   var btns=document.querySelectorAll('.tp-tab-btn');
   var panes=document.querySelectorAll('.tp-tab-pane');
   btns.forEach(function(btn){
@@ -1731,10 +1789,12 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       panes.forEach(function(p){ p.classList.toggle('active', p.id===id); });
       if(id==='tab-assets') renderAssetsGrouped();
       if(id==='tab-history') drawHistory();
+      if(id==='tab-issues') renderIssuesTab();
       window.scrollTo({top:0,behavior:'smooth'});
     });
   });
   renderAssetsGrouped();
+  renderIssuesTab();
   setInterval(function(){ var pane=document.getElementById('tab-assets'); if(pane && pane.classList.contains('active')) renderAssetsGrouped(); }, 20000);
 
   // ============================================================
