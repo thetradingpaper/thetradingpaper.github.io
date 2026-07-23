@@ -121,15 +121,7 @@ function renderStatBanner(containerId, portfolioKey) {
   const pnlClass = a.pnl >= 0 ? 'pos' : 'neg';
   const pnlStr = a.hasHistory ? fmtMoney(a.pnl) : '—';
   const pctStr = a.hasHistory ? fmtPct(a.pnlPct) : '—';
-  let depStr = '—';
-  if (a.hasHistory) {
-    if (a.withdrawn > 0) {
-      depStr = `<div style="font-size:9.5px;color:var(--muted);margin-bottom:3px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;font-weight:400;text-transform:none;line-height:1.2;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtMoney(a.deposits)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtMoney(a.withdrawn)}</span></div>
-      <div>${fmtMoney(a.netInvested)}</div>`;
-    } else {
-      depStr = fmtMoney(a.netInvested);
-    }
-  }
+  const depStr = a.hasHistory ? fmtMoney(a.netInvested) : '—';
 
   // Annual dividend — sum across holdings that have a divYield, then net after 30% GE withholding.
   // Only show the cell when at least one holding actually pays a dividend.
@@ -158,11 +150,7 @@ function renderStatBanner(containerId, portfolioKey) {
 <div class="stat-val pos">${fmtMoney(divReceived)}<span class="stat-sub">წმინდა · მიღებული</span></div>
 </div>` : '';
 
-  const wdCell = (a.withdrawn > 0) ? `
-<div class="stat-cell">
-<div class="stat-label">გატანილი · Withdrawn</div>
-<div class="stat-val pos">${fmtMoney(a.withdrawn)}</div>
-</div>` : '';
+  const wdCell = '';
 
   // Commissions already paid on this book — from the transaction log.
   // Always shown, pinned to the LAST grid column, separated by its own rules.

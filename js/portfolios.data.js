@@ -26,11 +26,14 @@ window.PORTFOLIOS = {
       { ticker: 'CRDO', name: 'Credo Technology Group Holding', shares: 0.10565843, avgBuy: 270.02, invested: 28.53, value: 24.12, color: '#9d174d', divYield: 0.00 },
       { ticker: 'SPCX', name: 'Space Exploration Technologies Corp', shares: 0.07576271, avgBuy: 171.59, invested: 13.00, value: 8.73, color: '#0f3057', divYield: 0.00 },
     ],
-    cash: 1161.44, // 22 Jul 2026: sold SNDK ($484.93) and ASX ($678.83), deposited $1.17, minus fees ($3.49) -> cash $1161.44
+    cash: 0.00, // 23 Jul 2026: withdrew full $1,161.44 ($1,140 transfer to TBC, $9.44 pocket, $12 bank fee)
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      { date: '2026-07-23', type: 'fee', amount: 12.00, note: 'ბანკის საკომისიო · გადარიცხვა' },
+      { date: '2026-07-23', type: 'withdraw', amount: 9.44, note: 'ჯიბეში შენახვა' },
+      { date: '2026-07-23', type: 'deposit', amount: -1140.00, note: 'გადატანა → TBC' },
       { date: '2026-07-22', type: 'sell', ticker: 'ASX', shares: 0.74832191, price: 40.5307, commission: 0 },
       { date: '2026-07-22', type: 'sell', ticker: 'ASX', shares: 16.00000000, price: 40.53125, commission: 2.04 },
       { date: '2026-07-22', type: 'deposit', amount: 1.17 },
@@ -91,18 +94,26 @@ window.PORTFOLIOS = {
   tbc: {
     name: 'TBC',
     fullName: 'TBC Capital',
-    tagline: 'დივიდენდი · სტაბილური შემოსავალი · გრძელვადიანი პასიური შემოსავალი',
+    tagline: 'დივერსიფიცირებული პორტფელი',
     startDate: '2026-05-12',
     annualGoalPct: null,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 2.06839171, avgBuy: 163.33, invested: 337.82, value: 182.48, color: '#1a1a1a', divYield: 0.00 },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 3.686, avgBuy: 133.82, invested: 493.26, value: 493.26, color: '#1a1a1a', divYield: 0.00 },
       { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 41.96, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 0.39350394, avgBuy: 51.61, invested: 20.31, value: 20.31, color: '#15803d', divYield: 6.20 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 192.48, color: '#15803d', divYield: 6.20 },
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 9.75831896, avgBuy: 6.1486, invested: 60.00, value: 60.00, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 34.764, avgBuy: 6.05, invested: 210.32, value: 210.32, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.515, avgBuy: 681.96, invested: 351.21, value: 351.21, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'GOOG', name: 'Alphabet Inc.', shares: 0.969, avgBuy: 320.77, invested: 310.83, value: 310.83, color: '#ea4335', divYield: 0.00 },
     ],
     cash: 0.02,
     transactions: [
+      { date: '2026-07-23', type: 'deposit', amount: 1140.00, note: 'გადმოტანა ← BOG' },
+      { date: '2026-07-23', type: 'buy', ticker: 'GOOG', shares: 0.96900000, price: 320.77, commission: 0.68 },
+      { date: '2026-07-23', type: 'buy', ticker: 'VOO', shares: 0.51500000, price: 681.96, commission: 0.68 },
+      { date: '2026-07-23', type: 'buy', ticker: 'LYG', shares: 25.00568104, price: 6.0114, commission: 0.68 },
+      { date: '2026-07-23', type: 'buy', ticker: 'MAIN', shares: 3.20349606, price: 53.7444, commission: 0.68 },
+      { date: '2026-07-23', type: 'buy', ticker: 'MSTR', shares: 1.61760829, price: 96.0924, commission: 0.68 },
       { date: '2026-07-15', type: 'dividend', ticker: 'MAIN', amount: 0.02, note: 'დივიდენდის ჩარიცხვა $0.03 − გადასახადი $0.01 = წმინდა $0.02' },
       { date: '2026-07-09', type: 'deposit', amount: 102.00, note: 'გადმოტანა ← BOG' },
       { date: '2026-07-09', type: 'buy', ticker: 'MAIN', shares: 0.29584541, price: 51.75, commission: 0 },
