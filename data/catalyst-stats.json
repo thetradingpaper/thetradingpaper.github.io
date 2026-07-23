@@ -1,13 +1,13 @@
 {
  "m_and_a": {
-  "n": 16,
+  "n": 21,
   "wins": 3,
-  "sum_ret": 24.32
+  "sum_ret": -66.79
  },
  "earnings_beat": {
-  "n": 6,
+  "n": 8,
   "wins": 1,
-  "sum_ret": 5.08
+  "sum_ret": -8.06
  },
  "analyst_upgrade": {
   "n": 15,
@@ -15,13 +15,18 @@
   "sum_ret": -156.93
  },
  "growth_news": {
-  "n": 7,
-  "wins": 0,
-  "sum_ret": -107.03
+  "n": 8,
+  "wins": 1,
+  "sum_ret": -69.65
  },
  "big_contract": {
   "n": 1,
   "wins": 0,
   "sum_ret": -23.4
+ },
+ "fda_approval": {
+  "n": 2,
+  "wins": 0,
+  "sum_ret": 2.0
  }
 }
