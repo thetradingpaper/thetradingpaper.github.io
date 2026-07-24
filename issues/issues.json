@@ -1,1 +1,17 @@
-[]
+[
+  { "file": "pdfs/thetradingpaper15.pdf", "title": "გამოცემა №15", "date": "2026-07-24", "desc": "BOG-ის ინტრადეი სკალპინგი (MSTR/SNDK/HIMS) და დივიდენდების/საკომისიოს გვერდების აღდგენა." },
+  { "file": "pdfs/thetradingpaper14.pdf", "title": "გამოცემა №14", "date": "2026-07-14", "desc": "BOG-ის proceeds შესყიდვები და TBC დივიდენდების დაგეგმვა." },
+  { "file": "pdfs/thetradingpaper13.pdf", "title": "გამოცემა №13", "date": "2026-06-29", "desc": "პორტფელის სტრატეგიული რეორგანიზაცია და კორექტირებები." },
+  { "file": "pdfs/thetradingpaper12.pdf", "title": "გამოცემა №12", "date": "2026-06-25", "desc": "სექტორული ანალიზი და რისკების მართვის დანერგვა." },
+  { "file": "pdfs/thetradingpaper11.pdf", "title": "გამოცემა №11", "date": "2026-06-25", "desc": "აქტიური ვაჭრობის შედეგები და GALT-ის განხილვა." },
+  { "file": "pdfs/thetradingpaper10.pdf", "title": "გამოცემა №10", "date": "2026-06-15", "desc": "საპროცენტო განაკვეთები და დივიდენდური სტრატეგიები." },
+  { "file": "pdfs/thetradingpaper9.pdf", "title": "გამოცემა №9", "date": "2026-06-12", "desc": "ტექნოლოგიური სექტორის აქტივობა და AI-ის ტრენდები." },
+  { "file": "pdfs/thetradingpaper8.pdf", "title": "გამოცემა №8", "date": "2026-06-11", "desc": "პირველი კვარტლის შეჯამება და ბაზრის მოლოდინები." },
+  { "file": "pdfs/thetradingpaper7.pdf", "title": "გამოცემა №7", "date": "2026-05-29", "desc": "TBC პორტფელის გახსნა და პირველი შესყიდვები." },
+  { "file": "pdfs/thetradingpaper6.pdf", "title": "გამოცემა №6", "date": "2026-05-27", "desc": "საფონდო ბირჟის ზოგადი მიმოხილვა და DCA ლოგიკა." },
+  { "file": "pdfs/thetradingpaper5.pdf", "title": "გამოცემა №5", "date": "2026-05-22", "desc": "BOG პორტფელის ეტაპობრივი ზრდის ანალიტიკა." },
+  { "file": "pdfs/thetradingpaper4.pdf", "title": "გამოცემა №4", "date": "2026-05-21", "desc": "პოზიციების გადანაწილება და ბერკეტის რისკები." },
+  { "file": "pdfs/thetradingpaper3.pdf", "title": "გამოცემა №3", "date": "2026-05-11", "desc": "MSTR CFD ვაჭრობის დეტალური განხილვა." },
+  { "file": "pdfs/thetradingpaper2.pdf", "title": "გამოცემა №2", "date": "2026-05-09", "desc": "პირველი საინვესტიციო ნაბიჯები და მიზნების დასახვა." },
+  { "file": "pdfs/thetradingpaper1.pdf", "title": "გამოცემა №1 (Anchor)", "date": "2026-01-01", "desc": "საწყისი კაპიტალის დაგროვება და The Trading Paper-ის დაარსება." }
+]

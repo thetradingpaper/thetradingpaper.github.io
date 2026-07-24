@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>წლიური შემოსავალი · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js"></script>
+<script src="portfolio-data.js"></script>
+<script src="js/portfolios.js"></script>
+<style>
+  :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:920px; margin:0 auto; padding:24px 20px 64px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
+  .back:hover{ color:var(--red); }
+  .kick{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:20px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 200px; border:1px solid var(--line); border-top:3px solid var(--green); border-radius:8px; padding:14px 16px; background:var(--paper); }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:24px; font-weight:800; margin-top:4px; }
+  .pos{ color:var(--green); }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:19px; margin:10px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  tr.tot td{ font-weight:800; border-top:2px solid var(--ink); }
+  .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:#fff; border-radius:3px; padding:2px 7px; }
+  .empty{ color:var(--muted); padding:20px; text-align:center; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:36px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · Cabinet</a>
+    <span class="kick">The Trading Paper</span>
+  </div>
+  <h1>წლიური დივიდენდი (საპროგნოზო)</h1>
+  <div class="sub">Projected Annual Income · მიმდინარე პოზიციებით · წმინდა 30% GE გადასახადის შემდეგ</div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">წლიური წმინდა შემოსავალი</div><div class="val pos" id="a-net">—</div></div>
+    <div class="card"><div class="lab">მთლიანი (გადასახადამდე)</div><div class="val" id="a-gross">—</div></div>
+    <div class="card"><div class="lab">პორტფელის უკუგება (yield)</div><div class="val" id="a-yield">—</div></div>
+  </div>
+
+  <div class="sec">დივიდენდის მიხედვით პოზიცია-პოზიცია · By holding</div>
+  <table id="incTable">
+    <thead><tr><th>აქცია</th><th>წიგნი</th><th class="num">ღირებულება</th><th class="num">Yield %</th><th class="num">მთლიანი/წელი</th><th class="num">წმინდა/წელი</th></tr></thead>
+    <tbody id="incBody"></tbody>
+  </table>
+
+  <div class="foot">© 2026 The Trading Paper · საპროგნოზო · ფასების ცვლილებით იცვლება · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  var P = (typeof portfolios!=='undefined' && portfolios) ? portfolios : (window.PORTFOLIOS||{});
+  var bookColors = { bog:'#b91c1c', tbc:'#1a1a1a', galt:'#8b6914' };
+  var TAX = 0.70; // net after 30% GE withholding
+
+  var rows=[], grossTot=0, valTot=0;
+  ['bog','tbc','galt'].forEach(function(k){
+    var p=P[k]; if(!p||!p.holdings) return;
+    p.holdings.forEach(function(h){
+      valTot += (+h.value||0);
+      if(typeof h.divYield==='number' && h.divYield>0){
+        var gross=(+h.value||0)*(h.divYield/100);
+        grossTot += gross;
+        rows.push({ticker:h.ticker, book:k, bookName:p.name||k.toUpperCase(), value:+h.value||0, yld:h.divYield, gross:gross, net:gross*TAX});
+      }
+    });
+  });
+  rows.sort(function(a,b){ return b.net-a.net; });
+
+  var netTot=grossTot*TAX;
+  document.getElementById('a-net').textContent=fmt(netTot);
+  document.getElementById('a-gross').textContent=fmt(grossTot);
+  document.getElementById('a-yield').textContent=(valTot>0?(netTot/valTot*100).toFixed(2):'0.00')+'%';
+
+  var body=document.getElementById('incBody');
+  if(!rows.length){ body.innerHTML='<tr><td colspan="6" class="empty">დივიდენდის მომტანი პოზიცია არ არის</td></tr>'; }
+  else{
+    var html=rows.map(function(r){
+      return '<tr><td><strong>'+r.ticker+'</strong></td><td><span class="book" style="background:'+(bookColors[r.book]||'#555')+'">'+r.bookName+'</span></td><td class="num">'+fmt(r.value)+'</td><td class="num">'+r.yld.toFixed(2)+'%</td><td class="num">'+fmt(r.gross)+'</td><td class="num pos">'+fmt(r.net)+'</td></tr>';
+    });
+    html.push('<tr class="tot"><td colspan="4">ჯამი · Total</td><td class="num">'+fmt(grossTot)+'</td><td class="num pos">'+fmt(netTot)+'</td></tr>');
+    body.innerHTML=html.join('');
+  }
+})();
+</script>
+</body>
+</html>

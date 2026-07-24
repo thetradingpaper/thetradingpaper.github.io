@@ -15,9 +15,10 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values from Issue 07 snapshot — live prices repaint these every 10s.
+      // Cached values from Issue 15 snapshot (24 Jul 2026) — live prices repaint these every 10s.
       // divYield = approx. annual dividend yield in % (BOG taxes dividends 30% at source → net = gross × 0.70)
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 1.02519351, avgBuy: 92.82, invested: 95.16, value: 95.16, color: '#1a1a1a', divYield: 0.00 },
+      // MSTR (opened & closed 23 Jul, +$1.46 realized) is gone; SNDK re-opened 23 Jul @ $1,658.13.
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.05694973, avgBuy: 1658.13, invested: 94.43, value: 94.43, color: '#ca8a04', divYield: 0.00 },
       { ticker: 'KOID', name: 'KraneShares Humanoid Robotics ETF', shares: 3.34000784, avgBuy: 40.15, invested: 134.11, value: 125.72, color: '#4b5563', divYield: 0.01 },
       { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 5.12306947, avgBuy: 29.73, invested: 152.32, value: 147.90, color: '#0891b2', divYield: 0.00 },
       { ticker: 'VRT', name: 'Vertiv Holdings Co', shares: 0.16056065, avgBuy: 314.52, invested: 50.50, value: 48.35, color: '#3d8c7a', divYield: 0.08 },
@@ -28,8 +29,23 @@ window.PORTFOLIOS = {
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 0.02519351, price: 92.88, commission: 0 },
-      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 1.00000000, price: 92.82, commission: 0 },
+      // --- 23 Jul 2026 (evening) · intraday scalps · BOG app · commission-free · net cash $0.00 (sells $385.08 = buys $385.08) ---
+      // MSTR opened then flipped same day (+$1.46). SNDK & HIMS round-tripped; HIMS net −$2.43; day realized ≈ −$0.73. Ends: SNDK 0.05694973 sh open.
+      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 1.00000000, price: 92.82,    commission: 0 }, // reshuffle open
+      { date: '2026-07-23', type: 'buy',  ticker: 'MSTR', shares: 0.02519351, price: 92.88,    commission: 0 }, // reshuffle open
+      { date: '2026-07-23', type: 'sell', ticker: 'MSTR', shares: 1.00000000, price: 94.25,    commission: 0 }, // 19:34 close · P/L +1.43
+      { date: '2026-07-23', type: 'sell', ticker: 'MSTR', shares: 0.02519351, price: 94.0718,  commission: 0 }, // 19:34 close · P/L +0.03
+      { date: '2026-07-23', type: 'buy',  ticker: 'SNDK', shares: 0.05789723, price: 1668.819, commission: 0 }, // 19:37
+      { date: '2026-07-23', type: 'sell', ticker: 'SNDK', shares: 0.05789723, price: 1672.9643, commission: 0 }, // 19:47 · P/L +0.24
+      { date: '2026-07-23', type: 'buy',  ticker: 'HIMS', shares: 2.00000000, price: 34.575,   commission: 0 }, // 19:48
+      { date: '2026-07-23', type: 'buy',  ticker: 'HIMS', shares: 0.80150285, price: 34.5726,  commission: 0 }, // 19:48
+      { date: '2026-07-23', type: 'sell', ticker: 'HIMS', shares: 2.00000000, price: 34.685,   commission: 0 }, // 19:49 · P/L +0.22
+      { date: '2026-07-23', type: 'sell', ticker: 'HIMS', shares: 0.80150285, price: 34.6848,  commission: 0 }, // 19:49 · P/L +0.09
+      { date: '2026-07-23', type: 'buy',  ticker: 'HIMS', shares: 2.00000000, price: 34.315,   commission: 0 }, // 19:51
+      { date: '2026-07-23', type: 'buy',  ticker: 'HIMS', shares: 0.83187955, price: 34.3079,  commission: 0 }, // 19:51
+      { date: '2026-07-23', type: 'sell', ticker: 'HIMS', shares: 2.00000000, price: 33.345,   commission: 0 }, // 20:19 · P/L −1.94
+      { date: '2026-07-23', type: 'sell', ticker: 'HIMS', shares: 0.83187955, price: 33.3462,  commission: 0 }, // 20:19 · P/L −0.80
+      { date: '2026-07-23', type: 'buy',  ticker: 'SNDK', shares: 0.05694973, price: 1658.129, commission: 0 }, // 20:37 open (held)
       { date: '2026-07-23', type: 'deposit', amount: 9.44 },
       { date: '2026-07-23', type: 'sell', ticker: 'WQTM', shares: 0.68379924, price: 31.37, commission: 0 },
       { date: '2026-07-23', type: 'sell', ticker: 'WQTM', shares: 1.00000000, price: 31.36, commission: 0 },

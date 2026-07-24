@@ -1760,7 +1760,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         data.forEach(function(issue) {
           var title = issue.title || issue.file || 'Issue';
           var dateStr = issue.date ? (typeof fmtDate === 'function' ? fmtDate(issue.date) : issue.date) : '';
-          var filePath = 'issues/' + issue.file;
+          var filePath = (issue.file && issue.file.indexOf('/') !== -1) ? issue.file : 'issues/' + issue.file;
           html += '<div style="background:var(--paper); border:1px solid var(--border); border-top:2px solid var(--ink); padding:14px 18px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">'
             + '<div>'
             + '<div style="font-family:\'Noto Serif Georgian\',serif; font-weight:800; font-size:18px; color:var(--ink);">' + title + '</div>'

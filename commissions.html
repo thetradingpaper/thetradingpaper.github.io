@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>საკომისიოები · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js"></script>
+<script src="portfolio-data.js"></script>
+<script src="js/portfolios.js"></script>
+<style>
+  :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:920px; margin:0 auto; padding:24px 20px 64px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
+  .back:hover{ color:var(--red); }
+  .kick{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:20px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 180px; border:1px solid var(--line); border-top:3px solid var(--red); border-radius:8px; padding:14px 16px; background:var(--paper); }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:24px; font-weight:800; margin-top:4px; color:var(--red); }
+  .card .note{ font-size:11px; color:var(--muted); margin-top:3px; }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:19px; margin:10px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:#fff; border-radius:3px; padding:2px 7px; }
+  .empty{ color:var(--muted); padding:20px; text-align:center; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:36px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · Cabinet</a>
+    <span class="kick">The Trading Paper</span>
+  </div>
+  <h1>გადახდილი საკომისიო</h1>
+  <div class="sub">Commissions Journal · ყველა ბროკერის საკომისიო ხაზ-ხაზ</div>
+
+  <div class="cards" id="fee-cards"></div>
+
+  <div class="sec">საკომისიოს მქონე ტრანზაქციები · Every commissioned trade</div>
+  <table id="commTable">
+    <thead><tr><th>თარიღი</th><th>წიგნი</th><th>ოპერაცია</th><th>აქცია</th><th class="num">საკომისიო</th><th class="num">ჯამი</th></tr></thead>
+    <tbody id="commBody"></tbody>
+  </table>
+
+  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  function fmtDateLocal(s){ const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
+  var P = (typeof portfolios!=='undefined' && portfolios) ? portfolios : (window.PORTFOLIOS||{});
+  var M = window.MEPORTF||{};
+  var bookColors = { bog:'#b91c1c', tbc:'#1a1a1a', galt:'#8b6914' };
+
+  // --- summary cards: total + by book ---
+  var cards = '';
+  var grand = (typeof M.feesPaid === 'number') ? M.feesPaid : 0;
+  cards += '<div class="card"><div class="lab">ჯამური საკომისიო</div><div class="val">'+fmt(grand)+'</div><div class="note">ყველა წიგნი · reconciled '+(M.lastUpdated||'')+'</div></div>';
+  (M.feesByBook||[]).forEach(function(f){
+    cards += '<div class="card"><div class="lab">'+f.book+'</div><div class="val">'+fmt(f.amount)+'</div><div class="note">'+(f.note||'')+'</div></div>';
+  });
+  document.getElementById('fee-cards').innerHTML = cards;
+
+  // --- every transaction that carried a commission ---
+  var rows=[];
+  Object.keys(P).forEach(function(k){
+    (P[k].transactions||[]).forEach(function(t){
+      var c = +t.commission || 0;
+      if(c>0) rows.push({date:t.date, book:k, bookName:P[k].name||k.toUpperCase(), type:(t.type||'').toUpperCase(), ticker:t.ticker||'—', comm:c});
+    });
+  });
+  rows.sort(function(a,b){ return a.date<b.date?1:(a.date>b.date?-1:0); }); // newest first
+
+  var body=document.getElementById('commBody');
+  if(!rows.length){ body.innerHTML='<tr><td colspan="6" class="empty">საკომისიო არ არის დაფიქსირებული</td></tr>'; }
+  else{
+    // running total oldest→newest, then display newest first
+    var asc = rows.slice().reverse(); var run=0; asc.forEach(function(r){ run+=r.comm; r._cum=run; });
+    var html=[];
+    rows.forEach(function(r){
+      html.push('<tr><td>'+fmtDateLocal(r.date)+'</td><td><span class="book" style="background:'+(bookColors[r.book]||'#555')+'">'+r.bookName+'</span></td><td>'+r.type+'</td><td>'+r.ticker+'</td><td class="num" style="color:var(--red)">−'+fmt(r.comm)+'</td><td class="num">'+fmt(r._cum)+'</td></tr>');
+    });
+    body.innerHTML=html.join('');
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ჩარიცხვები & გატანები · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/portfolios.data.js"></script>
+<script src="portfolio-data.js"></script>
+<script src="js/portfolios.js"></script>
+<style>
+  :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; --blue:#0056b3; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:920px; margin:0 auto; padding:24px 20px 64px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
+  .back:hover{ color:var(--red); }
+  .kick{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:20px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 200px; border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:8px; padding:14px 16px; background:var(--paper); }
+  .card.g{ border-top-color:var(--green); }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:24px; font-weight:800; margin-top:4px; }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:19px; margin:10px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; margin-bottom:30px; }
+  th,td{ text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:#fff; border-radius:3px; padding:2px 7px; }
+  .in{ color:var(--blue); } .out{ color:var(--green); }
+  .empty{ color:var(--muted); padding:20px; text-align:center; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:20px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · Cabinet</a>
+    <span class="kick">The Trading Paper</span>
+  </div>
+  <h1>ჩარიცხვები & გატანები</h1>
+  <div class="sub">Capital Flows · სრული ჩარიცხული, გატანილი და შიდა გადატანები</div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">სულ ჩარიცხული (გარე)</div><div class="val in" id="c-in">—</div></div>
+    <div class="card g"><div class="lab">სულ გატანილი</div><div class="val out" id="c-out">—</div></div>
+    <div class="card"><div class="lab">წმინდა ჩადებული</div><div class="val" id="c-net">—</div></div>
+  </div>
+
+  <div class="sec">გარე ჩარიცხვები & გატანები · External deposits & withdrawals</div>
+  <table id="flowTable">
+    <thead><tr><th>თარიღი</th><th>წიგნი</th><th>ტიპი</th><th>კომენტარი</th><th class="num">თანხა</th></tr></thead>
+    <tbody id="flowBody"></tbody>
+  </table>
+
+  <div class="sec">შიდა გადატანები · Internal transfers (net deposited unchanged)</div>
+  <table id="xferTable">
+    <thead><tr><th>თარიღი</th><th>საიდან</th><th>სად</th><th>ტიპი</th><th class="num">თანხა</th></tr></thead>
+    <tbody id="xferBody"></tbody>
+  </table>
+
+  <div class="foot">© 2026 The Trading Paper · შიდა გადატანა არ ცვლის სრულ ჩარიცხულს · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  function fmt(n){ return '$' + Number(Math.abs(n)).toFixed(2); }
+  function fmtDateLocal(s){ const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
+  var P = (typeof portfolios!=='undefined' && portfolios) ? portfolios : (window.PORTFOLIOS||{});
+  var M = window.MEPORTF||{};
+  var bookColors = { bog:'#b91c1c', tbc:'#1a1a1a', galt:'#8b6914' };
+  var isTransfer = function(note){ return /transfer|გადა|გადმ/i.test(note||''); };
+
+  // External deposits (positive & not a transfer) and withdrawals
+  var flows=[], extIn=0, out=0;
+  ['bog','tbc','galt'].forEach(function(k){
+    var p=P[k]; if(!p||!p.transactions) return;
+    p.transactions.forEach(function(t){
+      if(t.type==='deposit'){
+        var transfer=isTransfer(t.note)|| t.amount<0;
+        flows.push({date:t.date, book:k, bookName:p.name||k.toUpperCase(), type: transfer?(t.amount<0?'TRANSFER OUT':'TRANSFER IN'):'DEPOSIT', note:t.note||'', amount:t.amount, cls:t.amount<0?'out':'in'});
+        if(!transfer && t.amount>0) extIn+=t.amount;
+      } else if(t.type==='withdraw'){
+        flows.push({date:t.date, book:k, bookName:p.name||k.toUpperCase(), type:'WITHDRAW', note:t.note||'', amount:-t.amount, cls:'out'});
+        out+=t.amount;
+      }
+    });
+  });
+  flows.sort(function(a,b){ return a.date<b.date?1:(a.date>b.date?-1:0); });
+
+  document.getElementById('c-in').textContent=fmt(extIn);
+  document.getElementById('c-out').textContent=fmt(out);
+  document.getElementById('c-net').textContent=fmt(extIn-out);
+
+  var body=document.getElementById('flowBody');
+  body.innerHTML = flows.length ? flows.map(function(f){
+    return '<tr><td>'+fmtDateLocal(f.date)+'</td><td><span class="book" style="background:'+(bookColors[f.book]||'#555')+'">'+f.bookName+'</span></td><td>'+f.type+'</td><td style="color:var(--muted)">'+(f.note||'')+'</td><td class="num '+f.cls+'">'+(f.amount<0?'−':'+')+fmt(f.amount)+'</td></tr>';
+  }).join('') : '<tr><td colspan="5" class="empty">ჩანაწერი არ არის</td></tr>';
+
+  var xb=document.getElementById('xferBody');
+  var xfers=(M.transfers||[]).slice();
+  xb.innerHTML = xfers.length ? xfers.map(function(x){
+    return '<tr><td>'+x.date+'</td><td>'+x.from+'</td><td>'+x.to+'</td><td style="color:var(--muted)">'+(x.type||'')+'</td><td class="num">'+fmt(x.amount)+'</td></tr>';
+  }).join('') : '<tr><td colspan="5" class="empty">შიდა გადატანა არ არის</td></tr>';
+})();
+</script>
+</body>
+</html>

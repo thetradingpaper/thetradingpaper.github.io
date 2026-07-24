@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>დივიდენდები · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/portfolios.data.js"></script>
+<script src="js/portfolios.js"></script>
+<style>
+  :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --rule:#1a1a1a; --red:#b91c1c; --green:#166534; }
+  *{box-sizing:border-box}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
+  .wrap{ max-width:920px; margin:0 auto; padding:24px 20px 64px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
+  .back{ text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
+  .back:hover{ color:var(--red); }
+  .kick{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:20px 0 2px; letter-spacing:-.5px; }
+  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
+  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
+  .card{ flex:1 1 200px; border:1px solid var(--line); border-top:3px solid var(--green); border-radius:8px; padding:14px 16px; background:var(--paper); }
+  .card .lab{ font-size:12px; color:var(--muted); }
+  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
+  .pos{ color:var(--green); }
+  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:19px; margin:10px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  .chartbox{ border:1px solid var(--line); border-radius:8px; padding:16px; background:var(--paper); height:300px; margin-bottom:30px; }
+  table{ width:100%; border-collapse:collapse; font-size:14px; }
+  th,td{ text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
+  th{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--green); border-radius:4px; padding:2px 7px; }
+  .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:1px 6px; }
+  .empty{ color:var(--muted); padding:20px; text-align:center; }
+  .foot{ color:var(--muted); font-size:12px; margin-top:36px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="cabinet.html">← უკან · Cabinet</a>
+    <span class="kick">The Trading Paper</span>
+  </div>
+  <h1>მიღებული დივიდენდები</h1>
+  <div class="sub">Received Dividends · ჩარიცხული ხაზ-ხაზ · წმინდა (30% GE გადასახადის შემდეგ)</div>
+
+  <div class="cards">
+    <div class="card"><div class="lab">სულ მიღებული (წმინდა)</div><div class="val pos" id="d-total">—</div></div>
+    <div class="card"><div class="lab">ჩარიცხვების რაოდენობა</div><div class="val" id="d-count">—</div></div>
+    <div class="card"><div class="lab">ბოლო ჩარიცხვა</div><div class="val" id="d-last" style="font-size:18px;">—</div></div>
+  </div>
+
+  <div class="sec">ზრდა დღეების მიხედვით · Cumulative by day</div>
+  <div class="chartbox"><canvas id="divChart"></canvas></div>
+
+  <div class="sec">ჩარიცხვების ისტორია · History</div>
+  <table id="divTable">
+    <thead><tr><th>თარიღი</th><th>წიგნი</th><th>აქცია</th><th>კომენტარი</th><th class="num">თანხა</th><th class="num">ჯამი</th></tr></thead>
+    <tbody id="divBody"></tbody>
+  </table>
+
+  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script>
+(function(){
+  function fmt(n){ return '$' + Number(n).toFixed(2); }
+  function fmtDateLocal(s){ const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
+  var P = (typeof portfolios!=='undefined' && portfolios) ? portfolios : (window.PORTFOLIOS||{});
+
+  // collect dividends across all books
+  var divs=[];
+  Object.keys(P).forEach(function(k){
+    (P[k].transactions||[]).forEach(function(t){
+      if(t.type==='dividend') divs.push({date:t.date, ticker:t.ticker||'', amount:+t.amount||0, note:t.note||'', book:P[k].name||k.toUpperCase()});
+    });
+  });
+  divs.sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
+
+  var total=divs.reduce(function(s,d){return s+d.amount;},0);
+  document.getElementById('d-total').textContent=fmt(total);
+  document.getElementById('d-count').textContent=divs.length;
+  document.getElementById('d-last').textContent=divs.length?fmtDateLocal(divs[divs.length-1].date):'—';
+
+  var body=document.getElementById('divBody');
+  if(!divs.length){ body.innerHTML='<tr><td colspan="6" class="empty">ჯერ არ მიგიღია დივიდენდი — პირველი ჩაირიცხება აქ</td></tr>'; }
+  else{
+    var cum=0; divs.forEach(function(d){ cum+=d.amount; d._cum=cum; });
+    var rows=[];
+    for(var i=divs.length-1;i>=0;i--){ var d=divs[i];
+      rows.push('<tr><td>'+fmtDateLocal(d.date)+'</td><td><span class="book">'+d.book+'</span></td><td><span class="badge">'+d.ticker+'</span></td><td style="color:var(--muted)">'+(d.note||'')+'</td><td class="num">+'+fmt(d.amount)+'</td><td class="num">'+fmt(d._cum)+'</td></tr>');
+    }
+    body.innerHTML=rows.join('');
+  }
+
+  // cumulative chart by day
+  if(typeof Chart!=='undefined'){
+    var today=new Date(); today.setHours(0,0,0,0);
+    var start=today;
+    if(divs.length){ var fd=new Date(divs[0].date); fd.setHours(0,0,0,0); if(fd<start) start=fd; }
+    var last=today; if(divs.length){ var ld=new Date(divs[divs.length-1].date); ld.setHours(0,0,0,0); if(ld>last) last=ld; }
+    var end=new Date(last); end.setDate(end.getDate()+14);
+    var labels=[], data=[], running=0, di=0;
+    for(var dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+      var iso=dt.toISOString().slice(0,10);
+      while(di<divs.length && divs[di].date<=iso){ running+=divs[di].amount; di++; }
+      labels.push(iso.slice(5).replace('-','/'));
+      data.push(+running.toFixed(4));
+    }
+    new Chart(document.getElementById('divChart'), {
+      type:'line',
+      data:{ labels:labels, datasets:[{ label:'ჯამური დივიდენდი ($)', data:data, borderColor:'#166534', backgroundColor:'rgba(22,101,52,.12)', fill:true, tension:.15, pointRadius:2 }]},
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(c){return '$'+Number(c.parsed.y).toFixed(4);}}}},
+        scales:{ y:{ beginAtZero:true, ticks:{ callback:function(v){return '$'+v;} } }, x:{ grid:{display:false} } } }
+    });
+  }
+})();
+</script>
+</body>
+</html>
