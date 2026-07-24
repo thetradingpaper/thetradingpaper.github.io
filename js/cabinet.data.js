@@ -13,6 +13,8 @@ window.CABINET = {
 
   // ---- ანგარიშები · Reports Archive ------------------------
   reports: [
+    { id: 'seed-16', title: 'გამოცემა №16', date: '2026-07-24', desc: 'BOG-ის 32 სკალპინგ ტრანზაქცია ($819.26 მოცულობა) და პორტფელის SNDK/SSRM-ზე გადაწყობა.', pdf: 'pdfs/thetradingpaper16.pdf', permanent: true },
+    { id: 'seed-15', title: 'გამოცემა №15', date: '2026-07-24', desc: 'BOG-ის 23 ივლისის სკალპინგი (MSTR/SNDK/HIMS) და ინფო გვერდების აღდგენა.', pdf: 'pdfs/thetradingpaper15.pdf', permanent: true },
     { id: 'seed-14', title: 'გამოცემა №14', date: '2026-07-14', desc: 'BOG-ის proceeds შესყიდვები და TBC დივიდენდების დაგეგმვა.', pdf: 'pdfs/thetradingpaper14.pdf', permanent: true },
     { id: 'seed-13', title: 'გამოცემა №13', date: '2026-06-29', desc: 'პორტფელის სტრატეგიული რეორგანიზაცია და კორექტირებები.', pdf: 'pdfs/thetradingpaper13.pdf', permanent: true },
     { id: 'seed-12', title: 'გამოცემა №12', date: '2026-06-25', desc: 'სექტორული ანალიზი და რისკების მართვის დანერგვა.', pdf: 'pdfs/thetradingpaper12.pdf', permanent: true },
