@@ -15,15 +15,18 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values from Issue 16 snapshot (24 Jul 2026) — live prices repaint these every 10s.
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.18626306, avgBuy: 1537.83, invested: 286.44, value: 286.44, color: '#ca8a04', divYield: 0.00 },
-      { ticker: 'SSRM', name: 'SSR Mining Inc', shares: 5.05993725, avgBuy: 29.73, invested: 150.44, value: 146.08, color: '#0891b2', divYield: 0.00 },
+      // Cached values from Issue 16 snapshot (24 Jul 2026) — live prices repaint these every 10s. BOG now 100% SNDK.
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.27852241, avgBuy: 1525.34, invested: 424.84, value: 424.84, color: '#ca8a04', divYield: 0.00 },
     ],
-    cash: 0.00, // 24 Jul 2026: zero net cash day ($819.26 buys = $819.26 sells)
+    cash: 0.00, // 24 Jul 2026: zero net cash day ($957.66 buys = $957.66 sells)
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 24 Jul 2026 19:33 SSRM final liquidation → SNDK top-up ---
+      { date: '2026-07-24', type: 'buy',  ticker: 'SNDK',  shares: 0.09225935, price: 1500.12,   commission: 0 },
+      { date: '2026-07-24', type: 'sell', ticker: 'SSRM',  shares: 0.05993725, price: 27.362,    commission: 0 },
+      { date: '2026-07-24', type: 'sell', ticker: 'SSRM',  shares: 5.00000000, price: 27.352,    commission: 0 },
       // --- 24 Jul 2026 intraday scalps & rebalancing · BOG app · commission-free · net cash $0.00 ---
       { date: '2026-07-24', type: 'buy',  ticker: 'SNDK',  shares: 0.00115663, price: 1504.37,   commission: 0 },
       { date: '2026-07-24', type: 'sell', ticker: 'SSRM',  shares: 0.06313222, price: 27.56,     commission: 0 },
