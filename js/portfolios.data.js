@@ -158,7 +158,7 @@ window.PORTFOLIOS = {
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.515, avgBuy: 681.96, invested: 351.21, value: 351.21, color: '#2563eb', divYield: 1.30 },
       { ticker: 'GOOG', name: 'Alphabet Inc.', shares: 0.969, avgBuy: 320.77, invested: 310.83, value: 310.83, color: '#ea4335', divYield: 0.00 },
     ],
-    cash: 0.02,
+    cash: 0.00,
     transactions: [
       { date: '2026-07-23', type: 'deposit', amount: 1140.00, note: 'გადმოტანა ← BOG' },
       { date: '2026-07-23', type: 'buy', ticker: 'GOOG', shares: 0.96900000, price: 320.77, commission: 0.68 },
