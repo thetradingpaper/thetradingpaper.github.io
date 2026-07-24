@@ -1037,5 +1037,122 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508885+00:00",
+  "ticker": "NVCR",
+  "entry": 18.78,
+  "score": 78.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval",
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508893+00:00",
+  "ticker": "RNG",
+  "entry": 48.49,
+  "score": 69.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508897+00:00",
+  "ticker": "THRM",
+  "entry": 45.1,
+  "score": 66.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508901+00:00",
+  "ticker": "SAFT",
+  "entry": 103.08,
+  "score": 56.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508904+00:00",
+  "ticker": "ARWR",
+  "entry": 86.29,
+  "score": 50.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508907+00:00",
+  "ticker": "MEDP",
+  "entry": 603.28,
+  "score": 45.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508910+00:00",
+  "ticker": "DLR",
+  "entry": 205.71,
+  "score": 45.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508917+00:00",
+  "ticker": "LMT",
+  "entry": 581.79,
+  "score": 45.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508920+00:00",
+  "ticker": "WAB",
+  "entry": 301.44,
+  "score": 43.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-24T15:23:18.508923+00:00",
+  "ticker": "ALLE",
+  "entry": 155.77,
+  "score": 43.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]

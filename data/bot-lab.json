@@ -10,14 +10,14 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "TCBK",
-     "shares": 1.610537,
-     "entry": 59.560001373291016,
-     "entry_date": "2026-07-13",
-     "target": 62.6,
-     "stop": 57.89,
+     "ticker": "NVCR",
+     "shares": 5.072513,
+     "entry": 18.780000686645508,
+     "entry_date": "2026-07-24",
+     "target": 22.48,
+     "stop": 17.3,
      "max_days": 7,
-     "last_price": 59.43
+     "last_price": 18.780000686645508
     }
    ],
    "trades": [
@@ -30,9 +30,19 @@
      "ret_pct": -3.58,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "TCBK",
+     "entry": 59.560001373291016,
+     "exit": 59.77,
+     "entry_date": "2026-07-13",
+     "exit_date": "2026-07-24",
+     "ret_pct": -0.69,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 95.71,
+   "equity": 95.26,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -81,13 +91,17 @@
     {
      "date": "2026-07-23",
      "equity": 95.71
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 95.26
     }
    ],
    "stats": {
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -4.29
+    "return_pct": -4.74
    }
   },
   "bot2": {
@@ -98,36 +112,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "TCBK",
-     "shares": 0.282904,
-     "entry": 59.560001373291016,
-     "entry_date": "2026-07-13",
-     "target": 62.6,
-     "stop": 57.89,
-     "max_days": 7,
-     "last_price": 59.43
-    },
-    {
-     "ticker": "VOD",
-     "shares": 1.083237,
-     "entry": 15.555000305175781,
-     "entry_date": "2026-07-13",
-     "target": 16.33,
-     "stop": 15.08,
-     "max_days": 7,
-     "last_price": 15.56
-    },
-    {
-     "ticker": "CNMD",
-     "shares": 0.401376,
-     "entry": 41.97999954223633,
-     "entry_date": "2026-07-13",
-     "target": 46.58,
-     "stop": 39.22,
-     "max_days": 7,
-     "last_price": 41.42
-    },
-    {
      "ticker": "ATAI",
      "shares": 2.359811,
      "entry": 7.1402997970581055,
@@ -135,7 +119,7 @@
      "target": 8.3,
      "stop": 6.45,
      "max_days": 7,
-     "last_price": 7.15
+     "last_price": 7.18
     },
     {
      "ticker": "LXP",
@@ -145,7 +129,37 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 61.21
+     "last_price": 60.82
+    },
+    {
+     "ticker": "NVCR",
+     "shares": 0.842427,
+     "entry": 18.780000686645508,
+     "entry_date": "2026-07-24",
+     "target": 22.48,
+     "stop": 17.3,
+     "max_days": 7,
+     "last_price": 18.780000686645508
+    },
+    {
+     "ticker": "RNG",
+     "shares": 0.325531,
+     "entry": 48.599998474121094,
+     "entry_date": "2026-07-24",
+     "target": 56.85,
+     "stop": 45.14,
+     "max_days": 7,
+     "last_price": 48.599998474121094
+    },
+    {
+     "ticker": "THRM",
+     "shares": 0.351651,
+     "entry": 44.9900016784668,
+     "entry_date": "2026-07-24",
+     "target": 51.35,
+     "stop": 42.61,
+     "max_days": 7,
+     "last_price": 44.9900016784668
     }
    ],
    "trades": [
@@ -208,9 +222,39 @@
      "ret_pct": -5.33,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "TCBK",
+     "entry": 59.560001373291016,
+     "exit": 59.77,
+     "entry_date": "2026-07-13",
+     "exit_date": "2026-07-24",
+     "ret_pct": -5.42,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "VOD",
+     "entry": 15.555000305175781,
+     "exit": 15.2,
+     "entry_date": "2026-07-13",
+     "exit_date": "2026-07-24",
+     "ret_pct": -7.95,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "CNMD",
+     "entry": 41.97999954223633,
+     "exit": 42.56,
+     "entry_date": "2026-07-13",
+     "exit_date": "2026-07-24",
+     "ret_pct": -4.42,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 83.16,
+   "equity": 80.3,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -259,13 +303,17 @@
     {
      "date": "2026-07-23",
      "equity": 83.16
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 80.3
     }
    ],
    "stats": {
-    "trades": 6,
+    "trades": 9,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -16.84
+    "return_pct": -19.7
    }
   },
   "bot3": {
@@ -283,7 +331,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 23.18
+     "last_price": 23.1
     },
     {
      "ticker": "BTDR",
@@ -293,7 +341,7 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 12.75
+     "last_price": 11.51
     },
     {
      "ticker": "FCEL",
@@ -303,7 +351,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.08
+     "last_price": 22.1
     }
    ],
    "trades": [
@@ -328,7 +376,7 @@
      "leverage": 1
     }
    ],
-   "equity": 80.65,
+   "equity": 77.88,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -377,13 +425,17 @@
     {
      "date": "2026-07-23",
      "equity": 80.65
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 77.88
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -19.35
+    "return_pct": -22.12
    }
   },
   "bot4": {
@@ -401,7 +453,7 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 61.21
+     "last_price": 60.82
     }
    ],
    "trades": [
@@ -426,7 +478,7 @@
      "leverage": 1
     }
    ],
-   "equity": 97.0,
+   "equity": 96.81,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -475,13 +527,17 @@
     {
      "date": "2026-07-23",
      "equity": 97.0
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 96.81
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -3.0
+    "return_pct": -3.19
    }
   },
   "bot5": {
@@ -489,8 +545,22 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 903.2174328108418,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "NVCR",
+     "shares": 118.905405,
+     "entry": 18.780000686645508,
+     "entry_date": "2026-07-24",
+     "target": 22.48,
+     "stop": 17.3,
+     "max_days": 10,
+     "leverage": 2.5,
+     "own_equity": 893.2174328108418,
+     "borrowed": 1339.83,
+     "last_price": 18.780000686645508
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -503,7 +573,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 903.22,
+   "equity": 892.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -552,15 +622,19 @@
     {
      "date": "2026-07-23",
      "equity": 903.22
+    },
+    {
+     "date": "2026-07-24",
+     "equity": 892.77
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -9.68
+    "return_pct": -10.72
    }
   }
  },
- "updated": "2026-07-23T15:42:57.057150+00:00"
+ "updated": "2026-07-24T15:23:20.065757+00:00"
 }
