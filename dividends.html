@@ -3,119 +3,581 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>დივიდენდები · The Trading Paper</title>
+<title>დივიდენდების კალენდარი & ისტორია · The Trading Paper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/theme.js?v=20260725"></script>
 <script src="js/portfolios.data.js"></script>
+<script src="portfolio-data.js"></script>
 <script src="js/portfolios.js"></script>
+<script src="js/dividends.data.js"></script>
 <style>
-  :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --rule:#1a1a1a; --red:#b91c1c; --green:#166534; }
-  *{box-sizing:border-box}
-  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
-  .wrap{ max-width:920px; margin:0 auto; padding:24px 20px 64px; }
-  .top{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding-bottom:12px; }
-  .back{ text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
-  .back:hover{ color:var(--red); }
-  .kick{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
-  h1{ font-family:'Noto Serif Georgian',serif; font-weight:900; font-size:34px; margin:20px 0 2px; letter-spacing:-.5px; }
-  .sub{ color:var(--muted); font-style:italic; font-size:14px; margin-bottom:24px; }
-  .cards{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px; }
-  .card{ flex:1 1 200px; border:1px solid var(--line); border-top:3px solid var(--green); border-radius:8px; padding:14px 16px; background:var(--paper); }
-  .card .lab{ font-size:12px; color:var(--muted); }
-  .card .val{ font-size:26px; font-weight:800; margin-top:4px; }
-  .pos{ color:var(--green); }
-  .sec{ font-family:'Noto Serif Georgian',serif; font-weight:700; font-size:19px; margin:10px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px; }
-  .chartbox{ border:1px solid var(--line); border-radius:8px; padding:16px; background:var(--paper); height:300px; margin-bottom:30px; }
-  table{ width:100%; border-collapse:collapse; font-size:14px; }
-  th,td{ text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); }
-  th{ font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
-  td.num{ text-align:right; font-variant-numeric:tabular-nums; }
-  .badge{ display:inline-block; font-size:11px; font-weight:700; color:#fff; background:var(--green); border-radius:4px; padding:2px 7px; }
-  .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:var(--muted); border:1px solid var(--line); border-radius:3px; padding:1px 6px; }
-  .empty{ color:var(--muted); padding:20px; text-align:center; }
-  .foot{ color:var(--muted); font-size:12px; margin-top:36px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+  :root {
+    --bg: #fffdf7;
+    --paper: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e6e0d4;
+    --rule: #1a1a1a;
+    --red: #b91c1c;
+    --green: #166534;
+    --green-bg: rgba(22, 101, 52, 0.08);
+  }
+  [data-theme="dark"] {
+    --bg: #121315;
+    --paper: #1a1c20;
+    --ink: #e6e8ec;
+    --muted: #9ea4b0;
+    --border: #2d3139;
+    --rule: #404652;
+    --red: #ef4444;
+    --green: #22c55e;
+    --green-bg: rgba(34, 197, 94, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 20px 20px 64px;
+  }
+
+  .nav-tabs-bar {
+    display: flex;
+    gap: 12px;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+  }
+  .nav-tab-btn {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  .nav-tab-btn:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+  .nav-tab-btn.active { color: var(--paper); background: var(--ink); }
+
+  .page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  h1 {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 32px;
+    margin: 0 0 4px;
+    letter-spacing: -0.5px;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 13.5px;
+    margin: 0;
+  }
+
+  /* Summary Cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 860px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
+
+  .card {
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--paper);
+  }
+  .card .lab { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  .card .val { font-size: 24px; font-weight: 800; margin-top: 6px; font-family: ui-monospace, monospace; }
+  .card .sub-val { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .pos { color: var(--green); }
+
+  /* Next Dividend Highlight Box */
+  .next-box {
+    background: var(--green-bg);
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .next-info .title {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .next-info .main-date {
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin: 4px 0;
+  }
+  .next-info .details {
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .next-amount {
+    text-align: right;
+  }
+  .next-amount .amt {
+    font-family: ui-monospace, monospace;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--green);
+  }
+  .next-amount .countdown {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* Section Title */
+  .sec-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin: 28px 0 16px;
+  }
+  .sec-title {
+    font-family: 'Noto Serif Georgian', serif;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0;
+  }
+  .toggle-btns {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .toggle-btn {
+    border: none;
+    background: none;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .toggle-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Chart Box */
+  .chartbox {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--paper);
+    height: 320px;
+    margin-bottom: 32px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    text-align: left;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    font-size: 10.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background: rgba(0,0,0,0.02);
+  }
+  td.num {
+    text-align: right;
+    font-family: ui-monospace, monospace;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--green);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-family: ui-monospace, monospace;
+  }
+  .book {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+  }
+  .status-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .status-upcoming { background: rgba(22, 101, 52, 0.15); color: var(--green); }
+  .status-paid { background: rgba(0, 0, 0, 0.08); color: var(--muted); }
+
+  .foot {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
 </style>
 </head>
 <body>
+
 <div class="wrap">
-  <div class="top">
-    <a class="back" href="cabinet.html">← უკან · Cabinet</a>
-    <span class="kick">The Trading Paper</span>
+  <!-- Shared Nav Tabs Bar -->
+  <div class="nav-tabs-bar">
+    <a href="annual-income.html" class="nav-tab-btn">წლიური პროგნოზი · Annual Forecast</a>
+    <a href="dividends.html" class="nav-tab-btn active">ჩარიცხვის თარიღები & ისტორია · Payment Calendar</a>
+    <a href="cabinet.html" class="nav-tab-btn">კაბინეტი · Cabinet</a>
   </div>
-  <h1>მიღებული დივიდენდები</h1>
-  <div class="sub">Received Dividends · ჩარიცხული ხაზ-ხაზ · წმინდა (30% GE გადასახადის შემდეგ)</div>
 
+  <div class="page-head">
+    <div>
+      <h1>დივიდენდების კალენდარი & ისტორია</h1>
+      <p class="sub">Dividend Payment Dates & History · როდის ჩაირიცხება თანხა ანგარიშზე (წმინდა 30% GE გადასახადის შემდეგ)</p>
+    </div>
+  </div>
+
+  <!-- Summary Cards -->
   <div class="cards">
-    <div class="card"><div class="lab">სულ მიღებული (წმინდა)</div><div class="val pos" id="d-total">—</div></div>
-    <div class="card"><div class="lab">ჩარიცხვების რაოდენობა</div><div class="val" id="d-count">—</div></div>
-    <div class="card"><div class="lab">ბოლო ჩარიცხვა</div><div class="val" id="d-last" style="font-size:18px;">—</div></div>
+    <div class="card">
+      <div class="lab">შემდეგი ჩარიცხვა</div>
+      <div class="val pos" id="d-next-val">—</div>
+      <div class="sub-val" id="d-next-date">—</div>
+    </div>
+    <div class="card">
+      <div class="lab">წლიური სავარაუდო (წმინდა)</div>
+      <div class="val pos" id="d-annual-net">—</div>
+      <div class="sub-val" id="d-yield-pct">—</div>
+    </div>
+    <div class="card">
+      <div class="lab">სულ მიღებული (წმინდა)</div>
+      <div class="val" id="d-total-rec">—</div>
+      <div class="sub-val" id="d-rec-count">—</div>
+    </div>
+    <div class="card">
+      <div class="lab">საშუალო თვიური</div>
+      <div class="val pos" id="d-monthly-avg">—</div>
+      <div class="sub-val">პასური შემოსავალი / თვე</div>
+    </div>
   </div>
 
-  <div class="sec">ზრდა დღეების მიხედვით · Cumulative by day</div>
-  <div class="chartbox"><canvas id="divChart"></canvas></div>
+  <!-- Next Dividend Highlight Box -->
+  <div class="next-box" id="next-highlight-box">
+    <div class="next-info">
+      <div class="title">● უახლოესი დივიდენდი · Next Deposit Date</div>
+      <div class="main-date" id="next-box-date">იტვირთება…</div>
+      <div class="details" id="next-box-ticker">—</div>
+    </div>
+    <div class="next-amount">
+      <div class="amt" id="next-box-amt">—</div>
+      <div class="countdown" id="next-box-countdown">—</div>
+    </div>
+  </div>
 
-  <div class="sec">ჩარიცხვების ისტორია · History</div>
-  <table id="divTable">
-    <thead><tr><th>თარიღი</th><th>წიგნი</th><th>აქცია</th><th>კომენტარი</th><th class="num">თანხა</th><th class="num">ჯამი</th></tr></thead>
-    <tbody id="divBody"></tbody>
+  <!-- Interactive Dividend Graph -->
+  <div class="sec-head">
+    <h2 class="sec-title">ჩარიცხვების გრაფიკი · Dividend Payment Graph</h2>
+    <div class="toggle-btns">
+      <button class="toggle-btn active" id="btn-chart-upcoming" onclick="switchChartMode('upcoming')">მომავალი ჩარიცხვები</button>
+      <button class="toggle-btn" id="btn-chart-history" onclick="switchChartMode('history')">ისტორიული ზრდა</button>
+    </div>
+  </div>
+  <div class="chartbox">
+    <canvas id="divChart"></canvas>
+  </div>
+
+  <!-- Upcoming Dividend Calendar Table -->
+  <div class="sec-head">
+    <h2 class="sec-title">მომავალი ჩარიცხვების კალენდარი · Upcoming Pay Dates</h2>
+    <span style="font-size:12px;color:var(--muted)">როდის დაჯდება თანხა ანგარიშზე</span>
+  </div>
+  <table id="upcomingTable">
+    <thead>
+      <tr>
+        <th>ჩარიცხვის თარიღი (Pay Date)</th>
+        <th>Ex-Date</th>
+        <th>აქცია</th>
+        <th>წიგნი</th>
+        <th class="num">აქციები</th>
+        <th class="num">მთლიანი</th>
+        <th class="num">GE Tax (30%)</th>
+        <th class="num">წმინდა (Net)</th>
+        <th>სტატუსი</th>
+      </tr>
+    </thead>
+    <tbody id="upcomingBody"></tbody>
   </table>
 
-  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · ეს არ არის ფინანსური რჩევა</div>
+  <!-- Received Dividends History Table -->
+  <div class="sec-head" style="margin-top:40px;">
+    <h2 class="sec-title">მიღებული დივიდენდების ისტორია · Received History</h2>
+  </div>
+  <table id="historyTable">
+    <thead>
+      <tr>
+        <th>თარიღი</th>
+        <th>წიგნი</th>
+        <th>აქცია</th>
+        <th>კომენტარი</th>
+        <th class="num">წმინდა თანხა</th>
+      </tr>
+    </thead>
+    <tbody id="historyBody"></tbody>
+  </table>
+
+  <div class="foot">
+    © 2026 The Trading Paper · ლაშა ფხაკაძე · ავტომატურად განახლებადი · ეს არ არის ფინანსური რჩევა
+  </div>
 </div>
 
+<script src="js/masthead.js"></script>
+<script src="js/clocks.js"></script>
+
 <script>
-(function(){
-  function fmt(n){ return '$' + Number(n).toFixed(2); }
-  function fmtDateLocal(s){ const m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const d=new Date(s); return String(d.getDate()).padStart(2,'0')+' '+m[d.getMonth()]+' '+d.getFullYear(); }
-  var P = (typeof portfolios!=='undefined' && portfolios) ? portfolios : (window.PORTFOLIOS||{});
-
-  // collect dividends across all books
-  var divs=[];
-  Object.keys(P).forEach(function(k){
-    (P[k].transactions||[]).forEach(function(t){
-      if(t.type==='dividend') divs.push({date:t.date, ticker:t.ticker||'', amount:+t.amount||0, note:t.note||'', book:P[k].name||k.toUpperCase()});
-    });
-  });
-  divs.sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
-
-  var total=divs.reduce(function(s,d){return s+d.amount;},0);
-  document.getElementById('d-total').textContent=fmt(total);
-  document.getElementById('d-count').textContent=divs.length;
-  document.getElementById('d-last').textContent=divs.length?fmtDateLocal(divs[divs.length-1].date):'—';
-
-  var body=document.getElementById('divBody');
-  if(!divs.length){ body.innerHTML='<tr><td colspan="6" class="empty">ჯერ არ მიგიღია დივიდენდი — პირველი ჩაირიცხება აქ</td></tr>'; }
-  else{
-    var cum=0; divs.forEach(function(d){ cum+=d.amount; d._cum=cum; });
-    var rows=[];
-    for(var i=divs.length-1;i>=0;i--){ var d=divs[i];
-      rows.push('<tr><td>'+fmtDateLocal(d.date)+'</td><td><span class="book">'+d.book+'</span></td><td><span class="badge">'+d.ticker+'</span></td><td style="color:var(--muted)">'+(d.note||'')+'</td><td class="num">+'+fmt(d.amount)+'</td><td class="num">'+fmt(d._cum)+'</td></tr>');
-    }
-    body.innerHTML=rows.join('');
+(function() {
+  function fmt(n) { return '$' + Number(n).toFixed(2); }
+  function fmtDateLocal(s) {
+    if (!s) return '—';
+    const m = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const d = new Date(s);
+    return String(d.getDate()).padStart(2,'0') + ' ' + m[d.getMonth()] + ' ' + d.getFullYear();
   }
 
-  // cumulative chart by day
-  if(typeof Chart!=='undefined'){
-    var today=new Date(); today.setHours(0,0,0,0);
-    var start=today;
-    if(divs.length){ var fd=new Date(divs[0].date); fd.setHours(0,0,0,0); if(fd<start) start=fd; }
-    var last=today; if(divs.length){ var ld=new Date(divs[divs.length-1].date); ld.setHours(0,0,0,0); if(ld>last) last=ld; }
-    var end=new Date(last); end.setDate(end.getDate()+14);
-    var labels=[], data=[], running=0, di=0;
-    for(var dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
-      var iso=dt.toISOString().slice(0,10);
-      while(di<divs.length && divs[di].date<=iso){ running+=divs[di].amount; di++; }
-      labels.push(iso.slice(5).replace('-','/'));
-      data.push(+running.toFixed(4));
+  var divChartInstance = null;
+  var currentChartMode = 'upcoming';
+
+  function renderPage() {
+    if (!window.TP_DIVIDENDS) return;
+    var summary = window.TP_DIVIDENDS.getSummary();
+    var next = summary.nextDividend;
+
+    // Summary cards
+    document.getElementById('d-annual-net').textContent = fmt(summary.annualNet);
+    document.getElementById('d-yield-pct').textContent = summary.portfolioYieldPct.toFixed(2) + '% პორტფელის Yield';
+    document.getElementById('d-total-rec').textContent = fmt(summary.totalReceived);
+    document.getElementById('d-rec-count').textContent = summary.receivedCount + ' ჩარიცხვა';
+    document.getElementById('d-monthly-avg').textContent = fmt(summary.monthlyNetAvg);
+
+    // Next dividend card & highlight box
+    if (next) {
+      document.getElementById('d-next-val').textContent = '+' + fmt(next.netAmount);
+      document.getElementById('d-next-date').textContent = fmtDateLocal(next.payDate) + ' (' + next.ticker + ')';
+
+      document.getElementById('next-box-date').textContent = fmtDateLocal(next.payDate);
+      document.getElementById('next-box-ticker').textContent = next.ticker + ' · ' + next.name + ' (' + next.shares.toFixed(4) + ' sh in ' + next.bookName + ')';
+      document.getElementById('next-box-amt').textContent = '+' + fmt(next.netAmount) + ' net';
+      document.getElementById('next-box-countdown').textContent = next.daysRemaining === 0 ? 'დღეს!' : (next.daysRemaining + ' დღეში');
+    } else {
+      document.getElementById('d-next-val').textContent = '—';
+      document.getElementById('d-next-date').textContent = '—';
+      document.getElementById('next-highlight-box').style.display = 'none';
     }
-    new Chart(document.getElementById('divChart'), {
-      type:'line',
-      data:{ labels:labels, datasets:[{ label:'ჯამური დივიდენდი ($)', data:data, borderColor:'#166534', backgroundColor:'rgba(22,101,52,.12)', fill:true, tension:.15, pointRadius:2 }]},
-      options:{ responsive:true, maintainAspectRatio:false,
-        plugins:{ legend:{display:false}, tooltip:{callbacks:{label:function(c){return '$'+Number(c.parsed.y).toFixed(4);}}}},
-        scales:{ y:{ beginAtZero:true, ticks:{ callback:function(v){return '$'+v;} } }, x:{ grid:{display:false} } } }
-    });
+
+    // Render Upcoming Table
+    var upcoming = window.TP_DIVIDENDS.getUpcomingSchedule();
+    var upBody = document.getElementById('upcomingBody');
+    if (!upcoming.length) {
+      upBody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px;">დივიდენდის მომავალი ჩარიცხვა ვერ მოიძებნა</td></tr>';
+    } else {
+      var rows = upcoming.map(function(u) {
+        var tax = u.grossAmount * 0.30;
+        return '<tr>'
+          + '<td><strong>' + fmtDateLocal(u.payDate) + '</strong></td>'
+          + '<td style="color:var(--muted); font-size:12px;">' + fmtDateLocal(u.exDate) + '</td>'
+          + '<td><span class="badge">' + u.ticker + '</span></td>'
+          + '<td><span class="book">' + u.bookName + '</span></td>'
+          + '<td class="num">' + u.shares.toFixed(4) + '</td>'
+          + '<td class="num">' + fmt(u.grossAmount) + '</td>'
+          + '<td class="num" style="color:var(--red)">−' + fmt(tax) + '</td>'
+          + '<td class="num pos"><strong>+' + fmt(u.netAmount) + '</strong></td>'
+          + '<td><span class="status-tag status-upcoming">მოსალოდნელი</span></td>'
+          + '</tr>';
+      });
+      upBody.innerHTML = rows.join('');
+    }
+
+    // Render History Table
+    var history = window.TP_DIVIDENDS.getReceivedHistory();
+    var histBody = document.getElementById('historyBody');
+    if (!history.length) {
+      histBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:20px;">ჯერ არ გაქვს მიღებული დივიდენდი</td></tr>';
+    } else {
+      var hRows = [];
+      for (var i = history.length - 1; i >= 0; i--) {
+        var h = history[i];
+        hRows.push('<tr>'
+          + '<td>' + fmtDateLocal(h.date) + '</td>'
+          + '<td><span class="book">' + h.bookName + '</span></td>'
+          + '<td><span class="badge">' + h.ticker + '</span></td>'
+          + '<td style="color:var(--muted)">' + (h.note || '—') + '</td>'
+          + '<td class="num pos">+' + fmt(h.amount) + '</td>'
+          + '</tr>');
+      }
+      histBody.innerHTML = hRows.join('');
+    }
+
+    // Draw Chart
+    drawChart(currentChartMode);
+  }
+
+  window.switchChartMode = function(mode) {
+    currentChartMode = mode;
+    document.getElementById('btn-chart-upcoming').classList.toggle('active', mode === 'upcoming');
+    document.getElementById('btn-chart-history').classList.toggle('active', mode === 'history');
+    drawChart(mode);
+  };
+
+  function drawChart(mode) {
+    if (typeof Chart === 'undefined') return;
+    var canvas = document.getElementById('divChart');
+    if (!canvas) return;
+    if (divChartInstance) divChartInstance.destroy();
+
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)';
+    var textColor = isDark ? '#9ea4b0' : '#6b6b6b';
+
+    if (mode === 'upcoming') {
+      var chartData = window.TP_DIVIDENDS.getTimelineChartData();
+      divChartInstance = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: chartData.labels,
+          datasets: [{
+            label: 'მოსალოდნელი ჩარიცხვა ($ net)',
+            data: chartData.datasets[0].data,
+            backgroundColor: isDark ? '#22c55e' : '#166534',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                title: function(items) {
+                  var idx = items[0].dataIndex;
+                  var item = chartData.details[idx];
+                  return item ? (item.ticker + ' · Deposit Date: ' + item.payDate) : '';
+                },
+                label: function(item) {
+                  var d = chartData.details[item.dataIndex];
+                  return d ? [
+                    'Net Amount: +$' + d.netAmount.toFixed(2),
+                    'Gross Amount: $' + d.grossAmount.toFixed(2),
+                    'Shares: ' + d.shares.toFixed(4)
+                  ] : '';
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { color: textColor, callback: function(v) { return '$' + v; } },
+              grid: { color: gridColor }
+            },
+            x: {
+              ticks: { color: textColor },
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    } else {
+      // Historical received cumulative growth chart
+      var divs = window.TP_DIVIDENDS.getReceivedHistory();
+      var labels = [], data = [], running = 0;
+      divs.forEach(function(d) {
+        running += d.amount;
+        labels.push(d.date.slice(5).replace('-', '/'));
+        data.push(+running.toFixed(2));
+      });
+
+      divChartInstance = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'ჯამური მიღებული ($)',
+            data: data,
+            borderColor: isDark ? '#22c55e' : '#166534',
+            backgroundColor: isDark ? 'rgba(34,197,94,0.15)' : 'rgba(22,101,52,0.12)',
+            fill: true,
+            tension: 0.2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { color: textColor, callback: function(v) { return '$' + v; } }, grid: { color: gridColor } },
+            x: { ticks: { color: textColor }, grid: { display: false } }
+          }
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderPage);
+  } else {
+    renderPage();
   }
 })();
 </script>
