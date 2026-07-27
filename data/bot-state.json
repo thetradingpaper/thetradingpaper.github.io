@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 34.38,
+ "cash": 33.31,
  "positions": [
   {
    "ticker": "BABA",
@@ -15,17 +15,6 @@
    "stop": 111.66
   },
   {
-   "ticker": "NVDA",
-   "opened": "2026-07-21T20:03:48.313Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 207.29,
-   "shares": 0.096483,
-   "cost": 20,
-   "target": 221.81,
-   "stop": 196.4
-  },
-  {
    "ticker": "PLTR",
    "opened": "2026-07-27T15:48:46.093Z",
    "rule": "R3",
@@ -35,6 +24,17 @@
    "cost": 20,
    "target": 143.07,
    "stop": 119.55
+  },
+  {
+   "ticker": "MSTR",
+   "opened": "2026-07-27T17:49:53.971Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 97.94,
+   "shares": 0.204207,
+   "cost": 20,
+   "target": 109.04,
+   "stop": 89.61
   }
  ],
  "equityHistory": [
@@ -112,7 +112,7 @@
   },
   {
    "date": "2026-07-27",
-   "equity": 92.67
+   "equity": 93.03
   }
  ]
 }
