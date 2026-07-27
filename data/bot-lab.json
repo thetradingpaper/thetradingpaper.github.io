@@ -17,7 +17,7 @@
      "target": 22.48,
      "stop": 17.3,
      "max_days": 7,
-     "last_price": 18.780000686645508
+     "last_price": 17.33
     }
    ],
    "trades": [
@@ -42,7 +42,7 @@
      "leverage": 1
     }
    ],
-   "equity": 95.26,
+   "equity": 87.91,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -95,13 +95,17 @@
     {
      "date": "2026-07-24",
      "equity": 95.26
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 87.91
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -4.74
+    "return_pct": -12.09
    }
   },
   "bot2": {
@@ -112,16 +116,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "ATAI",
-     "shares": 2.359811,
-     "entry": 7.1402997970581055,
-     "entry_date": "2026-07-16",
-     "target": 8.3,
-     "stop": 6.45,
-     "max_days": 7,
-     "last_price": 7.18
-    },
-    {
      "ticker": "LXP",
      "shares": 0.261357,
      "entry": 60.93000030517578,
@@ -129,7 +123,7 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 60.82
+     "last_price": 60.97
     },
     {
      "ticker": "NVCR",
@@ -139,7 +133,7 @@
      "target": 22.48,
      "stop": 17.3,
      "max_days": 7,
-     "last_price": 18.780000686645508
+     "last_price": 17.33
     },
     {
      "ticker": "RNG",
@@ -149,17 +143,27 @@
      "target": 56.85,
      "stop": 45.14,
      "max_days": 7,
-     "last_price": 48.599998474121094
+     "last_price": 52.6
     },
     {
-     "ticker": "THRM",
-     "shares": 0.351651,
-     "entry": 44.9900016784668,
-     "entry_date": "2026-07-24",
-     "target": 51.35,
-     "stop": 42.61,
+     "ticker": "THC",
+     "shares": 0.060297,
+     "entry": 245.35000610351562,
+     "entry_date": "2026-07-27",
+     "target": 277.63,
+     "stop": 232.64,
      "max_days": 7,
-     "last_price": 44.9900016784668
+     "last_price": 245.35000610351562
+    },
+    {
+     "ticker": "FBRX",
+     "shares": 0.193524,
+     "entry": 76.44499969482422,
+     "entry_date": "2026-07-27",
+     "target": 90.73,
+     "stop": 67.88,
+     "max_days": 7,
+     "last_price": 76.44499969482422
     }
    ],
    "trades": [
@@ -252,9 +256,29 @@
      "ret_pct": -4.42,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "ATAI",
+     "entry": 7.1402997970581055,
+     "exit": 7.18,
+     "entry_date": "2026-07-16",
+     "exit_date": "2026-07-27",
+     "ret_pct": -5.22,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "THRM",
+     "entry": 44.9900016784668,
+     "exit": 41.65,
+     "entry_date": "2026-07-24",
+     "exit_date": "2026-07-27",
+     "ret_pct": -13.33,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 80.3,
+   "equity": 77.24,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -307,13 +331,17 @@
     {
      "date": "2026-07-24",
      "equity": 80.3
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 77.24
     }
    ],
    "stats": {
-    "trades": 9,
+    "trades": 11,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -19.7
+    "return_pct": -22.76
    }
   },
   "bot3": {
@@ -331,7 +359,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 23.1
+     "last_price": 21.39
     },
     {
      "ticker": "BTDR",
@@ -341,7 +369,7 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 11.51
+     "last_price": 11.02
     },
     {
      "ticker": "FCEL",
@@ -351,7 +379,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.1
+     "last_price": 20.91
     }
    ],
    "trades": [
@@ -376,7 +404,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.88,
+   "equity": 73.38,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -429,13 +457,17 @@
     {
      "date": "2026-07-24",
      "equity": 77.88
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 73.38
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -22.12
+    "return_pct": -26.62
    }
   },
   "bot4": {
@@ -453,7 +485,7 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 60.82
+     "last_price": 60.97
     }
    ],
    "trades": [
@@ -478,7 +510,7 @@
      "leverage": 1
     }
    ],
-   "equity": 96.81,
+   "equity": 96.89,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -531,13 +563,17 @@
     {
      "date": "2026-07-24",
      "equity": 96.81
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 96.89
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -3.19
+    "return_pct": -3.11
    }
   },
   "bot5": {
@@ -558,7 +594,7 @@
      "leverage": 2.5,
      "own_equity": 893.2174328108418,
      "borrowed": 1339.83,
-     "last_price": 18.780000686645508
+     "last_price": 17.33
     }
    ],
    "trades": [
@@ -573,7 +609,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 892.77,
+   "equity": 719.48,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -626,15 +662,19 @@
     {
      "date": "2026-07-24",
      "equity": 892.77
+    },
+    {
+     "date": "2026-07-27",
+     "equity": 719.48
     }
    ],
    "stats": {
     "trades": 1,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -10.72
+    "return_pct": -28.05
    }
   }
  },
- "updated": "2026-07-24T15:23:20.065757+00:00"
+ "updated": "2026-07-27T16:10:49.976244+00:00"
 }

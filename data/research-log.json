@@ -726,7 +726,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.18,
+  "return_pct": -0.0,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-17T15:15:14.188281+00:00",
@@ -737,7 +740,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 56.31,
+  "return_pct": 0.64,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-17T15:15:14.188284+00:00",
@@ -748,7 +754,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 237.64,
+  "return_pct": -9.5,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-17T15:15:14.188287+00:00",
@@ -759,7 +768,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.84,
+  "return_pct": -18.88,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-17T15:15:14.188301+00:00",
@@ -770,7 +782,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 216.17,
+  "return_pct": 2.16,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-17T15:15:14.188304+00:00",
@@ -782,7 +797,10 @@
    "growth_news",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 62.6,
+  "return_pct": -12.2,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-17T15:15:14.188306+00:00",
@@ -793,7 +811,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 82.97,
+  "return_pct": -6.12,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-17T15:15:14.188312+00:00",
@@ -804,7 +825,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 21.25,
+  "return_pct": 27.02,
+  "outcome": "win"
  },
  {
   "date": "2026-07-17T15:15:14.188315+00:00",
@@ -815,7 +839,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 11.44,
+  "return_pct": 1.1,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-17T15:15:14.188318+00:00",
@@ -826,7 +853,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 183.04,
+  "return_pct": 11.04,
+  "outcome": "win"
  },
  {
   "date": "2026-07-20T15:37:56.512803+00:00",
@@ -837,7 +867,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 60.99,
+  "return_pct": 0.11,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-20T15:37:56.512815+00:00",
@@ -848,7 +881,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 56.31,
+  "return_pct": -0.98,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-20T15:37:56.512820+00:00",
@@ -859,7 +895,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 11.64,
+  "return_pct": -13.13,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512824+00:00",
@@ -870,7 +909,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.66,
+  "return_pct": -6.24,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512829+00:00",
@@ -881,7 +923,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.08,
+  "return_pct": -11.54,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512857+00:00",
@@ -892,7 +937,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 271.49,
+  "return_pct": -14.42,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512861+00:00",
@@ -903,7 +951,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.84,
+  "return_pct": -6.84,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512870+00:00",
@@ -914,7 +965,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 1279.41,
+  "return_pct": -10.66,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-20T15:37:56.512874+00:00",
@@ -925,7 +979,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 179.68,
+  "return_pct": -11.83,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-22T15:28:49.191348+00:00",
@@ -1152,6 +1209,119 @@
   "horizon": "short",
   "catalyst_cats": [
    "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229005+00:00",
+  "ticker": "THC",
+  "entry": 245.49,
+  "score": 56.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "buyback_dividend",
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229025+00:00",
+  "ticker": "FBRX",
+  "entry": 76.45,
+  "score": 55.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229030+00:00",
+  "ticker": "LMT",
+  "entry": 582.28,
+  "score": 47.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229037+00:00",
+  "ticker": "SKM",
+  "entry": 35.41,
+  "score": 46.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "big_contract"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229041+00:00",
+  "ticker": "SMCI",
+  "entry": 29.05,
+  "score": 32.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229045+00:00",
+  "ticker": "VYNE",
+  "entry": 24.74,
+  "score": 27.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229049+00:00",
+  "ticker": "CAPR",
+  "entry": 6.39,
+  "score": 13.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229058+00:00",
+  "ticker": "XMTR",
+  "entry": 85.7,
+  "score": 5.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229062+00:00",
+  "ticker": "MXL",
+  "entry": 62.59,
+  "score": 2.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-27T16:10:48.229067+00:00",
+  "ticker": "LBRT",
+  "entry": 17.28,
+  "score": -1.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

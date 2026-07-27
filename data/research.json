@@ -1,332 +1,315 @@
 {
- "updated": "2026-07-24T15:23:18.508951+00:00",
- "mode": "DIVERSIFY",
- "notification": "📊 4 solid setups — split the paper $100 across: NVCR, RNG, THRM, SAFT. No single hero today, the basket is the play.",
+ "updated": "2026-07-27T16:10:48.229121+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on THC (score 56.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "NVCR",
-   "price": 18.78,
-   "score": 78.4,
-   "tech_score": 28.0,
-   "news_score": 50.4,
-   "rsi": 57.2,
-   "mom5": 17.96,
-   "vol_surge": 0.46,
+   "ticker": "THC",
+   "price": 245.49,
+   "score": 56.0,
+   "tech_score": 38.0,
+   "news_score": 18.0,
+   "rsi": 69.2,
+   "mom5": 25.98,
+   "vol_surge": 0.56,
    "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "Novocure (NVCR) Hits New High on Optimistic Outlook, FDA Approval Hopes",
-     "age_h": 14.7,
-     "points": 28.0
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "NovoCure Ltd (NVCR) Q2 2026 Earnings Call Highlights: Record Revenue and Strategic Growth Amid ...",
-     "age_h": 20.4,
-     "points": 15.4
-    },
-    {
-     "category": "growth_news",
-     "headline": "Novocure Reports Record Second-Quarter Revenue as Optune Expansion Drives Higher 2026 Outlook",
-     "age_h": 23.8,
-     "points": 7.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 18.78,
-    "target": 22.48,
-    "stop": 17.3,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "RNG",
-   "price": 48.49,
-   "score": 69.4,
-   "tech_score": 47.0,
-   "news_score": 22.4,
-   "rsi": 70.5,
-   "mom5": 17.41,
-   "vol_surge": 2.12,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "RingCentral Inc (RNG) Q2 2026 Earnings Call Highlights: Strong Revenue Growth and AI Expansion ...",
-     "age_h": 10.4,
-     "points": 7.0
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "RingCentral’s (NYSE:RNG) Q2 CY2026: Beats On Revenue, Quarterly Revenue Guidance Slightly Exceeds Expectations",
-     "age_h": 19.0,
-     "points": 15.4
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 48.49,
-    "target": 56.85,
-    "stop": 45.14,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "THRM",
-   "price": 45.1,
-   "score": 66.9,
-   "tech_score": 18.0,
-   "news_score": 48.9,
-   "rsi": 80.9,
-   "mom5": 29.88,
-   "vol_surge": 0.61,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Gentherm Inc (THRM) Q2 2026 Earnings Call Highlights: Record Revenue and Strategic Acquisitions ...",
-     "age_h": 20.3,
-     "points": 15.4
-    },
-    {
-     "category": "m_and_a",
-     "headline": "Gentherm Inc (THRM) Q2 2026 Earnings Call Highlights: Record Revenue and Strategic Acquisitions ...",
-     "age_h": 20.3,
-     "points": 18.5
-    },
     {
      "category": "guidance_raise",
-     "headline": "Gentherm raises full-year outlook after record second-quarter revenue (NASDAQ:THRM)",
-     "age_h": 26.5,
-     "points": 15.0
+     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
+     "age_h": 52.0,
+     "points": 7.5
+    },
+    {
+     "category": "buyback_dividend",
+     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
+     "age_h": 52.0,
+     "points": 3.6
+    },
+    {
+     "category": "growth_news",
+     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
+     "age_h": 52.0,
+     "points": 2.3
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Tenet Healthcare Q2 Beats Expectations as Hospital, ASC Segments Outperform, UBS Says",
+     "age_h": 70.1,
+     "points": 4.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 45.1,
-    "target": 51.35,
-    "stop": 42.61,
+    "entry": 245.49,
+    "target": 277.63,
+    "stop": 232.64,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SAFT",
-   "price": 103.08,
-   "score": 56.5,
+   "ticker": "FBRX",
+   "price": 76.45,
+   "score": 55.9,
    "tech_score": 38.0,
-   "news_score": 18.5,
-   "rsi": 81.7,
-   "mom5": 39.06,
-   "vol_surge": 3.34,
+   "news_score": 17.9,
+   "rsi": 93.8,
+   "mom5": 56.47,
+   "vol_surge": 7.95,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Biggest Mover Friday: Safety Insurance Stock Soars 40% after $1.54B buyout deal",
-     "age_h": 0.5,
-     "points": 18.5
+     "headline": "Forte Biosciences Agrees to Be Acquired by Argenx in $2.2 Billion Deal",
+     "age_h": 5.2,
+     "points": 17.9
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 103.08,
-    "target": 110.58,
-    "stop": 98.59,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ARWR",
-   "price": 86.29,
-   "score": 50.2,
-   "tech_score": 36.0,
-   "news_score": 14.2,
-   "rsi": 49.7,
-   "mom5": 16.68,
-   "vol_surge": 0.09,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "ARWR Stock Clocks Best Day In Nearly 8 Months As Analyst Lifts Price Target On Plozasiran Data",
-     "age_h": 40.6,
-     "points": 5.9
-    },
-    {
-     "category": "fda_approval",
-     "headline": "ARWR Stock On Track To Hit Over 5-Year Highs – Retail Cheers Phase 3 Breakthrough As Arrowhead Targets Broader FDA Approval",
-     "age_h": 50.2,
-     "points": 8.4
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 86.29,
-    "target": 101.31,
-    "stop": 80.28,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "MEDP",
-   "price": 603.28,
-   "score": 45.2,
-   "tech_score": 36.0,
-   "news_score": 9.2,
-   "rsi": 61.5,
-   "mom5": 12.9,
-   "vol_surge": 0.22,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Medpace (MEDP) Beats Q2 Earnings and Revenue Estimates",
-     "age_h": 41.5,
-     "points": 9.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 603.28,
-    "target": 656.1,
-    "stop": 571.59,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "DLR",
-   "price": 205.71,
-   "score": 45.1,
-   "tech_score": 20.0,
-   "news_score": 25.1,
-   "rsi": 80.0,
-   "mom5": 17.46,
-   "vol_surge": 0.95,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "DLR Q2 FFO Beats on Leasing Strength & Renewal Rent, '26 View Raised",
-     "age_h": 1.3,
-     "points": 15.4
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "SpaceX initiated, PayPal upgraded: Wall Street's top analyst calls",
-     "age_h": 1.8,
-     "points": 9.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 205.71,
-    "target": 217.08,
-    "stop": 198.9,
+    "entry": 76.45,
+    "target": 90.73,
+    "stop": 67.88,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "LMT",
-   "price": 581.79,
-   "score": 45.0,
+   "price": 582.28,
+   "score": 47.1,
    "tech_score": 38.0,
-   "news_score": 7.0,
-   "rsi": 68.7,
-   "mom5": 15.09,
-   "vol_surge": 0.4,
+   "news_score": 9.1,
+   "rsi": 68.8,
+   "mom5": 14.52,
+   "vol_surge": 0.35,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "LMT Q2 Deep Dive: Backlog Surge, Munitions Expansion, and Broad-Based Growth Drive Upward Guidance",
-     "age_h": 1.1,
-     "points": 7.0
+     "category": "earnings_beat",
+     "headline": "The 3.4% Income Play That Beats the Dogs of the Dow Strategy",
+     "age_h": 47.8,
+     "points": 9.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 582.28,
+    "target": 615.7,
+    "stop": 562.23,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SKM",
+   "price": 35.41,
+   "score": 46.7,
+   "tech_score": 28.7,
+   "news_score": 18.0,
+   "rsi": 65.6,
+   "mom5": 15.61,
+   "vol_surge": 1.08,
+   "catalysts": [
+    {
+     "category": "big_contract",
+     "headline": "Nvidia Strikes $500-Billion-Plus AI Infrastructure Partnership With SK Group",
+     "age_h": 1.5,
+     "points": 18.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 581.79,
-    "target": 632.02,
-    "stop": 561.7,
+    "entry": 35.41,
+    "target": 40.1,
+    "stop": 33.54,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "WAB",
-   "price": 301.44,
-   "score": 43.4,
+   "ticker": "SMCI",
+   "price": 29.05,
+   "score": 32.6,
    "tech_score": 28.0,
-   "news_score": 15.4,
-   "rsi": 82.3,
-   "mom5": 14.54,
-   "vol_surge": 0.2,
+   "news_score": 4.6,
+   "rsi": 55.5,
+   "mom5": 19.89,
+   "vol_surge": 0.44,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "UNP Q2 Earnings & Revenues Beat Estimates, Up Y/Y, EPS View Raised",
-     "age_h": 21.8,
-     "points": 15.4
+     "category": "growth_news",
+     "headline": "Supermicro (SMCI) Launches H15 Servers With 72 GPU AI Training Platform",
+     "age_h": 39.9,
+     "points": 4.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 29.05,
+    "target": 35.15,
+    "stop": 26.6,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "VYNE",
+   "price": 24.74,
+   "score": 27.9,
+   "tech_score": 10.0,
+   "news_score": 17.9,
+   "rsi": 71.0,
+   "mom5": 3660.45,
+   "vol_surge": 0.03,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Yarrow Bioscience Completes VYNE Therapeutics Merger, Begins Phase 2 Trial Dosing for YB-101",
+     "age_h": 2.9,
+     "points": 17.9
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 301.44,
-    "target": 317.81,
-    "stop": 291.62,
+    "entry": 24.74,
+    "target": NaN,
+    "stop": NaN,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ALLE",
-   "price": 155.77,
-   "score": 43.4,
-   "tech_score": 28.0,
-   "news_score": 15.4,
-   "rsi": 73.0,
-   "mom5": 12.59,
+   "ticker": "CAPR",
+   "price": 6.39,
+   "score": 13.7,
+   "tech_score": 6.0,
+   "news_score": 7.7,
+   "rsi": 9.7,
+   "mom5": -66.98,
+   "vol_surge": 6.36,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "How FDA‑Linked HQ and Manufacturing Expansion At Capricor Therapeutics (CAPR) Has Changed Its Investment Story",
+     "age_h": 4.0,
+     "points": 7.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 6.39,
+    "target": 12.88,
+    "stop": 3.79,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "XMTR",
+   "price": 85.7,
+   "score": 5.8,
+   "tech_score": 0.0,
+   "news_score": 5.8,
+   "rsi": 40.2,
+   "mom5": -13.03,
    "vol_surge": 0.15,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Allegion Q2 Earnings Beat on Americas Growth, Outlook Raised",
-     "age_h": 23.0,
-     "points": 15.4
+     "category": "analyst_upgrade",
+     "headline": "Xometry (XMTR) Stock May Be 27% Undervalued Despite AI Model Upgrades",
+     "age_h": 47.0,
+     "points": 5.8
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 155.77,
-    "target": 165.32,
-    "stop": 150.04,
+    "entry": 85.7,
+    "target": 97.17,
+    "stop": 78.82,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MXL",
+   "price": 62.59,
+   "score": 2.3,
+   "tech_score": 0.0,
+   "news_score": 2.3,
+   "rsi": 33.2,
+   "mom5": -13.03,
+   "vol_surge": 0.97,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "MaxLinear (MXL) Returns To Profit As AI Data Center Demand Lifts Earnings",
+     "age_h": 54.1,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 62.59,
+    "target": 96.69,
+    "stop": 48.95,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "LBRT",
+   "price": 17.28,
+   "score": -1.7,
+   "tech_score": -4.0,
+   "news_score": 2.3,
+   "rsi": 28.2,
+   "mom5": -27.52,
+   "vol_surge": 0.78,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "LBRT Q2 Deep Dive: Margin Compression Overshadows Revenue Growth Amid Power Expansion",
+     "age_h": 67.1,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 17.28,
+    "target": 22.02,
+    "stop": 15.38,
+    "hold": "2-8 კვირა"
    }
   }
  ],
  "learned": [
   {
    "category": "m_and_a",
-   "n": 21,
-   "win_rate": 14.3,
-   "avg_return": -3.18,
-   "weight_now": 0.71
+   "n": 28,
+   "win_rate": 10.7,
+   "avg_return": -3.24,
+   "weight_now": 0.69
   },
   {
    "category": "analyst_upgrade",
-   "n": 15,
-   "win_rate": 6.7,
-   "avg_return": -10.46,
-   "weight_now": 0.65
-  },
-  {
-   "category": "earnings_beat",
-   "n": 8,
-   "win_rate": 12.5,
-   "avg_return": -1.01,
-   "weight_now": 0.7
+   "n": 19,
+   "win_rate": 5.3,
+   "avg_return": -9.91,
+   "weight_now": 0.64
   },
   {
    "category": "growth_news",
-   "n": 8,
-   "win_rate": 12.5,
-   "avg_return": -8.71,
-   "weight_now": 0.7
+   "n": 14,
+   "win_rate": 21.4,
+   "avg_return": -5.18,
+   "weight_now": 0.77
+  },
+  {
+   "category": "earnings_beat",
+   "n": 9,
+   "win_rate": 11.1,
+   "avg_return": -1.95,
+   "weight_now": 0.69
+  },
+  {
+   "category": "fda_approval",
+   "n": 3,
+   "win_rate": 0.0,
+   "avg_return": -1.37,
+   "weight_now": 1.0
   }
  ],
- "scanned": 5966,
+ "scanned": 5965,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
