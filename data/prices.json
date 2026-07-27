@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-25T10:01:43.359Z",
+  "updated": "2026-07-27T11:15:24.807Z",
   "quotes": {
     "SPCX": {
       "price": 113.326,
@@ -71,7 +71,7 @@
     },
     "SNDK": {
       "price": 1436.56,
-      "previousClose": 1610.33
+      "previousClose": 1610.3301
     },
     "GOOG": {
       "price": 319.09,
