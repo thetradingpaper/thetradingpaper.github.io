@@ -511,5 +511,23 @@
       }
     },
     "note": "BOG $356.02 (-19.5%) · TBC $1550.71 (-9.3%) · GALT closed"
+  },
+  {
+    "date": "2026-07-28",
+    "books": {
+      "bog": {
+        "deposited": 442.28,
+        "value": 356.02
+      },
+      "tbc": {
+        "deposited": 1709.58,
+        "value": 1550.71
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $356.02 (-19.5%) · TBC $1550.71 (-9.3%) · GALT closed"
   }
 ]
