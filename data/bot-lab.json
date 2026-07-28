@@ -10,14 +10,14 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "NVCR",
-     "shares": 5.072513,
-     "entry": 18.780000686645508,
-     "entry_date": "2026-07-24",
-     "target": 22.48,
-     "stop": 17.3,
+     "ticker": "ITRI",
+     "shares": 0.826283,
+     "entry": 101.73999786376953,
+     "entry_date": "2026-07-28",
+     "target": 112.71,
+     "stop": 97.73,
      "max_days": 7,
-     "last_price": 17.33
+     "last_price": 101.73999786376953
     }
    ],
    "trades": [
@@ -40,9 +40,19 @@
      "ret_pct": -0.69,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "NVCR",
+     "entry": 18.780000686645508,
+     "exit": 16.77,
+     "entry_date": "2026-07-24",
+     "exit_date": "2026-07-28",
+     "ret_pct": -11.69,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 87.91,
+   "equity": 84.07,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -99,13 +109,17 @@
     {
      "date": "2026-07-27",
      "equity": 87.91
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 84.07
     }
    ],
    "stats": {
-    "trades": 2,
+    "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -12.09
+    "return_pct": -15.93
    }
   },
   "bot2": {
@@ -123,17 +137,7 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 60.97
-    },
-    {
-     "ticker": "NVCR",
-     "shares": 0.842427,
-     "entry": 18.780000686645508,
-     "entry_date": "2026-07-24",
-     "target": 22.48,
-     "stop": 17.3,
-     "max_days": 7,
-     "last_price": 17.33
+     "last_price": 60.65
     },
     {
      "ticker": "RNG",
@@ -143,7 +147,7 @@
      "target": 56.85,
      "stop": 45.14,
      "max_days": 7,
-     "last_price": 52.6
+     "last_price": 56.63
     },
     {
      "ticker": "THC",
@@ -153,7 +157,7 @@
      "target": 277.63,
      "stop": 232.64,
      "max_days": 7,
-     "last_price": 245.35000610351562
+     "last_price": 254.58
     },
     {
      "ticker": "FBRX",
@@ -163,7 +167,17 @@
      "target": 90.73,
      "stop": 67.88,
      "max_days": 7,
-     "last_price": 76.44499969482422
+     "last_price": 76.57
+    },
+    {
+     "ticker": "ITRI",
+     "shares": 0.12903,
+     "entry": 101.73999786376953,
+     "entry_date": "2026-07-28",
+     "target": 112.71,
+     "stop": 97.73,
+     "max_days": 7,
+     "last_price": 101.73999786376953
     }
    ],
    "trades": [
@@ -276,9 +290,19 @@
      "ret_pct": -13.33,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "NVCR",
+     "entry": 18.780000686645508,
+     "exit": 16.77,
+     "entry_date": "2026-07-24",
+     "exit_date": "2026-07-28",
+     "ret_pct": -16.5,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 77.24,
+   "equity": 77.58,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -335,13 +359,17 @@
     {
      "date": "2026-07-27",
      "equity": 77.24
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 77.58
     }
    ],
    "stats": {
-    "trades": 11,
+    "trades": 12,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -22.76
+    "return_pct": -22.42
    }
   },
   "bot3": {
@@ -359,7 +387,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 21.39
+     "last_price": 21.28
     },
     {
      "ticker": "BTDR",
@@ -369,7 +397,7 @@
      "target": 17.42,
      "stop": 9.89,
      "max_days": 40,
-     "last_price": 11.02
+     "last_price": 10.66
     },
     {
      "ticker": "FCEL",
@@ -379,7 +407,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 20.91
+     "last_price": 20.0
     }
    ],
    "trades": [
@@ -404,7 +432,7 @@
      "leverage": 1
     }
    ],
-   "equity": 73.38,
+   "equity": 71.48,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -461,13 +489,17 @@
     {
      "date": "2026-07-27",
      "equity": 73.38
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 71.48
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -26.62
+    "return_pct": -28.52
    }
   },
   "bot4": {
@@ -485,7 +517,7 @@
      "target": 63.49,
      "stop": 59.38,
      "max_days": 7,
-     "last_price": 60.97
+     "last_price": 60.65
     }
    ],
    "trades": [
@@ -510,7 +542,7 @@
      "leverage": 1
     }
    ],
-   "equity": 96.89,
+   "equity": 96.74,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -567,13 +599,17 @@
     {
      "date": "2026-07-27",
      "equity": 96.89
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 96.74
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -3.11
+    "return_pct": -3.26
    }
   },
   "bot5": {
@@ -581,22 +617,8 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "NVCR",
-     "shares": 118.905405,
-     "entry": 18.780000686645508,
-     "entry_date": "2026-07-24",
-     "target": 22.48,
-     "stop": 17.3,
-     "max_days": 10,
-     "leverage": 2.5,
-     "own_equity": 893.2174328108418,
-     "borrowed": 1339.83,
-     "last_price": 17.33
-    }
-   ],
+   "cash": 642.4517280613967,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -607,9 +629,19 @@
      "ret_pct": -8.77,
      "reason": "time",
      "leverage": 2.5
+    },
+    {
+     "ticker": "NVCR",
+     "entry": 18.780000686645508,
+     "exit": 16.77,
+     "entry_date": "2026-07-24",
+     "exit_date": "2026-07-28",
+     "ret_pct": -28.07,
+     "reason": "stop",
+     "leverage": 2.5
     }
    ],
-   "equity": 719.48,
+   "equity": 642.45,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -666,15 +698,19 @@
     {
      "date": "2026-07-27",
      "equity": 719.48
+    },
+    {
+     "date": "2026-07-28",
+     "equity": 642.45
     }
    ],
    "stats": {
-    "trades": 1,
+    "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -28.05
+    "return_pct": -35.75
    }
   }
  },
- "updated": "2026-07-27T16:10:49.976244+00:00"
+ "updated": "2026-07-28T16:00:32.333277+00:00"
 }

@@ -1324,5 +1324,117 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208959+00:00",
+  "ticker": "ITRI",
+  "entry": 102.01,
+  "score": 68.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208968+00:00",
+  "ticker": "THC",
+  "entry": 254.53,
+  "score": 53.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208972+00:00",
+  "ticker": "IQV",
+  "entry": 240.61,
+  "score": 50.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208976+00:00",
+  "ticker": "SW",
+  "entry": 51.61,
+  "score": 47.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208980+00:00",
+  "ticker": "AWI",
+  "entry": 182.49,
+  "score": 46.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208984+00:00",
+  "ticker": "FBRX",
+  "entry": 76.57,
+  "score": 45.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208988+00:00",
+  "ticker": "NVEC",
+  "entry": 113.93,
+  "score": 43.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208995+00:00",
+  "ticker": "WAB",
+  "entry": 304.05,
+  "score": 40.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.208999+00:00",
+  "ticker": "GLW",
+  "entry": 122.04,
+  "score": 27.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-28T16:00:31.209003+00:00",
+  "ticker": "CVLT",
+  "entry": 123.69,
+  "score": 22.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]

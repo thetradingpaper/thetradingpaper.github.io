@@ -1,274 +1,268 @@
 {
- "updated": "2026-07-27T16:10:48.229121+00:00",
+ "updated": "2026-07-28T16:00:31.209037+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on THC (score 56.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on ITRI (score 68.2). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "THC",
-   "price": 245.49,
-   "score": 56.0,
-   "tech_score": 38.0,
-   "news_score": 18.0,
-   "rsi": 69.2,
-   "mom5": 25.98,
-   "vol_surge": 0.56,
+   "ticker": "ITRI",
+   "price": 102.01,
+   "score": 68.2,
+   "tech_score": 28.0,
+   "news_score": 40.2,
+   "rsi": 82.1,
+   "mom5": 21.61,
+   "vol_surge": 2.82,
    "catalysts": [
     {
      "category": "guidance_raise",
-     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
-     "age_h": 52.0,
-     "points": 7.5
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
-     "age_h": 52.0,
-     "points": 3.6
-    },
-    {
-     "category": "growth_news",
-     "headline": "Tenet Healthcare (THC) Is Up 19.6% After Strong Q2 Beat, Raised Guidance And Buyback Expansion",
-     "age_h": 52.0,
-     "points": 2.3
+     "headline": "Itron Reports Q2 Earnings and Raises Full-Year 2026 EPS Outlook",
+     "age_h": 1.8,
+     "points": 25.0
     },
     {
      "category": "earnings_beat",
-     "headline": "Tenet Healthcare Q2 Beats Expectations as Hospital, ASC Segments Outperform, UBS Says",
-     "age_h": 70.1,
-     "points": 4.6
+     "headline": "Itron (ITRI) Beats Q2 Earnings Estimates",
+     "age_h": 2.3,
+     "points": 15.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 245.49,
-    "target": 277.63,
-    "stop": 232.64,
+    "entry": 102.01,
+    "target": 112.71,
+    "stop": 97.73,
     "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "THC",
+   "price": 254.53,
+   "score": 53.2,
+   "tech_score": 38.0,
+   "news_score": 15.2,
+   "rsi": 71.0,
+   "mom5": 30.94,
+   "vol_surge": 0.46,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "UHS Beats Q2 Earnings and Revenue Estimates Despite Cost Pressures",
+     "age_h": 2.4,
+     "points": 15.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 254.53,
+    "target": 277.36,
+    "stop": 240.83,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IQV",
+   "price": 240.61,
+   "score": 50.0,
+   "tech_score": 34.8,
+   "news_score": 15.2,
+   "rsi": 73.1,
+   "mom5": 17.55,
+   "vol_surge": 1.85,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "IQV Q2 Earnings Beat Estimates on R&D Bookings, Guidance Raised",
+     "age_h": 1.3,
+     "points": 15.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 240.61,
+    "target": 257.88,
+    "stop": 230.25,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SW",
+   "price": 51.61,
+   "score": 47.6,
+   "tech_score": 38.0,
+   "news_score": 9.6,
+   "rsi": 77.7,
+   "mom5": 19.83,
+   "vol_surge": 0.64,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "JPMorgan upgrades International Paper as linerboard pricing cycle gains momentum",
+     "age_h": 1.2,
+     "points": 9.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 51.61,
+    "target": 55.4,
+    "stop": 49.33,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "AWI",
+   "price": 182.49,
+   "score": 46.0,
+   "tech_score": 30.8,
+   "news_score": 15.2,
+   "rsi": 75.7,
+   "mom5": 19.28,
+   "vol_surge": 1.35,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Armstrong World’s (NYSE:AWI) Q2 CY2026: Beats On Revenue, Full-Year Outlook Slightly Exceeds Expectations",
+     "age_h": 5.6,
+     "points": 15.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 182.49,
+    "target": 193.68,
+    "stop": 175.77,
+    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "FBRX",
-   "price": 76.45,
-   "score": 55.9,
-   "tech_score": 38.0,
-   "news_score": 17.9,
-   "rsi": 93.8,
-   "mom5": 56.47,
-   "vol_surge": 7.95,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Forte Biosciences Agrees to Be Acquired by Argenx in $2.2 Billion Deal",
-     "age_h": 5.2,
-     "points": 17.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 76.45,
-    "target": 90.73,
-    "stop": 67.88,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "LMT",
-   "price": 582.28,
-   "score": 47.1,
-   "tech_score": 38.0,
-   "news_score": 9.1,
-   "rsi": 68.8,
-   "mom5": 14.52,
-   "vol_surge": 0.35,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "The 3.4% Income Play That Beats the Dogs of the Dow Strategy",
-     "age_h": 47.8,
-     "points": 9.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 582.28,
-    "target": 615.7,
-    "stop": 562.23,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SKM",
-   "price": 35.41,
-   "score": 46.7,
-   "tech_score": 28.7,
-   "news_score": 18.0,
-   "rsi": 65.6,
-   "mom5": 15.61,
-   "vol_surge": 1.08,
-   "catalysts": [
-    {
-     "category": "big_contract",
-     "headline": "Nvidia Strikes $500-Billion-Plus AI Infrastructure Partnership With SK Group",
-     "age_h": 1.5,
-     "points": 18.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 35.41,
-    "target": 40.1,
-    "stop": 33.54,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SMCI",
-   "price": 29.05,
-   "score": 32.6,
+   "price": 76.57,
+   "score": 45.9,
    "tech_score": 28.0,
-   "news_score": 4.6,
-   "rsi": 55.5,
-   "mom5": 19.89,
-   "vol_surge": 0.44,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Supermicro (SMCI) Launches H15 Servers With 72 GPU AI Training Platform",
-     "age_h": 39.9,
-     "points": 4.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 29.05,
-    "target": 35.15,
-    "stop": 26.6,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "VYNE",
-   "price": 24.74,
-   "score": 27.9,
-   "tech_score": 10.0,
    "news_score": 17.9,
-   "rsi": 71.0,
-   "mom5": 3660.45,
-   "vol_surge": 0.03,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Yarrow Bioscience Completes VYNE Therapeutics Merger, Begins Phase 2 Trial Dosing for YB-101",
-     "age_h": 2.9,
-     "points": 17.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 24.74,
-    "target": NaN,
-    "stop": NaN,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CAPR",
-   "price": 6.39,
-   "score": 13.7,
-   "tech_score": 6.0,
-   "news_score": 7.7,
-   "rsi": 9.7,
-   "mom5": -66.98,
-   "vol_surge": 6.36,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "How FDA‑Linked HQ and Manufacturing Expansion At Capricor Therapeutics (CAPR) Has Changed Its Investment Story",
-     "age_h": 4.0,
-     "points": 7.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 6.39,
-    "target": 12.88,
-    "stop": 3.79,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "XMTR",
-   "price": 85.7,
-   "score": 5.8,
-   "tech_score": 0.0,
-   "news_score": 5.8,
-   "rsi": 40.2,
-   "mom5": -13.03,
-   "vol_surge": 0.15,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Xometry (XMTR) Stock May Be 27% Undervalued Despite AI Model Upgrades",
-     "age_h": 47.0,
-     "points": 5.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 85.7,
-    "target": 97.17,
-    "stop": 78.82,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MXL",
-   "price": 62.59,
-   "score": 2.3,
-   "tech_score": 0.0,
-   "news_score": 2.3,
-   "rsi": 33.2,
-   "mom5": -13.03,
-   "vol_surge": 0.97,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "MaxLinear (MXL) Returns To Profit As AI Data Center Demand Lifts Earnings",
-     "age_h": 54.1,
-     "points": 2.3
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 62.59,
-    "target": 96.69,
-    "stop": 48.95,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "LBRT",
-   "price": 17.28,
-   "score": -1.7,
-   "tech_score": -4.0,
-   "news_score": 2.3,
-   "rsi": 28.2,
-   "mom5": -27.52,
+   "rsi": 93.6,
+   "mom5": 61.22,
    "vol_surge": 0.78,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "LBRT Q2 Deep Dive: Margin Compression Overshadows Revenue Growth Amid Power Expansion",
-     "age_h": 67.1,
-     "points": 2.3
+     "category": "m_and_a",
+     "headline": "Forte Biosciences shares surge after argenx agrees to acquire company for $2.2B",
+     "age_h": 23.6,
+     "points": 17.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 76.57,
+    "target": 90.43,
+    "stop": 68.25,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "NVEC",
+   "price": 113.93,
+   "score": 43.2,
+   "tech_score": 28.0,
+   "news_score": 15.2,
+   "rsi": 63.3,
+   "mom5": 29.27,
+   "vol_surge": 0.43,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "NVE (NVEC) Is Up 38.8% After Earnings Beat And Dividend Affirmation Has The Bull Case Changed?",
+     "age_h": 22.7,
+     "points": 15.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 113.93,
+    "target": 133.85,
+    "stop": 101.98,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "WAB",
+   "price": 304.05,
+   "score": 40.0,
+   "tech_score": 28.0,
+   "news_score": 12.0,
+   "rsi": 85.8,
+   "mom5": 17.99,
+   "vol_surge": 0.34,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Westinghouse Air Brake Technologies (WAB) Is Up 16.7% After Buyback-Fueled EPS Lift And Dividend Affirmation",
+     "age_h": 7.8,
+     "points": 12.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 17.28,
-    "target": 22.02,
-    "stop": 15.38,
+    "entry": 304.05,
+    "target": 329.05,
+    "stop": 294.05,
     "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GLW",
+   "price": 122.04,
+   "score": 27.4,
+   "tech_score": 4.5,
+   "news_score": 22.9,
+   "rsi": 21.9,
+   "mom5": -25.65,
+   "vol_surge": 2.06,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "How Corning (GLW) is Shaping Data Center Technology from Copper to Fiber",
+     "age_h": 1.2,
+     "points": 7.7
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Corning Beats Q2 Earnings Estimates on Optical and Solar Growth",
+     "age_h": 2.9,
+     "points": 15.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 122.04,
+    "target": 162.96,
+    "stop": 105.67,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CVLT",
+   "price": 123.69,
+   "score": 22.0,
+   "tech_score": 6.8,
+   "news_score": 15.2,
+   "rsi": 26.8,
+   "mom5": -16.18,
+   "vol_surge": 1.35,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Commvault Shares Fall Despite Strong First-Quarter Earnings Beat",
+     "age_h": 2.5,
+     "points": 15.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 123.69,
+    "target": 140.22,
+    "stop": 113.77,
+    "hold": "3-7 დღე"
    }
   }
  ],
@@ -309,7 +303,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5965,
+ "scanned": 5966,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
