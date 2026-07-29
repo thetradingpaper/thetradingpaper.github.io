@@ -15,14 +15,23 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values from Issue 16 snapshot (24 Jul 2026) — live prices repaint these every 10s. BOG now 100% SNDK.
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.27852241, avgBuy: 1525.34, invested: 424.84, value: 424.84, color: '#ca8a04', divYield: 0.00 },
+      // Cached values snapshot (29 Jul 2026) — live prices repaint these every 10s.
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.42132614, avgBuy: 1364.05, invested: 574.71, value: 574.71, color: '#ca8a04', divYield: 0.00 },
+      { ticker: 'MNST', name: 'Monster Beverage Corp', shares: 1.92424354, avgBuy: 98.74, invested: 190.00, value: 190.00, color: '#84cc16', divYield: 0.00 },
     ],
-    cash: 0.00, // 24 Jul 2026: zero net cash day ($957.66 buys = $957.66 sells)
+    cash: 0.00, // 29 Jul 2026: deposit $339.87 = buys $339.87
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 29 Jul 2026 deposit ($339.87) & purchases · BOG app ---
+      { date: '2026-07-29', type: 'buy',  ticker: 'MNST',  shares: 0.92424354, price: 98.74,   commission: 0 },
+      { date: '2026-07-29', type: 'buy',  ticker: 'MNST',  shares: 1.00000000, price: 98.74,   commission: 0 },
+      { date: '2026-07-29', type: 'buy',  ticker: 'SNDK',  shares: 0.00968542, price: 1032.48, commission: 0 },
+      { date: '2026-07-29', type: 'buy',  ticker: 'SNDK',  shares: 0.04778475, price: 1046.36, commission: 0 },
+      { date: '2026-07-29', type: 'buy',  ticker: 'SNDK',  shares: 0.04741229, price: 1054.58, commission: 0 },
+      { date: '2026-07-29', type: 'buy',  ticker: 'SNDK',  shares: 0.03792127, price: 1051.39, commission: 0 },
+      { date: '2026-07-29', type: 'deposit', amount: 339.87 },
       // --- 24 Jul 2026 19:33 SSRM final liquidation → SNDK top-up ---
       { date: '2026-07-24', type: 'buy',  ticker: 'SNDK',  shares: 0.09225935, price: 1500.12,   commission: 0 },
       { date: '2026-07-24', type: 'sell', ticker: 'SSRM',  shares: 0.05993725, price: 27.362,    commission: 0 },
