@@ -17,7 +17,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 102.93
+     "last_price": 99.17
     }
    ],
    "trades": [
@@ -52,7 +52,7 @@
      "leverage": 1
     }
    ],
-   "equity": 85.05,
+   "equity": 81.94,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -117,13 +117,17 @@
     {
      "date": "2026-07-29",
      "equity": 85.05
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 81.94
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -14.95
+    "return_pct": -18.06
    }
   },
   "bot2": {
@@ -134,16 +138,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "LXP",
-     "shares": 0.261357,
-     "entry": 60.93000030517578,
-     "entry_date": "2026-07-20",
-     "target": 63.49,
-     "stop": 59.38,
-     "max_days": 7,
-     "last_price": 60.82
-    },
-    {
      "ticker": "THC",
      "shares": 0.060297,
      "entry": 245.35000610351562,
@@ -151,7 +145,7 @@
      "target": 277.63,
      "stop": 232.64,
      "max_days": 7,
-     "last_price": 258.94
+     "last_price": 250.96
     },
     {
      "ticker": "FBRX",
@@ -161,7 +155,7 @@
      "target": 90.73,
      "stop": 67.88,
      "max_days": 7,
-     "last_price": 76.57
+     "last_price": 76.53
     },
     {
      "ticker": "ITRI",
@@ -171,7 +165,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 102.93
+     "last_price": 99.17
     },
     {
      "ticker": "DXC",
@@ -181,7 +175,17 @@
      "target": 12.64,
      "stop": 10.78,
      "max_days": 7,
-     "last_price": 11.475000381469727
+     "last_price": 11.08
+    },
+    {
+     "ticker": "CMG",
+     "shares": 0.384514,
+     "entry": 38.61000061035156,
+     "entry_date": "2026-07-30",
+     "target": 43.31,
+     "stop": 36.7,
+     "max_days": 7,
+     "last_price": 38.61000061035156
     }
    ],
    "trades": [
@@ -314,9 +318,19 @@
      "ret_pct": 12.24,
      "reason": "target",
      "leverage": 1
+    },
+    {
+     "ticker": "LXP",
+     "entry": 60.93000030517578,
+     "exit": 60.63,
+     "entry_date": "2026-07-20",
+     "exit_date": "2026-07-30",
+     "ret_pct": -6.57,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 77.43,
+   "equity": 74.79,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -381,13 +395,17 @@
     {
      "date": "2026-07-29",
      "equity": 77.43
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 74.79
     }
    ],
    "stats": {
-    "trades": 13,
+    "trades": 14,
     "wins": 1,
-    "win_rate": 7.7,
-    "return_pct": -22.57
+    "win_rate": 7.1,
+    "return_pct": -25.21
    }
   },
   "bot3": {
@@ -415,7 +433,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 18.98
+     "last_price": 22.34
     },
     {
      "ticker": "ITRI",
@@ -425,7 +443,7 @@
      "target": 113.93,
      "stop": 98.61,
      "max_days": 40,
-     "last_price": 102.93000030517578
+     "last_price": 99.17
     }
    ],
    "trades": [
@@ -460,7 +478,7 @@
      "leverage": 1
     }
    ],
-   "equity": 63.78,
+   "equity": 66.73,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -525,13 +543,17 @@
     {
      "date": "2026-07-29",
      "equity": 63.78
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 66.73
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -36.22
+    "return_pct": -33.27
    }
   },
   "bot4": {
@@ -539,17 +561,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 68.00817606040957,
+   "cash": 67.18106031629566,
    "positions": [
     {
-     "ticker": "LXP",
-     "shares": 0.473625,
-     "entry": 60.93000030517578,
-     "entry_date": "2026-07-20",
-     "target": 63.49,
-     "stop": 59.38,
+     "ticker": "CMG",
+     "shares": 0.739264,
+     "entry": 38.61000061035156,
+     "entry_date": "2026-07-30",
+     "target": 43.31,
+     "stop": 36.7,
      "max_days": 7,
-     "last_price": 60.82
+     "last_price": 38.61000061035156
     }
    ],
    "trades": [
@@ -572,9 +594,19 @@
      "ret_pct": -2.91,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "LXP",
+     "entry": 60.93000030517578,
+     "exit": 60.63,
+     "entry_date": "2026-07-20",
+     "exit_date": "2026-07-30",
+     "ret_pct": -3.89,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 96.81,
+   "equity": 95.72,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -639,13 +671,17 @@
     {
      "date": "2026-07-29",
      "equity": 96.81
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 95.72
     }
    ],
    "stats": {
-    "trades": 2,
+    "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -3.19
+    "return_pct": -4.28
    }
   },
   "bot5": {
@@ -653,8 +689,22 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 642.4517280613967,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "CMG",
+     "shares": 40.95129,
+     "entry": 38.61000061035156,
+     "entry_date": "2026-07-30",
+     "target": 43.31,
+     "stop": 36.7,
+     "max_days": 10,
+     "leverage": 2.5,
+     "own_equity": 632.4517280613967,
+     "borrowed": 948.68,
+     "last_price": 38.61000061035156
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -677,7 +727,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 642.45,
+   "equity": 632.14,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -742,15 +792,19 @@
     {
      "date": "2026-07-29",
      "equity": 642.45
+    },
+    {
+     "date": "2026-07-30",
+     "equity": 632.14
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -35.75
+    "return_pct": -36.79
    }
   }
  },
- "updated": "2026-07-29T15:42:02.588238+00:00"
+ "updated": "2026-07-30T15:43:43.708287+00:00"
 }

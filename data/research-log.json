@@ -1579,5 +1579,119 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769368+00:00",
+  "ticker": "CMG",
+  "entry": 38.59,
+  "score": 87.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769375+00:00",
+  "ticker": "PTC",
+  "entry": 136.1,
+  "score": 65.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769379+00:00",
+  "ticker": "MKTX",
+  "entry": 163.1,
+  "score": 63.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769383+00:00",
+  "ticker": "CORT",
+  "entry": 120.62,
+  "score": 59.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769386+00:00",
+  "ticker": "BHC",
+  "entry": 5.99,
+  "score": 56.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769389+00:00",
+  "ticker": "SAP",
+  "entry": 179.47,
+  "score": 56.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769392+00:00",
+  "ticker": "HUBS",
+  "entry": 232.78,
+  "score": 52.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769399+00:00",
+  "ticker": "MANH",
+  "entry": 190.7,
+  "score": 45.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769403+00:00",
+  "ticker": "ULCC",
+  "entry": 6.93,
+  "score": 45.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-07-30T15:43:42.769406+00:00",
+  "ticker": "JBLU",
+  "entry": 5.98,
+  "score": 45.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]
