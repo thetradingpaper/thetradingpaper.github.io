@@ -15,15 +15,18 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      // Cached values snapshot (29 Jul 2026) — live prices repaint these every 10s.
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.42132614, avgBuy: 1364.05, invested: 574.71, value: 574.71, color: '#ca8a04', divYield: 0.00 },
-      { ticker: 'MNST', name: 'Monster Beverage Corp', shares: 1.92424354, avgBuy: 98.74, invested: 190.00, value: 190.00, color: '#84cc16', divYield: 0.00 },
+      // Cached values snapshot (30 Jul 2026) — live prices repaint these every 10s.
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.56819758, avgBuy: 1337.02, invested: 759.69, value: 759.69, color: '#ca8a04', divYield: 0.00 },
     ],
-    cash: 0.00, // 29 Jul 2026: deposit $339.87 = buys $339.87
+    cash: 0.00, // 30 Jul 2026: MNST sales $184.98 = SNDK buy $184.98 (net cash $0.00)
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 30 Jul 2026 BOG rotation: MNST liquidation → SNDK buy · BOG app · commission-free · net cash $0.00 ---
+      { date: '2026-07-30', type: 'buy',  ticker: 'SNDK', shares: 0.14687144, price: 1259.4688, commission: 0 },
+      { date: '2026-07-30', type: 'sell', ticker: 'MNST', shares: 0.92424354, price: 96.1328,   commission: 0 },
+      { date: '2026-07-30', type: 'sell', ticker: 'MNST', shares: 1.00000000, price: 96.1300,   commission: 0 },
       // --- 29 Jul 2026 deposit ($339.87) & purchases · BOG app ---
       { date: '2026-07-29', type: 'buy',  ticker: 'MNST',  shares: 0.92424354, price: 98.74,   commission: 0 },
       { date: '2026-07-29', type: 'buy',  ticker: 'MNST',  shares: 1.00000000, price: 98.74,   commission: 0 },
