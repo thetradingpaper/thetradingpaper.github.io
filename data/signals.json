@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-31T20:25:09.233Z",
+ "updated": "2026-07-31T21:41:38.779Z",
  "watchlist": [
   "NVDA",
   "TSLA",
@@ -17,7 +17,7 @@
    "sma20": 203.3,
    "atr": 7.64,
    "high20": 214.39,
-   "vol": 138611109,
+   "vol": 139261166,
    "avgVol20": 128324330,
    "chg1d": 2.93,
    "signal": "WAIT",
@@ -88,12 +88,19 @@
    "sma20": 113.41,
    "atr": 3.86,
    "high20": 121.86,
-   "vol": 16323414,
+   "vol": 16933673,
    "avgVol20": 11915265,
    "chg1d": 5.1,
-   "signal": "WAIT",
-   "reasons": [],
-   "plan": null
+   "signal": "BUY",
+   "reasons": [
+    "R2 breakout · ფასი > 20დ მაქსიმუმი $121.86 · მოცულობა 1.4×"
+   ],
+   "plan": {
+    "entry": 122.25,
+    "target": 129.97,
+    "stop": 116.46,
+    "horizon": "5 სავაჭრო დღე max"
+   }
   }
  ],
  "stats": {
