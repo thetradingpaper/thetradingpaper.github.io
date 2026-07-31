@@ -2,14 +2,14 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-07-30
+// Last updated: 2026-07-31
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-07-30',
-  feesPaid: 75.10,                      // reconciled 23 Jul 2026: BOG $31.70 ($19.70 + $12 bank fee) + TBC $3.40 + Galt $40.00
+  lastUpdated: '2026-07-31',
+  feesPaid: 75.33,                      // reconciled 31 Jul 2026: BOG $31.70 ($19.70 + $12 bank fee) + TBC $3.63 + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 31.70, note: '29 საკომისიო ($19.70) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
-    { book: 'TBC', amount: 3.40, note: '5 ყიდვის საკომისიო (23 ივლ 2026)' },
+    { book: 'TBC', amount: 3.63, note: '8 ვაჭრობის საკომისიო (31 ივლ 2026)' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
