@@ -165,7 +165,31 @@ function renderStatBanner(containerId, portfolioKey) {
 <div class="stat-val ${commPaid > 0 ? 'neg' : ''}">${commPaid > 0 ? '−' : ''}${fmtMoney(commPaid)}<span class="stat-sub">${commCount} საკომისიო · Commissions</span></div>
 </div>`;
 
-  const gridClass = anyYield ? 'stat-grid with-div' : 'stat-grid';
+  // Day change calculation
+  let dayDollar = 0, prevVal = 0, havePrev = false;
+  if (p.holdings) {
+    for (const h of p.holdings) {
+      if (h.previousClose && h.shares !== undefined) {
+        const price = h.livePrice || (h.shares ? h.value / h.shares : 0);
+        prevVal += h.shares * h.previousClose;
+        dayDollar += (price - h.previousClose) * h.shares;
+        havePrev = true;
+      }
+    }
+  }
+  const dayPct = (havePrev && prevVal > 0) ? (dayDollar / prevVal * 100) : 0;
+  const dayCls = dayDollar >= 0 ? 'pos' : 'neg';
+  const daySign = dayDollar >= 0 ? '+' : '−';
+  const dayStr = havePrev ? `${daySign}${fmtMoney(Math.abs(dayDollar))}` : '—';
+  const dayPctStr = havePrev ? `${daySign}${Math.abs(dayPct).toFixed(2)}%` : '';
+
+  const dayCell = `
+<div class="stat-cell">
+<div class="stat-label">დღიური ცვლილება</div>
+<div class="stat-val ${dayCls}">${dayStr}${dayPctStr ? `<span class="stat-sub" style="color:inherit;font-weight:700;">${dayPctStr} (1D)</span>` : ''}</div>
+</div>`;
+
+  const gridClass = 'stat-grid with-div';
 
   el.innerHTML = `
 <div class="stat-banner">
@@ -182,6 +206,7 @@ function renderStatBanner(containerId, portfolioKey) {
 <div class="stat-label">პორტფელის ღირებულება</div>
 <div class="stat-val">${fmtMoney(a.currentValue)}</div>
 </div>
+${dayCell}
 <div class="stat-cell">
 <div class="stat-label">წმინდა P/L</div>
 <div class="stat-val ${pnlClass}">${pnlStr}</div>
