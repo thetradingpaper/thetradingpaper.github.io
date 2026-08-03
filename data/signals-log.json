@@ -1,5 +1,38 @@
 [
  {
+  "closed": "2026-08-03T15:49:23.041Z",
+  "opened": "2026-07-28T15:28:03.987Z",
+  "ticker": "BABA",
+  "rule": "R3",
+  "entry": 115.63,
+  "exit": 128.95,
+  "exitType": "TARGET",
+  "pnl": 2.3,
+  "pnlPct": 11.52
+ },
+ {
+  "closed": "2026-08-03T15:49:23.041Z",
+  "opened": "2026-07-27T17:49:53.971Z",
+  "ticker": "MSTR",
+  "rule": "R3",
+  "entry": 97.94,
+  "exit": 94.63,
+  "exitType": "TIME",
+  "pnl": -0.68,
+  "pnlPct": -3.38
+ },
+ {
+  "closed": "2026-08-03T15:49:23.041Z",
+  "opened": "2026-07-27T15:48:46.093Z",
+  "ticker": "PLTR",
+  "rule": "R3",
+  "entry": 129.63,
+  "exit": 124.75,
+  "exitType": "TIME",
+  "pnl": -0.75,
+  "pnlPct": -3.76
+ },
+ {
   "closed": "2026-07-28T15:28:03.987Z",
   "opened": "2026-07-21T15:12:26.312Z",
   "ticker": "BABA",
