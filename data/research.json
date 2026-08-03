@@ -1,262 +1,268 @@
 {
- "updated": "2026-07-31T15:54:04.731703+00:00",
- "mode": "CONCENTRATE",
- "notification": "🔥 One clear standout: DXCM (score 79.1). Bot would put the whole paper $100 here. Entry 82.6, target 92.72, stop 78.55.",
+ "updated": "2026-08-03T16:15:58.510504+00:00",
+ "mode": "DIVERSIFY",
+ "notification": "📊 3 solid setups — split the paper $100 across: ATKR, ITGR, SUPN. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "DXCM",
-   "price": 82.6,
-   "score": 79.1,
-   "tech_score": 38.1,
-   "news_score": 41.1,
-   "rsi": 60.5,
-   "mom5": 15.5,
-   "vol_surge": 1.26,
+   "ticker": "ATKR",
+   "price": 93.5,
+   "score": 73.7,
+   "tech_score": 40.0,
+   "news_score": 33.7,
+   "rsi": 74.8,
+   "mom5": 24.18,
+   "vol_surge": 8.73,
    "catalysts": [
     {
-     "category": "guidance_raise",
-     "headline": "DexCom Inc (DXCM) (Q2 2026) Earnings Call Highlights: Strong Revenue Growth and Raised Guidance ...",
-     "age_h": 10.8,
-     "points": 25.0
+     "category": "m_and_a",
+     "headline": "Atkore Agrees to Be Acquired by Prysmian in $3.8 Billion Deal",
+     "age_h": 5.8,
+     "points": 17.7
     },
     {
      "category": "earnings_beat",
-     "headline": "DexCom’s (NASDAQ:DXCM) Q2 CY2026 Sales Beat Estimates",
-     "age_h": 19.7,
-     "points": 16.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 82.6,
-    "target": 92.72,
-    "stop": 78.55,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "LCID",
-   "price": 7.53,
-   "score": 61.0,
-   "tech_score": 36.0,
-   "news_score": 25.0,
-   "rsi": 63.4,
-   "mom5": 19.68,
-   "vol_surge": 0.12,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Rivian Sinks 8% Despite Q2 Beat and Raised Guidance; Lucid Falls 6%",
-     "age_h": 0.7,
-     "points": 25.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 7.53,
-    "target": 10.88,
-    "stop": 6.18,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "PGY",
-   "price": 19.03,
-   "score": 55.7,
-   "tech_score": 39.6,
-   "news_score": 16.1,
-   "rsi": 58.5,
-   "mom5": 19.76,
-   "vol_surge": 1.45,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Pagaya Technologies Ltd (PGY) (Q2 2026) Earnings Call Highlights: Record Revenue and EPS Amid ...",
-     "age_h": 18.8,
+     "headline": "Atkore Jumps After Earnings Beat and Prysmian Agrees $95-a-Share Acquisition",
+     "age_h": 5.8,
      "points": 16.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 19.03,
-    "target": 21.32,
-    "stop": 17.66,
+    "entry": 93.5,
+    "target": 102.48,
+    "stop": 88.1,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SPSC",
-   "price": 73.12,
-   "score": 54.4,
-   "tech_score": 38.3,
-   "news_score": 16.1,
-   "rsi": 65.9,
-   "mom5": 19.54,
-   "vol_surge": 1.29,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "SPS Commerce (SPSC) Q2 Earnings and Revenues Beat Estimates",
-     "age_h": 17.9,
-     "points": 16.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 73.12,
-    "target": 80.42,
-    "stop": 68.74,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CHEF",
-   "price": 112.83,
-   "score": 54.1,
+   "ticker": "ITGR",
+   "price": 124.48,
+   "score": 71.7,
    "tech_score": 38.0,
-   "news_score": 16.1,
-   "rsi": 72.4,
-   "mom5": 18.75,
-   "vol_surge": 0.44,
+   "news_score": 33.7,
+   "rsi": 88.3,
+   "mom5": 25.23,
+   "vol_surge": 9.06,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "CHEF Q2 Earnings Beat Estimates on Volume and Margin Gains",
-     "age_h": 23.7,
+     "headline": "Integer Shares Gain After Earnings Beat and KKR Buyout Announcement",
+     "age_h": 3.8,
+     "points": 16.1
+    },
+    {
+     "category": "m_and_a",
+     "headline": "Integer Shares Gain After Earnings Beat and KKR Buyout Announcement",
+     "age_h": 3.8,
+     "points": 17.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 124.48,
+    "target": 133.07,
+    "stop": 119.33,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SUPN",
+   "price": 47.8,
+   "score": 55.6,
+   "tech_score": 38.0,
+   "news_score": 17.7,
+   "rsi": 54.5,
+   "mom5": 1.96,
+   "vol_surge": 2.78,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Supernus Shares Jump After Revenue Beat, Higher Guidance and Indivior Merger Announcement",
+     "age_h": 3.8,
+     "points": 17.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 47.8,
+    "target": 51.72,
+    "stop": 45.45,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DBGI",
+   "price": 17.78,
+   "score": 45.7,
+   "tech_score": 28.0,
+   "news_score": 17.7,
+   "rsi": 72.7,
+   "mom5": 42.28,
+   "vol_surge": 0.1,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Digital Brands Group considers sale, merger",
+     "age_h": 5.1,
+     "points": 17.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 17.78,
+    "target": 26.06,
+    "stop": 12.8,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "FSLR",
+   "price": 238.73,
+   "score": 44.8,
+   "tech_score": 40.0,
+   "news_score": 4.8,
+   "rsi": 61.3,
+   "mom5": 15.78,
+   "vol_surge": 1.25,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "First Solar's Q2 Earnings Beat Estimates, Revenues Decrease Y/Y",
+     "age_h": 70.0,
+     "points": 4.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 238.73,
+    "target": 259.94,
+    "stop": 226.01,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "WHD",
+   "price": 64.17,
+   "score": 36.1,
+   "tech_score": 20.0,
+   "news_score": 16.1,
+   "rsi": 76.0,
+   "mom5": 19.61,
+   "vol_surge": 0.24,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "EPD Q2 Earnings Beat Estimates on Record Volumes & Export Demand",
+     "age_h": 3.2,
      "points": 16.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 112.83,
-    "target": 122.51,
-    "stop": 107.02,
+    "entry": 64.17,
+    "target": 69.08,
+    "stop": 61.22,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IDCC",
+   "price": 308.0,
+   "score": 34.8,
+   "tech_score": 30.0,
+   "news_score": 4.8,
+   "rsi": 75.5,
+   "mom5": 18.89,
+   "vol_surge": 0.28,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "These Strong Buy Stocks Delivered Massive Q2 Earnings Beats: APEMY, COHU, IDCC, PBF",
+     "age_h": 65.6,
+     "points": 4.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 308.0,
+    "target": 333.43,
+    "stop": 292.74,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "LIND",
+   "price": 32.74,
+   "score": 34.8,
+   "tech_score": 18.8,
+   "news_score": 16.1,
+   "rsi": 81.8,
+   "mom5": 17.11,
+   "vol_surge": 1.1,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Lindblad Expeditions (LIND) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 3.6,
+     "points": 16.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 32.74,
+    "target": 35.78,
+    "stop": 30.92,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "AXTI",
-   "price": 57.8,
-   "score": 52.7,
-   "tech_score": 36.6,
-   "news_score": 16.1,
-   "rsi": 55.1,
-   "mom5": 20.99,
-   "vol_surge": 2.08,
+   "price": 68.7,
+   "score": 33.4,
+   "tech_score": 28.6,
+   "news_score": 4.8,
+   "rsi": 57.4,
+   "mom5": 43.87,
+   "vol_surge": 1.07,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "AXTI Stock Skyrockets As Investors Cheer Blowout Guidance, Record Quarterly Revenue — Needham Spots A 'Real' AI Networking Opportunity",
-     "age_h": 1.5,
-     "points": 16.1
+     "headline": "AXT (AXTI) Is Down 11.3% After Major Indium Phosphide AI Deal And Q2 Earnings Beat",
+     "age_h": 70.1,
+     "points": 4.8
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 57.8,
-    "target": 74.42,
-    "stop": 47.83,
+    "entry": 68.7,
+    "target": 86.55,
+    "stop": 57.99,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "CMG",
-   "price": 37.44,
-   "score": 52.1,
-   "tech_score": 36.0,
-   "news_score": 16.1,
-   "rsi": 53.0,
-   "mom5": 17.82,
-   "vol_surge": 0.29,
+   "ticker": "AMBA",
+   "price": 83.52,
+   "score": 33.3,
+   "tech_score": 28.0,
+   "news_score": 5.3,
+   "rsi": 61.3,
+   "mom5": 23.41,
+   "vol_surge": 0.56,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Is CMG Stock Worth Buying After Its Second-Quarter Earnings Beat?",
-     "age_h": 23.1,
-     "points": 16.1
+     "category": "m_and_a",
+     "headline": "AMBA Stock Rockets 18% On NXP Buyout Talks For Self-Driving Chip Maker",
+     "age_h": 63.3,
+     "points": 5.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 37.44,
-    "target": 40.5,
-    "stop": 35.61,
+    "entry": 83.52,
+    "target": 96.83,
+    "stop": 75.54,
     "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "AMZN",
-   "price": 268.94,
-   "score": 51.0,
-   "tech_score": 43.3,
-   "news_score": 7.7,
-   "rsi": 62.9,
-   "mom5": 14.92,
-   "vol_surge": 1.67,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Data Center Builder Leaps 31% On Earnings As AI Trade Divides",
-     "age_h": 0.4,
-     "points": 7.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 268.94,
-    "target": 296.45,
-    "stop": 257.93,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NEOG",
-   "price": 11.84,
-   "score": 47.6,
-   "tech_score": 38.0,
-   "news_score": 9.6,
-   "rsi": 74.5,
-   "mom5": 25.8,
-   "vol_surge": 0.51,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Neogen (NEOG) Beats Q4 Earnings and Revenue Estimates",
-     "age_h": 27.3,
-     "points": 9.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 11.84,
-    "target": 12.79,
-    "stop": 11.26,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IESC",
-   "price": 754.39,
-   "score": 46.7,
-   "tech_score": 39.0,
-   "news_score": 7.7,
-   "rsi": 64.0,
-   "mom5": 20.16,
-   "vol_surge": 1.13,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Data Center Builder Leaps 31% On Earnings As AI Trade Divides",
-     "age_h": 0.4,
-     "points": 7.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 754.39,
-    "target": 920.53,
-    "stop": 687.93,
-    "hold": "2-8 კვირა"
    }
   }
  ],
@@ -297,7 +303,7 @@
    "weight_now": 0.6
   }
  ],
- "scanned": 5971,
+ "scanned": 5967,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
