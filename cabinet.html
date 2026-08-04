@@ -1078,7 +1078,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 <script>try{
 var D=window.MEPORTF||{};
 if(typeof portfolios!=='undefined'){
- if(portfolios.bog&&D.bog){portfolios.bog.cash=D.bog.cashAdded||0;if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
+ if(portfolios.bog&&D.bog){portfolios.bog.cash=(typeof D.bog.cashAdded==='number'&&D.bog.cashAdded>0)?D.bog.cashAdded:(portfolios.bog.cash||0);if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
 }
 function M(n){return (n<0?'−$':'$')+Math.abs(+n||0).toFixed(2);}
 var g=D.galt||{};

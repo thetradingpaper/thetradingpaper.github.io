@@ -468,7 +468,7 @@
 <script>try{
 var D=window.MEPORTF||{};
 if(typeof portfolios!=='undefined'){
- if(portfolios.bog&&D.bog){portfolios.bog.cash=D.bog.cashAdded||0;if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
+ if(portfolios.bog&&D.bog){portfolios.bog.cash=(typeof D.bog.cashAdded==='number'&&D.bog.cashAdded>0)?D.bog.cashAdded:(portfolios.bog.cash||0);if(D.bog.countedAsDeposit){portfolios.bog.transactions=[{date:D.lastUpdated||'',type:'deposit',amount:D.bog.cashAdded||0,note:'transfer in'}].concat(portfolios.bog.transactions||[]);}}
 }
 }catch(e){console.warn('meportf merge',e);}</script>
 <script src="../js/masthead.js?v=7"></script>

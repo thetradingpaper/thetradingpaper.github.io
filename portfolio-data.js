@@ -14,8 +14,8 @@ window.MEPORTF = {
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 23 Jul 2026: cash fully transferred/withdrawn -> $0.
-  bog: { cashAdded: 0, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 04 Aug 2026: SNDK liquidation & scalp proceeds sitting as cash -> $785.78.
+  bog: { cashAdded: 785.78, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
