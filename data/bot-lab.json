@@ -17,7 +17,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 100.62
+     "last_price": 103.33
     }
    ],
    "trades": [
@@ -52,7 +52,7 @@
      "leverage": 1
     }
    ],
-   "equity": 83.14,
+   "equity": 85.38,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -129,13 +129,17 @@
     {
      "date": "2026-08-03",
      "equity": 83.14
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 85.38
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -16.86
+    "return_pct": -14.62
    }
   },
   "bot2": {
@@ -153,7 +157,7 @@
      "target": 277.63,
      "stop": 232.64,
      "max_days": 7,
-     "last_price": 251.95
+     "last_price": 248.47
     },
     {
      "ticker": "FBRX",
@@ -163,7 +167,7 @@
      "target": 90.73,
      "stop": 67.88,
      "max_days": 7,
-     "last_price": 76.63
+     "last_price": 76.61
     },
     {
      "ticker": "ITRI",
@@ -173,7 +177,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 100.62
+     "last_price": 103.33
     },
     {
      "ticker": "DXC",
@@ -183,7 +187,7 @@
      "target": 12.64,
      "stop": 10.78,
      "max_days": 7,
-     "last_price": 11.15
+     "last_price": 10.8
     },
     {
      "ticker": "CMG",
@@ -193,7 +197,7 @@
      "target": 43.31,
      "stop": 36.7,
      "max_days": 7,
-     "last_price": 37.19
+     "last_price": 37.51
     }
    ],
    "trades": [
@@ -338,7 +342,7 @@
      "leverage": 1
     }
    ],
-   "equity": 74.63,
+   "equity": 74.33,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -415,13 +419,17 @@
     {
      "date": "2026-08-03",
      "equity": 74.63
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 74.33
     }
    ],
    "stats": {
     "trades": 14,
     "wins": 1,
     "win_rate": 7.1,
-    "return_pct": -25.37
+    "return_pct": -25.67
    }
   },
   "bot3": {
@@ -439,7 +447,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 21.13
+     "last_price": 21.97
     },
     {
      "ticker": "FCEL",
@@ -449,7 +457,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 21.45
+     "last_price": 22.94
     },
     {
      "ticker": "DXCM",
@@ -459,7 +467,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 86.15
+     "last_price": 86.86
     }
    ],
    "trades": [
@@ -504,7 +512,7 @@
      "leverage": 1
     }
    ],
-   "equity": 67.48,
+   "equity": 70.29,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -581,13 +589,17 @@
     {
      "date": "2026-08-03",
      "equity": 67.48
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 70.29
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -32.52
+    "return_pct": -29.71
    }
   },
   "bot4": {
@@ -605,7 +617,7 @@
      "target": 43.31,
      "stop": 36.7,
      "max_days": 7,
-     "last_price": 37.19
+     "last_price": 37.51
     }
    ],
    "trades": [
@@ -640,7 +652,7 @@
      "leverage": 1
     }
    ],
-   "equity": 94.68,
+   "equity": 94.91,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -717,13 +729,17 @@
     {
      "date": "2026-08-03",
      "equity": 94.68
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 94.91
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -5.32
+    "return_pct": -5.09
    }
   },
   "bot5": {
@@ -744,7 +760,7 @@
      "leverage": 2.5,
      "own_equity": 632.4517280613967,
      "borrowed": 948.68,
-     "last_price": 37.19
+     "last_price": 37.51
     }
    ],
    "trades": [
@@ -769,7 +785,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 573.26,
+   "equity": 585.64,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -846,15 +862,19 @@
     {
      "date": "2026-08-03",
      "equity": 573.26
+    },
+    {
+     "date": "2026-08-04",
+     "equity": 585.64
     }
    ],
    "stats": {
     "trades": 2,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -42.67
+    "return_pct": -41.44
    }
   }
  },
- "updated": "2026-08-03T16:16:00.248432+00:00"
+ "updated": "2026-08-04T16:06:06.349293+00:00"
 }

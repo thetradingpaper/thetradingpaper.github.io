@@ -1,267 +1,297 @@
 {
- "updated": "2026-08-03T16:15:58.510504+00:00",
+ "updated": "2026-08-04T16:06:04.914733+00:00",
  "mode": "DIVERSIFY",
- "notification": "📊 3 solid setups — split the paper $100 across: ATKR, ITGR, SUPN. No single hero today, the basket is the play.",
+ "notification": "📊 5 solid setups — split the paper $100 across: ZBRA, INSP, PLTR, W, ATKR. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "ATKR",
-   "price": 93.5,
-   "score": 73.7,
-   "tech_score": 40.0,
-   "news_score": 33.7,
-   "rsi": 74.8,
-   "mom5": 24.18,
-   "vol_surge": 8.73,
+   "ticker": "ZBRA",
+   "price": 356.45,
+   "score": 74.8,
+   "tech_score": 34.2,
+   "news_score": 40.6,
+   "rsi": 88.9,
+   "mom5": 25.34,
+   "vol_surge": 1.77,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Atkore Agrees to Be Acquired by Prysmian in $3.8 Billion Deal",
-     "age_h": 5.8,
-     "points": 17.7
+     "category": "guidance_raise",
+     "headline": "Zebra Technologies Reports Record Second-Quarter 2026 Results and Raises Full-Year Outlook",
+     "age_h": 0.7,
+     "points": 25.0
     },
     {
      "category": "earnings_beat",
-     "headline": "Atkore Jumps After Earnings Beat and Prysmian Agrees $95-a-Share Acquisition",
-     "age_h": 5.8,
-     "points": 16.1
+     "headline": "Why SYM Beats A Bond At Its Own Game",
+     "age_h": 2.6,
+     "points": 15.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 356.45,
+    "target": 402.14,
+    "stop": 338.18,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "INSP",
+   "price": 63.65,
+   "score": 65.0,
+   "tech_score": 29.0,
+   "news_score": 36.0,
+   "rsi": 73.6,
+   "mom5": 21.78,
+   "vol_surge": 1.13,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Walmart downgraded, Palantir upgraded: Wall Street's top analyst calls",
+     "age_h": 2.5,
+     "points": 10.3
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "Walmart downgraded, Palantir upgraded: Wall Street's top analyst calls",
+     "age_h": 2.5,
+     "points": -15.0
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Is Inspire Medical Systems (INSP) Fairly Valued After Q2 Beats And Raised Guidance?",
+     "age_h": 6.9,
+     "points": 15.6
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "Is Inspire Medical Systems (INSP) Fairly Valued After Q2 Beats And Raised Guidance?",
+     "age_h": 6.9,
+     "points": 25.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 63.65,
+    "target": 73.25,
+    "stop": 59.81,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "PLTR",
+   "price": 159.25,
+   "score": 63.6,
+   "tech_score": 48.0,
+   "news_score": 15.6,
+   "rsi": 67.7,
+   "mom5": 28.94,
+   "vol_surge": 2.52,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Is Palantir incomparable? Valuation remains a key question despite the big earnings beat",
+     "age_h": 2.1,
+     "points": 15.6
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 93.5,
-    "target": 102.48,
-    "stop": 88.1,
+    "entry": 159.25,
+    "target": 175.48,
+    "stop": 149.51,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "W",
+   "price": 116.24,
+   "score": 61.2,
+   "tech_score": 45.5,
+   "news_score": 15.6,
+   "rsi": 69.4,
+   "mom5": 22.9,
+   "vol_surge": 1.94,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Wayfair’s (NYSE:W) Q2 CY2026: Beats On Revenue, Stock Jumps 15.8%",
+     "age_h": 3.6,
+     "points": 15.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 116.24,
+    "target": 129.43,
+    "stop": 108.32,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ATKR",
+   "price": 93.42,
+   "score": 57.7,
+   "tech_score": 40.0,
+   "news_score": 17.7,
+   "rsi": 74.4,
+   "mom5": 20.58,
+   "vol_surge": 2.27,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Prysmian announces $3.8bn acquisition of Atkore",
+     "age_h": 7.3,
+     "points": 17.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 93.42,
+    "target": 102.16,
+    "stop": 88.17,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "ITGR",
-   "price": 124.48,
-   "score": 71.7,
-   "tech_score": 38.0,
-   "news_score": 33.7,
-   "rsi": 88.3,
-   "mom5": 25.23,
-   "vol_surge": 9.06,
+   "price": 124.52,
+   "score": 55.1,
+   "tech_score": 28.0,
+   "news_score": 27.1,
+   "rsi": 87.6,
+   "mom5": 24.08,
+   "vol_surge": 0.81,
    "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "KKR to acquire Integer Holdings in $5.7bn all-cash deal",
+     "age_h": 6.2,
+     "points": 17.7
+    },
     {
      "category": "earnings_beat",
      "headline": "Integer Shares Gain After Earnings Beat and KKR Buyout Announcement",
-     "age_h": 3.8,
-     "points": 16.1
+     "age_h": 27.7,
+     "points": 9.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 124.52,
+    "target": 132.74,
+    "stop": 119.59,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MKTX",
+   "price": 162.37,
+   "score": 54.2,
+   "tech_score": 28.0,
+   "news_score": 26.2,
+   "rsi": 91.2,
+   "mom5": 33.04,
+   "vol_surge": 0.39,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "MKTX Q2 Earnings Beat Estimates on Strong Emerging Markets Volumes",
+     "age_h": 23.8,
+     "points": 15.6
     },
     {
      "category": "m_and_a",
-     "headline": "Integer Shares Gain After Earnings Beat and KKR Buyout Announcement",
-     "age_h": 3.8,
-     "points": 17.7
+     "headline": "MarketAxess Surges 29% on ICE Acquisition. Here Is How to Play MKTX Stock Before the Deal Closes.",
+     "age_h": 24.4,
+     "points": 10.6
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 124.48,
-    "target": 133.07,
-    "stop": 119.33,
+    "entry": 162.37,
+    "target": 172.88,
+    "stop": 156.06,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SUPN",
-   "price": 47.8,
-   "score": 55.6,
-   "tech_score": 38.0,
-   "news_score": 17.7,
-   "rsi": 54.5,
-   "mom5": 1.96,
-   "vol_surge": 2.78,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Supernus Shares Jump After Revenue Beat, Higher Guidance and Indivior Merger Announcement",
-     "age_h": 3.8,
-     "points": 17.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 47.8,
-    "target": 51.72,
-    "stop": 45.45,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "DBGI",
-   "price": 17.78,
-   "score": 45.7,
+   "ticker": "IREN",
+   "price": 41.41,
+   "score": 54.0,
    "tech_score": 28.0,
-   "news_score": 17.7,
-   "rsi": 72.7,
-   "mom5": 42.28,
-   "vol_surge": 0.1,
+   "news_score": 26.0,
+   "rsi": 54.0,
+   "mom5": 22.31,
+   "vol_surge": 0.44,
    "catalysts": [
     {
+     "category": "growth_news",
+     "headline": "GE Vernova Set to Be Biggest Winner From AI Data Center’s Massive Power Shortfall",
+     "age_h": 0.6,
+     "points": 8.3
+    },
+    {
      "category": "m_and_a",
-     "headline": "Digital Brands Group considers sale, merger",
-     "age_h": 5.1,
+     "headline": "IREN closes $625 million Mirantis acquisition to add AI cloud software",
+     "age_h": 3.3,
      "points": 17.7
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 17.78,
-    "target": 26.06,
-    "stop": 12.8,
-    "hold": "3-7 დღე"
+    "entry": 41.41,
+    "target": 54.65,
+    "stop": 36.12,
+    "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "FSLR",
-   "price": 238.73,
-   "score": 44.8,
-   "tech_score": 40.0,
-   "news_score": 4.8,
-   "rsi": 61.3,
-   "mom5": 15.78,
-   "vol_surge": 1.25,
+   "ticker": "TER",
+   "price": 407.0,
+   "score": 53.6,
+   "tech_score": 38.0,
+   "news_score": 15.6,
+   "rsi": 64.3,
+   "mom5": 26.68,
+   "vol_surge": 0.4,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "First Solar's Q2 Earnings Beat Estimates, Revenues Decrease Y/Y",
-     "age_h": 70.0,
-     "points": 4.8
+     "headline": "Why SYM Beats A Bond At Its Own Game",
+     "age_h": 2.6,
+     "points": 15.6
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 238.73,
-    "target": 259.94,
-    "stop": 226.01,
+    "entry": 407.0,
+    "target": 472.26,
+    "stop": 367.85,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "WHD",
-   "price": 64.17,
-   "score": 36.1,
-   "tech_score": 20.0,
-   "news_score": 16.1,
-   "rsi": 76.0,
-   "mom5": 19.61,
-   "vol_surge": 0.24,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "EPD Q2 Earnings Beat Estimates on Record Volumes & Export Demand",
-     "age_h": 3.2,
-     "points": 16.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 64.17,
-    "target": 69.08,
-    "stop": 61.22,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IDCC",
-   "price": 308.0,
-   "score": 34.8,
-   "tech_score": 30.0,
-   "news_score": 4.8,
-   "rsi": 75.5,
-   "mom5": 18.89,
+   "price": 65.94,
+   "score": 53.6,
+   "tech_score": 38.0,
+   "news_score": 15.6,
+   "rsi": 76.6,
+   "mom5": 24.09,
    "vol_surge": 0.28,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "These Strong Buy Stocks Delivered Massive Q2 Earnings Beats: APEMY, COHU, IDCC, PBF",
-     "age_h": 65.6,
-     "points": 4.8
+     "headline": "VNOM Q2 Earnings Beat Estimates on Higher Output & Realized Prices",
+     "age_h": 3.5,
+     "points": 15.6
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 308.0,
-    "target": 333.43,
-    "stop": 292.74,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "LIND",
-   "price": 32.74,
-   "score": 34.8,
-   "tech_score": 18.8,
-   "news_score": 16.1,
-   "rsi": 81.8,
-   "mom5": 17.11,
-   "vol_surge": 1.1,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Lindblad Expeditions (LIND) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 3.6,
-     "points": 16.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 32.74,
-    "target": 35.78,
-    "stop": 30.92,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "AXTI",
-   "price": 68.7,
-   "score": 33.4,
-   "tech_score": 28.6,
-   "news_score": 4.8,
-   "rsi": 57.4,
-   "mom5": 43.87,
-   "vol_surge": 1.07,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "AXT (AXTI) Is Down 11.3% After Major Indium Phosphide AI Deal And Q2 Earnings Beat",
-     "age_h": 70.1,
-     "points": 4.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 68.7,
-    "target": 86.55,
-    "stop": 57.99,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "AMBA",
-   "price": 83.52,
-   "score": 33.3,
-   "tech_score": 28.0,
-   "news_score": 5.3,
-   "rsi": 61.3,
-   "mom5": 23.41,
-   "vol_surge": 0.56,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "AMBA Stock Rockets 18% On NXP Buyout Talks For Self-Driving Chip Maker",
-     "age_h": 63.3,
-     "points": 5.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 83.52,
-    "target": 96.83,
-    "stop": 75.54,
+    "entry": 65.94,
+    "target": 71.05,
+    "stop": 62.87,
     "hold": "3-7 დღე"
    }
   }
@@ -269,31 +299,31 @@
  "learned": [
   {
    "category": "m_and_a",
-   "n": 31,
-   "win_rate": 9.7,
-   "avg_return": -3.33,
+   "n": 32,
+   "win_rate": 9.4,
+   "avg_return": -3.22,
    "weight_now": 0.68
   },
   {
    "category": "analyst_upgrade",
-   "n": 25,
-   "win_rate": 8.0,
-   "avg_return": -10.72,
-   "weight_now": 0.66
-  },
-  {
-   "category": "earnings_beat",
-   "n": 19,
-   "win_rate": 15.8,
-   "avg_return": -2.71,
-   "weight_now": 0.73
+   "n": 26,
+   "win_rate": 11.5,
+   "avg_return": -9.97,
+   "weight_now": 0.69
   },
   {
    "category": "growth_news",
-   "n": 19,
-   "win_rate": 21.1,
-   "avg_return": -6.72,
-   "weight_now": 0.77
+   "n": 24,
+   "win_rate": 29.2,
+   "avg_return": -5.09,
+   "weight_now": 0.83
+  },
+  {
+   "category": "earnings_beat",
+   "n": 21,
+   "win_rate": 14.3,
+   "avg_return": -2.37,
+   "weight_now": 0.71
   },
   {
    "category": "fda_approval",
@@ -303,7 +333,7 @@
    "weight_now": 0.6
   }
  ],
- "scanned": 5967,
+ "scanned": 5970,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

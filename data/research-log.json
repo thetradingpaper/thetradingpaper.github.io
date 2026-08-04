@@ -1284,7 +1284,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 248.35,
+  "return_pct": 1.16,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-27T16:10:48.229025+00:00",
@@ -1295,7 +1298,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 76.61,
+  "return_pct": 0.21,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-27T16:10:48.229030+00:00",
@@ -1306,7 +1312,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 585.75,
+  "return_pct": 0.6,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-27T16:10:48.229037+00:00",
@@ -1317,7 +1326,10 @@
   "catalyst_cats": [
    "big_contract"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 34.83,
+  "return_pct": -1.64,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-27T16:10:48.229041+00:00",
@@ -1328,7 +1340,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 30.73,
+  "return_pct": 5.77,
+  "outcome": "win"
  },
  {
   "date": "2026-07-27T16:10:48.229045+00:00",
@@ -1350,7 +1365,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.38,
+  "return_pct": -31.43,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-27T16:10:48.229058+00:00",
@@ -1361,7 +1379,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 93.15,
+  "return_pct": 8.69,
+  "outcome": "win"
  },
  {
   "date": "2026-07-27T16:10:48.229062+00:00",
@@ -1372,7 +1393,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 72.93,
+  "return_pct": 16.51,
+  "outcome": "win"
  },
  {
   "date": "2026-07-27T16:10:48.229067+00:00",
@@ -1383,7 +1407,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 19.61,
+  "return_pct": 13.48,
+  "outcome": "win"
  },
  {
   "date": "2026-07-28T16:00:31.208959+00:00",
@@ -1944,6 +1971,122 @@
   "horizon": "short",
   "catalyst_cats": [
    "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914650+00:00",
+  "ticker": "ZBRA",
+  "entry": 356.45,
+  "score": 74.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914660+00:00",
+  "ticker": "INSP",
+  "entry": 63.65,
+  "score": 65.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914666+00:00",
+  "ticker": "PLTR",
+  "entry": 159.25,
+  "score": 63.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914669+00:00",
+  "ticker": "W",
+  "entry": 116.24,
+  "score": 61.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914672+00:00",
+  "ticker": "ATKR",
+  "entry": 93.42,
+  "score": 57.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914676+00:00",
+  "ticker": "ITGR",
+  "entry": 124.52,
+  "score": 55.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914680+00:00",
+  "ticker": "MKTX",
+  "entry": 162.37,
+  "score": 54.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914687+00:00",
+  "ticker": "IREN",
+  "entry": 41.41,
+  "score": 54.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914692+00:00",
+  "ticker": "TER",
+  "entry": 407.0,
+  "score": 53.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-04T16:06:04.914696+00:00",
+  "ticker": "WHD",
+  "entry": 65.94,
+  "score": 53.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
   ],
   "status": "open"
  }
