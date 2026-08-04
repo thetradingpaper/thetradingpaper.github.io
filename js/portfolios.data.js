@@ -15,11 +15,17 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 785.78, // 04 Aug 2026: SNDK liquidation ($792.21) -> SNDK scalp ($785.78) -> cash balance $785.78
+    cash: 787.34, // 04 Aug 2026: SNDK scalp ($785.78) -> GOOGL scalp ($787.34) -> cash balance $787.34
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 04 აგვ 2026 BOG GOOGL scalp · BOG app · $0.01 fee · net cash $787.34 (+ $1.56 P/L) ---
+      { date: '2026-08-04', type: 'sell', ticker: 'GOOGL', shares: 0.07624049, price: 379.1947, commission: 0 },
+      { date: '2026-08-04', type: 'sell', ticker: 'GOOGL', shares: 2.00000000, price: 379.215,  commission: 0 },
+      { date: '2026-08-04', type: 'buy',  ticker: 'GOOGL', shares: 0.07624049, price: 378.4077, commission: 0.01 },
+      { date: '2026-08-04', type: 'buy',  ticker: 'GOOGL', shares: 1.00000000, price: 378.46,   commission: 0 },
+      { date: '2026-08-04', type: 'buy',  ticker: 'GOOGL', shares: 1.00000000, price: 378.46,   commission: 0 },
       // --- 04 აგვ 2026 BOG SNDK liquidation & intraday scalp · BOG app · commission-free · net cash $785.78 ---
       { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.55453637, price: 1417.00355, commission: 0 },
       { date: '2026-08-04', type: 'buy',  ticker: 'SNDK', shares: 0.55453637, price: 1428.5988,  commission: 0 },

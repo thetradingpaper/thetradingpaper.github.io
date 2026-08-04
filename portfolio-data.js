@@ -6,16 +6,16 @@
 // ============================================================
 window.MEPORTF = {
   lastUpdated: '2026-08-04',
-  feesPaid: 75.33,                      // reconciled 31 Jul 2026: BOG $31.70 ($19.70 + $12 bank fee) + TBC $3.63 + Galt $40.00
+  feesPaid: 75.34,                      // reconciled 04 Aug 2026: BOG $31.71 ($19.71 + $12 bank fee) + TBC $3.63 + Galt $40.00
   feesByBook: [
-    { book: 'BOG', amount: 31.70, note: '29 საკომისიო ($19.70) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
+    { book: 'BOG', amount: 31.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
     { book: 'TBC', amount: 3.63, note: '8 ვაჭრობის საკომისიო (31 ივლ 2026)' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 04 Aug 2026: SNDK liquidation & scalp proceeds sitting as cash -> $785.78.
-  bog: { cashAdded: 785.78, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 04 Aug 2026: GOOGL scalp proceeds sitting as cash -> $787.34.
+  bog: { cashAdded: 787.34, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
