@@ -14,15 +14,19 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [
-      // Cached values snapshot (30 Jul 2026) — live prices repaint these every 10s.
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.56819758, avgBuy: 1337.02, invested: 759.69, value: 759.69, color: '#ca8a04', divYield: 0.00 },
-    ],
-    cash: 0.00, // 30 Jul 2026: MNST sales $184.98 = SNDK buy $184.98 (net cash $0.00)
+    holdings: [],
+    cash: 785.78, // 04 Aug 2026: SNDK liquidation ($792.21) -> SNDK scalp ($785.78) -> cash balance $785.78
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 04 აგვ 2026 BOG SNDK liquidation & intraday scalp · BOG app · commission-free · net cash $785.78 ---
+      { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.55453637, price: 1417.00355, commission: 0 },
+      { date: '2026-08-04', type: 'buy',  ticker: 'SNDK', shares: 0.55453637, price: 1428.5988,  commission: 0 },
+      { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.33020674, price: 1396.8522,  commission: 0 },
+      { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.03583609, price: 1395.2415,  commission: 0 },
+      { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.07050187, price: 1372.8714,  commission: 0 },
+      { date: '2026-08-04', type: 'sell', ticker: 'SNDK', shares: 0.13541911, price: 1360.00,    commission: 0 },
       // --- 30 Jul 2026 BOG rotation: MNST liquidation → SNDK buy · BOG app · commission-free · net cash $0.00 ---
       { date: '2026-07-30', type: 'buy',  ticker: 'SNDK', shares: 0.14687144, price: 1259.4688, commission: 0 },
       { date: '2026-07-30', type: 'sell', ticker: 'MNST', shares: 0.92424354, price: 96.1328,   commission: 0 },
