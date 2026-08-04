@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-04T15:31:35.886Z",
+ "updated": "2026-08-04T17:14:21.078Z",
  "watchlist": [
   "NVDA",
   "TSLA",
@@ -11,15 +11,15 @@
   {
    "ok": true,
    "ticker": "NVDA",
-   "price": 209.81,
-   "rsi": 47.8,
-   "sma5": 200.45,
-   "sma20": 204.49,
+   "price": 211.26,
+   "rsi": 49,
+   "sma5": 200.74,
+   "sma20": 204.57,
    "atr": 7.69,
    "high20": 214.39,
-   "vol": 45200624,
+   "vol": 61151424,
    "avgVol20": 129175375,
-   "chg1d": 1.53,
+   "chg1d": 2.24,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
@@ -27,38 +27,38 @@
   {
    "ok": true,
    "ticker": "TSLA",
-   "price": 324.2,
-   "rsi": 25,
-   "sma5": 312.93,
-   "sma20": 355.11,
+   "price": 326.19,
+   "rsi": 26.1,
+   "sma5": 313.33,
+   "sma20": 355.21,
    "atr": 15.63,
    "high20": 419.56,
-   "vol": 12857827,
+   "vol": 17542004,
    "avgVol20": 40216080,
-   "chg1d": 0.66,
+   "chg1d": 1.28,
    "signal": "BUY",
    "reasons": [
-    "R1 oversold bounce · RSI 25 < 32 · პირველი მწვანე"
+    "R1 oversold bounce · RSI 26.1 < 32 · პირველი მწვანე"
    ],
    "plan": {
-    "entry": 324.2,
-    "target": 355.46,
-    "stop": 300.75,
+    "entry": 326.19,
+    "target": 357.45,
+    "stop": 302.75,
     "horizon": "5 სავაჭრო დღე max"
    }
   },
   {
    "ok": true,
    "ticker": "MSTR",
-   "price": 95.67,
-   "rsi": 48,
-   "sma5": 94.98,
-   "sma20": 95.66,
-   "atr": 5.65,
+   "price": 96.16,
+   "rsi": 48.6,
+   "sma5": 95.07,
+   "sma20": 95.68,
+   "atr": 5.71,
    "high20": 104.6,
-   "vol": 5141325,
+   "vol": 7217727,
    "avgVol20": 15440350,
-   "chg1d": 0.85,
+   "chg1d": 1.37,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
@@ -66,38 +66,38 @@
   {
    "ok": true,
    "ticker": "PLTR",
-   "price": 158.84,
-   "rsi": 67.5,
-   "sma5": 130.56,
-   "sma20": 129.93,
-   "atr": 8.12,
+   "price": 162.52,
+   "rsi": 69.1,
+   "sma5": 131.3,
+   "sma20": 130.12,
+   "atr": 8.29,
    "high20": 138.9,
-   "vol": 87394011,
+   "vol": 116413002,
    "avgVol20": 35815555,
-   "chg1d": 26.41,
+   "chg1d": 29.34,
    "signal": "BUY",
    "reasons": [
-    "R2 breakout · ფასი > 20დ მაქსიმუმი $138.9 · მოცულობა 2.4×"
+    "R2 breakout · ფასი > 20დ მაქსიმუმი $138.9 · მოცულობა 3.3×"
    ],
    "plan": {
-    "entry": 158.84,
-    "target": 175.08,
-    "stop": 146.66,
+    "entry": 162.52,
+    "target": 179.1,
+    "stop": 150.09,
     "horizon": "5 სავაჭრო დღე max"
    }
   },
   {
    "ok": true,
    "ticker": "BABA",
-   "price": 129.11,
-   "rsi": 67,
-   "sma5": 122,
-   "sma20": 116.43,
-   "atr": 3.84,
+   "price": 129.31,
+   "rsi": 67.2,
+   "sma5": 122.04,
+   "sma20": 116.44,
+   "atr": 3.85,
    "high20": 129.5,
-   "vol": 4767308,
+   "vol": 6660796,
    "avgVol20": 12460775,
-   "chg1d": 1.42,
+   "chg1d": 1.58,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
@@ -109,7 +109,7 @@
   "losses": 10,
   "winRate": 28.6,
   "totalPnl": -6.23,
-  "equity": 95.04,
-  "returnPct": -4.96
+  "equity": 95.63,
+  "returnPct": -4.37
  }
 }
