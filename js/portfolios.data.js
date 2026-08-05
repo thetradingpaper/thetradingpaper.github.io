@@ -15,11 +15,12 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 787.34, // 04 Aug 2026: SNDK scalp ($785.78) -> GOOGL scalp ($787.34) -> cash balance $787.34
+    cash: 790.49, // 05 Aug 2026: 30+ intraday trades -> net cash balance $790.49
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 05 აგვ 2026 BOG 30+ intraday trades · BOG app · net cash $790.49 (+ $3.15 P/L) ---
       // --- 04 აგვ 2026 BOG GOOGL scalp · BOG app · $0.01 fee · net cash $787.34 (+ $1.56 P/L) ---
       { date: '2026-08-04', type: 'sell', ticker: 'GOOGL', shares: 0.07624049, price: 379.1947, commission: 0 },
       { date: '2026-08-04', type: 'sell', ticker: 'GOOGL', shares: 2.00000000, price: 379.215,  commission: 0 },

@@ -2,10 +2,10 @@
 // mePortfolio — supplementary data (window.MEPORTF)
 // Fees total, BOG cash transfer, GALT closed book, internal transfers.
 // Holdings & transactions live in js/portfolios.js.
-// Last updated: 2026-08-04
+// Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-08-04',
+  lastUpdated: '2026-08-05',
   feesPaid: 75.34,                      // reconciled 04 Aug 2026: BOG $31.71 ($19.71 + $12 bank fee) + TBC $3.63 + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 31.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
@@ -14,8 +14,8 @@ window.MEPORTF = {
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 04 Aug 2026: GOOGL scalp proceeds sitting as cash -> $787.34.
-  bog: { cashAdded: 787.34, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 05 Aug 2026: 30+ trades -> cash balance $790.49.
+  bog: { cashAdded: 790.49, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
