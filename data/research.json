@@ -1,329 +1,299 @@
 {
- "updated": "2026-08-04T16:06:04.914733+00:00",
+ "updated": "2026-08-05T15:55:33.755963+00:00",
  "mode": "DIVERSIFY",
- "notification": "📊 5 solid setups — split the paper $100 across: ZBRA, INSP, PLTR, W, ATKR. No single hero today, the basket is the play.",
+ "notification": "📊 3 solid setups — split the paper $100 across: QLYS, ZETA, TWST. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "ZBRA",
-   "price": 356.45,
-   "score": 74.8,
-   "tech_score": 34.2,
-   "news_score": 40.6,
-   "rsi": 88.9,
-   "mom5": 25.34,
-   "vol_surge": 1.77,
+   "ticker": "QLYS",
+   "price": 186.41,
+   "score": 72.0,
+   "tech_score": 36.3,
+   "news_score": 35.7,
+   "rsi": 66.6,
+   "mom5": 37.77,
+   "vol_surge": 1.04,
    "catalysts": [
     {
      "category": "guidance_raise",
-     "headline": "Zebra Technologies Reports Record Second-Quarter 2026 Results and Raises Full-Year Outlook",
-     "age_h": 0.7,
-     "points": 25.0
+     "headline": "Qualys Inc (QLYS) (Q2 2026) Earnings Call Highlights: AI-Driven Innovation and Raised Guidance ...",
+     "age_h": 10.9,
+     "points": 19.0
     },
     {
      "category": "earnings_beat",
-     "headline": "Why SYM Beats A Bond At Its Own Game",
-     "age_h": 2.6,
-     "points": 15.6
+     "headline": "Qualys (NASDAQ:QLYS) Beats Q2 CY2026 Sales Expectations, Stock Soars",
+     "age_h": 19.5,
+     "points": 16.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 356.45,
-    "target": 402.14,
-    "stop": 338.18,
+    "entry": 186.41,
+    "target": 219.02,
+    "stop": 173.37,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "INSP",
-   "price": 63.65,
-   "score": 65.0,
-   "tech_score": 29.0,
-   "news_score": 36.0,
-   "rsi": 73.6,
-   "mom5": 21.78,
-   "vol_surge": 1.13,
+   "ticker": "ZETA",
+   "price": 26.93,
+   "score": 57.0,
+   "tech_score": 38.0,
+   "news_score": 19.0,
+   "rsi": 72.9,
+   "mom5": 21.97,
+   "vol_surge": 3.0,
    "catalysts": [
     {
-     "category": "analyst_upgrade",
-     "headline": "Walmart downgraded, Palantir upgraded: Wall Street's top analyst calls",
-     "age_h": 2.5,
-     "points": 10.3
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "Walmart downgraded, Palantir upgraded: Wall Street's top analyst calls",
-     "age_h": 2.5,
-     "points": -15.0
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Is Inspire Medical Systems (INSP) Fairly Valued After Q2 Beats And Raised Guidance?",
-     "age_h": 6.9,
-     "points": 15.6
-    },
-    {
      "category": "guidance_raise",
-     "headline": "Is Inspire Medical Systems (INSP) Fairly Valued After Q2 Beats And Raised Guidance?",
-     "age_h": 6.9,
-     "points": 25.0
+     "headline": "Is Zeta Global Holdings (ZETA) Cheap After Earnings And Raised Guidance?",
+     "age_h": 6.6,
+     "points": 19.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 63.65,
-    "target": 73.25,
-    "stop": 59.81,
+    "entry": 26.93,
+    "target": 31.61,
+    "stop": 25.06,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "PLTR",
-   "price": 159.25,
-   "score": 63.6,
-   "tech_score": 48.0,
-   "news_score": 15.6,
-   "rsi": 67.7,
-   "mom5": 28.94,
-   "vol_surge": 2.52,
+   "ticker": "TWST",
+   "price": 112.71,
+   "score": 56.9,
+   "tech_score": 46.8,
+   "news_score": 10.0,
+   "rsi": 67.2,
+   "mom5": 31.76,
+   "vol_surge": 1.11,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Is Palantir incomparable? Valuation remains a key question despite the big earnings beat",
-     "age_h": 2.1,
-     "points": 15.6
+     "headline": "Twist Bioscience Corp (TWST) (Q3 2026) Earnings Call Highlights: Record Revenue and AI-Driven ...",
+     "age_h": 44.9,
+     "points": 10.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 159.25,
-    "target": 175.48,
-    "stop": 149.51,
+    "entry": 112.71,
+    "target": 129.94,
+    "stop": 102.37,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "W",
-   "price": 116.24,
-   "score": 61.2,
-   "tech_score": 45.5,
-   "news_score": 15.6,
-   "rsi": 69.4,
-   "mom5": 22.9,
-   "vol_surge": 1.94,
+   "ticker": "MTRN",
+   "price": 285.43,
+   "score": 54.8,
+   "tech_score": 38.0,
+   "news_score": 16.7,
+   "rsi": 61.7,
+   "mom5": 49.59,
+   "vol_surge": 1.01,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Wayfair’s (NYSE:W) Q2 CY2026: Beats On Revenue, Stock Jumps 15.8%",
-     "age_h": 3.6,
-     "points": 15.6
+     "headline": "Materion (MTRN) Q2 Earnings and Revenues Beat Estimates",
+     "age_h": 3.7,
+     "points": 16.7
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 116.24,
-    "target": 129.43,
-    "stop": 108.32,
+    "entry": 285.43,
+    "target": 323.61,
+    "stop": 262.52,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ENTG",
+   "price": 145.08,
+   "score": 53.2,
+   "tech_score": 28.0,
+   "news_score": 25.2,
+   "rsi": 56.1,
+   "mom5": 36.13,
+   "vol_surge": 0.27,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Entegris Q2 Earnings Call Highlights AI Demand and Capacity Expansion",
+     "age_h": 1.9,
+     "points": 8.5
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Entegris Inc (ENTG) (Q2 2026) Earnings Call Highlights: Record Revenue and Strategic Portfolio ...",
+     "age_h": 18.9,
+     "points": 16.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 145.08,
+    "target": 175.7,
+    "stop": 132.83,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "APPS",
+   "price": 12.96,
+   "score": 49.0,
+   "tech_score": 30.0,
+   "news_score": 19.0,
+   "rsi": 75.7,
+   "mom5": 59.05,
+   "vol_surge": 4.15,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "APPS Q1 Earnings Call Centers on AI and Raised Guidance",
+     "age_h": 1.9,
+     "points": 19.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 12.96,
+    "target": 15.87,
+    "stop": 11.79,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ANET",
+   "price": 196.81,
+   "score": 48.4,
+   "tech_score": 31.6,
+   "news_score": 16.7,
+   "rsi": 71.6,
+   "mom5": 24.61,
+   "vol_surge": 1.46,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Arista Earnings Beat. Cloud Networking Leader Hikes 2026 Sales Guidance.",
+     "age_h": 4.4,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 196.81,
+    "target": 218.95,
+    "stop": 183.53,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "OSS",
+   "price": 13.88,
+   "score": 48.1,
+   "tech_score": 31.4,
+   "news_score": 16.7,
+   "rsi": 58.5,
+   "mom5": 28.06,
+   "vol_surge": 1.42,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "One Stop Systems, Inc. (OSS) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 2.0,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 13.88,
+    "target": 16.64,
+    "stop": 12.23,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "KTOS",
+   "price": 55.43,
+   "score": 47.7,
+   "tech_score": 31.0,
+   "news_score": 16.7,
+   "rsi": 66.0,
+   "mom5": 26.55,
+   "vol_surge": 1.38,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Kratos Defense shares soar after earnings beat and stronger full-year outlook",
+     "age_h": 5.0,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 55.43,
+    "target": 62.32,
+    "stop": 51.3,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "ATKR",
-   "price": 93.42,
-   "score": 57.7,
-   "tech_score": 40.0,
-   "news_score": 17.7,
-   "rsi": 74.4,
-   "mom5": 20.58,
-   "vol_surge": 2.27,
+   "price": 93.64,
+   "score": 47.2,
+   "tech_score": 36.8,
+   "news_score": 10.5,
+   "rsi": 76.1,
+   "mom5": 31.09,
+   "vol_surge": 1.85,
    "catalysts": [
     {
      "category": "m_and_a",
      "headline": "Prysmian announces $3.8bn acquisition of Atkore",
-     "age_h": 7.3,
-     "points": 17.7
+     "age_h": 31.2,
+     "points": 10.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 93.42,
-    "target": 102.16,
-    "stop": 88.17,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ITGR",
-   "price": 124.52,
-   "score": 55.1,
-   "tech_score": 28.0,
-   "news_score": 27.1,
-   "rsi": 87.6,
-   "mom5": 24.08,
-   "vol_surge": 0.81,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "KKR to acquire Integer Holdings in $5.7bn all-cash deal",
-     "age_h": 6.2,
-     "points": 17.7
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Integer Shares Gain After Earnings Beat and KKR Buyout Announcement",
-     "age_h": 27.7,
-     "points": 9.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 124.52,
-    "target": 132.74,
-    "stop": 119.59,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MKTX",
-   "price": 162.37,
-   "score": 54.2,
-   "tech_score": 28.0,
-   "news_score": 26.2,
-   "rsi": 91.2,
-   "mom5": 33.04,
-   "vol_surge": 0.39,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "MKTX Q2 Earnings Beat Estimates on Strong Emerging Markets Volumes",
-     "age_h": 23.8,
-     "points": 15.6
-    },
-    {
-     "category": "m_and_a",
-     "headline": "MarketAxess Surges 29% on ICE Acquisition. Here Is How to Play MKTX Stock Before the Deal Closes.",
-     "age_h": 24.4,
-     "points": 10.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 162.37,
-    "target": 172.88,
-    "stop": 156.06,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IREN",
-   "price": 41.41,
-   "score": 54.0,
-   "tech_score": 28.0,
-   "news_score": 26.0,
-   "rsi": 54.0,
-   "mom5": 22.31,
-   "vol_surge": 0.44,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "GE Vernova Set to Be Biggest Winner From AI Data Center’s Massive Power Shortfall",
-     "age_h": 0.6,
-     "points": 8.3
-    },
-    {
-     "category": "m_and_a",
-     "headline": "IREN closes $625 million Mirantis acquisition to add AI cloud software",
-     "age_h": 3.3,
-     "points": 17.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 41.41,
-    "target": 54.65,
-    "stop": 36.12,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "TER",
-   "price": 407.0,
-   "score": 53.6,
-   "tech_score": 38.0,
-   "news_score": 15.6,
-   "rsi": 64.3,
-   "mom5": 26.68,
-   "vol_surge": 0.4,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Why SYM Beats A Bond At Its Own Game",
-     "age_h": 2.6,
-     "points": 15.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 407.0,
-    "target": 472.26,
-    "stop": 367.85,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "WHD",
-   "price": 65.94,
-   "score": 53.6,
-   "tech_score": 38.0,
-   "news_score": 15.6,
-   "rsi": 76.6,
-   "mom5": 24.09,
-   "vol_surge": 0.28,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "VNOM Q2 Earnings Beat Estimates on Higher Output & Realized Prices",
-     "age_h": 3.5,
-     "points": 15.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 65.94,
-    "target": 71.05,
-    "stop": 62.87,
+    "entry": 93.64,
+    "target": 101.67,
+    "stop": 88.83,
     "hold": "3-7 დღე"
    }
   }
  ],
  "learned": [
   {
+   "category": "earnings_beat",
+   "n": 36,
+   "win_rate": 19.4,
+   "avg_return": -0.01,
+   "weight_now": 0.76
+  },
+  {
    "category": "m_and_a",
-   "n": 32,
-   "win_rate": 9.4,
-   "avg_return": -3.22,
-   "weight_now": 0.68
+   "n": 35,
+   "win_rate": 8.6,
+   "avg_return": -2.93,
+   "weight_now": 0.67
   },
   {
    "category": "analyst_upgrade",
-   "n": 26,
-   "win_rate": 11.5,
-   "avg_return": -9.97,
+   "n": 27,
+   "win_rate": 11.1,
+   "avg_return": -9.83,
    "weight_now": 0.69
   },
   {
    "category": "growth_news",
-   "n": 24,
-   "win_rate": 29.2,
-   "avg_return": -5.09,
-   "weight_now": 0.83
-  },
-  {
-   "category": "earnings_beat",
-   "n": 21,
-   "win_rate": 14.3,
-   "avg_return": -2.37,
-   "weight_now": 0.71
+   "n": 26,
+   "win_rate": 30.8,
+   "avg_return": -3.48,
+   "weight_now": 0.85
   },
   {
    "category": "fda_approval",
@@ -331,6 +301,20 @@
    "win_rate": 0.0,
    "avg_return": -5.13,
    "weight_now": 0.6
+  },
+  {
+   "category": "guidance_raise",
+   "n": 5,
+   "win_rate": 20.0,
+   "avg_return": 3.86,
+   "weight_now": 0.76
+  },
+  {
+   "category": "buyback_dividend",
+   "n": 3,
+   "win_rate": 0.0,
+   "avg_return": -6.67,
+   "weight_now": 1.0
   }
  ],
  "scanned": 5970,

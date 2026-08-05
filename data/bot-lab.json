@@ -17,7 +17,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 103.33
+     "last_price": 104.27
     }
    ],
    "trades": [
@@ -52,7 +52,7 @@
      "leverage": 1
     }
    ],
-   "equity": 85.38,
+   "equity": 86.16,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -133,13 +133,17 @@
     {
      "date": "2026-08-04",
      "equity": 85.38
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 86.16
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -14.62
+    "return_pct": -13.84
    }
   },
   "bot2": {
@@ -157,7 +161,7 @@
      "target": 277.63,
      "stop": 232.64,
      "max_days": 7,
-     "last_price": 248.47
+     "last_price": 261.31
     },
     {
      "ticker": "FBRX",
@@ -167,7 +171,7 @@
      "target": 90.73,
      "stop": 67.88,
      "max_days": 7,
-     "last_price": 76.61
+     "last_price": 76.59
     },
     {
      "ticker": "ITRI",
@@ -177,7 +181,7 @@
      "target": 112.71,
      "stop": 97.73,
      "max_days": 7,
-     "last_price": 103.33
+     "last_price": 104.27
     },
     {
      "ticker": "DXC",
@@ -187,17 +191,17 @@
      "target": 12.64,
      "stop": 10.78,
      "max_days": 7,
-     "last_price": 10.8
+     "last_price": 10.99
     },
     {
-     "ticker": "CMG",
-     "shares": 0.384514,
-     "entry": 38.61000061035156,
-     "entry_date": "2026-07-30",
-     "target": 43.31,
-     "stop": 36.7,
+     "ticker": "QLYS",
+     "shares": 0.066687,
+     "entry": 186.41000366210938,
+     "entry_date": "2026-08-05",
+     "target": 219.02,
+     "stop": 173.37,
      "max_days": 7,
-     "last_price": 37.51
+     "last_price": 186.41000366210938
     }
    ],
    "trades": [
@@ -340,9 +344,19 @@
      "ret_pct": -6.57,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "CMG",
+     "entry": 38.61000061035156,
+     "exit": 34.93,
+     "entry_date": "2026-07-30",
+     "exit_date": "2026-08-05",
+     "ret_pct": -15.74,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 74.33,
+   "equity": 73.54,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -423,13 +437,17 @@
     {
      "date": "2026-08-04",
      "equity": 74.33
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 73.54
     }
    ],
    "stats": {
-    "trades": 14,
+    "trades": 15,
     "wins": 1,
-    "win_rate": 7.1,
-    "return_pct": -25.67
+    "win_rate": 6.7,
+    "return_pct": -26.46
    }
   },
   "bot3": {
@@ -447,7 +465,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 21.97
+     "last_price": 22.01
     },
     {
      "ticker": "FCEL",
@@ -457,7 +475,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.94
+     "last_price": 21.92
     },
     {
      "ticker": "DXCM",
@@ -467,7 +485,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 86.86
+     "last_price": 82.77
     }
    ],
    "trades": [
@@ -512,7 +530,7 @@
      "leverage": 1
     }
    ],
-   "equity": 70.29,
+   "equity": 68.41,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -593,13 +611,17 @@
     {
      "date": "2026-08-04",
      "equity": 70.29
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 68.41
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -29.71
+    "return_pct": -31.59
    }
   },
   "bot4": {
@@ -607,17 +629,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 67.18106031629566,
+   "cash": 64.03055206190113,
    "positions": [
     {
-     "ticker": "CMG",
-     "shares": 0.739264,
-     "entry": 38.61000061035156,
-     "entry_date": "2026-07-30",
-     "target": 43.31,
-     "stop": 36.7,
+     "ticker": "QLYS",
+     "shares": 0.150062,
+     "entry": 186.41000366210938,
+     "entry_date": "2026-08-05",
+     "target": 219.02,
+     "stop": 173.37,
      "max_days": 7,
-     "last_price": 37.51
+     "last_price": 186.41000366210938
     }
    ],
    "trades": [
@@ -650,9 +672,19 @@
      "ret_pct": -3.89,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "CMG",
+     "entry": 38.61000061035156,
+     "exit": 34.93,
+     "entry_date": "2026-07-30",
+     "exit_date": "2026-08-05",
+     "ret_pct": -12.81,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 94.91,
+   "equity": 92.0,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -733,13 +765,17 @@
     {
      "date": "2026-08-04",
      "equity": 94.91
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 92.0
     }
    ],
    "stats": {
-    "trades": 3,
+    "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -5.09
+    "return_pct": -8.0
    }
   },
   "bot5": {
@@ -750,17 +786,17 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "CMG",
-     "shares": 40.95129,
-     "entry": 38.61000061035156,
-     "entry_date": "2026-07-30",
-     "target": 43.31,
-     "stop": 36.7,
+     "ticker": "QLYS",
+     "shares": 6.16755,
+     "entry": 186.41000366210938,
+     "entry_date": "2026-08-05",
+     "target": 219.02,
+     "stop": 173.37,
      "max_days": 10,
      "leverage": 2.5,
-     "own_equity": 632.4517280613967,
-     "borrowed": 948.68,
-     "last_price": 37.51
+     "own_equity": 459.87720343021874,
+     "borrowed": 689.82,
+     "last_price": 186.41000366210938
     }
    ],
    "trades": [
@@ -783,9 +819,19 @@
      "ret_pct": -28.07,
      "reason": "stop",
      "leverage": 2.5
+    },
+    {
+     "ticker": "CMG",
+     "entry": 38.61000061035156,
+     "exit": 34.93,
+     "entry_date": "2026-07-30",
+     "exit_date": "2026-08-05",
+     "ret_pct": -25.71,
+     "reason": "stop",
+     "leverage": 2.5
     }
    ],
-   "equity": 585.64,
+   "equity": 459.65,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -866,15 +912,19 @@
     {
      "date": "2026-08-04",
      "equity": 585.64
+    },
+    {
+     "date": "2026-08-05",
+     "equity": 459.65
     }
    ],
    "stats": {
-    "trades": 2,
+    "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -41.44
+    "return_pct": -54.03
    }
   }
  },
- "updated": "2026-08-04T16:06:06.349293+00:00"
+ "updated": "2026-08-05T15:55:35.102242+00:00"
 }
