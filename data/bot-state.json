@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 33.77,
+ "cash": 54.82,
  "positions": [
-  {
-   "ticker": "TSLA",
-   "opened": "2026-07-30T15:19:00.205Z",
-   "rule": "R1",
-   "reason": "R1 oversold bounce · RSI 12.6 < 32 · პირველი მწვანე",
-   "entry": 304.89,
-   "shares": 0.065597,
-   "cost": 20,
-   "target": 336.73,
-   "stop": 281.01
-  },
   {
    "ticker": "PLTR",
    "opened": "2026-08-04T15:31:35.886Z",
@@ -141,6 +130,10 @@
   {
    "date": "2026-08-05",
    "equity": 95
+  },
+  {
+   "date": "2026-08-06",
+   "equity": 94.37
   }
  ]
 }
