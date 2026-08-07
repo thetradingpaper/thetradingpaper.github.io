@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T16:48:57.151Z",
+  "updated": "2026-08-07T17:44:10.207Z",
   "quotes": {
     "SPCX": {
       "price": 113.326,
@@ -10,7 +10,7 @@
       "previousClose": 607.73004
     },
     "VOO": {
-      "price": 710.09,
+      "price": 709.84,
       "previousClose": 706.4
     },
     "ASX": {
@@ -46,7 +46,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 101.075,
+      "price": 98.59,
       "previousClose": 96.85
     },
     "CRDO": {
@@ -54,19 +54,19 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 19.945,
+      "price": 20,
       "previousClose": 19.62
     },
     "MAIN": {
-      "price": 59.32,
+      "price": 59.29,
       "previousClose": 56.525
     },
     "BXSL": {
-      "price": 24.43,
+      "price": 24.47,
       "previousClose": 24.15
     },
     "LYG": {
-      "price": 6.255,
+      "price": 6.261,
       "previousClose": 6.19
     },
     "SNDK": {
@@ -74,11 +74,11 @@
       "previousClose": 1288.03
     },
     "GOOG": {
-      "price": 354.315,
+      "price": 353.88,
       "previousClose": 356.62
     },
     "EGGY": {
-      "price": 33.875,
+      "price": 33.78,
       "previousClose": 34.1
     }
   }
