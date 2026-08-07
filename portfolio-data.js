@@ -33,6 +33,7 @@ window.MEPORTF = {
     ],
   },
   transfers: [
+    { date: '07 აგვ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 673.89 },
     { date: '23 ივლ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 1140.00 },
     { date: '09 ივლ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 102.00 },
     { date: '24 ივნ 2026', from: 'Galt & Taggart', to: 'BOG', type: 'გატანა · გადატანა', amount: 211.37 },
