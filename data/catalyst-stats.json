@@ -1,13 +1,13 @@
 {
  "m_and_a": {
-  "n": 35,
+  "n": 36,
   "wins": 3,
-  "sum_ret": -102.5
+  "sum_ret": -102.81
  },
  "earnings_beat": {
-  "n": 36,
-  "wins": 7,
-  "sum_ret": -0.4
+  "n": 45,
+  "wins": 9,
+  "sum_ret": -8.32
  },
  "analyst_upgrade": {
   "n": 27,
@@ -30,13 +30,13 @@
   "sum_ret": -30.77
  },
  "buyback_dividend": {
-  "n": 3,
-  "wins": 0,
-  "sum_ret": -20.0
+  "n": 5,
+  "wins": 2,
+  "sum_ret": 5.25
  },
  "guidance_raise": {
-  "n": 5,
-  "wins": 1,
-  "sum_ret": 19.3
+  "n": 7,
+  "wins": 2,
+  "sum_ret": 14.94
  }
 }

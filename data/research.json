@@ -1,267 +1,279 @@
 {
- "updated": "2026-08-05T15:55:33.755963+00:00",
+ "updated": "2026-08-07T14:45:36.238389+00:00",
  "mode": "DIVERSIFY",
- "notification": "📊 3 solid setups — split the paper $100 across: QLYS, ZETA, TWST. No single hero today, the basket is the play.",
+ "notification": "📊 5 solid setups — split the paper $100 across: QNST, IOVA, SOUN, SHOP, FA. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "QLYS",
-   "price": 186.41,
-   "score": 72.0,
-   "tech_score": 36.3,
-   "news_score": 35.7,
-   "rsi": 66.6,
-   "mom5": 37.77,
-   "vol_surge": 1.04,
+   "ticker": "QNST",
+   "price": 20.52,
+   "score": 72.7,
+   "tech_score": 56.0,
+   "news_score": 16.7,
+   "rsi": 67.4,
+   "mom5": 32.32,
+   "vol_surge": 2.48,
    "catalysts": [
     {
-     "category": "guidance_raise",
-     "headline": "Qualys Inc (QLYS) (Q2 2026) Earnings Call Highlights: AI-Driven Innovation and Raised Guidance ...",
-     "age_h": 10.9,
-     "points": 19.0
-    },
-    {
      "category": "earnings_beat",
-     "headline": "Qualys (NASDAQ:QLYS) Beats Q2 CY2026 Sales Expectations, Stock Soars",
-     "age_h": 19.5,
+     "headline": "QuinStreet Inc (QNST) (Q4 2026) Earnings Call Highlights: Record Revenue and EBITDA Fueled by ...",
+     "age_h": 9.7,
      "points": 16.7
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 186.41,
-    "target": 219.02,
-    "stop": 173.37,
-    "hold": "2-8 კვირა"
+    "entry": 20.52,
+    "target": 22.49,
+    "stop": 19.34,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ZETA",
-   "price": 26.93,
-   "score": 57.0,
-   "tech_score": 38.0,
-   "news_score": 19.0,
-   "rsi": 72.9,
-   "mom5": 21.97,
-   "vol_surge": 3.0,
+   "ticker": "IOVA",
+   "price": 6.18,
+   "score": 70.1,
+   "tech_score": 36.0,
+   "news_score": 34.1,
+   "rsi": 63.4,
+   "mom5": 49.75,
+   "vol_surge": 0.53,
    "catalysts": [
     {
+     "category": "earnings_beat",
+     "headline": "Iovance Biotherapeutics Inc (IOVA) (Q2 2026) Earnings Call Highlights: Record Revenue and ...",
+     "age_h": 15.5,
+     "points": 16.7
+    },
+    {
+     "category": "m_and_a",
+     "headline": "IOVA Stock Heads For Best Day In Over 6 Years – Buyout Buzz Builds After Blowout Q2",
+     "age_h": 22.5,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 6.18,
+    "target": 7.21,
+    "stop": 5.56,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SOUN",
+   "price": 7.61,
+   "score": 65.5,
+   "tech_score": 28.0,
+   "news_score": 37.5,
+   "rsi": 67.3,
+   "mom5": 25.29,
+   "vol_surge": 0.56,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "SOUN Stock Surges as SoundHound AI Posts Record Revenue",
+     "age_h": 20.3,
+     "points": 16.7
+    },
+    {
      "category": "guidance_raise",
-     "headline": "Is Zeta Global Holdings (ZETA) Cheap After Earnings And Raised Guidance?",
-     "age_h": 6.6,
-     "points": 19.0
+     "headline": "SoundHound AI Reports Record Q2 Revenue and Raises Full-Year Outlook on Enterprise AI Demand",
+     "age_h": 23.7,
+     "points": 20.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 26.93,
-    "target": 31.61,
-    "stop": 25.06,
+    "entry": 7.61,
+    "target": 9.1,
+    "stop": 7.02,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "TWST",
-   "price": 112.71,
-   "score": 56.9,
-   "tech_score": 46.8,
-   "news_score": 10.0,
-   "rsi": 67.2,
-   "mom5": 31.76,
-   "vol_surge": 1.11,
+   "ticker": "SHOP",
+   "price": 152.58,
+   "score": 62.7,
+   "tech_score": 46.0,
+   "news_score": 16.7,
+   "rsi": 67.7,
+   "mom5": 30.29,
+   "vol_surge": 0.3,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Twist Bioscience Corp (TWST) (Q3 2026) Earnings Call Highlights: Record Revenue and AI-Driven ...",
-     "age_h": 44.9,
+     "headline": "SHOP Q2 Earnings Beat Estimates, Revenues Ride on Strong GMV",
+     "age_h": 21.3,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 152.58,
+    "target": 169.46,
+    "stop": 142.45,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "FA",
+   "price": 25.11,
+   "score": 62.7,
+   "tech_score": 46.0,
+   "news_score": 16.7,
+   "rsi": 61.2,
+   "mom5": 25.6,
+   "vol_surge": 0.33,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "First Advantage Corp (FA) (Q2 2026) Earnings Call Highlights: Record Revenue Growth and ...",
+     "age_h": 15.5,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 25.11,
+    "target": 27.65,
+    "stop": 23.58,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "BZH",
+   "price": 33.06,
+   "score": 55.7,
+   "tech_score": 39.0,
+   "news_score": 16.7,
+   "rsi": 54.5,
+   "mom5": 3.01,
+   "vol_surge": 7.4,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Beazer Homes (BZH) Reports Q3 Loss, Beats Revenue Estimates",
+     "age_h": 3.2,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 33.06,
+    "target": 34.95,
+    "stop": 31.92,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DOCS",
+   "price": 31.3,
+   "score": 55.1,
+   "tech_score": 28.0,
+   "news_score": 27.1,
+   "rsi": 79.7,
+   "mom5": 51.03,
+   "vol_surge": 6.0,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "DOCS Stock Soars After CEO Says Clinical AI Outperformed Anthropic, Wall Street Lifts Price Targets",
+     "age_h": 2.3,
+     "points": 10.3
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Doximity’s (NYSE:DOCS) Q2 CY2026: Beats On Revenue",
+     "age_h": 18.5,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 31.3,
+    "target": 35.85,
+    "stop": 28.57,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "TWLO",
+   "price": 248.49,
+   "score": 47.8,
+   "tech_score": 31.1,
+   "news_score": 16.7,
+   "rsi": 70.1,
+   "mom5": 25.97,
+   "vol_surge": 1.14,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Twilio Inc (TWLO) (Q2 2026) Earnings Call Highlights: Record Revenue and AI-Driven Growth ...",
+     "age_h": 9.7,
+     "points": 16.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 248.49,
+    "target": 273.42,
+    "stop": 233.54,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IT",
+   "price": 193.71,
+   "score": 46.3,
+   "tech_score": 38.0,
+   "news_score": 8.3,
+   "rsi": 75.6,
+   "mom5": 28.08,
+   "vol_surge": 0.18,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Gartner (IT) Lifted Guidance And Buybacks, Is The Rebound Already Priced In?",
+     "age_h": 62.4,
+     "points": 3.3
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Gartner Q2 Earnings Beat Estimates, '26 EPS Outlook Raised",
+     "age_h": 69.4,
+     "points": 5.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 193.71,
+    "target": 226.84,
+    "stop": 180.45,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "W",
+   "price": 108.64,
+   "score": 46.0,
+   "tech_score": 36.0,
+   "news_score": 10.0,
+   "rsi": 63.8,
+   "mom5": 27.79,
+   "vol_surge": 0.2,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Wayfair Q2 Earnings Beat Estimates on U.S. Demand, Market Share Gains",
+     "age_h": 47.2,
      "points": 10.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 112.71,
-    "target": 129.94,
-    "stop": 102.37,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MTRN",
-   "price": 285.43,
-   "score": 54.8,
-   "tech_score": 38.0,
-   "news_score": 16.7,
-   "rsi": 61.7,
-   "mom5": 49.59,
-   "vol_surge": 1.01,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Materion (MTRN) Q2 Earnings and Revenues Beat Estimates",
-     "age_h": 3.7,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 285.43,
-    "target": 323.61,
-    "stop": 262.52,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ENTG",
-   "price": 145.08,
-   "score": 53.2,
-   "tech_score": 28.0,
-   "news_score": 25.2,
-   "rsi": 56.1,
-   "mom5": 36.13,
-   "vol_surge": 0.27,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Entegris Q2 Earnings Call Highlights AI Demand and Capacity Expansion",
-     "age_h": 1.9,
-     "points": 8.5
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Entegris Inc (ENTG) (Q2 2026) Earnings Call Highlights: Record Revenue and Strategic Portfolio ...",
-     "age_h": 18.9,
-     "points": 16.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 145.08,
-    "target": 175.7,
-    "stop": 132.83,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "APPS",
-   "price": 12.96,
-   "score": 49.0,
-   "tech_score": 30.0,
-   "news_score": 19.0,
-   "rsi": 75.7,
-   "mom5": 59.05,
-   "vol_surge": 4.15,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "APPS Q1 Earnings Call Centers on AI and Raised Guidance",
-     "age_h": 1.9,
-     "points": 19.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 12.96,
-    "target": 15.87,
-    "stop": 11.79,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ANET",
-   "price": 196.81,
-   "score": 48.4,
-   "tech_score": 31.6,
-   "news_score": 16.7,
-   "rsi": 71.6,
-   "mom5": 24.61,
-   "vol_surge": 1.46,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Arista Earnings Beat. Cloud Networking Leader Hikes 2026 Sales Guidance.",
-     "age_h": 4.4,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 196.81,
-    "target": 218.95,
-    "stop": 183.53,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "OSS",
-   "price": 13.88,
-   "score": 48.1,
-   "tech_score": 31.4,
-   "news_score": 16.7,
-   "rsi": 58.5,
-   "mom5": 28.06,
-   "vol_surge": 1.42,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "One Stop Systems, Inc. (OSS) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 2.0,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 13.88,
-    "target": 16.64,
-    "stop": 12.23,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "KTOS",
-   "price": 55.43,
-   "score": 47.7,
-   "tech_score": 31.0,
-   "news_score": 16.7,
-   "rsi": 66.0,
-   "mom5": 26.55,
-   "vol_surge": 1.38,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Kratos Defense shares soar after earnings beat and stronger full-year outlook",
-     "age_h": 5.0,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 55.43,
-    "target": 62.32,
-    "stop": 51.3,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ATKR",
-   "price": 93.64,
-   "score": 47.2,
-   "tech_score": 36.8,
-   "news_score": 10.5,
-   "rsi": 76.1,
-   "mom5": 31.09,
-   "vol_surge": 1.85,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Prysmian announces $3.8bn acquisition of Atkore",
-     "age_h": 31.2,
-     "points": 10.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 93.64,
-    "target": 101.67,
-    "stop": 88.83,
+    "entry": 108.64,
+    "target": 123.17,
+    "stop": 99.93,
     "hold": "3-7 დღე"
    }
   }
@@ -269,16 +281,16 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 36,
-   "win_rate": 19.4,
-   "avg_return": -0.01,
+   "n": 45,
+   "win_rate": 20.0,
+   "avg_return": -0.18,
    "weight_now": 0.76
   },
   {
    "category": "m_and_a",
-   "n": 35,
-   "win_rate": 8.6,
-   "avg_return": -2.93,
+   "n": 36,
+   "win_rate": 8.3,
+   "avg_return": -2.86,
    "weight_now": 0.67
   },
   {
@@ -296,6 +308,13 @@
    "weight_now": 0.85
   },
   {
+   "category": "guidance_raise",
+   "n": 7,
+   "win_rate": 28.6,
+   "avg_return": 2.13,
+   "weight_now": 0.83
+  },
+  {
    "category": "fda_approval",
    "n": 6,
    "win_rate": 0.0,
@@ -303,21 +322,14 @@
    "weight_now": 0.6
   },
   {
-   "category": "guidance_raise",
-   "n": 5,
-   "win_rate": 20.0,
-   "avg_return": 3.86,
-   "weight_now": 0.76
-  },
-  {
    "category": "buyback_dividend",
-   "n": 3,
-   "win_rate": 0.0,
-   "avg_return": -6.67,
-   "weight_now": 1.0
+   "n": 5,
+   "win_rate": 40.0,
+   "avg_return": 1.05,
+   "weight_now": 0.92
   }
  ],
- "scanned": 5970,
+ "scanned": 5975,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
