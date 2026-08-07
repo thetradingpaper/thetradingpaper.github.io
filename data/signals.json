@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-07T19:34:18.604Z",
+ "updated": "2026-08-07T20:17:08.229Z",
  "watchlist": [
   "NVDA",
   "TSLA",
@@ -11,15 +11,15 @@
   {
    "ok": true,
    "ticker": "NVDA",
-   "price": 222.59,
-   "rsi": 64.9,
-   "sma5": 215.88,
-   "sma20": 206.75,
+   "price": 223.96,
+   "rsi": 65.6,
+   "sma5": 216.15,
+   "sma20": 206.82,
    "atr": 7.83,
    "high20": 223.63,
-   "vol": 76904995,
+   "vol": 104730601,
    "avgVol20": 129361295,
-   "chg1d": 1.64,
+   "chg1d": 2.27,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
@@ -27,15 +27,15 @@
   {
    "ok": true,
    "ticker": "TSLA",
-   "price": 327.72,
-   "rsi": 34.5,
-   "sma5": 323.65,
-   "sma20": 343.29,
+   "price": 328.58,
+   "rsi": 34.9,
+   "sma5": 323.82,
+   "sma20": 343.33,
    "atr": 14.94,
    "high20": 413.16,
-   "vol": 32144992,
+   "vol": 38718147,
    "avgVol20": 39087855,
-   "chg1d": 2.56,
+   "chg1d": 2.83,
    "signal": "WAIT",
    "reasons": [],
    "plan": null
@@ -43,46 +43,46 @@
   {
    "ok": true,
    "ticker": "MSTR",
-   "price": 99.2,
-   "rsi": 51.5,
-   "sma5": 97.39,
-   "sma20": 96.36,
+   "price": 100.01,
+   "rsi": 52.4,
+   "sma5": 97.55,
+   "sma20": 96.4,
    "atr": 5.71,
    "high20": 104.6,
-   "vol": 23867294,
+   "vol": 28317567,
    "avgVol20": 14904000,
-   "chg1d": 2.43,
+   "chg1d": 3.26,
    "signal": "BUY",
    "reasons": [
     "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს"
    ],
    "plan": {
-    "entry": 99.2,
-    "target": 110.62,
-    "stop": 90.64,
+    "entry": 100.01,
+    "target": 111.43,
+    "stop": 91.45,
     "horizon": "5 სავაჭრო დღე max"
    }
   },
   {
    "ok": true,
    "ticker": "PLTR",
-   "price": 170.9,
-   "rsi": 69.6,
-   "sma5": 154.71,
-   "sma20": 134.98,
-   "atr": 9.23,
+   "price": 172.01,
+   "rsi": 70,
+   "sma5": 154.93,
+   "sma20": 135.04,
+   "atr": 9.27,
    "high20": 166.08,
-   "vol": 62971453,
+   "vol": 76171329,
    "avgVol20": 43652270,
-   "chg1d": 9.6,
+   "chg1d": 10.32,
    "signal": "BUY",
    "reasons": [
-    "R2 breakout · ფასი > 20დ მაქსიმუმი $166.08 · მოცულობა 1.4×"
+    "R2 breakout · ფასი > 20დ მაქსიმუმი $166.08 · მოცულობა 1.7×"
    ],
    "plan": {
-    "entry": 170.9,
-    "target": 189.36,
-    "stop": 157.06,
+    "entry": 172.01,
+    "target": 190.55,
+    "stop": 158.1,
     "horizon": "5 სავაჭრო დღე max"
    }
   },
@@ -95,7 +95,7 @@
    "sma20": 118.99,
    "atr": 3.53,
    "high20": 130.99,
-   "vol": 4714882,
+   "vol": 5927840,
    "avgVol20": 10563625,
    "chg1d": 1.26,
    "signal": "BUY",
@@ -116,7 +116,7 @@
   "losses": 10,
   "winRate": 33.3,
   "totalPnl": -5.18,
-  "equity": 96.95,
-  "returnPct": -3.05
+  "equity": 97.25,
+  "returnPct": -2.75
  }
 }
