@@ -14,8 +14,8 @@ window.MEPORTF = {
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 07 Aug 2026: SNXX buy -> cash balance $0.00.
-  bog: { cashAdded: 0.00, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 07 Aug 2026: SNXX position closed -> cash balance $673.89.
+  bog: { cashAdded: 673.89, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
@@ -33,7 +33,6 @@ window.MEPORTF = {
     ],
   },
   transfers: [
-    { date: '07 აგვ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 673.89 },
     { date: '23 ივლ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 1140.00 },
     { date: '09 ივლ 2026', from: 'BOG', to: 'TBC', type: 'გადატანა', amount: 102.00 },
     { date: '24 ივნ 2026', from: 'Galt & Taggart', to: 'BOG', type: 'გატანა · გადატანა', amount: 211.37 },

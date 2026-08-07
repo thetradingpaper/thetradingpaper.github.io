@@ -15,13 +15,12 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 0.00, // 07 Aug 2026: SNXX position closed @ $673.89 -> cash transferred to TBC -> net cash $0.00
+    cash: 673.89, // 07 Aug 2026: SNXX position closed @ $673.89 -> net cash in BOG $673.89
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 07 აგვ 2026 BOG position closed & transfer $673.89 → TBC · BOG cash $0.00 ---
-      { date: '2026-08-07', type: 'deposit', amount: -673.89, note: 'გადატანა → TBC' },
+      // --- 07 აგვ 2026 BOG SNXX round-trip scalp · BOG app · net cash $673.89 ---
       { date: '2026-08-07', type: 'sell', ticker: 'SNXX', shares: 72.21708957, price: 9.33144815, commission: 0 },
       { date: '2026-08-07', type: 'buy',  ticker: 'SNXX', shares: 72.21708957, price: 9.30860857, commission: 0 },
       // --- 05 აგვ 2026 BOG 30+ intraday trades · BOG app · net cash $790.49 (+ $3.15 P/L) ---
@@ -189,10 +188,8 @@ window.PORTFOLIOS = {
       { ticker: 'GOOG', name: 'Alphabet Inc.', shares: 0.88410344, avgBuy: 320.77, invested: 283.59, value: 283.59, color: '#ea4335', divYield: 0.00 },
       { ticker: 'EGGY', name: 'NestYield Dynamic Income ETF', shares: 0.52795069, avgBuy: 32.67, invested: 17.25, value: 17.25, color: '#059669', divYield: 8.50 },
     ],
-    cash: 673.89, // 07 Aug 2026: transferred in from BOG ($673.89)
+    cash: 0.00,
     transactions: [
-      // --- 07 აგვ 2026 deposit $673.89 ← BOG ---
-      { date: '2026-08-07', type: 'deposit', amount: 673.89, note: 'გადმოტანა ← BOG' },
       // --- 31 Jul 2026 transactions · TBC app ---
       { date: '2026-07-31', type: 'buy',     ticker: 'LYG',  shares: 0.84200954, price: 6.1638, commission: 0.09 },
       { date: '2026-07-31', type: 'buy',     ticker: 'LYG',  shares: 4.00000000, price: 6.1575, commission: 0 },
