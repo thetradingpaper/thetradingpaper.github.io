@@ -5,7 +5,7 @@
 // Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-08-05',
+  lastUpdated: '2026-08-07',
   feesPaid: 75.34,                      // reconciled 04 Aug 2026: BOG $31.71 ($19.71 + $12 bank fee) + TBC $3.63 + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 31.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
@@ -14,8 +14,8 @@ window.MEPORTF = {
   ],
   marginFinancingEst: 0,
   // BOG uninvested cash for the meportfolio page (index.html sets
-  // portfolios.bog.cash = cashAdded). 05 Aug 2026: 30+ trades -> cash balance $790.49.
-  bog: { cashAdded: 790.49, countedAsDeposit: false },
+  // portfolios.bog.cash = cashAdded). 07 Aug 2026: SNXX buy -> cash balance $0.00.
+  bog: { cashAdded: 0.00, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',

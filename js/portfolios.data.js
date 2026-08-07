@@ -14,12 +14,16 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [],
-    cash: 790.49, // 05 Aug 2026: 30+ intraday trades -> net cash balance $790.49
+    holdings: [
+      { ticker: 'SNXX', name: 'SNXX Corp', shares: 72.21708957, avgBuy: 9.31, invested: 672.24, value: 672.24, color: '#2563eb', divYield: 0.00 },
+    ],
+    cash: 0.00, // 07 Aug 2026: Trading reset to $672.24 -> bought SNXX 72.21708957 shares @ $9.31 -> net cash $0.00
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 07 აგვ 2026 BOG trading reset & SNXX purchase · BOG app · net cash $0.00 ---
+      { date: '2026-08-07', type: 'buy',  ticker: 'SNXX', shares: 72.21708957, price: 9.30860857, commission: 0 },
       // --- 05 აგვ 2026 BOG 30+ intraday trades · BOG app · net cash $790.49 (+ $3.15 P/L) ---
       // --- 04 აგვ 2026 BOG GOOGL scalp · BOG app · $0.01 fee · net cash $787.34 (+ $1.56 P/L) ---
       { date: '2026-08-04', type: 'sell', ticker: 'GOOGL', shares: 0.07624049, price: 379.1947, commission: 0 },
