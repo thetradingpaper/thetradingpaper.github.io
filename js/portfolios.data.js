@@ -186,10 +186,11 @@ window.PORTFOLIOS = {
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 240.23, color: '#006a4d', divYield: 3.66 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.515, avgBuy: 681.96, invested: 351.21, value: 351.21, color: '#2563eb', divYield: 1.30 },
       { ticker: 'GOOG', name: 'Alphabet Inc.', shares: 0.88410344, avgBuy: 320.77, invested: 283.59, value: 283.59, color: '#ea4335', divYield: 0.00 },
-      { ticker: 'EGGY', name: 'NestYield Dynamic Income ETF', shares: 0.52795069, avgBuy: 32.67, invested: 17.25, value: 17.25, color: '#059669', divYield: 8.50 },
     ],
-    cash: 0.00,
+    cash: 17.82, // 07 Aug 2026: EGGY position fully liquidated @ $17.82 -> net cash $17.82
     transactions: [
+      // --- 07 აგვ 2026 EGGY liquidation · TBC app · net cash $17.82 ---
+      { date: '2026-08-07', type: 'sell', ticker: 'EGGY', shares: 0.52795069, price: 33.753155, commission: 0 },
       // --- 31 Jul 2026 transactions · TBC app ---
       { date: '2026-07-31', type: 'buy',     ticker: 'LYG',  shares: 0.84200954, price: 6.1638, commission: 0.09 },
       { date: '2026-07-31', type: 'buy',     ticker: 'LYG',  shares: 4.00000000, price: 6.1575, commission: 0 },
