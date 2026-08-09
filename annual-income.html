@@ -9,6 +9,7 @@
 <script src="js/portfolios.data.js"></script>
 <script src="portfolio-data.js"></script>
 <script src="js/portfolios.js"></script>
+<script src="js/dividends.data.js"></script>
 <style>
   :root{ --bg:#fffdf7; --paper:#fff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e6e0d4; --red:#b91c1c; --green:#166534; }
   *{box-sizing:border-box}
@@ -86,10 +87,14 @@
   });
   rows.sort(function(a,b){ return b.net-a.net; });
 
-  var netTot=grossTot*TAX;
-  document.getElementById('a-net').textContent=fmt(netTot);
-  document.getElementById('a-gross').textContent=fmt(grossTot);
-  document.getElementById('a-yield').textContent=(valTot>0?(netTot/valTot*100).toFixed(2):'0.00')+'%';
+  var summary = window.TP_DIVIDENDS ? window.TP_DIVIDENDS.getSummary() : null;
+  var netTot = summary ? summary.annualNet : (grossTot * TAX);
+  var displayGross = summary ? summary.annualGross : grossTot;
+  var displayYield = summary ? summary.portfolioYieldPct : (valTot > 0 ? (netTot / valTot * 100) : 0);
+
+  document.getElementById('a-net').textContent = fmt(netTot);
+  document.getElementById('a-gross').textContent = fmt(displayGross);
+  document.getElementById('a-yield').textContent = displayYield.toFixed(2) + '%';
 
   var body=document.getElementById('incBody');
   if(!rows.length){ body.innerHTML='<tr><td colspan="6" class="empty">დივიდენდის მომტანი პოზიცია არ არის</td></tr>'; }

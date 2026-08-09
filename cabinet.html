@@ -1363,6 +1363,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         stamp.textContent = `● ${live ? 'LIVE' : 'ქეშირებული'} · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`;
         stamp.style.color = live ? '' : 'var(--muted)';
       }
+      renderDividendGoal();
     } catch (e) {
       console.warn('refresh failed', key, e);
       const stamp = document.getElementById(`${key}-live-stamp`);
@@ -1399,16 +1400,22 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     if (recEl) recEl.innerHTML = '<div class="l">სულ მიღებული <a href="dividends.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;">↗</a> · Total Dividends</div><div class="v">'+fmtUSD(got)+'</div><div class="n">წმინდა · მიღებული · ისტორია ↗</div>';
 
     // Calculate sum of projected annual dividends (net) across bog and tbc
-    let totalGross = 0;
-    ['bog','tbc'].forEach(k => {
-      const p = portfolios[k]; if (!p || !p.holdings) return;
-      p.holdings.forEach(h => {
-        if (typeof h.divYield === 'number' && h.divYield > 0) {
-          totalGross += h.value * (h.divYield / 100);
-        }
+    let projNet = 0;
+    if (window.TP_DIVIDENDS) {
+      const summary = window.TP_DIVIDENDS.getSummary();
+      projNet = summary.annualNet;
+    } else {
+      let totalGross = 0;
+      ['bog','tbc'].forEach(k => {
+        const p = portfolios[k]; if (!p || !p.holdings) return;
+        p.holdings.forEach(h => {
+          if (typeof h.divYield === 'number' && h.divYield > 0) {
+            totalGross += h.value * (h.divYield / 100);
+          }
+        });
       });
-    });
-    const projNet = totalGross * 0.70; // GE 30% withholding tax
+      projNet = totalGross * 0.70; // GE 30% withholding tax
+    }
     const projEl = document.getElementById('total-dividends-projected');
     if (projEl) projEl.innerHTML = '<div class="l">წლიური დივიდენდი <a href="annual-income.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;">↗</a> · Annual Income</div><div class="v" style="color:var(--green)">'+fmtUSD(projNet)+'</div><div class="n">სავარაუდო · 30% GE გადასახადის შემდეგ ↗</div>';
 

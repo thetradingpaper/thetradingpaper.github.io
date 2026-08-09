@@ -281,9 +281,6 @@
         valTot += h.value;
         if (h.divYield > 0) {
           grossTot += h.value * (h.divYield / 100);
-        } else if (h.meta && h.meta.estDivPerShare) {
-          var mult = h.meta.freq === 'monthly' ? 12 : h.meta.freq === 'semi-annual' ? 2 : 4;
-          grossTot += h.shares * h.meta.estDivPerShare * mult;
         }
       });
       var netTot = grossTot * TAX_MULTIPLIER;
