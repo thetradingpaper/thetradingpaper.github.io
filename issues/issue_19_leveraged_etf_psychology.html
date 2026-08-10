@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — გამოცემა №19</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;800;900&family=Noto+Sans+Georgian:wght@400;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fffdf7;
+    --bg: #f4f1ea;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #d9d4c8;
+    --rule: #1a1a1a;
+    --red: #b91c1c;
+    --green: #166534;
+    --gold: #8b6914;
+    --card-bg: #ffffff;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px 10px 60px;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 4px double var(--rule);
+    border-bottom: 4px double var(--rule);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  header.masthead {
+    text-align: center;
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .masthead .top-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-size: 42px;
+    font-weight: 900;
+    margin: 0 0 6px;
+    letter-spacing: -1px;
+  }
+  .masthead .sub-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .hero-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    padding: 20px 24px;
+    margin-bottom: 30px;
+  }
+  .hero-box h2 {
+    font-family: 'Noto Serif Georgian', serif;
+    margin-top: 0;
+    font-size: 22px;
+    color: var(--ink);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 25px 0;
+  }
+  @media(max-width: 650px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .container { padding: 20px; }
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-top: 2px solid var(--ink);
+  }
+  .stat-card .label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-card .value {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 6px 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-card .value.pos { color: var(--green); }
+  .stat-card .value.neg { color: var(--red); }
+  .stat-card .sub {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  h2.sec-heading {
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 24px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .data-table th, .data-table td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .data-table th {
+    background: #eae6dd;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .badge.buy { background: #dcfce7; color: var(--green); }
+  .badge.sell { background: #fee2e2; color: var(--red); }
+  .badge.info { background: #e0f2fe; color: #0369a1; }
+  .callout-box {
+    background: rgba(139,105,20,0.06);
+    border: 1px dashed var(--gold);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+  .callout-box h4 {
+    margin: 0 0 6px;
+    color: var(--gold);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  footer.paper-footer {
+    border-top: 3px double var(--rule);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="masthead">
+    <div class="top-meta">
+      <span>გამოცემა №19 · სპეციალური რეფორტაჟი</span>
+      <span>10 აგვისტო, 2026</span>
+      <span>Wiesbaden / Georgia</span>
+    </div>
+    <h1>The Trading Paper</h1>
+    <div class="sub-title">BOG 2X ჰებელური ვაჭრობა ($625.51: SNXX, SPCG, RKLZ) &amp; აზარტის ნეიროფსიქოლოგია</div>
+  </header>
+
+  <div class="hero-box">
+    <h2>BOG-ის 2X Leveraged ETF შესყიდვები ($625.51) — აზარტის ნეიროფსიქოლოგია &amp; Volatility Decay</h2>
+    <p style="margin-bottom:0;">
+      7 აგვისტოს დეკლარირებული ნაღდი ფულის ($673.89) <strong>93% ($625.51)</strong> 10 აგვისტოს ისევ განთავსდა 3 ჰებელურ ETF-ში: 
+      <strong>SNXX</strong> ($200.00), <strong>SPCG</strong> ($200.00) და <strong>RKLZ</strong> ($225.51). 
+      ეს გამოცემა უღრმავდება იმ მიზეზებს, თუ რატომ ვუბრუნდებით აზარტულ ვაჭრობას, რატომ არის ჰებელური ETF-ები მათემატიკური მახე და როგორ აღვადგინოთ ფინანსური დისციპლინა.
+    </p>
+  </div>
+
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="label">SNXX (2X Long SNDK)</div>
+      <div class="value neg">$199.60</div>
+      <div class="sub">21.0997 წილი · P/L -$0.40</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">SPCG (2X Short SPCX)</div>
+      <div class="value neg">$199.80</div>
+      <div class="sub">10.1265 წილი · P/L -$0.20</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">RKLZ (2X Short RKLB)</div>
+      <div class="value pos">$227.13</div>
+      <div class="sub">76.9947 წილი · P/L +$1.62</div>
+    </div>
+  </div>
+
+  <h2 class="sec-heading">1. ფსიქოლოგიური &amp; მათემატიკური ანალიზი</h2>
+  <p>
+    აზარტული ვაჭრობის რეციკლი არ არის ნებისყოფის ნაკლებობა — ეს არის ნეირობიოლოგიური დოპამინის მარყუჟი და ჰებელური ETF-ების მათემატიკური Volatility Decay.
+  </p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>ფაქტორი</th>
+        <th>პრობლემის არსი</th>
+        <th>გამოსავალი &amp; მოქმედება</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>დოპამინის მარყუჟი</strong></td>
+        <td>მოსაწყენი ინვესტიცია (VOO, LYG) ვერ აძლევს ტვინს ადრენალინს. ქეში ($673.89) აღიქმება "უმოქმედობად".</td>
+        <td>ფრიქციის გაზრდა — BOG-ის თავისუფალი ქეშის მყისიერი მიმართვა TBC-ის დივიდენდურ პორტფელში.</td>
+      </tr>
+      <tr>
+        <td><strong>"ჰეჯირების" ილუზია</strong></td>
+        <td>ერთი Long-ის (SNXX) და ორი Short-ის (SPCG, RKLZ) ყიდვა ფსიქოლოგიურად "უსაფრთხოებას" ჰგავს, რეალურად კი 3x რისკია.</td>
+        <td>აღიარე, რომ Long+Short სხვადასხვა აქტივზე არ არის ჰეჯირება — ეს არის 3 დამოუკიდებელი აზარტული ფსონი.</td>
+      </tr>
+      <tr>
+        <td><strong>Volatility Decay</strong></td>
+        <td>2X Daily ETF-ები ყოველდღიურად ითვლიან პროცენტს. რყევად ბაზარზე ჰოლდინგი მათემატიკურად ჭამს კაპიტალს.</td>
+        <td>2X ETF-ები არ არის ჰოლდინგის ინსტრუმენტი. მათი დატოვება ღამით კაპიტალს ამცირებს.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sec-heading">2. დღევანდელი ტრანზაქციები (10 აგვისტო, 2026)</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>თარიღი</th>
+        <th>ოპერაცია</th>
+        <th>ტიფერი / აქტივი</th>
+        <th>რაოდენობა</th>
+        <th>საშ. ფასი ($)</th>
+        <th>ჯამური თანხა ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>10 აგვ 2026</td>
+        <td><span class="badge buy">ყიდვა</span></td>
+        <td>SNXX (Tradr 2X Long SNDK)</td>
+        <td>21.09971726</td>
+        <td>$9.48 ($9.4788)</td>
+        <td>-$200.00</td>
+      </tr>
+      <tr>
+        <td>10 აგვ 2026</td>
+        <td><span class="badge buy">ყიდვა</span></td>
+        <td>SPCG (TRADR 2X SHORT SPCX)</td>
+        <td>10.12658227</td>
+        <td>$19.75 ($19.7500)</td>
+        <td>-$200.00</td>
+      </tr>
+      <tr>
+        <td>10 აგვ 2026</td>
+        <td><span class="badge buy">ყიდვა</span></td>
+        <td>RKLZ (DEF 2X SHORT RKLB)</td>
+        <td>76.99477619</td>
+        <td>$2.93 ($2.9289)</td>
+        <td>-$225.51</td>
+      </tr>
+      <tr style="background:#f0fdf4; font-weight:bold;">
+        <td colspan="5">BOG პორტფელის ჯამური ღირებულება &amp; CASH</td>
+        <td>პოზიციები: $626.53 | ქეში: $48.38 | ჯამი: $674.91</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-box">
+    <h4>სტრატეგიული დასკვნა</h4>
+    <p style="margin:0;">
+      კაპიტალი დაცულია (ჯამი $674.91). შეცდომის აღიარება და დისციპლინურ DCA სტრატეგიაზე (VOO, LYG, MAIN) დაბრუნება არის ერთადერთი გზა მდგრადი ფინანსური ზრდისკენ.
+    </p>
+  </div>
+
+  <footer class="paper-footer">
+    <p>The Trading Paper · გამოცემა №19 · გამოქვეყნებულია 10 აგვისტო, 2026 · Wiesbaden / Georgia</p>
+    <p><em>ეს არის პირადი საინვესტიციო ჟურნალი და არ წარმოადგენს ფინანსურ რჩევას.</em></p>
+  </footer>
+</div>
+
+</body>
+</html>
