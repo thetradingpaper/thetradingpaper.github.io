@@ -19,7 +19,7 @@ window.PORTFOLIOS = {
       { ticker: 'SPCG', name: 'TRADR 2X SHORT SPCX DLY ETF', shares: 10.12658227, avgBuy: 19.75, invested: 200.00, value: 199.44, color: '#ef4444', divYield: 0.00 },
       { ticker: 'RKLZ', name: 'DEF DAILY T2X SHORT RKLB ETF', shares: 76.99477619, avgBuy: 2.93, invested: 225.51, value: 226.36, color: '#8b5cf6', divYield: 0.00 },
     ],
-    cash: 48.38, // 10 Aug 2026: 2X ETF buys ($200.00 SNXX + $200.00 SPCG + $225.51 RKLZ = $625.51) -> net cash in BOG $48.38
+    cash: 0.00, // 10 Aug 2026: cash fully deployed / traded -> net cash in BOG $0.00
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
