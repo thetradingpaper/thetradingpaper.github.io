@@ -476,15 +476,20 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     .ag-head .ag-sum .pos{color:var(--green);}.ag-head .ag-sum .neg{color:var(--red);}
     details.ag-row{border-bottom:1px solid rgba(0,0,0,.05);}
     details.ag-row:last-child{border-bottom:none;}
-    details.ag-row>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;padding:11px 14px;font-family:'Noto Sans Georgian',sans-serif;}
+    details.ag-row>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:12px;padding:11px 14px;font-family:'Noto Sans Georgian',sans-serif;}
     details.ag-row>summary::-webkit-details-marker{display:none;}
     details.ag-row>summary:hover{background:rgba(0,0,0,.02);}
     details.ag-row[open]>summary{background:rgba(0,0,0,.03);}
-    .ag-tk{font-family:'Noto Serif Georgian',serif;font-weight:800;font-size:15px;color:var(--ink);}
-    .ag-nm{display:block;font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-top:1px;}
+    .ag-tk{font-family:ui-monospace,monospace;font-weight:800;font-size:14px;margin-right:8px;}
+    .ag-nm{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
     .ag-val{font-family:ui-monospace,monospace;font-weight:700;font-size:13px;color:var(--ink);text-align:right;white-space:nowrap;}
     .ag-day{font-family:ui-monospace,monospace;font-size:12px;text-align:right;white-space:nowrap;min-width:72px;}
     .ag-day.pos{color:var(--green);}.ag-day.neg{color:var(--red);}
+    .ag-ext{font-family:ui-monospace,monospace;font-size:12px;text-align:center;white-space:nowrap;padding:2px 8px;border-radius:4px;background:rgba(0,0,0,.03);}
+    .ag-ext.pos{color:var(--green);background:rgba(22,101,52,.08);}
+    .ag-ext.neg{color:var(--red);background:rgba(185,28,28,.08);}
+    .ag-ext-lbl{font-size:10px;font-weight:800;letter-spacing:.5px;margin-right:3px;opacity:.8;}
+    .ag-ext-sub{font-size:11px;opacity:.9;}
     .ag-detail{padding:0 14px 12px;}
     .ag-detail .hcard{border:1px solid var(--border);border-top:1px dashed var(--border);}
     .ag-empty{padding:14px;font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);}
@@ -1768,10 +1773,24 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     var ucls=unreal>=0?'pos':'neg', dcls=(dayPct>=0)?'pos':'neg';
     var sess=(h.liveSession==='PRE')?' <span class="sess-badge pre">PRE</span>':(h.liveSession==='POST')?' <span class="sess-badge post">POST</span>':'';
     var shares=(+h.shares).toFixed(8).replace(/0+$/,'').replace(/\.$/,'');
+
+    var extP = h.extPrice || h.postPrice || h.prePrice;
+    var regP = h.regularPrice || h.previousClose || h.avgBuy || 0;
+    var extRow = '';
+    if (extP && regP && Math.abs(extP - regP) > 0.001) {
+      var extDiff = extP - regP;
+      var extPct = (regP > 0) ? (extDiff / regP * 100) : 0;
+      var extDollar = (h.shares !== undefined) ? (extDiff * h.shares) : 0;
+      var extCls = extDiff >= 0 ? 'pos' : 'neg';
+      var sessLbl = (h.liveSession === 'PRE' || h.liveState === 'PRE') ? 'PRE' : 'AH';
+      extRow = '<tr><td>AFTER-MARKET (' + sessLbl + ')</td><td class="num ' + extCls + '">$' + extP.toFixed(2) + ' (' + (extDiff >= 0 ? '+' : '−') + '$' + Math.abs(extDollar).toFixed(2) + ' / ' + (extDiff >= 0 ? '+' : '−') + Math.abs(extPct).toFixed(2) + '%)</td></tr>';
+    }
+
     var rows=''
       +'<tr><td>SHARES</td><td class="num">'+shares+'</td></tr>'
       +'<tr><td>AVG BUY</td><td class="num">$'+(+h.avgBuy).toFixed(2)+'</td></tr>'
       +'<tr><td>PRICE</td><td class="num">$'+price.toFixed(2)+sess+'</td></tr>'
+      +extRow
       +'<tr><td>INVESTED</td><td class="num">$'+invested.toFixed(2)+'</td></tr>'
       +'<tr><td>VALUE</td><td class="num">$'+value.toFixed(2)+'</td></tr>'
       +'<tr><td>UNREALISED</td><td class="num '+ucls+'">'+(unreal>=0?'+':'−')+'$'+Math.abs(unreal).toFixed(2)+' ('+(unreal>=0?'+':'−')+Math.abs(unrealPct).toFixed(2)+'%)</td></tr>'
@@ -1822,9 +1841,28 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           var hasDay=(dayPct!==undefined&&dayPct!==null&&h.previousClose&&h.shares!==undefined);
           var dcls=(dayPct>=0)?'pos':'neg';
           var dayTxt=hasDay?((dayPct>=0?'+':'−')+Math.abs(dayPct).toFixed(2)+'%'):'—';
+
+          var extP = h.extPrice || h.postPrice || h.prePrice;
+          var regP = h.regularPrice || h.previousClose || h.avgBuy || 0;
+          var extHtml = '';
+          if (extP && regP && Math.abs(extP - regP) > 0.001) {
+            var extDiff = extP - regP;
+            var extPct = (regP > 0) ? (extDiff / regP * 100) : 0;
+            var extDollar = (h.shares !== undefined) ? (extDiff * h.shares) : 0;
+            var extCls = extDiff >= 0 ? 'pos' : 'neg';
+            var sessLbl = (h.liveSession === 'PRE' || h.liveState === 'PRE') ? 'PRE' : 'AH';
+            extHtml = '<span class="ag-ext ' + extCls + '" title="After-Market / Extended Hours Quote">'
+              + '<span class="ag-ext-lbl">' + sessLbl + '</span> $' + extP.toFixed(2)
+              + ' <span class="ag-ext-sub">(' + (extDiff >= 0 ? '+' : '−') + '$' + Math.abs(extDollar).toFixed(2) + ' / ' + (extDiff >= 0 ? '+' : '−') + Math.abs(extPct).toFixed(2) + '%)</span>'
+              + '</span>';
+          } else {
+            extHtml = '<span class="ag-ext muted" style="font-size:11px;opacity:0.4;">—</span>';
+          }
+
           var op=openTk[h.ticker]?' open':'';
           out+='<details class="ag-row" data-tk="'+h.ticker+'"'+op+'><summary>'
             +'<span><span class="ag-tk">'+h.ticker+'</span><span class="ag-nm">'+(h.name||'').toUpperCase()+'</span></span>'
+            + extHtml
             +'<span class="ag-val">'+fmtUSD2(value)+'</span>'
             +'<span class="ag-day '+(hasDay?dcls:'')+'">'+dayTxt+'</span>'
             +'</summary><div class="ag-detail">'+holdingDetailCard(h)+'</div></details>';

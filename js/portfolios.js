@@ -408,7 +408,12 @@ function _parseYahooMeta(data) {
   if ((state === 'PRE' || state === 'PREPRE') && pre) { price = pre; session = 'PRE'; }
   else if ((state === 'POST' || state === 'POSTPOST') && post) { price = post; session = 'POST'; }
   else if (state === 'CLOSED' && post) { price = post; session = 'POST'; }
-  return { price, session, state, regular: reg, pre, post, previousClose: prev };
+  
+  const extPrice = (post || pre || null);
+  const extDiff = (extPrice && reg) ? (extPrice - reg) : 0;
+  const extPct = (extPrice && reg && reg > 0) ? ((extPrice - reg) / reg * 100) : 0;
+
+  return { price, session, state, regular: reg, pre, post, previousClose: prev, extPrice, extDiff, extPct };
 }
 
 // Hedged proxy race — fire the first proxy immediately, then stagger the rest
@@ -517,6 +522,12 @@ async function refreshLivePrices(portfolioKey) {
       p.holdings[i].liveSession = q.session;
       p.holdings[i].liveState = q.state;
       p.holdings[i].previousClose = q.previousClose;
+      p.holdings[i].regularPrice = q.regular || q.price;
+      p.holdings[i].prePrice = q.pre || null;
+      p.holdings[i].postPrice = q.post || null;
+      p.holdings[i].extPrice = q.extPrice || q.post || q.pre || null;
+      p.holdings[i].extDiff = q.extDiff || 0;
+      p.holdings[i].extPct = q.extPct || 0;
       p.holdings[i].dayChangePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
       if (p.holdings[i].shares !== undefined && p.holdings[i].shares > 0) {
         p.holdings[i].value = +(p.holdings[i].shares * q.price).toFixed(2);
