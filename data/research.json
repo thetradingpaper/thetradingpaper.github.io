@@ -1,290 +1,290 @@
 {
- "updated": "2026-08-07T14:45:36.238389+00:00",
- "mode": "DIVERSIFY",
- "notification": "📊 5 solid setups — split the paper $100 across: QNST, IOVA, SOUN, SHOP, FA. No single hero today, the basket is the play.",
+ "updated": "2026-08-10T14:50:36.725369+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on VREX (score 72.6). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "QNST",
-   "price": 20.52,
-   "score": 72.7,
-   "tech_score": 56.0,
-   "news_score": 16.7,
-   "rsi": 67.4,
-   "mom5": 32.32,
-   "vol_surge": 2.48,
+   "ticker": "VREX",
+   "price": 18.42,
+   "score": 72.6,
+   "tech_score": 38.0,
+   "news_score": 34.6,
+   "rsi": 95.5,
+   "mom5": 54.53,
+   "vol_surge": 11.33,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "QuinStreet Inc (QNST) (Q4 2026) Earnings Call Highlights: Record Revenue and EBITDA Fueled by ...",
-     "age_h": 9.7,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 20.52,
-    "target": 22.49,
-    "stop": 19.34,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IOVA",
-   "price": 6.18,
-   "score": 70.1,
-   "tech_score": 36.0,
-   "news_score": 34.1,
-   "rsi": 63.4,
-   "mom5": 49.75,
-   "vol_surge": 0.53,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Iovance Biotherapeutics Inc (IOVA) (Q2 2026) Earnings Call Highlights: Record Revenue and ...",
-     "age_h": 15.5,
-     "points": 16.7
+     "headline": "VAREX IMAGING (VREX) Q3 Earnings Beat Estimates",
+     "age_h": 2.6,
+     "points": 17.2
     },
     {
      "category": "m_and_a",
-     "headline": "IOVA Stock Heads For Best Day In Over 6 Years – Buyout Buzz Builds After Blowout Q2",
-     "age_h": 22.5,
+     "headline": "Teledyne to acquire Varex Imaging in $1.1 billion deal",
+     "age_h": 3.6,
      "points": 17.4
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 6.18,
-    "target": 7.21,
-    "stop": 5.56,
+    "entry": 18.42,
+    "target": 20.09,
+    "stop": 17.41,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SOUN",
-   "price": 7.61,
-   "score": 65.5,
-   "tech_score": 28.0,
-   "news_score": 37.5,
-   "rsi": 67.3,
-   "mom5": 25.29,
-   "vol_surge": 0.56,
+   "ticker": "HZO",
+   "price": 52.01,
+   "score": 55.4,
+   "tech_score": 38.0,
+   "news_score": 17.4,
+   "rsi": 84.7,
+   "mom5": 48.18,
+   "vol_surge": 8.18,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Tenax, Sionna plunge; MarineMax jumps premarket on reported buyout",
+     "age_h": 2.4,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 52.01,
+    "target": 57.76,
+    "stop": 48.56,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "NESR",
+   "price": 34.13,
+   "score": 54.4,
+   "tech_score": 37.3,
+   "news_score": 17.2,
+   "rsi": 67.8,
+   "mom5": 23.76,
+   "vol_surge": 1.16,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "SOUN Stock Surges as SoundHound AI Posts Record Revenue",
-     "age_h": 20.3,
-     "points": 16.7
+     "headline": "National Energy Services Reunited shares jump 10% after Q2 earnings beat",
+     "age_h": 3.8,
+     "points": 17.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 34.13,
+    "target": 37.61,
+    "stop": 32.04,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ACHR",
+   "price": 6.53,
+   "score": 50.2,
+   "tech_score": 32.8,
+   "news_score": 17.4,
+   "rsi": 67.2,
+   "mom5": 35.85,
+   "vol_surge": 1.6,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Archer Aviation Soars 20% on Boeing Deal to Acquire Wisk, Insitu, SkyGrid; Joby, EHang Stay Grounded",
+     "age_h": 0.9,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 6.53,
+    "target": 7.31,
+    "stop": 6.06,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "BWMN",
+   "price": 42.36,
+   "score": 47.2,
+   "tech_score": 30.0,
+   "news_score": 17.2,
+   "rsi": 89.2,
+   "mom5": 54.56,
+   "vol_surge": 7.77,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Bowman Consulting (BWMN) Q2 Earnings Beat Estimates",
+     "age_h": 1.9,
+     "points": 17.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 42.36,
+    "target": 46.73,
+    "stop": 39.74,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "U",
+   "price": 42.38,
+   "score": 44.6,
+   "tech_score": 18.0,
+   "news_score": 26.6,
+   "rsi": 82.0,
+   "mom5": 26.78,
+   "vol_surge": 0.36,
+   "catalysts": [
+    {
+     "category": "big_contract",
+     "headline": "U Q2 Deep Dive: AI-Powered Platform Drives Revenue, Margin Expansion, and Strategic Partnerships",
+     "age_h": 14.5,
+     "points": 18.0
     },
     {
-     "category": "guidance_raise",
-     "headline": "SoundHound AI Reports Record Q2 Revenue and Raises Full-Year Outlook on Enterprise AI Demand",
-     "age_h": 23.7,
-     "points": 20.8
+     "category": "growth_news",
+     "headline": "U Q2 Deep Dive: AI-Powered Platform Drives Revenue, Margin Expansion, and Strategic Partnerships",
+     "age_h": 14.5,
+     "points": 8.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 7.61,
-    "target": 9.1,
-    "stop": 7.02,
+    "entry": 42.38,
+    "target": 49.46,
+    "stop": 39.54,
     "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SHOP",
-   "price": 152.58,
-   "score": 62.7,
-   "tech_score": 46.0,
-   "news_score": 16.7,
-   "rsi": 67.7,
-   "mom5": 30.29,
-   "vol_surge": 0.3,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "SHOP Q2 Earnings Beat Estimates, Revenues Ride on Strong GMV",
-     "age_h": 21.3,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 152.58,
-    "target": 169.46,
-    "stop": 142.45,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "FA",
-   "price": 25.11,
-   "score": 62.7,
-   "tech_score": 46.0,
-   "news_score": 16.7,
-   "rsi": 61.2,
-   "mom5": 25.6,
-   "vol_surge": 0.33,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "First Advantage Corp (FA) (Q2 2026) Earnings Call Highlights: Record Revenue Growth and ...",
-     "age_h": 15.5,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 25.11,
-    "target": 27.65,
-    "stop": 23.58,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "BZH",
-   "price": 33.06,
-   "score": 55.7,
-   "tech_score": 39.0,
-   "news_score": 16.7,
-   "rsi": 54.5,
-   "mom5": 3.01,
-   "vol_surge": 7.4,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Beazer Homes (BZH) Reports Q3 Loss, Beats Revenue Estimates",
-     "age_h": 3.2,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 33.06,
-    "target": 34.95,
-    "stop": 31.92,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "DOCS",
-   "price": 31.3,
-   "score": 55.1,
-   "tech_score": 28.0,
-   "news_score": 27.1,
-   "rsi": 79.7,
-   "mom5": 51.03,
-   "vol_surge": 6.0,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "DOCS Stock Soars After CEO Says Clinical AI Outperformed Anthropic, Wall Street Lifts Price Targets",
-     "age_h": 2.3,
-     "points": 10.3
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Doximity’s (NYSE:DOCS) Q2 CY2026: Beats On Revenue",
-     "age_h": 18.5,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 31.3,
-    "target": 35.85,
-    "stop": 28.57,
-    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "TWLO",
-   "price": 248.49,
-   "score": 47.8,
-   "tech_score": 31.1,
-   "news_score": 16.7,
-   "rsi": 70.1,
-   "mom5": 25.97,
-   "vol_surge": 1.14,
+   "price": 248.66,
+   "score": 43.8,
+   "tech_score": 20.0,
+   "news_score": 23.8,
+   "rsi": 76.5,
+   "mom5": 26.27,
+   "vol_surge": 0.47,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Twilio Inc (TWLO) (Q2 2026) Earnings Call Highlights: Record Revenue and AI-Driven Growth ...",
-     "age_h": 9.7,
-     "points": 16.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 248.49,
-    "target": 273.42,
-    "stop": 233.54,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IT",
-   "price": 193.71,
-   "score": 46.3,
-   "tech_score": 38.0,
-   "news_score": 8.3,
-   "rsi": 75.6,
-   "mom5": 28.08,
-   "vol_surge": 0.18,
-   "catalysts": [
-    {
-     "category": "buyback_dividend",
-     "headline": "Gartner (IT) Lifted Guidance And Buybacks, Is The Rebound Already Priced In?",
-     "age_h": 62.4,
-     "points": 3.3
+     "headline": "Twilio Raised Its Full-Year Growth Guide to 18% and Posted Record Revenue of $1.5 Billion. The Stock Rose 25% in a Day.",
+     "age_h": 12.6,
+     "points": 17.2
     },
     {
-     "category": "earnings_beat",
-     "headline": "Gartner Q2 Earnings Beat Estimates, '26 EPS Outlook Raised",
-     "age_h": 69.4,
-     "points": 5.0
+     "category": "buyback_dividend",
+     "headline": "Why Twilio (TWLO) Is Up 22.3% After Raising 2026 Guidance And Completing $1.2B Buyback",
+     "age_h": 28.6,
+     "points": 6.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 193.71,
-    "target": 226.84,
-    "stop": 180.45,
+    "entry": 248.66,
+    "target": 287.23,
+    "stop": 233.23,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "W",
-   "price": 108.64,
-   "score": 46.0,
-   "tech_score": 36.0,
-   "news_score": 10.0,
-   "rsi": 63.8,
-   "mom5": 27.79,
-   "vol_surge": 0.2,
+   "ticker": "ARHS",
+   "price": 9.84,
+   "score": 43.1,
+   "tech_score": 38.0,
+   "news_score": 5.1,
+   "rsi": 75.6,
+   "mom5": 25.05,
+   "vol_surge": 0.15,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Wayfair Q2 Earnings Beat Estimates on U.S. Demand, Market Share Gains",
-     "age_h": 47.2,
-     "points": 10.0
+     "headline": "ARHS Stock Gains 18% After Q2 Earnings Beat, 2026 Profit Outlook Raised",
+     "age_h": 69.5,
+     "points": 5.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 108.64,
-    "target": 123.17,
-    "stop": 99.93,
+    "entry": 9.84,
+    "target": 10.87,
+    "stop": 9.22,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "TEAM",
+   "price": 148.21,
+   "score": 35.2,
+   "tech_score": 18.0,
+   "news_score": 17.2,
+   "rsi": 79.1,
+   "mom5": 42.99,
+   "vol_surge": 0.53,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Monday.com Falls As Software Maker's Guidance Trumps Earnings Beat",
+     "age_h": 2.1,
+     "points": 17.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 148.21,
+    "target": 168.05,
+    "stop": 136.3,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "HALO",
+   "price": 102.58,
+   "score": 34.9,
+   "tech_score": 18.0,
+   "news_score": 16.9,
+   "rsi": 90.1,
+   "mom5": 24.95,
+   "vol_surge": 0.42,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Halozyme Therapeutics (HALO) Is Up 24.9% After Raising 2026 Revenue Outlook and Boosting Buybacks",
+     "age_h": 38.5,
+     "points": 6.6
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Is Halozyme Therapeutics (HALO) Fairly Valued As Earnings Beat And Guidance Rise?",
+     "age_h": 46.6,
+     "points": 10.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 102.58,
+    "target": 112.84,
+    "stop": 98.47,
+    "hold": "2-8 კვირა"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 45,
-   "win_rate": 20.0,
-   "avg_return": -0.18,
-   "weight_now": 0.76
+   "n": 52,
+   "win_rate": 23.1,
+   "avg_return": 0.54,
+   "weight_now": 0.78
   },
   {
    "category": "m_and_a",
@@ -294,6 +294,13 @@
    "weight_now": 0.67
   },
   {
+   "category": "growth_news",
+   "n": 28,
+   "win_rate": 32.1,
+   "avg_return": -3.05,
+   "weight_now": 0.86
+  },
+  {
    "category": "analyst_upgrade",
    "n": 27,
    "win_rate": 11.1,
@@ -301,18 +308,11 @@
    "weight_now": 0.69
   },
   {
-   "category": "growth_news",
-   "n": 26,
-   "win_rate": 30.8,
-   "avg_return": -3.48,
-   "weight_now": 0.85
-  },
-  {
    "category": "guidance_raise",
-   "n": 7,
-   "win_rate": 28.6,
-   "avg_return": 2.13,
-   "weight_now": 0.83
+   "n": 9,
+   "win_rate": 33.3,
+   "avg_return": 0.83,
+   "weight_now": 0.87
   },
   {
    "category": "fda_approval",

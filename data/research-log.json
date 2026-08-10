@@ -1851,7 +1851,10 @@
    "guidance_raise",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 86.78,
+  "return_pct": 5.05,
+  "outcome": "win"
  },
  {
   "date": "2026-07-31T15:54:04.731583+00:00",
@@ -1862,7 +1865,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.59,
+  "return_pct": -12.49,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-31T15:54:04.731589+00:00",
@@ -1873,7 +1879,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 21.45,
+  "return_pct": 12.72,
+  "outcome": "win"
  },
  {
   "date": "2026-07-31T15:54:04.731593+00:00",
@@ -1884,7 +1893,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 73.78,
+  "return_pct": 0.9,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-31T15:54:04.731598+00:00",
@@ -1895,7 +1907,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 110.24,
+  "return_pct": -2.3,
+  "outcome": "flat"
  },
  {
   "date": "2026-07-31T15:54:04.731603+00:00",
@@ -1906,7 +1921,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 79.54,
+  "return_pct": 37.6,
+  "outcome": "win"
  },
  {
   "date": "2026-07-31T15:54:04.731607+00:00",
@@ -1917,7 +1935,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 32.67,
+  "return_pct": -12.74,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-31T15:54:04.731644+00:00",
@@ -1928,7 +1949,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 278.11,
+  "return_pct": 3.41,
+  "outcome": "win"
  },
  {
   "date": "2026-07-31T15:54:04.731650+00:00",
@@ -1939,7 +1963,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 11.29,
+  "return_pct": -4.65,
+  "outcome": "loss"
  },
  {
   "date": "2026-07-31T15:54:04.731655+00:00",
@@ -1950,7 +1977,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 766.44,
+  "return_pct": 1.6,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-03T16:15:58.510401+00:00",
@@ -2402,6 +2432,120 @@
   "score": 46.0,
   "horizon": "short",
   "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725295+00:00",
+  "ticker": "VREX",
+  "entry": 18.42,
+  "score": 72.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725305+00:00",
+  "ticker": "HZO",
+  "entry": 52.01,
+  "score": 55.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725308+00:00",
+  "ticker": "NESR",
+  "entry": 34.13,
+  "score": 54.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725311+00:00",
+  "ticker": "ACHR",
+  "entry": 6.53,
+  "score": 50.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725314+00:00",
+  "ticker": "BWMN",
+  "entry": 42.36,
+  "score": 47.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725317+00:00",
+  "ticker": "U",
+  "entry": 42.38,
+  "score": 44.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "big_contract",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725320+00:00",
+  "ticker": "TWLO",
+  "entry": 248.66,
+  "score": 43.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725326+00:00",
+  "ticker": "ARHS",
+  "entry": 9.84,
+  "score": 43.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725329+00:00",
+  "ticker": "TEAM",
+  "entry": 148.21,
+  "score": 35.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-10T14:50:36.725332+00:00",
+  "ticker": "HALO",
+  "entry": 102.58,
+  "score": 34.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
    "earnings_beat"
   ],
   "status": "open"
