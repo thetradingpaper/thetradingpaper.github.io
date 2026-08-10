@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 37.14,
+ "cash": 17.14,
  "positions": [
   {
    "ticker": "MSTR",
@@ -35,6 +35,17 @@
    "cost": 20,
    "target": 358.58,
    "stop": 308.81
+  },
+  {
+   "ticker": "NVDA",
+   "opened": "2026-08-10T16:26:00.076Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 220.26,
+   "shares": 0.090802,
+   "cost": 20,
+   "target": 235.92,
+   "stop": 208.51
   }
  ],
  "equityHistory": [
@@ -152,7 +163,7 @@
   },
   {
    "date": "2026-08-10",
-   "equity": 97.81
+   "equity": 97.9
   }
  ]
 }
