@@ -184,11 +184,13 @@ window.PORTFOLIOS = {
       { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 192.48, color: '#15803d', divYield: 6.20 },
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 240.23, color: '#006a4d', divYield: 3.66 },
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.515, avgBuy: 681.96, invested: 351.21, value: 351.21, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'GOOG', name: 'Alphabet Inc.', shares: 0.88410344, avgBuy: 320.77, invested: 283.59, value: 283.59, color: '#ea4335', divYield: 0.00 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.97880149, avgBuy: 695.88, invested: 681.13, value: 681.13, color: '#2563eb', divYield: 1.30 },
     ],
-    cash: 17.82, // 07 Aug 2026: EGGY position fully liquidated @ $17.82 -> net cash $17.82
+    cash: 0.00, // 10 Aug 2026: GOOG sold @ $312.10 + $17.82 cash = $329.92 -> bought 0.46380149 VOO @ $329.92 -> net cash $0.00
     transactions: [
+      // --- 10 აგვ 2026 GOOG liquidation → VOO buy · TBC app · net cash $0.00 ---
+      { date: '2026-08-10', type: 'buy',  ticker: 'VOO',  shares: 0.46380149, price: 711.3388, commission: 0 },
+      { date: '2026-08-10', type: 'sell', ticker: 'GOOG', shares: 0.88443382, price: 352.8805, commission: 0 },
       // --- 07 აგვ 2026 EGGY liquidation · TBC app · net cash $17.82 ---
       { date: '2026-08-07', type: 'sell', ticker: 'EGGY', shares: 0.52795069, price: 33.753155, commission: 0 },
       // --- 31 Jul 2026 transactions · TBC app ---
