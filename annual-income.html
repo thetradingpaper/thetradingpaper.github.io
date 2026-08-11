@@ -73,12 +73,20 @@
   var bookColors = { bog:'#b91c1c', tbc:'#1a1a1a', galt:'#8b6914' };
   var TAX = 0.70; // net after 30% GE withholding
 
+  var divMeta = { MAIN: {estDivPerShare:0.245, freq:'monthly'}, ARCC: {estDivPerShare:0.48, freq:'quarterly'}, BXSL: {estDivPerShare:0.77, freq:'quarterly'}, LYG: {estDivPerShare:0.11, freq:'semi-annual'}, VOO: {estDivPerShare:1.962, freq:'quarterly'} };
   var rows=[], grossTot=0, valTot=0;
   ['bog','tbc','galt'].forEach(function(k){
     var p=P[k]; if(!p||!p.holdings) return;
     p.holdings.forEach(function(h){
       valTot += (+h.value||0);
-      if(typeof h.divYield==='number' && h.divYield>0){
+      var meta = divMeta[h.ticker];
+      if (meta) {
+        var freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
+        var gross = (+h.shares || 0) * meta.estDivPerShare * freqMult;
+        grossTot += gross;
+        var yld = h.value > 0 ? (gross / h.value * 100) : (h.divYield || 0);
+        rows.push({ticker:h.ticker, book:k, bookName:p.name||k.toUpperCase(), value:+h.value||0, yld:yld, gross:gross, net:gross*TAX});
+      } else if (typeof h.divYield==='number' && h.divYield>0){
         var gross=(+h.value||0)*(h.divYield/100);
         grossTot += gross;
         rows.push({ticker:h.ticker, book:k, bookName:p.name||k.toUpperCase(), value:+h.value||0, yld:h.divYield, gross:gross, net:gross*TAX});

@@ -188,11 +188,6 @@
           var dates = meta.getDates(y, m);
           if (dates.payDate >= todayIso) {
             var gross = h.shares * meta.estDivPerShare;
-            // Adjust if divYield is specified and higher
-            if (h.divYield > 0 && h.value > 0) {
-              var altGross = (h.value * (h.divYield / 100)) / (meta.freq === 'monthly' ? 12 : meta.freq === 'semi-annual' ? 2 : 4);
-              if (altGross > gross) gross = altGross;
-            }
             var net = gross * TAX_MULTIPLIER;
             schedule.push({
               payDate: dates.payDate,
@@ -253,6 +248,8 @@
 
   // Global Engine Object
   window.TP_DIVIDENDS = {
+    DIV_META: DIV_META,
+
     // Returns the single next dividend payment object
     getNextDividend: function () {
       var sched = buildUpcomingSchedule();
@@ -293,7 +290,11 @@
 
       holdings.forEach(function (h) {
         divValTot += h.value;
-        if (h.divYield > 0) {
+        var meta = h.meta;
+        if (meta && meta.estDivPerShare) {
+          var freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
+          grossTot += h.shares * meta.estDivPerShare * freqMult;
+        } else if (h.divYield > 0) {
           grossTot += h.value * (h.divYield / 100);
         }
       });

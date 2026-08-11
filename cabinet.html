@@ -1411,10 +1411,15 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       projNet = summary.annualNet;
     } else {
       let totalGross = 0;
+      const divMeta = { MAIN: {estDivPerShare:0.245, freq:'monthly'}, ARCC: {estDivPerShare:0.48, freq:'quarterly'}, BXSL: {estDivPerShare:0.77, freq:'quarterly'}, LYG: {estDivPerShare:0.11, freq:'semi-annual'}, VOO: {estDivPerShare:1.962, freq:'quarterly'} };
       ['bog','tbc'].forEach(k => {
         const p = portfolios[k]; if (!p || !p.holdings) return;
         p.holdings.forEach(h => {
-          if (typeof h.divYield === 'number' && h.divYield > 0) {
+          const meta = divMeta[h.ticker];
+          if (meta) {
+            const freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
+            totalGross += h.shares * meta.estDivPerShare * freqMult;
+          } else if (typeof h.divYield === 'number' && h.divYield > 0) {
             totalGross += h.value * (h.divYield / 100);
           }
         });
@@ -1561,10 +1566,15 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         return `<tr><td><span class="sw" style="background:${x.color}"></span><span class="nm">${x.name}</span></td><td class="vv">${fmtUSD(x.value)}</td><td class="pp">${pct.toFixed(1)}%</td></tr>`;
       }).join('');
       let totalGross = 0;
+      const divMeta = { MAIN: {estDivPerShare:0.245, freq:'monthly'}, ARCC: {estDivPerShare:0.48, freq:'quarterly'}, BXSL: {estDivPerShare:0.77, freq:'quarterly'}, LYG: {estDivPerShare:0.11, freq:'semi-annual'}, VOO: {estDivPerShare:1.962, freq:'quarterly'} };
       ['bog','tbc'].forEach(k => {
         const p = portfolios[k]; if (!p || !p.holdings) return;
         p.holdings.forEach(h => {
-          if (typeof h.divYield === 'number' && h.divYield > 0) {
+          const meta = divMeta[h.ticker];
+          if (meta) {
+            const freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
+            totalGross += h.shares * meta.estDivPerShare * freqMult;
+          } else if (typeof h.divYield === 'number' && h.divYield > 0) {
             totalGross += h.value * (h.divYield / 100);
           }
         });
