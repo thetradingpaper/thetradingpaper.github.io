@@ -71,10 +71,10 @@
       name: 'Vanguard S&P 500 ETF',
       freq: 'quarterly',
       estDivPerShare: 1.962,
-      months: [2, 6, 9, 11], // Mar, Jul, Oct, Dec
+      months: [2, 5, 8, 11], // Mar, Jun, Sep, Dec (0-indexed)
       getDates: function (year, month) {
-        var pDays = { 2: 29, 6: 2, 9: 2, 11: 29 };
-        var pDay = pDays[month] || 2;
+        var pDays = { 2: 29, 5: 30, 8: 30, 11: 29 };
+        var pDay = pDays[month] || 30;
         return {
           exDate: formatDateIso(year, month, Math.max(1, pDay - 5)),
           payDate: formatDateIso(year, month, pDay)
@@ -274,15 +274,30 @@
 
     // Calculates overall summary totals
     getSummary: function () {
+      var P = parsePortfolios();
       var holdings = getActiveDivHoldings();
       var grossTot = 0;
-      var valTot = 0;
+      var divValTot = 0;
+      var totalPortVal = 0;
+
+      Object.keys(P).forEach(function(k) {
+        var p = P[k];
+        if (!p || p.status === 'closed') return;
+        totalPortVal += (+p.cash || 0);
+        if (p.holdings) {
+          p.holdings.forEach(function(h) {
+            totalPortVal += (+h.value || 0);
+          });
+        }
+      });
+
       holdings.forEach(function (h) {
-        valTot += h.value;
+        divValTot += h.value;
         if (h.divYield > 0) {
           grossTot += h.value * (h.divYield / 100);
         }
       });
+
       var netTot = grossTot * TAX_MULTIPLIER;
       var recHistory = getReceivedHistory();
       var totalReceived = recHistory.reduce(function (s, r) { return s + r.amount; }, 0);
@@ -292,7 +307,10 @@
         annualGross: grossTot,
         annualNet: netTot,
         monthlyNetAvg: netTot / 12,
-        portfolioYieldPct: valTot > 0 ? (netTot / valTot) * 100 : 0,
+        divHoldingsValue: divValTot,
+        totalPortfolioValue: totalPortVal,
+        portfolioYieldPct: totalPortVal > 0 ? (netTot / totalPortVal) * 100 : 0,
+        divHoldingsYieldPct: divValTot > 0 ? (netTot / divValTot) * 100 : 0,
         totalReceived: totalReceived,
         receivedCount: recHistory.length,
         nextDividend: next
