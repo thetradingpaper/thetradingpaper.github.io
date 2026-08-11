@@ -16,6 +16,7 @@ window.PORTFOLIOS = {
     annualGoalPct: 35,
     holdings: [],
     cash: 666.28, // 11 Aug 2026: 2X ETF positions closed & intraday trading -> net cash in BOG $666.28
+    previousValue: 624.98, // 10 Aug 2026 value prior to today's closing & scalping trades
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [

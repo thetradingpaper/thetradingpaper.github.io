@@ -1518,12 +1518,17 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     let dayDollar = 0, prevVal = 0;
     for (const k of ['bog','tbc']){            // GALT is closed (value 0)
       const p = portfolios[k]; if(!p) continue;
-      for (const h of (p.holdings || [])){
-        if (h.previousClose && h.shares !== undefined){
-          const prev = h.shares * h.previousClose;
-          prevVal += prev;
-          dayDollar += (h.value - prev);
+      if (p.holdings && p.holdings.length) {
+        for (const h of p.holdings){
+          if (h.previousClose && h.shares !== undefined){
+            const prev = h.shares * h.previousClose;
+            prevVal += prev;
+            dayDollar += (h.value - prev);
+          }
         }
+      } else if (p.previousValue) {
+        prevVal += p.previousValue;
+        dayDollar += ((p.cash || 0) - p.previousValue);
       }
     }
     const dayPct = prevVal > 0 ? (dayDollar / prevVal * 100) : 0;
@@ -1617,16 +1622,22 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     }
     var a = aggregate(p);
     var prevVal = 0, nowVal = 0, havePrev = false;
-    (p.holdings || []).forEach(function (h) {
-      var price = h.livePrice || (h.shares ? h.value / h.shares : 0);
-      if (h.previousClose && h.shares) {
-        prevVal += h.previousClose * h.shares;
-        nowVal  += price * h.shares;
-        havePrev = true;
-      }
-    });
+    if (p.holdings && p.holdings.length) {
+      p.holdings.forEach(function (h) {
+        var price = h.livePrice || (h.shares ? h.value / h.shares : 0);
+        if (h.previousClose && h.shares) {
+          prevVal += h.previousClose * h.shares;
+          nowVal  += price * h.shares;
+          havePrev = true;
+        }
+      });
+    } else if (p.previousValue) {
+      prevVal = p.previousValue;
+      nowVal  = a.currentValue;
+      havePrev = true;
+    }
     var dayPnl = havePrev ? nowVal - prevVal : 0;
-    var base = prevVal + (p.cash || 0);
+    var base = (p.holdings && p.holdings.length) ? (prevVal + (p.cash || 0)) : prevVal;
     var dayPct = (havePrev && base !== 0) ? (dayPnl / Math.abs(base)) * 100 : 0;
     return { key: key, value: a.currentValue, deposits: a.deposits, pnl: a.pnl, pnlPct: a.pnlPct,
              dayPnl: dayPnl, dayPct: dayPct, havePrev: havePrev };
