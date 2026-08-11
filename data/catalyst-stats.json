@@ -1,13 +1,13 @@
 {
  "m_and_a": {
-  "n": 36,
+  "n": 41,
   "wins": 3,
-  "sum_ret": -102.81
+  "sum_ret": -108.37
  },
  "earnings_beat": {
-  "n": 52,
-  "wins": 12,
-  "sum_ret": 28.26
+  "n": 59,
+  "wins": 15,
+  "sum_ret": 65.56
  },
  "analyst_upgrade": {
   "n": 27,
