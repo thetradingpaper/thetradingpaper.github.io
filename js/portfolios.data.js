@@ -14,13 +14,17 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [],
-    cash: 666.28, // 11 Aug 2026: 2X ETF positions closed & intraday trading -> net cash in BOG $666.28
+    holdings: [
+      { ticker: 'SMCZ', name: 'Defiance Daily Target 2X Short SMCI ETF', shares: 118.14776384, avgBuy: 5.69, invested: 671.80, value: 671.08, color: '#dc2626', divYield: 0.00 },
+    ],
+    cash: 0.00, // 11 Aug 2026: BOG cash $671.80 fully deployed into SMCZ 2X Short SMCI ETF · holding overnight
     previousValue: 624.98, // 10 Aug 2026 value prior to today's closing & scalping trades
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 11 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) purchase · BOG app · $671.80 invested · holding overnight ---
+      { date: '2026-08-11', type: 'buy',  ticker: 'SMCZ', shares: 118.14776384, price: 5.68608405, commission: 0 },
       // --- 11 აგვ 2026 BOG 2X ETF positions closed & intraday trading · BOG app · net cash $666.28 ---
       { date: '2026-08-11', type: 'sell', ticker: 'RKLZ', shares: 76.99477619, price: 2.94, commission: 0 },
       { date: '2026-08-11', type: 'sell', ticker: 'SPCG', shares: 10.12658227, price: 19.70, commission: 0 },

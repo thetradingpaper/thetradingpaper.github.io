@@ -13,8 +13,8 @@ window.MEPORTF = {
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG uninvested cash for the meportfolio page. 11 Aug 2026: positions closed & trading -> cash balance $666.28.
-  bog: { cashAdded: 666.28, countedAsDeposit: false },
+  // BOG uninvested cash for the meportfolio page. 11 Aug 2026: cash fully deployed into SMCZ 2X Short SMCI ETF -> cash balance $0.00.
+  bog: { cashAdded: 0.00, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',

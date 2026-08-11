@@ -1,6 +1,12 @@
 {
   "updated": "2026-08-11T19:27:58.045Z",
   "quotes": {
+    "SMCZ": {
+      "price": 5.68,
+      "previousClose": 5.69,
+      "regularPrice": 5.68,
+      "extPrice": 5.68
+    },
     "SPCX": {
       "price": 113.326,
       "previousClose": 115.26
