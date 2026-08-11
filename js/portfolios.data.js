@@ -14,16 +14,16 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [
-      { ticker: 'SNXX', name: 'Tradr 2X Long SNDK Daily ETF', shares: 21.09971726, avgBuy: 9.48, invested: 200.00, value: 199.18, color: '#f59e0b', divYield: 0.00 },
-      { ticker: 'SPCG', name: 'TRADR 2X SHORT SPCX DLY ETF', shares: 10.12658227, avgBuy: 19.75, invested: 200.00, value: 199.44, color: '#ef4444', divYield: 0.00 },
-      { ticker: 'RKLZ', name: 'DEF DAILY T2X SHORT RKLB ETF', shares: 76.99477619, avgBuy: 2.93, invested: 225.51, value: 226.36, color: '#8b5cf6', divYield: 0.00 },
-    ],
-    cash: 0.00, // 10 Aug 2026: cash fully deployed / traded -> net cash in BOG $0.00
+    holdings: [],
+    cash: 666.28, // 11 Aug 2026: 2X ETF positions closed & intraday trading -> net cash in BOG $666.28
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 11 აგვ 2026 BOG 2X ETF positions closed & intraday trading · BOG app · net cash $666.28 ---
+      { date: '2026-08-11', type: 'sell', ticker: 'RKLZ', shares: 76.99477619, price: 2.94, commission: 0 },
+      { date: '2026-08-11', type: 'sell', ticker: 'SPCG', shares: 10.12658227, price: 19.70, commission: 0 },
+      { date: '2026-08-11', type: 'sell', ticker: 'SNXX', shares: 21.09971726, price: 9.45, commission: 0 },
       // --- 10 აგვ 2026 BOG 2X leveraged ETF purchases (SNXX, SPCG, RKLZ) · BOG app · net cash $48.38 ---
       { date: '2026-08-10', type: 'buy',  ticker: 'RKLZ', shares: 76.99477619, price: 2.9289, commission: 0 },
       { date: '2026-08-10', type: 'buy',  ticker: 'SPCG', shares: 10.12658227, price: 19.7500, commission: 0 },
