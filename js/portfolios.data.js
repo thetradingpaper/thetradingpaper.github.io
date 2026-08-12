@@ -15,14 +15,14 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 603.03, // 12 Aug 2026: SMCZ position closed @ 510.40¢ ($5.1040/sh) · uninvested cash $603.03 (awaiting withdrawal)
+    cash: 510.40, // 12 Aug 2026: SMCZ position closed · net cash $510.40 (uninvested cash ready for reinvestment)
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 12 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) closed @ 510.40¢ · BOG app · proceeds $603.03 · net cash $603.03 ---
-      { date: '2026-08-12', type: 'sell', ticker: 'SMCZ', shares: 118.14776384, price: 5.104, commission: 0 },
+      // --- 12 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) closed · BOG app · proceeds $510.40 · net cash $510.40 ---
+      { date: '2026-08-12', type: 'sell', ticker: 'SMCZ', shares: 118.14776384, price: 4.32001557, commission: 0 },
       // --- 11 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) purchase · BOG app · $671.80 invested · holding overnight ---
       { date: '2026-08-11', type: 'buy',  ticker: 'SMCZ', shares: 118.14776384, price: 5.68608405, commission: 0 },
       // --- 11 აგვ 2026 BOG 2X ETF positions closed & intraday trading · BOG app · net cash $666.28 ---
