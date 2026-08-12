@@ -23,7 +23,7 @@ window.PORTFOLIOS = {
     ],
     cash: 0.00, // 12 Aug 2026: BOG cash $510.40 fully deployed into 5 holdings (SMCI, SNDK, NBIS, AMD, CRWV)
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
-    priorDeposits: 997.66,
+    priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
@@ -212,6 +212,8 @@ window.PORTFOLIOS = {
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.97880149, avgBuy: 695.88, invested: 681.13, value: 681.13, color: '#2563eb', divYield: 1.30 },
     ],
     cash: 0.00, // 10 Aug 2026: GOOG sold @ $312.10 + $17.82 cash = $329.92 -> bought 0.46380149 VOO @ $329.92 -> net cash $0.00
+    priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
+    priorCostBasis: 0.00,
     transactions: [
       // --- 10 აგვ 2026 GOOG liquidation → VOO buy · TBC app · net cash $0.00 ---
       { date: '2026-08-10', type: 'buy',  ticker: 'VOO',  shares: 0.46380149, price: 711.3388, commission: 0 },

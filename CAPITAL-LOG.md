@@ -1,20 +1,20 @@
 # CAPITAL LOG — The Trading Paper
 
 Living memory of capital, trades, and the build. I update this every time you report a trade or we change the site.
-**Last updated: 18 Jun 2026.**
+**Last updated: 12 Aug 2026.**
 
 ---
 
-## 1 · Current capital (snapshot · 18 Jun 2026)
+## 1 · Current capital (snapshot · 12 Aug 2026)
 
-| Book | Broker | Role | Deposited | Value | P/L |
-|---|---|---|---|---|---|
-| **BOG (Dogma)** | Bank of Georgia | Long-term core · **never withdraw** | $1,199.26 | **$1,517.54** (live) | **+$318.28 (+26.54%)** |
-| **TBC** | TBC Capital | Active, one position | $380.36 | $233.94 | −$146.42 (−38.5%) |
-| **GALT** | Galt & Taggart | 2.5× margin (MSTR.CFD) | $290.00 | $297.91 equity | +$7.91 (+ realised +$18.85) |
-| **TOTAL** | — | — | **$1,869.62** | **$2,049.39** | **+$179.77 (+9.61%)** |
+| Book | Broker | Role | Gross Deposited | Net Capital | Value | P/L |
+|---|---|---|---|---|---|---|
+| **BOG (Dogma)** | Bank of Georgia | Long-term core (ETFs & equities) | $2,082.15 | $1,975.31 | **$510.56** | **🔴 −$1,464.75 (−74.15%)** |
+| **TBC** | TBC Capital | Diversified income portfolio | $4,926.83 | $4,926.83 | **$1,721.40** | **🔴 −$3,205.43 (−65.06%)** |
+| **GALT** | Galt & Taggart | Closed margin book | $78.63 | $78.63 | **$0.00** | **🔴 −$78.63 (−100.00%)** |
+| **TOTAL** | — | — | **$7,087.61** | **$6,980.77** | **$2,231.96** | **🔴 −$4,748.81 (−68.03%)** |
 
-> BOG value is live (your prices, not cached). Net dividend ≈ $6.81/yr (after 30% GE tax). Tracking since 09 Dec 2025.
+> **Note on Historical Capital:** Includes **$4,500.00** in historical lost bank deposits ($1,300.00 from Bank of Georgia / BOG, $3,200.00 from TBC Bank) added to cost basis / deposits so that PnL fully reflects lifetime lost capital. Net capital at risk ($6,980.77) accounts for -$106.84 card withdrawals.
 
 ---
 
