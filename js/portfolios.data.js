@@ -14,15 +14,15 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [
-      { ticker: 'SMCZ', name: 'Defiance Daily Target 2X Short SMCI ETF', shares: 118.14776384, avgBuy: 5.69, invested: 671.80, value: 671.08, color: '#dc2626', divYield: 0.00 },
-    ],
-    cash: 0.00, // 11 Aug 2026: BOG cash $671.80 fully deployed into SMCZ 2X Short SMCI ETF · holding overnight
-    previousValue: 624.98, // 10 Aug 2026 value prior to today's closing & scalping trades
+    holdings: [],
+    cash: 603.03, // 12 Aug 2026: SMCZ position closed @ 510.40¢ ($5.1040/sh) · uninvested cash $603.03 (awaiting withdrawal)
+    previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 12 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) closed @ 510.40¢ · BOG app · proceeds $603.03 · net cash $603.03 ---
+      { date: '2026-08-12', type: 'sell', ticker: 'SMCZ', shares: 118.14776384, price: 5.104, commission: 0 },
       // --- 11 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) purchase · BOG app · $671.80 invested · holding overnight ---
       { date: '2026-08-11', type: 'buy',  ticker: 'SMCZ', shares: 118.14776384, price: 5.68608405, commission: 0 },
       // --- 11 აგვ 2026 BOG 2X ETF positions closed & intraday trading · BOG app · net cash $666.28 ---
