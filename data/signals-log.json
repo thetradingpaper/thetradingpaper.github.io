@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-08-12T14:23:08.035Z",
+  "opened": "2026-08-05T17:05:02.309Z",
+  "ticker": "MSTR",
+  "rule": "R3",
+  "entry": 97.47,
+  "exit": 96.53,
+  "exitType": "TIME",
+  "pnl": -0.19,
+  "pnlPct": -0.96
+ },
+ {
   "closed": "2026-08-10T14:23:03.923Z",
   "opened": "2026-08-04T15:31:35.886Z",
   "ticker": "PLTR",

@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 17.14,
+ "cash": 36.95,
  "positions": [
-  {
-   "ticker": "MSTR",
-   "opened": "2026-08-05T17:05:02.309Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 97.47,
-   "shares": 0.205191,
-   "cost": 20,
-   "target": 108.89,
-   "stop": 88.91
-  },
   {
    "ticker": "BABA",
    "opened": "2026-08-07T00:43:29.080Z",
@@ -168,6 +157,10 @@
   {
    "date": "2026-08-11",
    "equity": 96.93
+  },
+  {
+   "date": "2026-08-12",
+   "equity": 96.76
   }
  ]
 }
