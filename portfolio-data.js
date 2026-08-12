@@ -13,7 +13,7 @@ window.MEPORTF = {
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG uninvested cash for the meportfolio page. 12 Aug 2026: SMCZ closed -> cash balance $510.40 (ready for reinvestment).
+  // BOG uninvested cash for the meportfolio page. 12 Aug 2026: cash fully deployed into SMCI, SNDK, NBIS, AMD, CRWV -> cash balance $0.00.
   bog: { cashAdded: 0.00, countedAsDeposit: false },
   galt: {
     closed: true,

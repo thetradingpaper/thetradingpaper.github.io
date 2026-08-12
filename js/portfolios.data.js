@@ -14,13 +14,25 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [],
-    cash: 510.40, // 12 Aug 2026: SMCZ position closed · net cash $510.40 (uninvested cash ready for reinvestment)
+    holdings: [
+      { ticker: 'SMCI', name: 'Super Micro Computer, Inc.', shares: 2.80437257, avgBuy: 35.66, invested: 100.00, value: 100.48, color: '#16a34a', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.08041847, avgBuy: 1372.82, invested: 110.40, value: 110.22, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'NBIS', name: 'Nebius Group N.V.', shares: 0.40464532, avgBuy: 247.13, invested: 100.00, value: 99.77, color: '#84cc16', divYield: 0.00 },
+      { ticker: 'AMD', name: 'Advanced Micro Devices, Inc.', shares: 0.20521711, avgBuy: 487.29, invested: 100.00, value: 100.01, color: '#ef4444', divYield: 0.00 },
+      { ticker: 'CRWV', name: 'CoreWeave Inc.', shares: 0.937208, avgBuy: 106.70, invested: 100.00, value: 100.08, color: '#2563eb', divYield: 0.00 },
+    ],
+    cash: 0.00, // 12 Aug 2026: BOG cash $510.40 fully deployed into 5 holdings (SMCI, SNDK, NBIS, AMD, CRWV)
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 997.66,
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 12 აგვ 2026 BOG 5-stock reinvestment (SMCI, SNDK, NBIS, AMD, CRWV) · BOG app · $510.40 total invested · net cash $0.00 ---
+      { date: '2026-08-12', type: 'buy',  ticker: 'CRWV', shares: 0.93720800, price: 106.70, commission: 0 },
+      { date: '2026-08-12', type: 'buy',  ticker: 'AMD',  shares: 0.20521711, price: 487.29, commission: 0 },
+      { date: '2026-08-12', type: 'buy',  ticker: 'NBIS', shares: 0.40464532, price: 247.13, commission: 0 },
+      { date: '2026-08-12', type: 'buy',  ticker: 'SNDK', shares: 0.08041847, price: 1372.82, commission: 0 },
+      { date: '2026-08-12', type: 'buy',  ticker: 'SMCI', shares: 2.80437257, price: 35.66,  commission: 0 },
       // --- 12 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) closed · BOG app · proceeds $510.40 · net cash $510.40 ---
       { date: '2026-08-12', type: 'sell', ticker: 'SMCZ', shares: 118.14776384, price: 4.32001557, commission: 0 },
       // --- 11 აგვ 2026 BOG SMCZ (2X Short SMCI ETF) purchase · BOG app · $671.80 invested · holding overnight ---
