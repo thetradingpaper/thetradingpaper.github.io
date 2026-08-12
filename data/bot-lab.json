@@ -17,7 +17,7 @@
      "target": 22.49,
      "stop": 19.34,
      "max_days": 7,
-     "last_price": 21.24
+     "last_price": 20.42
     }
    ],
    "trades": [
@@ -62,7 +62,7 @@
      "leverage": 1
     }
    ],
-   "equity": 87.08,
+   "equity": 83.76,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -159,13 +159,17 @@
     {
      "date": "2026-08-11",
      "equity": 87.08
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 83.76
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 1,
     "win_rate": 25.0,
-    "return_pct": -12.92
+    "return_pct": -16.24
    }
   },
   "bot2": {
@@ -183,7 +187,7 @@
      "target": 219.02,
      "stop": 173.37,
      "max_days": 7,
-     "last_price": 184.68
+     "last_price": 187.12
     },
     {
      "ticker": "QNST",
@@ -193,7 +197,7 @@
      "target": 22.49,
      "stop": 19.34,
      "max_days": 7,
-     "last_price": 21.24
+     "last_price": 20.42
     },
     {
      "ticker": "IOVA",
@@ -203,7 +207,7 @@
      "target": 7.21,
      "stop": 5.56,
      "max_days": 7,
-     "last_price": 6.49
+     "last_price": 6.57
     },
     {
      "ticker": "SOUN",
@@ -223,7 +227,7 @@
      "target": 20.09,
      "stop": 17.41,
      "max_days": 7,
-     "last_price": 18.48
+     "last_price": 18.52
     }
    ],
    "trades": [
@@ -418,7 +422,7 @@
      "leverage": 1
     }
    ],
-   "equity": 70.01,
+   "equity": 69.84,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -515,13 +519,17 @@
     {
      "date": "2026-08-11",
      "equity": 70.01
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 69.84
     }
    ],
    "stats": {
     "trades": 19,
     "wins": 1,
     "win_rate": 5.3,
-    "return_pct": -29.99
+    "return_pct": -30.16
    }
   },
   "bot3": {
@@ -539,7 +547,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.2
+     "last_price": 20.42
     },
     {
      "ticker": "FCEL",
@@ -549,7 +557,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 19.84
+     "last_price": 20.41
     },
     {
      "ticker": "DXCM",
@@ -559,7 +567,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 88.96
+     "last_price": 88.93
     }
    ],
    "trades": [
@@ -604,7 +612,7 @@
      "leverage": 1
     }
    ],
-   "equity": 65.14,
+   "equity": 66.03,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -701,13 +709,17 @@
     {
      "date": "2026-08-11",
      "equity": 65.14
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 66.03
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -34.86
+    "return_pct": -33.97
    }
   },
   "bot4": {
@@ -725,7 +737,7 @@
      "target": 219.02,
      "stop": 173.37,
      "max_days": 7,
-     "last_price": 184.68
+     "last_price": 187.12
     }
    ],
    "trades": [
@@ -770,7 +782,7 @@
      "leverage": 1
     }
    ],
-   "equity": 91.74,
+   "equity": 92.11,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -867,13 +879,17 @@
     {
      "date": "2026-08-11",
      "equity": 91.74
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 92.11
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -8.26
+    "return_pct": -7.89
    }
   },
   "bot5": {
@@ -894,7 +910,7 @@
      "leverage": 2.5,
      "own_equity": 459.87720343021874,
      "borrowed": 689.82,
-     "last_price": 184.68
+     "last_price": 187.12
     }
    ],
    "trades": [
@@ -929,7 +945,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 447.84,
+   "equity": 462.63,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1026,15 +1042,19 @@
     {
      "date": "2026-08-11",
      "equity": 447.84
+    },
+    {
+     "date": "2026-08-12",
+     "equity": 462.63
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -55.22
+    "return_pct": -53.74
    }
   }
  },
- "updated": "2026-08-11T14:49:26.751570+00:00"
+ "updated": "2026-08-12T14:46:19.610108+00:00"
 }

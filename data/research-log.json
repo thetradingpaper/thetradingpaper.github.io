@@ -2134,7 +2134,10 @@
    "guidance_raise",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 376.12,
+  "return_pct": 5.52,
+  "outcome": "win"
  },
  {
   "date": "2026-08-04T16:06:04.914660+00:00",
@@ -2147,7 +2150,10 @@
    "earnings_beat",
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 58.17,
+  "return_pct": -8.61,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-04T16:06:04.914666+00:00",
@@ -2158,7 +2164,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 168.92,
+  "return_pct": 6.07,
+  "outcome": "win"
  },
  {
   "date": "2026-08-04T16:06:04.914669+00:00",
@@ -2180,7 +2189,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 93.81,
+  "return_pct": 0.42,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-04T16:06:04.914676+00:00",
@@ -2192,7 +2204,10 @@
    "m_and_a",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 125.12,
+  "return_pct": 0.48,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-04T16:06:04.914680+00:00",
@@ -2204,7 +2219,10 @@
    "earnings_beat",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 162.57,
+  "return_pct": 0.12,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-04T16:06:04.914687+00:00",
@@ -2216,7 +2234,10 @@
    "growth_news",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.3,
+  "return_pct": 2.15,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-04T16:06:04.914692+00:00",
@@ -2227,7 +2248,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 405.44,
+  "return_pct": -0.38,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-04T16:06:04.914696+00:00",
@@ -2238,7 +2262,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 71.8,
+  "return_pct": 8.89,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755878+00:00",
@@ -2693,6 +2720,120 @@
   "catalyst_cats": [
    "big_contract",
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401087+00:00",
+  "ticker": "SMCI",
+  "entry": 35.86,
+  "score": 48.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401103+00:00",
+  "ticker": "NESR",
+  "entry": 35.74,
+  "score": 46.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401109+00:00",
+  "ticker": "NRGV",
+  "entry": 3.99,
+  "score": 46.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401113+00:00",
+  "ticker": "CRWV",
+  "entry": 106.1,
+  "score": 43.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401118+00:00",
+  "ticker": "VREX",
+  "entry": 18.52,
+  "score": 43.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "m_and_a",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401123+00:00",
+  "ticker": "ETOR",
+  "entry": 28.24,
+  "score": 42.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "m_and_a",
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401129+00:00",
+  "ticker": "SEPN",
+  "entry": 48.95,
+  "score": 37.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401137+00:00",
+  "ticker": "ERO",
+  "entry": 36.52,
+  "score": 36.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401148+00:00",
+  "ticker": "BWMN",
+  "entry": 42.3,
+  "score": 35.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-12T14:46:18.401153+00:00",
+  "ticker": "SHOP",
+  "entry": 150.49,
+  "score": 34.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
   ],
   "status": "open"
  }
