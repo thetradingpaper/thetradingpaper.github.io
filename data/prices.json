@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-13T17:14:51.418Z",
+  "updated": "2026-08-13T18:09:01.485Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -14,7 +14,7 @@
       "previousClose": 607.73004
     },
     "VOO": {
-      "price": 714.35,
+      "price": 714.075,
       "previousClose": 710.17
     },
     "ASX": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 94.9,
+      "price": 95.02,
       "previousClose": 94.83
     },
     "CRDO": {
@@ -58,23 +58,23 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 20.105,
+      "price": 20.155,
       "previousClose": 19.87
     },
     "MAIN": {
-      "price": 59.095,
+      "price": 59.088,
       "previousClose": 58.51
     },
     "BXSL": {
-      "price": 24.85,
+      "price": 24.92,
       "previousClose": 24.41
     },
     "LYG": {
-      "price": 6.205,
+      "price": 6.21,
       "previousClose": 6.19
     },
     "SNDK": {
-      "price": 1560.79,
+      "price": 1550,
       "previousClose": 1344.29
     },
     "GOOG": {
@@ -98,19 +98,19 @@
       "previousClose": 2.94
     },
     "SMCI": {
-      "price": 40.301,
+      "price": 39.575,
       "previousClose": 37.61
     },
     "NBIS": {
-      "price": 253.195,
+      "price": 248.607,
       "previousClose": 259.2
     },
     "AMD": {
-      "price": 494.07,
+      "price": 490.39,
       "previousClose": 482.93
     },
     "CRWV": {
-      "price": 108.12,
+      "price": 107.14,
       "previousClose": 107.73
     }
   }
