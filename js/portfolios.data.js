@@ -15,18 +15,22 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      { ticker: 'SMCI', name: 'Super Micro Computer, Inc.', shares: 2.80437257, avgBuy: 35.66, invested: 100.00, value: 100.48, color: '#16a34a', divYield: 0.00 },
+      { ticker: 'SMCI', name: 'Super Micro Computer, Inc.', shares: 4.09108811, avgBuy: 36.91, invested: 151.00, value: 153.87, color: '#16a34a', divYield: 0.00 },
       { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.08041847, avgBuy: 1372.82, invested: 110.40, value: 110.22, color: '#dc2626', divYield: 0.00 },
       { ticker: 'NBIS', name: 'Nebius Group N.V.', shares: 0.40464532, avgBuy: 247.13, invested: 100.00, value: 99.77, color: '#84cc16', divYield: 0.00 },
       { ticker: 'AMD', name: 'Advanced Micro Devices, Inc.', shares: 0.20521711, avgBuy: 487.29, invested: 100.00, value: 100.01, color: '#ef4444', divYield: 0.00 },
       { ticker: 'CRWV', name: 'CoreWeave Inc.', shares: 0.937208, avgBuy: 106.70, invested: 100.00, value: 100.08, color: '#2563eb', divYield: 0.00 },
     ],
-    cash: 0.00, // 12 Aug 2026: BOG cash $510.40 fully deployed into 5 holdings (SMCI, SNDK, NBIS, AMD, CRWV)
+    cash: 0.00, // 13 Aug 2026: BOG cash deposit $51.00 fully deployed into SMCI (1.28671554 sh total) -> cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 13 აგვ 2026 BOG deposit ($51.00) & SMCI purchases (1.28671554 sh total) · BOG app · net cash $0.00 ---
+      { date: '2026-08-13', type: 'buy',  ticker: 'SMCI', shares: 0.28671554, price: 39.6211843, commission: 0 },
+      { date: '2026-08-13', type: 'buy',  ticker: 'SMCI', shares: 1.00000000, price: 39.64,      commission: 0 },
+      { date: '2026-08-13', type: 'deposit', amount: 51.00 },
       // --- 12 აგვ 2026 BOG 5-stock reinvestment (SMCI, SNDK, NBIS, AMD, CRWV) · BOG app · $510.40 total invested · net cash $0.00 ---
       { date: '2026-08-12', type: 'buy',  ticker: 'CRWV', shares: 0.93720800, price: 106.70, commission: 0 },
       { date: '2026-08-12', type: 'buy',  ticker: 'AMD',  shares: 0.20521711, price: 487.29, commission: 0 },
