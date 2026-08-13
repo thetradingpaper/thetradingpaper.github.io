@@ -2178,7 +2178,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 102.26,
+  "return_pct": -12.03,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-04T16:06:04.914672+00:00",
@@ -2277,7 +2280,10 @@
    "guidance_raise",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 188.44,
+  "return_pct": 1.09,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-05T15:55:33.755888+00:00",
@@ -2288,7 +2294,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 28.69,
+  "return_pct": 6.55,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755892+00:00",
@@ -2299,7 +2308,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 124.9,
+  "return_pct": 10.82,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755895+00:00",
@@ -2310,7 +2322,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 283.06,
+  "return_pct": -0.83,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-05T15:55:33.755899+00:00",
@@ -2322,7 +2337,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 162.99,
+  "return_pct": 12.34,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755903+00:00",
@@ -2333,7 +2351,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 12.77,
+  "return_pct": -1.47,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-05T15:55:33.755907+00:00",
@@ -2344,7 +2365,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 207.62,
+  "return_pct": 5.5,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755913+00:00",
@@ -2355,7 +2379,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 13.52,
+  "return_pct": -2.56,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-05T15:55:33.755917+00:00",
@@ -2366,7 +2393,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 62.95,
+  "return_pct": 13.57,
+  "outcome": "win"
  },
  {
   "date": "2026-08-05T15:55:33.755920+00:00",
@@ -2377,7 +2407,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 93.82,
+  "return_pct": 0.19,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-07T14:45:36.238299+00:00",
@@ -2834,6 +2867,121 @@
   "horizon": "long",
   "catalyst_cats": [
    "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954586+00:00",
+  "ticker": "OMER",
+  "entry": 16.86,
+  "score": 57.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954596+00:00",
+  "ticker": "WYFI",
+  "entry": 30.49,
+  "score": 55.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954600+00:00",
+  "ticker": "KURA",
+  "entry": 10.92,
+  "score": 51.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954603+00:00",
+  "ticker": "TBBB",
+  "entry": 48.62,
+  "score": 49.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954606+00:00",
+  "ticker": "ARX",
+  "entry": 19.54,
+  "score": 46.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954609+00:00",
+  "ticker": "YETI",
+  "entry": 44.98,
+  "score": 46.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954612+00:00",
+  "ticker": "FIGS",
+  "entry": 14.48,
+  "score": 41.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954618+00:00",
+  "ticker": "MTSI",
+  "entry": 316.47,
+  "score": 40.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954621+00:00",
+  "ticker": "NESR",
+  "entry": 35.31,
+  "score": 39.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-13T14:48:55.954624+00:00",
+  "ticker": "TEAM",
+  "entry": 157.38,
+  "score": 38.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
   ],
   "status": "open"
  }

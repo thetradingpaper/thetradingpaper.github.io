@@ -1,279 +1,291 @@
 {
- "updated": "2026-08-12T14:46:18.401208+00:00",
+ "updated": "2026-08-13T14:48:55.954659+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on SMCI (score 48.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on OMER (score 57.5). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "SMCI",
-   "price": 35.86,
-   "score": 48.8,
-   "tech_score": 30.8,
-   "news_score": 18.0,
-   "rsi": 61.5,
-   "mom5": 18.31,
-   "vol_surge": 1.35,
+   "ticker": "OMER",
+   "price": 16.86,
+   "score": 57.5,
+   "tech_score": 28.0,
+   "news_score": 29.5,
+   "rsi": 94.2,
+   "mom5": 27.64,
+   "vol_surge": 3.46,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Super Micro Stock Jumps After Earnings Beat -- Revenue Soars 93%",
-     "age_h": 1.9,
-     "points": 18.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 35.86,
-    "target": 40.65,
-    "stop": 32.99,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NESR",
-   "price": 35.74,
-   "score": 46.0,
-   "tech_score": 28.0,
-   "news_score": 18.0,
-   "rsi": 69.8,
-   "mom5": 24.16,
-   "vol_surge": 0.15,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "National Energy Services Reunited (NESR) Is Up 25.2% After Earnings Beat And New Kuwait Contracts - Has The Bull Case Changed?",
-     "age_h": 8.5,
-     "points": 18.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 35.74,
-    "target": 39.52,
-    "stop": 33.48,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NRGV",
-   "price": 3.99,
-   "score": 46.0,
-   "tech_score": 28.0,
-   "news_score": 18.0,
-   "rsi": 59.6,
-   "mom5": 22.39,
-   "vol_surge": 0.78,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Energy Vault Holdings, Inc. (NRGV) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 17.0,
-     "points": 18.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 3.99,
-    "target": 4.71,
-    "stop": 3.56,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CRWV",
-   "price": 106.1,
-   "score": 43.3,
-   "tech_score": 32.9,
-   "news_score": 10.3,
-   "rsi": 63.1,
-   "mom5": 15.68,
-   "vol_surge": 1.62,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "‘Pharma Bro’ Martin Shkreli Says CRWV Stock Is A ‘Short’, While Wall Street Raises Price Targets After Earnings",
-     "age_h": 1.1,
-     "points": 10.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 106.1,
-    "target": 123.96,
-    "stop": 95.38,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "VREX",
-   "price": 18.52,
-   "score": 43.2,
-   "tech_score": 28.0,
-   "news_score": 15.2,
-   "rsi": 96.2,
-   "mom5": 49.76,
-   "vol_surge": 0.54,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Teledyne agrees to acquire Varex Imaging for $1.1bn",
-     "age_h": 27.6,
-     "points": 10.1
+     "headline": "Omeros (OMER) Q2 Earnings and Revenues Beat Estimates",
+     "age_h": 17.5,
+     "points": 18.5
     },
     {
-     "category": "growth_news",
-     "headline": "Varex Q3 FY2026 Results Show Revenue Growth and Margin Expansion Ahead of Teledyne Transaction",
-     "age_h": 47.7,
-     "points": 5.1
+     "category": "buyback_dividend",
+     "headline": "OMER Stock Soars 24% After-Hours On YARTEMLEA Sales Momentum, Debt Reduction And Share Buybacks",
+     "age_h": 17.7,
+     "points": 11.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 18.52,
-    "target": 21.02,
-    "stop": 17.53,
+    "entry": 16.86,
+    "target": 19.84,
+    "stop": 15.66,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "ETOR",
-   "price": 28.24,
-   "score": 42.0,
-   "tech_score": -1.4,
-   "news_score": 43.4,
-   "rsi": 19.1,
-   "mom5": -24.48,
-   "vol_surge": 1.32,
+   "ticker": "WYFI",
+   "price": 30.49,
+   "score": 55.2,
+   "tech_score": 28.0,
+   "news_score": 27.2,
+   "rsi": 63.9,
+   "mom5": 23.19,
+   "vol_surge": 0.68,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Etoro Posts Rising Profit, Unveils New Acquisition. The Stock Is Falling.",
-     "age_h": 20.2,
-     "points": 16.9
-    },
-    {
      "category": "growth_news",
-     "headline": "eToro Strikes $231M TradeZero Deal to Accelerate U.S. Expansion",
-     "age_h": 21.5,
-     "points": 8.5
+     "headline": "Whitefiber Inc (WYFI) (Q2 2026) Earnings Call Highlights: Strategic Expansion and Record ...",
+     "age_h": 15.8,
+     "points": 8.7
     },
     {
      "category": "earnings_beat",
-     "headline": "eToro earnings beat estimates, shares slide on TradeZero acquisition",
-     "age_h": 21.8,
-     "points": 18.0
+     "headline": "WYFI Stock Rallies On Earnings Beat, CEO Says NC-1 Has Entered ‘Active Customer Deployment’ With Initial Billing Underway",
+     "age_h": 23.3,
+     "points": 18.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 28.24,
-    "target": 33.04,
-    "stop": 26.32,
+    "entry": 30.49,
+    "target": 40.11,
+    "stop": 26.64,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SEPN",
-   "price": 48.95,
-   "score": 37.5,
-   "tech_score": 26.7,
-   "news_score": 10.8,
-   "rsi": 85.2,
-   "mom5": 24.38,
-   "vol_surge": 2.08,
+   "ticker": "KURA",
+   "price": 10.92,
+   "score": 51.6,
+   "tech_score": 33.1,
+   "news_score": 18.5,
+   "rsi": 55.8,
+   "mom5": 18.32,
+   "vol_surge": 1.64,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Septerna, Inc. (SEPN) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 41.6,
-     "points": 10.8
+     "headline": "Kura Oncology (KURA) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 17.1,
+     "points": 18.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 48.95,
-    "target": 54.58,
-    "stop": 45.57,
+    "entry": 10.92,
+    "target": 12.02,
+    "stop": 10.26,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ERO",
-   "price": 36.52,
-   "score": 36.5,
-   "tech_score": 28.0,
-   "news_score": 8.5,
-   "rsi": 84.3,
-   "mom5": 25.48,
-   "vol_surge": 0.21,
+   "ticker": "TBBB",
+   "price": 48.62,
+   "score": 49.0,
+   "tech_score": 38.0,
+   "news_score": 11.0,
+   "rsi": 77.3,
+   "mom5": 20.4,
+   "vol_surge": 2.64,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Soaring Data Center Demand Adds A Burnished Tan To This Metal Name",
-     "age_h": 21.3,
-     "points": 8.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 36.52,
-    "target": 41.24,
-    "stop": 34.63,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "BWMN",
-   "price": 42.3,
-   "score": 35.6,
-   "tech_score": 20.0,
-   "news_score": 15.6,
-   "rsi": 88.5,
-   "mom5": 52.45,
-   "vol_surge": 0.81,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Bowman Consulting Shares Rise After Higher Q2 Adjusted Earnings, Merger Deal With Bernhard Capital Partners",
-     "age_h": 43.6,
-     "points": 10.1
+     "category": "earnings_beat",
+     "headline": "BBB Foods (TBBB) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 17.1,
+     "points": 18.5
     },
     {
-     "category": "earnings_beat",
-     "headline": "Bowman Consulting (BWMN) Q2 Earnings Beat Estimates",
-     "age_h": 49.8,
-     "points": 5.4
+     "category": "earnings_miss",
+     "headline": "Purple Innovation (PRPL) Reports Q2 Loss, Misses Revenue Estimates",
+     "age_h": 65.5,
+     "points": -7.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 42.3,
-    "target": 46.46,
-    "stop": 39.8,
+    "entry": 48.62,
+    "target": 52.86,
+    "stop": 46.07,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SHOP",
-   "price": 150.49,
-   "score": 34.6,
-   "tech_score": 28.0,
+   "ticker": "ARX",
+   "price": 19.54,
+   "score": 46.6,
+   "tech_score": 40.0,
    "news_score": 6.6,
-   "rsi": 69.8,
-   "mom5": 21.87,
-   "vol_surge": 0.12,
+   "rsi": 71.1,
+   "mom5": 59.71,
+   "vol_surge": 9.0,
    "catalysts": [
     {
      "category": "buyback_dividend",
-     "headline": "OpenAI Concludes $7 Billion Share Buyback Ahead of Potential IPO: Report",
-     "age_h": 29.5,
+     "headline": "Lincoln National Restarts Buybacks After a Nearly Four-Year Pause",
+     "age_h": 45.8,
      "points": 6.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 150.49,
-    "target": 175.8,
-    "stop": 140.37,
+    "entry": 19.54,
+    "target": 23.4,
+    "stop": 18.0,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "YETI",
+   "price": 44.98,
+   "score": 46.6,
+   "tech_score": 5.9,
+   "news_score": 40.7,
+   "rsi": 35.3,
+   "mom5": -14.53,
+   "vol_surge": 1.73,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Yeti raises full-year EPS outlook after Q2 earnings beat",
+     "age_h": 4.1,
+     "points": 18.5
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "Yeti raises full-year EPS outlook after Q2 earnings beat",
+     "age_h": 4.1,
+     "points": 22.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 44.98,
+    "target": 51.36,
+    "stop": 42.43,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FIGS",
+   "price": 14.48,
+   "score": 41.7,
+   "tech_score": 18.0,
+   "news_score": 23.7,
+   "rsi": 98.2,
+   "mom5": 32.69,
+   "vol_surge": 0.1,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "CAVA Group Q2 Earnings Beat Estimates on Traffic and Unit Growth",
+     "age_h": 22.8,
+     "points": 18.5
+    },
+    {
+     "category": "growth_news",
+     "headline": "FIGS Q2 Deep Dive: Broad-Based Growth, Supply Chain Agility, and Category Expansion",
+     "age_h": 47.4,
+     "points": 5.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 14.48,
+    "target": 17.25,
+    "stop": 13.37,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "MTSI",
+   "price": 316.47,
+   "score": 40.6,
+   "tech_score": 38.0,
+   "news_score": 2.6,
+   "rsi": 58.9,
+   "mom5": 19.89,
+   "vol_surge": 0.09,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "MTSI Q2 Deep Dive: Data Center Momentum, Margin Expansion, and Strong Forward Outlook",
+     "age_h": 53.5,
+     "points": 2.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 316.47,
+    "target": 379.47,
+    "stop": 291.27,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NESR",
+   "price": 35.31,
+   "score": 39.1,
+   "tech_score": 28.0,
+   "news_score": 11.1,
+   "rsi": 71.2,
+   "mom5": 25.01,
+   "vol_surge": 0.07,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "National Energy Services Reunited (NESR) Is Up 25.2% After Earnings Beat And New Kuwait Contracts - Has The Bull Case Changed?",
+     "age_h": 32.6,
+     "points": 11.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 35.31,
+    "target": 39.19,
+    "stop": 32.98,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "TEAM",
+   "price": 157.38,
+   "score": 38.8,
+   "tech_score": 28.0,
+   "news_score": 10.8,
+   "rsi": 89.6,
+   "mom5": 42.98,
+   "vol_surge": 0.16,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "TEAM Q2 Deep Dive: AI Acceleration, Enterprise Expansion, and Contextual Advantage Drive Results",
+     "age_h": 31.2,
+     "points": 5.2
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Monday.com Falls As Software Maker's Guidance Trumps Earnings Beat",
+     "age_h": 68.8,
+     "points": 5.5
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 157.38,
+    "target": 186.18,
+    "stop": 145.87,
     "hold": "2-8 კვირა"
    }
   }
@@ -281,24 +293,24 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 66,
-   "win_rate": 27.3,
-   "avg_return": 1.18,
-   "weight_now": 0.82
+   "n": 74,
+   "win_rate": 29.7,
+   "avg_return": 1.43,
+   "weight_now": 0.84
   },
   {
    "category": "m_and_a",
-   "n": 45,
-   "win_rate": 6.7,
-   "avg_return": -2.34,
+   "n": 46,
+   "win_rate": 6.5,
+   "avg_return": -2.28,
    "weight_now": 0.65
   },
   {
    "category": "growth_news",
-   "n": 29,
-   "win_rate": 31.0,
-   "avg_return": -2.87,
-   "weight_now": 0.85
+   "n": 30,
+   "win_rate": 33.3,
+   "avg_return": -2.37,
+   "weight_now": 0.87
   },
   {
    "category": "analyst_upgrade",
@@ -309,9 +321,9 @@
   },
   {
    "category": "guidance_raise",
-   "n": 11,
-   "win_rate": 36.4,
-   "avg_return": 0.4,
+   "n": 14,
+   "win_rate": 35.7,
+   "avg_return": 0.76,
    "weight_now": 0.89
   },
   {
@@ -329,7 +341,7 @@
    "weight_now": 0.92
   }
  ],
- "scanned": 5977,
+ "scanned": 5978,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
