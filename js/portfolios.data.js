@@ -217,10 +217,12 @@ window.PORTFOLIOS = {
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 240.23, color: '#006a4d', divYield: 3.66 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.97880149, avgBuy: 695.88, invested: 681.13, value: 681.13, color: '#2563eb', divYield: 1.30 },
     ],
-    cash: 0.00, // 10 Aug 2026: GOOG sold @ $312.10 + $17.82 cash = $329.92 -> bought 0.46380149 VOO @ $329.92 -> net cash $0.00
+    cash: 0.66, // 14 Aug 2026: MAIN net dividend received $0.66 ($0.95 gross - $0.29 tax) -> cash balance $0.66
     priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
+      // --- 14 აგვ 2026 MAIN dividend · TBC app · net cash $0.66 ---
+      { date: '2026-08-14', type: 'dividend', ticker: 'MAIN', amount: 0.66, note: 'დივიდენდის ჩარიცხვა $0.95 − გადასახადი $0.29 = წმინდა $0.66' },
       // --- 10 აგვ 2026 GOOG liquidation → VOO buy · TBC app · net cash $0.00 ---
       { date: '2026-08-10', type: 'buy',  ticker: 'VOO',  shares: 0.46380149, price: 711.3388, commission: 0 },
       { date: '2026-08-10', type: 'sell', ticker: 'GOOG', shares: 0.88443382, price: 352.8805, commission: 0 },
