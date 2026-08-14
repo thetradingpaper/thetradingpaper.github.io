@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 16.95,
+ "cash": 36.63,
  "positions": [
-  {
-   "ticker": "BABA",
-   "opened": "2026-08-07T00:43:29.080Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 126.81,
-   "shares": 0.157716,
-   "cost": 20,
-   "target": 134.49,
-   "stop": 121.05
-  },
   {
    "ticker": "TSLA",
    "opened": "2026-08-10T14:23:03.923Z",
@@ -176,6 +165,10 @@
   {
    "date": "2026-08-13",
    "equity": 98.36
+  },
+  {
+   "date": "2026-08-14",
+   "equity": 99
   }
  ]
 }
