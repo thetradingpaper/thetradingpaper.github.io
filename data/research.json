@@ -1,291 +1,273 @@
 {
- "updated": "2026-08-13T14:48:55.954659+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on OMER (score 57.5). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "updated": "2026-08-14T14:41:31.339268+00:00",
+ "mode": "CONCENTRATE",
+ "notification": "🔥 One clear standout: ARX (score 77.9). Bot would put the whole paper $100 here. Entry 19.55, target 21.97, stop 18.09.",
  "picks": [
   {
-   "ticker": "OMER",
-   "price": 16.86,
-   "score": 57.5,
-   "tech_score": 28.0,
-   "news_score": 29.5,
-   "rsi": 94.2,
-   "mom5": 27.64,
-   "vol_surge": 3.46,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Omeros (OMER) Q2 Earnings and Revenues Beat Estimates",
-     "age_h": 17.5,
-     "points": 18.5
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "OMER Stock Soars 24% After-Hours On YARTEMLEA Sales Momentum, Debt Reduction And Share Buybacks",
-     "age_h": 17.7,
-     "points": 11.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 16.86,
-    "target": 19.84,
-    "stop": 15.66,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "WYFI",
-   "price": 30.49,
-   "score": 55.2,
-   "tech_score": 28.0,
-   "news_score": 27.2,
-   "rsi": 63.9,
-   "mom5": 23.19,
-   "vol_surge": 0.68,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Whitefiber Inc (WYFI) (Q2 2026) Earnings Call Highlights: Strategic Expansion and Record ...",
-     "age_h": 15.8,
-     "points": 8.7
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "WYFI Stock Rallies On Earnings Beat, CEO Says NC-1 Has Entered ‘Active Customer Deployment’ With Initial Billing Underway",
-     "age_h": 23.3,
-     "points": 18.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 30.49,
-    "target": 40.11,
-    "stop": 26.64,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "KURA",
-   "price": 10.92,
-   "score": 51.6,
-   "tech_score": 33.1,
-   "news_score": 18.5,
-   "rsi": 55.8,
-   "mom5": 18.32,
-   "vol_surge": 1.64,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Kura Oncology (KURA) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 17.1,
-     "points": 18.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 10.92,
-    "target": 12.02,
-    "stop": 10.26,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "TBBB",
-   "price": 48.62,
-   "score": 49.0,
-   "tech_score": 38.0,
-   "news_score": 11.0,
-   "rsi": 77.3,
-   "mom5": 20.4,
-   "vol_surge": 2.64,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "BBB Foods (TBBB) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 17.1,
-     "points": 18.5
-    },
-    {
-     "category": "earnings_miss",
-     "headline": "Purple Innovation (PRPL) Reports Q2 Loss, Misses Revenue Estimates",
-     "age_h": 65.5,
-     "points": -7.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 48.62,
-    "target": 52.86,
-    "stop": 46.07,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
    "ticker": "ARX",
-   "price": 19.54,
-   "score": 46.6,
-   "tech_score": 40.0,
-   "news_score": 6.6,
-   "rsi": 71.1,
-   "mom5": 59.71,
-   "vol_surge": 9.0,
+   "price": 19.55,
+   "score": 77.9,
+   "tech_score": 42.5,
+   "news_score": 35.4,
+   "rsi": 70.1,
+   "mom5": 56.86,
+   "vol_surge": 1.56,
    "catalysts": [
     {
-     "category": "buyback_dividend",
-     "headline": "Lincoln National Restarts Buybacks After a Nearly Four-Year Pause",
-     "age_h": 45.8,
-     "points": 6.6
+     "category": "m_and_a",
+     "headline": "Stock Market Today, Aug. 13: Accelerant Holdings Surges 43% on All-Cash Buyout Offer",
+     "age_h": 17.0,
+     "points": 16.9
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Accelerant Q2 Earnings Beat Estimates on Strong Premium Growth",
+     "age_h": 20.2,
+     "points": 18.5
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 19.54,
-    "target": 23.4,
-    "stop": 18.0,
-    "hold": "2-8 კვირა"
+    "entry": 19.55,
+    "target": 21.97,
+    "stop": 18.09,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "YETI",
-   "price": 44.98,
-   "score": 46.6,
-   "tech_score": 5.9,
+   "ticker": "HLIT",
+   "price": 13.76,
+   "score": 60.7,
+   "tech_score": 20.0,
    "news_score": 40.7,
-   "rsi": 35.3,
-   "mom5": -14.53,
-   "vol_surge": 1.73,
+   "rsi": 69.9,
+   "mom5": 16.98,
+   "vol_surge": 0.45,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Yeti raises full-year EPS outlook after Q2 earnings beat",
-     "age_h": 4.1,
+     "headline": "Is Harmonic (HLIT) Cheap On Its Earnings Beat And Raised Guidance?",
+     "age_h": 22.5,
      "points": 18.5
     },
     {
      "category": "guidance_raise",
-     "headline": "Yeti raises full-year EPS outlook after Q2 earnings beat",
-     "age_h": 4.1,
+     "headline": "Is Harmonic (HLIT) Cheap On Its Earnings Beat And Raised Guidance?",
+     "age_h": 22.5,
      "points": 22.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 44.98,
-    "target": 51.36,
-    "stop": 42.43,
+    "entry": 13.76,
+    "target": 16.01,
+    "stop": 12.86,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "FIGS",
-   "price": 14.48,
-   "score": 41.7,
-   "tech_score": 18.0,
-   "news_score": 23.7,
-   "rsi": 98.2,
-   "mom5": 32.69,
-   "vol_surge": 0.1,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "CAVA Group Q2 Earnings Beat Estimates on Traffic and Unit Growth",
-     "age_h": 22.8,
-     "points": 18.5
-    },
-    {
-     "category": "growth_news",
-     "headline": "FIGS Q2 Deep Dive: Broad-Based Growth, Supply Chain Agility, and Category Expansion",
-     "age_h": 47.4,
-     "points": 5.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 14.48,
-    "target": 17.25,
-    "stop": 13.37,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "MTSI",
-   "price": 316.47,
-   "score": 40.6,
-   "tech_score": 38.0,
-   "news_score": 2.6,
-   "rsi": 58.9,
-   "mom5": 19.89,
-   "vol_surge": 0.09,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "MTSI Q2 Deep Dive: Data Center Momentum, Margin Expansion, and Strong Forward Outlook",
-     "age_h": 53.5,
-     "points": 2.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 316.47,
-    "target": 379.47,
-    "stop": 291.27,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NESR",
-   "price": 35.31,
-   "score": 39.1,
-   "tech_score": 28.0,
+   "ticker": "PBF",
+   "price": 73.92,
+   "score": 57.1,
+   "tech_score": 46.0,
    "news_score": 11.1,
-   "rsi": 71.2,
-   "mom5": 25.01,
-   "vol_surge": 0.07,
+   "rsi": 64.2,
+   "mom5": 19.65,
+   "vol_surge": 0.17,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "National Energy Services Reunited (NESR) Is Up 25.2% After Earnings Beat And New Kuwait Contracts - Has The Bull Case Changed?",
-     "age_h": 32.6,
+     "headline": "YPF Q2 Earnings Beat Estimates on Shale Growth & Strong Pricing",
+     "age_h": 24.4,
      "points": 11.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 35.31,
-    "target": 39.19,
-    "stop": 32.98,
+    "entry": 73.92,
+    "target": 83.13,
+    "stop": 68.39,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "TEAM",
-   "price": 157.38,
-   "score": 38.8,
-   "tech_score": 28.0,
-   "news_score": 10.8,
-   "rsi": 89.6,
-   "mom5": 42.98,
-   "vol_surge": 0.16,
+   "ticker": "ETON",
+   "price": 55.12,
+   "score": 50.9,
+   "tech_score": 32.4,
+   "news_score": 18.5,
+   "rsi": 70.4,
+   "mom5": 23.97,
+   "vol_surge": 1.55,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "TEAM Q2 Deep Dive: AI Acceleration, Enterprise Expansion, and Contextual Advantage Drive Results",
-     "age_h": 31.2,
-     "points": 5.2
-    },
+     "category": "earnings_beat",
+     "headline": "Eton Pharmaceuticals Inc (ETON) (Q2 2026) Earnings Call Highlights: Record Revenue and ...",
+     "age_h": 9.6,
+     "points": 18.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 55.12,
+    "target": 62.96,
+    "stop": 50.42,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MPC",
+   "price": 359.17,
+   "score": 49.1,
+   "tech_score": 38.0,
+   "news_score": 11.1,
+   "rsi": 71.3,
+   "mom5": 20.2,
+   "vol_surge": 0.2,
+   "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Monday.com Falls As Software Maker's Guidance Trumps Earnings Beat",
-     "age_h": 68.8,
-     "points": 5.5
+     "headline": "Marathon Petroleum (MPC) Could Be 19% Overvalued As Earnings Beat Expectations",
+     "age_h": 39.4,
+     "points": 11.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 359.17,
+    "target": 384.39,
+    "stop": 344.04,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "HTFL",
+   "price": 42.84,
+   "score": 48.5,
+   "tech_score": 30.0,
+   "news_score": 18.5,
+   "rsi": 93.7,
+   "mom5": 48.22,
+   "vol_surge": 3.23,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "HeartFlow (HTFL) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 17.1,
+     "points": 18.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 42.84,
+    "target": 47.25,
+    "stop": 40.2,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "LFST",
+   "price": 12.64,
+   "score": 47.7,
+   "tech_score": 38.0,
+   "news_score": 9.7,
+   "rsi": 68.9,
+   "mom5": 16.56,
+   "vol_surge": 0.39,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "LifeStance Health Group (LFST) Is Up 12.1% After Profit Turn, Higher Guidance And New Buyback Program",
+     "age_h": 44.5,
+     "points": 6.6
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "LifeStance Health (LFST) Upgraded to Buy: Here's Why",
+     "age_h": 70.7,
+     "points": 3.1
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 157.38,
-    "target": 186.18,
-    "stop": 145.87,
+    "entry": 12.64,
+    "target": 14.38,
+    "stop": 11.94,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "REPL",
+   "price": 15.19,
+   "score": 44.8,
+   "tech_score": 28.0,
+   "news_score": 16.8,
+   "rsi": 71.8,
+   "mom5": 25.87,
+   "vol_surge": 0.07,
+   "catalysts": [
+    {
+     "category": "fda_approval",
+     "headline": "Replimune Group (REPL) Wins FDA Approval For Advanced Melanoma Treatment",
+     "age_h": 16.5,
+     "points": 16.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 15.19,
+    "target": 21.11,
+    "stop": 12.82,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NESR",
+   "price": 36.53,
+   "score": 43.5,
+   "tech_score": 38.0,
+   "news_score": 5.5,
+   "rsi": 76.5,
+   "mom5": 26.1,
+   "vol_surge": 0.1,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "National Energy Services Reunited (NESR) Is Up 25.2% After Earnings Beat And New Kuwait Contracts - Has The Bull Case Changed?",
+     "age_h": 56.5,
+     "points": 5.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 36.53,
+    "target": 40.46,
+    "stop": 34.17,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "CAVA",
+   "price": 74.55,
+   "score": 43.4,
+   "tech_score": 30.0,
+   "news_score": 13.3,
+   "rsi": 68.5,
+   "mom5": 19.57,
+   "vol_surge": 0.23,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "National Vision Raises Outlook as Higher-Value Customers Fuel Breakout Quarter",
+     "age_h": 46.7,
+     "points": 13.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 74.55,
+    "target": 85.49,
+    "stop": 70.17,
     "hold": "2-8 კვირა"
    }
   }
@@ -341,7 +323,7 @@
    "weight_now": 0.92
   }
  ],
- "scanned": 5978,
+ "scanned": 5977,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

@@ -2984,5 +2984,118 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339178+00:00",
+  "ticker": "ARX",
+  "entry": 19.55,
+  "score": 77.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339189+00:00",
+  "ticker": "HLIT",
+  "entry": 13.76,
+  "score": 60.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339194+00:00",
+  "ticker": "PBF",
+  "entry": 73.92,
+  "score": 57.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339197+00:00",
+  "ticker": "ETON",
+  "entry": 55.12,
+  "score": 50.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339201+00:00",
+  "ticker": "MPC",
+  "entry": 359.17,
+  "score": 49.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339205+00:00",
+  "ticker": "HTFL",
+  "entry": 42.84,
+  "score": 48.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339208+00:00",
+  "ticker": "LFST",
+  "entry": 12.64,
+  "score": 47.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339215+00:00",
+  "ticker": "REPL",
+  "entry": 15.19,
+  "score": 44.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339220+00:00",
+  "ticker": "NESR",
+  "entry": 36.53,
+  "score": 43.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-14T14:41:31.339224+00:00",
+  "ticker": "CAVA",
+  "entry": 74.55,
+  "score": 43.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
  }
 ]

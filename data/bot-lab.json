@@ -167,6 +167,10 @@
     {
      "date": "2026-08-13",
      "equity": 86.2
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 86.2
     }
    ],
    "stats": {
@@ -191,7 +195,7 @@
      "target": 219.02,
      "stop": 173.37,
      "max_days": 7,
-     "last_price": 188.91
+     "last_price": 188.15
     },
     {
      "ticker": "QNST",
@@ -211,7 +215,7 @@
      "target": 7.21,
      "stop": 5.56,
      "max_days": 7,
-     "last_price": 6.62
+     "last_price": 6.52
     },
     {
      "ticker": "SOUN",
@@ -221,7 +225,7 @@
      "target": 9.1,
      "stop": 7.02,
      "max_days": 7,
-     "last_price": 7.36
+     "last_price": 7.55
     },
     {
      "ticker": "VREX",
@@ -231,7 +235,7 @@
      "target": 20.09,
      "stop": 17.41,
      "max_days": 7,
-     "last_price": 18.52
+     "last_price": 18.51
     }
    ],
    "trades": [
@@ -426,7 +430,7 @@
      "leverage": 1
     }
    ],
-   "equity": 70.35,
+   "equity": 70.41,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -531,13 +535,17 @@
     {
      "date": "2026-08-13",
      "equity": 70.35
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 70.41
     }
    ],
    "stats": {
     "trades": 19,
     "wins": 1,
     "win_rate": 5.3,
-    "return_pct": -29.65
+    "return_pct": -29.59
    }
   },
   "bot3": {
@@ -555,7 +563,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.32
+     "last_price": 18.94
     },
     {
      "ticker": "FCEL",
@@ -565,7 +573,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 21.25
+     "last_price": 22.96
     },
     {
      "ticker": "DXCM",
@@ -575,7 +583,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 91.13
+     "last_price": 91.07
     }
    ],
    "trades": [
@@ -620,7 +628,7 @@
      "leverage": 1
     }
    ],
-   "equity": 67.27,
+   "equity": 67.36,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -725,13 +733,17 @@
     {
      "date": "2026-08-13",
      "equity": 67.27
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 67.36
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -32.73
+    "return_pct": -32.64
    }
   },
   "bot4": {
@@ -749,7 +761,7 @@
      "target": 219.02,
      "stop": 173.37,
      "max_days": 7,
-     "last_price": 188.91
+     "last_price": 188.15
     }
    ],
    "trades": [
@@ -794,7 +806,7 @@
      "leverage": 1
     }
    ],
-   "equity": 92.38,
+   "equity": 92.26,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -899,13 +911,17 @@
     {
      "date": "2026-08-13",
      "equity": 92.38
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 92.26
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -7.62
+    "return_pct": -7.74
    }
   },
   "bot5": {
@@ -926,7 +942,7 @@
      "leverage": 2.5,
      "own_equity": 459.87720343021874,
      "borrowed": 689.82,
-     "last_price": 188.91
+     "last_price": 188.15
     }
    ],
    "trades": [
@@ -961,7 +977,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 473.48,
+   "equity": 468.56,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1066,15 +1082,19 @@
     {
      "date": "2026-08-13",
      "equity": 473.48
+    },
+    {
+     "date": "2026-08-14",
+     "equity": 468.56
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -52.65
+    "return_pct": -53.14
    }
   }
  },
- "updated": "2026-08-13T14:48:57.309313+00:00"
+ "updated": "2026-08-14T14:41:32.944204+00:00"
 }
