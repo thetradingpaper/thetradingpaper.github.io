@@ -14,19 +14,21 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [
-      { ticker: 'SMCI', name: 'Super Micro Computer, Inc.', shares: 4.09108811, avgBuy: 36.91, invested: 151.00, value: 153.87, color: '#16a34a', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.08041847, avgBuy: 1372.82, invested: 110.40, value: 110.22, color: '#dc2626', divYield: 0.00 },
-      { ticker: 'NBIS', name: 'Nebius Group N.V.', shares: 0.40464532, avgBuy: 247.13, invested: 100.00, value: 99.77, color: '#84cc16', divYield: 0.00 },
-      { ticker: 'AMD', name: 'Advanced Micro Devices, Inc.', shares: 0.20521711, avgBuy: 487.29, invested: 100.00, value: 100.01, color: '#ef4444', divYield: 0.00 },
-      { ticker: 'CRWV', name: 'CoreWeave Inc.', shares: 0.937208, avgBuy: 106.70, invested: 100.00, value: 100.08, color: '#2563eb', divYield: 0.00 },
-    ],
-    cash: 0.00, // 13 Aug 2026: BOG cash deposit $51.00 fully deployed into SMCI (1.28671554 sh total) -> cash balance $0.00
+    holdings: [],
+    cash: 618.82, // 14 Aug 2026: Sold BOG basket @ $598.00 + SNDK day trade scalp (+$20.82) -> net cash balance $618.82
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 14 აგვ 2026 BOG 5-stock liquidation ($598.00) & SNDK intraday day trade (+$20.82 P/L) · BOG app · net cash $618.82 ---
+      { date: '2026-08-14', type: 'sell', ticker: 'SNDK', shares: 0.35000000, price: 1659.4857, commission: 0 },
+      { date: '2026-08-14', type: 'buy',  ticker: 'SNDK', shares: 0.35000000, price: 1600.00,    commission: 0 },
+      { date: '2026-08-14', type: 'sell', ticker: 'CRWV', shares: 0.93720800, price: 113.6353,   commission: 0 },
+      { date: '2026-08-14', type: 'sell', ticker: 'AMD',  shares: 0.20521711, price: 518.9626,   commission: 0 },
+      { date: '2026-08-14', type: 'sell', ticker: 'NBIS', shares: 0.40464532, price: 263.1930,   commission: 0 },
+      { date: '2026-08-14', type: 'sell', ticker: 'SNDK', shares: 0.08041847, price: 1461.3551,  commission: 0 },
+      { date: '2026-08-14', type: 'sell', ticker: 'SMCI', shares: 4.09108811, price: 39.3584,    commission: 0 },
       // --- 13 აგვ 2026 BOG deposit ($51.00) & SMCI purchases (1.28671554 sh total) · BOG app · net cash $0.00 ---
       { date: '2026-08-13', type: 'buy',  ticker: 'SMCI', shares: 0.28671554, price: 39.6211843, commission: 0 },
       { date: '2026-08-13', type: 'buy',  ticker: 'SMCI', shares: 1.00000000, price: 39.64,      commission: 0 },

@@ -5,7 +5,7 @@
 // Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-08-13',
+  lastUpdated: '2026-08-14',
   feesPaid: 75.34,                      // reconciled 04 Aug 2026: BOG $31.71 ($19.71 + $12 bank fee) + TBC $3.63 + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 31.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($12.00)' },
@@ -13,7 +13,7 @@ window.MEPORTF = {
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG uninvested cash for the meportfolio page. 13 Aug 2026: cash deposit $51.00 fully deployed into SMCI -> cash balance $0.00.
+  // BOG cash balance: 14 Aug 2026: basket liquidation @ $598.00 + SNDK day trade scalp (+$20.82) -> cash balance $618.82.
   bog: { cashAdded: 0.00, countedAsDeposit: false },
   galt: {
     closed: true,
