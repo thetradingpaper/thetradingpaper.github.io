@@ -235,9 +235,6 @@ window.PORTFOLIOS = {
       { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 0.28860792, price: 87.14,  commission: 0.60 },
       { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 2.00000000, price: 87.125, commission: 0 },
       { date: '2026-08-17', type: 'deposit', amount: 250.00 },
-    priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
-    priorCostBasis: 0.00,
-    transactions: [
       // --- 17 აგვ 2026 BOG→TBC transfer ($400.00) & purchases (SNDK, GOOG, VOO, MSTR) · TBC app · net cash $0.00 ---
       { date: '2026-08-17', type: 'buy',     ticker: 'SNDK', shares: 0.05628285, price: 1776.74, commission: 0 },
       { date: '2026-08-17', type: 'buy',     ticker: 'GOOG', shares: 0.58494925, price: 341.91,  commission: 0 },
