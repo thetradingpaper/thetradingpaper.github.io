@@ -80,19 +80,6 @@
           payDate: formatDateIso(year, month, pDay)
         };
       }
-    },
-    GOOG: {
-      name: 'Alphabet Inc',
-      freq: 'quarterly',
-      estDivPerShare: 0.20,
-      months: [2, 5, 8, 11], // Mar, Jun, Sep, Dec
-      getDates: function (year, month) {
-        var pDay = 16;
-        return {
-          exDate: formatDateIso(year, month, 5),
-          payDate: formatDateIso(year, month, pDay)
-        };
-      }
     }
   };
 
