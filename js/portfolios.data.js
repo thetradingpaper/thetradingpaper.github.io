@@ -15,13 +15,16 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 618.82, // 14 Aug 2026: Sold BOG basket @ $598.00 + SNDK day trade scalp (+$20.82) -> net cash balance $618.82
+    cash: 0.00, // 17 Aug 2026: Cleared BOG fully: $400 transferred to TBC, $4 bank fee, $214.82 withdrawn -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 14 აგვ 2026 BOG 5-stock liquidation ($598.00) & SNDK intraday day trade (+$20.82 P/L) · BOG app · net cash $618.82 ---
+      // --- 17 აგვ 2026 BOG fully cleared · $400 → TBC ($4 bank fee), $214.82 withdrawn · BOG app · net cash $0.00 ---
+      { date: '2026-08-17', type: 'withdraw', amount: 214.82, note: 'BOG ანგარიშის სრული დახურვა · გატანა' },
+      { date: '2026-08-17', type: 'fee',      amount: 4.00,   note: 'ბანკის საკომისიო · გადარიცხვა BOG→TBC' },
+      { date: '2026-08-17', type: 'deposit',  amount: -400.00, note: 'გადატანა → TBC' },
       { date: '2026-08-14', type: 'sell', ticker: 'SNDK', shares: 0.35000000, price: 1659.4857, commission: 0 },
       { date: '2026-08-14', type: 'buy',  ticker: 'SNDK', shares: 0.35000000, price: 1600.00,    commission: 0 },
       { date: '2026-08-14', type: 'sell', ticker: 'CRWV', shares: 0.93720800, price: 113.6353,   commission: 0 },
@@ -210,17 +213,25 @@ window.PORTFOLIOS = {
     startDate: '2026-05-12',
     annualGoalPct: null,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 3.686, avgBuy: 133.82, invested: 493.26, value: 493.26, color: '#1a1a1a', divYield: 0.00 },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 4.53029502, avgBuy: 126.62, invested: 573.62, value: 431.19, color: '#1a1a1a', divYield: 0.00 },
       { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 41.96, color: '#1d4ed8', divYield: 10.40 },
       { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 192.48, color: '#15803d', divYield: 6.20 },
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 240.23, color: '#006a4d', divYield: 3.66 },
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.97880149, avgBuy: 695.88, invested: 681.13, value: 681.13, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.00686969, avgBuy: 696.35, invested: 701.13, value: 717.44, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'GOOG', name: 'Alphabet Inc. - Class C Shares', shares: 0.58494925, avgBuy: 341.91, invested: 200.00, value: 200.00, color: '#0f9d58', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.05628285, avgBuy: 1776.74, invested: 100.00, value: 100.00, color: '#ea580c', divYield: 0.00 },
     ],
-    cash: 0.66, // 14 Aug 2026: MAIN net dividend received $0.66 ($0.95 gross - $0.29 tax) -> cash balance $0.66
+    cash: 0.00, // 17 Aug 2026: $400 transfer from BOG + $0.66 cash invested into MSTR ($80.36 + $0.24 fee), VOO ($20.00 + $0.06 fee), GOOG ($200.00), SNDK ($100.00) -> net cash $0.00
     priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
+      // --- 17 აგვ 2026 BOG→TBC transfer ($400.00) & purchases (SNDK, GOOG, VOO, MSTR) · TBC app · net cash $0.00 ---
+      { date: '2026-08-17', type: 'buy',     ticker: 'SNDK', shares: 0.05628285, price: 1776.74, commission: 0 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'GOOG', shares: 0.58494925, price: 341.91,  commission: 0 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'VOO',  shares: 0.02806820, price: 712.55,  commission: 0.06 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'MSTR', shares: 0.84429502, price: 95.18,   commission: 0.24 },
+      { date: '2026-08-17', type: 'deposit', amount: 400.00, note: 'გადმოტანა ← BOG' },
       // --- 14 აგვ 2026 MAIN dividend · TBC app · net cash $0.66 ---
       { date: '2026-08-14', type: 'dividend', ticker: 'MAIN', amount: 0.66, note: 'დივიდენდის ჩარიცხვა $0.95 − გადასახადი $0.29 = წმინდა $0.66' },
       // --- 10 აგვ 2026 GOOG liquidation → VOO buy · TBC app · net cash $0.00 ---
