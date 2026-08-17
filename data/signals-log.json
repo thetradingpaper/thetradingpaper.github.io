@@ -1,5 +1,27 @@
 [
  {
+  "closed": "2026-08-17T13:47:08.816Z",
+  "opened": "2026-08-10T16:26:00.076Z",
+  "ticker": "NVDA",
+  "rule": "R3",
+  "entry": 220.26,
+  "exit": 225.63,
+  "exitType": "TIME",
+  "pnl": 0.49,
+  "pnlPct": 2.44
+ },
+ {
+  "closed": "2026-08-17T13:47:08.816Z",
+  "opened": "2026-08-10T14:23:03.923Z",
+  "ticker": "TSLA",
+  "rule": "R1",
+  "entry": 330.14,
+  "exit": 340.55,
+  "exitType": "TIME",
+  "pnl": 0.63,
+  "pnlPct": 3.15
+ },
+ {
   "closed": "2026-08-14T14:18:16.211Z",
   "opened": "2026-08-07T00:43:29.080Z",
   "ticker": "BABA",

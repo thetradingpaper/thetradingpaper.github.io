@@ -1,30 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 36.63,
+ "cash": 77.75,
  "positions": [
-  {
-   "ticker": "TSLA",
-   "opened": "2026-08-10T14:23:03.923Z",
-   "rule": "R1",
-   "reason": "R1 oversold bounce · RSI 31 < 32 · პირველი მწვანე",
-   "entry": 330.14,
-   "shares": 0.06058,
-   "cost": 20,
-   "target": 358.58,
-   "stop": 308.81
-  },
-  {
-   "ticker": "NVDA",
-   "opened": "2026-08-10T16:26:00.076Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 220.26,
-   "shares": 0.090802,
-   "cost": 20,
-   "target": 235.92,
-   "stop": 208.51
-  },
   {
    "ticker": "PLTR",
    "opened": "2026-08-12T15:30:47.652Z",
@@ -169,6 +147,10 @@
   {
    "date": "2026-08-14",
    "equity": 98.31
+  },
+  {
+   "date": "2026-08-17",
+   "equity": 98.24
   }
  ]
 }
