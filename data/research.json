@@ -1,273 +1,261 @@
 {
- "updated": "2026-08-14T14:41:31.339268+00:00",
- "mode": "CONCENTRATE",
- "notification": "🔥 One clear standout: ARX (score 77.9). Bot would put the whole paper $100 here. Entry 19.55, target 21.97, stop 18.09.",
+ "updated": "2026-08-17T14:13:42.084923+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on WEN (score 53.4). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "ARX",
-   "price": 19.55,
-   "score": 77.9,
-   "tech_score": 42.5,
-   "news_score": 35.4,
-   "rsi": 70.1,
-   "mom5": 56.86,
-   "vol_surge": 1.56,
+   "ticker": "WEN",
+   "price": 8.55,
+   "score": 53.4,
+   "tech_score": 36.0,
+   "news_score": 17.4,
+   "rsi": 61.8,
+   "mom5": 17.12,
+   "vol_surge": 0.12,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Stock Market Today, Aug. 13: Accelerant Holdings Surges 43% on All-Cash Buyout Offer",
-     "age_h": 17.0,
-     "points": 16.9
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Accelerant Q2 Earnings Beat Estimates on Strong Premium Growth",
-     "age_h": 20.2,
-     "points": 18.5
+     "headline": "Wendy's Traders Smell a Buyout Cooking — Nelson Peltz Preps a Bid",
+     "age_h": 16.7,
+     "points": 17.4
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 19.55,
-    "target": 21.97,
-    "stop": 18.09,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "HLIT",
-   "price": 13.76,
-   "score": 60.7,
-   "tech_score": 20.0,
-   "news_score": 40.7,
-   "rsi": 69.9,
-   "mom5": 16.98,
-   "vol_surge": 0.45,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Is Harmonic (HLIT) Cheap On Its Earnings Beat And Raised Guidance?",
-     "age_h": 22.5,
-     "points": 18.5
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "Is Harmonic (HLIT) Cheap On Its Earnings Beat And Raised Guidance?",
-     "age_h": 22.5,
-     "points": 22.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 13.76,
-    "target": 16.01,
-    "stop": 12.86,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "PBF",
-   "price": 73.92,
-   "score": 57.1,
-   "tech_score": 46.0,
-   "news_score": 11.1,
-   "rsi": 64.2,
-   "mom5": 19.65,
-   "vol_surge": 0.17,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "YPF Q2 Earnings Beat Estimates on Shale Growth & Strong Pricing",
-     "age_h": 24.4,
-     "points": 11.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 73.92,
-    "target": 83.13,
-    "stop": 68.39,
+    "entry": 8.55,
+    "target": 9.39,
+    "stop": 8.04,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "ETON",
-   "price": 55.12,
-   "score": 50.9,
-   "tech_score": 32.4,
-   "news_score": 18.5,
-   "rsi": 70.4,
-   "mom5": 23.97,
-   "vol_surge": 1.55,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Eton Pharmaceuticals Inc (ETON) (Q2 2026) Earnings Call Highlights: Record Revenue and ...",
-     "age_h": 9.6,
-     "points": 18.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 55.12,
-    "target": 62.96,
-    "stop": 50.42,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MPC",
-   "price": 359.17,
-   "score": 49.1,
+   "price": 62.0,
+   "score": 44.5,
    "tech_score": 38.0,
-   "news_score": 11.1,
-   "rsi": 71.3,
-   "mom5": 20.2,
-   "vol_surge": 0.2,
+   "news_score": 6.5,
+   "rsi": 72.6,
+   "mom5": 38.59,
+   "vol_surge": 0.43,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Marathon Petroleum (MPC) Could Be 19% Overvalued As Earnings Beat Expectations",
-     "age_h": 39.4,
-     "points": 11.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 359.17,
-    "target": 384.39,
-    "stop": 344.04,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "HTFL",
-   "price": 42.84,
-   "score": 48.5,
-   "tech_score": 30.0,
-   "news_score": 18.5,
-   "rsi": 93.7,
-   "mom5": 48.22,
-   "vol_surge": 3.23,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "HeartFlow (HTFL) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 17.1,
-     "points": 18.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 42.84,
-    "target": 47.25,
-    "stop": 40.2,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "LFST",
-   "price": 12.64,
-   "score": 47.7,
-   "tech_score": 38.0,
-   "news_score": 9.7,
-   "rsi": 68.9,
-   "mom5": 16.56,
-   "vol_surge": 0.39,
-   "catalysts": [
-    {
-     "category": "buyback_dividend",
-     "headline": "LifeStance Health Group (LFST) Is Up 12.1% After Profit Turn, Higher Guidance And New Buyback Program",
-     "age_h": 44.5,
-     "points": 6.6
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "LifeStance Health (LFST) Upgraded to Buy: Here's Why",
-     "age_h": 70.7,
-     "points": 3.1
+     "category": "guidance_raise",
+     "headline": "Is Eton Pharmaceuticals (ETON) Fully Priced On Strong Q2 Results And Raised Guidance?",
+     "age_h": 57.9,
+     "points": 6.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 12.64,
-    "target": 14.38,
-    "stop": 11.94,
+    "entry": 62.0,
+    "target": 73.99,
+    "stop": 57.21,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "REPL",
-   "price": 15.19,
-   "score": 44.8,
+   "ticker": "PSX",
+   "price": 238.08,
+   "score": 44.0,
    "tech_score": 28.0,
-   "news_score": 16.8,
-   "rsi": 71.8,
-   "mom5": 25.87,
-   "vol_surge": 0.07,
-   "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "Replimune Group (REPL) Wins FDA Approval For Advanced Melanoma Treatment",
-     "age_h": 16.5,
-     "points": 16.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 15.19,
-    "target": 21.11,
-    "stop": 12.82,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NESR",
-   "price": 36.53,
-   "score": 43.5,
-   "tech_score": 38.0,
-   "news_score": 5.5,
-   "rsi": 76.5,
-   "mom5": 26.1,
+   "news_score": 16.0,
+   "rsi": 80.0,
+   "mom5": 16.65,
    "vol_surge": 0.1,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "National Energy Services Reunited (NESR) Is Up 25.2% After Earnings Beat And New Kuwait Contracts - Has The Bull Case Changed?",
-     "age_h": 56.5,
-     "points": 5.5
+     "headline": "Kinder Morgan (KMI) Joins Western Gateway And Beats Earnings, Is It Still Undervalued?",
+     "age_h": 46.1,
+     "points": 10.8
+    },
+    {
+     "category": "m_and_a",
+     "headline": "PSX, MPC Reportedly Weighed A Giant Merger — What Sank The $180B Deal Between Phillips 66 And Marathon Petroleum",
+     "age_h": 68.8,
+     "points": 5.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 36.53,
-    "target": 40.46,
-    "stop": 34.17,
+    "entry": 238.08,
+    "target": 253.35,
+    "stop": 228.92,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "CAVA",
-   "price": 74.55,
-   "score": 43.4,
-   "tech_score": 30.0,
-   "news_score": 13.3,
-   "rsi": 68.5,
-   "mom5": 19.57,
-   "vol_surge": 0.23,
+   "ticker": "OCUL",
+   "price": 10.78,
+   "score": 33.0,
+   "tech_score": 15.5,
+   "news_score": 17.4,
+   "rsi": 81.8,
+   "mom5": 16.94,
+   "vol_surge": 1.69,
    "catalysts": [
     {
-     "category": "guidance_raise",
-     "headline": "National Vision Raises Outlook as Higher-Value Customers Fuel Breakout Quarter",
-     "age_h": 46.7,
-     "points": 13.3
+     "category": "m_and_a",
+     "headline": "EYPT Stock On Track To Hit 16-Month Lows After Wet AMD Trial Setback – Retail Sees Ocular Therapeutics As A Better Buyout Candidate",
+     "age_h": 0.9,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 10.78,
+    "target": 11.69,
+    "stop": 10.24,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ATRO",
+   "price": 93.61,
+   "score": 30.6,
+   "tech_score": 28.0,
+   "news_score": 2.6,
+   "rsi": 82.0,
+   "mom5": 23.55,
+   "vol_surge": 0.07,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "ATRO Q2 Deep Dive: Demand Strength, Margin Expansion, and Backlog Set Up Growth",
+     "age_h": 68.9,
+     "points": 2.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 74.55,
-    "target": 85.49,
-    "stop": 70.17,
+    "entry": 93.61,
+    "target": 108.44,
+    "stop": 87.68,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "WDC",
+   "price": 539.91,
+   "score": 30.6,
+   "tech_score": 28.0,
+   "news_score": 2.6,
+   "rsi": 61.1,
+   "mom5": 23.03,
+   "vol_surge": 0.3,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Sandisk Stock Tops the S&P 500 Today as Analysts Rally Behind Its AI Expansion",
+     "age_h": 69.1,
+     "points": 2.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 539.91,
+    "target": 677.34,
+    "stop": 484.94,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NBIS",
+   "price": 272.25,
+   "score": 28.7,
+   "tech_score": 20.0,
+   "news_score": 8.7,
+   "rsi": 70.7,
+   "mom5": 47.61,
+   "vol_surge": 0.21,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Will Nebius' Asset-Light Model Drive Further Margin Expansion in 2027?",
+     "age_h": 1.5,
+     "points": 8.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 272.25,
+    "target": 352.68,
+    "stop": 240.08,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CRWV",
+   "price": 104.66,
+   "score": 28.7,
+   "tech_score": 20.0,
+   "news_score": 8.7,
+   "rsi": 73.7,
+   "mom5": 17.47,
+   "vol_surge": 0.26,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Will Nebius' Asset-Light Model Drive Further Margin Expansion in 2027?",
+     "age_h": 1.5,
+     "points": 8.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 104.66,
+    "target": 132.48,
+    "stop": 93.53,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "EYPT",
+   "price": 4.21,
+   "score": 23.4,
+   "tech_score": 6.0,
+   "news_score": 17.4,
+   "rsi": 28.4,
+   "mom5": -68.59,
+   "vol_surge": 7.15,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "EYPT Stock On Track To Hit 16-Month Lows After Wet AMD Trial Setback – Retail Sees Ocular Therapeutics As A Better Buyout Candidate",
+     "age_h": 0.9,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 4.21,
+    "target": 7.53,
+    "stop": 2.22,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "STX",
+   "price": 993.51,
+   "score": 22.6,
+   "tech_score": 20.0,
+   "news_score": 2.6,
+   "rsi": 79.6,
+   "mom5": 23.75,
+   "vol_surge": 0.17,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Sandisk Stock Tops the S&P 500 Today as Analysts Rally Behind Its AI Expansion",
+     "age_h": 69.1,
+     "points": 2.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 993.51,
+    "target": 1206.37,
+    "stop": 908.36,
     "hold": "2-8 კვირა"
    }
   }
@@ -275,17 +263,17 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 74,
-   "win_rate": 29.7,
-   "avg_return": 1.43,
-   "weight_now": 0.84
+   "n": 84,
+   "win_rate": 27.4,
+   "avg_return": 0.5,
+   "weight_now": 0.82
   },
   {
    "category": "m_and_a",
-   "n": 46,
-   "win_rate": 6.5,
-   "avg_return": -2.28,
-   "weight_now": 0.65
+   "n": 47,
+   "win_rate": 8.5,
+   "avg_return": -2.01,
+   "weight_now": 0.67
   },
   {
    "category": "growth_news",
@@ -296,17 +284,17 @@
   },
   {
    "category": "analyst_upgrade",
-   "n": 28,
-   "win_rate": 10.7,
-   "avg_return": -9.79,
-   "weight_now": 0.69
+   "n": 29,
+   "win_rate": 10.3,
+   "avg_return": -10.23,
+   "weight_now": 0.68
   },
   {
    "category": "guidance_raise",
-   "n": 14,
-   "win_rate": 35.7,
-   "avg_return": 0.76,
-   "weight_now": 0.89
+   "n": 15,
+   "win_rate": 33.3,
+   "avg_return": 0.21,
+   "weight_now": 0.87
   },
   {
    "category": "fda_approval",
@@ -317,13 +305,13 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 5,
-   "win_rate": 40.0,
-   "avg_return": 1.05,
-   "weight_now": 0.92
+   "n": 6,
+   "win_rate": 33.3,
+   "avg_return": -0.8,
+   "weight_now": 0.87
   }
  ],
- "scanned": 5977,
+ "scanned": 5980,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

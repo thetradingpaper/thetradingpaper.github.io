@@ -2421,7 +2421,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 20.32,
+  "return_pct": -0.97,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-07T14:45:36.238308+00:00",
@@ -2433,7 +2436,10 @@
    "earnings_beat",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.84,
+  "return_pct": 10.68,
+  "outcome": "win"
  },
  {
   "date": "2026-08-07T14:45:36.238313+00:00",
@@ -2445,7 +2451,10 @@
    "earnings_beat",
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.04,
+  "return_pct": -7.49,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-07T14:45:36.238319+00:00",
@@ -2456,7 +2465,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 150.14,
+  "return_pct": -1.6,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-07T14:45:36.238322+00:00",
@@ -2467,7 +2479,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 20.69,
+  "return_pct": -17.6,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-07T14:45:36.238326+00:00",
@@ -2478,7 +2493,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 33.2,
+  "return_pct": 0.42,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-07T14:45:36.238330+00:00",
@@ -2490,7 +2508,10 @@
    "analyst_upgrade",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 24.22,
+  "return_pct": -22.64,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-07T14:45:36.238338+00:00",
@@ -2501,7 +2522,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 234.54,
+  "return_pct": -5.61,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-07T14:45:36.238342+00:00",
@@ -2513,7 +2537,10 @@
    "buyback_dividend",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 174.21,
+  "return_pct": -10.07,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-07T14:45:36.238346+00:00",
@@ -2524,7 +2551,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 99.43,
+  "return_pct": -8.48,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-10T14:50:36.725295+00:00",
@@ -3095,6 +3125,117 @@
   "horizon": "long",
   "catalyst_cats": [
    "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084833+00:00",
+  "ticker": "WEN",
+  "entry": 8.55,
+  "score": 53.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084843+00:00",
+  "ticker": "ETON",
+  "entry": 62.0,
+  "score": 44.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084848+00:00",
+  "ticker": "PSX",
+  "entry": 238.08,
+  "score": 44.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084854+00:00",
+  "ticker": "OCUL",
+  "entry": 10.78,
+  "score": 33.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084858+00:00",
+  "ticker": "ATRO",
+  "entry": 93.61,
+  "score": 30.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084861+00:00",
+  "ticker": "WDC",
+  "entry": 539.91,
+  "score": 30.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084865+00:00",
+  "ticker": "NBIS",
+  "entry": 272.25,
+  "score": 28.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084872+00:00",
+  "ticker": "CRWV",
+  "entry": 104.66,
+  "score": 28.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084877+00:00",
+  "ticker": "EYPT",
+  "entry": 4.21,
+  "score": 23.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-17T14:13:42.084880+00:00",
+  "ticker": "STX",
+  "entry": 993.51,
+  "score": 22.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

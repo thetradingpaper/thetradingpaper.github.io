@@ -7,19 +7,8 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "QNST",
-     "shares": 4.100631,
-     "entry": 20.540000915527344,
-     "entry_date": "2026-08-07",
-     "target": 22.49,
-     "stop": 19.34,
-     "max_days": 7,
-     "last_price": 21.02
-    }
-   ],
+   "cash": 83.00934937644004,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -60,9 +49,19 @@
      "ret_pct": 0.19,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "QNST",
+     "entry": 20.540000915527344,
+     "exit": 20.36,
+     "entry_date": "2026-08-07",
+     "exit_date": "2026-08-17",
+     "ret_pct": -2.03,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 86.2,
+   "equity": 83.01,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -171,13 +170,17 @@
     {
      "date": "2026-08-14",
      "equity": 86.2
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 83.01
     }
    ],
    "stats": {
-    "trades": 4,
+    "trades": 5,
     "wins": 1,
-    "win_rate": 25.0,
-    "return_pct": -13.8
+    "win_rate": 20.0,
+    "return_pct": -16.99
    }
   },
   "bot2": {
@@ -185,48 +188,8 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 0.0,
+   "cash": 38.462464354008794,
    "positions": [
-    {
-     "ticker": "QLYS",
-     "shares": 0.066687,
-     "entry": 186.41000366210938,
-     "entry_date": "2026-08-05",
-     "target": 219.02,
-     "stop": 173.37,
-     "max_days": 7,
-     "last_price": 188.15
-    },
-    {
-     "ticker": "QNST",
-     "shares": 0.664118,
-     "entry": 20.540000915527344,
-     "entry_date": "2026-08-07",
-     "target": 22.49,
-     "stop": 19.34,
-     "max_days": 7,
-     "last_price": 21.02
-    },
-    {
-     "ticker": "IOVA",
-     "shares": 2.201935,
-     "entry": 6.195000171661377,
-     "entry_date": "2026-08-07",
-     "target": 7.21,
-     "stop": 5.56,
-     "max_days": 7,
-     "last_price": 6.52
-    },
-    {
-     "ticker": "SOUN",
-     "shares": 1.792508,
-     "entry": 7.610000133514404,
-     "entry_date": "2026-08-07",
-     "target": 9.1,
-     "stop": 7.02,
-     "max_days": 7,
-     "last_price": 7.55
-    },
     {
      "ticker": "VREX",
      "shares": 0.864607,
@@ -236,6 +199,16 @@
      "stop": 17.41,
      "max_days": 7,
      "last_price": 18.51
+    },
+    {
+     "ticker": "WEN",
+     "shares": 1.441032,
+     "entry": 8.55,
+     "entry_date": "2026-08-17",
+     "target": 9.39,
+     "stop": 8.04,
+     "max_days": 7,
+     "last_price": 8.55
     }
    ],
    "trades": [
@@ -428,9 +401,49 @@
      "ret_pct": -10.33,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "QLYS",
+     "entry": 186.41000366210938,
+     "exit": 181.27,
+     "entry_date": "2026-08-05",
+     "exit_date": "2026-08-17",
+     "ret_pct": -10.38,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "QNST",
+     "entry": 20.540000915527344,
+     "exit": 20.36,
+     "entry_date": "2026-08-07",
+     "exit_date": "2026-08-17",
+     "ret_pct": -7.89,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "IOVA",
+     "entry": 6.195000171661377,
+     "exit": 6.84,
+     "entry_date": "2026-08-07",
+     "exit_date": "2026-08-17",
+     "ret_pct": 3.05,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "SOUN",
+     "entry": 7.610000133514404,
+     "exit": 7.03,
+     "entry_date": "2026-08-07",
+     "exit_date": "2026-08-17",
+     "ret_pct": -14.45,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 70.41,
+   "equity": 66.79,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -539,13 +552,17 @@
     {
      "date": "2026-08-14",
      "equity": 70.41
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 66.79
     }
    ],
    "stats": {
-    "trades": 19,
-    "wins": 1,
-    "win_rate": 5.3,
-    "return_pct": -29.59
+    "trades": 23,
+    "wins": 2,
+    "win_rate": 8.7,
+    "return_pct": -33.21
    }
   },
   "bot3": {
@@ -563,7 +580,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 18.94
+     "last_price": 19.23
     },
     {
      "ticker": "FCEL",
@@ -573,7 +590,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.96
+     "last_price": 22.25
     },
     {
      "ticker": "DXCM",
@@ -583,7 +600,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 91.07
+     "last_price": 89.61
     }
    ],
    "trades": [
@@ -628,7 +645,7 @@
      "leverage": 1
     }
    ],
-   "equity": 67.36,
+   "equity": 66.65,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -737,13 +754,17 @@
     {
      "date": "2026-08-14",
      "equity": 67.36
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 66.65
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -32.64
+    "return_pct": -33.35
    }
   },
   "bot4": {
@@ -751,17 +772,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 64.03055206190113,
+   "cash": 63.05429144303517,
    "positions": [
     {
-     "ticker": "QLYS",
-     "shares": 0.150062,
-     "entry": 186.41000366210938,
-     "entry_date": "2026-08-05",
-     "target": 219.02,
-     "stop": 173.37,
+     "ticker": "WEN",
+     "shares": 3.178713,
+     "entry": 8.55,
+     "entry_date": "2026-08-17",
+     "target": 9.39,
+     "stop": 8.04,
      "max_days": 7,
-     "last_price": 188.15
+     "last_price": 8.55
     }
    ],
    "trades": [
@@ -804,9 +825,19 @@
      "ret_pct": -12.81,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "QLYS",
+     "entry": 186.41000366210938,
+     "exit": 181.27,
+     "entry_date": "2026-08-05",
+     "exit_date": "2026-08-17",
+     "ret_pct": -6.22,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 92.26,
+   "equity": 90.23,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -915,13 +946,17 @@
     {
      "date": "2026-08-14",
      "equity": 92.26
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 90.23
     }
    ],
    "stats": {
-    "trades": 4,
+    "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -7.74
+    "return_pct": -9.77
    }
   },
   "bot5": {
@@ -942,7 +977,7 @@
      "leverage": 2.5,
      "own_equity": 459.87720343021874,
      "borrowed": 689.82,
-     "last_price": 188.15
+     "last_price": 181.27
     }
    ],
    "trades": [
@@ -977,7 +1012,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 468.56,
+   "equity": 425.45,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1086,15 +1121,19 @@
     {
      "date": "2026-08-14",
      "equity": 468.56
+    },
+    {
+     "date": "2026-08-17",
+     "equity": 425.45
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -53.14
+    "return_pct": -57.45
    }
   }
  },
- "updated": "2026-08-14T14:41:32.944204+00:00"
+ "updated": "2026-08-17T14:13:44.015230+00:00"
 }
