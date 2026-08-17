@@ -6,10 +6,10 @@
 // ============================================================
 window.MEPORTF = {
   lastUpdated: '2026-08-17',
-  feesPaid: 79.64,                      // reconciled 17 Aug 2026: BOG $35.71 ($19.71 + $16 bank fee) + TBC $3.93 (10 fees) + Galt $40.00
+  feesPaid: 84.39,                      // reconciled 17 Aug 2026: BOG $39.71 ($19.71 + $20 bank fees) + TBC $4.68 (12 fees) + Galt $40.00
   feesByBook: [
-    { book: 'BOG', amount: 35.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($16.00)' },
-    { book: 'TBC', amount: 3.93, note: '10 ვაჭრობის საკომისიო (17 აგვ 2026)' },
+    { book: 'BOG', amount: 39.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($20.00)' },
+    { book: 'TBC', amount: 4.68, note: '12 ვაჭრობის საკომისიო (17 აგვ 2026)' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,

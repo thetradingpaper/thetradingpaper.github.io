@@ -23,6 +23,7 @@ window.PORTFOLIOS = {
       // Newest first
       // --- 17 აგვ 2026 BOG fully cleared · $400 → TBC ($4 bank fee), $214.82 withdrawn · BOG app · net cash $0.00 ---
       { date: '2026-08-17', type: 'withdraw', amount: 214.82, note: 'BOG ანგარიშის სრული დახურვა · გატანა' },
+      { date: '2026-08-17', type: 'fee',      amount: 4.00,   note: 'ბანკის საკომისიო · გადარიცხვა $250 TBC-ში' },
       { date: '2026-08-17', type: 'fee',      amount: 4.00,   note: 'ბანკის საკომისიო · გადარიცხვა BOG→TBC' },
       { date: '2026-08-17', type: 'deposit',  amount: -400.00, note: 'გადატანა → TBC' },
       { date: '2026-08-14', type: 'sell', ticker: 'SNDK', shares: 0.35000000, price: 1659.4857, commission: 0 },
@@ -213,16 +214,27 @@ window.PORTFOLIOS = {
     startDate: '2026-05-12',
     annualGoalPct: null,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 4.53029502, avgBuy: 126.62, invested: 573.62, value: 431.19, color: '#1a1a1a', divYield: 0.00 },
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 41.96, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 192.48, color: '#15803d', divYield: 6.20 },
-      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 72.34, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 240.23, color: '#006a4d', divYield: 3.66 },
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.00686969, avgBuy: 696.35, invested: 701.13, value: 717.44, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'GOOG', name: 'Alphabet Inc. - Class C Shares', shares: 0.58494925, avgBuy: 341.91, invested: 200.00, value: 200.00, color: '#0f9d58', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.05628285, avgBuy: 1776.74, invested: 100.00, value: 100.00, color: '#ea580c', divYield: 0.00 },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 4.53029502, avgBuy: 126.62, invested: 573.62, value: 442.05, color: '#1a1a1a', divYield: 0.00 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.73, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 211.05, color: '#15803d', divYield: 6.20 },
+      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 75.45, color: '#7c3aed', divYield: 12.90 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 245.16, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.00686969, avgBuy: 696.35, invested: 701.13, value: 717.23, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'GOOG', name: 'Alphabet Inc. - Class C Shares', shares: 0.58494925, avgBuy: 341.91, invested: 200.00, value: 199.12, color: '#0f9d58', divYield: 0.00 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 199.04, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.05628285, avgBuy: 1776.74, invested: 100.00, value: 102.83, color: '#ea580c', divYield: 0.00 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 1.02850092, avgBuy: 48.47, invested: 49.85, value: 49.85, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 0.00, // 17 Aug 2026: $400 transfer from BOG + $0.66 cash invested into MSTR ($80.36 + $0.24 fee), VOO ($20.00 + $0.06 fee), GOOG ($200.00), SNDK ($100.00) -> net cash $0.00
+    cash: 0.00, // 17 Aug 2026: $400 + $250 deposits invested into MSTR, VOO, GOOG, SNDK, KO ($199.40 + $0.60 fee), DIVO ($49.85 + $0.15 fee) -> net cash $0.00
+    priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
+    priorCostBasis: 0.00,
+    transactions: [
+      // --- 17 აგვ 2026 TBC $250 deposit & purchases (DIVO, KO) · TBC app · net cash $0.00 ---
+      { date: '2026-08-17', type: 'buy',     ticker: 'DIVO', shares: 0.02850092, price: 48.42,  commission: 0.15 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'DIVO', shares: 1.00000000, price: 48.47,  commission: 0 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 0.28860792, price: 87.14,  commission: 0.60 },
+      { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 2.00000000, price: 87.125, commission: 0 },
+      { date: '2026-08-17', type: 'deposit', amount: 250.00 },
     priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
