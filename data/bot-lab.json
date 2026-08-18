@@ -174,6 +174,10 @@
     {
      "date": "2026-08-17",
      "equity": 83.01
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 83.01
     }
    ],
    "stats": {
@@ -198,7 +202,7 @@
      "target": 20.09,
      "stop": 17.41,
      "max_days": 7,
-     "last_price": 18.51
+     "last_price": 18.47
     },
     {
      "ticker": "WEN",
@@ -208,7 +212,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.55
+     "last_price": 8.42
     }
    ],
    "trades": [
@@ -443,7 +447,7 @@
      "leverage": 1
     }
    ],
-   "equity": 66.79,
+   "equity": 66.57,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -556,13 +560,17 @@
     {
      "date": "2026-08-17",
      "equity": 66.79
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 66.57
     }
    ],
    "stats": {
     "trades": 23,
     "wins": 2,
     "win_rate": 8.7,
-    "return_pct": -33.21
+    "return_pct": -33.43
    }
   },
   "bot3": {
@@ -580,7 +588,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 19.23
+     "last_price": 19.34
     },
     {
      "ticker": "FCEL",
@@ -590,7 +598,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.25
+     "last_price": 22.16
     },
     {
      "ticker": "DXCM",
@@ -645,7 +653,7 @@
      "leverage": 1
     }
    ],
-   "equity": 66.65,
+   "equity": 66.7,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -758,13 +766,17 @@
     {
      "date": "2026-08-17",
      "equity": 66.65
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 66.7
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -33.35
+    "return_pct": -33.3
    }
   },
   "bot4": {
@@ -782,7 +794,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.55
+     "last_price": 8.42
     }
    ],
    "trades": [
@@ -837,7 +849,7 @@
      "leverage": 1
     }
    ],
-   "equity": 90.23,
+   "equity": 89.83,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -950,13 +962,17 @@
     {
      "date": "2026-08-17",
      "equity": 90.23
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 89.83
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -9.77
+    "return_pct": -10.17
    }
   },
   "bot5": {
@@ -977,7 +993,7 @@
      "leverage": 2.5,
      "own_equity": 459.87720343021874,
      "borrowed": 689.82,
-     "last_price": 181.27
+     "last_price": 184.7
     }
    ],
    "trades": [
@@ -1012,7 +1028,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 425.45,
+   "equity": 446.38,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1125,15 +1141,19 @@
     {
      "date": "2026-08-17",
      "equity": 425.45
+    },
+    {
+     "date": "2026-08-18",
+     "equity": 446.38
     }
    ],
    "stats": {
     "trades": 3,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -57.45
+    "return_pct": -55.36
    }
   }
  },
- "updated": "2026-08-17T14:13:44.015230+00:00"
+ "updated": "2026-08-18T14:29:24.574712+00:00"
 }

@@ -2566,7 +2566,10 @@
    "earnings_beat",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.47,
+  "return_pct": 0.27,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-10T14:50:36.725305+00:00",
@@ -2577,7 +2580,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 52.2,
+  "return_pct": 0.37,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-10T14:50:36.725308+00:00",
@@ -2588,7 +2594,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 35.31,
+  "return_pct": 3.46,
+  "outcome": "win"
  },
  {
   "date": "2026-08-10T14:50:36.725311+00:00",
@@ -2599,7 +2608,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.21,
+  "return_pct": -4.9,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-10T14:50:36.725314+00:00",
@@ -2610,7 +2622,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.44,
+  "return_pct": 0.2,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-10T14:50:36.725317+00:00",
@@ -2622,7 +2637,10 @@
    "big_contract",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 46.05,
+  "return_pct": 8.66,
+  "outcome": "win"
  },
  {
   "date": "2026-08-10T14:50:36.725320+00:00",
@@ -2634,7 +2652,10 @@
    "earnings_beat",
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 236.33,
+  "return_pct": -4.96,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-10T14:50:36.725326+00:00",
@@ -2645,7 +2666,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.67,
+  "return_pct": -1.73,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-10T14:50:36.725329+00:00",
@@ -2656,7 +2680,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 161.94,
+  "return_pct": 9.26,
+  "outcome": "win"
  },
  {
   "date": "2026-08-10T14:50:36.725332+00:00",
@@ -2668,7 +2695,10 @@
    "buyback_dividend",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 103.21,
+  "return_pct": 0.61,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348570+00:00",
@@ -3233,6 +3263,73 @@
   "ticker": "STX",
   "entry": 993.51,
   "score": 22.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821824+00:00",
+  "ticker": "WEN",
+  "entry": 8.42,
+  "score": 46.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821834+00:00",
+  "ticker": "OSCR",
+  "entry": 32.01,
+  "score": 41.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821838+00:00",
+  "ticker": "RELY",
+  "entry": 26.63,
+  "score": 38.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821842+00:00",
+  "ticker": "HAE",
+  "entry": 104.11,
+  "score": 29.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821846+00:00",
+  "ticker": "NBIS",
+  "entry": 264.15,
+  "score": 28.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-18T14:29:22.821849+00:00",
+  "ticker": "YETI",
+  "entry": 43.54,
+  "score": 6.6,
   "horizon": "long",
   "catalyst_cats": [
    "growth_news"
