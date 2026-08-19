@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-08-19T13:51:01.694Z",
+  "opened": "2026-08-12T15:30:47.652Z",
+  "ticker": "PLTR",
+  "rule": "R3",
+  "entry": 169.77,
+  "exit": 173.66,
+  "exitType": "TIME",
+  "pnl": 0.46,
+  "pnlPct": 2.29
+ },
+ {
   "closed": "2026-08-17T13:47:08.816Z",
   "opened": "2026-08-10T16:26:00.076Z",
   "ticker": "NVDA",
