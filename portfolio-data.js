@@ -5,16 +5,16 @@
 // Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-08-17',
-  feesPaid: 84.39,                      // reconciled 17 Aug 2026: BOG $39.71 ($19.71 + $20 bank fees) + TBC $4.68 (12 fees) + Galt $40.00
+  lastUpdated: '2026-08-19',
+  feesPaid: 84.80,                      // reconciled 19 Aug 2026: BOG $40.12 ($19.71 + $20 bank fees + $0.41 platform fee) + TBC $4.68 (12 fees) + Galt $40.00
   feesByBook: [
-    { book: 'BOG', amount: 39.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($20.00)' },
+    { book: 'BOG', amount: 40.12, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($20.00) + პლატფორმის საკომისიო ($0.41)' },
     { book: 'TBC', amount: 4.68, note: '12 ვაჭრობის საკომისიო (17 აგვ 2026)' },
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG cash balance: 17 Aug 2026: BOG account fully cleared ($400 to TBC, $4 bank fee, $214.82 withdrawn) -> cash balance $0.00.
-  bog: { cashAdded: 0.00, countedAsDeposit: false },
+  // BOG cash balance: 19 Aug 2026: $4.00 deposit added as cash - $0.41 platform fee -> net cash $3.59.
+  bog: { cashAdded: 4.00, countedAsDeposit: true },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
