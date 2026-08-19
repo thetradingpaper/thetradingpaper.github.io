@@ -15,15 +15,15 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [],
-    cash: 3.59, // 19 Aug 2026: New deposit $4.00 - $0.41 platform fee -> net cash balance $3.59
+    cash: 4.00, // 19 Aug 2026: New deposit $4.41 - $0.41 platform fee -> net cash balance $4.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 19 აგვ 2026 BOG new deposit ($4.00) & platform fee ($0.41) · net cash $3.59 ---
+      // --- 19 აგვ 2026 BOG new deposit ($4.41) & platform fee ($0.41) · net cash $4.00 ---
       { date: '2026-08-19', type: 'fee',      amount: 0.41,   note: 'პლატფორმის მომსახურების საკომისიო (BOG)' },
-      { date: '2026-08-19', type: 'deposit',  amount: 4.00,   note: 'ახალი დეპოზიტი (CASH)' },
+      { date: '2026-08-19', type: 'deposit',  amount: 4.41,   note: 'ახალი დეპოზიტი (CASH)' },
       // --- 17 აგვ 2026 BOG fully cleared · $400 → TBC ($4 bank fee), $214.82 withdrawn · BOG app · net cash $0.00 ---
       { date: '2026-08-17', type: 'withdraw', amount: 214.82, note: 'BOG ანგარიშის სრული დახურვა · გატანა' },
       { date: '2026-08-17', type: 'fee',      amount: 4.00,   note: 'ბანკის საკომისიო · გადარიცხვა $250 TBC-ში' },

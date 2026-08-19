@@ -13,8 +13,8 @@ window.MEPORTF = {
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG cash balance: 19 Aug 2026: $4.00 deposit added as cash - $0.41 platform fee -> net cash $3.59.
-  bog: { cashAdded: 4.00, countedAsDeposit: true },
+  // BOG cash balance: 19 Aug 2026: $4.41 deposit added - $0.41 platform fee -> net cash balance $4.00.
+  bog: { cashAdded: 4.41, countedAsDeposit: true },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
