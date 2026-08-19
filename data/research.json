@@ -1,161 +1,321 @@
 {
- "updated": "2026-08-18T14:29:22.821888+00:00",
+ "updated": "2026-08-19T14:23:47.342647+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on WEN (score 46.3). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on PPC (score 55.2). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "WEN",
-   "price": 8.42,
-   "score": 46.3,
-   "tech_score": 36.0,
-   "news_score": 10.3,
-   "rsi": 59.8,
-   "mom5": 16.16,
-   "vol_surge": 0.11,
+   "ticker": "PPC",
+   "price": 32.61,
+   "score": 55.2,
+   "tech_score": 38.0,
+   "news_score": 17.2,
+   "rsi": 63.0,
+   "mom5": 21.03,
+   "vol_surge": 0.67,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Wendy's Traders Smell a Buyout Cooking — Nelson Peltz Preps a Bid",
-     "age_h": 41.0,
-     "points": 10.3
+     "headline": "JBS Proposes to Acquire Remaining Stake in Pilgrim’s Pride",
+     "age_h": 15.1,
+     "points": 17.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 8.42,
-    "target": 9.28,
-    "stop": 7.91,
+    "entry": 32.61,
+    "target": 35.35,
+    "stop": 30.97,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "OSCR",
-   "price": 32.01,
-   "score": 41.4,
-   "tech_score": 36.0,
-   "news_score": 5.4,
-   "rsi": 52.2,
-   "mom5": 15.92,
-   "vol_surge": 0.11,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Is Oscar Health (OSCR) Undervalued After Its Earnings Beat And Guidance Raise?",
-     "age_h": 67.4,
-     "points": 5.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 32.01,
-    "target": 35.66,
-    "stop": 29.82,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "RELY",
-   "price": 26.63,
-   "score": 38.2,
+   "ticker": "SNDK",
+   "price": 1558.71,
+   "score": 54.9,
    "tech_score": 28.0,
-   "news_score": 10.2,
-   "rsi": 68.5,
-   "mom5": 15.23,
-   "vol_surge": 0.08,
+   "news_score": 26.9,
+   "rsi": 60.8,
+   "mom5": 15.81,
+   "vol_surge": 0.45,
    "catalysts": [
     {
-     "category": "analyst_upgrade",
-     "headline": "All You Need to Know About Remitly Global (RELY) Rating Upgrade to Strong Buy",
-     "age_h": 22.5,
-     "points": 10.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 26.63,
-    "target": 29.29,
-    "stop": 25.03,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "HAE",
-   "price": 104.11,
-   "score": 29.9,
-   "tech_score": 18.0,
-   "news_score": 11.9,
-   "rsi": 83.5,
-   "mom5": 20.18,
-   "vol_surge": 0.7,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Haemonetics (HAE) Stock Could Be 49% Below Fair Value On Raised Guidance",
-     "age_h": 60.3,
-     "points": 6.5
+     "category": "buyback_dividend",
+     "headline": "SK Hynix Rises 6% on $29B Buyback, SanDisk Gains 5%, Micron Climbs 3% as Memory Names Rebound",
+     "age_h": 0.9,
+     "points": 9.1
     },
     {
      "category": "earnings_beat",
-     "headline": "Haemonetics (HAE) Earnings Beat Puts Fair Value Back In Focus",
-     "age_h": 61.2,
-     "points": 5.4
+     "headline": "Dow Jones Futures Waver After Sandisk, Micron, Credo Lead AI Losses; Target Earnings Beat",
+     "age_h": 2.3,
+     "points": 17.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 104.11,
-    "target": 116.47,
-    "stop": 99.17,
+    "entry": 1558.71,
+    "target": 2019.82,
+    "stop": 1374.27,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "NBIS",
-   "price": 264.15,
-   "score": 28.8,
-   "tech_score": 20.0,
-   "news_score": 8.8,
-   "rsi": 68.4,
-   "mom5": 42.72,
-   "vol_surge": 0.25,
+   "ticker": "AMLX",
+   "price": 38.35,
+   "score": 53.6,
+   "tech_score": 28.0,
+   "news_score": 25.6,
+   "rsi": 83.5,
+   "mom5": 62.87,
+   "vol_surge": 0.92,
    "catalysts": [
     {
+     "category": "fda_approval",
+     "headline": "AMLX Stock Clocks Best Day Ever After Positive Trial Data, Launches $350M Offering",
+     "age_h": 16.9,
+     "points": 16.8
+    },
+    {
      "category": "growth_news",
-     "headline": "Prediction: Massive AI Data Center Demand Will Make This Infrastructure Stock a Multibagger in Just 3 Years",
-     "age_h": 0.4,
+     "headline": "AMLX Stock Clocks Best Day Ever After Positive Trial Data, Launches $350M Offering",
+     "age_h": 16.9,
      "points": 8.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 264.15,
-    "target": 344.87,
-    "stop": 231.87,
+    "entry": 38.35,
+    "target": 45.85,
+    "stop": 35.36,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "YETI",
-   "price": 43.54,
-   "score": 6.6,
-   "tech_score": 4.0,
-   "news_score": 2.6,
-   "rsi": 27.9,
-   "mom5": -17.36,
-   "vol_surge": 0.11,
+   "ticker": "EL",
+   "price": 98.17,
+   "score": 53.3,
+   "tech_score": 35.4,
+   "news_score": 17.8,
+   "rsi": 74.1,
+   "mom5": 11.8,
+   "vol_surge": 1.93,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Estée Lauder (NYSE:EL) Beats Q2 CY2026 Sales Expectations, Stock Jumps 11.8%",
+     "age_h": 1.6,
+     "points": 17.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 98.17,
+    "target": 104.81,
+    "stop": 94.18,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SWMR",
+   "price": 47.8,
+   "score": 38.8,
+   "tech_score": 30.0,
+   "news_score": 8.8,
+   "rsi": 74.1,
+   "mom5": 18.68,
+   "vol_surge": 0.23,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "YETI Q2 Deep Dive: Brand Expansion and Margin Gains Tempered by Cautious Guidance",
-     "age_h": 52.8,
-     "points": 2.6
+     "headline": "Swarmer’s SkyKnight & Platform Expansion Builds Commercial Momentum – Quarterly Update Report",
+     "age_h": 16.3,
+     "points": 8.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 43.54,
-    "target": 50.23,
-    "stop": 40.86,
+    "entry": 47.8,
+    "target": 57.92,
+    "stop": 43.75,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "HTHT",
+   "price": 48.85,
+   "score": 38.4,
+   "tech_score": 30.0,
+   "news_score": 8.4,
+   "rsi": 68.1,
+   "mom5": 17.15,
+   "vol_surge": 0.36,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "H World Group shares rise 5% after Q2 earnings beat and guidance upgrade",
+     "age_h": 48.6,
+     "points": 5.3
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "H World Group shares rise 5% after Q2 earnings beat and guidance upgrade",
+     "age_h": 48.6,
+     "points": 3.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 48.85,
+    "target": 51.81,
+    "stop": 47.07,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MRNA",
+   "price": 158.15,
+   "score": 34.3,
+   "tech_score": 30.0,
+   "news_score": 4.3,
+   "rsi": 93.1,
+   "mom5": 142.25,
+   "vol_surge": 7.78,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Stock Market Today: Dow Rises On Treasury Buybacks; Moderna Soars On Cancer Drug News (Live Coverage)",
+     "age_h": 0.7,
+     "points": 9.1
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Moderna upgraded, Baidu downgraded: Wall Street's top analyst calls",
+     "age_h": 0.7,
+     "points": 10.2
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "Moderna upgraded, Baidu downgraded: Wall Street's top analyst calls",
+     "age_h": 0.7,
+     "points": -15.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 158.15,
+    "target": 189.22,
+    "stop": 145.73,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "MRK",
+   "price": 150.78,
+   "score": 34.2,
+   "tech_score": 29.9,
+   "news_score": 4.3,
+   "rsi": 86.9,
+   "mom5": 13.24,
+   "vol_surge": 1.24,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Stock Market Today: Dow Rises On Treasury Buybacks; Moderna Soars On Cancer Drug News (Live Coverage)",
+     "age_h": 0.7,
+     "points": 9.1
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Moderna upgraded, Baidu downgraded: Wall Street's top analyst calls",
+     "age_h": 0.8,
+     "points": 10.2
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "Moderna upgraded, Baidu downgraded: Wall Street's top analyst calls",
+     "age_h": 0.8,
+     "points": -15.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 150.78,
+    "target": 163.42,
+    "stop": 145.72,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FN",
+   "price": 457.5,
+   "score": 26.6,
+   "tech_score": 0.0,
+   "news_score": 26.6,
+   "rsi": 55.0,
+   "mom5": -20.01,
+   "vol_surge": 0.45,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Fabrinet Q4 Earnings Beat Estimates on Strong Data Center Growth",
+     "age_h": 22.2,
+     "points": 17.8
+    },
+    {
+     "category": "growth_news",
+     "headline": "Fabrinet Q4 Earnings Beat Estimates on Strong Data Center Growth",
+     "age_h": 22.2,
+     "points": 8.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 457.5,
+    "target": 602.66,
+    "stop": 399.44,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ALH",
+   "price": 24.12,
+   "score": 24.7,
+   "tech_score": 11.2,
+   "news_score": 13.5,
+   "rsi": 36.0,
+   "mom5": -6.77,
+   "vol_surge": 4.08,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Home Depot Q2 Earnings Beat Estimates as Sales & Ticket Rise",
+     "age_h": 24.5,
+     "points": 10.7
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Alliance Laundry (ALH) Upgraded to Buy: Here's What You Should Know",
+     "age_h": 46.4,
+     "points": 6.1
+    },
+    {
+     "category": "growth_news",
+     "headline": "Alliance Laundry shares fall after BDT Capital launches secondary offering",
+     "age_h": 48.2,
+     "points": 2.6
+    },
+    {
+     "category": "dilution",
+     "headline": "Alliance Laundry shares fall after BDT Capital launches secondary offering",
+     "age_h": 48.2,
+     "points": -6.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 24.12,
+    "target": 27.53,
+    "stop": 22.76,
     "hold": "2-8 კვირა"
    }
   }
@@ -163,30 +323,30 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 91,
-   "win_rate": 27.5,
-   "avg_return": 0.54,
-   "weight_now": 0.82
+   "n": 94,
+   "win_rate": 26.6,
+   "avg_return": 0.56,
+   "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 50,
-   "win_rate": 8.0,
-   "avg_return": -1.97,
+   "n": 54,
+   "win_rate": 7.4,
+   "avg_return": -1.96,
    "weight_now": 0.66
   },
   {
    "category": "growth_news",
-   "n": 31,
-   "win_rate": 35.5,
-   "avg_return": -2.01,
+   "n": 34,
+   "win_rate": 35.3,
+   "avg_return": -1.83,
    "weight_now": 0.88
   },
   {
    "category": "analyst_upgrade",
-   "n": 29,
-   "win_rate": 10.3,
-   "avg_return": -10.23,
+   "n": 32,
+   "win_rate": 9.4,
+   "avg_return": -9.49,
    "weight_now": 0.68
   },
   {
@@ -198,10 +358,10 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 8,
-   "win_rate": 25.0,
-   "avg_return": -1.15,
-   "weight_now": 0.8
+   "n": 10,
+   "win_rate": 20.0,
+   "avg_return": -1.09,
+   "weight_now": 0.76
   },
   {
    "category": "fda_approval",
@@ -212,13 +372,13 @@
   },
   {
    "category": "big_contract",
-   "n": 3,
-   "win_rate": 33.3,
-   "avg_return": -5.46,
+   "n": 4,
+   "win_rate": 50.0,
+   "avg_return": -2.08,
    "weight_now": 1.0
   }
  ],
- "scanned": 5978,
+ "scanned": 5979,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

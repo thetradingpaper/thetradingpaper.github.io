@@ -2709,7 +2709,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.05,
+  "return_pct": 0.83,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348584+00:00",
@@ -2721,7 +2724,10 @@
    "m_and_a",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.49,
+  "return_pct": 0.05,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348589+00:00",
@@ -2732,7 +2738,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 147.48,
+  "return_pct": -4.29,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-11T14:49:25.348592+00:00",
@@ -2744,7 +2753,10 @@
    "m_and_a",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.5,
+  "return_pct": 0.24,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348596+00:00",
@@ -2757,7 +2769,10 @@
    "buyback_dividend",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 106.54,
+  "return_pct": 2.53,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348601+00:00",
@@ -2769,7 +2784,10 @@
    "growth_news",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.2,
+  "return_pct": -8.01,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-11T14:49:25.348605+00:00",
@@ -2780,7 +2798,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.9,
+  "return_pct": -8.58,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-11T14:49:25.348612+00:00",
@@ -2791,7 +2812,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 52.2,
+  "return_pct": 0.35,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348617+00:00",
@@ -2802,7 +2826,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 10.95,
+  "return_pct": -1.04,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-11T14:49:25.348621+00:00",
@@ -2814,7 +2841,10 @@
    "big_contract",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 46.77,
+  "return_pct": 8.04,
+  "outcome": "win"
  },
  {
   "date": "2026-08-12T14:46:18.401087+00:00",
@@ -3332,6 +3362,124 @@
   "score": 6.6,
   "horizon": "long",
   "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342552+00:00",
+  "ticker": "PPC",
+  "entry": 32.61,
+  "score": 55.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342561+00:00",
+  "ticker": "SNDK",
+  "entry": 1558.71,
+  "score": 54.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342567+00:00",
+  "ticker": "AMLX",
+  "entry": 38.35,
+  "score": 53.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342572+00:00",
+  "ticker": "EL",
+  "entry": 98.17,
+  "score": 53.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342575+00:00",
+  "ticker": "SWMR",
+  "entry": 47.8,
+  "score": 38.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342579+00:00",
+  "ticker": "HTHT",
+  "entry": 48.85,
+  "score": 38.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342583+00:00",
+  "ticker": "MRNA",
+  "entry": 158.15,
+  "score": 34.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342591+00:00",
+  "ticker": "MRK",
+  "entry": 150.78,
+  "score": 34.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342596+00:00",
+  "ticker": "FN",
+  "entry": 457.5,
+  "score": 26.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-19T14:23:47.342600+00:00",
+  "ticker": "ALH",
+  "entry": 24.12,
+  "score": 24.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade",
    "growth_news"
   ],
   "status": "open"

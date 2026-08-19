@@ -178,6 +178,10 @@
     {
      "date": "2026-08-18",
      "equity": 83.01
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 83.01
     }
    ],
    "stats": {
@@ -192,7 +196,7 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 38.462464354008794,
+   "cash": 0.0,
    "positions": [
     {
      "ticker": "VREX",
@@ -212,7 +216,37 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.42
+     "last_price": 8.84
+    },
+    {
+     "ticker": "PPC",
+     "shares": 0.378636,
+     "entry": 32.540000915527344,
+     "entry_date": "2026-08-19",
+     "target": 35.35,
+     "stop": 30.97,
+     "max_days": 7,
+     "last_price": 32.540000915527344
+    },
+    {
+     "ticker": "SNDK",
+     "shares": 0.007919,
+     "entry": 1555.925048828125,
+     "entry_date": "2026-08-19",
+     "target": 2019.82,
+     "stop": 1374.27,
+     "max_days": 7,
+     "last_price": 1555.925048828125
+    },
+    {
+     "ticker": "AMLX",
+     "shares": 0.321315,
+     "entry": 38.345001220703125,
+     "entry_date": "2026-08-19",
+     "target": 45.85,
+     "stop": 35.36,
+     "max_days": 7,
+     "last_price": 38.345001220703125
     }
    ],
    "trades": [
@@ -447,7 +481,7 @@
      "leverage": 1
     }
    ],
-   "equity": 66.57,
+   "equity": 65.67,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -564,13 +598,17 @@
     {
      "date": "2026-08-18",
      "equity": 66.57
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 65.67
     }
    ],
    "stats": {
     "trades": 23,
     "wins": 2,
     "win_rate": 8.7,
-    "return_pct": -33.43
+    "return_pct": -34.33
    }
   },
   "bot3": {
@@ -588,7 +626,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 19.34
+     "last_price": 18.23
     },
     {
      "ticker": "FCEL",
@@ -598,7 +636,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 22.16
+     "last_price": 19.8
     },
     {
      "ticker": "DXCM",
@@ -608,7 +646,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 89.61
+     "last_price": 91.64
     }
    ],
    "trades": [
@@ -653,7 +691,7 @@
      "leverage": 1
     }
    ],
-   "equity": 66.7,
+   "equity": 63.16,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -770,13 +808,17 @@
     {
      "date": "2026-08-18",
      "equity": 66.7
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 63.16
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -33.3
+    "return_pct": -36.84
    }
   },
   "bot4": {
@@ -794,7 +836,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.42
+     "last_price": 8.84
     }
    ],
    "trades": [
@@ -849,7 +891,7 @@
      "leverage": 1
     }
    ],
-   "equity": 89.83,
+   "equity": 91.15,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -966,13 +1008,17 @@
     {
      "date": "2026-08-18",
      "equity": 89.83
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 91.15
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -10.17
+    "return_pct": -8.85
    }
   },
   "bot5": {
@@ -980,22 +1026,8 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "QLYS",
-     "shares": 6.16755,
-     "entry": 186.41000366210938,
-     "entry_date": "2026-08-05",
-     "target": 219.02,
-     "stop": 173.37,
-     "max_days": 10,
-     "leverage": 2.5,
-     "own_equity": 459.87720343021874,
-     "borrowed": 689.82,
-     "last_price": 184.7
-    }
-   ],
+   "cash": 421.3800956597065,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1026,9 +1058,19 @@
      "ret_pct": -25.71,
      "reason": "stop",
      "leverage": 2.5
+    },
+    {
+     "ticker": "QLYS",
+     "entry": 186.41000366210938,
+     "exit": 182.3,
+     "entry_date": "2026-08-05",
+     "exit_date": "2026-08-19",
+     "ret_pct": -8.37,
+     "reason": "time",
+     "leverage": 2.5
     }
    ],
-   "equity": 446.38,
+   "equity": 421.38,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1145,15 +1187,19 @@
     {
      "date": "2026-08-18",
      "equity": 446.38
+    },
+    {
+     "date": "2026-08-19",
+     "equity": 421.38
     }
    ],
    "stats": {
-    "trades": 3,
+    "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -55.36
+    "return_pct": -57.86
    }
   }
  },
- "updated": "2026-08-18T14:29:24.574712+00:00"
+ "updated": "2026-08-19T14:23:48.563953+00:00"
 }
