@@ -14,7 +14,7 @@ Living memory of capital, trades, and the build. I update this every time you re
 | **GALT** | Galt & Taggart | Closed margin book | $78.63 | $78.63 | **$0.00** | **🔴 −$78.63 (−100.00%)** |
 | **TOTAL** | — | — | **$7,087.61** | **$6,980.77** | **$2,231.96** | **🔴 −$4,748.81 (−68.03%)** |
 
-> **Note on Historical Capital:** Includes **$4,500.00** in historical lost bank deposits ($1,300.00 from Bank of Georgia / BOG, $3,200.00 from TBC Bank) added to cost basis / deposits so that PnL fully reflects lifetime lost capital. Net capital at risk ($6,980.77) accounts for -$106.84 card withdrawals.
+> **Note on Historical Capital:** Includes **$3,515.00** in historical lost bank deposits ($1,300.00 from Bank of Georgia / BOG, $2,215.00 from TBC Bank) added to cost basis / deposits so that PnL fully reflects lifetime lost capital. Net capital at risk ($6,980.77) accounts for -$106.84 card withdrawals.
 
 ---
 

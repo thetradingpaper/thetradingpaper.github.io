@@ -226,7 +226,7 @@ window.PORTFOLIOS = {
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 1.02850092, avgBuy: 48.47, invested: 49.85, value: 49.85, color: '#0284c7', divYield: 4.50 },
     ],
     cash: 0.00, // 17 Aug 2026: $400 + $250 deposits invested into MSTR, VOO, GOOG, SNDK, KO ($199.40 + $0.60 fee), DIVO ($49.85 + $0.15 fee) -> net cash $0.00
-    priorDeposits: 3200.00, // $3,200.00 historical lost TBC bank deposits
+    priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
       // --- 17 აგვ 2026 TBC $250 deposit & purchases (DIVO, KO) · TBC app · net cash $0.00 ---
