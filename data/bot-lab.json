@@ -7,8 +7,19 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 83.00934937644004,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "WEAV",
+     "shares": 11.287034,
+     "entry": 7.310100078582764,
+     "entry_date": "2026-08-20",
+     "target": 8.33,
+     "stop": 6.7,
+     "max_days": 7,
+     "last_price": 7.310100078582764
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -61,7 +72,7 @@
      "leverage": 1
     }
    ],
-   "equity": 83.01,
+   "equity": 82.51,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -182,13 +193,17 @@
     {
      "date": "2026-08-19",
      "equity": 83.01
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 82.51
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 1,
     "win_rate": 20.0,
-    "return_pct": -16.99
+    "return_pct": -17.49
    }
   },
   "bot2": {
@@ -199,16 +214,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "VREX",
-     "shares": 0.864607,
-     "entry": 18.420000076293945,
-     "entry_date": "2026-08-10",
-     "target": 20.09,
-     "stop": 17.41,
-     "max_days": 7,
-     "last_price": 18.47
-    },
-    {
      "ticker": "WEN",
      "shares": 1.441032,
      "entry": 8.55,
@@ -216,7 +221,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.84
+     "last_price": 8.74
     },
     {
      "ticker": "PPC",
@@ -226,7 +231,7 @@
      "target": 35.35,
      "stop": 30.97,
      "max_days": 7,
-     "last_price": 32.540000915527344
+     "last_price": 31.18
     },
     {
      "ticker": "SNDK",
@@ -236,7 +241,7 @@
      "target": 2019.82,
      "stop": 1374.27,
      "max_days": 7,
-     "last_price": 1555.925048828125
+     "last_price": 1617.13
     },
     {
      "ticker": "AMLX",
@@ -246,7 +251,17 @@
      "target": 45.85,
      "stop": 35.36,
      "max_days": 7,
-     "last_price": 38.345001220703125
+     "last_price": 38.97
+    },
+    {
+     "ticker": "WEAV",
+     "shares": 2.046572,
+     "entry": 7.310100078582764,
+     "entry_date": "2026-08-20",
+     "target": 8.33,
+     "stop": 6.7,
+     "max_days": 7,
+     "last_price": 7.310100078582764
     }
    ],
    "trades": [
@@ -479,9 +494,19 @@
      "ret_pct": -14.45,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "VREX",
+     "entry": 18.420000076293945,
+     "exit": 18.46,
+     "entry_date": "2026-08-10",
+     "exit_date": "2026-08-20",
+     "ret_pct": -5.88,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 65.67,
+   "equity": 64.69,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -602,13 +627,17 @@
     {
      "date": "2026-08-19",
      "equity": 65.67
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 64.69
     }
    ],
    "stats": {
-    "trades": 23,
+    "trades": 24,
     "wins": 2,
-    "win_rate": 8.7,
-    "return_pct": -34.33
+    "win_rate": 8.3,
+    "return_pct": -35.31
    }
   },
   "bot3": {
@@ -626,7 +655,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 18.23
+     "last_price": 20.47
     },
     {
      "ticker": "FCEL",
@@ -636,7 +665,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 19.8
+     "last_price": 20.15
     },
     {
      "ticker": "DXCM",
@@ -646,7 +675,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 91.64
+     "last_price": 90.91
     }
    ],
    "trades": [
@@ -691,7 +720,7 @@
      "leverage": 1
     }
    ],
-   "equity": 63.16,
+   "equity": 66.22,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -812,13 +841,17 @@
     {
      "date": "2026-08-19",
      "equity": 63.16
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 66.22
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -36.84
+    "return_pct": -33.78
    }
   },
   "bot4": {
@@ -836,7 +869,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.84
+     "last_price": 8.74
     }
    ],
    "trades": [
@@ -891,7 +924,7 @@
      "leverage": 1
     }
    ],
-   "equity": 91.15,
+   "equity": 90.84,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1012,13 +1045,17 @@
     {
      "date": "2026-08-19",
      "equity": 91.15
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 90.84
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -8.85
+    "return_pct": -9.16
    }
   },
   "bot5": {
@@ -1191,6 +1228,10 @@
     {
      "date": "2026-08-19",
      "equity": 421.38
+    },
+    {
+     "date": "2026-08-20",
+     "equity": 421.38
     }
    ],
    "stats": {
@@ -1201,5 +1242,5 @@
    }
   }
  },
- "updated": "2026-08-19T14:23:48.563953+00:00"
+ "updated": "2026-08-20T14:26:28.728172+00:00"
 }

@@ -2855,7 +2855,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 36.8,
+  "return_pct": 2.63,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-12T14:46:18.401103+00:00",
@@ -2866,7 +2869,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 33.62,
+  "return_pct": -5.95,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-12T14:46:18.401109+00:00",
@@ -2877,7 +2883,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.82,
+  "return_pct": -4.39,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-12T14:46:18.401113+00:00",
@@ -2888,7 +2897,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 91.38,
+  "return_pct": -13.87,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-12T14:46:18.401118+00:00",
@@ -2900,7 +2912,10 @@
    "m_and_a",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.46,
+  "return_pct": -0.32,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-12T14:46:18.401123+00:00",
@@ -2913,7 +2928,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 28.8,
+  "return_pct": 1.98,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-12T14:46:18.401129+00:00",
@@ -2924,7 +2942,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.56,
+  "return_pct": -13.05,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-12T14:46:18.401137+00:00",
@@ -2935,7 +2956,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 33.53,
+  "return_pct": -8.19,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-12T14:46:18.401148+00:00",
@@ -2947,7 +2971,10 @@
    "m_and_a",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.5,
+  "return_pct": 0.47,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-12T14:46:18.401153+00:00",
@@ -2958,7 +2985,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 145.12,
+  "return_pct": -3.57,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-13T14:48:55.954586+00:00",
@@ -3481,6 +3511,118 @@
    "earnings_beat",
    "analyst_upgrade",
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022306+00:00",
+  "ticker": "WEAV",
+  "entry": 7.31,
+  "score": 63.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022318+00:00",
+  "ticker": "BULL",
+  "entry": 9.18,
+  "score": 43.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022321+00:00",
+  "ticker": "AUPH",
+  "entry": 17.72,
+  "score": 39.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022325+00:00",
+  "ticker": "AMLX",
+  "entry": 39.05,
+  "score": 33.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022330+00:00",
+  "ticker": "HIVE",
+  "entry": 3.06,
+  "score": 33.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022334+00:00",
+  "ticker": "HL",
+  "entry": 20.72,
+  "score": 27.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022337+00:00",
+  "ticker": "ALM",
+  "entry": 16.57,
+  "score": 22.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022344+00:00",
+  "ticker": "TTMI",
+  "entry": 115.75,
+  "score": 17.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022349+00:00",
+  "ticker": "FN",
+  "entry": 449.08,
+  "score": 15.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-20T14:26:27.022354+00:00",
+  "ticker": "WMT",
+  "entry": 103.64,
+  "score": 12.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
   ],
   "status": "open"
  }
