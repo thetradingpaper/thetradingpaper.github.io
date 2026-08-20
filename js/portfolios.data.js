@@ -225,10 +225,9 @@ window.PORTFOLIOS = {
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.00686969, avgBuy: 696.35, invested: 701.13, value: 717.23, color: '#2563eb', divYield: 1.30 },
       { ticker: 'GOOG', name: 'Alphabet Inc. - Class C Shares', shares: 0.58494925, avgBuy: 341.91, invested: 200.00, value: 199.12, color: '#0f9d58', divYield: 0.00 },
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 199.04, color: '#dc2626', divYield: 3.10 },
-      { ticker: 'SNDK', name: 'SanDisk Corp', shares: 0.05628285, avgBuy: 1776.74, invested: 100.00, value: 102.83, color: '#ea580c', divYield: 0.00 },
-      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 1.02850092, avgBuy: 48.47, invested: 49.85, value: 49.85, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 151.58, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 0.00, // 17 Aug 2026: $400 + $250 deposits invested into MSTR, VOO, GOOG, SNDK, KO ($199.40 + $0.60 fee), DIVO ($49.85 + $0.15 fee) -> net cash $0.00
+    cash: 0.00, // 17 Aug 2026: $400 + $250 deposits invested into MSTR, VOO, GOOG, DIVO, KO ($199.40 + $0.60 fee), DIVO ($149.85 + $0.15 fee) -> net cash $0.00
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -238,8 +237,8 @@ window.PORTFOLIOS = {
       { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 0.28860792, price: 87.14,  commission: 0.60 },
       { date: '2026-08-17', type: 'buy',     ticker: 'KO',   shares: 2.00000000, price: 87.125, commission: 0 },
       { date: '2026-08-17', type: 'deposit', amount: 250.00 },
-      // --- 17 აგვ 2026 BOG→TBC transfer ($400.00) & purchases (SNDK, GOOG, VOO, MSTR) · TBC app · net cash $0.00 ---
-      { date: '2026-08-17', type: 'buy',     ticker: 'SNDK', shares: 0.05628285, price: 1776.74, commission: 0 },
+      // --- 17 აგვ 2026 BOG→TBC transfer ($400.00) & purchases (DIVO, GOOG, VOO, MSTR) · TBC app · net cash $0.00 ---
+      { date: '2026-08-17', type: 'buy',     ticker: 'DIVO', shares: 2.09110089, price: 47.82,  commission: 0 },
       { date: '2026-08-17', type: 'buy',     ticker: 'GOOG', shares: 0.58494925, price: 341.91,  commission: 0 },
       { date: '2026-08-17', type: 'buy',     ticker: 'VOO',  shares: 0.02806820, price: 712.55,  commission: 0.06 },
       { date: '2026-08-17', type: 'buy',     ticker: 'MSTR', shares: 0.84429502, price: 95.18,   commission: 0.24 },

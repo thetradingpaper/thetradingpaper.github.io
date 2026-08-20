@@ -5,7 +5,7 @@
 // Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-08-19',
+  lastUpdated: '2026-08-20',
   feesPaid: 84.80,                      // reconciled 19 Aug 2026: BOG $40.12 ($19.71 + $20 bank fees + $0.41 platform fee) + TBC $4.68 (12 fees) + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 40.12, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($20.00) + პლატფორმის საკომისიო ($0.41)' },
