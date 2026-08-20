@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T21:48:17.085Z",
+  "updated": "2026-08-20T22:21:18.629Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -59,7 +59,7 @@
     },
     "ARCC": {
       "price": 19.78,
-      "previousClose": 19.8
+      "previousClose": 19.800001
     },
     "MAIN": {
       "price": 58.4,
