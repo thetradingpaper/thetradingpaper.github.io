@@ -3000,7 +3000,10 @@
    "earnings_beat",
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.85,
+  "return_pct": 11.8,
+  "outcome": "win"
  },
  {
   "date": "2026-08-13T14:48:55.954596+00:00",
@@ -3012,7 +3015,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 20.64,
+  "return_pct": -32.31,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-13T14:48:55.954600+00:00",
@@ -3023,7 +3029,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 12.0,
+  "return_pct": 9.89,
+  "outcome": "win"
  },
  {
   "date": "2026-08-13T14:48:55.954603+00:00",
@@ -3034,7 +3043,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 49.92,
+  "return_pct": 2.67,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-13T14:48:55.954606+00:00",
@@ -3045,7 +3057,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 19.56,
+  "return_pct": 0.1,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-13T14:48:55.954609+00:00",
@@ -3057,7 +3072,10 @@
    "earnings_beat",
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 43.3,
+  "return_pct": -3.73,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-13T14:48:55.954612+00:00",
@@ -3069,7 +3087,10 @@
    "earnings_beat",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 14.6,
+  "return_pct": 0.83,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-13T14:48:55.954618+00:00",
@@ -3080,7 +3101,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 267.83,
+  "return_pct": -15.37,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-13T14:48:55.954621+00:00",
@@ -3091,7 +3115,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 32.08,
+  "return_pct": -9.15,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-13T14:48:55.954624+00:00",
@@ -3103,7 +3130,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 169.32,
+  "return_pct": 7.59,
+  "outcome": "win"
  },
  {
   "date": "2026-08-14T14:41:31.339178+00:00",
@@ -3623,6 +3653,121 @@
   "horizon": "short",
   "catalyst_cats": [
    "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468378+00:00",
+  "ticker": "WEAV",
+  "entry": 7.3,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468387+00:00",
+  "ticker": "PFSA",
+  "entry": 7.2,
+  "score": 53.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468391+00:00",
+  "ticker": "ABUS",
+  "entry": 5.24,
+  "score": 49.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468411+00:00",
+  "ticker": "AMLX",
+  "entry": 41.08,
+  "score": 35.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468417+00:00",
+  "ticker": "CRCL",
+  "entry": 90.11,
+  "score": 32.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "m_and_a",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468421+00:00",
+  "ticker": "UMAC",
+  "entry": 26.72,
+  "score": 30.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "m_and_a",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468425+00:00",
+  "ticker": "AAOI",
+  "entry": 125.1,
+  "score": 12.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468432+00:00",
+  "ticker": "ENVX",
+  "entry": 3.33,
+  "score": 6.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468436+00:00",
+  "ticker": "AAP",
+  "entry": 42.8,
+  "score": 4.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-21T14:25:34.468440+00:00",
+  "ticker": "TTMI",
+  "entry": 109.84,
+  "score": 2.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
   ],
   "status": "open"
  }

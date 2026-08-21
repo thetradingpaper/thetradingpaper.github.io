@@ -17,7 +17,7 @@
      "target": 8.33,
      "stop": 6.7,
      "max_days": 7,
-     "last_price": 7.310100078582764
+     "last_price": 7.3
     }
    ],
    "trades": [
@@ -72,7 +72,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.51,
+   "equity": 82.45,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -197,13 +197,17 @@
     {
      "date": "2026-08-20",
      "equity": 82.51
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 82.45
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 1,
     "win_rate": 20.0,
-    "return_pct": -17.49
+    "return_pct": -17.55
    }
   },
   "bot2": {
@@ -221,7 +225,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.74
+     "last_price": 8.78
     },
     {
      "ticker": "PPC",
@@ -231,7 +235,7 @@
      "target": 35.35,
      "stop": 30.97,
      "max_days": 7,
-     "last_price": 31.18
+     "last_price": 31.45
     },
     {
      "ticker": "SNDK",
@@ -241,7 +245,7 @@
      "target": 2019.82,
      "stop": 1374.27,
      "max_days": 7,
-     "last_price": 1617.13
+     "last_price": 1580.88
     },
     {
      "ticker": "AMLX",
@@ -251,7 +255,7 @@
      "target": 45.85,
      "stop": 35.36,
      "max_days": 7,
-     "last_price": 38.97
+     "last_price": 40.93
     },
     {
      "ticker": "WEAV",
@@ -261,7 +265,7 @@
      "target": 8.33,
      "stop": 6.7,
      "max_days": 7,
-     "last_price": 7.310100078582764
+     "last_price": 7.3
     }
    ],
    "trades": [
@@ -506,7 +510,7 @@
      "leverage": 1
     }
    ],
-   "equity": 64.69,
+   "equity": 65.18,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -631,13 +635,17 @@
     {
      "date": "2026-08-20",
      "equity": 64.69
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 65.18
     }
    ],
    "stats": {
     "trades": 24,
     "wins": 2,
     "win_rate": 8.3,
-    "return_pct": -35.31
+    "return_pct": -34.82
    }
   },
   "bot3": {
@@ -655,7 +663,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.47
+     "last_price": 20.59
     },
     {
      "ticker": "FCEL",
@@ -665,7 +673,7 @@
      "target": 39.21,
      "stop": 18.29,
      "max_days": 40,
-     "last_price": 20.15
+     "last_price": 18.99
     },
     {
      "ticker": "DXCM",
@@ -675,7 +683,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 90.91
+     "last_price": 90.72
     }
    ],
    "trades": [
@@ -720,7 +728,7 @@
      "leverage": 1
     }
    ],
-   "equity": 66.22,
+   "equity": 65.08,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -845,13 +853,17 @@
     {
      "date": "2026-08-20",
      "equity": 66.22
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 65.08
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -33.78
+    "return_pct": -34.92
    }
   },
   "bot4": {
@@ -869,7 +881,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.74
+     "last_price": 8.78
     }
    ],
    "trades": [
@@ -924,7 +936,7 @@
      "leverage": 1
     }
    ],
-   "equity": 90.84,
+   "equity": 90.96,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1049,13 +1061,17 @@
     {
      "date": "2026-08-20",
      "equity": 90.84
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 90.96
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -9.16
+    "return_pct": -9.04
    }
   },
   "bot5": {
@@ -1232,6 +1248,10 @@
     {
      "date": "2026-08-20",
      "equity": 421.38
+    },
+    {
+     "date": "2026-08-21",
+     "equity": 421.38
     }
    ],
    "stats": {
@@ -1242,5 +1262,5 @@
    }
   }
  },
- "updated": "2026-08-20T14:26:28.728172+00:00"
+ "updated": "2026-08-21T14:25:37.581251+00:00"
 }
