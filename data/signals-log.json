@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-08-21T15:41:49.135Z",
+  "opened": "2026-08-18T13:50:08.728Z",
+  "ticker": "TSLA",
+  "rule": "R3",
+  "entry": 337,
+  "exit": 362.93,
+  "exitType": "TARGET",
+  "pnl": 1.54,
+  "pnlPct": 7.69
+ },
+ {
   "closed": "2026-08-20T13:52:38.007Z",
   "opened": "2026-08-19T14:43:51.163Z",
   "ticker": "MSTR",
