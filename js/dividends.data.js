@@ -3,6 +3,8 @@
 // Calculates dividend pay dates ("day sitting on account"), ex-dates,
 // expected net amounts (after 30% GE withholding tax), next dividend payout,
 // upcoming payout calendar, and payout graph datasets dynamically from window.PORTFOLIOS.
+// Last updated: 22 Aug 2026 — added KO & DIVO schedules, corrected MAIN regular
+// monthly rate to $0.265 + quarterly supplementals, fixed local-timezone date math.
 // ============================================================
 (function () {
   'use strict';
@@ -14,13 +16,24 @@
     MAIN: {
       name: 'Main Street Capital',
       freq: 'monthly',
-      estDivPerShare: 0.245,
+      estDivPerShare: 0.265,
+      // MAIN also pays a SUPPLEMENTAL dividend once a quarter (Mar/Jun/Sep/Dec),
+      // paid around the 28th. Optional fields — every other ticker omits them.
+      supplementalPerShare: 0.30,
+      supplementalMonths: [2, 5, 8, 11], // Mar, Jun, Sep, Dec (0-indexed)
       // Monthly pay dates around 14th-15th of each month; ex-date ~8 days prior
       getDates: function (year, month) {
         var pDay = 15;
         var exDay = 7;
         return {
           exDate: formatDateIso(year, month, exDay),
+          payDate: formatDateIso(year, month, pDay)
+        };
+      },
+      getSupplementalDates: function (year, month) {
+        var pDay = 28;
+        return {
+          exDate: shiftIso(year, month, pDay, -14),
           payDate: formatDateIso(year, month, pDay)
         };
       }
@@ -80,6 +93,33 @@
           payDate: formatDateIso(year, month, pDay)
         };
       }
+    },
+    KO: {
+      name: 'Coca-Cola Company',
+      freq: 'quarterly',
+      estDivPerShare: 0.53,
+      months: [3, 6, 9, 11], // Apr, Jul, Oct, Dec (0-indexed)
+      getDates: function (year, month) {
+        // Pays the 1st of Apr/Jul/Oct and ~the 15th of December; ex-date ~15 days prior
+        var pDay = (month === 11) ? 15 : 1;
+        return {
+          exDate: shiftIso(year, month, pDay, -15),
+          payDate: formatDateIso(year, month, pDay)
+        };
+      }
+    },
+    DIVO: {
+      name: 'Amplify CWP Enhanced Dividend Income ETF',
+      freq: 'monthly',
+      estDivPerShare: 0.1834,
+      // Distributes on the last business day of every month; ex-date ~1 day prior
+      getDates: function (year, month) {
+        var pDay = new Date(year, month + 1, 0).getDate();
+        return {
+          exDate: shiftIso(year, month, pDay, -1),
+          payDate: formatDateIso(year, month, pDay)
+        };
+      }
     }
   };
 
@@ -87,6 +127,31 @@
     var mm = String(m + 1).padStart(2, '0');
     var dd = String(d).padStart(2, '0');
     return y + '-' + mm + '-' + dd;
+  }
+
+  // Shift a calendar date by N days and return it as a local-safe ISO string.
+  // Handles month/year rollover (e.g. 1 Apr minus 15 days -> 17 Mar).
+  function shiftIso(y, m, d, deltaDays) {
+    var dt = new Date(y, m, d);
+    dt.setDate(dt.getDate() + deltaDays);
+    return formatDateIso(dt.getFullYear(), dt.getMonth(), dt.getDate());
+  }
+
+  // Parse a 'YYYY-MM-DD' string as a LOCAL date. new Date('2026-08-22') is parsed
+  // as UTC midnight, which reads as the previous day west of Greenwich and skews
+  // every countdown by a day east of it. Split the parts and build locally instead.
+  function parseIsoLocal(value) {
+    if (value instanceof Date) return value;
+    var parts = String(value).slice(0, 10).split('-');
+    if (parts.length === 3) {
+      return new Date(+parts[0], (+parts[1]) - 1, +parts[2]);
+    }
+    return new Date(value);
+  }
+
+  // Local 'YYYY-MM-DD' for a Date object (never via toISOString, which is UTC)
+  function toIsoLocal(dt) {
+    return formatDateIso(dt.getFullYear(), dt.getMonth(), dt.getDate());
   }
 
   function parsePortfolios() {
@@ -122,18 +187,19 @@
     return holdings;
   }
 
-  // Build 12-month upcoming dividend payout schedule from current date
-  function buildUpcomingSchedule(refDate) {
-    var now = refDate ? new Date(refDate) : new Date();
-    var todayIso = now.toISOString().slice(0, 10);
+  // Build an upcoming dividend payout schedule from a reference date.
+  // months = how many calendar months to walk (default 13 = the next 12 + current).
+  function buildUpcomingSchedule(refDate, months) {
+    var now = refDate ? parseIsoLocal(refDate) : new Date();
+    var todayIso = toIsoLocal(now);
     var currentYear = now.getFullYear();
     var currentMonth = now.getMonth();
+    var horizon = (typeof months === 'number' && months > 0) ? Math.floor(months) : 13;
 
     var holdings = getActiveDivHoldings();
     var schedule = [];
 
-    // Generate schedule for 12 months ahead
-    for (var mOffset = 0; mOffset < 13; mOffset++) {
+    for (var mOffset = 0; mOffset < horizon; mOffset++) {
       var targetDate = new Date(currentYear, currentMonth + mOffset, 1);
       var y = targetDate.getFullYear();
       var m = targetDate.getMonth();
@@ -155,6 +221,7 @@
                 bookKey: h.bookKey,
                 bookName: h.bookName,
                 shares: h.shares,
+                kind: 'regular',
                 grossAmount: qGross,
                 netAmount: qGross * TAX_MULTIPLIER,
                 status: 'upcoming'
@@ -184,8 +251,34 @@
               bookKey: h.bookKey,
               bookName: h.bookName,
               shares: h.shares,
+              kind: 'regular',
               grossAmount: gross,
               netAmount: net,
+              status: 'upcoming'
+            });
+          }
+        }
+
+        // Optional supplemental dividend (currently MAIN only). No-op for every
+        // ticker without supplementalPerShare / supplementalMonths.
+        if (meta.supplementalPerShare && meta.supplementalMonths &&
+            meta.supplementalMonths.indexOf(m) !== -1) {
+          var sDates = meta.getSupplementalDates
+            ? meta.getSupplementalDates(y, m)
+            : meta.getDates(y, m);
+          if (sDates.payDate >= todayIso) {
+            var sGross = h.shares * meta.supplementalPerShare;
+            schedule.push({
+              payDate: sDates.payDate,
+              exDate: sDates.exDate,
+              ticker: h.ticker + ' SUPP',
+              name: h.name + ' · supplemental',
+              bookKey: h.bookKey,
+              bookName: h.bookName,
+              shares: h.shares,
+              kind: 'supplemental',
+              grossAmount: sGross,
+              netAmount: sGross * TAX_MULTIPLIER,
               status: 'upcoming'
             });
           }
@@ -198,7 +291,9 @@
     return schedule;
   }
 
-  // Extract past received dividends from portfolio transaction logs
+  // Extract past received dividends from portfolio transaction logs.
+  // Reads { date, type:'dividend', ticker, amount, note } rows — amount is NET
+  // (after the 30% GE withholding), matching the label on dividends.html.
   function getReceivedHistory() {
     var P = parsePortfolios();
     var history = [];
@@ -222,14 +317,14 @@
     return history;
   }
 
-  // Calculates days remaining between today and payDate
+  // Calculates days remaining between today and payDate (both local midnight)
   function getDaysRemaining(payDateIso) {
     var today = new Date();
     today.setHours(0, 0, 0, 0);
-    var pDate = new Date(payDateIso);
+    var pDate = parseIsoLocal(payDateIso);
     pDate.setHours(0, 0, 0, 0);
     var diffTime = pDate - today;
-    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    var diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
     return diffDays < 0 ? 0 : diffDays;
   }
 
@@ -246,10 +341,14 @@
       return next;
     },
 
-    // Returns upcoming dividend payment list
+    // Returns upcoming dividend payment list.
+    // months (optional) = how many calendar months to walk; defaults to 13.
     getUpcomingSchedule: function (months) {
-      return buildUpcomingSchedule();
+      return buildUpcomingSchedule(null, months);
     },
+
+    // Exposed for testing / date-independent verification
+    buildUpcomingSchedule: buildUpcomingSchedule,
 
     // Returns past received history
     getReceivedHistory: function () {
@@ -281,6 +380,10 @@
         if (meta && meta.estDivPerShare) {
           var freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
           grossTot += h.shares * meta.estDivPerShare * freqMult;
+          // Supplementals (MAIN only today) — no-op without the optional fields
+          if (meta.supplementalPerShare && meta.supplementalMonths) {
+            grossTot += h.shares * meta.supplementalPerShare * meta.supplementalMonths.length;
+          }
         } else if (h.divYield > 0) {
           grossTot += h.value * (h.divYield / 100);
         }
@@ -315,7 +418,7 @@
 
       // Group by payDate or list sequentially
       sched.slice(0, 12).forEach(function (item) {
-        var d = new Date(item.payDate);
+        var d = parseIsoLocal(item.payDate);
         var label = String(d.getDate()).padStart(2, '0') + '/' + String(d.getMonth() + 1).padStart(2, '0');
         labels.push(label + ' (' + item.ticker + ')');
         netAmounts.push(+item.netAmount.toFixed(2));

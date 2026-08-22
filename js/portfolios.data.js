@@ -231,6 +231,11 @@ window.PORTFOLIOS = {
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
+      // Dividend rows feed dividends.html (სულ მიღებული) and the historical-growth graph.
+      // Shape — amount is ALWAYS the NET figure credited to the account (after 30% GE tax):
+      //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
+      // Add one row per real credit from the TBC statement. Never estimate — the
+      // upcoming calendar projects estimates; this array holds actual receipts only.
       // --- 17 აგვ 2026 TBC $250 deposit & purchases (DIVO, KO) · TBC app · net cash $0.00 ---
       { date: '2026-08-17', type: 'buy',     ticker: 'DIVO', shares: 0.02850092, price: 48.42,  commission: 0.15 },
       { date: '2026-08-17', type: 'buy',     ticker: 'DIVO', shares: 1.00000000, price: 48.47,  commission: 0 },
