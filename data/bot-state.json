@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 40.86,
+ "cash": 63,
  "positions": [
   {
    "ticker": "PLTR",
@@ -13,17 +13,6 @@
    "cost": 20,
    "target": 193.78,
    "stop": 161.79
-  },
-  {
-   "ticker": "MSTR",
-   "opened": "2026-08-20T15:42:07.989Z",
-   "rule": "R2",
-   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $106.9 · მოცულობა 1.5×",
-   "entry": 112.04,
-   "shares": 0.178508,
-   "cost": 20,
-   "target": 123.62,
-   "stop": 103.36
   },
   {
    "ticker": "TSLA",
@@ -192,7 +181,7 @@
   },
   {
    "date": "2026-08-24",
-   "equity": 102.13
+   "equity": 102.76
   }
  ]
 }

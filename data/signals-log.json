@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-08-24T14:52:22.729Z",
+  "opened": "2026-08-20T15:42:07.989Z",
+  "ticker": "MSTR",
+  "rule": "R2",
+  "entry": 112.04,
+  "exit": 124.03,
+  "exitType": "TARGET",
+  "pnl": 2.14,
+  "pnlPct": 10.7
+ },
+ {
   "closed": "2026-08-24T13:56:59.912Z",
   "opened": "2026-08-17T14:36:37.061Z",
   "ticker": "BABA",
