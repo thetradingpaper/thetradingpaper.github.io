@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24T21:36:06.761Z",
+  "updated": "2026-08-24T21:52:15.904Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,8 +10,8 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 611.03,
-      "previousClose": 607.73004
+      "price": 546.8,
+      "previousClose": 560.42
     },
     "VOO": {
       "price": 701.83,
@@ -34,8 +34,8 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 298.22,
-      "previousClose": 304.04
+      "price": 254.97,
+      "previousClose": 261.95
     },
     "WMT": {
       "price": 108.1,
@@ -74,8 +74,8 @@
       "previousClose": 6.02
     },
     "SNDK": {
-      "price": 1596.57,
-      "previousClose": 1568.87
+      "price": 1493.12,
+      "previousClose": 1596.08
     },
     "GOOG": {
       "price": 344.59,
@@ -120,6 +120,18 @@
     "DIVO": {
       "price": 48.68,
       "previousClose": 48.57
+    },
+    "MU": {
+      "price": 910.43,
+      "previousClose": 966.78
+    },
+    "RKLB": {
+      "price": 68.28,
+      "previousClose": 72.57
+    },
+    "MRVL": {
+      "price": 229.29,
+      "previousClose": 237.04
     }
   }
 }
