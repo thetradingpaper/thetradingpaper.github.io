@@ -72,7 +72,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.45,
+   "equity": 82.4,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -201,13 +201,17 @@
     {
      "date": "2026-08-21",
      "equity": 82.45
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 82.4
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 1,
     "win_rate": 20.0,
-    "return_pct": -17.55
+    "return_pct": -17.6
    }
   },
   "bot2": {
@@ -225,7 +229,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.78
+     "last_price": 8.88
     },
     {
      "ticker": "PPC",
@@ -235,7 +239,7 @@
      "target": 35.35,
      "stop": 30.97,
      "max_days": 7,
-     "last_price": 31.45
+     "last_price": 32.36
     },
     {
      "ticker": "SNDK",
@@ -245,7 +249,7 @@
      "target": 2019.82,
      "stop": 1374.27,
      "max_days": 7,
-     "last_price": 1580.88
+     "last_price": 1436.88
     },
     {
      "ticker": "AMLX",
@@ -255,7 +259,7 @@
      "target": 45.85,
      "stop": 35.36,
      "max_days": 7,
-     "last_price": 40.93
+     "last_price": 38.3
     },
     {
      "ticker": "WEAV",
@@ -510,7 +514,7 @@
      "leverage": 1
     }
    ],
-   "equity": 65.18,
+   "equity": 63.68,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -639,13 +643,17 @@
     {
      "date": "2026-08-21",
      "equity": 65.18
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 63.68
     }
    ],
    "stats": {
     "trades": 24,
     "wins": 2,
     "win_rate": 8.3,
-    "return_pct": -34.82
+    "return_pct": -36.32
    }
   },
   "bot3": {
@@ -663,17 +671,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.59
-    },
-    {
-     "ticker": "FCEL",
-     "shares": 1.079439,
-     "entry": 24.1200008392334,
-     "entry_date": "2026-07-09",
-     "target": 39.21,
-     "stop": 18.29,
-     "max_days": 40,
-     "last_price": 18.99
+     "last_price": 20.45
     },
     {
      "ticker": "DXCM",
@@ -683,7 +681,17 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 90.72
+     "last_price": 92.35
+    },
+    {
+     "ticker": "MSTR",
+     "shares": 0.144573,
+     "entry": 125.76000213623047,
+     "entry_date": "2026-08-24",
+     "target": 144.73,
+     "stop": 118.37,
+     "max_days": 40,
+     "last_price": 125.76000213623047
     }
    ],
    "trades": [
@@ -726,9 +734,19 @@
      "ret_pct": -9.36,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "FCEL",
+     "entry": 24.1200008392334,
+     "exit": 17.77,
+     "entry_date": "2026-07-09",
+     "exit_date": "2026-08-24",
+     "ret_pct": -29.6,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 65.08,
+   "equity": 62.92,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -857,13 +875,17 @@
     {
      "date": "2026-08-21",
      "equity": 65.08
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 62.92
     }
    ],
    "stats": {
-    "trades": 4,
+    "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -34.92
+    "return_pct": -37.08
    }
   },
   "bot4": {
@@ -881,7 +903,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.78
+     "last_price": 8.88
     }
    ],
    "trades": [
@@ -936,7 +958,7 @@
      "leverage": 1
     }
    ],
-   "equity": 90.96,
+   "equity": 91.29,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1065,13 +1087,17 @@
     {
      "date": "2026-08-21",
      "equity": 90.96
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 91.29
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -9.04
+    "return_pct": -8.71
    }
   },
   "bot5": {
@@ -1252,6 +1278,10 @@
     {
      "date": "2026-08-21",
      "equity": 421.38
+    },
+    {
+     "date": "2026-08-24",
+     "equity": 421.38
     }
    ],
    "stats": {
@@ -1262,5 +1292,5 @@
    }
   }
  },
- "updated": "2026-08-21T14:25:37.581251+00:00"
+ "updated": "2026-08-24T14:29:41.013781+00:00"
 }

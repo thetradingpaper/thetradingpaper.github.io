@@ -1,337 +1,257 @@
 {
- "updated": "2026-08-21T14:25:34.468482+00:00",
+ "updated": "2026-08-24T14:29:39.948580+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on WEAV (score 56.3). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on NSSC (score 63.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "WEAV",
-   "price": 7.3,
-   "score": 56.3,
+   "ticker": "NSSC",
+   "price": 42.6,
+   "score": 63.8,
    "tech_score": 46.0,
-   "news_score": 10.3,
-   "rsi": 56.3,
-   "mom5": 33.7,
-   "vol_surge": 0.2,
+   "news_score": 17.8,
+   "rsi": 62.3,
+   "mom5": 12.4,
+   "vol_surge": 3.33,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Weave Communications (WEAV) Stock Fair Value Falls After Analysts Align With Buyout Terms",
-     "age_h": 26.2,
-     "points": 10.3
+     "category": "earnings_beat",
+     "headline": "NAPCO Security Shares Surge 20% After Earnings Beat and Record Revenue",
+     "age_h": 1.7,
+     "points": 17.8
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 7.3,
-    "target": 8.25,
-    "stop": 6.74,
+    "entry": 42.6,
+    "target": 46.39,
+    "stop": 40.33,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "PFSA",
-   "price": 7.2,
-   "score": 53.2,
-   "tech_score": 36.0,
-   "news_score": 17.2,
-   "rsi": 55.9,
-   "mom5": 100.0,
-   "vol_surge": 0.07,
+   "ticker": "MSTR",
+   "price": 125.9,
+   "score": 47.2,
+   "tech_score": 38.0,
+   "news_score": 9.2,
+   "rsi": 73.5,
+   "mom5": 28.22,
+   "vol_surge": 0.75,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Profusa Advances G3 Vision Labs Acquisition Conditions as Q2 Net Loss Widens",
-     "age_h": 23.6,
-     "points": 17.2
+     "category": "buyback_dividend",
+     "headline": "Strategy earmarks $1.6 billion cash pool for treasury operations, buybacks",
+     "age_h": 1.0,
+     "points": 9.2
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 7.2,
-    "target": 15.9,
-    "stop": 1.98,
-    "hold": "3-7 დღე"
+    "entry": 125.9,
+    "target": 144.73,
+    "stop": 118.37,
+    "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "ABUS",
-   "price": 5.24,
-   "score": 49.7,
+   "ticker": "XPON",
+   "price": 6.61,
+   "score": 38.3,
    "tech_score": 30.0,
-   "news_score": 19.7,
-   "rsi": 75.7,
-   "mom5": 11.05,
-   "vol_surge": 4.69,
+   "news_score": 8.3,
+   "rsi": 76.7,
+   "mom5": 48.12,
+   "vol_surge": 15.13,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Expion Energy Acquires Louisiana Oil and Gas Assets in Strategic Expansion",
+     "age_h": 0.5,
+     "points": 8.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 6.61,
+    "target": 8.76,
+    "stop": 5.75,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SNDK",
+   "price": 1438.68,
+   "score": 15.5,
+   "tech_score": 10.0,
+   "news_score": 5.5,
+   "rsi": 50.5,
+   "mom5": -19.76,
+   "vol_surge": 0.29,
    "catalysts": [
     {
      "category": "buyback_dividend",
-     "headline": "Arbutus Biopharma shares jump after unveiling $230 million share buyback plan",
-     "age_h": 0.9,
-     "points": 9.4
-    },
-    {
-     "category": "m_and_a",
-     "headline": "Moderna’s Newfound War Chest Opens Door for 4 Strategic Acquisition Targets",
-     "age_h": 26.8,
-     "points": 10.3
+     "headline": "$27 Billion in Buybacks: 3 Stocks Betting Their Strong Runs Aren’t Over",
+     "age_h": 24.9,
+     "points": 5.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 5.24,
-    "target": 5.92,
-    "stop": 4.97,
+    "entry": 1438.68,
+    "target": 1841.81,
+    "stop": 1277.42,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "AMLX",
-   "price": 41.08,
-   "score": 35.6,
-   "tech_score": 28.0,
-   "news_score": 7.6,
-   "rsi": 86.8,
-   "mom5": 86.85,
-   "vol_surge": 0.2,
-   "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "AMLX Stock Clocks Best Day Ever After Positive Trial Data, Launches $350M Offering",
-     "age_h": 64.9,
-     "points": 5.0
-    },
-    {
-     "category": "growth_news",
-     "headline": "AMLX Stock Clocks Best Day Ever After Positive Trial Data, Launches $350M Offering",
-     "age_h": 64.9,
-     "points": 2.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 41.08,
-    "target": 49.27,
-    "stop": 37.81,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CRCL",
-   "price": 90.11,
-   "score": 32.8,
-   "tech_score": 10.0,
-   "news_score": 22.8,
-   "rsi": 84.6,
-   "mom5": 26.11,
-   "vol_surge": 0.92,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Circle Internet shares surge after acquisition of IBM blockchain patent portfolio",
-     "age_h": 4.4,
-     "points": 17.2
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "XRP News: Ripple’s Buyback Boosts Its Valuation, Not Its Holders",
-     "age_h": 24.1,
-     "points": 5.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 90.11,
-    "target": 106.59,
-    "stop": 83.52,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "UMAC",
-   "price": 26.72,
-   "score": 30.8,
-   "tech_score": 18.0,
-   "news_score": 12.8,
-   "rsi": 56.5,
-   "mom5": -21.62,
-   "vol_surge": 0.31,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Can Aran Defense Buyout Bolster Ondas' Sovereign Defense Strategy?",
-     "age_h": 25.3,
-     "points": 10.3
-    },
-    {
-     "category": "growth_news",
-     "headline": "Swarmer’s SkyKnight & Platform Expansion Builds Commercial Momentum – Quarterly Update Report",
-     "age_h": 64.3,
-     "points": 2.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 26.72,
-    "target": 36.67,
-    "stop": 22.74,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "AAOI",
-   "price": 125.1,
-   "score": 12.6,
-   "tech_score": 10.0,
-   "news_score": 2.5,
-   "rsi": 56.0,
-   "mom5": -16.66,
-   "vol_surge": 0.2,
+   "ticker": "CBRS",
+   "price": 186.97,
+   "score": 8.3,
+   "tech_score": 0.0,
+   "news_score": 8.3,
+   "rsi": 40.3,
+   "mom5": -25.52,
+   "vol_surge": 0.19,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Applied Optoelectronics Bets on U.S. Laser Capacity to Capture AI Data Center Demand",
-     "age_h": 70.4,
-     "points": 2.5
+     "headline": "As Cerebras Launches a New, Record-Setting AI Accelerator, Here’s How You Should Play CBRS Stock",
+     "age_h": 19.0,
+     "points": 8.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 125.1,
-    "target": 175.75,
-    "stop": 104.83,
+    "entry": 186.97,
+    "target": 252.37,
+    "stop": 160.8,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "ENVX",
-   "price": 3.33,
+   "ticker": "LZB",
+   "price": 32.97,
    "score": 6.5,
-   "tech_score": -8.0,
-   "news_score": 14.5,
-   "rsi": 35.9,
-   "mom5": -24.15,
+   "tech_score": 4.0,
+   "news_score": 2.5,
+   "rsi": 18.1,
+   "mom5": -20.26,
    "vol_surge": 0.15,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "What Does Enovix (ENVX) Leadership Turnover And Korea Expansion Mean Now?",
-     "age_h": 6.2,
-     "points": 8.5
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Enovix Corporation (ENVX) Upgraded to Buy: What Does It Mean for the Stock?",
-     "age_h": 46.4,
-     "points": 6.0
+     "headline": "La Z Boy (LZB) As Retail Expansion Meets Softer Results The Valuation Debate Opens",
+     "age_h": 66.3,
+     "points": 2.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 3.33,
-    "target": 4.43,
-    "stop": 2.89,
+    "entry": 32.97,
+    "target": 37.58,
+    "stop": 31.12,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "AAP",
-   "price": 42.8,
-   "score": 4.5,
-   "tech_score": -4.0,
-   "news_score": 8.5,
-   "rsi": 29.3,
-   "mom5": -24.49,
-   "vol_surge": 0.42,
+   "ticker": "STX",
+   "price": 786.08,
+   "score": -5.5,
+   "tech_score": -8.0,
+   "news_score": 2.5,
+   "rsi": 44.2,
+   "mom5": -21.11,
+   "vol_surge": 0.16,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Advance Auto Parts Inc (AAP) (Q2 2026) Earnings Call Highlights: Margin Expansion and Pro ...",
-     "age_h": 19.4,
-     "points": 8.5
+     "headline": "Can Sandisk's NAS Expansion Help It Challenge MU & STX?",
+     "age_h": 69.9,
+     "points": 2.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 42.8,
-    "target": 53.15,
-    "stop": 38.66,
+    "entry": 786.08,
+    "target": 983.63,
+    "stop": 707.06,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "TTMI",
-   "price": 109.84,
-   "score": 2.3,
+   "ticker": "CRWV",
+   "price": 84.02,
+   "score": -5.5,
    "tech_score": -8.0,
-   "news_score": 10.3,
-   "rsi": 41.7,
-   "mom5": -21.53,
-   "vol_surge": 0.13,
+   "news_score": 2.5,
+   "rsi": 43.3,
+   "mom5": -20.93,
+   "vol_surge": 0.17,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "TTM Technologies (TTMI) Stock Could Be 10% Overvalued On Its $1.1B Acquisition",
-     "age_h": 38.2,
-     "points": 10.3
+     "category": "growth_news",
+     "headline": "Trump Says AI Data Centers Need ‘A Little Public Relations Help’ as States Push Back on New Projects",
+     "age_h": 68.0,
+     "points": 2.5
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 109.84,
-    "target": 131.93,
-    "stop": 96.58,
-    "hold": "3-7 დღე"
+    "entry": 84.02,
+    "target": 107.3,
+    "stop": 74.71,
+    "hold": "2-8 კვირა"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 108,
+   "n": 116,
    "win_rate": 25.9,
-   "avg_return": 0.21,
+   "avg_return": 0.26,
    "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 57,
-   "win_rate": 7.0,
-   "avg_return": -1.82,
-   "weight_now": 0.66
+   "n": 62,
+   "win_rate": 9.7,
+   "avg_return": -1.23,
+   "weight_now": 0.68
   },
   {
    "category": "growth_news",
-   "n": 41,
-   "win_rate": 31.7,
-   "avg_return": -2.64,
-   "weight_now": 0.85
+   "n": 46,
+   "win_rate": 28.3,
+   "avg_return": -4.64,
+   "weight_now": 0.83
   },
   {
    "category": "analyst_upgrade",
-   "n": 33,
-   "win_rate": 9.1,
-   "avg_return": -9.63,
+   "n": 34,
+   "win_rate": 8.8,
+   "avg_return": -9.37,
    "weight_now": 0.67
   },
   {
    "category": "guidance_raise",
-   "n": 16,
-   "win_rate": 31.2,
-   "avg_return": -0.04,
+   "n": 19,
+   "win_rate": 31.6,
+   "avg_return": -0.51,
    "weight_now": 0.85
   },
   {
    "category": "buyback_dividend",
-   "n": 13,
-   "win_rate": 23.1,
-   "avg_return": -0.2,
-   "weight_now": 0.78
+   "n": 14,
+   "win_rate": 21.4,
+   "avg_return": -0.25,
+   "weight_now": 0.77
   },
   {
    "category": "fda_approval",
-   "n": 6,
+   "n": 7,
    "win_rate": 0.0,
-   "avg_return": -5.13,
+   "avg_return": -5.03,
    "weight_now": 0.6
   },
   {
@@ -342,7 +262,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5977,
+ "scanned": 5976,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
