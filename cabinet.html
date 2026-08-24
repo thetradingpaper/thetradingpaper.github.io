@@ -1153,7 +1153,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       `;
     }
     const oc = document.getElementById(openCountId);
-    if (oc) oc.textContent = `${h.length} OPEN · CASH $${(p.cash||0).toFixed(2)}`;
+    if (oc) oc.textContent = (p.cash && p.cash > 0) ? `${h.length} OPEN · CASH $${p.cash.toFixed(2)}` : `${h.length} OPEN`;
   }
   renderHoldingsSummary('bog-holdings-summary', 'bog-open-count', 'bog');
   renderHoldingsSummary('tbc-holdings-summary', 'tbc-open-count', 'tbc');

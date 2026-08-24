@@ -14,7 +14,7 @@ window.MEPORTF = {
   ],
   marginFinancingEst: 0,
   // BOG cash balance: 24 Aug 2026: $6.33 deposit added & fully invested in 6 new positions (მძიმე ტექნოლოგიური სექტორი) -> net cash balance $0.00.
-  bog: { cashAdded: 6.33, countedAsDeposit: true },
+  bog: { cashAdded: 0, countedAsDeposit: false },
   galt: {
     closed: true,
     statusShort: 'დახურულია უვადო დროით',
