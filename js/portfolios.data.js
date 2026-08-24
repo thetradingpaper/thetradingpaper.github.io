@@ -14,16 +14,28 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [],
-    cash: 4.00, // 19 Aug 2026: New deposit $4.41 - $0.41 platform fee -> net cash balance $4.00
+    holdings: [
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.00471214, avgBuy: 252.54,  invested: 1.19, value: 1.20, color: '#16a34a', divYield: 0.10 },
+      { ticker: 'SMH',  name: 'VanEck Semiconductor ETF',     shares: 0.00203372, avgBuy: 560.55,  invested: 1.14, value: 1.11, color: '#0284c7', divYield: 0.80 },
+      { ticker: 'MU',   name: 'Micron Technology Inc',        shares: 0.00111377, avgBuy: 897.85,  invested: 1.00, value: 1.01, color: '#8b5cf6', divYield: 0.50 },
+      { ticker: 'RKLB', name: 'Rocket Lab USA Inc',           shares: 0.01387948, avgBuy: 72.05,   invested: 1.00, value: 0.95, color: '#e11d48', divYield: 0.00 },
+      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.00409418, avgBuy: 244.25,  invested: 1.00, value: 0.94, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.00063014, avgBuy: 1586.95, invested: 1.00, value: 0.94, color: '#dc2626', divYield: 0.00 },
+    ],
+    cash: 0.00, // 24 Aug 2026: Deleted $4.41 cash deposit; added $6.33 deposit fully invested in 6 new positions -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 19 აგვ 2026 BOG new deposit ($4.41) & platform fee ($0.41) · net cash $4.00 ---
-      { date: '2026-08-19', type: 'fee',      amount: 0.41,   note: 'პლატფორმის მომსახურების საკომისიო (BOG)' },
-      { date: '2026-08-19', type: 'deposit',  amount: 4.41,   note: 'ახალი დეპოზიტი (CASH)' },
+      // --- 24 აგვ 2026 BOG new portfolio (მძიმე ტექნოლოგიური სექტორი) · $6.33 deposit & 6 buys · BOG app · net cash $0.00 ---
+      { date: '2026-08-24', type: 'buy',     ticker: 'VRT',  shares: 0.00471214, price: 252.54,  commission: 0 },
+      { date: '2026-08-24', type: 'buy',     ticker: 'SMH',  shares: 0.00203372, price: 560.55,  commission: 0 },
+      { date: '2026-08-24', type: 'buy',     ticker: 'MU',   shares: 0.00111377, price: 897.85,  commission: 0 },
+      { date: '2026-08-24', type: 'buy',     ticker: 'RKLB', shares: 0.01387948, price: 72.05,   commission: 0 },
+      { date: '2026-08-24', type: 'buy',     ticker: 'MRVL', shares: 0.00409418, price: 244.25,  commission: 0 },
+      { date: '2026-08-24', type: 'buy',     ticker: 'SNDK', shares: 0.00063014, price: 1586.95, commission: 0 },
+      { date: '2026-08-24', type: 'deposit', amount: 6.33, note: 'ახალი დეპოზიტი (მძიმე ტექნოლოგიური სექტორი)' },
       // --- 17 აგვ 2026 BOG fully cleared · $400 → TBC ($4 bank fee), $214.82 withdrawn · BOG app · net cash $0.00 ---
       { date: '2026-08-17', type: 'withdraw', amount: 214.82, note: 'BOG ანგარიშის სრული დახურვა · გატანა' },
       { date: '2026-08-17', type: 'fee',      amount: 4.00,   note: 'ბანკის საკომისიო · გადარიცხვა $250 TBC-ში' },
