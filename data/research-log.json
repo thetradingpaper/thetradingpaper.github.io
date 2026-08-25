@@ -3918,5 +3918,83 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415656+00:00",
+  "ticker": "MSTR",
+  "entry": 126.55,
+  "score": 48.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415663+00:00",
+  "ticker": "AEM",
+  "entry": 219.04,
+  "score": 45.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415667+00:00",
+  "ticker": "PMI",
+  "entry": 8.67,
+  "score": 38.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415671+00:00",
+  "ticker": "RUM",
+  "entry": 9.84,
+  "score": 36.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415674+00:00",
+  "ticker": "XPON",
+  "entry": 4.98,
+  "score": 33.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415677+00:00",
+  "ticker": "DFNS",
+  "entry": 13.64,
+  "score": 24.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-25T14:33:23.415680+00:00",
+  "ticker": "CBRS",
+  "entry": 182.24,
+  "score": 11.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]

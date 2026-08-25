@@ -72,7 +72,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.4,
+   "equity": 82.34,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -205,13 +205,17 @@
     {
      "date": "2026-08-24",
      "equity": 82.4
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 82.34
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 1,
     "win_rate": 20.0,
-    "return_pct": -17.6
+    "return_pct": -17.66
    }
   },
   "bot2": {
@@ -229,7 +233,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.88
+     "last_price": 8.95
     },
     {
      "ticker": "PPC",
@@ -239,7 +243,7 @@
      "target": 35.35,
      "stop": 30.97,
      "max_days": 7,
-     "last_price": 32.36
+     "last_price": 31.59
     },
     {
      "ticker": "SNDK",
@@ -249,7 +253,7 @@
      "target": 2019.82,
      "stop": 1374.27,
      "max_days": 7,
-     "last_price": 1436.88
+     "last_price": 1500.17
     },
     {
      "ticker": "AMLX",
@@ -259,7 +263,7 @@
      "target": 45.85,
      "stop": 35.36,
      "max_days": 7,
-     "last_price": 38.3
+     "last_price": 38.1
     },
     {
      "ticker": "WEAV",
@@ -514,7 +518,7 @@
      "leverage": 1
     }
    ],
-   "equity": 63.68,
+   "equity": 63.92,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -647,13 +651,17 @@
     {
      "date": "2026-08-24",
      "equity": 63.68
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 63.92
     }
    ],
    "stats": {
     "trades": 24,
     "wins": 2,
     "win_rate": 8.3,
-    "return_pct": -36.32
+    "return_pct": -36.08
    }
   },
   "bot3": {
@@ -671,7 +679,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.45
+     "last_price": 20.78
     },
     {
      "ticker": "DXCM",
@@ -681,7 +689,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 92.35
+     "last_price": 90.71
     },
     {
      "ticker": "MSTR",
@@ -691,7 +699,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 125.76000213623047
+     "last_price": 126.82
     }
    ],
    "trades": [
@@ -746,7 +754,7 @@
      "leverage": 1
     }
    ],
-   "equity": 62.92,
+   "equity": 63.15,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -879,13 +887,17 @@
     {
      "date": "2026-08-24",
      "equity": 62.92
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 63.15
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -37.08
+    "return_pct": -36.85
    }
   },
   "bot4": {
@@ -903,7 +915,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.88
+     "last_price": 8.95
     }
    ],
    "trades": [
@@ -958,7 +970,7 @@
      "leverage": 1
     }
    ],
-   "equity": 91.29,
+   "equity": 91.52,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1091,13 +1103,17 @@
     {
      "date": "2026-08-24",
      "equity": 91.29
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 91.52
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -8.71
+    "return_pct": -8.48
    }
   },
   "bot5": {
@@ -1282,6 +1298,10 @@
     {
      "date": "2026-08-24",
      "equity": 421.38
+    },
+    {
+     "date": "2026-08-25",
+     "equity": 421.38
     }
    ],
    "stats": {
@@ -1292,5 +1312,5 @@
    }
   }
  },
- "updated": "2026-08-24T14:29:41.013781+00:00"
+ "updated": "2026-08-25T14:33:24.915842+00:00"
 }

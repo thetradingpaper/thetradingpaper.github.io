@@ -1,205 +1,186 @@
 {
- "updated": "2026-08-24T14:29:39.948580+00:00",
+ "updated": "2026-08-25T14:33:23.415720+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on NSSC (score 63.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on MSTR (score 48.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "NSSC",
-   "price": 42.6,
-   "score": 63.8,
-   "tech_score": 46.0,
-   "news_score": 17.8,
-   "rsi": 62.3,
-   "mom5": 12.4,
-   "vol_surge": 3.33,
+   "ticker": "MSTR",
+   "price": 126.55,
+   "score": 48.0,
+   "tech_score": 38.0,
+   "news_score": 10.1,
+   "rsi": 73.5,
+   "mom5": 36.19,
+   "vol_surge": 0.45,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "NAPCO Security Shares Surge 20% After Earnings Beat and Record Revenue",
-     "age_h": 1.7,
-     "points": 17.8
+     "category": "analyst_upgrade",
+     "headline": "MSTR Stock Price Target Raised to $175 by Canaccord as Strategy Swings to Profit",
+     "age_h": 1.2,
+     "points": 10.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 42.6,
-    "target": 46.39,
-    "stop": 40.33,
+    "entry": 126.55,
+    "target": 140.06,
+    "stop": 118.44,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "MSTR",
-   "price": 125.9,
-   "score": 47.2,
-   "tech_score": 38.0,
-   "news_score": 9.2,
-   "rsi": 73.5,
-   "mom5": 28.22,
-   "vol_surge": 0.75,
+   "ticker": "AEM",
+   "price": 219.04,
+   "score": 45.7,
+   "tech_score": 28.0,
+   "news_score": 17.7,
+   "rsi": 90.0,
+   "mom5": 16.71,
+   "vol_surge": 0.17,
    "catalysts": [
     {
-     "category": "buyback_dividend",
-     "headline": "Strategy earmarks $1.6 billion cash pool for treasury operations, buybacks",
-     "age_h": 1.0,
-     "points": 9.2
+     "category": "m_and_a",
+     "headline": "Agnico Eagle to Acquire 10.45% Stake in Radisson Mining Resources",
+     "age_h": 2.4,
+     "points": 17.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 219.04,
+    "target": 235.22,
+    "stop": 209.33,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PMI",
+   "price": 8.67,
+   "score": 38.7,
+   "tech_score": 28.0,
+   "news_score": 10.7,
+   "rsi": 86.0,
+   "mom5": 163.61,
+   "vol_surge": 4.5,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Picard Medical Shares Soar After Quarterly Revenue Beats Forecasts",
+     "age_h": 27.8,
+     "points": 10.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 8.67,
+    "target": 10.22,
+    "stop": 7.74,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "RUM",
+   "price": 9.84,
+   "score": 36.3,
+   "tech_score": 28.0,
+   "news_score": 8.3,
+   "rsi": 90.9,
+   "mom5": 20.74,
+   "vol_surge": 0.3,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Georgia Infrastructure Expansion Anchors $13.7 Billion RUM Group Contract",
+     "age_h": 23.8,
+     "points": 8.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 125.9,
-    "target": 144.73,
-    "stop": 118.37,
+    "entry": 9.84,
+    "target": 11.69,
+    "stop": 9.09,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "XPON",
-   "price": 6.61,
-   "score": 38.3,
-   "tech_score": 30.0,
-   "news_score": 8.3,
-   "rsi": 76.7,
-   "mom5": 48.12,
-   "vol_surge": 15.13,
+   "price": 4.98,
+   "score": 33.0,
+   "tech_score": 28.0,
+   "news_score": 5.0,
+   "rsi": 62.5,
+   "mom5": 20.12,
+   "vol_surge": 0.14,
    "catalysts": [
     {
      "category": "growth_news",
      "headline": "Expion Energy Acquires Louisiana Oil and Gas Assets in Strategic Expansion",
-     "age_h": 0.5,
-     "points": 8.3
+     "age_h": 24.5,
+     "points": 5.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 6.61,
-    "target": 8.76,
-    "stop": 5.75,
+    "entry": 4.98,
+    "target": 7.46,
+    "stop": 3.99,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SNDK",
-   "price": 1438.68,
-   "score": 15.5,
-   "tech_score": 10.0,
-   "news_score": 5.5,
-   "rsi": 50.5,
-   "mom5": -19.76,
-   "vol_surge": 0.29,
+   "ticker": "DFNS",
+   "price": 13.64,
+   "score": 24.1,
+   "tech_score": 14.0,
+   "news_score": 10.1,
+   "rsi": 7.8,
+   "mom5": -50.02,
+   "vol_surge": 2.49,
    "catalysts": [
     {
-     "category": "buyback_dividend",
-     "headline": "$27 Billion in Buybacks: 3 Stocks Betting Their Strong Runs Aren’t Over",
-     "age_h": 24.9,
-     "points": 5.5
+     "category": "analyst_upgrade",
+     "headline": "T3 Defense Shares Soar After Noble Financial Issues Buy Rating",
+     "age_h": 3.8,
+     "points": 10.1
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 1438.68,
-    "target": 1841.81,
-    "stop": 1277.42,
-    "hold": "2-8 კვირა"
+    "entry": 13.64,
+    "target": 24.36,
+    "stop": 7.21,
+    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "CBRS",
-   "price": 186.97,
-   "score": 8.3,
+   "price": 182.24,
+   "score": 11.0,
    "tech_score": 0.0,
-   "news_score": 8.3,
-   "rsi": 40.3,
-   "mom5": -25.52,
-   "vol_surge": 0.19,
+   "news_score": 11.0,
+   "rsi": 42.0,
+   "mom5": -17.14,
+   "vol_surge": 0.31,
    "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "5 of the Most-Upgraded Stocks Over the Last Quarter Are All Software Names—Here's Why",
+     "age_h": 24.8,
+     "points": 6.0
+    },
     {
      "category": "growth_news",
      "headline": "As Cerebras Launches a New, Record-Setting AI Accelerator, Here’s How You Should Play CBRS Stock",
-     "age_h": 19.0,
-     "points": 8.3
+     "age_h": 43.1,
+     "points": 5.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 186.97,
-    "target": 252.37,
-    "stop": 160.8,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "LZB",
-   "price": 32.97,
-   "score": 6.5,
-   "tech_score": 4.0,
-   "news_score": 2.5,
-   "rsi": 18.1,
-   "mom5": -20.26,
-   "vol_surge": 0.15,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "La Z Boy (LZB) As Retail Expansion Meets Softer Results The Valuation Debate Opens",
-     "age_h": 66.3,
-     "points": 2.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 32.97,
-    "target": 37.58,
-    "stop": 31.12,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "STX",
-   "price": 786.08,
-   "score": -5.5,
-   "tech_score": -8.0,
-   "news_score": 2.5,
-   "rsi": 44.2,
-   "mom5": -21.11,
-   "vol_surge": 0.16,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Can Sandisk's NAS Expansion Help It Challenge MU & STX?",
-     "age_h": 69.9,
-     "points": 2.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 786.08,
-    "target": 983.63,
-    "stop": 707.06,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CRWV",
-   "price": 84.02,
-   "score": -5.5,
-   "tech_score": -8.0,
-   "news_score": 2.5,
-   "rsi": 43.3,
-   "mom5": -20.93,
-   "vol_surge": 0.17,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Trump Says AI Data Centers Need ‘A Little Public Relations Help’ as States Push Back on New Projects",
-     "age_h": 68.0,
-     "points": 2.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 84.02,
-    "target": 107.3,
-    "stop": 74.71,
+    "entry": 182.24,
+    "target": 247.15,
+    "stop": 156.28,
     "hold": "2-8 კვირა"
    }
   }
@@ -262,7 +243,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5976,
+ "scanned": 5975,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
