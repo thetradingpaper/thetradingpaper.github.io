@@ -72,7 +72,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.34,
+   "equity": 82.4,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -209,13 +209,17 @@
     {
      "date": "2026-08-25",
      "equity": 82.34
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 82.4
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 1,
     "win_rate": 20.0,
-    "return_pct": -17.66
+    "return_pct": -17.6
    }
   },
   "bot2": {
@@ -233,7 +237,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.95
+     "last_price": 8.87
     },
     {
      "ticker": "PPC",
@@ -243,7 +247,7 @@
      "target": 35.35,
      "stop": 30.97,
      "max_days": 7,
-     "last_price": 31.59
+     "last_price": 32.19
     },
     {
      "ticker": "SNDK",
@@ -253,7 +257,7 @@
      "target": 2019.82,
      "stop": 1374.27,
      "max_days": 7,
-     "last_price": 1500.17
+     "last_price": 1461.71
     },
     {
      "ticker": "AMLX",
@@ -263,7 +267,7 @@
      "target": 45.85,
      "stop": 35.36,
      "max_days": 7,
-     "last_price": 38.1
+     "last_price": 36.63
     },
     {
      "ticker": "WEAV",
@@ -518,7 +522,7 @@
      "leverage": 1
     }
    ],
-   "equity": 63.92,
+   "equity": 63.26,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -655,13 +659,17 @@
     {
      "date": "2026-08-25",
      "equity": 63.92
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 63.26
     }
    ],
    "stats": {
     "trades": 24,
     "wins": 2,
     "win_rate": 8.3,
-    "return_pct": -36.08
+    "return_pct": -36.74
    }
   },
   "bot3": {
@@ -679,7 +687,7 @@
      "target": 27.56,
      "stop": 17.87,
      "max_days": 40,
-     "last_price": 20.78
+     "last_price": 20.89
     },
     {
      "ticker": "DXCM",
@@ -689,7 +697,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 90.71
+     "last_price": 89.04
     },
     {
      "ticker": "MSTR",
@@ -699,7 +707,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 126.82
+     "last_price": 123.72
     }
    ],
    "trades": [
@@ -754,7 +762,7 @@
      "leverage": 1
     }
    ],
-   "equity": 63.15,
+   "equity": 62.49,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -891,13 +899,17 @@
     {
      "date": "2026-08-25",
      "equity": 63.15
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 62.49
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -36.85
+    "return_pct": -37.51
    }
   },
   "bot4": {
@@ -915,7 +927,7 @@
      "target": 9.39,
      "stop": 8.04,
      "max_days": 7,
-     "last_price": 8.95
+     "last_price": 8.87
     }
    ],
    "trades": [
@@ -970,7 +982,7 @@
      "leverage": 1
     }
    ],
-   "equity": 91.52,
+   "equity": 91.25,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1107,13 +1119,17 @@
     {
      "date": "2026-08-25",
      "equity": 91.52
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 91.25
     }
    ],
    "stats": {
     "trades": 5,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -8.48
+    "return_pct": -8.75
    }
   },
   "bot5": {
@@ -1121,8 +1137,22 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 421.3800956597065,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "ANF",
+     "shares": 7.137059,
+     "entry": 144.1,
+     "entry_date": "2026-08-26",
+     "target": 165.81,
+     "stop": 135.42,
+     "max_days": 10,
+     "leverage": 2.5,
+     "own_equity": 411.3800956597065,
+     "borrowed": 617.07,
+     "last_price": 144.1
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1165,7 +1195,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 421.38,
+   "equity": 411.18,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1302,15 +1332,19 @@
     {
      "date": "2026-08-25",
      "equity": 421.38
+    },
+    {
+     "date": "2026-08-26",
+     "equity": 411.18
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -57.86
+    "return_pct": -58.88
    }
   }
  },
- "updated": "2026-08-25T14:33:24.915842+00:00"
+ "updated": "2026-08-26T14:27:56.832865+00:00"
 }

@@ -3428,7 +3428,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 8.91,
+  "return_pct": 5.88,
+  "outcome": "win"
  },
  {
   "date": "2026-08-18T14:29:22.821834+00:00",
@@ -3439,7 +3442,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 31.72,
+  "return_pct": -0.92,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-18T14:29:22.821838+00:00",
@@ -3450,7 +3456,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 26.2,
+  "return_pct": -1.61,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-18T14:29:22.821842+00:00",
@@ -3462,7 +3471,10 @@
    "guidance_raise",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 107.68,
+  "return_pct": 3.42,
+  "outcome": "win"
  },
  {
   "date": "2026-08-18T14:29:22.821846+00:00",
@@ -3473,7 +3485,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 216.36,
+  "return_pct": -18.09,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-18T14:29:22.821849+00:00",
@@ -3484,7 +3499,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 43.29,
+  "return_pct": -0.57,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-19T14:23:47.342552+00:00",
@@ -3994,6 +4012,119 @@
   "catalyst_cats": [
    "analyst_upgrade",
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731743+00:00",
+  "ticker": "ANF",
+  "entry": 144.1,
+  "score": 90.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731754+00:00",
+  "ticker": "BZ",
+  "entry": 19.09,
+  "score": 61.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731759+00:00",
+  "ticker": "SMTC",
+  "entry": 139.99,
+  "score": 60.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731764+00:00",
+  "ticker": "CRML",
+  "entry": 8.23,
+  "score": 45.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731768+00:00",
+  "ticker": "HOOD",
+  "entry": 110.03,
+  "score": 30.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731771+00:00",
+  "ticker": "COIN",
+  "entry": 183.21,
+  "score": 30.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731776+00:00",
+  "ticker": "PMI",
+  "entry": 8.58,
+  "score": 23.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731783+00:00",
+  "ticker": "XPON",
+  "entry": 9.94,
+  "score": 22.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731788+00:00",
+  "ticker": "DY",
+  "entry": 316.58,
+  "score": 17.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-26T14:27:55.731792+00:00",
+  "ticker": "DFNS",
+  "entry": 11.78,
+  "score": 10.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
   ],
   "status": "open"
  }
