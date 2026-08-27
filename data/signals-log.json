@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-08-27T22:55:00.094Z",
+  "opened": "2026-08-24T17:38:22.244Z",
+  "ticker": "MSTR",
+  "rule": "R2",
+  "entry": 122.51,
+  "exit": 137.4,
+  "exitType": "TARGET",
+  "pnl": 2.43,
+  "pnlPct": 12.15
+ },
+ {
   "closed": "2026-08-26T14:53:36.269Z",
   "opened": "2026-08-21T15:41:49.135Z",
   "ticker": "TSLA",
