@@ -3513,7 +3513,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 31.11,
+  "return_pct": -4.6,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342561+00:00",
@@ -3525,7 +3528,10 @@
    "buyback_dividend",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 1484.95,
+  "return_pct": -4.73,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342567+00:00",
@@ -3537,7 +3543,10 @@
    "fda_approval",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 37.18,
+  "return_pct": -3.05,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342572+00:00",
@@ -3548,7 +3557,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 106.21,
+  "return_pct": 8.19,
+  "outcome": "win"
  },
  {
   "date": "2026-08-19T14:23:47.342575+00:00",
@@ -3559,7 +3571,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 36.51,
+  "return_pct": -23.62,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342579+00:00",
@@ -3571,7 +3586,10 @@
    "earnings_beat",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 47.71,
+  "return_pct": -2.33,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-19T14:23:47.342583+00:00",
@@ -3583,7 +3601,10 @@
    "buyback_dividend",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 142.77,
+  "return_pct": -9.72,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342591+00:00",
@@ -3595,7 +3616,10 @@
    "buyback_dividend",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 149.54,
+  "return_pct": -0.82,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-19T14:23:47.342596+00:00",
@@ -3607,7 +3631,10 @@
    "earnings_beat",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 432.71,
+  "return_pct": -5.42,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-19T14:23:47.342600+00:00",
@@ -3620,7 +3647,10 @@
    "analyst_upgrade",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.24,
+  "return_pct": -3.65,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-20T14:26:27.022306+00:00",
@@ -3631,7 +3661,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.3,
+  "return_pct": -0.14,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-20T14:26:27.022318+00:00",
@@ -3642,7 +3675,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.57,
+  "return_pct": 4.25,
+  "outcome": "win"
  },
  {
   "date": "2026-08-20T14:26:27.022321+00:00",
@@ -3653,7 +3689,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 16.48,
+  "return_pct": -7.03,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-20T14:26:27.022325+00:00",
@@ -3665,7 +3704,10 @@
    "fda_approval",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 37.18,
+  "return_pct": -4.79,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-20T14:26:27.022330+00:00",
@@ -3676,7 +3718,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.06,
+  "return_pct": -0.0,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-20T14:26:27.022334+00:00",
@@ -3687,7 +3732,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 21.43,
+  "return_pct": 3.43,
+  "outcome": "win"
  },
  {
   "date": "2026-08-20T14:26:27.022337+00:00",
@@ -3698,7 +3746,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.89,
+  "return_pct": 14.0,
+  "outcome": "win"
  },
  {
   "date": "2026-08-20T14:26:27.022344+00:00",
@@ -3709,7 +3760,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 124.73,
+  "return_pct": 7.76,
+  "outcome": "win"
  },
  {
   "date": "2026-08-20T14:26:27.022349+00:00",
@@ -3721,7 +3775,10 @@
    "earnings_beat",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 432.71,
+  "return_pct": -3.65,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-20T14:26:27.022354+00:00",
@@ -3732,7 +3789,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 102.63,
+  "return_pct": -0.97,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-21T14:25:34.468378+00:00",
@@ -4125,6 +4185,123 @@
   "horizon": "short",
   "catalyst_cats": [
    "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178070+00:00",
+  "ticker": "S",
+  "entry": 22.71,
+  "score": 84.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178079+00:00",
+  "ticker": "CRWD",
+  "entry": 227.96,
+  "score": 83.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178083+00:00",
+  "ticker": "SNPS",
+  "entry": 464.89,
+  "score": 74.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178087+00:00",
+  "ticker": "OKTA",
+  "entry": 172.91,
+  "score": 73.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178090+00:00",
+  "ticker": "RBRK",
+  "entry": 107.02,
+  "score": 73.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178093+00:00",
+  "ticker": "FTNT",
+  "entry": 172.78,
+  "score": 66.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178096+00:00",
+  "ticker": "ANF",
+  "entry": 145.75,
+  "score": 65.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178102+00:00",
+  "ticker": "NCNO",
+  "entry": 23.32,
+  "score": 64.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178107+00:00",
+  "ticker": "OOMA",
+  "entry": 23.04,
+  "score": 63.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-27T23:12:30.178110+00:00",
+  "ticker": "BBY",
+  "entry": 83.56,
+  "score": 63.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
   ],
   "status": "open"
  }
