@@ -15,19 +15,39 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.00471214, avgBuy: 252.54,  invested: 1.19, value: 1.20, color: '#16a34a', divYield: 0.10 },
-      { ticker: 'SMH',  name: 'VanEck Semiconductor ETF',     shares: 0.00203372, avgBuy: 560.55,  invested: 1.14, value: 1.11, color: '#0284c7', divYield: 0.80 },
-      { ticker: 'MU',   name: 'Micron Technology Inc',        shares: 0.00111377, avgBuy: 897.85,  invested: 1.00, value: 1.01, color: '#8b5cf6', divYield: 0.50 },
-      { ticker: 'RKLB', name: 'Rocket Lab USA Inc',           shares: 0.01387948, avgBuy: 72.05,   invested: 1.00, value: 0.95, color: '#e11d48', divYield: 0.00 },
-      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.00409418, avgBuy: 244.25,  invested: 1.00, value: 0.94, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.00063014, avgBuy: 1586.95, invested: 1.00, value: 0.94, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',           shares: 5.53863195, avgBuy: 18.06,  invested: 100.00, value: 100.00, color: '#a855f7', divYield: 0.00 },
+      { ticker: 'NVTS', name: 'Navitas Semiconductor Corp', shares: 1.19821705, avgBuy: 12.52,  invested: 15.00,  value: 15.00,  color: '#06b6d4', divYield: 0.00 },
+      { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.06874464, avgBuy: 218.20, invested: 15.00,  value: 15.00,  color: '#84cc16', divYield: 0.00 },
+      { ticker: 'SOXX', name: 'iShares Semiconductor ETF',    shares: 0.02880467, avgBuy: 520.75, invested: 15.00,  value: 15.00,  color: '#0f766e', divYield: 0.70 },
+      { ticker: 'NVDA', name: 'NVIDIA Corporation',          shares: 0.02220260, avgBuy: 225.20, invested: 5.00,   value: 5.00,   color: '#76b900', divYield: 0.03 },
+      { ticker: 'SMH',  name: 'VanEck Semiconductor ETF',     shares: 0.02845432, avgBuy: 567.23, invested: 16.14,  value: 16.11,  color: '#0284c7', divYield: 0.80 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.04262412, avgBuy: 262.53, invested: 11.19,  value: 11.20,  color: '#16a34a', divYield: 0.10 },
+      { ticker: 'RKLB', name: 'Rocket Lab USA Inc',           shares: 0.16446193, avgBuy: 66.88,  invested: 11.00,  value: 10.95,  color: '#e11d48', divYield: 0.00 },
+      { ticker: 'MU',   name: 'Micron Technology Inc',        shares: 0.01210279, avgBuy: 908.88, invested: 11.00,  value: 11.01,  color: '#8b5cf6', divYield: 0.50 },
+      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.02557930, avgBuy: 243.17, invested: 6.22,   value: 6.16,   color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.00744074, avgBuy: 1478.35,invested: 11.00,  value: 10.94,  color: '#dc2626', divYield: 0.00 },
     ],
-    cash: 0.00, // 24 Aug 2026: Deleted $4.41 cash deposit; added $6.33 deposit fully invested in 6 new positions -> net cash balance $0.00
+    cash: 0.00, // 27 Aug 2026: Added $210.22 deposit & fully invested in 12 stock/ETF buys -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 27 აგვ 2026 BOG $210.22 deposit & 12 purchases · BOG app · net cash $0.00 ---
+      { date: '2026-08-27', type: 'buy',     ticker: 'QBTS', shares: 0.53863195, price: 18.05,   commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'QBTS', shares: 5.00000000, price: 18.056,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'NVDA', shares: 0.02220260, price: 225.20,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'MU',   shares: 0.01098902, price: 910.00,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'VRT',  shares: 0.03791198, price: 263.77,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'SNDK', shares: 0.00681060, price: 1468.30, commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'SOXX', shares: 0.02880467, price: 520.75,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'NVTS', shares: 0.19821705, price: 12.51,   commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'NVTS', shares: 1.00000000, price: 12.52,   commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'BE',   shares: 0.06874464, price: 218.20,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'SMH',  shares: 0.02642060, price: 567.74,  commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'RKLB', shares: 0.15058245, price: 66.41,   commission: 0 },
+      { date: '2026-08-27', type: 'buy',     ticker: 'MRVL', shares: 0.02148512, price: 242.96,  commission: 0 },
+      { date: '2026-08-27', type: 'deposit', amount: 210.22, note: 'ახალი დეპოზიტი ($210.22)' },
       // --- 24 აგვ 2026 BOG new portfolio (მძიმე ტექნოლოგიური სექტორი) · $6.33 deposit & 6 buys · BOG app · net cash $0.00 ---
       { date: '2026-08-24', type: 'buy',     ticker: 'VRT',  shares: 0.00471214, price: 252.54,  commission: 0 },
       { date: '2026-08-24', type: 'buy',     ticker: 'SMH',  shares: 0.00203372, price: 560.55,  commission: 0 },
