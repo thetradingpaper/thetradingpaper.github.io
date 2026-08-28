@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 24.14,
+ "cash": 43.23,
  "positions": [
   {
    "ticker": "PLTR",
@@ -13,17 +13,6 @@
    "cost": 20,
    "target": 192.34,
    "stop": 165.46
-  },
-  {
-   "ticker": "NVDA",
-   "opened": "2026-08-27T22:55:00.094Z",
-   "rule": "R2",
-   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $227.92 · მოცულობა 2.5×",
-   "entry": 227.98,
-   "shares": 0.087727,
-   "cost": 20,
-   "target": 241,
-   "stop": 218.21
   },
   {
    "ticker": "TSLA",
@@ -216,6 +205,10 @@
   {
    "date": "2026-08-27",
    "equity": 105.15
+  },
+  {
+   "date": "2026-08-28",
+   "equity": 102.47
   }
  ]
 }
