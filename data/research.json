@@ -1,303 +1,303 @@
 {
- "updated": "2026-08-27T23:12:30.178168+00:00",
+ "updated": "2026-08-28T23:16:41.355607+00:00",
  "mode": "DIVERSIFY",
- "notification": "📊 5 solid setups — split the paper $100 across: S, CRWD, SNPS, OKTA, RBRK. No single hero today, the basket is the play.",
+ "notification": "📊 4 solid setups — split the paper $100 across: SOLS, GAP, VEEV, ULTA. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "S",
-   "price": 22.71,
-   "score": 84.3,
-   "tech_score": 44.5,
-   "news_score": 39.8,
-   "rsi": 56.2,
-   "mom5": 8.45,
-   "vol_surge": 2.6,
+   "ticker": "SOLS",
+   "price": 63.53,
+   "score": 73.3,
+   "tech_score": 38.0,
+   "news_score": 35.3,
+   "rsi": 59.2,
+   "mom5": 13.27,
+   "vol_surge": 5.8,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "SentinelOne’s (NYSE:S) Q2 CY2026: Beats On Revenue But Stock Drops",
-     "age_h": 2.3,
-     "points": 17.8
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "CrowdStrike Raises Full-Year Annual Recurring Revenue Outlook as AI Adoption Drives Cybersecurity Demand",
-     "age_h": 11.8,
-     "points": 22.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 22.71,
-    "target": 26.06,
-    "stop": 21.37,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CRWD",
-   "price": 227.96,
-   "score": 83.7,
-   "tech_score": 56.0,
-   "news_score": 27.7,
-   "rsi": 56.5,
-   "mom5": 19.76,
-   "vol_surge": 2.68,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "CrowdStrike Earnings Beat As AI Adoption Drives Endpoint Upgrades",
-     "age_h": 3.1,
-     "points": 17.8
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "CrowdStrike Earnings Beat As AI Adoption Drives Endpoint Upgrades",
-     "age_h": 3.1,
-     "points": 9.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 227.96,
-    "target": 250.79,
-    "stop": 214.26,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SNPS",
-   "price": 464.89,
-   "score": 74.7,
-   "tech_score": 40.0,
-   "news_score": 34.7,
-   "rsi": 71.4,
-   "mom5": 16.83,
-   "vol_surge": 2.46,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Synopsys Q3 2026 earnings beat estimates, raises full-year guidance",
-     "age_h": 5.8,
-     "points": 17.8
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "Synopsys Q3 2026 earnings beat estimates, raises full-year guidance",
-     "age_h": 5.8,
-     "points": 22.0
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Synopsys upgrade bets on FY27 growth rebound and stronger chip-design demand",
-     "age_h": 8.6,
-     "points": 9.9
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "First Solar upgraded, Celsius downgraded: Wall Street's top analyst calls",
-     "age_h": 9.6,
-     "points": -15.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 464.89,
-    "target": 507.73,
-    "stop": 447.75,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "OKTA",
-   "price": 172.91,
-   "score": 73.8,
-   "tech_score": 56.0,
-   "news_score": 17.8,
-   "rsi": 64.7,
-   "mom5": 28.88,
-   "vol_surge": 4.69,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "OKTA Q2 Earnings Beat on Subscription Growth, FY27 View Raised",
-     "age_h": 7.2,
-     "points": 17.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 172.91,
-    "target": 191.43,
-    "stop": 161.8,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "RBRK",
-   "price": 107.02,
-   "score": 73.6,
-   "tech_score": 55.7,
-   "news_score": 17.8,
-   "rsi": 67.2,
-   "mom5": 9.74,
-   "vol_surge": 2.31,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Rubrik, Inc. (RBRK) Beats Q2 Earnings and Revenue Estimates",
-     "age_h": 2.0,
-     "points": 17.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 107.02,
-    "target": 119.1,
-    "stop": 99.77,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "FTNT",
-   "price": 172.78,
-   "score": 66.0,
-   "tech_score": 48.2,
-   "news_score": 17.8,
-   "rsi": 61.6,
-   "mom5": 14.58,
-   "vol_surge": 1.27,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Cybersecurity Stocks Rally on Twin Earnings Beats: Okta Spikes 22%, CrowdStrike Jumps 13%",
-     "age_h": 9.6,
-     "points": 17.8
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 172.78,
-    "target": 185.06,
-    "stop": 165.41,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ANF",
-   "price": 145.75,
-   "score": 65.3,
-   "tech_score": 37.6,
-   "news_score": 27.7,
-   "rsi": 72.0,
-   "mom5": 38.78,
-   "vol_surge": 2.2,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Ross Stores Beats TJX and Burlington to Become Star of Off-Price Retailers",
-     "age_h": 4.0,
-     "points": 17.8
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Abercrombie (ANF) Upgraded to Buy: Here's Why",
-     "age_h": 7.2,
-     "points": 9.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 145.75,
-    "target": 162.32,
-    "stop": 135.81,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NCNO",
-   "price": 23.32,
-   "score": 64.2,
-   "tech_score": 36.8,
-   "news_score": 27.4,
-   "rsi": 79.5,
-   "mom5": 14.54,
-   "vol_surge": 2.1,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "nCino (NCNO) Could Be 7% Undervalued After Earnings Beat Guidance Raise And Buyback",
-     "age_h": 16.1,
-     "points": 17.8
+     "category": "m_and_a",
+     "headline": "Solstice Stock Jumps After Calling Off a Major Acquisition",
+     "age_h": 8.0,
+     "points": 18.2
     },
     {
      "category": "buyback_dividend",
-     "headline": "nCino (NCNO) Could Be 7% Undervalued After Earnings Beat Guidance Raise And Buyback",
-     "age_h": 16.1,
-     "points": 9.6
+     "headline": "Solstice Scraps Element Deal and Launches $500 Million Buyback",
+     "age_h": 21.2,
+     "points": 9.4
+    },
+    {
+     "category": "growth_news",
+     "headline": "Solstice Scraps Element Deal and Launches $500 Million Buyback",
+     "age_h": 21.2,
+     "points": 7.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 23.32,
-    "target": 26.25,
-    "stop": 22.15,
+    "entry": 63.53,
+    "target": 71.03,
+    "stop": 60.53,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "OOMA",
-   "price": 23.04,
-   "score": 63.8,
+   "ticker": "GAP",
+   "price": 23.48,
+   "score": 71.5,
    "tech_score": 46.0,
-   "news_score": 17.8,
-   "rsi": 55.2,
-   "mom5": 12.34,
-   "vol_surge": 3.07,
+   "news_score": 25.5,
+   "rsi": 63.0,
+   "mom5": 18.59,
+   "vol_surge": 3.43,
    "catalysts": [
     {
+     "category": "growth_news",
+     "headline": "GAP Q2 Deep Dive: Margin Expansion and Brand Divergence Shape Outlook",
+     "age_h": 3.8,
+     "points": 7.7
+    },
+    {
      "category": "earnings_beat",
-     "headline": "Ooma Inc (OOMA) (Q2 2027) Earnings Call Highlights: Record Revenue and AI-Driven Growth Fuel ...",
-     "age_h": 18.2,
+     "headline": "Gap's Shares Gain 15% on Q2 Earnings Beat & Revised View",
+     "age_h": 6.2,
      "points": 17.8
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 23.04,
-    "target": 25.62,
-    "stop": 21.49,
-    "hold": "3-7 დღე"
+    "entry": 23.48,
+    "target": 26.37,
+    "stop": 22.32,
+    "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "BBY",
-   "price": 83.56,
-   "score": 63.3,
-   "tech_score": 23.5,
-   "news_score": 39.8,
-   "rsi": 53.4,
-   "mom5": -2.53,
-   "vol_surge": 2.39,
+   "ticker": "VEEV",
+   "price": 276.69,
+   "score": 59.7,
+   "tech_score": 34.2,
+   "news_score": 25.5,
+   "rsi": 72.2,
+   "mom5": 11.61,
+   "vol_surge": 1.77,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Best Buy beats Q2 earnings across the board, raises outlook amid computing strength",
-     "age_h": 11.8,
+     "headline": "Veeva Systems (VEEV) Earnings Beat Puts Its Valuation Narrative Back In Focus",
+     "age_h": 21.0,
+     "points": 17.8
+    },
+    {
+     "category": "growth_news",
+     "headline": "VEEV Q2 Deep Dive: AI Expansion, CRM Wins, and Accelerating R&D Cloud Adoption",
+     "age_h": 22.1,
+     "points": 7.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 276.69,
+    "target": 311.03,
+    "stop": 262.95,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ULTA",
+   "price": 517.5,
+   "score": 57.1,
+   "tech_score": 17.2,
+   "news_score": 39.8,
+   "rsi": 40.2,
+   "mom5": -0.76,
+   "vol_surge": 2.35,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Ulta Beauty Slips 4% Despite Raised Guidance and Q2 Earnings Beat, e.l.f. Beauty Pulls Back",
+     "age_h": 8.2,
      "points": 17.8
     },
     {
      "category": "guidance_raise",
-     "headline": "Best Buy beats Q2 earnings across the board, raises outlook amid computing strength",
-     "age_h": 11.8,
+     "headline": "Ulta Beauty Slips 4% Despite Raised Guidance and Q2 Earnings Beat, e.l.f. Beauty Pulls Back",
+     "age_h": 8.2,
      "points": 22.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 83.56,
-    "target": 93.51,
-    "stop": 79.58,
+    "entry": 517.5,
+    "target": 574.69,
+    "stop": 494.63,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "AFRM",
+   "price": 77.76,
+   "score": 54.5,
+   "tech_score": 28.9,
+   "news_score": 25.5,
+   "rsi": 54.2,
+   "mom5": 0.95,
+   "vol_surge": 6.6,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "AFRM Q2 Deep Dive: Network Effects, Product Expansion, and Profitability Shape Outlook",
+     "age_h": 4.9,
+     "points": 7.7
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Affirm Q4 2026 earnings beat: revenue and GMV top estimates",
+     "age_h": 5.6,
+     "points": 17.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 77.76,
+    "target": 89.82,
+    "stop": 72.94,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "S",
+   "price": 21.54,
+   "score": 52.2,
+   "tech_score": 26.7,
+   "news_score": 25.5,
+   "rsi": 46.8,
+   "mom5": 1.65,
+   "vol_surge": 2.13,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "S Q2 Deep Dive: AI Security Drives Growth, Margin Expansion Moderates",
+     "age_h": 3.5,
+     "points": 7.7
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "SentinelOne Q2 Earnings Beat as Platform Growth Drives Outlook Raise",
+     "age_h": 5.7,
+     "points": 17.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 21.54,
+    "target": 25.04,
+    "stop": 20.14,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CXM",
+   "price": 8.16,
+   "score": 47.1,
+   "tech_score": 41.8,
+   "news_score": 5.3,
+   "rsi": 77.1,
+   "mom5": 10.27,
+   "vol_surge": 1.47,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Everpure (P) Beats Q2 Earnings and Revenue Estimates",
+     "age_h": 49.9,
+     "points": 5.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 8.16,
+    "target": 8.7,
+    "stop": 7.84,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ESTC",
+   "price": 99.91,
+   "score": 45.7,
+   "tech_score": 38.0,
+   "news_score": 7.7,
+   "rsi": 75.5,
+   "mom5": 16.26,
+   "vol_surge": 3.48,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "ESTC Q2 CY2026 Deep Dive: AI Adoption, Enterprise Expansion, and New Product Investments Drive Growth",
+     "age_h": 3.4,
+     "points": 7.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 99.91,
+    "target": 115.95,
+    "stop": 93.49,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "PD",
+   "price": 13.83,
+   "score": 45.7,
+   "tech_score": 38.0,
+   "news_score": 7.7,
+   "rsi": 72.7,
+   "mom5": 12.26,
+   "vol_surge": 2.8,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "PD Q2 Deep Dive: AI Platform Adoption and Cost Discipline Drive Margin Expansion",
+     "age_h": 4.6,
+     "points": 7.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 13.83,
+    "target": 15.59,
+    "stop": 13.13,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "BURL",
+   "price": 272.95,
+   "score": 39.5,
+   "tech_score": 14.0,
+   "news_score": 25.5,
+   "rsi": 5.8,
+   "mom5": -16.4,
+   "vol_surge": 2.41,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "BURL Shares Slide 8% Despite Q2 Earnings Beat, Higher FY26 View",
+     "age_h": 8.4,
+     "points": 17.8
+    },
+    {
+     "category": "growth_news",
+     "headline": "BURL Q2 Deep Dive: Margin Expansion and Tariff Strategy Amid Mixed Retail Trends",
+     "age_h": 14.1,
+     "points": 7.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 272.95,
+    "target": 311.58,
+    "stop": 257.5,
     "hold": "2-8 კვირა"
    }
   }
@@ -312,31 +312,31 @@
   },
   {
    "category": "m_and_a",
-   "n": 66,
-   "win_rate": 12.1,
-   "avg_return": -1.02,
+   "n": 72,
+   "win_rate": 12.5,
+   "avg_return": -1.88,
    "weight_now": 0.7
   },
   {
    "category": "growth_news",
-   "n": 55,
-   "win_rate": 23.6,
-   "avg_return": -5.02,
-   "weight_now": 0.79
+   "n": 60,
+   "win_rate": 21.7,
+   "avg_return": -5.27,
+   "weight_now": 0.77
   },
   {
    "category": "analyst_upgrade",
-   "n": 39,
-   "win_rate": 7.7,
-   "avg_return": -8.63,
+   "n": 40,
+   "win_rate": 7.5,
+   "avg_return": -8.39,
    "weight_now": 0.66
   },
   {
    "category": "buyback_dividend",
-   "n": 20,
-   "win_rate": 25.0,
-   "avg_return": -0.42,
-   "weight_now": 0.8
+   "n": 22,
+   "win_rate": 22.7,
+   "avg_return": -0.68,
+   "weight_now": 0.78
   },
   {
    "category": "guidance_raise",
@@ -347,9 +347,9 @@
   },
   {
    "category": "fda_approval",
-   "n": 9,
+   "n": 10,
    "win_rate": 0.0,
-   "avg_return": -4.78,
+   "avg_return": -5.85,
    "weight_now": 0.6
   },
   {
@@ -360,7 +360,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5970,
+ "scanned": 5968,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
