@@ -508,12 +508,20 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
   <!-- ============================================================ -->
   <style>
     .total-hero{background:var(--paper);border:1px solid var(--border);border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:22px 26px 26px;margin:14px 0 6px;}
-    .th-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:18px;}
+    .th-top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px;flex-wrap:wrap;gap:14px;}
     .th-eyebrow{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;}
     .th-person{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:30px;letter-spacing:-0.5px;line-height:1.05;margin-top:2px;}
     .th-edit{font-size:15px;color:var(--muted);text-decoration:none;margin-left:10px;border:1px solid var(--border);border-radius:6px;padding:1px 8px;vertical-align:middle;transition:all .15s;}
     .th-edit:hover{color:var(--red);border-color:var(--red);}
     .th-sub{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+    .th-top-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;}
+    .th-top-deposit{margin-top:4px;}
+    .th-top-dep-label{font-family:'Noto Sans Georgian',sans-serif;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+    .th-top-dep-val{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:900;font-size:28px;letter-spacing:-0.5px;color:var(--ink);line-height:1.1;margin-top:2px;}
+    .th-top-dep-sub{font-size:10px;color:var(--muted);margin-top:3px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;}
+    @media (max-width:600px){
+      .th-top-right{text-align:left;align-items:flex-start;}
+    }
     .th-live{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:2px;color:var(--red);white-space:nowrap;}
     .th-body{display:grid;grid-template-columns:300px 1fr;gap:30px;align-items:center;}
     @media (max-width:760px){.th-body{grid-template-columns:1fr;}}
@@ -714,7 +722,14 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
         <div class="th-sub">სამი წიგნი · BOG · TBC · GALT · ვისბადენი</div>
         <div id="me-fees" style="font-family:ui-monospace,monospace;font-size:11px;color:var(--red);margin-top:7px;letter-spacing:0.5px;"></div>
       </div>
-      <div class="th-live"><span id="total-live-stamp">● იტვირთება…</span></div>
+      <div class="th-top-right">
+        <div class="th-live"><span id="total-live-stamp">● იტვირთება…</span></div>
+        <div class="th-top-deposit" id="th-top-deposit">
+          <div class="th-top-dep-label">სრული ჩარიცხული · Total Deposit <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;" title="ჩარიცხვების ისტორია">↗</a></div>
+          <div class="th-top-dep-val" id="top-dep-val">—</div>
+          <div class="th-top-dep-sub" id="top-dep-sub">—</div>
+        </div>
+      </div>
     </div>
     <div class="th-body">
       <div class="th-ring">
@@ -1544,14 +1559,19 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     const dayStr = prevVal > 0 ? `${daySign}${fmtUSD(Math.abs(dayDollar))}` : '—';
     const dayPctStr = prevVal > 0 ? `${daySign}${Math.abs(dayPct).toFixed(2)}%` : '';
 
+    const topDepVal = document.getElementById('top-dep-val');
+    if (topDepVal) topDepVal.textContent = fmtUSD(netDep);
+    const topDepSub = document.getElementById('top-dep-sub');
+    if (topDepSub) topDepSub.innerHTML = `ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(grossDep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span>`;
+
     const stats = document.getElementById('total-stats');
     if (stats) stats.innerHTML = `
+      <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
       <div class="c">
         <div class="l">სრული ჩარიცხული <a href="history-bog.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;margin-left:4px;">↗</a></div>
         <div style="font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;">ჩარ: <span style="color:#0056b3;font-weight:700;">${fmtUSD(grossDep)}</span> &nbsp;·&nbsp; გატ: <span style="color:#166534;font-weight:700;">${fmtUSD(wd)}</span></div>
         <div class="v">${fmtUSD(netDep)}</div>
       </div>
-      <div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">${fmtUSD(val)}</div></div>
       <div class="c">
         <div class="l">დღიური ცვლილება</div>
         <div class="v ${dayCls}">${dayStr}</div>
