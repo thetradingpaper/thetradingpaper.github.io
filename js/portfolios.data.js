@@ -258,7 +258,7 @@ window.PORTFOLIOS = {
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 199.04, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 151.58, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 0.00, // 25 Aug 2026: GOOG sold ($200.45 -$0.60 fee) & fully reinvested into MSTR ($126.50 + $72.75 -$0.60 fee) -> net cash $0.00
+    cash: 0.43, // 31 Aug 2026: DIVO dividend ($0.61 gross - $0.18 tax = $0.43 net cash balance)
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -267,6 +267,8 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 31 აგვ 2026 DIVO dividend · TBC app · net cash $0.43 ---
+      { date: '2026-08-31', type: 'dividend', ticker: 'DIVO', amount: 0.43, note: 'დივიდენდის ჩარიცხვა $0.61 − გადასახადი $0.18 = წმინდა $0.43' },
       // --- 25 აგვ 2026 TBC GOOG liquidation → MSTR purchases ($126.50 + $72.75) · TBC app · net cash $0.00 ---
       { date: '2026-08-25', type: 'buy',     ticker: 'MSTR', shares: 0.59324798, price: 122.63,   commission: 0.22 },
       { date: '2026-08-25', type: 'buy',     ticker: 'MSTR', shares: 1.03155835, price: 122.63,   commission: 0.38 },
