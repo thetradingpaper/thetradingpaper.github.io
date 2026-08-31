@@ -3948,7 +3948,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 35.9,
+  "return_pct": -15.74,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-24T14:29:39.948476+00:00",
@@ -3959,7 +3962,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 132.58,
+  "return_pct": 5.31,
+  "outcome": "win"
  },
  {
   "date": "2026-08-24T14:29:39.948482+00:00",
@@ -3970,7 +3976,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.93,
+  "return_pct": 4.77,
+  "outcome": "win"
  },
  {
   "date": "2026-08-24T14:29:39.948487+00:00",
@@ -3981,7 +3990,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 1475.44,
+  "return_pct": 2.56,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-24T14:29:39.948491+00:00",
@@ -3992,7 +4004,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 182.22,
+  "return_pct": -2.54,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-24T14:29:39.948495+00:00",
@@ -4003,7 +4018,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 31.57,
+  "return_pct": -4.26,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-24T14:29:39.948499+00:00",
@@ -4014,7 +4032,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 821.22,
+  "return_pct": 4.47,
+  "outcome": "win"
  },
  {
   "date": "2026-08-24T14:29:39.948507+00:00",
@@ -4025,7 +4046,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 84.36,
+  "return_pct": 0.4,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-25T14:33:23.415656+00:00",
@@ -4450,6 +4474,118 @@
   "catalyst_cats": [
    "earnings_beat",
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036367+00:00",
+  "ticker": "SLB",
+  "entry": 60.2,
+  "score": 71.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036377+00:00",
+  "ticker": "SAIC",
+  "entry": 128.23,
+  "score": 55.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036382+00:00",
+  "ticker": "TEAM",
+  "entry": 194.41,
+  "score": 47.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036386+00:00",
+  "ticker": "PSQL",
+  "entry": 17.87,
+  "score": 46.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036390+00:00",
+  "ticker": "ANF",
+  "entry": 142.64,
+  "score": 45.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036393+00:00",
+  "ticker": "SOLS",
+  "entry": 62.88,
+  "score": 37.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "m_and_a",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036397+00:00",
+  "ticker": "ESTC",
+  "entry": 96.98,
+  "score": 33.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036404+00:00",
+  "ticker": "AFRM",
+  "entry": 74.76,
+  "score": 31.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036408+00:00",
+  "ticker": "VEEV",
+  "entry": 285.43,
+  "score": 30.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-08-31T19:43:28.036412+00:00",
+  "ticker": "PURR",
+  "entry": 12.1,
+  "score": 29.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
   ],
   "status": "open"
  }

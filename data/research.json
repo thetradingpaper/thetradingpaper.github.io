@@ -1,303 +1,267 @@
 {
- "updated": "2026-08-28T23:16:41.355607+00:00",
- "mode": "DIVERSIFY",
- "notification": "📊 4 solid setups — split the paper $100 across: SOLS, GAP, VEEV, ULTA. No single hero today, the basket is the play.",
+ "updated": "2026-08-31T19:43:28.036453+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on SLB (score 71.2). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "SOLS",
-   "price": 63.53,
-   "score": 73.3,
+   "ticker": "SLB",
+   "price": 60.2,
+   "score": 71.2,
+   "tech_score": 45.2,
+   "news_score": 26.0,
+   "rsi": 76.1,
+   "mom5": 11.56,
+   "vol_surge": 1.91,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "SLB Advances Strategy to Cash In on AI With $4 Billion Data Center Deal",
+     "age_h": 3.1,
+     "points": 7.8
+    },
+    {
+     "category": "m_and_a",
+     "headline": "SLB to Strengthen Data Center Business with $4.1 Billion Acquisition of Kelvion From Apollo",
+     "age_h": 4.0,
+     "points": 18.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 60.2,
+    "target": 65.22,
+    "stop": 58.19,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SAIC",
+   "price": 128.23,
+   "score": 55.2,
+   "tech_score": 37.4,
+   "news_score": 17.8,
+   "rsi": 56.8,
+   "mom5": 1.4,
+   "vol_surge": 3.06,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Science Applications International Boosts Outlook as Second-Quarter Results Beat Estimates",
+     "age_h": 2.8,
+     "points": 17.8
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 128.23,
+    "target": 137.58,
+    "stop": 122.62,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "TEAM",
+   "price": 194.41,
+   "score": 47.9,
    "tech_score": 38.0,
-   "news_score": 35.3,
-   "rsi": 59.2,
-   "mom5": 13.27,
-   "vol_surge": 5.8,
+   "news_score": 9.9,
+   "rsi": 77.8,
+   "mom5": 13.41,
+   "vol_surge": 0.56,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Is RBC’s AI-Focused Upgrade Reframing Atlassian’s (TEAM) Role in Enterprise Collaboration Stacks?",
+     "age_h": 5.4,
+     "points": 9.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 194.41,
+    "target": 212.47,
+    "stop": 183.58,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PSQL",
+   "price": 17.87,
+   "score": 46.2,
+   "tech_score": 28.0,
+   "news_score": 18.2,
+   "rsi": 80.2,
+   "mom5": 72.68,
+   "vol_surge": 2.74,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Solstice Stock Jumps After Calling Off a Major Acquisition",
-     "age_h": 8.0,
+     "headline": "Pasqal Enters Nasdaq Price Discovery After Completing De-SPAC Merger",
+     "age_h": 7.5,
      "points": 18.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 17.87,
+    "target": 21.09,
+    "stop": 15.94,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ANF",
+   "price": 142.64,
+   "score": 45.9,
+   "tech_score": 36.0,
+   "news_score": 9.9,
+   "rsi": 66.0,
+   "mom5": 26.54,
+   "vol_surge": 0.8,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Deere upgraded, Lumentum initiated: Wall Street's top analyst calls",
+     "age_h": 6.0,
+     "points": 9.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 142.64,
+    "target": 159.4,
+    "stop": 132.58,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SOLS",
+   "price": 62.88,
+   "score": 37.1,
+   "tech_score": 28.8,
+   "news_score": 8.3,
+   "rsi": 55.2,
+   "mom5": 13.63,
+   "vol_surge": 1.1,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Solstice (SOLS) Jumps 12.8% on Merger Exit, $500M Buyback",
+     "age_h": 65.8,
+     "points": 5.5
     },
     {
      "category": "buyback_dividend",
-     "headline": "Solstice Scraps Element Deal and Launches $500 Million Buyback",
-     "age_h": 21.2,
-     "points": 9.4
-    },
-    {
-     "category": "growth_news",
-     "headline": "Solstice Scraps Element Deal and Launches $500 Million Buyback",
-     "age_h": 21.2,
-     "points": 7.7
+     "headline": "Solstice (SOLS) Jumps 12.8% on Merger Exit, $500M Buyback",
+     "age_h": 65.8,
+     "points": 2.9
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 63.53,
-    "target": 71.03,
-    "stop": 60.53,
+    "entry": 62.88,
+    "target": 70.58,
+    "stop": 59.8,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "GAP",
-   "price": 23.48,
-   "score": 71.5,
-   "tech_score": 46.0,
-   "news_score": 25.5,
-   "rsi": 63.0,
-   "mom5": 18.59,
-   "vol_surge": 3.43,
+   "ticker": "ESTC",
+   "price": 96.98,
+   "score": 33.5,
+   "tech_score": 31.2,
+   "news_score": 2.3,
+   "rsi": 71.0,
+   "mom5": 16.42,
+   "vol_surge": 1.4,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "GAP Q2 Deep Dive: Margin Expansion and Brand Divergence Shape Outlook",
-     "age_h": 3.8,
-     "points": 7.7
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Gap's Shares Gain 15% on Q2 Earnings Beat & Revised View",
-     "age_h": 6.2,
-     "points": 17.8
+     "headline": "ESTC Q2 CY2026 Deep Dive: AI Adoption, Enterprise Expansion, and New Product Investments Drive Growth",
+     "age_h": 71.8,
+     "points": 2.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 23.48,
-    "target": 26.37,
-    "stop": 22.32,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "VEEV",
-   "price": 276.69,
-   "score": 59.7,
-   "tech_score": 34.2,
-   "news_score": 25.5,
-   "rsi": 72.2,
-   "mom5": 11.61,
-   "vol_surge": 1.77,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Veeva Systems (VEEV) Earnings Beat Puts Its Valuation Narrative Back In Focus",
-     "age_h": 21.0,
-     "points": 17.8
-    },
-    {
-     "category": "growth_news",
-     "headline": "VEEV Q2 Deep Dive: AI Expansion, CRM Wins, and Accelerating R&D Cloud Adoption",
-     "age_h": 22.1,
-     "points": 7.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 276.69,
-    "target": 311.03,
-    "stop": 262.95,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ULTA",
-   "price": 517.5,
-   "score": 57.1,
-   "tech_score": 17.2,
-   "news_score": 39.8,
-   "rsi": 40.2,
-   "mom5": -0.76,
-   "vol_surge": 2.35,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Ulta Beauty Slips 4% Despite Raised Guidance and Q2 Earnings Beat, e.l.f. Beauty Pulls Back",
-     "age_h": 8.2,
-     "points": 17.8
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "Ulta Beauty Slips 4% Despite Raised Guidance and Q2 Earnings Beat, e.l.f. Beauty Pulls Back",
-     "age_h": 8.2,
-     "points": 22.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 517.5,
-    "target": 574.69,
-    "stop": 494.63,
+    "entry": 96.98,
+    "target": 114.08,
+    "stop": 90.14,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "AFRM",
-   "price": 77.76,
-   "score": 54.5,
-   "tech_score": 28.9,
-   "news_score": 25.5,
-   "rsi": 54.2,
-   "mom5": 0.95,
-   "vol_surge": 6.6,
+   "price": 74.76,
+   "score": 31.3,
+   "tech_score": 13.5,
+   "news_score": 17.8,
+   "rsi": 46.5,
+   "mom5": -2.5,
+   "vol_surge": 1.99,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "AFRM Q2 Deep Dive: Network Effects, Product Expansion, and Profitability Shape Outlook",
-     "age_h": 4.9,
-     "points": 7.7
-    },
-    {
      "category": "earnings_beat",
-     "headline": "Affirm Q4 2026 earnings beat: revenue and GMV top estimates",
-     "age_h": 5.6,
+     "headline": "Affirm Q4 Earnings Beat on Strong GMV Growth, Rising Card Adoption",
+     "age_h": 1.3,
      "points": 17.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 77.76,
-    "target": 89.82,
-    "stop": 72.94,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "S",
-   "price": 21.54,
-   "score": 52.2,
-   "tech_score": 26.7,
-   "news_score": 25.5,
-   "rsi": 46.8,
-   "mom5": 1.65,
-   "vol_surge": 2.13,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "S Q2 Deep Dive: AI Security Drives Growth, Margin Expansion Moderates",
-     "age_h": 3.5,
-     "points": 7.7
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "SentinelOne Q2 Earnings Beat as Platform Growth Drives Outlook Raise",
-     "age_h": 5.7,
-     "points": 17.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 21.54,
-    "target": 25.04,
-    "stop": 20.14,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CXM",
-   "price": 8.16,
-   "score": 47.1,
-   "tech_score": 41.8,
-   "news_score": 5.3,
-   "rsi": 77.1,
-   "mom5": 10.27,
-   "vol_surge": 1.47,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Everpure (P) Beats Q2 Earnings and Revenue Estimates",
-     "age_h": 49.9,
-     "points": 5.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 8.16,
-    "target": 8.7,
-    "stop": 7.84,
+    "entry": 74.76,
+    "target": 83.46,
+    "stop": 69.54,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ESTC",
-   "price": 99.91,
-   "score": 45.7,
-   "tech_score": 38.0,
-   "news_score": 7.7,
-   "rsi": 75.5,
-   "mom5": 16.26,
-   "vol_surge": 3.48,
+   "ticker": "VEEV",
+   "price": 285.43,
+   "score": 30.3,
+   "tech_score": 28.0,
+   "news_score": 2.3,
+   "rsi": 74.0,
+   "mom5": 15.03,
+   "vol_surge": 0.79,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "ESTC Q2 CY2026 Deep Dive: AI Adoption, Enterprise Expansion, and New Product Investments Drive Growth",
-     "age_h": 3.4,
-     "points": 7.7
+     "headline": "Veeva (VEEV) Grew Subscription Revenue 16% as GAAP Operating Income Increased 40%. Is the Margin Expansion Sustainable?",
+     "age_h": 65.0,
+     "points": 2.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 99.91,
-    "target": 115.95,
-    "stop": 93.49,
+    "entry": 285.43,
+    "target": 321.62,
+    "stop": 270.95,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "PD",
-   "price": 13.83,
-   "score": 45.7,
-   "tech_score": 38.0,
-   "news_score": 7.7,
-   "rsi": 72.7,
-   "mom5": 12.26,
-   "vol_surge": 2.8,
+   "ticker": "PURR",
+   "price": 12.1,
+   "score": 29.2,
+   "tech_score": 23.5,
+   "news_score": 5.8,
+   "rsi": 81.2,
+   "mom5": 13.91,
+   "vol_surge": 1.68,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "PD Q2 Deep Dive: AI Platform Adoption and Cost Discipline Drive Margin Expansion",
-     "age_h": 4.6,
-     "points": 7.7
+     "category": "buyback_dividend",
+     "headline": "Why Is Hyperliquid Strategies (PURR) Doubling Down On HYPE And Buybacks?",
+     "age_h": 30.6,
+     "points": 5.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 13.83,
-    "target": 15.59,
-    "stop": 13.13,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "BURL",
-   "price": 272.95,
-   "score": 39.5,
-   "tech_score": 14.0,
-   "news_score": 25.5,
-   "rsi": 5.8,
-   "mom5": -16.4,
-   "vol_surge": 2.41,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "BURL Shares Slide 8% Despite Q2 Earnings Beat, Higher FY26 View",
-     "age_h": 8.4,
-     "points": 17.8
-    },
-    {
-     "category": "growth_news",
-     "headline": "BURL Q2 Deep Dive: Margin Expansion and Tariff Strategy Amid Mixed Retail Trends",
-     "age_h": 14.1,
-     "points": 7.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 272.95,
-    "target": 311.58,
-    "stop": 257.5,
+    "entry": 12.1,
+    "target": 15.7,
+    "stop": 10.65,
     "hold": "2-8 კვირა"
    }
   }
@@ -305,9 +269,9 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 126,
-   "win_rate": 26.2,
-   "avg_return": 0.2,
+   "n": 127,
+   "win_rate": 26.0,
+   "avg_return": 0.07,
    "weight_now": 0.81
   },
   {
@@ -319,10 +283,10 @@
   },
   {
    "category": "growth_news",
-   "n": 60,
-   "win_rate": 21.7,
-   "avg_return": -5.27,
-   "weight_now": 0.77
+   "n": 65,
+   "win_rate": 23.1,
+   "avg_return": -4.82,
+   "weight_now": 0.78
   },
   {
    "category": "analyst_upgrade",
@@ -333,10 +297,10 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 22,
-   "win_rate": 22.7,
-   "avg_return": -0.68,
-   "weight_now": 0.78
+   "n": 24,
+   "win_rate": 25.0,
+   "avg_return": -0.29,
+   "weight_now": 0.8
   },
   {
    "category": "guidance_raise",
