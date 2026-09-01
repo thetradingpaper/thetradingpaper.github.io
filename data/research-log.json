@@ -4060,7 +4060,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 125.77,
+  "return_pct": -0.62,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-25T14:33:23.415663+00:00",
@@ -4071,7 +4074,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 197.51,
+  "return_pct": -9.83,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-25T14:33:23.415667+00:00",
@@ -4082,7 +4088,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.6,
+  "return_pct": -46.94,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-25T14:33:23.415671+00:00",
@@ -4093,7 +4102,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 8.59,
+  "return_pct": -12.7,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-25T14:33:23.415674+00:00",
@@ -4104,7 +4116,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.11,
+  "return_pct": 22.69,
+  "outcome": "win"
  },
  {
   "date": "2026-08-25T14:33:23.415677+00:00",
@@ -4115,7 +4130,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 10.04,
+  "return_pct": -26.4,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-25T14:33:23.415680+00:00",
@@ -4127,7 +4145,10 @@
    "analyst_upgrade",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 173.85,
+  "return_pct": -4.6,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731743+00:00",
