@@ -4161,7 +4161,10 @@
    "guidance_raise",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 137.88,
+  "return_pct": -4.32,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731754+00:00",
@@ -4172,7 +4175,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 17.36,
+  "return_pct": -9.04,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731759+00:00",
@@ -4184,7 +4190,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 133.2,
+  "return_pct": -4.85,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731764+00:00",
@@ -4195,7 +4204,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.24,
+  "return_pct": -11.97,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731768+00:00",
@@ -4206,7 +4218,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 105.68,
+  "return_pct": -3.96,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731771+00:00",
@@ -4217,7 +4232,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 175.39,
+  "return_pct": -4.27,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731776+00:00",
@@ -4228,7 +4246,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.37,
+  "return_pct": -49.07,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731783+00:00",
@@ -4239,7 +4260,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 5.43,
+  "return_pct": -45.32,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731788+00:00",
@@ -4250,7 +4274,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 296.98,
+  "return_pct": -6.19,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-26T14:27:55.731792+00:00",
@@ -4261,7 +4288,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.14,
+  "return_pct": -22.41,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178070+00:00",
@@ -4607,6 +4637,117 @@
   "horizon": "long",
   "catalyst_cats": [
    "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736580+00:00",
+  "ticker": "GTLB",
+  "entry": 49.85,
+  "score": 50.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736591+00:00",
+  "ticker": "DELL",
+  "entry": 462.33,
+  "score": 45.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736595+00:00",
+  "ticker": "DAKT",
+  "entry": 20.12,
+  "score": 41.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736599+00:00",
+  "ticker": "PSQL",
+  "entry": 13.9,
+  "score": 41.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736603+00:00",
+  "ticker": "CRM",
+  "entry": 254.6,
+  "score": 39.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736607+00:00",
+  "ticker": "CRDO",
+  "entry": 164.27,
+  "score": 31.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736610+00:00",
+  "ticker": "ANF",
+  "entry": 137.99,
+  "score": 30.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736618+00:00",
+  "ticker": "MDB",
+  "entry": 378.18,
+  "score": 29.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736622+00:00",
+  "ticker": "MRVL",
+  "entry": 205.85,
+  "score": 21.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-02T17:25:50.736626+00:00",
+  "ticker": "NG",
+  "entry": 8.1,
+  "score": 10.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

@@ -1,50 +1,313 @@
 {
- "updated": "2026-09-01T17:33:10.454192+00:00",
- "mode": "WAIT",
- "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
- "picks": [],
+ "updated": "2026-09-02T17:25:50.736669+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on GTLB (score 50.4). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "picks": [
+  {
+   "ticker": "GTLB",
+   "price": 49.85,
+   "score": 50.4,
+   "tech_score": 38.0,
+   "news_score": 12.4,
+   "rsi": 71.6,
+   "mom5": 19.2,
+   "vol_surge": 3.8,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Top Midday Stories: Dell Fiscal Q2 Earnings, Guidance Beat Estimates; Uber to Cut About 10% of Workforce",
+     "age_h": 1.7,
+     "points": 17.6
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Sirius XM upgraded, Toast downgraded: Wall Street's top analyst calls",
+     "age_h": 3.5,
+     "points": 9.8
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "Sirius XM upgraded, Toast downgraded: Wall Street's top analyst calls",
+     "age_h": 3.5,
+     "points": -15.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 49.85,
+    "target": 55.12,
+    "stop": 46.69,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DELL",
+   "price": 462.33,
+   "score": 45.6,
+   "tech_score": 28.0,
+   "news_score": 17.6,
+   "rsi": 41.9,
+   "mom5": 0.02,
+   "vol_surge": 3.31,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Dell Beats On Every Line And Guides Higher Than Anyone Modeled",
+     "age_h": 1.5,
+     "points": 17.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 462.33,
+    "target": 514.94,
+    "stop": 430.77,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DAKT",
+   "price": 20.12,
+   "score": 41.7,
+   "tech_score": 24.1,
+   "news_score": 17.6,
+   "rsi": 42.6,
+   "mom5": 6.07,
+   "vol_surge": 3.4,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Daktronics (DAKT) Beats Q1 Earnings and Revenue Estimates",
+     "age_h": 4.8,
+     "points": 17.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 20.12,
+    "target": 21.37,
+    "stop": 19.38,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PSQL",
+   "price": 13.9,
+   "score": 41.5,
+   "tech_score": 36.0,
+   "news_score": 5.5,
+   "rsi": 61.2,
+   "mom5": 33.91,
+   "vol_surge": 0.29,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Pasqal Enters Nasdaq Price Discovery After Completing De-SPAC Merger",
+     "age_h": 53.2,
+     "points": 5.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 13.9,
+    "target": 18.09,
+    "stop": 11.39,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "CRM",
+   "price": 254.6,
+   "score": 39.8,
+   "tech_score": 18.0,
+   "news_score": 21.8,
+   "rsi": 79.7,
+   "mom5": 23.56,
+   "vol_surge": 0.44,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Salesforce Raised Guidance Again. Now It Has to Deliver the Revenue Acceleration",
+     "age_h": 7.1,
+     "points": 21.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 254.6,
+    "target": 288.43,
+    "stop": 241.07,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CRDO",
+   "price": 164.27,
+   "score": 31.6,
+   "tech_score": 14.0,
+   "news_score": 17.6,
+   "rsi": 21.9,
+   "mom5": -26.95,
+   "vol_surge": 3.66,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Credo Stock Plunges Despite Earnings Beat as Analysts Weigh In",
+     "age_h": 1.9,
+     "points": 17.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 164.27,
+    "target": 204.72,
+    "stop": 140.0,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ANF",
+   "price": 137.99,
+   "score": 30.9,
+   "tech_score": 28.0,
+   "news_score": 2.9,
+   "rsi": 68.2,
+   "mom5": 26.61,
+   "vol_surge": 0.38,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Deere upgraded, Lumentum initiated: Wall Street's top analyst calls",
+     "age_h": 51.7,
+     "points": 2.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 137.99,
+    "target": 154.51,
+    "stop": 128.08,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MDB",
+   "price": 378.18,
+   "score": 29.0,
+   "tech_score": 11.4,
+   "news_score": 17.6,
+   "rsi": 38.6,
+   "mom5": -6.64,
+   "vol_surge": 3.01,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "MDB Q2 Earnings Beat Estimates on Atlas & EA Strength, Outlook Raised",
+     "age_h": 3.1,
+     "points": 17.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 378.18,
+    "target": 429.78,
+    "stop": 347.22,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MRVL",
+   "price": 205.85,
+   "score": 21.8,
+   "tech_score": 0.0,
+   "news_score": 21.8,
+   "rsi": 44.3,
+   "mom5": -15.98,
+   "vol_surge": 0.38,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Marvell Beat and Raised Guidance. Why Its Google Deal Still Spooked Investors",
+     "age_h": 7.1,
+     "points": 21.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 205.85,
+    "target": 253.61,
+    "stop": 186.74,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NG",
+   "price": 8.1,
+   "score": 10.3,
+   "tech_score": 8.0,
+   "news_score": 2.3,
+   "rsi": 52.4,
+   "mom5": -16.94,
+   "vol_surge": 0.54,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "TNR Gold launches 2026 exploration program at Shotgun gold project in Alaska",
+     "age_h": 52.0,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 8.1,
+    "target": 9.64,
+    "stop": 7.49,
+    "hold": "2-8 კვირა"
+   }
+  }
+ ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 128,
-   "win_rate": 25.8,
-   "avg_return": -0.3,
-   "weight_now": 0.81
+   "n": 132,
+   "win_rate": 25.0,
+   "avg_return": -0.78,
+   "weight_now": 0.8
   },
   {
    "category": "m_and_a",
-   "n": 73,
-   "win_rate": 12.3,
-   "avg_return": -1.99,
+   "n": 74,
+   "win_rate": 12.2,
+   "avg_return": -2.12,
    "weight_now": 0.7
   },
   {
    "category": "growth_news",
-   "n": 68,
-   "win_rate": 23.5,
-   "avg_return": -4.53,
-   "weight_now": 0.79
+   "n": 70,
+   "win_rate": 22.9,
+   "avg_return": -5.11,
+   "weight_now": 0.78
   },
   {
    "category": "analyst_upgrade",
-   "n": 43,
-   "win_rate": 7.0,
-   "avg_return": -8.54,
-   "weight_now": 0.66
+   "n": 47,
+   "win_rate": 6.4,
+   "avg_return": -8.56,
+   "weight_now": 0.65
   },
   {
    "category": "buyback_dividend",
-   "n": 24,
-   "win_rate": 25.0,
-   "avg_return": -0.29,
-   "weight_now": 0.8
+   "n": 25,
+   "win_rate": 24.0,
+   "avg_return": -0.64,
+   "weight_now": 0.79
   },
   {
    "category": "guidance_raise",
-   "n": 20,
-   "win_rate": 35.0,
-   "avg_return": -0.31,
-   "weight_now": 0.88
+   "n": 21,
+   "win_rate": 33.3,
+   "avg_return": -0.5,
+   "weight_now": 0.87
   },
   {
    "category": "fda_approval",
@@ -61,7 +324,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5970,
+ "scanned": 5967,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
