@@ -1075,17 +1075,17 @@
     "books": {
       "bog": {
         "deposited": 1949.7,
-        "value": 202.96
+        "value": 204.94
       },
       "tbc": {
         "deposited": 4591.83,
-        "value": 2381.32
+        "value": 2381.24
       },
       "galt": {
         "deposited": 78.63,
         "value": 0
       }
     },
-    "note": "BOG $202.96 (-89.6%) · TBC $2381.32 (-48.1%) · GALT closed"
+    "note": "BOG $204.94 (-89.5%) · TBC $2381.24 (-48.1%) · GALT closed"
   }
 ]
