@@ -4750,5 +4750,123 @@
    "growth_news"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141304+00:00",
+  "ticker": "DELL",
+  "entry": 514.2,
+  "score": 75.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141312+00:00",
+  "ticker": "HOOD",
+  "entry": 123.42,
+  "score": 71.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141316+00:00",
+  "ticker": "CHPT",
+  "entry": 8.95,
+  "score": 55.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141319+00:00",
+  "ticker": "DOO",
+  "entry": 61.79,
+  "score": 55.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141323+00:00",
+  "ticker": "FUBO",
+  "entry": 11.53,
+  "score": 54.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141325+00:00",
+  "ticker": "ESTC",
+  "entry": 94.44,
+  "score": 49.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141328+00:00",
+  "ticker": "MDB",
+  "entry": 382.41,
+  "score": 39.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141334+00:00",
+  "ticker": "CRDO",
+  "entry": 166.05,
+  "score": 34.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141338+00:00",
+  "ticker": "CIEN",
+  "entry": 323.39,
+  "score": 31.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-03T17:15:35.141342+00:00",
+  "ticker": "NTAP",
+  "entry": 182.58,
+  "score": 31.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]

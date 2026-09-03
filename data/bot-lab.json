@@ -7,8 +7,19 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 77.76870534317017,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "DELL",
+     "shares": 0.150153,
+     "entry": 514.5999755859375,
+     "entry_date": "2026-09-03",
+     "target": 604.77,
+     "stop": 477.97,
+     "max_days": 7,
+     "last_price": 514.5999755859375
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -81,7 +92,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.77,
+   "equity": 77.27,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -242,13 +253,17 @@
     {
      "date": "2026-09-02",
      "equity": 77.77
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 77.27
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 1,
     "win_rate": 14.3,
-    "return_pct": -22.23
+    "return_pct": -22.73
    }
   },
   "bot2": {
@@ -266,7 +281,7 @@
      "target": 137.58,
      "stop": 122.62,
      "max_days": 7,
-     "last_price": 125.54
+     "last_price": 126.6
     },
     {
      "ticker": "TEAM",
@@ -276,7 +291,7 @@
      "target": 212.47,
      "stop": 183.58,
      "max_days": 7,
-     "last_price": 187.21
+     "last_price": 194.43
     }
    ],
    "trades": [
@@ -601,7 +616,7 @@
      "leverage": 1
     }
    ],
-   "equity": 51.52,
+   "equity": 52.05,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -762,13 +777,17 @@
     {
      "date": "2026-09-02",
      "equity": 51.52
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 52.05
     }
    ],
    "stats": {
     "trades": 32,
     "wins": 2,
     "win_rate": 6.2,
-    "return_pct": -48.48
+    "return_pct": -47.95
    }
   },
   "bot3": {
@@ -786,7 +805,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 90.27
+     "last_price": 89.57
     },
     {
      "ticker": "MSTR",
@@ -796,7 +815,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 122.01
+     "last_price": 141.36
     },
     {
      "ticker": "CRM",
@@ -806,7 +825,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 254.64500427246094
+     "last_price": 264.95
     }
    ],
    "trades": [
@@ -871,7 +890,7 @@
      "leverage": 1
     }
    ],
-   "equity": 58.0,
+   "equity": 61.54,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1032,13 +1051,17 @@
     {
      "date": "2026-09-02",
      "equity": 58.0
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 61.54
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -42.0
+    "return_pct": -38.46
    }
   },
   "bot4": {
@@ -1056,7 +1079,7 @@
      "target": 55.12,
      "stop": 46.69,
      "max_days": 7,
-     "last_price": 49.915000915527344
+     "last_price": 49.88
     }
    ],
    "trades": [
@@ -1131,7 +1154,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.39,
+   "equity": 82.37,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1292,13 +1315,17 @@
     {
      "date": "2026-09-02",
      "equity": 82.39
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 82.37
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -17.61
+    "return_pct": -17.63
    }
   },
   "bot5": {
@@ -1319,7 +1346,7 @@
      "leverage": 2.5,
      "own_equity": 411.3800956597065,
      "borrowed": 617.07,
-     "last_price": 137.99
+     "last_price": 143.15
     }
    ],
    "trades": [
@@ -1364,7 +1391,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 366.35,
+   "equity": 403.01,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1525,15 +1552,19 @@
     {
      "date": "2026-09-02",
      "equity": 366.35
+    },
+    {
+     "date": "2026-09-03",
+     "equity": 403.01
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -63.37
+    "return_pct": -59.7
    }
   }
  },
- "updated": "2026-09-02T17:25:51.788363+00:00"
+ "updated": "2026-09-03T17:15:36.117523+00:00"
 }

@@ -1,268 +1,310 @@
 {
- "updated": "2026-09-02T17:25:50.736669+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on GTLB (score 50.4). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "updated": "2026-09-03T17:15:35.141378+00:00",
+ "mode": "DIVERSIFY",
+ "notification": "📊 4 solid setups — split the paper $100 across: DELL, HOOD, CHPT, DOO. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "GTLB",
-   "price": 49.85,
-   "score": 50.4,
-   "tech_score": 38.0,
-   "news_score": 12.4,
-   "rsi": 71.6,
-   "mom5": 19.2,
-   "vol_surge": 3.8,
+   "ticker": "DELL",
+   "price": 514.2,
+   "score": 75.6,
+   "tech_score": 41.5,
+   "news_score": 34.1,
+   "rsi": 54.7,
+   "mom5": 8.97,
+   "vol_surge": 1.81,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Top Midday Stories: Dell Fiscal Q2 Earnings, Guidance Beat Estimates; Uber to Cut About 10% of Workforce",
-     "age_h": 1.7,
+     "headline": "Why HPE Stock Is Falling Amid Fiscal Q3 Earnings Beat",
+     "age_h": 3.1,
      "points": 17.6
     },
     {
+     "category": "guidance_raise",
+     "headline": "Hewlett Packard Enterprise Falls 5% as Supply Constraints Overshadow Raised Guidance, Super Micro Slips, Dell Holds Steady",
+     "age_h": 3.4,
+     "points": 21.8
+    },
+    {
      "category": "analyst_upgrade",
-     "headline": "Sirius XM upgraded, Toast downgraded: Wall Street's top analyst calls",
-     "age_h": 3.5,
+     "headline": "Broadcom upgraded, Ultragenyx downgraded: Wall Street's top analyst calls",
+     "age_h": 3.7,
      "points": 9.8
     },
     {
      "category": "analyst_downgrade",
-     "headline": "Sirius XM upgraded, Toast downgraded: Wall Street's top analyst calls",
-     "age_h": 3.5,
+     "headline": "Broadcom upgraded, Ultragenyx downgraded: Wall Street's top analyst calls",
+     "age_h": 3.7,
      "points": -15.0
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 49.85,
-    "target": 55.12,
-    "stop": 46.69,
-    "hold": "3-7 დღე"
+    "entry": 514.2,
+    "target": 604.77,
+    "stop": 477.97,
+    "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "DELL",
-   "price": 462.33,
-   "score": 45.6,
-   "tech_score": 28.0,
-   "news_score": 17.6,
-   "rsi": 41.9,
-   "mom5": 0.02,
-   "vol_surge": 3.31,
+   "ticker": "HOOD",
+   "price": 123.42,
+   "score": 71.9,
+   "tech_score": 36.7,
+   "news_score": 35.2,
+   "rsi": 70.4,
+   "mom5": 12.33,
+   "vol_surge": 1.84,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Dell Beats On Every Line And Guides Higher Than Anyone Modeled",
-     "age_h": 1.5,
+     "headline": "Stock Market Midday, Sept. 3: Stocks Rally as Treasury Yields Fall, Broadcom Falls Despite Earnings Beat",
+     "age_h": 0.4,
+     "points": 17.6
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Robinhood Stock Soars Thanks to Wall Street Upgrades, Platform Expansion",
+     "age_h": 0.4,
+     "points": 9.8
+    },
+    {
+     "category": "growth_news",
+     "headline": "Robinhood Stock Soars Thanks to Wall Street Upgrades, Platform Expansion",
+     "age_h": 0.4,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 123.42,
+    "target": 145.0,
+    "stop": 114.79,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CHPT",
+   "price": 8.95,
+   "score": 55.6,
+   "tech_score": 38.0,
+   "news_score": 17.6,
+   "rsi": 71.6,
+   "mom5": 56.26,
+   "vol_surge": 15.89,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "ChargePoint Holdings, Inc. (CHPT) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 19.8,
      "points": 17.6
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 462.33,
-    "target": 514.94,
-    "stop": 430.77,
+    "entry": 8.95,
+    "target": 10.07,
+    "stop": 8.28,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "DAKT",
-   "price": 20.12,
-   "score": 41.7,
-   "tech_score": 24.1,
-   "news_score": 17.6,
-   "rsi": 42.6,
-   "mom5": 6.07,
-   "vol_surge": 3.4,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Daktronics (DAKT) Beats Q1 Earnings and Revenue Estimates",
-     "age_h": 4.8,
-     "points": 17.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 20.12,
-    "target": 21.37,
-    "stop": 19.38,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "PSQL",
-   "price": 13.9,
-   "score": 41.5,
-   "tech_score": 36.0,
-   "news_score": 5.5,
-   "rsi": 61.2,
-   "mom5": 33.91,
-   "vol_surge": 0.29,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Pasqal Enters Nasdaq Price Discovery After Completing De-SPAC Merger",
-     "age_h": 53.2,
-     "points": 5.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 13.9,
-    "target": 18.09,
-    "stop": 11.39,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CRM",
-   "price": 254.6,
-   "score": 39.8,
-   "tech_score": 18.0,
-   "news_score": 21.8,
-   "rsi": 79.7,
-   "mom5": 23.56,
-   "vol_surge": 0.44,
+   "ticker": "DOO",
+   "price": 61.79,
+   "score": 55.4,
+   "tech_score": 16.1,
+   "news_score": 39.4,
+   "rsi": 43.7,
+   "mom5": -1.94,
+   "vol_surge": 2.54,
    "catalysts": [
     {
      "category": "guidance_raise",
-     "headline": "Salesforce Raised Guidance Again. Now It Has to Deliver the Revenue Acceleration",
-     "age_h": 7.1,
+     "headline": "Ski-Doo maker BRP raises full-year outlook on 'reduced net tariff costs'",
+     "age_h": 3.2,
+     "points": 21.8
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "BRP Inc. (DOO) Reports Q2 Loss, Beats Revenue Estimates",
+     "age_h": 5.9,
+     "points": 17.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 61.79,
+    "target": 69.76,
+    "stop": 58.6,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FUBO",
+   "price": 11.53,
+   "score": 54.2,
+   "tech_score": 36.0,
+   "news_score": 18.2,
+   "rsi": 65.8,
+   "mom5": 14.36,
+   "vol_surge": 0.75,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Netflix’s Acquisition Wishlist: Which Streaming Target Has the Best Odds?",
+     "age_h": 2.4,
+     "points": 18.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 11.53,
+    "target": 13.04,
+    "stop": 10.62,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ESTC",
+   "price": 94.44,
+   "score": 49.0,
+   "tech_score": 36.0,
+   "news_score": 13.1,
+   "rsi": 57.6,
+   "mom5": 12.68,
+   "vol_surge": 0.52,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Elastic Beat and Raised Guidance. Wall Street Says One Quarter Isn’t Enough.",
+     "age_h": 30.9,
+     "points": 13.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 94.44,
+    "target": 111.38,
+    "stop": 87.66,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "MDB",
+   "price": 382.41,
+   "score": 39.4,
+   "tech_score": 0.0,
+   "news_score": 39.4,
+   "rsi": 32.8,
+   "mom5": -13.16,
+   "vol_surge": 0.79,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "MongoDB Earnings Beat Expectations. Why the Stock Is Dropping Anyway.",
+     "age_h": 20.7,
+     "points": 17.6
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "MongoDB Beat Every Estimate and Raised Guidance, Then Lost 13.6% in a Single Session",
+     "age_h": 22.6,
      "points": 21.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 254.6,
-    "target": 288.43,
-    "stop": 241.07,
+    "entry": 382.41,
+    "target": 455.56,
+    "stop": 353.15,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "CRDO",
-   "price": 164.27,
-   "score": 31.6,
-   "tech_score": 14.0,
-   "news_score": 17.6,
-   "rsi": 21.9,
-   "mom5": -26.95,
-   "vol_surge": 3.66,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Credo Stock Plunges Despite Earnings Beat as Analysts Weigh In",
-     "age_h": 1.9,
-     "points": 17.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 164.27,
-    "target": 204.72,
-    "stop": 140.0,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ANF",
-   "price": 137.99,
-   "score": 30.9,
-   "tech_score": 28.0,
-   "news_score": 2.9,
-   "rsi": 68.2,
-   "mom5": 26.61,
-   "vol_surge": 0.38,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Deere upgraded, Lumentum initiated: Wall Street's top analyst calls",
-     "age_h": 51.7,
-     "points": 2.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 137.99,
-    "target": 154.51,
-    "stop": 128.08,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MDB",
-   "price": 378.18,
-   "score": 29.0,
-   "tech_score": 11.4,
-   "news_score": 17.6,
-   "rsi": 38.6,
-   "mom5": -6.64,
-   "vol_surge": 3.01,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "MDB Q2 Earnings Beat Estimates on Atlas & EA Strength, Outlook Raised",
-     "age_h": 3.1,
-     "points": 17.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 378.18,
-    "target": 429.78,
-    "stop": 347.22,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MRVL",
-   "price": 205.85,
-   "score": 21.8,
-   "tech_score": 0.0,
-   "news_score": 21.8,
-   "rsi": 44.3,
-   "mom5": -15.98,
-   "vol_surge": 0.38,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Marvell Beat and Raised Guidance. Why Its Google Deal Still Spooked Investors",
-     "age_h": 7.1,
-     "points": 21.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 205.85,
-    "target": 253.61,
-    "stop": 186.74,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NG",
-   "price": 8.1,
-   "score": 10.3,
-   "tech_score": 8.0,
-   "news_score": 2.3,
-   "rsi": 52.4,
-   "mom5": -16.94,
-   "vol_surge": 0.54,
+   "price": 166.05,
+   "score": 34.0,
+   "tech_score": 8.6,
+   "news_score": 25.4,
+   "rsi": 23.4,
+   "mom5": -30.76,
+   "vol_surge": 1.58,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "TNR Gold launches 2026 exploration program at Shotgun gold project in Alaska",
-     "age_h": 52.0,
-     "points": 2.3
+     "headline": "Will Credo's Neocloud Expansion Broaden Its AEC Growth Runway?",
+     "age_h": 2.7,
+     "points": 7.8
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Credo Stock Craters Despite Earnings Beat as Analysts Find Weak Spots",
+     "age_h": 23.4,
+     "points": 17.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 8.1,
-    "target": 9.64,
-    "stop": 7.49,
+    "entry": 166.05,
+    "target": 222.94,
+    "stop": 143.3,
     "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CIEN",
+   "price": 323.39,
+   "score": 31.3,
+   "tech_score": 5.9,
+   "news_score": 25.4,
+   "rsi": 25.8,
+   "mom5": -19.34,
+   "vol_surge": 2.24,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Ciena Tumbles 10% as In-Line Guidance Overshadows Earnings Beat, Arista Edges Higher",
+     "age_h": 0.8,
+     "points": 17.6
+    },
+    {
+     "category": "growth_news",
+     "headline": "Ciena Earnings Beat. Why This AI Data Center Play Is Falling.",
+     "age_h": 2.8,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 323.39,
+    "target": 399.62,
+    "stop": 292.89,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NTAP",
+   "price": 182.58,
+   "score": 31.1,
+   "tech_score": 13.5,
+   "news_score": 17.6,
+   "rsi": 21.6,
+   "mom5": -3.79,
+   "vol_surge": 1.66,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Why NetApp Stock Is Falling Despite A Big Earnings Beat",
+     "age_h": 4.3,
+     "points": 17.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 182.58,
+    "target": 199.29,
+    "stop": 172.55,
+    "hold": "3-7 დღე"
    }
   }
  ],
@@ -324,7 +366,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5967,
+ "scanned": 5968,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
