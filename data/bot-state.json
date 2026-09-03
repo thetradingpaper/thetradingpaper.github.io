@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 41.9,
+ "cash": 21.9,
  "positions": [
   {
    "ticker": "NVDA",
@@ -35,6 +35,17 @@
    "cost": 20,
    "target": 198.53,
    "stop": 170.91
+  },
+  {
+   "ticker": "TSLA",
+   "opened": "2026-09-03T19:43:31.895Z",
+   "rule": "R2",
+   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $368.92 · მოცულობა 1.5×",
+   "entry": 379.81,
+   "shares": 0.052658,
+   "cost": 20,
+   "target": 408.05,
+   "stop": 358.63
   }
  ],
  "equityHistory": [
@@ -224,7 +235,7 @@
   },
   {
    "date": "2026-09-03",
-   "equity": 102.09
+   "equity": 102.62
   }
  ]
 }
