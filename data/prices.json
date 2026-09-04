@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04T19:06:52.218Z",
+  "updated": "2026-09-04T21:31:56.614Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,11 +10,11 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 564.02,
+      "price": 567.01,
       "previousClose": 552.6
     },
     "VOO": {
-      "price": 707.53,
+      "price": 708.01,
       "previousClose": 710.72
     },
     "ASX": {
@@ -34,7 +34,7 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 277.27,
+      "price": 280.53,
       "previousClose": 268.83
     },
     "WMT": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 143.823,
+      "price": 142.8,
       "previousClose": 144.82
     },
     "CRDO": {
@@ -58,19 +58,19 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 20.05,
+      "price": 20.04,
       "previousClose": 20.01
     },
     "MAIN": {
-      "price": 57.85,
+      "price": 57.68,
       "previousClose": 58.07
     },
     "BXSL": {
-      "price": 24.835,
+      "price": 24.72,
       "previousClose": 24.67
     },
     "LYG": {
-      "price": 6.065,
+      "price": 6.08,
       "previousClose": 6.1
     },
     "SNDK": {
@@ -114,7 +114,7 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 87.99,
+      "price": 88.07,
       "previousClose": 88.81
     },
     "DIVO": {
@@ -122,31 +122,31 @@
       "previousClose": 48.71
     },
     "MU": {
-      "price": 1003.55,
+      "price": 1016.59,
       "previousClose": 958.16
     },
     "RKLB": {
-      "price": 63.89,
+      "price": 64.26,
       "previousClose": 63.81
     },
     "MRVL": {
-      "price": 221.07,
+      "price": 223.55,
       "previousClose": 208.83
     },
     "QBTS": {
-      "price": 16.68,
+      "price": 16.58,
       "previousClose": 16.82
     },
     "NVTS": {
-      "price": 11.71,
+      "price": 11.8,
       "previousClose": 11.1
     },
     "BE": {
-      "price": 246.39,
+      "price": 252.87,
       "previousClose": 235.55
     },
     "SOXX": {
-      "price": 516.27,
+      "price": 519.86,
       "previousClose": 502.2
     },
     "NVDA": {
