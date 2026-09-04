@@ -4303,7 +4303,10 @@
    "earnings_beat",
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 19.77,
+  "return_pct": -12.92,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178079+00:00",
@@ -4315,7 +4318,10 @@
    "earnings_beat",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 212.73,
+  "return_pct": -6.68,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178083+00:00",
@@ -4328,7 +4334,10 @@
    "guidance_raise",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 392.55,
+  "return_pct": -15.56,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178087+00:00",
@@ -4339,7 +4348,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 171.97,
+  "return_pct": -0.54,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-27T23:12:30.178090+00:00",
@@ -4350,7 +4362,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 93.93,
+  "return_pct": -12.23,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178093+00:00",
@@ -4361,7 +4376,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 156.26,
+  "return_pct": -9.56,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-27T23:12:30.178096+00:00",
@@ -4373,7 +4391,10 @@
    "earnings_beat",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 148.42,
+  "return_pct": 1.83,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-27T23:12:30.178102+00:00",
@@ -4385,7 +4406,10 @@
    "earnings_beat",
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.09,
+  "return_pct": -0.99,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-27T23:12:30.178107+00:00",
@@ -4396,7 +4420,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 22.99,
+  "return_pct": -0.24,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-27T23:12:30.178110+00:00",
@@ -4408,7 +4435,10 @@
    "earnings_beat",
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 89.94,
+  "return_pct": 7.64,
+  "outcome": "win"
  },
  {
   "date": "2026-08-28T23:16:41.355522+00:00",
@@ -4866,6 +4896,117 @@
   "horizon": "short",
   "catalyst_cats": [
    "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185273+00:00",
+  "ticker": "DOO",
+  "entry": 67.63,
+  "score": 60.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185282+00:00",
+  "ticker": "SMTC",
+  "entry": 146.17,
+  "score": 53.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185287+00:00",
+  "ticker": "CHPT",
+  "entry": 9.92,
+  "score": 45.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185290+00:00",
+  "ticker": "IREN",
+  "entry": 43.75,
+  "score": 43.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185294+00:00",
+  "ticker": "SWKS",
+  "entry": 74.14,
+  "score": 43.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185298+00:00",
+  "ticker": "RBLX",
+  "entry": 43.06,
+  "score": 40.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185300+00:00",
+  "ticker": "IOT",
+  "entry": 39.67,
+  "score": 40.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185306+00:00",
+  "ticker": "HUT",
+  "entry": 89.69,
+  "score": 38.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185310+00:00",
+  "ticker": "ASAN",
+  "entry": 8.73,
+  "score": 33.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-04T17:10:11.185313+00:00",
+  "ticker": "CIFR",
+  "entry": 17.75,
+  "score": 32.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

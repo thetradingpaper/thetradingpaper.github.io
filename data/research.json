@@ -1,320 +1,278 @@
 {
- "updated": "2026-09-03T17:15:35.141378+00:00",
- "mode": "DIVERSIFY",
- "notification": "📊 4 solid setups — split the paper $100 across: DELL, HOOD, CHPT, DOO. No single hero today, the basket is the play.",
+ "updated": "2026-09-04T17:10:11.185350+00:00",
+ "mode": "STARTER",
+ "notification": "🌱 Mild edge on DOO (score 60.3). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "DELL",
-   "price": 514.2,
-   "score": 75.6,
-   "tech_score": 41.5,
-   "news_score": 34.1,
-   "rsi": 54.7,
-   "mom5": 8.97,
-   "vol_surge": 1.81,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Why HPE Stock Is Falling Amid Fiscal Q3 Earnings Beat",
-     "age_h": 3.1,
-     "points": 17.6
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "Hewlett Packard Enterprise Falls 5% as Supply Constraints Overshadow Raised Guidance, Super Micro Slips, Dell Holds Steady",
-     "age_h": 3.4,
-     "points": 21.8
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Broadcom upgraded, Ultragenyx downgraded: Wall Street's top analyst calls",
-     "age_h": 3.7,
-     "points": 9.8
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "Broadcom upgraded, Ultragenyx downgraded: Wall Street's top analyst calls",
-     "age_h": 3.7,
-     "points": -15.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 514.2,
-    "target": 604.77,
-    "stop": 477.97,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "HOOD",
-   "price": 123.42,
-   "score": 71.9,
-   "tech_score": 36.7,
-   "news_score": 35.2,
-   "rsi": 70.4,
-   "mom5": 12.33,
-   "vol_surge": 1.84,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Stock Market Midday, Sept. 3: Stocks Rally as Treasury Yields Fall, Broadcom Falls Despite Earnings Beat",
-     "age_h": 0.4,
-     "points": 17.6
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Robinhood Stock Soars Thanks to Wall Street Upgrades, Platform Expansion",
-     "age_h": 0.4,
-     "points": 9.8
-    },
-    {
-     "category": "growth_news",
-     "headline": "Robinhood Stock Soars Thanks to Wall Street Upgrades, Platform Expansion",
-     "age_h": 0.4,
-     "points": 7.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 123.42,
-    "target": 145.0,
-    "stop": 114.79,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CHPT",
-   "price": 8.95,
-   "score": 55.6,
-   "tech_score": 38.0,
-   "news_score": 17.6,
-   "rsi": 71.6,
-   "mom5": 56.26,
-   "vol_surge": 15.89,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "ChargePoint Holdings, Inc. (CHPT) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 19.8,
-     "points": 17.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 8.95,
-    "target": 10.07,
-    "stop": 8.28,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
    "ticker": "DOO",
-   "price": 61.79,
-   "score": 55.4,
-   "tech_score": 16.1,
-   "news_score": 39.4,
-   "rsi": 43.7,
-   "mom5": -1.94,
-   "vol_surge": 2.54,
+   "price": 67.63,
+   "score": 60.3,
+   "tech_score": 36.9,
+   "news_score": 23.5,
+   "rsi": 58.0,
+   "mom5": 9.47,
+   "vol_surge": 1.18,
    "catalysts": [
     {
      "category": "guidance_raise",
      "headline": "Ski-Doo maker BRP raises full-year outlook on 'reduced net tariff costs'",
-     "age_h": 3.2,
-     "points": 21.8
+     "age_h": 27.2,
+     "points": 13.1
     },
     {
      "category": "earnings_beat",
      "headline": "BRP Inc. (DOO) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 5.9,
-     "points": 17.6
+     "age_h": 29.8,
+     "points": 10.4
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 61.79,
-    "target": 69.76,
-    "stop": 58.6,
+    "entry": 67.63,
+    "target": 76.22,
+    "stop": 64.19,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "FUBO",
-   "price": 11.53,
-   "score": 54.2,
+   "ticker": "SMTC",
+   "price": 146.17,
+   "score": 53.4,
    "tech_score": 36.0,
-   "news_score": 18.2,
-   "rsi": 65.8,
-   "mom5": 14.36,
-   "vol_surge": 0.75,
+   "news_score": 17.4,
+   "rsi": 45.1,
+   "mom5": 11.62,
+   "vol_surge": 0.43,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Is Semtech (SMTC) Undervalued After Record Revenue And Higher Guidance?",
+     "age_h": 10.0,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 146.17,
+    "target": 168.22,
+    "stop": 132.94,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "CHPT",
+   "price": 9.92,
+   "score": 45.4,
+   "tech_score": 28.0,
+   "news_score": 17.4,
+   "rsi": 78.5,
+   "mom5": 78.08,
+   "vol_surge": 3.27,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "ChargePoint Q2 FY2027 earnings beat sends stock up 70%",
+     "age_h": 23.7,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 9.92,
+    "target": 11.19,
+    "stop": 9.16,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "price": 43.75,
+   "score": 43.8,
+   "tech_score": 36.0,
+   "news_score": 7.8,
+   "rsi": 47.8,
+   "mom5": 23.46,
+   "vol_surge": 0.44,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Data Center Stocks Rally With Bitcoin: Cipher Mining Jumps 12%, TeraWulf Surges 8%, IREN Rises 4%",
+     "age_h": 22.4,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 43.75,
+    "target": 53.23,
+    "stop": 39.96,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SWKS",
+   "price": 74.14,
+   "score": 43.5,
+   "tech_score": 38.0,
+   "news_score": 5.5,
+   "rsi": 70.0,
+   "mom5": 12.87,
+   "vol_surge": 0.33,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Qorvo (QRVO) Agreed to Be Acquired by Skyworks",
+     "age_h": 72.0,
+     "points": 5.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 74.14,
+    "target": 80.23,
+    "stop": 70.49,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "RBLX",
+   "price": 43.06,
+   "score": 40.9,
+   "tech_score": 30.0,
+   "news_score": 10.9,
+   "rsi": 74.1,
+   "mom5": 11.61,
+   "vol_surge": 0.36,
    "catalysts": [
     {
      "category": "m_and_a",
      "headline": "Netflix’s Acquisition Wishlist: Which Streaming Target Has the Best Odds?",
-     "age_h": 2.4,
+     "age_h": 26.3,
+     "points": 10.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 43.06,
+    "target": 46.84,
+    "stop": 40.78,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "IOT",
+   "price": 39.67,
+   "score": 40.0,
+   "tech_score": 22.6,
+   "news_score": 17.4,
+   "rsi": 52.3,
+   "mom5": -3.43,
+   "vol_surge": 2.45,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Samsara soars on strong earnings beat and solid guide",
+     "age_h": 20.1,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 39.67,
+    "target": 44.24,
+    "stop": 36.93,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "HUT",
+   "price": 89.69,
+   "score": 38.7,
+   "tech_score": 28.0,
+   "news_score": 10.7,
+   "rsi": 51.5,
+   "mom5": 12.9,
+   "vol_surge": 0.42,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "This Week In Cloud AI - Opti9 Expands Canadian Reach with Strategic Hut 8 Acquisition",
+     "age_h": 4.5,
      "points": 18.2
+    },
+    {
+     "category": "earnings_miss",
+     "headline": "Anthropic’ $35B Lambda Deal, ERCOT Misses Batch Zero Baseload Deadline, Anti-AI Politicians Are Getting Rich from AI Stocks",
+     "age_h": 69.2,
+     "points": -7.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 11.53,
-    "target": 13.04,
-    "stop": 10.62,
+    "entry": 89.69,
+    "target": 103.49,
+    "stop": 81.41,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ESTC",
-   "price": 94.44,
-   "score": 49.0,
-   "tech_score": 36.0,
-   "news_score": 13.1,
-   "rsi": 57.6,
-   "mom5": 12.68,
-   "vol_surge": 0.52,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Elastic Beat and Raised Guidance. Wall Street Says One Quarter Isn’t Enough.",
-     "age_h": 30.9,
-     "points": 13.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 94.44,
-    "target": 111.38,
-    "stop": 87.66,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "MDB",
-   "price": 382.41,
-   "score": 39.4,
-   "tech_score": 0.0,
-   "news_score": 39.4,
-   "rsi": 32.8,
-   "mom5": -13.16,
-   "vol_surge": 0.79,
+   "ticker": "ASAN",
+   "price": 8.73,
+   "score": 33.3,
+   "tech_score": 15.9,
+   "news_score": 17.4,
+   "rsi": 48.8,
+   "mom5": -14.23,
+   "vol_surge": 1.99,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "MongoDB Earnings Beat Expectations. Why the Stock Is Dropping Anyway.",
-     "age_h": 20.7,
-     "points": 17.6
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "MongoDB Beat Every Estimate and Raised Guidance, Then Lost 13.6% in a Single Session",
-     "age_h": 22.6,
-     "points": 21.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 382.41,
-    "target": 455.56,
-    "stop": 353.15,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CRDO",
-   "price": 166.05,
-   "score": 34.0,
-   "tech_score": 8.6,
-   "news_score": 25.4,
-   "rsi": 23.4,
-   "mom5": -30.76,
-   "vol_surge": 1.58,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Will Credo's Neocloud Expansion Broaden Its AEC Growth Runway?",
-     "age_h": 2.7,
-     "points": 7.8
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Credo Stock Craters Despite Earnings Beat as Analysts Find Weak Spots",
-     "age_h": 23.4,
-     "points": 17.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 166.05,
-    "target": 222.94,
-    "stop": 143.3,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CIEN",
-   "price": 323.39,
-   "score": 31.3,
-   "tech_score": 5.9,
-   "news_score": 25.4,
-   "rsi": 25.8,
-   "mom5": -19.34,
-   "vol_surge": 2.24,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Ciena Tumbles 10% as In-Line Guidance Overshadows Earnings Beat, Arista Edges Higher",
-     "age_h": 0.8,
-     "points": 17.6
-    },
-    {
-     "category": "growth_news",
-     "headline": "Ciena Earnings Beat. Why This AI Data Center Play Is Falling.",
-     "age_h": 2.8,
-     "points": 7.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 323.39,
-    "target": 399.62,
-    "stop": 292.89,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NTAP",
-   "price": 182.58,
-   "score": 31.1,
-   "tech_score": 13.5,
-   "news_score": 17.6,
-   "rsi": 21.6,
-   "mom5": -3.79,
-   "vol_surge": 1.66,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Why NetApp Stock Is Falling Despite A Big Earnings Beat",
-     "age_h": 4.3,
-     "points": 17.6
+     "headline": "Asana Shares Fall 10.9% as Q3 Outlook Follows Q2 Earnings Beat",
+     "age_h": 6.7,
+     "points": 17.4
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 182.58,
-    "target": 199.29,
-    "stop": 172.55,
+    "entry": 8.73,
+    "target": 9.88,
+    "stop": 8.03,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "CIFR",
+   "price": 17.75,
+   "score": 32.7,
+   "tech_score": 28.0,
+   "news_score": 4.7,
+   "rsi": 47.2,
+   "mom5": 16.71,
+   "vol_surge": 0.43,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Cipher starts gas laterals to support 2.5 GW HPC power expansion",
+     "age_h": 27.4,
+     "points": 4.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 17.75,
+    "target": 22.12,
+    "stop": 15.99,
+    "hold": "2-8 კვირა"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 132,
-   "win_rate": 25.0,
-   "avg_return": -0.78,
-   "weight_now": 0.8
+   "n": 142,
+   "win_rate": 23.9,
+   "avg_return": -1.07,
+   "weight_now": 0.79
   },
   {
    "category": "m_and_a",
@@ -332,23 +290,23 @@
   },
   {
    "category": "analyst_upgrade",
-   "n": 47,
-   "win_rate": 6.4,
-   "avg_return": -8.56,
+   "n": 50,
+   "win_rate": 6.0,
+   "avg_return": -8.46,
    "weight_now": 0.65
   },
   {
    "category": "buyback_dividend",
-   "n": 25,
-   "win_rate": 24.0,
-   "avg_return": -0.64,
-   "weight_now": 0.79
+   "n": 26,
+   "win_rate": 23.1,
+   "avg_return": -0.66,
+   "weight_now": 0.78
   },
   {
    "category": "guidance_raise",
-   "n": 21,
+   "n": 24,
    "win_rate": 33.3,
-   "avg_return": -0.5,
+   "avg_return": -1.31,
    "weight_now": 0.87
   },
   {
@@ -366,7 +324,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5968,
+ "scanned": 5966,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
