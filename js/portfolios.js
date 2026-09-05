@@ -112,6 +112,170 @@ ${date}
   return '';
 }
 
+window.__depDrawerOpen = window.__depDrawerOpen || {};
+
+function toggleBookDeposits(key) {
+  const drawer = document.getElementById('dep-drawer-' + key);
+  const arrow = document.getElementById('dep-arrow-' + key);
+  const btn = document.getElementById('dep-btn-' + key);
+  if (!drawer) return;
+  const isOpening = drawer.style.display === 'none' || !drawer.style.display;
+  drawer.style.display = isOpening ? 'block' : 'none';
+  if (arrow) arrow.textContent = isOpening ? '▴' : '▾';
+  if (btn) btn.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
+  window.__depDrawerOpen[key] = isOpening;
+}
+window.toggleBookDeposits = toggleBookDeposits;
+
+function getDepositDetailsHtml(portfolioKey) {
+  const p = portfolios[portfolioKey];
+  if (!p) return '';
+  const a = aggregate(p);
+  const rows = [];
+
+  if (p.transactions && p.transactions.length) {
+    p.transactions.forEach(tx => {
+      if (tx.type === 'deposit') {
+        const isXfer = (tx.amount < 0 || /transfer|გადა|გადმ/i.test(tx.note || ''));
+        rows.push({
+          date: fmtDate(tx.date),
+          type: isXfer ? (tx.amount < 0 ? 'TRANSFER OUT' : 'TRANSFER IN') : 'DEPOSIT',
+          badgeClass: 'badge-deposit',
+          note: tx.note || (isXfer ? 'შიდა გადატანა' : 'ჩარიცხვა → CASH'),
+          amount: Math.abs(tx.amount),
+          isPositive: tx.amount >= 0
+        });
+      } else if (tx.type === 'withdraw') {
+        rows.push({
+          date: fmtDate(tx.date),
+          type: 'WITHDRAW',
+          badgeClass: 'badge-sell',
+          note: tx.note || 'CASH → გატანა',
+          amount: Math.abs(tx.amount),
+          isPositive: false
+        });
+      }
+    });
+  }
+
+  if (p.priorDeposits && p.priorDeposits > 0) {
+    rows.push({
+      date: 'ISS 01 → 07',
+      type: 'INITIAL',
+      badgeClass: 'badge-deposit',
+      note: 'წინა გამოშვებების ჯამური დეპოზიტები',
+      amount: p.priorDeposits,
+      isPositive: true
+    });
+  }
+
+  let rowsHtml = '';
+  if (rows.length === 0) {
+    rowsHtml = `<tr><td colspan="4" style="text-align:center;padding:12px;color:var(--muted);">ჩარიცხვების ჩანაწერი არ მოიძებნა</td></tr>`;
+  } else {
+    rowsHtml = rows.map(r => `
+      <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+        <td style="padding:6px 8px;color:var(--muted);white-space:nowrap;">${r.date}</td>
+        <td style="padding:6px 8px;"><span class="tx-badge ${r.badgeClass}" style="font-size:9px;padding:2px 6px;">${r.type}</span></td>
+        <td style="padding:6px 8px;color:var(--ink);">${r.note}</td>
+        <td style="padding:6px 8px;text-align:right;font-weight:700;color:${r.isPositive ? 'var(--green,#166534)' : 'var(--red,#b91c1c)'};white-space:nowrap;">
+          ${r.isPositive ? '+' : '−'}${fmtMoney(r.amount)}
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  return `
+    <div style="max-width:100%;overflow-x:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border,#d9d4c8);">
+        <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);">
+          ჩარიცხვის ისტორია & დეტალები · Deposits
+        </span>
+        <a href="history-bog.html" class="no-print" style="font-family:'Noto Sans Georgian',sans-serif;font-size:10.5px;color:var(--red);text-decoration:none;font-weight:700;">
+          სრული ისტორია ↗
+        </a>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:ui-monospace,monospace;font-size:11px;">
+        <thead>
+          <tr style="text-align:left;color:var(--muted);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">
+            <th style="padding:4px 8px;">თარიღი</th>
+            <th style="padding:4px 8px;">ტიპი</th>
+            <th style="padding:4px 8px;">დანიშნულება</th>
+            <th style="padding:4px 8px;text-align:right;">თანხა</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+        <tfoot>
+          <tr style="border-top:1px solid var(--border);font-weight:700;">
+            <td colspan="3" style="padding:8px 8px;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px;">
+              სრული ჩარიცხული (წმინდა ინვესტირებული)
+            </td>
+            <td style="padding:8px 8px;text-align:right;font-size:12px;color:var(--ink);">
+              ${fmtMoney(a.netInvested)}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  `;
+}
+window.getDepositDetailsHtml = getDepositDetailsHtml;
+
+function getGaltDepositDetailsHtml(g) {
+  var dep = +g.deposit || 0;
+  var wd = +g.withdrawnToBOG || 0;
+  var net = dep - wd;
+  return `
+    <div style="max-width:100%;overflow-x:auto;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border,#d9d4c8);">
+        <span style="font-family:'Noto Sans Georgian',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);">
+          GALT ჩარიცხვის ისტორია & დეტალები
+        </span>
+        <a href="history-bog.html" class="no-print" style="font-family:'Noto Sans Georgian',sans-serif;font-size:10.5px;color:var(--red);text-decoration:none;font-weight:700;">
+          სრული ისტორია ↗
+        </a>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-family:ui-monospace,monospace;font-size:11px;">
+        <thead>
+          <tr style="text-align:left;color:var(--muted);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid var(--border);">
+            <th style="padding:4px 8px;">თარიღი</th>
+            <th style="padding:4px 8px;">ტიპი</th>
+            <th style="padding:4px 8px;">დანიშნულება</th>
+            <th style="padding:4px 8px;text-align:right;">თანხა</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+            <td style="padding:6px 8px;color:var(--muted);white-space:nowrap;">29 მაი 2026</td>
+            <td style="padding:6px 8px;"><span class="tx-badge badge-deposit" style="font-size:9px;padding:2px 6px;">DEPOSIT</span></td>
+            <td style="padding:6px 8px;color:var(--ink);">საწყისი ჩარიცხვა GALT &amp; Taggart-ში</td>
+            <td style="padding:6px 8px;text-align:right;font-weight:700;color:var(--green,#166534);white-space:nowrap;">+${M(dep)}</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border,#e5e7eb);">
+            <td style="padding:6px 8px;color:var(--muted);white-space:nowrap;">09 ივლ 2026</td>
+            <td style="padding:6px 8px;"><span class="tx-badge badge-sell" style="font-size:9px;padding:2px 6px;">TRANSFER</span></td>
+            <td style="padding:6px 8px;color:var(--ink);">დახურვის შემდეგ დარჩენილი თანხის გატანა → BOG</td>
+            <td style="padding:6px 8px;text-align:right;font-weight:700;color:var(--red,#b91c1c);white-space:nowrap;">−${M(wd)}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr style="border-top:1px solid var(--border);font-weight:700;">
+            <td colspan="3" style="padding:8px 8px;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:1px;">
+              სრული ჩარიცხული: ${M(dep)} · წმინდა დახარჯული:
+            </td>
+            <td style="padding:8px 8px;text-align:right;font-size:12px;color:var(--ink);">
+              ${M(net)}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  `;
+}
+window.getGaltDepositDetailsHtml = getGaltDepositDetailsHtml;
+
 function renderStatBanner(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const a = aggregate(p);
@@ -191,6 +355,11 @@ function renderStatBanner(containerId, portfolioKey) {
 
   const gridClass = 'stat-grid with-div';
 
+  const isDrawerOpen = !!(window.__depDrawerOpen && window.__depDrawerOpen[portfolioKey]);
+  const drawerDisplay = isDrawerOpen ? 'block' : 'none';
+  const drawerArrow = isDrawerOpen ? '▴' : '▾';
+  const drawerDetailsHtml = getDepositDetailsHtml(portfolioKey);
+
   el.innerHTML = `
 <div class="stat-banner">
 <div class="stat-banner-head">
@@ -198,10 +367,6 @@ function renderStatBanner(containerId, portfolioKey) {
 <span class="stat-tag">${p.tagline}</span>
 </div>
 <div class="${gridClass}">
-<div class="stat-cell">
-<div class="stat-label">სრული ჩარიცხული</div>
-<div class="stat-val">${depStr}</div>
-</div>
 <div class="stat-cell">
 <div class="stat-label">პორტფელის ღირებულება</div>
 <div class="stat-val">${fmtMoney(a.currentValue)}</div>
@@ -216,9 +381,24 @@ ${dayCell}
 <div class="stat-val ${pnlClass}">${pctStr}</div>
 </div>${wdCell}${divCell}${recvCell}${commCell}
 </div>
-<div class="stat-foot">
+<div class="stat-foot" style="flex-wrap:wrap;gap:10px;">
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
 <span>თვალყურის დევნება დაიწყო: ${fmtDate(p.startDate)}</span>
+<span style="opacity:0.35;">·</span>
+<span style="display:inline-flex;align-items:center;gap:6px;">
+<span style="color:var(--muted);">ჩარიცხული:</span>
+<strong style="color:var(--ink);font-family:ui-monospace,monospace;font-size:12px;">${depStr}</strong>
+<button type="button" class="dep-toggle-btn" onclick="toggleBookDeposits('${portfolioKey}')" id="dep-btn-${portfolioKey}" aria-expanded="${isDrawerOpen ? 'true' : 'false'}" title="ჩარიცხვის დეტალები">
+ჩარიცხვის დეტალები <span id="dep-arrow-${portfolioKey}">${drawerArrow}</span>
+</button>
+</span>
+</div>
+<div>
 <span class="live-dot">● LIVE</span>
+</div>
+</div>
+<div id="dep-drawer-${portfolioKey}" class="dep-drawer" style="display:${drawerDisplay};">
+${drawerDetailsHtml}
 </div>
 </div>
 `;

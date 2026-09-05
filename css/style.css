@@ -590,6 +590,46 @@ li { margin-bottom: 8px; }
   .stat-val { font-size: 18px; }
 }
 
+/* ===== Collapsible Deposit Drawer & Toggle ===== */
+.dep-toggle-btn {
+  background: none;
+  border: 1px solid var(--border, #d9d4c8);
+  color: var(--ink, #1a1a1a);
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.15s ease;
+  vertical-align: middle;
+}
+.dep-toggle-btn:hover {
+  background: var(--ink, #1a1a1a);
+  color: var(--paper, #fffdf7);
+  border-color: var(--ink, #1a1a1a);
+}
+.dep-drawer {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border, #d9d4c8);
+  border-radius: 4px;
+  animation: depFadeIn 0.2s ease-in-out;
+}
+html[data-theme="dark"] .dep-drawer {
+  background: rgba(255, 255, 255, 0.03);
+}
+@keyframes depFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ===== Portfolio body: holdings table + donut chart side-by-side ===== */
 .port-body {
   display: grid;

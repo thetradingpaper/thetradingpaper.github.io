@@ -1107,17 +1107,36 @@ if(st){
  // GALT rendered in the same stat-banner format as BOG/TBC (closed book).
  var gpct=(+g.deposit>0)?((+g.net||0)/(+g.deposit)*100):0;
  var gfeeCount=(g.trades||[]).filter(function(t){return t.fee&&t.fee!=='—';}).length;
+ var isGaltDrawerOpen = !!(window.__depDrawerOpen && window.__depDrawerOpen['galt']);
+ var galtDrawerDisplay = isGaltDrawerOpen ? 'block' : 'none';
+ var galtDrawerArrow = isGaltDrawerOpen ? '▴' : '▾';
+ var galtDrawerHtml = typeof getGaltDepositDetailsHtml === 'function' ? getGaltDepositDetailsHtml(g) : '';
  st.innerHTML='<div class="stat-banner">'
   +'<div class="stat-banner-head"><span class="stat-name">GALT · GALT &amp; TAGGART</span><span class="stat-tag">2.5× ბერკეტი · '+(g.statusShort||'დახურულია')+'</span></div>'
   +'<div class="stat-grid with-div">'
-  +'<div class="stat-cell"><div class="stat-label">სრული ჩარიცხული</div><div class="stat-val">'+M(g.deposit)+'</div></div>'
   +'<div class="stat-cell"><div class="stat-label">პორტფელის ღირებულება</div><div class="stat-val">$0.00</div></div>'
   +'<div class="stat-cell"><div class="stat-label">წმინდა P/L</div><div class="stat-val neg">'+M(g.net)+'</div></div>'
   +'<div class="stat-cell"><div class="stat-label">უკუგება</div><div class="stat-val neg">'+(gpct<0?'−':'+')+Math.abs(gpct).toFixed(2)+'%</div></div>'
   +'<div class="stat-cell"><div class="stat-label">გატანილი → BOG</div><div class="stat-val pos">'+M(g.withdrawnToBOG)+'</div></div>'
   +'<div class="stat-cell" style="grid-column:-2/-1;border-left:1px solid var(--border,#d9d4c8);border-top:1px solid var(--border,#d9d4c8);padding-top:10px;"><div class="stat-label">გადახდილი საკომისიო <a href="commissions.html" class="no-print" style="text-decoration:none;color:#b91c1c;font-weight:800" title="საკომისიოების ჟურნალი">↗</a></div><div class="stat-val neg">−$'+(+g.fees||0).toFixed(2)+'<span class="stat-sub">'+gfeeCount+' საკომისიო · Commissions</span></div></div>'
   +'</div>'
-  +'<div class="stat-foot"><span>თვალყურის დევნება დაიწყო: 29 მაი 2026</span><span style="letter-spacing:1px;">დახურულია · CLOSED</span></div>'
+  +'<div class="stat-foot" style="flex-wrap:wrap;gap:10px;">'
+  +'<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">'
+  +'<span>თვალყურის დევნება დაიწყო: 29 მაი 2026</span>'
+  +'<span style="opacity:0.35;">·</span>'
+  +'<span style="display:inline-flex;align-items:center;gap:6px;">'
+  +'<span style="color:var(--muted);">ჩარიცხული:</span>'
+  +'<strong style="color:var(--ink);font-family:ui-monospace,monospace;font-size:12px;">'+M(g.deposit)+'</strong>'
+  +'<button type="button" class="dep-toggle-btn" onclick="toggleBookDeposits(\'galt\')" id="dep-btn-galt" aria-expanded="'+(isGaltDrawerOpen?'true':'false')+'" title="ჩარიცხვის დეტალები">'
+  +'ჩარიცხვის დეტალები <span id="dep-arrow-galt">'+galtDrawerArrow+'</span>'
+  +'</button>'
+  +'</span>'
+  +'</div>'
+  +'<div><span style="letter-spacing:1px;">დახურულია · CLOSED</span></div>'
+  +'</div>'
+  +'<div id="dep-drawer-galt" class="dep-drawer" style="display:'+galtDrawerDisplay+';">'
+  + galtDrawerHtml
+  +'</div>'
   +'</div>';}
 var nt=document.getElementById('galt-note');
 if(nt){nt.innerHTML='<div class="rules-title">Galt &amp; Taggart — '+(g.statusShort||'')+'</div><ul><li>'+(g.statusNote||'')+'</li><li><strong>დეპოზიტი:</strong> '+M(g.deposit)+' · <strong>საკომისიო:</strong> $'+(+g.fees||0).toFixed(2)+' · <strong>გატანილი:</strong> '+M(g.withdrawnToBOG)+'</li></ul>';}
