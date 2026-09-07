@@ -1,267 +1,261 @@
 {
- "updated": "2026-09-04T17:10:11.185350+00:00",
+ "updated": "2026-09-07T18:28:49.720100+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on DOO (score 60.3). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on DELL (score 60.9). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "DOO",
-   "price": 67.63,
-   "score": 60.3,
-   "tech_score": 36.9,
-   "news_score": 23.5,
-   "rsi": 58.0,
-   "mom5": 9.47,
-   "vol_surge": 1.18,
+   "ticker": "DELL",
+   "price": 524.14,
+   "score": 60.9,
+   "tech_score": 38.7,
+   "news_score": 22.2,
+   "rsi": 59.0,
+   "mom5": 14.88,
+   "vol_surge": 1.34,
    "catalysts": [
     {
      "category": "guidance_raise",
-     "headline": "Ski-Doo maker BRP raises full-year outlook on 'reduced net tariff costs'",
-     "age_h": 27.2,
-     "points": 13.1
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "BRP Inc. (DOO) Reports Q2 Loss, Beats Revenue Estimates",
-     "age_h": 29.8,
-     "points": 10.4
+     "headline": "NetApp Q1 Beat and Raised Guidance Put AI Storage Growth in Focus",
+     "age_h": 1.9,
+     "points": 22.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 67.63,
-    "target": 76.22,
-    "stop": 64.19,
+    "entry": 524.14,
+    "target": 614.07,
+    "stop": 488.17,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SMTC",
-   "price": 146.17,
-   "score": 53.4,
-   "tech_score": 36.0,
-   "news_score": 17.4,
-   "rsi": 45.1,
-   "mom5": 11.62,
-   "vol_surge": 0.43,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Is Semtech (SMTC) Undervalued After Record Revenue And Higher Guidance?",
-     "age_h": 10.0,
-     "points": 17.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 146.17,
-    "target": 168.22,
-    "stop": 132.94,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CHPT",
-   "price": 9.92,
-   "score": 45.4,
-   "tech_score": 28.0,
-   "news_score": 17.4,
-   "rsi": 78.5,
-   "mom5": 78.08,
-   "vol_surge": 3.27,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "ChargePoint Q2 FY2027 earnings beat sends stock up 70%",
-     "age_h": 23.7,
-     "points": 17.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.92,
-    "target": 11.19,
-    "stop": 9.16,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IREN",
-   "price": 43.75,
-   "score": 43.8,
-   "tech_score": 36.0,
-   "news_score": 7.8,
-   "rsi": 47.8,
-   "mom5": 23.46,
-   "vol_surge": 0.44,
+   "ticker": "NX",
+   "price": 22.93,
+   "score": 58.3,
+   "tech_score": 56.0,
+   "news_score": 2.3,
+   "rsi": 61.5,
+   "mom5": 18.07,
+   "vol_surge": 5.47,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Data Center Stocks Rally With Bitcoin: Cipher Mining Jumps 12%, TeraWulf Surges 8%, IREN Rises 4%",
-     "age_h": 22.4,
-     "points": 7.8
+     "headline": "NX Q2 Deep Dive: Margin Expansion and Pricing Offset Soft Volumes Amid Housing Uncertainty",
+     "age_h": 64.6,
+     "points": 2.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 43.75,
-    "target": 53.23,
-    "stop": 39.96,
+    "entry": 22.93,
+    "target": 26.16,
+    "stop": 21.64,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SWKS",
-   "price": 74.14,
-   "score": 43.5,
-   "tech_score": 38.0,
-   "news_score": 5.5,
-   "rsi": 70.0,
-   "mom5": 12.87,
-   "vol_surge": 0.33,
+   "ticker": "DOCU",
+   "price": 68.41,
+   "score": 37.2,
+   "tech_score": 34.9,
+   "news_score": 2.3,
+   "rsi": 72.8,
+   "mom5": 6.89,
+   "vol_surge": 2.36,
    "catalysts": [
     {
+     "category": "growth_news",
+     "headline": "DOCU Q2 Deep Dive: AI Platform Expansion and Margin Gains Shape Outlook",
+     "age_h": 69.2,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 68.41,
+    "target": 76.25,
+    "stop": 65.27,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "IOT",
+   "price": 40.2,
+   "score": 35.9,
+   "tech_score": 33.7,
+   "news_score": 2.3,
+   "rsi": 54.0,
+   "mom5": -2.33,
+   "vol_surge": 3.89,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "IOT Q2 Deep Dive: Large Customer Expansion and AI-Powered Product Adoption Drive Momentum",
+     "age_h": 69.6,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 40.2,
+    "target": 47.06,
+    "stop": 37.46,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ASAN",
+   "price": 8.81,
+   "score": 20.3,
+   "tech_score": 18.0,
+   "news_score": 2.3,
+   "rsi": 49.8,
+   "mom5": -13.54,
+   "vol_surge": 3.31,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Asana (ASAN) Reached a 10% Non-GAAP Operating Margin. Can Agentic Products Restore Expansion?",
+     "age_h": 67.1,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 8.81,
+    "target": 10.54,
+    "stop": 8.12,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "AMBA",
+   "price": 62.89,
+   "score": 16.7,
+   "tech_score": 6.0,
+   "news_score": 10.7,
+   "rsi": 15.7,
+   "mom5": -10.96,
+   "vol_surge": 4.2,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Ambarella Beat Estimates but Fell as NXP Buyout Talk Lingered. Is the Edge-AI Upside Already Priced In?",
+     "age_h": 67.8,
+     "points": 5.2
+    },
+    {
      "category": "m_and_a",
-     "headline": "Qorvo (QRVO) Agreed to Be Acquired by Skyworks",
-     "age_h": 72.0,
+     "headline": "Ambarella Beat Estimates but Fell as NXP Buyout Talk Lingered. Is the Edge-AI Upside Already Priced In?",
+     "age_h": 67.8,
      "points": 5.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 74.14,
-    "target": 80.23,
-    "stop": 70.49,
+    "entry": 62.89,
+    "target": 69.93,
+    "stop": 58.67,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "RBLX",
-   "price": 43.06,
-   "score": 40.9,
-   "tech_score": 30.0,
-   "news_score": 10.9,
-   "rsi": 74.1,
-   "mom5": 11.61,
-   "vol_surge": 0.36,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Netflix’s Acquisition Wishlist: Which Streaming Target Has the Best Odds?",
-     "age_h": 26.3,
-     "points": 10.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 43.06,
-    "target": 46.84,
-    "stop": 40.78,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "IOT",
-   "price": 39.67,
-   "score": 40.0,
-   "tech_score": 22.6,
-   "news_score": 17.4,
-   "rsi": 52.3,
-   "mom5": -3.43,
-   "vol_surge": 2.45,
+   "ticker": "LULU",
+   "price": 100.61,
+   "score": 15.2,
+   "tech_score": 10.0,
+   "news_score": 5.2,
+   "rsi": 36.5,
+   "mom5": -16.72,
+   "vol_surge": 6.19,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Samsara soars on strong earnings beat and solid guide",
-     "age_h": 20.1,
-     "points": 17.4
+     "headline": "Lululemon’s Earnings Beat Hid a Bigger Problem for Its Turnaround Story",
+     "age_h": 54.4,
+     "points": 5.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 39.67,
-    "target": 44.24,
-    "stop": 36.93,
+    "entry": 100.61,
+    "target": 112.8,
+    "stop": 93.29,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "HUT",
-   "price": 89.69,
-   "score": 38.7,
-   "tech_score": 28.0,
-   "news_score": 10.7,
-   "rsi": 51.5,
-   "mom5": 12.9,
-   "vol_surge": 0.42,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "This Week In Cloud AI - Opti9 Expands Canadian Reach with Strategic Hut 8 Acquisition",
-     "age_h": 4.5,
-     "points": 18.2
-    },
-    {
-     "category": "earnings_miss",
-     "headline": "Anthropic’ $35B Lambda Deal, ERCOT Misses Batch Zero Baseload Deadline, Anti-AI Politicians Are Getting Rich from AI Stocks",
-     "age_h": 69.2,
-     "points": -7.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 89.69,
-    "target": 103.49,
-    "stop": 81.41,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ASAN",
-   "price": 8.73,
-   "score": 33.3,
-   "tech_score": 15.9,
-   "news_score": 17.4,
-   "rsi": 48.8,
-   "mom5": -14.23,
-   "vol_surge": 1.99,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Asana Shares Fall 10.9% as Q3 Outlook Follows Q2 Earnings Beat",
-     "age_h": 6.7,
-     "points": 17.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 8.73,
-    "target": 9.88,
-    "stop": 8.03,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CIFR",
-   "price": 17.75,
-   "score": 32.7,
-   "tech_score": 28.0,
-   "news_score": 4.7,
-   "rsi": 47.2,
-   "mom5": 16.71,
-   "vol_surge": 0.43,
+   "ticker": "ZS",
+   "price": 169.8,
+   "score": 12.4,
+   "tech_score": 10.2,
+   "news_score": 2.3,
+   "rsi": 41.6,
+   "mom5": -7.83,
+   "vol_surge": 2.68,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Cipher starts gas laterals to support 2.5 GW HPC power expansion",
-     "age_h": 27.4,
-     "points": 4.7
+     "headline": "ZS Q2 Deep Dive: AI Security Drives Growth Amid Sales Transformation and Product Expansion",
+     "age_h": 67.4,
+     "points": 2.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 17.75,
-    "target": 22.12,
-    "stop": 15.99,
+    "entry": 169.8,
+    "target": 198.2,
+    "stop": 158.44,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "PATH",
+   "price": 15.19,
+   "score": 6.5,
+   "tech_score": 4.2,
+   "news_score": 2.3,
+   "rsi": 44.9,
+   "mom5": -16.31,
+   "vol_surge": 1.53,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "UiPath (PATH) Grew ARR 12% as Net Retention Rate Reached 109%. Can Agentic Automation Reaccelerate Expansion?",
+     "age_h": 66.9,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 15.19,
+    "target": 18.07,
+    "stop": 14.04,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CIEN",
+   "price": 321.0,
+   "score": 5.9,
+   "tech_score": -0.7,
+   "news_score": 6.7,
+   "rsi": 20.5,
+   "mom5": -15.18,
+   "vol_surge": 1.41,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "NetApp Raised Guidance as Ciena’s Revenue Jumped 37%. Are AI Networks and Storage Finally Converting Into Earnings?",
+     "age_h": 67.7,
+     "points": 6.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 321.0,
+    "target": 393.68,
+    "stop": 291.93,
     "hold": "2-8 კვირა"
    }
   }
@@ -269,24 +263,24 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 142,
-   "win_rate": 23.9,
-   "avg_return": -1.07,
+   "n": 149,
+   "win_rate": 23.5,
+   "avg_return": -1.29,
    "weight_now": 0.79
   },
   {
-   "category": "m_and_a",
-   "n": 74,
-   "win_rate": 12.2,
-   "avg_return": -2.12,
-   "weight_now": 0.7
+   "category": "growth_news",
+   "n": 78,
+   "win_rate": 20.5,
+   "avg_return": -5.0,
+   "weight_now": 0.76
   },
   {
-   "category": "growth_news",
-   "n": 70,
-   "win_rate": 22.9,
-   "avg_return": -5.11,
-   "weight_now": 0.78
+   "category": "m_and_a",
+   "n": 75,
+   "win_rate": 12.0,
+   "avg_return": -2.09,
+   "weight_now": 0.7
   },
   {
    "category": "analyst_upgrade",
@@ -297,17 +291,17 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 26,
-   "win_rate": 23.1,
-   "avg_return": -0.66,
+   "n": 27,
+   "win_rate": 22.2,
+   "avg_return": -0.62,
    "weight_now": 0.78
   },
   {
    "category": "guidance_raise",
-   "n": 24,
-   "win_rate": 33.3,
-   "avg_return": -1.31,
-   "weight_now": 0.87
+   "n": 25,
+   "win_rate": 36.0,
+   "avg_return": -0.89,
+   "weight_now": 0.89
   },
   {
    "category": "fda_approval",
