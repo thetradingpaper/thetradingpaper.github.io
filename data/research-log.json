@@ -4598,7 +4598,10 @@
    "growth_news",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 57.09,
+  "return_pct": -5.17,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036377+00:00",
@@ -4609,7 +4612,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 125.67,
+  "return_pct": -2.0,
+  "outcome": "flat"
  },
  {
   "date": "2026-08-31T19:43:28.036382+00:00",
@@ -4620,7 +4626,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 177.07,
+  "return_pct": -8.92,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036386+00:00",
@@ -4631,7 +4640,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.49,
+  "return_pct": -58.11,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036390+00:00",
@@ -4642,7 +4654,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 149.02,
+  "return_pct": 4.48,
+  "outcome": "win"
  },
  {
   "date": "2026-08-31T19:43:28.036393+00:00",
@@ -4654,7 +4669,10 @@
    "m_and_a",
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 64.99,
+  "return_pct": 3.36,
+  "outcome": "win"
  },
  {
   "date": "2026-08-31T19:43:28.036397+00:00",
@@ -4665,7 +4683,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 90.15,
+  "return_pct": -7.04,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036404+00:00",
@@ -4676,7 +4697,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 71.19,
+  "return_pct": -4.78,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036408+00:00",
@@ -4687,7 +4711,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 264.44,
+  "return_pct": -7.35,
+  "outcome": "loss"
  },
  {
   "date": "2026-08-31T19:43:28.036412+00:00",
@@ -4698,7 +4725,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 12.24,
+  "return_pct": 1.2,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-02T17:25:50.736580+00:00",
@@ -5148,6 +5178,94 @@
   "horizon": "long",
   "catalyst_cats": [
    "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665195+00:00",
+  "ticker": "INTC",
+  "entry": 105.76,
+  "score": 37.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665206+00:00",
+  "ticker": "SEI",
+  "entry": 64.22,
+  "score": 37.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665212+00:00",
+  "ticker": "HYLN",
+  "entry": 4.05,
+  "score": 33.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665216+00:00",
+  "ticker": "SEDG",
+  "entry": 36.88,
+  "score": 33.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665220+00:00",
+  "ticker": "WAFD",
+  "entry": 34.34,
+  "score": 28.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665224+00:00",
+  "ticker": "NVS",
+  "entry": 137.52,
+  "score": 28.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665228+00:00",
+  "ticker": "BEAM",
+  "entry": 27.1,
+  "score": 26.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-08T17:34:08.665235+00:00",
+  "ticker": "PATH",
+  "entry": 14.05,
+  "score": 9.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
   ],
   "status": "open"
  }

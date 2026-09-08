@@ -17,7 +17,7 @@
      "target": 604.77,
      "stop": 477.97,
      "max_days": 7,
-     "last_price": 524.14
+     "last_price": 529.85
     }
    ],
    "trades": [
@@ -92,7 +92,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.7,
+   "equity": 79.56,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -265,13 +265,17 @@
     {
      "date": "2026-09-07",
      "equity": 78.7
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 79.56
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 1,
     "win_rate": 14.3,
-    "return_pct": -21.3
+    "return_pct": -20.44
    }
   },
   "bot2": {
@@ -279,7 +283,7 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 28.497992968172078,
+   "cash": 38.79089945138741,
    "positions": [
     {
      "ticker": "SAIC",
@@ -289,17 +293,7 @@
      "target": 137.58,
      "stop": 122.62,
      "max_days": 7,
-     "last_price": 126.75
-    },
-    {
-     "ticker": "TEAM",
-     "shares": 0.061001,
-     "entry": 194.47999572753906,
-     "entry_date": "2026-08-31",
-     "target": 212.47,
-     "stop": 183.58,
-     "max_days": 7,
-     "last_price": 189.58
+     "last_price": 126.03
     }
    ],
    "trades": [
@@ -622,9 +616,19 @@
      "ret_pct": -11.84,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "TEAM",
+     "entry": 194.47999572753906,
+     "exit": 176.93,
+     "entry_date": "2026-08-31",
+     "exit_date": "2026-09-08",
+     "ret_pct": -16.75,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 51.77,
+   "equity": 50.43,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -797,13 +801,17 @@
     {
      "date": "2026-09-07",
      "equity": 51.77
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 50.43
     }
    ],
    "stats": {
-    "trades": 32,
+    "trades": 33,
     "wins": 2,
-    "win_rate": 6.2,
-    "return_pct": -48.23
+    "win_rate": 6.1,
+    "return_pct": -49.57
    }
   },
   "bot3": {
@@ -821,7 +829,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 87.9
+     "last_price": 85.35
     },
     {
      "ticker": "MSTR",
@@ -831,7 +839,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 142.8
+     "last_price": 137.64
     },
     {
      "ticker": "CRM",
@@ -841,7 +849,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 259.23
+     "last_price": 248.95
     }
    ],
    "trades": [
@@ -906,7 +914,7 @@
      "leverage": 1
     }
    ],
-   "equity": 60.92,
+   "equity": 58.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1079,13 +1087,17 @@
     {
      "date": "2026-09-07",
      "equity": 60.92
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 58.77
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -39.08
+    "return_pct": -41.23
    }
   },
   "bot4": {
@@ -1103,7 +1115,7 @@
      "target": 55.12,
      "stop": 46.69,
      "max_days": 7,
-     "last_price": 49.83
+     "last_price": 47.16
     }
    ],
    "trades": [
@@ -1178,7 +1190,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.34,
+   "equity": 80.99,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1351,13 +1363,17 @@
     {
      "date": "2026-09-07",
      "equity": 82.34
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 80.99
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -17.66
+    "return_pct": -19.01
    }
   },
   "bot5": {
@@ -1378,7 +1394,7 @@
      "leverage": 2.5,
      "own_equity": 411.3800956597065,
      "borrowed": 617.07,
-     "last_price": 149.67
+     "last_price": 149.38
     }
    ],
    "trades": [
@@ -1423,7 +1439,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 448.7,
+   "equity": 446.43,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1596,15 +1612,19 @@
     {
      "date": "2026-09-07",
      "equity": 448.7
+    },
+    {
+     "date": "2026-09-08",
+     "equity": 446.43
     }
    ],
    "stats": {
     "trades": 4,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -55.13
+    "return_pct": -55.36
    }
   }
  },
- "updated": "2026-09-07T18:28:50.811241+00:00"
+ "updated": "2026-09-08T17:34:09.710393+00:00"
 }

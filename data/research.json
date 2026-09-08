@@ -1,300 +1,244 @@
 {
- "updated": "2026-09-07T18:28:49.720100+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on DELL (score 60.9). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "updated": "2026-09-08T17:34:08.665286+00:00",
+ "mode": "WAIT",
+ "notification": "ბოტი ელოდება — candidates exist but nothing scores high enough. Skip today.",
  "picks": [
   {
-   "ticker": "DELL",
-   "price": 524.14,
-   "score": 60.9,
-   "tech_score": 38.7,
-   "news_score": 22.2,
-   "rsi": 59.0,
-   "mom5": 14.88,
-   "vol_surge": 1.34,
+   "ticker": "INTC",
+   "price": 105.76,
+   "score": 37.9,
+   "tech_score": 28.0,
+   "news_score": 9.9,
+   "rsi": 63.2,
+   "mom5": 18.11,
+   "vol_surge": 0.97,
    "catalysts": [
     {
-     "category": "guidance_raise",
-     "headline": "NetApp Q1 Beat and Raised Guidance Put AI Storage Growth in Focus",
-     "age_h": 1.9,
-     "points": 22.2
+     "category": "analyst_upgrade",
+     "headline": "Intel Stock Jumps on Major Analyst Upgrade",
+     "age_h": 0.1,
+     "points": 9.9
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 524.14,
-    "target": 614.07,
-    "stop": 488.17,
-    "hold": "2-8 კვირა"
+    "entry": 105.76,
+    "target": 114.55,
+    "stop": 100.48,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "NX",
-   "price": 22.93,
-   "score": 58.3,
-   "tech_score": 56.0,
-   "news_score": 2.3,
-   "rsi": 61.5,
-   "mom5": 18.07,
-   "vol_surge": 5.47,
+   "ticker": "SEI",
+   "price": 64.22,
+   "score": 37.7,
+   "tech_score": 30.1,
+   "news_score": 7.6,
+   "rsi": 53.7,
+   "mom5": 26.51,
+   "vol_surge": 1.26,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "NX Q2 Deep Dive: Margin Expansion and Pricing Offset Soft Volumes Amid Housing Uncertainty",
-     "age_h": 64.6,
-     "points": 2.3
+     "headline": "From Oil Fields to Data Centers. Why This Stock Is Surging 16% Today.",
+     "age_h": 1.8,
+     "points": 7.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 22.93,
-    "target": 26.16,
-    "stop": 21.64,
+    "entry": 64.22,
+    "target": 76.0,
+    "stop": 59.51,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "DOCU",
-   "price": 68.41,
-   "score": 37.2,
-   "tech_score": 34.9,
-   "news_score": 2.3,
-   "rsi": 72.8,
-   "mom5": 6.89,
-   "vol_surge": 2.36,
+   "ticker": "HYLN",
+   "price": 4.05,
+   "score": 33.9,
+   "tech_score": 28.0,
+   "news_score": 5.9,
+   "rsi": 55.3,
+   "mom5": 16.86,
+   "vol_surge": 0.54,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "DOCU Q2 Deep Dive: AI Platform Expansion and Margin Gains Shape Outlook",
-     "age_h": 69.2,
-     "points": 2.3
+     "category": "analyst_upgrade",
+     "headline": "Hyliion (HYLN) Upgraded to Buy: What Does It Mean for the Stock?",
+     "age_h": 25.6,
+     "points": 5.9
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 68.41,
-    "target": 76.25,
-    "stop": 65.27,
-    "hold": "2-8 კვირა"
+    "entry": 4.05,
+    "target": 4.52,
+    "stop": 3.77,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "IOT",
-   "price": 40.2,
-   "score": 35.9,
-   "tech_score": 33.7,
-   "news_score": 2.3,
-   "rsi": 54.0,
-   "mom5": -2.33,
-   "vol_surge": 3.89,
+   "ticker": "SEDG",
+   "price": 36.88,
+   "score": 33.0,
+   "tech_score": 30.0,
+   "news_score": 3.0,
+   "rsi": 70.7,
+   "mom5": 14.58,
+   "vol_surge": 0.89,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "IOT Q2 Deep Dive: Large Customer Expansion and AI-Powered Product Adoption Drive Momentum",
-     "age_h": 69.6,
-     "points": 2.3
+     "category": "analyst_upgrade",
+     "headline": "SolarEdge (SEDG) Stock May Be 11% Overvalued Despite UBS Upgrade",
+     "age_h": 56.5,
+     "points": 3.0
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 40.2,
-    "target": 47.06,
-    "stop": 37.46,
-    "hold": "2-8 კვირა"
+    "entry": 36.88,
+    "target": 40.89,
+    "stop": 34.47,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ASAN",
-   "price": 8.81,
-   "score": 20.3,
-   "tech_score": 18.0,
-   "news_score": 2.3,
-   "rsi": 49.8,
-   "mom5": -13.54,
-   "vol_surge": 3.31,
+   "ticker": "WAFD",
+   "price": 34.34,
+   "score": 28.3,
+   "tech_score": 10.1,
+   "news_score": 18.2,
+   "rsi": 19.8,
+   "mom5": -3.89,
+   "vol_surge": 4.63,
    "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Asana (ASAN) Reached a 10% Non-GAAP Operating Margin. Can Agentic Products Restore Expansion?",
-     "age_h": 67.1,
-     "points": 2.3
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 8.81,
-    "target": 10.54,
-    "stop": 8.12,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "AMBA",
-   "price": 62.89,
-   "score": 16.7,
-   "tech_score": 6.0,
-   "news_score": 10.7,
-   "rsi": 15.7,
-   "mom5": -10.96,
-   "vol_surge": 4.2,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Ambarella Beat Estimates but Fell as NXP Buyout Talk Lingered. Is the Edge-AI Upside Already Priced In?",
-     "age_h": 67.8,
-     "points": 5.2
-    },
     {
      "category": "m_and_a",
-     "headline": "Ambarella Beat Estimates but Fell as NXP Buyout Talk Lingered. Is the Edge-AI Upside Already Priced In?",
-     "age_h": 67.8,
-     "points": 5.5
+     "headline": "WaFd's EverBank Merger Deal: A Boost to Earnings & Scale?",
+     "age_h": 1.9,
+     "points": 18.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 62.89,
-    "target": 69.93,
-    "stop": 58.67,
+    "entry": 34.34,
+    "target": 35.84,
+    "stop": 33.44,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "LULU",
-   "price": 100.61,
-   "score": 15.2,
+   "ticker": "NVS",
+   "price": 137.52,
+   "score": 28.2,
    "tech_score": 10.0,
-   "news_score": 5.2,
-   "rsi": 36.5,
-   "mom5": -16.72,
-   "vol_surge": 6.19,
+   "news_score": 18.2,
+   "rsi": 35.8,
+   "mom5": -9.55,
+   "vol_surge": 3.25,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Lululemon’s Earnings Beat Hid a Bigger Problem for Its Turnaround Story",
-     "age_h": 54.4,
-     "points": 5.2
+     "category": "m_and_a",
+     "headline": "Top Midday Stories: GE Aerospace to Acquire Consolidated Precision Products; Qualcomm Issues Share Warrant to Amazon",
+     "age_h": 1.8,
+     "points": 18.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 100.61,
-    "target": 112.8,
-    "stop": 93.29,
+    "entry": 137.52,
+    "target": 147.79,
+    "stop": 131.36,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ZS",
-   "price": 169.8,
-   "score": 12.4,
-   "tech_score": 10.2,
-   "news_score": 2.3,
-   "rsi": 41.6,
-   "mom5": -7.83,
-   "vol_surge": 2.68,
+   "ticker": "BEAM",
+   "price": 27.1,
+   "score": 26.8,
+   "tech_score": 10.0,
+   "news_score": 16.8,
+   "rsi": 51.8,
+   "mom5": -7.95,
+   "vol_surge": 2.48,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "ZS Q2 Deep Dive: AI Security Drives Growth Amid Sales Transformation and Product Expansion",
-     "age_h": 67.4,
-     "points": 2.3
+     "category": "fda_approval",
+     "headline": "Beam Therapeutics Targets Accelerated FDA Approval for Base-Editing Treatment",
+     "age_h": 4.2,
+     "points": 16.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 169.8,
-    "target": 198.2,
-    "stop": 158.44,
+    "entry": 27.1,
+    "target": 32.88,
+    "stop": 24.79,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "PATH",
-   "price": 15.19,
-   "score": 6.5,
-   "tech_score": 4.2,
-   "news_score": 2.3,
-   "rsi": 44.9,
-   "mom5": -16.31,
-   "vol_surge": 1.53,
+   "price": 14.05,
+   "score": 9.9,
+   "tech_score": 0.0,
+   "news_score": 9.9,
+   "rsi": 41.0,
+   "mom5": -24.69,
+   "vol_surge": 0.55,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "UiPath (PATH) Grew ARR 12% as Net Retention Rate Reached 109%. Can Agentic Automation Reaccelerate Expansion?",
-     "age_h": 66.9,
-     "points": 2.3
+     "category": "analyst_upgrade",
+     "headline": "UiPath and Pegasystems Sink 7% as Price Target Hikes Arrive Without a Single Buy Rating",
+     "age_h": 0.3,
+     "points": 9.9
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 15.19,
-    "target": 18.07,
-    "stop": 14.04,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CIEN",
-   "price": 321.0,
-   "score": 5.9,
-   "tech_score": -0.7,
-   "news_score": 6.7,
-   "rsi": 20.5,
-   "mom5": -15.18,
-   "vol_surge": 1.41,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "NetApp Raised Guidance as Ciena’s Revenue Jumped 37%. Are AI Networks and Storage Finally Converting Into Earnings?",
-     "age_h": 67.7,
-     "points": 6.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 321.0,
-    "target": 393.68,
-    "stop": 291.93,
-    "hold": "2-8 კვირა"
+    "entry": 14.05,
+    "target": 16.03,
+    "stop": 12.85,
+    "hold": "3-7 დღე"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 149,
-   "win_rate": 23.5,
-   "avg_return": -1.29,
+   "n": 151,
+   "win_rate": 23.2,
+   "avg_return": -1.32,
    "weight_now": 0.79
   },
   {
    "category": "growth_news",
-   "n": 78,
-   "win_rate": 20.5,
-   "avg_return": -5.0,
+   "n": 81,
+   "win_rate": 19.8,
+   "avg_return": -5.05,
    "weight_now": 0.76
   },
   {
    "category": "m_and_a",
-   "n": 75,
-   "win_rate": 12.0,
-   "avg_return": -2.09,
+   "n": 78,
+   "win_rate": 12.8,
+   "avg_return": -2.78,
    "weight_now": 0.7
   },
   {
    "category": "analyst_upgrade",
-   "n": 50,
-   "win_rate": 6.0,
-   "avg_return": -8.46,
-   "weight_now": 0.65
+   "n": 52,
+   "win_rate": 7.7,
+   "avg_return": -8.22,
+   "weight_now": 0.66
   },
   {
    "category": "buyback_dividend",
-   "n": 27,
-   "win_rate": 22.2,
-   "avg_return": -0.62,
-   "weight_now": 0.78
+   "n": 29,
+   "win_rate": 24.1,
+   "avg_return": -0.42,
+   "weight_now": 0.79
   },
   {
    "category": "guidance_raise",
