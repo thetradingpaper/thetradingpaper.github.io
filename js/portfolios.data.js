@@ -15,7 +15,7 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',           shares: 5.53863195, avgBuy: 18.06,  invested: 100.00, value: 100.00, color: '#a855f7', divYield: 0.00 },
+      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',           shares: 3.63128540, avgBuy: 18.06,  invested: 65.56,  value: 65.56,  color: '#a855f7', divYield: 0.00 },
       { ticker: 'NVTS', name: 'Navitas Semiconductor Corp', shares: 1.19821705, avgBuy: 12.52,  invested: 15.00,  value: 15.00,  color: '#06b6d4', divYield: 0.00 },
       { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.06874464, avgBuy: 218.20, invested: 15.00,  value: 15.00,  color: '#84cc16', divYield: 0.00 },
       { ticker: 'SOXX', name: 'iShares Semiconductor ETF',    shares: 0.02880467, avgBuy: 520.75, invested: 15.00,  value: 15.00,  color: '#0f766e', divYield: 0.70 },
@@ -25,12 +25,18 @@ window.PORTFOLIOS = {
       { ticker: 'MU',   name: 'Micron Technology Inc',        shares: 0.01210279, avgBuy: 908.88, invested: 11.00,  value: 11.01,  color: '#8b5cf6', divYield: 0.50 },
       { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.08123873, avgBuy: 217.63, invested: 17.68,  value: 17.62,  color: '#2563eb', divYield: 0.00 },
     ],
-    cash: 0.00, // 03 Sep 2026: NVDA liquidated -> RKLB; 02 Sep: SNDK liquidated -> MRVL -> net cash balance $0.00
+    cash: 0.00, // 08 Sep 2026: QBTS sold ($35.00) + $19.29 deposit withdrawn ($54.29 total) -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 08 სექ 2026 BOG: თანხის გატანა ($54.29) · დეპოზიტი $19.29 + QBTS გაყიდვა $35.00 · net cash $0.00 ---
+      { date: '2026-09-08', type: 'withdraw', amount: 54.29, note: 'ბარათზე გატანა · დეპოზიტი $19.29 + QBTS გაყიდვა $35.00' },
+      { date: '2026-09-08', type: 'sell',    ticker: 'QBTS', shares: 0.90734655, price: 18.3502, commission: 0 },
+      { date: '2026-09-08', type: 'sell',    ticker: 'QBTS', shares: 1.00000000, price: 18.35,   commission: 0 },
+      // --- 07 სექ 2026 BOG ახალი დეპოზიტი ($19.29) ---
+      { date: '2026-09-07', type: 'deposit', amount: 19.29, note: 'ახალი დეპოზიტი ($19.29)' },
       // --- 03 სექ 2026 BOG rotation: NVDA liquidation → RKLB buy · BOG app · net cash $0.00 ---
       { date: '2026-09-03', type: 'buy',     ticker: 'RKLB', shares: 0.08024256, price: 63.0588,  commission: 0 },
       { date: '2026-09-03', type: 'sell',    ticker: 'NVDA', shares: 0.02220260, price: 227.9012, commission: 0 },
