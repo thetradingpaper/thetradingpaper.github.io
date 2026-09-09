@@ -5268,5 +5268,117 @@
    "analyst_upgrade"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441417+00:00",
+  "ticker": "ASO",
+  "entry": 49.46,
+  "score": 82.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441427+00:00",
+  "ticker": "CSR",
+  "entry": 57.13,
+  "score": 55.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441432+00:00",
+  "ticker": "ODD",
+  "entry": 16.3,
+  "score": 55.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441436+00:00",
+  "ticker": "LITE",
+  "entry": 1011.83,
+  "score": 53.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441440+00:00",
+  "ticker": "FIGR",
+  "entry": 39.76,
+  "score": 45.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441444+00:00",
+  "ticker": "SEI",
+  "entry": 67.42,
+  "score": 43.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441447+00:00",
+  "ticker": "AXTI",
+  "entry": 70.21,
+  "score": 43.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441454+00:00",
+  "ticker": "SIMO",
+  "entry": 276.67,
+  "score": 40.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441458+00:00",
+  "ticker": "SMMT",
+  "entry": 17.47,
+  "score": 37.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-09T17:21:42.441462+00:00",
+  "ticker": "DELL",
+  "entry": 542.29,
+  "score": 35.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]

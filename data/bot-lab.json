@@ -17,7 +17,7 @@
      "target": 604.77,
      "stop": 477.97,
      "max_days": 7,
-     "last_price": 529.85
+     "last_price": 542.29
     }
    ],
    "trades": [
@@ -92,7 +92,7 @@
      "leverage": 1
     }
    ],
-   "equity": 79.56,
+   "equity": 81.43,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -269,13 +269,17 @@
     {
      "date": "2026-09-08",
      "equity": 79.56
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 81.43
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 1,
     "win_rate": 14.3,
-    "return_pct": -20.44
+    "return_pct": -18.57
    }
   },
   "bot2": {
@@ -293,7 +297,7 @@
      "target": 137.58,
      "stop": 122.62,
      "max_days": 7,
-     "last_price": 126.03
+     "last_price": 126.32
     }
    ],
    "trades": [
@@ -628,7 +632,7 @@
      "leverage": 1
     }
    ],
-   "equity": 50.43,
+   "equity": 50.46,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -805,13 +809,17 @@
     {
      "date": "2026-09-08",
      "equity": 50.43
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 50.46
     }
    ],
    "stats": {
     "trades": 33,
     "wins": 2,
     "win_rate": 6.1,
-    "return_pct": -49.57
+    "return_pct": -49.54
    }
   },
   "bot3": {
@@ -829,7 +837,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 85.35
+     "last_price": 84.62
     },
     {
      "ticker": "MSTR",
@@ -839,7 +847,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 137.64
+     "last_price": 135.22
     },
     {
      "ticker": "CRM",
@@ -849,7 +857,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 248.95
+     "last_price": 247.88
     }
    ],
    "trades": [
@@ -914,7 +922,7 @@
      "leverage": 1
     }
    ],
-   "equity": 58.77,
+   "equity": 58.18,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1091,13 +1099,17 @@
     {
      "date": "2026-09-08",
      "equity": 58.77
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 58.18
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -41.23
+    "return_pct": -41.82
    }
   },
   "bot4": {
@@ -1105,17 +1117,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 57.08114796807055,
+   "cash": 55.919648266555356,
    "positions": [
     {
-     "ticker": "GTLB",
-     "shares": 0.506982,
-     "entry": 49.915000915527344,
-     "entry_date": "2026-09-02",
-     "target": 55.12,
-     "stop": 46.69,
+     "ticker": "ASO",
+     "shares": 0.481039,
+     "entry": 49.470001220703125,
+     "entry_date": "2026-09-09",
+     "target": 54.84,
+     "stop": 47.31,
      "max_days": 7,
-     "last_price": 47.16
+     "last_price": 49.470001220703125
     }
    ],
    "trades": [
@@ -1188,9 +1200,19 @@
      "ret_pct": -16.47,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "GTLB",
+     "entry": 49.915000915527344,
+     "exit": 46.62,
+     "entry_date": "2026-09-02",
+     "exit_date": "2026-09-09",
+     "ret_pct": -10.35,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 80.99,
+   "equity": 79.72,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1367,13 +1389,17 @@
     {
      "date": "2026-09-08",
      "equity": 80.99
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 79.72
     }
    ],
    "stats": {
-    "trades": 7,
+    "trades": 8,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -19.01
+    "return_pct": -20.28
    }
   },
   "bot5": {
@@ -1384,17 +1410,17 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "ANF",
-     "shares": 7.137059,
-     "entry": 144.1,
-     "entry_date": "2026-08-26",
-     "target": 165.81,
-     "stop": 135.42,
+     "ticker": "ASO",
+     "shares": 22.132811,
+     "entry": 49.470001220703125,
+     "entry_date": "2026-09-09",
+     "target": 54.84,
+     "stop": 47.31,
      "max_days": 10,
      "leverage": 2.5,
-     "own_equity": 411.3800956597065,
-     "borrowed": 617.07,
-     "last_price": 149.38
+     "own_equity": 437.964079311109,
+     "borrowed": 656.95,
+     "last_price": 49.470001220703125
     }
    ],
    "trades": [
@@ -1437,9 +1463,19 @@
      "ret_pct": -8.37,
      "reason": "time",
      "leverage": 2.5
+    },
+    {
+     "ticker": "ANF",
+     "entry": 144.1,
+     "exit": 151.02,
+     "entry_date": "2026-08-26",
+     "exit_date": "2026-09-09",
+     "ret_pct": 8.89,
+     "reason": "time",
+     "leverage": 2.5
     }
    ],
-   "equity": 446.43,
+   "equity": 437.74,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1616,15 +1652,19 @@
     {
      "date": "2026-09-08",
      "equity": 446.43
+    },
+    {
+     "date": "2026-09-09",
+     "equity": 437.74
     }
    ],
    "stats": {
-    "trades": 4,
-    "wins": 0,
-    "win_rate": 0.0,
-    "return_pct": -55.36
+    "trades": 5,
+    "wins": 1,
+    "win_rate": 20.0,
+    "return_pct": -56.23
    }
   }
  },
- "updated": "2026-09-08T17:34:09.710393+00:00"
+ "updated": "2026-09-09T17:21:43.512496+00:00"
 }

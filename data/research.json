@@ -1,206 +1,268 @@
 {
- "updated": "2026-09-08T17:34:08.665286+00:00",
- "mode": "WAIT",
- "notification": "ბოტი ელოდება — candidates exist but nothing scores high enough. Skip today.",
+ "updated": "2026-09-09T17:21:42.441505+00:00",
+ "mode": "CONCENTRATE",
+ "notification": "🔥 One clear standout: ASO (score 82.3). Bot would put the whole paper $100 here. Entry 49.46, target 54.84, stop 47.31.",
  "picks": [
   {
-   "ticker": "INTC",
-   "price": 105.76,
-   "score": 37.9,
-   "tech_score": 28.0,
-   "news_score": 9.9,
-   "rsi": 63.2,
-   "mom5": 18.11,
-   "vol_surge": 0.97,
+   "ticker": "ASO",
+   "price": 49.46,
+   "score": 82.3,
+   "tech_score": 32.7,
+   "news_score": 49.5,
+   "rsi": 56.3,
+   "mom5": 15.3,
+   "vol_surge": 1.59,
    "catalysts": [
     {
      "category": "analyst_upgrade",
-     "headline": "Intel Stock Jumps on Major Analyst Upgrade",
-     "age_h": 0.1,
+     "headline": "Academy Sports shares jump after Q2 profit beat and guidance upgrade",
+     "age_h": 3.3,
      "points": 9.9
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Academy Sports surges on earnings beat and raised guidance",
+     "age_h": 4.6,
+     "points": 17.4
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "Academy Sports surges on earnings beat and raised guidance",
+     "age_h": 4.6,
+     "points": 22.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 49.46,
+    "target": 54.84,
+    "stop": 47.31,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CSR",
+   "price": 57.13,
+   "score": 55.6,
+   "tech_score": 37.4,
+   "news_score": 18.2,
+   "rsi": 66.9,
+   "mom5": 9.38,
+   "vol_surge": 7.32,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Independence Realty Trust and Centerspace Agree to $8.1 Billion Merger",
+     "age_h": 6.3,
+     "points": 18.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 105.76,
-    "target": 114.55,
-    "stop": 100.48,
+    "entry": 57.13,
+    "target": 59.87,
+    "stop": 55.48,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SEI",
-   "price": 64.22,
-   "score": 37.7,
-   "tech_score": 30.1,
+   "ticker": "ODD",
+   "price": 16.3,
+   "score": 55.4,
+   "tech_score": 38.0,
+   "news_score": 17.4,
+   "rsi": 67.6,
+   "mom5": 14.71,
+   "vol_surge": 6.94,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Oddity Tech shares rise 24% after Q2 earnings beat and updated outlook",
+     "age_h": 4.5,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 16.3,
+    "target": 18.7,
+    "stop": 14.86,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "LITE",
+   "price": 1011.83,
+   "score": 53.6,
+   "tech_score": 46.0,
    "news_score": 7.6,
-   "rsi": 53.7,
-   "mom5": 26.51,
-   "vol_surge": 1.26,
+   "rsi": 67.0,
+   "mom5": 16.62,
+   "vol_surge": 0.64,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "From Oil Fields to Data Centers. Why This Stock Is Surging 16% Today.",
+     "headline": "AXT's Liquidity Supports InP Capacity Expansion: Can Growth Continue?",
      "age_h": 1.8,
      "points": 7.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 64.22,
-    "target": 76.0,
-    "stop": 59.51,
+    "entry": 1011.83,
+    "target": 1196.03,
+    "stop": 938.14,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "HYLN",
-   "price": 4.05,
-   "score": 33.9,
-   "tech_score": 28.0,
-   "news_score": 5.9,
-   "rsi": 55.3,
-   "mom5": 16.86,
-   "vol_surge": 0.54,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Hyliion (HYLN) Upgraded to Buy: What Does It Mean for the Stock?",
-     "age_h": 25.6,
-     "points": 5.9
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 4.05,
-    "target": 4.52,
-    "stop": 3.77,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SEDG",
-   "price": 36.88,
-   "score": 33.0,
-   "tech_score": 30.0,
-   "news_score": 3.0,
-   "rsi": 70.7,
-   "mom5": 14.58,
-   "vol_surge": 0.89,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "SolarEdge (SEDG) Stock May Be 11% Overvalued Despite UBS Upgrade",
-     "age_h": 56.5,
-     "points": 3.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 36.88,
-    "target": 40.89,
-    "stop": 34.47,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "WAFD",
-   "price": 34.34,
-   "score": 28.3,
-   "tech_score": 10.1,
-   "news_score": 18.2,
-   "rsi": 19.8,
-   "mom5": -3.89,
-   "vol_surge": 4.63,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "WaFd's EverBank Merger Deal: A Boost to Earnings & Scale?",
-     "age_h": 1.9,
-     "points": 18.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 34.34,
-    "target": 35.84,
-    "stop": 33.44,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NVS",
-   "price": 137.52,
-   "score": 28.2,
-   "tech_score": 10.0,
-   "news_score": 18.2,
-   "rsi": 35.8,
-   "mom5": -9.55,
-   "vol_surge": 3.25,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Top Midday Stories: GE Aerospace to Acquire Consolidated Precision Products; Qualcomm Issues Share Warrant to Amazon",
-     "age_h": 1.8,
-     "points": 18.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 137.52,
-    "target": 147.79,
-    "stop": 131.36,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "BEAM",
-   "price": 27.1,
-   "score": 26.8,
-   "tech_score": 10.0,
-   "news_score": 16.8,
-   "rsi": 51.8,
-   "mom5": -7.95,
-   "vol_surge": 2.48,
-   "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "Beam Therapeutics Targets Accelerated FDA Approval for Base-Editing Treatment",
-     "age_h": 4.2,
-     "points": 16.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 27.1,
-    "target": 32.88,
-    "stop": 24.79,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "PATH",
-   "price": 14.05,
-   "score": 9.9,
-   "tech_score": 0.0,
+   "ticker": "FIGR",
+   "price": 39.76,
+   "score": 45.9,
+   "tech_score": 36.0,
    "news_score": 9.9,
-   "rsi": 41.0,
-   "mom5": -24.69,
-   "vol_surge": 0.55,
+   "rsi": 55.8,
+   "mom5": 18.01,
+   "vol_surge": 0.73,
    "catalysts": [
     {
      "category": "analyst_upgrade",
-     "headline": "UiPath and Pegasystems Sink 7% as Price Target Hikes Arrive Without a Single Buy Rating",
-     "age_h": 0.3,
+     "headline": "Uber initiated, Thermo Fisher upgraded: Wall Street's top analyst calls",
+     "age_h": 3.5,
      "points": 9.9
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 14.05,
-    "target": 16.03,
-    "stop": 12.85,
+    "entry": 39.76,
+    "target": 45.13,
+    "stop": 36.54,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SEI",
+   "price": 67.42,
+   "score": 43.8,
+   "tech_score": 39.2,
+   "news_score": 4.6,
+   "rsi": 63.8,
+   "mom5": 35.83,
+   "vol_surge": 1.16,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "From Oil Fields to Data Centers. Why This Stock Is Surging 16% Today.",
+     "age_h": 25.6,
+     "points": 4.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 67.42,
+    "target": 78.5,
+    "stop": 62.99,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "AXTI",
+   "price": 70.21,
+   "score": 43.6,
+   "tech_score": 36.0,
+   "news_score": 7.6,
+   "rsi": 46.4,
+   "mom5": 25.21,
+   "vol_surge": 0.63,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "AXT's Liquidity Supports InP Capacity Expansion: Can Growth Continue?",
+     "age_h": 1.8,
+     "points": 7.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 70.21,
+    "target": 88.65,
+    "stop": 62.83,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SIMO",
+   "price": 276.67,
+   "score": 40.3,
+   "tech_score": 38.0,
+   "news_score": 2.3,
+   "rsi": 62.6,
+   "mom5": 16.72,
+   "vol_surge": 0.42,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "ASML Bets Big on AI & Capacity Expansion: Should You Buy the Stock?",
+     "age_h": 49.9,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 276.67,
+    "target": 323.39,
+    "stop": 257.98,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SMMT",
+   "price": 17.47,
+   "score": 37.9,
+   "tech_score": 28.0,
+   "news_score": 9.9,
+   "rsi": 75.2,
+   "mom5": 23.38,
+   "vol_surge": 0.38,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Summit Therapeutics shares gain after Jefferies upgrades stock to Buy",
+     "age_h": 3.2,
+     "points": 9.9
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 17.47,
+    "target": 19.55,
+    "stop": 16.22,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DELL",
+   "price": 542.29,
+   "score": 35.6,
+   "tech_score": 28.0,
+   "news_score": 7.6,
+   "rsi": 73.5,
+   "mom5": 27.7,
+   "vol_surge": 0.57,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Quantum Launches ADM to Reduce Storage Costs and Optimize Data",
+     "age_h": 4.6,
+     "points": 7.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 542.29,
+    "target": 627.16,
+    "stop": 508.35,
+    "hold": "2-8 კვირა"
    }
   }
  ],
