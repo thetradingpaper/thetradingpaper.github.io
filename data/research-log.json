@@ -4740,7 +4740,10 @@
    "earnings_beat",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 47.58,
+  "return_pct": -4.56,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-02T17:25:50.736591+00:00",
@@ -4751,7 +4754,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 517.0,
+  "return_pct": 11.82,
+  "outcome": "win"
  },
  {
   "date": "2026-09-02T17:25:50.736595+00:00",
@@ -4762,7 +4768,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 19.07,
+  "return_pct": -5.22,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-02T17:25:50.736599+00:00",
@@ -4773,7 +4782,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.88,
+  "return_pct": -43.29,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-02T17:25:50.736603+00:00",
@@ -4784,7 +4796,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 244.24,
+  "return_pct": -4.07,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-02T17:25:50.736607+00:00",
@@ -4795,7 +4810,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 163.15,
+  "return_pct": -0.68,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-02T17:25:50.736610+00:00",
@@ -4806,7 +4824,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 146.1,
+  "return_pct": 5.87,
+  "outcome": "win"
  },
  {
   "date": "2026-09-02T17:25:50.736618+00:00",
@@ -4817,7 +4838,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 375.83,
+  "return_pct": -0.62,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-02T17:25:50.736622+00:00",
@@ -4828,7 +4852,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 229.95,
+  "return_pct": 11.71,
+  "outcome": "win"
  },
  {
   "date": "2026-09-02T17:25:50.736626+00:00",
@@ -4839,7 +4866,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.74,
+  "return_pct": -4.38,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-03T17:15:35.141304+00:00",
@@ -5378,6 +5408,117 @@
   "horizon": "long",
   "catalyst_cats": [
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117025+00:00",
+  "ticker": "WLTH",
+  "entry": 10.93,
+  "score": 57.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117034+00:00",
+  "ticker": "SWKS",
+  "entry": 83.72,
+  "score": 46.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117038+00:00",
+  "ticker": "AVAV",
+  "entry": 154.36,
+  "score": 41.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117040+00:00",
+  "ticker": "SIG",
+  "entry": 98.14,
+  "score": 37.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117044+00:00",
+  "ticker": "ASO",
+  "entry": 53.58,
+  "score": 36.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117048+00:00",
+  "ticker": "CLSK",
+  "entry": 13.03,
+  "score": 35.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117050+00:00",
+  "ticker": "SWMR",
+  "entry": 36.88,
+  "score": 34.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117057+00:00",
+  "ticker": "SMMT",
+  "entry": 17.06,
+  "score": 34.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117061+00:00",
+  "ticker": "ASST",
+  "entry": 27.42,
+  "score": 25.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-10T17:17:28.117065+00:00",
+  "ticker": "CASY",
+  "entry": 637.82,
+  "score": 23.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "earnings_beat"
   ],
   "status": "open"
  }
