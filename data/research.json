@@ -1,293 +1,318 @@
 {
- "updated": "2026-09-10T17:17:28.117104+00:00",
+ "updated": "2026-09-11T17:19:23.075488+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on WLTH (score 57.2). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on COHR (score 59.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
+   "ticker": "COHR",
+   "price": 305.69,
+   "score": 59.0,
+   "tech_score": 28.0,
+   "news_score": 31.0,
+   "rsi": 56.4,
+   "mom5": 15.76,
+   "vol_surge": 0.77,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "ADBE Q3 Earnings Beat Estimates, Revenues Rise on Subscription Growth",
+     "age_h": 1.8,
+     "points": 17.4
+    },
+    {
+     "category": "m_and_a",
+     "headline": "GoPro Spikes 11% as Lumentum Eases and Coherent Holds Flat: Is This a Merger Trade or a Meme Trade?",
+     "age_h": 25.6,
+     "points": 11.4
+    },
+    {
+     "category": "growth_news",
+     "headline": "AXT's Liquidity Supports InP Capacity Expansion: Can Growth Continue?",
+     "age_h": 49.8,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 305.69,
+    "target": 356.34,
+    "stop": 285.43,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
    "ticker": "WLTH",
-   "price": 10.93,
-   "score": 57.2,
-   "tech_score": 40.0,
-   "news_score": 17.2,
-   "rsi": 75.5,
-   "mom5": 21.31,
-   "vol_surge": 2.39,
+   "price": 10.55,
+   "score": 49.9,
+   "tech_score": 32.5,
+   "news_score": 17.4,
+   "rsi": 68.0,
+   "mom5": 13.13,
+   "vol_surge": 1.56,
    "catalysts": [
     {
      "category": "earnings_beat",
      "headline": "Wealthfront Stock Surges on Earnings Beat, $100 Billion-Asset Milestone",
-     "age_h": 2.0,
-     "points": 17.2
+     "age_h": 20.7,
+     "points": 17.4
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 10.93,
-    "target": 11.72,
-    "stop": 10.46,
+    "entry": 10.55,
+    "target": 11.38,
+    "stop": 10.05,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "FEIM",
+   "price": 84.2,
+   "score": 47.4,
+   "tech_score": 30.0,
+   "news_score": 17.4,
+   "rsi": 74.8,
+   "mom5": 40.14,
+   "vol_surge": 3.98,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Frequency Electronics Inc (FEIM) (Q1 2027) Earnings Call Highlights: Record Revenue, Surging ...",
+     "age_h": 12.3,
+     "points": 17.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 84.2,
+    "target": 94.29,
+    "stop": 78.14,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ACVA",
+   "price": 10.44,
+   "score": 44.3,
+   "tech_score": 30.0,
+   "news_score": 14.3,
+   "rsi": 80.4,
+   "mom5": 55.75,
+   "vol_surge": 10.89,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
+     "age_h": 1.8,
+     "points": 10.3
+    },
+    {
+     "category": "m_and_a",
+     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
+     "age_h": 1.8,
+     "points": 19.0
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
+     "age_h": 1.8,
+     "points": -15.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 10.44,
+    "target": 11.6,
+    "stop": 9.74,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "QRVO",
+   "price": 118.44,
+   "score": 39.7,
+   "tech_score": 20.8,
+   "news_score": 19.0,
+   "rsi": 89.8,
+   "mom5": 17.83,
+   "vol_surge": 1.35,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Skyworks Rises 7%, Qorvo Gains 5% as CEO Says $22B Merger Is in Final Stages; Qualcomm Ticks Up",
+     "age_h": 3.1,
+     "points": 19.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 118.44,
+    "target": 125.99,
+    "stop": 113.92,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "SWKS",
-   "price": 83.72,
-   "score": 46.2,
-   "tech_score": 28.0,
-   "news_score": 18.2,
-   "rsi": 83.2,
-   "mom5": 16.47,
-   "vol_surge": 0.92,
+   "price": 90.18,
+   "score": 37.7,
+   "tech_score": 18.7,
+   "news_score": 19.0,
+   "rsi": 89.2,
+   "mom5": 26.19,
+   "vol_surge": 1.08,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Skyworks Solutions Surges 10%, Qorvo Climbs 6% While Chip Stocks Fall: Is the Merger Finally Clearing?",
-     "age_h": 0.5,
-     "points": 18.2
+     "headline": "Skyworks Rises 7%, Qorvo Gains 5% as CEO Says $22B Merger Is in Final Stages; Qualcomm Ticks Up",
+     "age_h": 3.1,
+     "points": 19.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 83.72,
-    "target": 90.71,
-    "stop": 79.53,
+    "entry": 90.18,
+    "target": 98.22,
+    "stop": 85.36,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "AVAV",
-   "price": 154.36,
-   "score": 41.4,
-   "tech_score": 24.2,
-   "news_score": 17.2,
-   "rsi": 45.4,
-   "mom5": 6.2,
-   "vol_surge": 3.67,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Drone Maker AeroVironment Soars With Analyst Targets After Earnings Beat",
-     "age_h": 1.5,
-     "points": 17.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 154.36,
-    "target": 169.88,
-    "stop": 145.05,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SIG",
-   "price": 98.14,
-   "score": 37.9,
-   "tech_score": 20.8,
-   "news_score": 17.2,
-   "rsi": 71.7,
-   "mom5": 20.33,
-   "vol_surge": 1.09,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "SIG Stock Up 24% After Q2 Earnings Beat Estimates, FY'27 View Raised",
-     "age_h": 1.0,
-     "points": 17.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 98.14,
-    "target": 106.95,
-    "stop": 92.85,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ASO",
-   "price": 53.58,
-   "score": 36.0,
-   "tech_score": 30.0,
-   "news_score": 6.0,
-   "rsi": 73.4,
-   "mom5": 23.46,
-   "vol_surge": 0.74,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Academy Sports shares jump after Q2 profit beat and guidance upgrade",
-     "age_h": 27.2,
-     "points": 6.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 53.58,
-    "target": 57.52,
-    "stop": 51.21,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "CLSK",
-   "price": 13.03,
+   "ticker": "BE",
+   "price": 275.0,
    "score": 35.6,
    "tech_score": 28.0,
    "news_score": 7.6,
-   "rsi": 52.9,
-   "mom5": 15.09,
-   "vol_surge": 0.47,
+   "rsi": 77.3,
+   "mom5": 16.8,
+   "vol_surge": 0.73,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Galaxy Digital and CleanSpark Batch Zero Approvals, How to Secure a Data Center, Anthropic Thinks AI Could Kill Us All",
-     "age_h": 21.4,
+     "headline": "Bloom Energy vs. FuelCell Energy: Which Data Center Fuel Cell Maker Is the Better Buy Right Now?",
+     "age_h": 18.9,
      "points": 7.6
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 13.03,
-    "target": 15.8,
-    "stop": 11.93,
+    "entry": 275.0,
+    "target": 325.84,
+    "stop": 254.66,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SKHY",
+   "price": 190.27,
+   "score": 35.6,
+   "tech_score": 28.0,
+   "news_score": 7.6,
+   "rsi": 67.2,
+   "mom5": 16.17,
+   "vol_surge": 0.61,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "trade[XYZ] Launches HIP-4 Event Markets",
+     "age_h": 23.1,
+     "points": 7.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 190.27,
+    "target": 215.32,
+    "stop": 180.26,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "SWMR",
-   "price": 36.88,
-   "score": 34.0,
-   "tech_score": 15.8,
-   "news_score": 18.2,
-   "rsi": 29.4,
-   "mom5": 15.99,
-   "vol_surge": 1.23,
+   "price": 39.66,
+   "score": 32.2,
+   "tech_score": 20.8,
+   "news_score": 11.4,
+   "rsi": 43.4,
+   "mom5": 19.82,
+   "vol_surge": 1.1,
    "catalysts": [
     {
      "category": "m_and_a",
      "headline": "Swarmer Shares Rise After Agreement to Acquire Ratel Robotics for Up to $224 Million",
-     "age_h": 3.0,
-     "points": 18.2
+     "age_h": 27.1,
+     "points": 11.4
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 36.88,
-    "target": 42.83,
-    "stop": 33.32,
+    "entry": 39.66,
+    "target": 45.57,
+    "stop": 36.11,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SMMT",
-   "price": 17.06,
-   "score": 34.0,
-   "tech_score": 28.0,
-   "news_score": 6.0,
-   "rsi": 77.2,
-   "mom5": 16.85,
-   "vol_surge": 0.25,
+   "ticker": "SIG",
+   "price": 98.55,
+   "score": 30.4,
+   "tech_score": 20.0,
+   "news_score": 10.4,
+   "rsi": 71.3,
+   "mom5": 20.21,
+   "vol_surge": 0.42,
    "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Summit Therapeutics shares gain after Jefferies upgrades stock to Buy",
-     "age_h": 27.2,
-     "points": 6.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 17.06,
-    "target": 19.12,
-    "stop": 15.83,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ASST",
-   "price": 27.42,
-   "score": 25.6,
-   "tech_score": 18.0,
-   "news_score": 7.6,
-   "rsi": 86.6,
-   "mom5": 13.71,
-   "vol_surge": 0.57,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Circle buys USDC global payment network in major crypto expansion",
-     "age_h": 24.0,
-     "points": 7.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 27.42,
-    "target": 34.44,
-    "stop": 24.61,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CASY",
-   "price": 637.82,
-   "score": 23.6,
-   "tech_score": -3.1,
-   "news_score": 26.6,
-   "rsi": 18.1,
-   "mom5": -15.51,
-   "vol_surge": 1.12,
-   "catalysts": [
-    {
-     "category": "buyback_dividend",
-     "headline": "Update: US Equity Indexes Fall as Treasury Yields Rise After Bessent Triples Size of Buyback Program, Worsening Iran War Sends Brent Crude Above $100",
-     "age_h": 20.3,
-     "points": 9.5
-    },
     {
      "category": "earnings_beat",
-     "headline": "Casey’s General Stores Earnings Beat Estimates. Why the Stock Is Falling.",
-     "age_h": 23.1,
-     "points": 17.2
+     "headline": "SIG Stock Up 24% After Q2 Earnings Beat Estimates, FY'27 View Raised",
+     "age_h": 25.1,
+     "points": 10.4
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 637.82,
-    "target": 740.77,
-    "stop": 596.64,
-    "hold": "2-8 კვირა"
+    "entry": 98.55,
+    "target": 107.61,
+    "stop": 93.12,
+    "hold": "3-7 დღე"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 156,
-   "win_rate": 23.1,
-   "avg_return": -1.28,
-   "weight_now": 0.78
+   "n": 169,
+   "win_rate": 24.3,
+   "avg_return": -1.12,
+   "weight_now": 0.79
   },
   {
    "category": "growth_news",
-   "n": 82,
+   "n": 87,
    "win_rate": 19.5,
-   "avg_return": -5.04,
+   "avg_return": -4.77,
    "weight_now": 0.76
   },
   {
    "category": "m_and_a",
-   "n": 79,
-   "win_rate": 12.7,
-   "avg_return": -3.29,
-   "weight_now": 0.7
+   "n": 83,
+   "win_rate": 15.7,
+   "avg_return": -2.64,
+   "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 54,
-   "win_rate": 9.3,
-   "avg_return": -7.89,
-   "weight_now": 0.67
+   "n": 56,
+   "win_rate": 10.7,
+   "avg_return": -7.6,
+   "weight_now": 0.69
+  },
+  {
+   "category": "guidance_raise",
+   "n": 32,
+   "win_rate": 34.4,
+   "avg_return": -1.03,
+   "weight_now": 0.88
   },
   {
    "category": "buyback_dividend",
@@ -295,13 +320,6 @@
    "win_rate": 24.1,
    "avg_return": -0.42,
    "weight_now": 0.79
-  },
-  {
-   "category": "guidance_raise",
-   "n": 27,
-   "win_rate": 37.0,
-   "avg_return": -0.55,
-   "weight_now": 0.9
   },
   {
    "category": "fda_approval",

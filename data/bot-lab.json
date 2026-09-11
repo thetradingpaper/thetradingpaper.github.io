@@ -17,7 +17,7 @@
      "target": 604.77,
      "stop": 477.97,
      "max_days": 7,
-     "last_price": 516.35
+     "last_price": 558.87
     }
    ],
    "trades": [
@@ -92,7 +92,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.53,
+   "equity": 83.92,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -277,13 +277,17 @@
     {
      "date": "2026-09-10",
      "equity": 77.53
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 83.92
     }
    ],
    "stats": {
     "trades": 7,
     "wins": 1,
     "win_rate": 14.3,
-    "return_pct": -22.47
+    "return_pct": -16.08
    }
   },
   "bot2": {
@@ -291,7 +295,7 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 30.117288219178395,
+   "cash": 10.039096073059465,
    "positions": [
     {
      "ticker": "WLTH",
@@ -301,7 +305,7 @@
      "target": 11.72,
      "stop": 10.46,
      "max_days": 7,
-     "last_price": 10.92199993133545
+     "last_price": 10.55
     },
     {
      "ticker": "SWKS",
@@ -311,7 +315,27 @@
      "target": 90.71,
      "stop": 79.53,
      "max_days": 7,
-     "last_price": 83.79499816894531
+     "last_price": 90.19
+    },
+    {
+     "ticker": "COHR",
+     "shares": 0.031205,
+     "entry": 305.69000244140625,
+     "entry_date": "2026-09-11",
+     "target": 356.34,
+     "stop": 285.43,
+     "max_days": 7,
+     "last_price": 305.69000244140625
+    },
+    {
+     "ticker": "FEIM",
+     "shares": 0.113291,
+     "entry": 84.19999694824219,
+     "entry_date": "2026-09-11",
+     "target": 94.29,
+     "stop": 78.14,
+     "max_days": 7,
+     "last_price": 84.19999694824219
     }
    ],
    "trades": [
@@ -656,7 +680,7 @@
      "leverage": 1
     }
    ],
-   "equity": 49.2,
+   "equity": 48.6,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -841,13 +865,17 @@
     {
      "date": "2026-09-10",
      "equity": 49.2
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 48.6
     }
    ],
    "stats": {
     "trades": 34,
     "wins": 2,
     "win_rate": 5.9,
-    "return_pct": -50.8
+    "return_pct": -51.4
    }
   },
   "bot3": {
@@ -865,7 +893,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 84.27
+     "last_price": 83.48
     },
     {
      "ticker": "MSTR",
@@ -875,7 +903,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 129.7
+     "last_price": 133.49
     },
     {
      "ticker": "CRM",
@@ -885,7 +913,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 244.52
+     "last_price": 248.78
     }
    ],
    "trades": [
@@ -950,7 +978,7 @@
      "leverage": 1
     }
    ],
-   "equity": 57.02,
+   "equity": 57.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1135,13 +1163,17 @@
     {
      "date": "2026-09-10",
      "equity": 57.02
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 57.77
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -42.98
+    "return_pct": -42.23
    }
   },
   "bot4": {
@@ -1149,17 +1181,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 55.919648266555356,
+   "cash": 57.59677792731051,
    "positions": [
     {
-     "ticker": "ASO",
-     "shares": 0.481039,
-     "entry": 49.470001220703125,
-     "entry_date": "2026-09-09",
-     "target": 54.84,
-     "stop": 47.31,
+     "ticker": "COHR",
+     "shares": 0.078544,
+     "entry": 305.69000244140625,
+     "entry_date": "2026-09-11",
+     "target": 356.34,
+     "stop": 285.43,
      "max_days": 7,
-     "last_price": 53.6
+     "last_price": 305.69000244140625
     }
    ],
    "trades": [
@@ -1242,9 +1274,19 @@
      "ret_pct": -10.35,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "ASO",
+     "entry": 49.470001220703125,
+     "exit": 55.48,
+     "entry_date": "2026-09-09",
+     "exit_date": "2026-09-11",
+     "ret_pct": 7.78,
+     "reason": "target",
+     "leverage": 1
     }
    ],
-   "equity": 81.7,
+   "equity": 81.61,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1429,13 +1471,17 @@
     {
      "date": "2026-09-10",
      "equity": 81.7
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 81.61
     }
    ],
    "stats": {
-    "trades": 8,
-    "wins": 0,
-    "win_rate": 0.0,
-    "return_pct": -18.3
+    "trades": 9,
+    "wins": 1,
+    "win_rate": 11.1,
+    "return_pct": -18.39
    }
   },
   "bot5": {
@@ -1443,22 +1489,8 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "ASO",
-     "shares": 22.132811,
-     "entry": 49.470001220703125,
-     "entry_date": "2026-09-09",
-     "target": 54.84,
-     "stop": 47.31,
-     "max_days": 10,
-     "leverage": 2.5,
-     "own_equity": 437.964079311109,
-     "borrowed": 656.95,
-     "last_price": 53.6
-    }
-   ],
+   "cash": 560.5043308982615,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1509,9 +1541,19 @@
      "ret_pct": 8.89,
      "reason": "time",
      "leverage": 2.5
+    },
+    {
+     "ticker": "ASO",
+     "entry": 49.470001220703125,
+     "exit": 55.48,
+     "entry_date": "2026-09-09",
+     "exit_date": "2026-09-11",
+     "ret_pct": 27.98,
+     "reason": "target",
+     "leverage": 2.5
     }
    ],
-   "equity": 529.19,
+   "equity": 560.5,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1696,15 +1738,19 @@
     {
      "date": "2026-09-10",
      "equity": 529.19
+    },
+    {
+     "date": "2026-09-11",
+     "equity": 560.5
     }
    ],
    "stats": {
-    "trades": 5,
-    "wins": 1,
-    "win_rate": 20.0,
-    "return_pct": -47.08
+    "trades": 6,
+    "wins": 2,
+    "win_rate": 33.3,
+    "return_pct": -43.95
    }
   }
  },
- "updated": "2026-09-10T17:17:29.546177+00:00"
+ "updated": "2026-09-11T17:19:24.392107+00:00"
 }
