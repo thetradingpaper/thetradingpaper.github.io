@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 77.43,
+ "cash": 57.43,
  "positions": [
   {
    "ticker": "TSLA",
@@ -13,6 +13,17 @@
    "cost": 20,
    "target": 399.98,
    "stop": 344.68
+  },
+  {
+   "ticker": "BABA",
+   "opened": "2026-09-11T16:59:53.344Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 27.9 < 32 · პირველი მწვანე",
+   "entry": 109.42,
+   "shares": 0.182782,
+   "cost": 20,
+   "target": 114.84,
+   "stop": 105.36
   }
  ],
  "equityHistory": [
@@ -223,6 +234,10 @@
   {
    "date": "2026-09-10",
    "equity": 97.17
+  },
+  {
+   "date": "2026-09-11",
+   "equity": 97.24
   }
  ]
 }
