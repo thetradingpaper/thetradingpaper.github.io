@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14T14:39:52.912Z",
+  "updated": "2026-09-14T19:34:26.712Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,11 +10,11 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 541.34,
+      "price": 543.18,
       "previousClose": 568.53
     },
     "VOO": {
-      "price": 697.19,
+      "price": 700.24,
       "previousClose": 702.56
     },
     "ASX": {
@@ -34,7 +34,7 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 236.7,
+      "price": 238.51,
       "previousClose": 256.9975
     },
     "WMT": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 134.4,
+      "price": 136.73,
       "previousClose": 130.97
     },
     "CRDO": {
@@ -58,15 +58,15 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 19.725,
+      "price": 19.76,
       "previousClose": 19.74
     },
     "MAIN": {
-      "price": 55.99,
+      "price": 56.15,
       "previousClose": 56.22
     },
     "BXSL": {
-      "price": 24.555,
+      "price": 24.57,
       "previousClose": 24.41
     },
     "LYG": {
@@ -114,39 +114,39 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 89.18,
+      "price": 89.24,
       "previousClose": 88.29
     },
     "DIVO": {
-      "price": 47.64,
+      "price": 47.665,
       "previousClose": 47.74
     },
     "MU": {
-      "price": 912.55,
+      "price": 927.26,
       "previousClose": 975.26
     },
     "RKLB": {
-      "price": 62.845,
+      "price": 62.4,
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 220.11,
+      "price": 220.55,
       "previousClose": 236.1
     },
     "QBTS": {
-      "price": 16.938,
+      "price": 16.895,
       "previousClose": 16.8
     },
     "NVTS": {
-      "price": 10.995,
+      "price": 10.945,
       "previousClose": 11.63
     },
     "BE": {
-      "price": 254.675,
+      "price": 258.115,
       "previousClose": 275.75
     },
     "SOXX": {
-      "price": 497.71,
+      "price": 499.46,
       "previousClose": 527.07
     },
     "NVDA": {
