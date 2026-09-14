@@ -5,7 +5,7 @@
 // Last updated: 2026-08-05
 // ============================================================
 window.MEPORTF = {
-  lastUpdated: '2026-09-08',
+  lastUpdated: '2026-09-14',
   feesPaid: 85.59,                      // reconciled 27 Aug 2026: BOG $39.71 ($19.71 + $20 bank fees) + TBC $5.88 (14 fees) + Galt $40.00
   feesByBook: [
     { book: 'BOG', amount: 39.71, note: '30 საკომისიო ($19.71) + ბანკის გადარიცხვის საკომისიო ($20.00)' },
@@ -13,7 +13,7 @@ window.MEPORTF = {
     { book: 'Galt & Taggart', amount: 40, note: '4 × $10' },
   ],
   marginFinancingEst: 0,
-  // BOG cash balance: 08 Sep 2026: QBTS sold ($35.00) + $19.29 deposit withdrawn ($54.29 total) -> net cash balance $0.00.
+  // BOG cash balance: 14 Sep 2026: all positions except QBTS liquidated ($123.07) & withdrawn to bank card -> net cash balance $0.00.
   bog: { cashAdded: 0, countedAsDeposit: false },
   galt: {
     closed: true,

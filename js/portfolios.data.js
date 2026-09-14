@@ -16,23 +16,34 @@ window.PORTFOLIOS = {
     annualGoalPct: 35,
     holdings: [
       { ticker: 'QBTS', name: 'D-Wave Quantum Inc',           shares: 3.63128540, avgBuy: 18.06,  invested: 65.56,  value: 65.56,  color: '#a855f7', divYield: 0.00 },
-      { ticker: 'NVTS', name: 'Navitas Semiconductor Corp', shares: 1.19821705, avgBuy: 12.52,  invested: 15.00,  value: 15.00,  color: '#06b6d4', divYield: 0.00 },
-      { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.06874464, avgBuy: 218.20, invested: 15.00,  value: 15.00,  color: '#84cc16', divYield: 0.00 },
-      { ticker: 'SOXX', name: 'iShares Semiconductor ETF',    shares: 0.02880467, avgBuy: 520.75, invested: 15.00,  value: 15.00,  color: '#0f766e', divYield: 0.70 },
-      { ticker: 'SMH',  name: 'VanEck Semiconductor ETF',     shares: 0.02845432, avgBuy: 567.23, invested: 16.14,  value: 16.11,  color: '#0284c7', divYield: 0.80 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.04262412, avgBuy: 262.53, invested: 11.19,  value: 11.20,  color: '#16a34a', divYield: 0.10 },
-      { ticker: 'RKLB', name: 'Rocket Lab USA Inc',           shares: 0.24470449, avgBuy: 65.63,  invested: 16.06,  value: 16.01,  color: '#e11d48', divYield: 0.00 },
-      { ticker: 'MU',   name: 'Micron Technology Inc',        shares: 0.01210279, avgBuy: 908.88, invested: 11.00,  value: 11.01,  color: '#8b5cf6', divYield: 0.50 },
-      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.08123873, avgBuy: 217.63, invested: 17.68,  value: 17.62,  color: '#2563eb', divYield: 0.00 },
     ],
-    cash: 0.00, // 08 Sep 2026: QBTS sold ($35.00) + $19.29 deposit withdrawn ($54.29 total) -> net cash balance $0.00
+    cash: 0.00, // 14 Sep 2026: all non-QBTS positions liquidated ($123.07) & withdrawn to card -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
-      // --- 08 სექ 2026 BOG: თანხის გატანა ($54.29) · დეპოზიტი $19.29 + QBTS გაყიდვა $35.00 · net cash $0.00 ---
-      { date: '2026-09-08', type: 'withdraw', amount: 54.29, note: 'ბარათზე გატანა · დეპოზიტი $19.29 + QBTS გაყიდვა $35.00' },
+      // --- 14 სექ 2026 BOG: თანხის გატანა ($123.07) · ყველა პოზიციის დახურვა (MRVL, RKLB, SOXX, NVTS) · net cash $0.00 ---
+      { date: '2026-09-14', type: 'withdraw', amount: 123.07, note: 'ბარათზე გატანა · პოზიციების ლიკვიდაცია (MRVL, RKLB, SOXX, NVTS)' },
+      // --- 11 სექ 2026 BOG: VRT liquidation → MRVL buy ($10.95) & full liquidation (MRVL, RKLB, SOXX, NVTS: $123.07) · BOG app ---
+      { date: '2026-09-11', type: 'sell',    ticker: 'NVTS', shares: 0.19821705, price: 11.7043, commission: 0 },
+      { date: '2026-09-11', type: 'sell',    ticker: 'NVTS', shares: 1.00000000, price: 11.70,   commission: 0 },
+      { date: '2026-09-11', type: 'sell',    ticker: 'SOXX', shares: 0.08088363, price: 529.2789, commission: 0 },
+      { date: '2026-09-11', type: 'sell',    ticker: 'RKLB', shares: 0.24470449, price: 64.0364,  commission: 0 },
+      { date: '2026-09-11', type: 'sell',    ticker: 'MRVL', shares: 0.21153451, price: 239.0626, commission: 0 },
+      { date: '2026-09-11', type: 'buy',     ticker: 'MRVL', shares: 0.04619107, price: 237.0588, commission: 0 },
+      { date: '2026-09-11', type: 'sell',    ticker: 'VRT',  shares: 0.04262412, price: 256.8973, commission: 0 },
+      // --- 10 სექ 2026 BOG: MU liquidation → SOXX buy ($12.06) · BOG app · net cash $0.00 ---
+      { date: '2026-09-10', type: 'buy',     ticker: 'SOXX', shares: 0.02316785, price: 520.5490, commission: 0 },
+      { date: '2026-09-10', type: 'sell',    ticker: 'MU',   shares: 0.01210279, price: 996.4645, commission: 0 },
+      // --- 09 სექ 2026 BOG: თანხის გატანა ($54.29) · SMH & BE liquidation → MRVL & SOXX ($35.42) · net cash $0.00 ---
+      { date: '2026-09-09', type: 'buy',     ticker: 'MRVL', shares: 0.08410471, price: 237.7988, commission: 0 },
+      { date: '2026-09-09', type: 'buy',     ticker: 'SOXX', shares: 0.02891111, price: 533.3590, commission: 0 },
+      { date: '2026-09-09', type: 'sell',    ticker: 'SMH',  shares: 0.02845432, price: 576.0109, commission: 0 },
+      { date: '2026-09-09', type: 'sell',    ticker: 'BE',   shares: 0.06874464, price: 276.8216, commission: 0 },
+      { date: '2026-09-09', type: 'withdraw', amount: 19.29, note: 'ბარათზე გატანა · დეპოზიტის დაბრუნება' },
+      { date: '2026-09-09', type: 'withdraw', amount: 35.00, note: 'ბარათზე გატანა · QBTS გაყიდვის თანხა' },
+      // --- 08 სექ 2026 BOG: QBTS გაყიდვა ($35.00) · BOG app ---
       { date: '2026-09-08', type: 'sell',    ticker: 'QBTS', shares: 0.90734655, price: 18.3502, commission: 0 },
       { date: '2026-09-08', type: 'sell',    ticker: 'QBTS', shares: 1.00000000, price: 18.35,   commission: 0 },
       // --- 07 სექ 2026 BOG ახალი დეპოზიტი ($19.29) ---
