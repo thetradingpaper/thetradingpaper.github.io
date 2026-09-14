@@ -5169,7 +5169,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 545.28,
+  "return_pct": 4.03,
+  "outcome": "win"
  },
  {
   "date": "2026-09-07T18:28:49.720017+00:00",
@@ -5180,7 +5183,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 21.33,
+  "return_pct": -6.98,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-07T18:28:49.720021+00:00",
@@ -5191,7 +5197,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 68.89,
+  "return_pct": 0.7,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-07T18:28:49.720025+00:00",
@@ -5202,7 +5211,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 42.1,
+  "return_pct": 4.73,
+  "outcome": "win"
  },
  {
   "date": "2026-09-07T18:28:49.720029+00:00",
@@ -5213,7 +5225,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.69,
+  "return_pct": 9.99,
+  "outcome": "win"
  },
  {
   "date": "2026-09-07T18:28:49.720033+00:00",
@@ -5225,7 +5240,10 @@
    "earnings_beat",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 64.53,
+  "return_pct": 2.61,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-07T18:28:49.720037+00:00",
@@ -5236,7 +5254,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 100.53,
+  "return_pct": -0.08,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-07T18:28:49.720044+00:00",
@@ -5247,7 +5268,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 190.32,
+  "return_pct": 12.08,
+  "outcome": "win"
  },
  {
   "date": "2026-09-07T18:28:49.720049+00:00",
@@ -5258,7 +5282,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 14.64,
+  "return_pct": -3.62,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-07T18:28:49.720053+00:00",
@@ -5269,7 +5296,10 @@
   "catalyst_cats": [
    "guidance_raise"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 324.4,
+  "return_pct": 1.06,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-08T17:34:08.665195+00:00",
@@ -5692,6 +5722,73 @@
   "horizon": "short",
   "catalyst_cats": [
    "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730871+00:00",
+  "ticker": "GOOGN",
+  "entry": 48.93,
+  "score": 47.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730881+00:00",
+  "ticker": "GOOGM",
+  "entry": 48.99,
+  "score": 47.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730886+00:00",
+  "ticker": "RBLX",
+  "entry": 50.49,
+  "score": 32.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730891+00:00",
+  "ticker": "SRRK",
+  "entry": 52.95,
+  "score": 30.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730895+00:00",
+  "ticker": "FEIM",
+  "entry": 86.8,
+  "score": 19.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-14T18:56:30.730899+00:00",
+  "ticker": "VRT",
+  "entry": 240.33,
+  "score": 5.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

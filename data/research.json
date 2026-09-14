@@ -1,304 +1,186 @@
 {
- "updated": "2026-09-11T17:19:23.075488+00:00",
+ "updated": "2026-09-14T18:56:30.730948+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on COHR (score 59.0). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on GOOGN (score 47.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "COHR",
-   "price": 305.69,
-   "score": 59.0,
-   "tech_score": 28.0,
-   "news_score": 31.0,
-   "rsi": 56.4,
-   "mom5": 15.76,
-   "vol_surge": 0.77,
+   "ticker": "GOOGN",
+   "price": 48.93,
+   "score": 47.8,
+   "tech_score": 40.1,
+   "news_score": 7.7,
+   "rsi": 50.4,
+   "mom5": 2.07,
+   "vol_surge": 3.52,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "ADBE Q3 Earnings Beat Estimates, Revenues Rise on Subscription Growth",
-     "age_h": 1.8,
-     "points": 17.4
-    },
-    {
-     "category": "m_and_a",
-     "headline": "GoPro Spikes 11% as Lumentum Eases and Coherent Holds Flat: Is This a Merger Trade or a Meme Trade?",
-     "age_h": 25.6,
-     "points": 11.4
-    },
-    {
      "category": "growth_news",
-     "headline": "AXT's Liquidity Supports InP Capacity Expansion: Can Growth Continue?",
-     "age_h": 49.8,
-     "points": 2.3
+     "headline": "Netflix Climbs 4%, Alphabet Ticks Up, Amazon Barely Budges as New Streaming Policy Alliance Launches",
+     "age_h": 1.2,
+     "points": 7.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 305.69,
-    "target": 356.34,
-    "stop": 285.43,
+    "entry": 48.93,
+    "target": 51.11,
+    "stop": 48.06,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "WLTH",
-   "price": 10.55,
-   "score": 49.9,
-   "tech_score": 32.5,
-   "news_score": 17.4,
-   "rsi": 68.0,
-   "mom5": 13.13,
-   "vol_surge": 1.56,
+   "ticker": "GOOGM",
+   "price": 48.99,
+   "score": 47.3,
+   "tech_score": 39.6,
+   "news_score": 7.7,
+   "rsi": 47.2,
+   "mom5": 1.64,
+   "vol_surge": 4.46,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Wealthfront Stock Surges on Earnings Beat, $100 Billion-Asset Milestone",
-     "age_h": 20.7,
-     "points": 17.4
+     "category": "growth_news",
+     "headline": "Netflix Climbs 4%, Alphabet Ticks Up, Amazon Barely Budges as New Streaming Policy Alliance Launches",
+     "age_h": 1.2,
+     "points": 7.7
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 10.55,
-    "target": 11.38,
-    "stop": 10.05,
-    "hold": "3-7 დღე"
+    "entry": 48.99,
+    "target": 51.35,
+    "stop": 48.04,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "RBLX",
+   "price": 50.49,
+   "score": 32.4,
+   "tech_score": 21.6,
+   "news_score": 10.8,
+   "rsi": 85.1,
+   "mom5": 16.29,
+   "vol_surge": 1.19,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Roblox Takes Steps to Build Re-Expansion Opportunity, Wedbush Says",
+     "age_h": 3.3,
+     "points": 7.7
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Roblox Conference Unveils AI Creation Tools, Offline Play and Engine Upgrades",
+     "age_h": 52.9,
+     "points": 3.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 50.49,
+    "target": 57.24,
+    "stop": 47.8,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SRRK",
+   "price": 52.95,
+   "score": 30.3,
+   "tech_score": 13.5,
+   "news_score": 16.8,
+   "rsi": 33.2,
+   "mom5": -4.03,
+   "vol_surge": 2.19,
+   "catalysts": [
+    {
+     "category": "fda_approval",
+     "headline": "Scholar Rock's Early FDA Approval on Spinal Muscular Atrophy Drug Seen as 'Positive Surprise,' UBS Says",
+     "age_h": 2.6,
+     "points": 16.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 52.95,
+    "target": 60.52,
+    "stop": 49.92,
+    "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "FEIM",
-   "price": 84.2,
-   "score": 47.4,
-   "tech_score": 30.0,
-   "news_score": 17.4,
-   "rsi": 74.8,
-   "mom5": 40.14,
-   "vol_surge": 3.98,
+   "price": 86.8,
+   "score": 19.7,
+   "tech_score": 14.5,
+   "news_score": 5.2,
+   "rsi": 79.7,
+   "mom5": 40.96,
+   "vol_surge": 1.56,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Frequency Electronics Inc (FEIM) (Q1 2027) Earnings Call Highlights: Record Revenue, Surging ...",
-     "age_h": 12.3,
-     "points": 17.4
+     "headline": "Frequency Electronics (FEIM) Soars After Record Revenue",
+     "age_h": 53.4,
+     "points": 5.2
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 84.2,
-    "target": 94.29,
-    "stop": 78.14,
+    "entry": 86.8,
+    "target": 97.41,
+    "stop": 80.43,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ACVA",
-   "price": 10.44,
-   "score": 44.3,
-   "tech_score": 30.0,
-   "news_score": 14.3,
-   "rsi": 80.4,
-   "mom5": 55.75,
-   "vol_surge": 10.89,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
-     "age_h": 1.8,
-     "points": 10.3
-    },
-    {
-     "category": "m_and_a",
-     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
-     "age_h": 1.8,
-     "points": 19.0
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "CPRT Stock Upgraded, ACVA Downgraded By Barrington After $1.9B Deal – Analyst Sees Acquisition As A Long-Term Growth Catalyst",
-     "age_h": 1.8,
-     "points": -15.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 10.44,
-    "target": 11.6,
-    "stop": 9.74,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "QRVO",
-   "price": 118.44,
-   "score": 39.7,
-   "tech_score": 20.8,
-   "news_score": 19.0,
-   "rsi": 89.8,
-   "mom5": 17.83,
-   "vol_surge": 1.35,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Skyworks Rises 7%, Qorvo Gains 5% as CEO Says $22B Merger Is in Final Stages; Qualcomm Ticks Up",
-     "age_h": 3.1,
-     "points": 19.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 118.44,
-    "target": 125.99,
-    "stop": 113.92,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SWKS",
-   "price": 90.18,
-   "score": 37.7,
-   "tech_score": 18.7,
-   "news_score": 19.0,
-   "rsi": 89.2,
-   "mom5": 26.19,
-   "vol_surge": 1.08,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Skyworks Rises 7%, Qorvo Gains 5% as CEO Says $22B Merger Is in Final Stages; Qualcomm Ticks Up",
-     "age_h": 3.1,
-     "points": 19.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 90.18,
-    "target": 98.22,
-    "stop": 85.36,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "BE",
-   "price": 275.0,
-   "score": 35.6,
-   "tech_score": 28.0,
-   "news_score": 7.6,
-   "rsi": 77.3,
-   "mom5": 16.8,
-   "vol_surge": 0.73,
+   "ticker": "VRT",
+   "price": 240.33,
+   "score": 5.2,
+   "tech_score": -2.5,
+   "news_score": 7.7,
+   "rsi": 44.5,
+   "mom5": -14.4,
+   "vol_surge": 1.69,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Bloom Energy vs. FuelCell Energy: Which Data Center Fuel Cell Maker Is the Better Buy Right Now?",
-     "age_h": 18.9,
-     "points": 7.6
+     "headline": "Vertiv Sees Data Center Demand Strengthen as AI Infrastructure Pipeline Expands",
+     "age_h": 16.9,
+     "points": 7.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 275.0,
-    "target": 325.84,
-    "stop": 254.66,
+    "entry": 240.33,
+    "target": 284.91,
+    "stop": 222.5,
     "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SKHY",
-   "price": 190.27,
-   "score": 35.6,
-   "tech_score": 28.0,
-   "news_score": 7.6,
-   "rsi": 67.2,
-   "mom5": 16.17,
-   "vol_surge": 0.61,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "trade[XYZ] Launches HIP-4 Event Markets",
-     "age_h": 23.1,
-     "points": 7.6
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 190.27,
-    "target": 215.32,
-    "stop": 180.26,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SWMR",
-   "price": 39.66,
-   "score": 32.2,
-   "tech_score": 20.8,
-   "news_score": 11.4,
-   "rsi": 43.4,
-   "mom5": 19.82,
-   "vol_surge": 1.1,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Swarmer Shares Rise After Agreement to Acquire Ratel Robotics for Up to $224 Million",
-     "age_h": 27.1,
-     "points": 11.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 39.66,
-    "target": 45.57,
-    "stop": 36.11,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SIG",
-   "price": 98.55,
-   "score": 30.4,
-   "tech_score": 20.0,
-   "news_score": 10.4,
-   "rsi": 71.3,
-   "mom5": 20.21,
-   "vol_surge": 0.42,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "SIG Stock Up 24% After Q2 Earnings Beat Estimates, FY'27 View Raised",
-     "age_h": 25.1,
-     "points": 10.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 98.55,
-    "target": 107.61,
-    "stop": 93.12,
-    "hold": "3-7 დღე"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 169,
-   "win_rate": 24.3,
-   "avg_return": -1.12,
+   "n": 171,
+   "win_rate": 24.0,
+   "avg_return": -1.09,
    "weight_now": 0.79
   },
   {
    "category": "growth_news",
-   "n": 87,
-   "win_rate": 19.5,
-   "avg_return": -4.77,
-   "weight_now": 0.76
+   "n": 93,
+   "win_rate": 21.5,
+   "avg_return": -4.28,
+   "weight_now": 0.77
   },
   {
    "category": "m_and_a",
-   "n": 83,
-   "win_rate": 15.7,
-   "avg_return": -2.64,
-   "weight_now": 0.73
+   "n": 84,
+   "win_rate": 15.5,
+   "avg_return": -2.57,
+   "weight_now": 0.72
   },
   {
    "category": "analyst_upgrade",
@@ -309,9 +191,9 @@
   },
   {
    "category": "guidance_raise",
-   "n": 32,
-   "win_rate": 34.4,
-   "avg_return": -1.03,
+   "n": 34,
+   "win_rate": 35.3,
+   "avg_return": -0.82,
    "weight_now": 0.88
   },
   {
@@ -336,7 +218,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5968,
+ "scanned": 5972,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

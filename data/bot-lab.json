@@ -7,19 +7,8 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "DELL",
-     "shares": 0.150153,
-     "entry": 514.5999755859375,
-     "entry_date": "2026-09-03",
-     "target": 604.77,
-     "stop": 477.97,
-     "max_days": 7,
-     "last_price": 558.87
-    }
-   ],
+   "cash": 81.32587918292236,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -90,9 +79,19 @@
      "ret_pct": -5.1,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "DELL",
+     "entry": 514.5999755859375,
+     "exit": 544.95,
+     "entry_date": "2026-09-03",
+     "exit_date": "2026-09-14",
+     "ret_pct": 4.57,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 83.92,
+   "equity": 81.33,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -281,13 +280,17 @@
     {
      "date": "2026-09-11",
      "equity": 83.92
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 81.33
     }
    ],
    "stats": {
-    "trades": 7,
-    "wins": 1,
-    "win_rate": 14.3,
-    "return_pct": -16.08
+    "trades": 8,
+    "wins": 2,
+    "win_rate": 25.0,
+    "return_pct": -18.67
    }
   },
   "bot2": {
@@ -295,7 +298,7 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 10.039096073059465,
+   "cash": 18.035593434967424,
    "positions": [
     {
      "ticker": "WLTH",
@@ -305,7 +308,7 @@
      "target": 11.72,
      "stop": 10.46,
      "max_days": 7,
-     "last_price": 10.55
+     "last_price": 10.56
     },
     {
      "ticker": "SWKS",
@@ -315,17 +318,7 @@
      "target": 90.71,
      "stop": 79.53,
      "max_days": 7,
-     "last_price": 90.19
-    },
-    {
-     "ticker": "COHR",
-     "shares": 0.031205,
-     "entry": 305.69000244140625,
-     "entry_date": "2026-09-11",
-     "target": 356.34,
-     "stop": 285.43,
-     "max_days": 7,
-     "last_price": 305.69000244140625
+     "last_price": 81.53
     },
     {
      "ticker": "FEIM",
@@ -335,7 +328,7 @@
      "target": 94.29,
      "stop": 78.14,
      "max_days": 7,
-     "last_price": 84.19999694824219
+     "last_price": 86.81
     }
    ],
    "trades": [
@@ -678,9 +671,19 @@
      "ret_pct": -7.76,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "COHR",
+     "entry": 305.69000244140625,
+     "exit": 272.28,
+     "entry_date": "2026-09-11",
+     "exit_date": "2026-09-14",
+     "ret_pct": -20.35,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 48.6,
+   "equity": 46.37,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -869,13 +872,17 @@
     {
      "date": "2026-09-11",
      "equity": 48.6
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 46.37
     }
    ],
    "stats": {
-    "trades": 34,
+    "trades": 35,
     "wins": 2,
-    "win_rate": 5.9,
-    "return_pct": -51.4
+    "win_rate": 5.7,
+    "return_pct": -53.63
    }
   },
   "bot3": {
@@ -893,7 +900,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 83.48
+     "last_price": 84.47
     },
     {
      "ticker": "MSTR",
@@ -903,7 +910,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 133.49
+     "last_price": 136.3
     },
     {
      "ticker": "CRM",
@@ -913,7 +920,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 248.78
+     "last_price": 258.86
     }
    ],
    "trades": [
@@ -978,7 +985,7 @@
      "leverage": 1
     }
    ],
-   "equity": 57.77,
+   "equity": 59.24,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1167,13 +1174,17 @@
     {
      "date": "2026-09-11",
      "equity": 57.77
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 59.24
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -42.23
+    "return_pct": -40.76
    }
   },
   "bot4": {
@@ -1181,19 +1192,8 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 57.59677792731051,
-   "positions": [
-    {
-     "ticker": "COHR",
-     "shares": 0.078544,
-     "entry": 305.69000244140625,
-     "entry_date": "2026-09-11",
-     "target": 356.34,
-     "stop": 285.43,
-     "max_days": 7,
-     "last_price": 305.69000244140625
-    }
-   ],
+   "cash": 78.4827381514316,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1284,9 +1284,19 @@
      "ret_pct": 7.78,
      "reason": "target",
      "leverage": 1
+    },
+    {
+     "ticker": "COHR",
+     "entry": 305.69000244140625,
+     "exit": 272.28,
+     "entry_date": "2026-09-11",
+     "exit_date": "2026-09-14",
+     "ret_pct": -14.79,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 81.61,
+   "equity": 78.48,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1475,13 +1485,17 @@
     {
      "date": "2026-09-11",
      "equity": 81.61
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 78.48
     }
    ],
    "stats": {
-    "trades": 9,
+    "trades": 10,
     "wins": 1,
-    "win_rate": 11.1,
-    "return_pct": -18.39
+    "win_rate": 10.0,
+    "return_pct": -21.52
    }
   },
   "bot5": {
@@ -1742,6 +1756,10 @@
     {
      "date": "2026-09-11",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-14",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1752,5 +1770,5 @@
    }
   }
  },
- "updated": "2026-09-11T17:19:24.392107+00:00"
+ "updated": "2026-09-14T18:56:31.830132+00:00"
 }
