@@ -1,161 +1,217 @@
 {
- "updated": "2026-09-14T18:56:30.730948+00:00",
+ "updated": "2026-09-15T17:52:23.258472+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on GOOGN (score 47.8). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on S (score 63.4). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "GOOGN",
-   "price": 48.93,
-   "score": 47.8,
-   "tech_score": 40.1,
-   "news_score": 7.7,
-   "rsi": 50.4,
-   "mom5": 2.07,
-   "vol_surge": 3.52,
+   "ticker": "S",
+   "price": 23.35,
+   "score": 63.4,
+   "tech_score": 46.0,
+   "news_score": 17.4,
+   "rsi": 63.5,
+   "mom5": 20.25,
+   "vol_surge": 0.61,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Netflix Climbs 4%, Alphabet Ticks Up, Amazon Barely Budges as New Streaming Policy Alliance Launches",
-     "age_h": 1.2,
-     "points": 7.7
+     "category": "earnings_beat",
+     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
+     "age_h": 3.9,
+     "points": 17.4
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 48.93,
-    "target": 51.11,
-    "stop": 48.06,
-    "hold": "2-8 კვირა"
+    "entry": 23.35,
+    "target": 25.92,
+    "stop": 21.81,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "GOOGM",
-   "price": 48.99,
-   "score": 47.3,
-   "tech_score": 39.6,
-   "news_score": 7.7,
-   "rsi": 47.2,
-   "mom5": 1.64,
-   "vol_surge": 4.46,
+   "ticker": "ZS",
+   "price": 194.31,
+   "score": 63.4,
+   "tech_score": 46.0,
+   "news_score": 17.4,
+   "rsi": 62.9,
+   "mom5": 20.14,
+   "vol_surge": 0.69,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Netflix Climbs 4%, Alphabet Ticks Up, Amazon Barely Budges as New Streaming Policy Alliance Launches",
-     "age_h": 1.2,
-     "points": 7.7
+     "category": "earnings_beat",
+     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
+     "age_h": 3.9,
+     "points": 17.4
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 48.99,
-    "target": 51.35,
-    "stop": 48.04,
-    "hold": "2-8 კვირა"
+    "entry": 194.31,
+    "target": 215.91,
+    "stop": 181.35,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "RBLX",
-   "price": 50.49,
-   "score": 32.4,
-   "tech_score": 21.6,
-   "news_score": 10.8,
-   "rsi": 85.1,
-   "mom5": 16.29,
-   "vol_surge": 1.19,
+   "ticker": "ENVA",
+   "price": 173.34,
+   "score": 34.2,
+   "tech_score": 6.0,
+   "news_score": 28.2,
+   "rsi": 15.9,
+   "mom5": -23.32,
+   "vol_surge": 4.24,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Roblox Takes Steps to Build Re-Expansion Opportunity, Wedbush Says",
-     "age_h": 3.3,
-     "points": 7.7
+     "category": "buyback_dividend",
+     "headline": "Enova drops 25% as it pulls bank deal filings, plans faster buybacks",
+     "age_h": 1.9,
+     "points": 9.5
     },
     {
-     "category": "analyst_upgrade",
-     "headline": "Roblox Conference Unveils AI Creation Tools, Offline Play and Engine Upgrades",
-     "age_h": 52.9,
-     "points": 3.1
+     "category": "m_and_a",
+     "headline": "Enova Withdraws Regulatory Applications for Grasshopper Bancorp Acquisition, Reaffirms Outlook",
+     "age_h": 7.8,
+     "points": 18.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 50.49,
-    "target": 57.24,
-    "stop": 47.8,
+    "entry": 173.34,
+    "target": 204.39,
+    "stop": 160.92,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ASND",
+   "price": 231.28,
+   "score": 29.8,
+   "tech_score": 10.0,
+   "news_score": 19.8,
+   "rsi": 36.8,
+   "mom5": -14.08,
+   "vol_surge": 2.92,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "Ulta Beauty, Etsy upgraded: Wall Street's top analyst calls",
+     "age_h": 4.3,
+     "points": 10.3
+    },
+    {
+     "category": "buyback_dividend",
+     "headline": "Ascendis Pharma Regains Rights to Obesity Drug, Discloses $400 Million Share Buyback",
+     "age_h": 9.2,
+     "points": 9.5
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 231.28,
+    "target": 261.31,
+    "stop": 219.27,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "SRRK",
-   "price": 52.95,
-   "score": 30.3,
-   "tech_score": 13.5,
+   "price": 46.94,
+   "score": 27.4,
+   "tech_score": 10.6,
    "news_score": 16.8,
-   "rsi": 33.2,
-   "mom5": -4.03,
-   "vol_surge": 2.19,
+   "rsi": 23.8,
+   "mom5": -18.16,
+   "vol_surge": 1.83,
    "catalysts": [
     {
      "category": "fda_approval",
-     "headline": "Scholar Rock's Early FDA Approval on Spinal Muscular Atrophy Drug Seen as 'Positive Surprise,' UBS Says",
-     "age_h": 2.6,
+     "headline": "SRRK Shares Pull Back After FDA Approval For Genetic Disease Drug — But Wall Street Hikes Price Targets",
+     "age_h": 21.4,
      "points": 16.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 52.95,
-    "target": 60.52,
-    "stop": 49.92,
+    "entry": 46.94,
+    "target": 55.35,
+    "stop": 43.58,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "FEIM",
-   "price": 86.8,
-   "score": 19.7,
-   "tech_score": 14.5,
-   "news_score": 5.2,
-   "rsi": 79.7,
-   "mom5": 40.96,
-   "vol_surge": 1.56,
+   "ticker": "ALM",
+   "price": 14.21,
+   "score": 22.0,
+   "tech_score": 4.0,
+   "news_score": 18.0,
+   "rsi": 25.2,
+   "mom5": -25.58,
+   "vol_surge": 0.43,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Frequency Electronics (FEIM) Soars After Record Revenue",
-     "age_h": 53.4,
-     "points": 5.2
+     "category": "big_contract",
+     "headline": "Almonty enters into tungsten partnership with Rwanda Government",
+     "age_h": 6.5,
+     "points": 18.0
     }
    ],
-   "horizon": "short",
+   "horizon": "long",
    "plan": {
-    "entry": 86.8,
-    "target": 97.41,
-    "stop": 80.43,
-    "hold": "3-7 დღე"
+    "entry": 14.21,
+    "target": 18.01,
+    "stop": 12.69,
+    "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "VRT",
-   "price": 240.33,
-   "score": 5.2,
-   "tech_score": -2.5,
+   "ticker": "BOOT",
+   "price": 128.68,
+   "score": 9.8,
+   "tech_score": 2.1,
    "news_score": 7.7,
-   "rsi": 44.5,
-   "mom5": -14.4,
-   "vol_surge": 1.69,
+   "rsi": 20.4,
+   "mom5": -16.22,
+   "vol_surge": 1.76,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Vertiv Sees Data Center Demand Strengthen as AI Infrastructure Pipeline Expands",
-     "age_h": 16.9,
+     "headline": "GAP's Gross Margin Hits 41.4%: Can Expansion Continue in 2H 2026?",
+     "age_h": 3.3,
      "points": 7.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 240.33,
-    "target": 284.91,
-    "stop": 222.5,
+    "entry": 128.68,
+    "target": 146.15,
+    "stop": 121.69,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "VRT",
+   "price": 236.38,
+   "score": -3.4,
+   "tech_score": -8.0,
+   "news_score": 4.6,
+   "rsi": 43.0,
+   "mom5": -18.71,
+   "vol_surge": 0.6,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Vertiv Sees Data Center Demand Strengthen as AI Infrastructure Pipeline Expands",
+     "age_h": 39.8,
+     "points": 4.6
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 236.38,
+    "target": 280.34,
+    "stop": 218.79,
     "hold": "2-8 კვირა"
    }
   }
@@ -170,23 +226,23 @@
   },
   {
    "category": "growth_news",
-   "n": 93,
-   "win_rate": 21.5,
-   "avg_return": -4.28,
+   "n": 94,
+   "win_rate": 21.3,
+   "avg_return": -4.27,
    "weight_now": 0.77
   },
   {
    "category": "m_and_a",
-   "n": 84,
-   "win_rate": 15.5,
-   "avg_return": -2.57,
+   "n": 86,
+   "win_rate": 15.1,
+   "avg_return": -2.55,
    "weight_now": 0.72
   },
   {
    "category": "analyst_upgrade",
-   "n": 56,
-   "win_rate": 10.7,
-   "avg_return": -7.6,
+   "n": 60,
+   "win_rate": 11.7,
+   "avg_return": -7.29,
    "weight_now": 0.69
   },
   {
@@ -205,9 +261,9 @@
   },
   {
    "category": "fda_approval",
-   "n": 10,
+   "n": 11,
    "win_rate": 0.0,
-   "avg_return": -5.85,
+   "avg_return": -6.63,
    "weight_now": 0.6
   },
   {

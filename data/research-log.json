@@ -5310,7 +5310,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 97.44,
+  "return_pct": -7.86,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-08T17:34:08.665206+00:00",
@@ -5321,7 +5324,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 62.24,
+  "return_pct": -3.08,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-08T17:34:08.665212+00:00",
@@ -5332,7 +5338,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.93,
+  "return_pct": -2.84,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-08T17:34:08.665216+00:00",
@@ -5343,7 +5352,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 35.14,
+  "return_pct": -4.72,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-08T17:34:08.665220+00:00",
@@ -5354,7 +5366,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 33.11,
+  "return_pct": -3.58,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-08T17:34:08.665224+00:00",
@@ -5365,7 +5380,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 138.8,
+  "return_pct": 0.93,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-08T17:34:08.665228+00:00",
@@ -5376,7 +5394,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.17,
+  "return_pct": -14.5,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-08T17:34:08.665235+00:00",
@@ -5387,7 +5408,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 14.59,
+  "return_pct": 3.84,
+  "outcome": "win"
  },
  {
   "date": "2026-09-09T17:21:42.441417+00:00",
@@ -5786,6 +5810,96 @@
   "ticker": "VRT",
   "entry": 240.33,
   "score": 5.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258391+00:00",
+  "ticker": "S",
+  "entry": 23.35,
+  "score": 63.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258401+00:00",
+  "ticker": "ZS",
+  "entry": 194.31,
+  "score": 63.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258406+00:00",
+  "ticker": "ENVA",
+  "entry": 173.34,
+  "score": 34.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258410+00:00",
+  "ticker": "ASND",
+  "entry": 231.28,
+  "score": 29.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258415+00:00",
+  "ticker": "SRRK",
+  "entry": 46.94,
+  "score": 27.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258418+00:00",
+  "ticker": "ALM",
+  "entry": 14.21,
+  "score": 22.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "big_contract"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258421+00:00",
+  "ticker": "BOOT",
+  "entry": 128.68,
+  "score": 9.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-15T17:52:23.258429+00:00",
+  "ticker": "VRT",
+  "entry": 236.38,
+  "score": -3.4,
   "horizon": "long",
   "catalyst_cats": [
    "growth_news"
