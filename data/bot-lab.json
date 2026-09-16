@@ -17,7 +17,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.350000381469727
+     "last_price": 23.19
     }
    ],
    "trades": [
@@ -102,7 +102,7 @@
      "leverage": 1
     }
    ],
-   "equity": 80.83,
+   "equity": 80.27,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -299,13 +299,17 @@
     {
      "date": "2026-09-15",
      "equity": 80.83
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 80.27
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 2,
     "win_rate": 25.0,
-    "return_pct": -19.17
+    "return_pct": -19.73
    }
   },
   "bot2": {
@@ -313,18 +317,8 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 18.035593434967424,
+   "cash": 26.35677216813698,
    "positions": [
-    {
-     "ticker": "WLTH",
-     "shares": 0.873384,
-     "entry": 10.92199993133545,
-     "entry_date": "2026-09-10",
-     "target": 11.72,
-     "stop": 10.46,
-     "max_days": 7,
-     "last_price": 10.86
-    },
     {
      "ticker": "SWKS",
      "shares": 0.113838,
@@ -333,7 +327,7 @@
      "target": 90.71,
      "stop": 79.53,
      "max_days": 7,
-     "last_price": 89.24
+     "last_price": 87.38
     },
     {
      "ticker": "FEIM",
@@ -343,7 +337,7 @@
      "target": 94.29,
      "stop": 78.14,
      "max_days": 7,
-     "last_price": 84.8
+     "last_price": 83.78
     }
    ],
    "trades": [
@@ -696,9 +690,19 @@
      "ret_pct": -20.35,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "WLTH",
+     "entry": 10.92199993133545,
+     "exit": 10.1,
+     "entry_date": "2026-09-10",
+     "exit_date": "2026-09-16",
+     "ret_pct": -17.11,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 47.29,
+   "equity": 45.8,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -895,13 +899,17 @@
     {
      "date": "2026-09-15",
      "equity": 47.29
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 45.8
     }
    ],
    "stats": {
-    "trades": 35,
+    "trades": 36,
     "wins": 2,
-    "win_rate": 5.7,
-    "return_pct": -52.71
+    "win_rate": 5.6,
+    "return_pct": -54.2
    }
   },
   "bot3": {
@@ -919,7 +927,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 86.99
+     "last_price": 88.07
     },
     {
      "ticker": "MSTR",
@@ -929,7 +937,7 @@
      "target": 144.73,
      "stop": 118.37,
      "max_days": 40,
-     "last_price": 132.8
+     "last_price": 125.73
     },
     {
      "ticker": "CRM",
@@ -939,7 +947,7 @@
      "target": 288.43,
      "stop": 241.07,
      "max_days": 40,
-     "last_price": 259.77
+     "last_price": 251.2
     }
    ],
    "trades": [
@@ -1004,7 +1012,7 @@
      "leverage": 1
     }
    ],
-   "equity": 59.33,
+   "equity": 57.8,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1201,13 +1209,17 @@
     {
      "date": "2026-09-15",
      "equity": 59.33
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 57.8
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 0,
     "win_rate": 0.0,
-    "return_pct": -40.67
+    "return_pct": -42.2
    }
   },
   "bot4": {
@@ -1225,7 +1237,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.350000381469727
+     "last_price": 23.19
     }
    ],
    "trades": [
@@ -1330,7 +1342,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.98,
+   "equity": 77.82,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1527,13 +1539,17 @@
     {
      "date": "2026-09-15",
      "equity": 77.98
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 77.82
     }
    ],
    "stats": {
     "trades": 10,
     "wins": 1,
     "win_rate": 10.0,
-    "return_pct": -22.02
+    "return_pct": -22.18
    }
   },
   "bot5": {
@@ -1802,6 +1818,10 @@
     {
      "date": "2026-09-15",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-16",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1812,5 +1832,5 @@
    }
   }
  },
- "updated": "2026-09-15T17:52:24.753757+00:00"
+ "updated": "2026-09-16T17:48:06.146936+00:00"
 }

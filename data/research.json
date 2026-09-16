@@ -1,217 +1,267 @@
 {
- "updated": "2026-09-15T17:52:23.258472+00:00",
+ "updated": "2026-09-16T17:48:05.179567+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on S (score 63.4). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on FPS (score 57.5). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "S",
-   "price": 23.35,
-   "score": 63.4,
-   "tech_score": 46.0,
-   "news_score": 17.4,
-   "rsi": 63.5,
-   "mom5": 20.25,
-   "vol_surge": 0.61,
+   "ticker": "FPS",
+   "price": 35.22,
+   "score": 57.5,
+   "tech_score": 32.2,
+   "news_score": 25.3,
+   "rsi": 56.9,
+   "mom5": 13.52,
+   "vol_surge": 1.53,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
-     "age_h": 3.9,
-     "points": 17.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 23.35,
-    "target": 25.92,
-    "stop": 21.81,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ZS",
-   "price": 194.31,
-   "score": 63.4,
-   "tech_score": 46.0,
-   "news_score": 17.4,
-   "rsi": 62.9,
-   "mom5": 20.14,
-   "vol_surge": 0.69,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
-     "age_h": 3.9,
-     "points": 17.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 194.31,
-    "target": 215.91,
-    "stop": 181.35,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ENVA",
-   "price": 173.34,
-   "score": 34.2,
-   "tech_score": 6.0,
-   "news_score": 28.2,
-   "rsi": 15.9,
-   "mom5": -23.32,
-   "vol_surge": 4.24,
-   "catalysts": [
-    {
-     "category": "buyback_dividend",
-     "headline": "Enova drops 25% as it pulls bank deal filings, plans faster buybacks",
-     "age_h": 1.9,
-     "points": 9.5
+     "headline": "FPS Q4 Earnings Beat Estimates on Powertrain Solutions Growth",
+     "age_h": 3.8,
+     "points": 17.6
     },
-    {
-     "category": "m_and_a",
-     "headline": "Enova Withdraws Regulatory Applications for Grasshopper Bancorp Acquisition, Reaffirms Outlook",
-     "age_h": 7.8,
-     "points": 18.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 173.34,
-    "target": 204.39,
-    "stop": 160.92,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ASND",
-   "price": 231.28,
-   "score": 29.8,
-   "tech_score": 10.0,
-   "news_score": 19.8,
-   "rsi": 36.8,
-   "mom5": -14.08,
-   "vol_surge": 2.92,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Ulta Beauty, Etsy upgraded: Wall Street's top analyst calls",
-     "age_h": 4.3,
-     "points": 10.3
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "Ascendis Pharma Regains Rights to Obesity Drug, Discloses $400 Million Share Buyback",
-     "age_h": 9.2,
-     "points": 9.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 231.28,
-    "target": 261.31,
-    "stop": 219.27,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SRRK",
-   "price": 46.94,
-   "score": 27.4,
-   "tech_score": 10.6,
-   "news_score": 16.8,
-   "rsi": 23.8,
-   "mom5": -18.16,
-   "vol_surge": 1.83,
-   "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "SRRK Shares Pull Back After FDA Approval For Genetic Disease Drug — But Wall Street Hikes Price Targets",
-     "age_h": 21.4,
-     "points": 16.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 46.94,
-    "target": 55.35,
-    "stop": 43.58,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ALM",
-   "price": 14.21,
-   "score": 22.0,
-   "tech_score": 4.0,
-   "news_score": 18.0,
-   "rsi": 25.2,
-   "mom5": -25.58,
-   "vol_surge": 0.43,
-   "catalysts": [
-    {
-     "category": "big_contract",
-     "headline": "Almonty enters into tungsten partnership with Rwanda Government",
-     "age_h": 6.5,
-     "points": 18.0
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 14.21,
-    "target": 18.01,
-    "stop": 12.69,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "BOOT",
-   "price": 128.68,
-   "score": 9.8,
-   "tech_score": 2.1,
-   "news_score": 7.7,
-   "rsi": 20.4,
-   "mom5": -16.22,
-   "vol_surge": 1.76,
-   "catalysts": [
     {
      "category": "growth_news",
-     "headline": "GAP's Gross Margin Hits 41.4%: Can Expansion Continue in 2H 2026?",
-     "age_h": 3.3,
+     "headline": "AI Is Still Fueling a Data Center Boom. This Energy Stock Is Cashing In.",
+     "age_h": 20.6,
      "points": 7.7
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 128.68,
-    "target": 146.15,
-    "stop": 121.69,
+    "entry": 35.22,
+    "target": 42.12,
+    "stop": 32.45,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "VRT",
-   "price": 236.38,
-   "score": -3.4,
-   "tech_score": -8.0,
-   "news_score": 4.6,
-   "rsi": 43.0,
-   "mom5": -18.71,
-   "vol_surge": 0.6,
+   "ticker": "ZS",
+   "price": 194.94,
+   "score": 56.6,
+   "tech_score": 46.0,
+   "news_score": 10.6,
+   "rsi": 62.4,
+   "mom5": 17.35,
+   "vol_surge": 0.57,
    "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "Vertiv Sees Data Center Demand Strengthen as AI Infrastructure Pipeline Expands",
-     "age_h": 39.8,
-     "points": 4.6
+     "category": "earnings_beat",
+     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
+     "age_h": 27.8,
+     "points": 10.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 194.94,
+    "target": 216.28,
+    "stop": 182.14,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "S",
+   "price": 23.19,
+   "score": 46.6,
+   "tech_score": 36.0,
+   "news_score": 10.6,
+   "rsi": 61.7,
+   "mom5": 19.36,
+   "vol_surge": 0.37,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
+     "age_h": 27.8,
+     "points": 10.6
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 23.19,
+    "target": 25.78,
+    "stop": 21.64,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SWKS",
+   "price": 87.38,
+   "score": 39.2,
+   "tech_score": 28.0,
+   "news_score": 11.2,
+   "rsi": 71.8,
+   "mom5": 14.4,
+   "vol_surge": 0.57,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Skyworks gains 12% on Apple component hopes and Qorvo merger progress",
+     "age_h": 24.2,
+     "points": 11.2
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 87.38,
+    "target": 97.84,
+    "stop": 81.11,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PNTG",
+   "price": 41.84,
+   "score": 38.8,
+   "tech_score": 35.7,
+   "news_score": 3.1,
+   "rsi": 70.3,
+   "mom5": 5.66,
+   "vol_surge": 2.92,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "All You Need to Know About The Pennant Group (PNTG) Rating Upgrade to Buy",
+     "age_h": 49.8,
+     "points": 3.1
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 41.84,
+    "target": 44.51,
+    "stop": 40.24,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MEDS",
+   "price": 5.82,
+   "score": 38.7,
+   "tech_score": 20.0,
+   "news_score": 18.7,
+   "rsi": 89.6,
+   "mom5": 583.9,
+   "vol_surge": 13.9,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "DataMEDS AI Completes $1.5 Million Helomics Acquisition, Expanding into Cancer Diagnostics",
+     "age_h": 3.2,
+     "points": 18.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 5.82,
+    "target": 7.97,
+    "stop": 4.53,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "LEGN",
+   "price": 17.08,
+   "score": 15.7,
+   "tech_score": -3.0,
+   "news_score": 18.7,
+   "rsi": 26.4,
+   "mom5": -14.11,
+   "vol_surge": 1.13,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "LEGN’s New CEO From Novartis Paves Way For Buyout Speculation",
+     "age_h": 18.1,
+     "points": 18.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 17.08,
+    "target": 18.91,
+    "stop": 15.99,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SRRK",
+   "price": 48.78,
+   "score": 15.7,
+   "tech_score": 5.6,
+   "news_score": 10.1,
+   "rsi": 18.7,
+   "mom5": -10.69,
+   "vol_surge": 1.21,
+   "catalysts": [
+    {
+     "category": "fda_approval",
+     "headline": "SRRK Shares Pull Back After FDA Approval For Genetic Disease Drug — But Wall Street Hikes Price Targets",
+     "age_h": 45.3,
+     "points": 10.1
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 236.38,
-    "target": 280.34,
-    "stop": 218.79,
+    "entry": 48.78,
+    "target": 56.71,
+    "stop": 45.61,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ALM",
+   "price": 13.85,
+   "score": 14.8,
+   "tech_score": 4.0,
+   "news_score": 10.8,
+   "rsi": 26.1,
+   "mom5": -24.52,
+   "vol_surge": 0.34,
+   "catalysts": [
+    {
+     "category": "big_contract",
+     "headline": "Almonty enters into tungsten partnership with Rwanda Government",
+     "age_h": 30.5,
+     "points": 10.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 13.85,
+    "target": 17.64,
+    "stop": 12.33,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "ENVA",
+   "price": 173.16,
+   "score": 12.9,
+   "tech_score": -4.0,
+   "news_score": 16.9,
+   "rsi": 17.0,
+   "mom5": -22.71,
+   "vol_surge": 0.76,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Enova drops 25% as it pulls bank deal filings, plans faster buybacks",
+     "age_h": 25.8,
+     "points": 5.7
+    },
+    {
+     "category": "m_and_a",
+     "headline": "Enova Withdraws Regulatory Applications for Grasshopper Bancorp Acquisition, Reaffirms Outlook",
+     "age_h": 31.8,
+     "points": 11.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 173.16,
+    "target": 203.24,
+    "stop": 161.13,
     "hold": "2-8 კვირა"
    }
   }
@@ -219,38 +269,38 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 171,
-   "win_rate": 24.0,
-   "avg_return": -1.09,
-   "weight_now": 0.79
+   "n": 173,
+   "win_rate": 24.9,
+   "avg_return": -0.98,
+   "weight_now": 0.8
   },
   {
    "category": "growth_news",
-   "n": 94,
-   "win_rate": 21.3,
-   "avg_return": -4.27,
+   "n": 99,
+   "win_rate": 21.2,
+   "avg_return": -4.36,
    "weight_now": 0.77
   },
   {
    "category": "m_and_a",
-   "n": 86,
-   "win_rate": 15.1,
-   "avg_return": -2.55,
+   "n": 87,
+   "win_rate": 14.9,
+   "avg_return": -2.5,
    "weight_now": 0.72
   },
   {
    "category": "analyst_upgrade",
-   "n": 60,
-   "win_rate": 11.7,
-   "avg_return": -7.29,
-   "weight_now": 0.69
+   "n": 63,
+   "win_rate": 12.7,
+   "avg_return": -7.08,
+   "weight_now": 0.7
   },
   {
    "category": "guidance_raise",
-   "n": 34,
-   "win_rate": 35.3,
-   "avg_return": -0.82,
-   "weight_now": 0.88
+   "n": 35,
+   "win_rate": 37.1,
+   "avg_return": -0.64,
+   "weight_now": 0.9
   },
   {
    "category": "buyback_dividend",
