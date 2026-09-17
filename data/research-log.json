@@ -5564,7 +5564,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 10.07,
+  "return_pct": -7.87,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-10T17:17:28.117034+00:00",
@@ -5575,7 +5578,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 90.27,
+  "return_pct": 7.82,
+  "outcome": "win"
  },
  {
   "date": "2026-09-10T17:17:28.117038+00:00",
@@ -5586,7 +5592,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 162.85,
+  "return_pct": 5.5,
+  "outcome": "win"
  },
  {
   "date": "2026-09-10T17:17:28.117040+00:00",
@@ -5597,7 +5606,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 101.68,
+  "return_pct": 3.6,
+  "outcome": "win"
  },
  {
   "date": "2026-09-10T17:17:28.117044+00:00",
@@ -5608,7 +5620,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.04,
+  "return_pct": -6.6,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-10T17:17:28.117048+00:00",
@@ -5619,7 +5634,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 13.48,
+  "return_pct": 3.49,
+  "outcome": "win"
  },
  {
   "date": "2026-09-10T17:17:28.117050+00:00",
@@ -5630,7 +5648,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.27,
+  "return_pct": -36.89,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-10T17:17:28.117057+00:00",
@@ -5641,7 +5662,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 17.55,
+  "return_pct": 2.87,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-10T17:17:28.117061+00:00",
@@ -5652,7 +5676,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 29.12,
+  "return_pct": 6.2,
+  "outcome": "win"
  },
  {
   "date": "2026-09-10T17:17:28.117065+00:00",
@@ -5664,7 +5691,10 @@
    "buyback_dividend",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 605.34,
+  "return_pct": -5.09,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-11T17:19:23.075412+00:00",
@@ -6045,6 +6075,117 @@
   "catalyst_cats": [
    "buyback_dividend",
    "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746074+00:00",
+  "ticker": "DELL",
+  "entry": 585.85,
+  "score": 63.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746086+00:00",
+  "ticker": "BBNX",
+  "entry": 21.19,
+  "score": 56.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "fda_approval"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746090+00:00",
+  "ticker": "FPS",
+  "entry": 37.23,
+  "score": 47.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746095+00:00",
+  "ticker": "GNRC",
+  "entry": 208.11,
+  "score": 45.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746098+00:00",
+  "ticker": "ZS",
+  "entry": 195.57,
+  "score": 41.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746101+00:00",
+  "ticker": "ACVA",
+  "entry": 10.48,
+  "score": 40.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746105+00:00",
+  "ticker": "AEMD",
+  "entry": 6.74,
+  "score": 39.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746112+00:00",
+  "ticker": "VICR",
+  "entry": 215.32,
+  "score": 38.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746116+00:00",
+  "ticker": "MRNA",
+  "entry": 155.69,
+  "score": 38.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-17T17:52:31.746119+00:00",
+  "ticker": "FCEL",
+  "entry": 17.97,
+  "score": 35.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
   ],
   "status": "open"
  }

@@ -1,267 +1,261 @@
 {
- "updated": "2026-09-16T17:48:05.179567+00:00",
+ "updated": "2026-09-17T17:52:31.746166+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on FPS (score 57.5). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on DELL (score 63.6). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "FPS",
-   "price": 35.22,
-   "score": 57.5,
-   "tech_score": 32.2,
-   "news_score": 25.3,
-   "rsi": 56.9,
-   "mom5": 13.52,
-   "vol_surge": 1.53,
+   "ticker": "DELL",
+   "price": 585.85,
+   "score": 63.6,
+   "tech_score": 46.0,
+   "news_score": 17.6,
+   "rsi": 67.1,
+   "mom5": 15.42,
+   "vol_surge": 0.65,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "FPS Q4 Earnings Beat Estimates on Powertrain Solutions Growth",
-     "age_h": 3.8,
+     "headline": "Did NetApp Borrow Its Record Quarter From The Rest Of The Year?",
+     "age_h": 2.7,
      "points": 17.6
-    },
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 585.85,
+    "target": 659.19,
+    "stop": 541.85,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "BBNX",
+   "price": 21.19,
+   "score": 56.3,
+   "tech_score": 39.5,
+   "news_score": 16.8,
+   "rsi": 56.8,
+   "mom5": 27.43,
+   "vol_surge": 1.43,
+   "catalysts": [
     {
-     "category": "growth_news",
-     "headline": "AI Is Still Fueling a Data Center Boom. This Energy Stock Is Cashing In.",
-     "age_h": 20.6,
-     "points": 7.7
+     "category": "fda_approval",
+     "headline": "Beta Bionics Stock Surges on FDA Clearance for Mint Patch Pump",
+     "age_h": 1.9,
+     "points": 16.8
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 35.22,
-    "target": 42.12,
-    "stop": 32.45,
+    "entry": 21.19,
+    "target": 26.04,
+    "stop": 19.26,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FPS",
+   "price": 37.23,
+   "score": 47.2,
+   "tech_score": 32.0,
+   "news_score": 15.2,
+   "rsi": 62.1,
+   "mom5": 27.4,
+   "vol_surge": 1.5,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "FPS Q4 Earnings Beat Estimates on Powertrain Solutions Growth",
+     "age_h": 27.8,
+     "points": 10.6
+    },
+    {
+     "category": "growth_news",
+     "headline": "AI Is Still Fueling a Data Center Boom. This Energy Stock Is Cashing In.",
+     "age_h": 44.7,
+     "points": 4.7
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 37.23,
+    "target": 44.4,
+    "stop": 34.36,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GNRC",
+   "price": 208.11,
+   "score": 45.8,
+   "tech_score": 38.0,
+   "news_score": 7.8,
+   "rsi": 56.1,
+   "mom5": 14.83,
+   "vol_surge": 5.11,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Generac Surges 16% on $2.4B Amazon Data Center Generator Deal; Caterpillar Ticks Up, Cummins Sits Out the Rally",
+     "age_h": 2.1,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 208.11,
+    "target": 239.86,
+    "stop": 195.41,
     "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "ZS",
-   "price": 194.94,
-   "score": 56.6,
-   "tech_score": 46.0,
-   "news_score": 10.6,
-   "rsi": 62.4,
-   "mom5": 17.35,
-   "vol_surge": 0.57,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
-     "age_h": 27.8,
-     "points": 10.6
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 194.94,
-    "target": 216.28,
-    "stop": 182.14,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "S",
-   "price": 23.19,
-   "score": 46.6,
+   "price": 195.57,
+   "score": 41.3,
    "tech_score": 36.0,
-   "news_score": 10.6,
-   "rsi": 61.7,
-   "mom5": 19.36,
-   "vol_surge": 0.37,
+   "news_score": 5.3,
+   "rsi": 54.7,
+   "mom5": 19.63,
+   "vol_surge": 0.54,
    "catalysts": [
     {
      "category": "earnings_beat",
      "headline": "Is CrowdStrike Stock Betting That Its Record Quarter Is The New Normal?",
-     "age_h": 27.8,
-     "points": 10.6
+     "age_h": 51.9,
+     "points": 5.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 23.19,
-    "target": 25.78,
-    "stop": 21.64,
+    "entry": 195.57,
+    "target": 215.56,
+    "stop": 183.57,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SWKS",
-   "price": 87.38,
-   "score": 39.2,
-   "tech_score": 28.0,
-   "news_score": 11.2,
-   "rsi": 71.8,
-   "mom5": 14.4,
-   "vol_surge": 0.57,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Skyworks gains 12% on Apple component hopes and Qorvo merger progress",
-     "age_h": 24.2,
-     "points": 11.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 87.38,
-    "target": 97.84,
-    "stop": 81.11,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "PNTG",
-   "price": 41.84,
-   "score": 38.8,
-   "tech_score": 35.7,
-   "news_score": 3.1,
-   "rsi": 70.3,
-   "mom5": 5.66,
-   "vol_surge": 2.92,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "All You Need to Know About The Pennant Group (PNTG) Rating Upgrade to Buy",
-     "age_h": 49.8,
-     "points": 3.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 41.84,
-    "target": 44.51,
-    "stop": 40.24,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "MEDS",
-   "price": 5.82,
-   "score": 38.7,
-   "tech_score": 20.0,
-   "news_score": 18.7,
-   "rsi": 89.6,
-   "mom5": 583.9,
-   "vol_surge": 13.9,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "DataMEDS AI Completes $1.5 Million Helomics Acquisition, Expanding into Cancer Diagnostics",
-     "age_h": 3.2,
-     "points": 18.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 5.82,
-    "target": 7.97,
-    "stop": 4.53,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "LEGN",
-   "price": 17.08,
-   "score": 15.7,
-   "tech_score": -3.0,
-   "news_score": 18.7,
-   "rsi": 26.4,
-   "mom5": -14.11,
-   "vol_surge": 1.13,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "LEGN’s New CEO From Novartis Paves Way For Buyout Speculation",
-     "age_h": 18.1,
-     "points": 18.7
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 17.08,
-    "target": 18.91,
-    "stop": 15.99,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "SRRK",
-   "price": 48.78,
-   "score": 15.7,
-   "tech_score": 5.6,
-   "news_score": 10.1,
-   "rsi": 18.7,
-   "mom5": -10.69,
-   "vol_surge": 1.21,
-   "catalysts": [
-    {
-     "category": "fda_approval",
-     "headline": "SRRK Shares Pull Back After FDA Approval For Genetic Disease Drug — But Wall Street Hikes Price Targets",
-     "age_h": 45.3,
-     "points": 10.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 48.78,
-    "target": 56.71,
-    "stop": 45.61,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ALM",
-   "price": 13.85,
-   "score": 14.8,
-   "tech_score": 4.0,
-   "news_score": 10.8,
-   "rsi": 26.1,
-   "mom5": -24.52,
-   "vol_surge": 0.34,
-   "catalysts": [
-    {
-     "category": "big_contract",
-     "headline": "Almonty enters into tungsten partnership with Rwanda Government",
-     "age_h": 30.5,
-     "points": 10.8
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 13.85,
-    "target": 17.64,
-    "stop": 12.33,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ENVA",
-   "price": 173.16,
-   "score": 12.9,
-   "tech_score": -4.0,
-   "news_score": 16.9,
-   "rsi": 17.0,
-   "mom5": -22.71,
-   "vol_surge": 0.76,
+   "ticker": "ACVA",
+   "price": 10.48,
+   "score": 40.2,
+   "tech_score": 30.7,
+   "news_score": 9.5,
+   "rsi": 85.1,
+   "mom5": 45.08,
+   "vol_surge": 1.34,
    "catalysts": [
     {
      "category": "buyback_dividend",
-     "headline": "Enova drops 25% as it pulls bank deal filings, plans faster buybacks",
-     "age_h": 25.8,
-     "points": 5.7
-    },
-    {
-     "category": "m_and_a",
-     "headline": "Enova Withdraws Regulatory Applications for Grasshopper Bancorp Acquisition, Reaffirms Outlook",
-     "age_h": 31.8,
-     "points": 11.2
+     "headline": "ACV Auctions (ACVA) Jumps on Top-Line Growth and Large Buyback Authorization",
+     "age_h": 4.2,
+     "points": 9.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 173.16,
-    "target": 203.24,
-    "stop": 161.13,
+    "entry": 10.48,
+    "target": 11.98,
+    "stop": 9.87,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "AEMD",
+   "price": 6.74,
+   "score": 39.0,
+   "tech_score": 20.0,
+   "news_score": 19.0,
+   "rsi": 83.0,
+   "mom5": 318.59,
+   "vol_surge": 11.45,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Aethlon Medical Shares Surge Over 400% After Announcing North Immunology Merger",
+     "age_h": 5.3,
+     "points": 19.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 6.74,
+    "target": 8.39,
+    "stop": 5.75,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "VICR",
+   "price": 215.32,
+   "score": 38.7,
+   "tech_score": 30.9,
+   "news_score": 7.8,
+   "rsi": 54.5,
+   "mom5": 21.36,
+   "vol_surge": 1.37,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Vicor (VICR) Plans Two More ChiP Fabs. Can Utilization Justify Expansion?",
+     "age_h": 13.2,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 215.32,
+    "target": 258.32,
+    "stop": 198.12,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "MRNA",
+   "price": 155.69,
+   "score": 38.3,
+   "tech_score": 36.0,
+   "news_score": 2.3,
+   "rsi": 59.8,
+   "mom5": 13.72,
+   "vol_surge": 0.51,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Eli Lilly Eyes Obesity Access Expansion With Zepbound, Foundayo and Pipeline Bets",
+     "age_h": 69.8,
+     "points": 2.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 155.69,
+    "target": 186.55,
+    "stop": 143.35,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FCEL",
+   "price": 17.97,
+   "score": 35.8,
+   "tech_score": 28.0,
+   "news_score": 7.8,
+   "rsi": 45.2,
+   "mom5": 14.11,
+   "vol_surge": 0.87,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "FuelCell Jumps 13% as House Shifts Data Center Power Costs to Operators; Plug Power Climbs 7%, Bloom Energy Rises 3%",
+     "age_h": 2.0,
+     "points": 7.8
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 17.97,
+    "target": 22.44,
+    "stop": 16.18,
     "hold": "2-8 კვირა"
    }
   }
@@ -269,30 +263,30 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 173,
-   "win_rate": 24.9,
+   "n": 177,
+   "win_rate": 25.4,
    "avg_return": -0.98,
    "weight_now": 0.8
   },
   {
    "category": "growth_news",
-   "n": 99,
-   "win_rate": 21.2,
-   "avg_return": -4.36,
-   "weight_now": 0.77
+   "n": 101,
+   "win_rate": 22.8,
+   "avg_return": -4.17,
+   "weight_now": 0.78
   },
   {
    "category": "m_and_a",
-   "n": 87,
-   "win_rate": 14.9,
-   "avg_return": -2.5,
-   "weight_now": 0.72
+   "n": 89,
+   "win_rate": 15.7,
+   "avg_return": -2.77,
+   "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 63,
-   "win_rate": 12.7,
-   "avg_return": -7.08,
+   "n": 65,
+   "win_rate": 12.3,
+   "avg_return": -6.92,
    "weight_now": 0.7
   },
   {
@@ -304,9 +298,9 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 29,
-   "win_rate": 24.1,
-   "avg_return": -0.42,
+   "n": 30,
+   "win_rate": 23.3,
+   "avg_return": -0.58,
    "weight_now": 0.79
   },
   {
@@ -324,7 +318,7 @@
    "weight_now": 1.0
   }
  ],
- "scanned": 5972,
+ "scanned": 5970,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
