@@ -14,15 +14,16 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [
-      { ticker: 'QBTS', name: 'D-Wave Quantum Inc',           shares: 3.63128540, avgBuy: 18.06,  invested: 65.56,  value: 65.56,  color: '#a855f7', divYield: 0.00 },
-    ],
-    cash: 0.00, // 14 Sep 2026: all non-QBTS positions liquidated ($123.07) & withdrawn to card -> net cash balance $0.00
+    holdings: [],
+    cash: 0.00, // 17 Sep 2026: all remaining positions (QBTS) liquidated ($60.00) & withdrawn to card -> net cash balance $0.00
     previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 17 სექ 2026 BOG: თანხის გატანა ($60.00) · QBTS სრული ლიკვიდაცია · net cash $0.00 ---
+      { date: '2026-09-17', type: 'withdraw', amount: 60.00, note: 'ბარათზე გატანა · QBTS სრული ლიკვიდაცია' },
+      { date: '2026-09-17', type: 'sell',    ticker: 'QBTS', shares: 3.63128540, price: 16.5231, commission: 0 },
       // --- 14 სექ 2026 BOG: თანხის გატანა ($123.07) · ყველა პოზიციის დახურვა (MRVL, RKLB, SOXX, NVTS) · net cash $0.00 ---
       { date: '2026-09-14', type: 'withdraw', amount: 123.07, note: 'ბარათზე გატანა · პოზიციების ლიკვიდაცია (MRVL, RKLB, SOXX, NVTS)' },
       // --- 11 სექ 2026 BOG: VRT liquidation → MRVL buy ($10.95) & full liquidation (MRVL, RKLB, SOXX, NVTS: $123.07) · BOG app ---
