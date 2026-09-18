@@ -271,16 +271,16 @@ window.PORTFOLIOS = {
     startDate: '2026-05-12',
     annualGoalPct: null,
     holdings: [
-      { ticker: 'MSTR', name: 'Strategy Inc', shares: 6.15861531, avgBuy: 125.66, invested: 773.90, value: 755.23, color: '#1a1a1a', divYield: 0.00 },
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.73, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 3.597, avgBuy: 53.51, invested: 192.48, value: 211.05, color: '#15803d', divYield: 6.20 },
-      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 75.45, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 39.60600954, avgBuy: 6.07, invested: 240.23, value: 245.16, color: '#006a4d', divYield: 3.66 },
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.00686969, avgBuy: 696.35, invested: 701.13, value: 717.23, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 199.04, color: '#dc2626', divYield: 3.10 },
-      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 151.58, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'MSTR', name: 'Strategy Inc', shares: 0.04947039, avgBuy: 125.66, invested: 6.22, value: 7.55, color: '#1a1a1a', divYield: 0.00 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.03, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 6.25684328, avgBuy: 54.74, invested: 342.48, value: 351.51, color: '#15803d', divYield: 6.20 },
+      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 77.21, color: '#7c3aed', divYield: 12.90 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 56.79227427, avgBuy: 5.99, invested: 340.23, value: 330.25, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 872.24, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 201.92, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 147.81, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 0.66, // 15 Sep 2026: MAIN dividend ($0.66 net) received in cash -> net cash $0.66
+    cash: 503.61, // 18 Sep 2026: MSTR sold ($918.91) -> VOO ($165.96), LYG ($100.00), MAIN ($150.00) bought -> net cash $503.61
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -289,6 +289,15 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 18 სექ 2026 MSTR liquidation ($918.91) → VOO ($165.96), LYG ($100.00), MAIN ($150.00) · TBC app · net cash $503.61 ---
+      { date: '2026-09-18', type: 'buy',     ticker: 'VOO',  shares: 0.23659265, price: 701.4588, commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 0.18626473, price: 5.7982,   commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 7.00000000, price: 5.81857,  commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 10.00000000, price: 5.819,   commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 0.65984328, price: 56.39218, commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 2.00000000, price: 56.395,   commission: 0 },
+      { date: '2026-09-18', type: 'sell',    ticker: 'MSTR', shares: 0.10914492, price: 150.4422, commission: 0 },
+      { date: '2026-09-18', type: 'sell',    ticker: 'MSTR', shares: 6.00000000, price: 150.415,  commission: 0 },
       // --- 15 სექ 2026 MAIN dividend · TBC app · net cash $0.66 ---
       { date: '2026-09-15', type: 'dividend', ticker: 'MAIN', amount: 0.66, note: 'დივიდენდის ჩარიცხვა $0.95 − გადასახადი $0.29 = წმინდა $0.66' },
       // --- 02 სექ 2026 MSTR purchase from DIVO dividend ($0.43) · TBC app · net cash $0.00 ---
