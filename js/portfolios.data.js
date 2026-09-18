@@ -280,7 +280,7 @@ window.PORTFOLIOS = {
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 199.04, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 151.58, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 0.00, // 02 Sep 2026: DIVO dividend ($0.43) fully reinvested into MSTR (0.00351396 sh) -> net cash $0.00
+    cash: 0.66, // 15 Sep 2026: MAIN dividend ($0.66 net) received in cash -> net cash $0.66
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -289,6 +289,8 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 15 სექ 2026 MAIN dividend · TBC app · net cash $0.66 ---
+      { date: '2026-09-15', type: 'dividend', ticker: 'MAIN', amount: 0.66, note: 'დივიდენდის ჩარიცხვა $0.95 − გადასახადი $0.29 = წმინდა $0.66' },
       // --- 02 სექ 2026 MSTR purchase from DIVO dividend ($0.43) · TBC app · net cash $0.00 ---
       { date: '2026-09-02', type: 'buy',     ticker: 'MSTR', shares: 0.00351396, price: 122.37,   commission: 0 },
       // --- 31 აგვ 2026 DIVO dividend · TBC app · net cash $0.43 ---
