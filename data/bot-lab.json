@@ -17,7 +17,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.62
+     "last_price": 22.57
     }
    ],
    "trades": [
@@ -102,7 +102,7 @@
      "leverage": 1
     }
    ],
-   "equity": 81.78,
+   "equity": 78.11,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -307,13 +307,17 @@
     {
      "date": "2026-09-17",
      "equity": 81.78
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 78.11
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 2,
     "win_rate": 25.0,
-    "return_pct": -18.22
+    "return_pct": -21.89
    }
   },
   "bot2": {
@@ -331,7 +335,7 @@
      "target": 90.71,
      "stop": 79.53,
      "max_days": 7,
-     "last_price": 90.27
+     "last_price": 89.45
     },
     {
      "ticker": "FEIM",
@@ -341,7 +345,7 @@
      "target": 94.29,
      "stop": 78.14,
      "max_days": 7,
-     "last_price": 85.05
+     "last_price": 84.3
     }
    ],
    "trades": [
@@ -706,7 +710,7 @@
      "leverage": 1
     }
    ],
-   "equity": 46.27,
+   "equity": 46.09,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -911,13 +915,17 @@
     {
      "date": "2026-09-17",
      "equity": 46.27
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 46.09
     }
    ],
    "stats": {
     "trades": 36,
     "wins": 2,
     "win_rate": 5.6,
-    "return_pct": -53.73
+    "return_pct": -53.91
    }
   },
   "bot3": {
@@ -935,27 +943,27 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 88.18
+     "last_price": 89.28
     },
     {
-     "ticker": "MSTR",
-     "shares": 0.144573,
-     "entry": 125.76000213623047,
-     "entry_date": "2026-08-24",
-     "target": 144.73,
-     "stop": 118.37,
+     "ticker": "BBNX",
+     "shares": 0.915748,
+     "entry": 21.989999771118164,
+     "entry_date": "2026-09-18",
+     "target": 26.84,
+     "stop": 19.98,
      "max_days": 40,
-     "last_price": 132.38
+     "last_price": 21.989999771118164
     },
     {
-     "ticker": "CRM",
-     "shares": 0.085806,
-     "entry": 254.64500427246094,
-     "entry_date": "2026-09-02",
-     "target": 288.43,
-     "stop": 241.07,
+     "ticker": "PGEN",
+     "shares": 2.578399,
+     "entry": 7.809999942779541,
+     "entry_date": "2026-09-18",
+     "target": 8.73,
+     "stop": 7.44,
      "max_days": 40,
-     "last_price": 243.63
+     "last_price": 7.809999942779541
     }
    ],
    "trades": [
@@ -1018,9 +1026,29 @@
      "ret_pct": -15.77,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "MSTR",
+     "entry": 125.76000213623047,
+     "exit": 150.49,
+     "entry_date": "2026-08-24",
+     "exit_date": "2026-09-18",
+     "ret_pct": 13.79,
+     "reason": "target",
+     "leverage": 1
+    },
+    {
+     "ticker": "CRM",
+     "entry": 254.64500427246094,
+     "exit": 239.11,
+     "entry_date": "2026-09-02",
+     "exit_date": "2026-09-18",
+     "ret_pct": -10.44,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 58.13,
+   "equity": 58.59,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1225,13 +1253,17 @@
     {
      "date": "2026-09-17",
      "equity": 58.13
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 58.59
     }
    ],
    "stats": {
-    "trades": 6,
-    "wins": 0,
-    "win_rate": 0.0,
-    "return_pct": -41.87
+    "trades": 8,
+    "wins": 1,
+    "win_rate": 12.5,
+    "return_pct": -41.41
    }
   },
   "bot4": {
@@ -1249,7 +1281,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.62
+     "last_price": 22.57
     }
    ],
    "trades": [
@@ -1354,7 +1386,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.25,
+   "equity": 77.21,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1559,13 +1591,17 @@
     {
      "date": "2026-09-17",
      "equity": 78.25
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 77.21
     }
    ],
    "stats": {
     "trades": 10,
     "wins": 1,
     "win_rate": 10.0,
-    "return_pct": -21.75
+    "return_pct": -22.79
    }
   },
   "bot5": {
@@ -1842,6 +1878,10 @@
     {
      "date": "2026-09-17",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-18",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1852,5 +1892,5 @@
    }
   }
  },
- "updated": "2026-09-17T17:52:33.064939+00:00"
+ "updated": "2026-09-18T17:16:10.671752+00:00"
 }
