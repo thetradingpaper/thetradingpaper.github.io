@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-09-18T17:02:23.444Z",
+  "opened": "2026-09-11T16:59:53.344Z",
+  "ticker": "BABA",
+  "rule": "R1",
+  "entry": 109.42,
+  "exit": 113.5,
+  "exitType": "TIME",
+  "pnl": 0.75,
+  "pnlPct": 3.73
+ },
+ {
   "closed": "2026-09-15T17:38:00.194Z",
   "opened": "2026-09-08T17:12:52.700Z",
   "ticker": "TSLA",

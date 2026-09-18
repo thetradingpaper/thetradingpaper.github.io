@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 36.75,
+ "cash": 57.5,
  "positions": [
-  {
-   "ticker": "BABA",
-   "opened": "2026-09-11T16:59:53.344Z",
-   "rule": "R1",
-   "reason": "R1 oversold bounce · RSI 27.9 < 32 · პირველი მწვანე",
-   "entry": 109.42,
-   "shares": 0.182782,
-   "cost": 20,
-   "target": 114.84,
-   "stop": 105.36
-  },
   {
    "ticker": "MSTR",
    "opened": "2026-09-14T18:31:41.744Z",
@@ -265,6 +254,10 @@
   {
    "date": "2026-09-17",
    "equity": 96.21
+  },
+  {
+   "date": "2026-09-18",
+   "equity": 99.53
   }
  ]
 }
