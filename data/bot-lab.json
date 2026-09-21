@@ -17,7 +17,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 22.57
+     "last_price": 23.57
     }
    ],
    "trades": [
@@ -102,7 +102,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.11,
+   "equity": 81.57,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -311,13 +311,17 @@
     {
      "date": "2026-09-18",
      "equity": 78.11
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 81.57
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 2,
     "win_rate": 25.0,
-    "return_pct": -21.89
+    "return_pct": -18.43
    }
   },
   "bot2": {
@@ -325,29 +329,8 @@
    "name_ka": "ბოტი 2 · დივერსიფიკაცია",
    "desc_ka": "$100 იყოფა ტოპ 5 არჩევანზე",
    "start": 100,
-   "cash": 26.35677216813698,
-   "positions": [
-    {
-     "ticker": "SWKS",
-     "shares": 0.113838,
-     "entry": 83.79499816894531,
-     "entry_date": "2026-09-10",
-     "target": 90.71,
-     "stop": 79.53,
-     "max_days": 7,
-     "last_price": 89.45
-    },
-    {
-     "ticker": "FEIM",
-     "shares": 0.113291,
-     "entry": 84.19999694824219,
-     "entry_date": "2026-09-11",
-     "target": 94.29,
-     "stop": 78.14,
-     "max_days": 7,
-     "last_price": 84.3
-    }
-   ],
+   "cash": 45.54290853763619,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -708,9 +691,29 @@
      "ret_pct": -17.11,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "SWKS",
+     "entry": 83.79499816894531,
+     "exit": 88.96,
+     "entry_date": "2026-09-10",
+     "exit_date": "2026-09-21",
+     "ret_pct": -4.1,
+     "reason": "time",
+     "leverage": 1
+    },
+    {
+     "ticker": "FEIM",
+     "entry": 84.19999694824219,
+     "exit": 88.79,
+     "entry_date": "2026-09-11",
+     "exit_date": "2026-09-21",
+     "ret_pct": -4.78,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 46.09,
+   "equity": 45.54,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -919,13 +922,17 @@
     {
      "date": "2026-09-18",
      "equity": 46.09
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 45.54
     }
    ],
    "stats": {
-    "trades": 36,
+    "trades": 38,
     "wins": 2,
-    "win_rate": 5.6,
-    "return_pct": -53.91
+    "win_rate": 5.3,
+    "return_pct": -54.46
    }
   },
   "bot3": {
@@ -943,7 +950,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 89.28
+     "last_price": 89.45
     },
     {
      "ticker": "BBNX",
@@ -953,7 +960,7 @@
      "target": 26.84,
      "stop": 19.98,
      "max_days": 40,
-     "last_price": 21.989999771118164
+     "last_price": 22.15
     },
     {
      "ticker": "PGEN",
@@ -963,7 +970,7 @@
      "target": 8.73,
      "stop": 7.44,
      "max_days": 40,
-     "last_price": 7.809999942779541
+     "last_price": 7.72
     }
    ],
    "trades": [
@@ -1048,7 +1055,7 @@
      "leverage": 1
     }
    ],
-   "equity": 58.59,
+   "equity": 58.54,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1257,13 +1264,17 @@
     {
      "date": "2026-09-18",
      "equity": 58.59
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 58.54
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 1,
     "win_rate": 12.5,
-    "return_pct": -41.41
+    "return_pct": -41.46
    }
   },
   "bot4": {
@@ -1281,7 +1292,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 22.57
+     "last_price": 23.57
     }
    ],
    "trades": [
@@ -1386,7 +1397,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.21,
+   "equity": 78.19,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1595,13 +1606,17 @@
     {
      "date": "2026-09-18",
      "equity": 77.21
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 78.19
     }
    ],
    "stats": {
     "trades": 10,
     "wins": 1,
     "win_rate": 10.0,
-    "return_pct": -22.79
+    "return_pct": -21.81
    }
   },
   "bot5": {
@@ -1882,6 +1897,10 @@
     {
      "date": "2026-09-18",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-21",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1892,5 +1911,5 @@
    }
   }
  },
- "updated": "2026-09-18T17:16:10.671752+00:00"
+ "updated": "2026-09-21T18:59:00.568395+00:00"
 }
