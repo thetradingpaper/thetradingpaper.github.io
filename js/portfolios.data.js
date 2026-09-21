@@ -16,7 +16,7 @@ window.PORTFOLIOS = {
     annualGoalPct: 35,
     holdings: [],
     cash: 0.00, // 17 Sep 2026: all remaining positions (QBTS) liquidated ($60.00) & withdrawn to card -> net cash balance $0.00
-    previousValue: 671.08, // 11 Aug 2026 value prior to closing SMCZ position
+    previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
@@ -272,13 +272,13 @@ window.PORTFOLIOS = {
     annualGoalPct: null,
     holdings: [
       { ticker: 'MSTR', name: 'Strategy Inc', shares: 3.03225139, avgBuy: 166.95, invested: 506.22, value: 502.72, color: '#1a1a1a', divYield: 0.00 },
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.03, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.32, color: '#1d4ed8', divYield: 10.40 },
       { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 6.25639610, avgBuy: 54.73, invested: 342.44, value: 351.80, color: '#15803d', divYield: 6.20 },
-      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 77.21, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 56.79227427, avgBuy: 5.99, invested: 340.23, value: 330.25, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 77.24, color: '#7c3aed', divYield: 12.90 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 56.79242792, avgBuy: 5.99, invested: 340.36, value: 335.08, color: '#006a4d', divYield: 3.66 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 872.24, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.13, invested: 199.40, value: 201.92, color: '#dc2626', divYield: 3.10 },
-      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.58, value: 147.81, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.08, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 148.49, color: '#0284c7', divYield: 4.50 },
     ],
     cash: 2.11, // 21 Sep 2026: MSTR bought ($500.00) + fee ($1.50) -> net cash $2.11
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
@@ -294,7 +294,7 @@ window.PORTFOLIOS = {
       { date: '2026-09-21', type: 'buy',     ticker: 'MSTR', shares: 2.00000000, price: 167.63,   commission: 1.50 },
       // --- 18 სექ 2026 MSTR liquidation ($918.91) → VOO ($165.96), LYG ($100.00), MAIN ($150.00) · TBC app · net cash $503.61 ---
       { date: '2026-09-18', type: 'buy',     ticker: 'VOO',  shares: 0.23659265, price: 701.4588, commission: 0 },
-      { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 0.18626473, price: 5.7982,   commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 0.18641838, price: 5.7982,   commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 7.00000000, price: 5.81857,  commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 10.00000000, price: 5.819,   commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 0.65939610, price: 56.3698,  commission: 0 },
