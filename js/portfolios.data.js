@@ -273,7 +273,7 @@ window.PORTFOLIOS = {
     holdings: [
       { ticker: 'MSTR', name: 'Strategy Inc', shares: 3.03225139, avgBuy: 166.95, invested: 506.22, value: 502.72, color: '#1a1a1a', divYield: 0.00 },
       { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.03, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 6.25684328, avgBuy: 54.74, invested: 342.48, value: 351.51, color: '#15803d', divYield: 6.20 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 6.25639610, avgBuy: 54.73, invested: 342.44, value: 351.80, color: '#15803d', divYield: 6.20 },
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 77.21, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 56.79227427, avgBuy: 5.99, invested: 340.23, value: 330.25, color: '#006a4d', divYield: 3.66 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 872.24, color: '#2563eb', divYield: 1.30 },
@@ -297,7 +297,7 @@ window.PORTFOLIOS = {
       { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 0.18626473, price: 5.7982,   commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 7.00000000, price: 5.81857,  commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'LYG',  shares: 10.00000000, price: 5.819,   commission: 0 },
-      { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 0.65984328, price: 56.39218, commission: 0 },
+      { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 0.65939610, price: 56.3698,  commission: 0 },
       { date: '2026-09-18', type: 'buy',     ticker: 'MAIN', shares: 2.00000000, price: 56.395,   commission: 0 },
       { date: '2026-09-18', type: 'sell',    ticker: 'MSTR', shares: 0.10914492, price: 150.4422, commission: 0 },
       { date: '2026-09-18', type: 'sell',    ticker: 'MSTR', shares: 6.00000000, price: 150.415,  commission: 0 },
