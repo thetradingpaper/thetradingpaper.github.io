@@ -73,7 +73,7 @@
       estDivPerShare: 0.11,
       months: [4, 8], // May, Sep (0-indexed)
       getDates: function (year, month) {
-        var pDay = (month === 4) ? 22 : 18;
+        var pDay = (month === 4) ? 22 : 25; // ADR payout Sep 25
         return {
           exDate: formatDateIso(year, month, pDay - 14),
           payDate: formatDateIso(year, month, pDay)

@@ -76,16 +76,27 @@
   var bookColors = { bog:'#b91c1c', tbc:'#1a1a1a', galt:'#8b6914' };
   var TAX = 0.70; // net after 30% GE withholding
 
-  var divMeta = { MAIN: {estDivPerShare:0.245, freq:'monthly'}, ARCC: {estDivPerShare:0.48, freq:'quarterly'}, BXSL: {estDivPerShare:0.77, freq:'quarterly'}, LYG: {estDivPerShare:0.11, freq:'semi-annual'}, VOO: {estDivPerShare:1.962, freq:'quarterly'} };
+  var divMeta = (window.TP_DIVIDENDS && window.TP_DIVIDENDS.DIV_META) ? window.TP_DIVIDENDS.DIV_META : {
+    MAIN: { estDivPerShare: 0.265, freq: 'monthly', supplementalPerShare: 0.30, supplementalMonths: [2, 5, 8, 11] },
+    ARCC: { estDivPerShare: 0.48, freq: 'quarterly' },
+    BXSL: { estDivPerShare: 0.77, freq: 'quarterly' },
+    LYG:  { estDivPerShare: 0.11, freq: 'semi-annual' },
+    VOO:  { estDivPerShare: 1.962, freq: 'quarterly' },
+    KO:   { estDivPerShare: 0.53, freq: 'quarterly' },
+    DIVO: { estDivPerShare: 0.1834, freq: 'monthly' }
+  };
   var rows=[], grossTot=0, valTot=0;
   ['bog','tbc','galt'].forEach(function(k){
     var p=P[k]; if(!p||!p.holdings) return;
     p.holdings.forEach(function(h){
       valTot += (+h.value||0);
       var meta = divMeta[h.ticker];
-      if (meta) {
+      if (meta && meta.estDivPerShare) {
         var freqMult = (meta.freq === 'monthly') ? 12 : (meta.freq === 'semi-annual') ? 2 : 4;
         var gross = (+h.shares || 0) * meta.estDivPerShare * freqMult;
+        if (meta.supplementalPerShare && meta.supplementalMonths) {
+          gross += (+h.shares || 0) * meta.supplementalPerShare * meta.supplementalMonths.length;
+        }
         grossTot += gross;
         var yld = h.value > 0 ? (gross / h.value * 100) : (h.divYield || 0);
         rows.push({ticker:h.ticker, book:k, bookName:p.name||k.toUpperCase(), value:+h.value||0, yld:yld, gross:gross, net:gross*TAX});
