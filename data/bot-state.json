@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 81.84,
+ "cash": 41.84,
  "positions": [
   {
    "ticker": "TSLA",
@@ -13,6 +13,28 @@
    "cost": 20,
    "target": 389.39,
    "stop": 340.25
+  },
+  {
+   "ticker": "MSTR",
+   "opened": "2026-09-21T22:10:32.382Z",
+   "rule": "R2",
+   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $154.02 · მოცულობა 1.5×",
+   "entry": 168.5,
+   "shares": 0.118694,
+   "cost": 20,
+   "target": 189.1,
+   "stop": 153.05
+  },
+  {
+   "ticker": "PLTR",
+   "opened": "2026-09-21T22:10:32.382Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 183.09,
+   "shares": 0.109236,
+   "cost": 20,
+   "target": 197.67,
+   "stop": 172.16
   }
  ],
  "equityHistory": [
@@ -250,7 +272,7 @@
   },
   {
    "date": "2026-09-21",
-   "equity": 102.54
+   "equity": 102.61
   }
  ]
 }
