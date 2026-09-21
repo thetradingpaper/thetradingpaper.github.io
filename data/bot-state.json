@@ -1,19 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 57.5,
+ "cash": 81.84,
  "positions": [
-  {
-   "ticker": "MSTR",
-   "opened": "2026-09-14T18:31:41.744Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 136.67,
-   "shares": 0.146338,
-   "cost": 20,
-   "target": 155.57,
-   "stop": 122.49
-  },
   {
    "ticker": "TSLA",
    "opened": "2026-09-16T17:35:35.228Z",
@@ -258,6 +247,10 @@
   {
    "date": "2026-09-18",
    "equity": 100.19
+  },
+  {
+   "date": "2026-09-21",
+   "equity": 102.54
   }
  ]
 }
