@@ -271,15 +271,15 @@ window.PORTFOLIOS = {
     startDate: '2026-05-12',
     annualGoalPct: null,
     holdings: [
-      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 2.27151778, avgBuy: 18.47, invested: 41.96, value: 44.32, color: '#1d4ed8', divYield: 10.40 },
-      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 6.25639610, avgBuy: 54.73, invested: 342.44, value: 351.80, color: '#15803d', divYield: 6.20 },
-      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 3.09841001, avgBuy: 23.35, invested: 72.34, value: 77.24, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 56.79242792, avgBuy: 5.99, invested: 340.36, value: 335.08, color: '#006a4d', divYield: 3.66 },
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 886.63, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.08, color: '#dc2626', divYield: 3.10 },
-      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 148.49, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 4.31918651, avgBuy: 18.89, invested: 81.60, value: 83.62, color: '#1d4ed8', divYield: 10.40 },
+      { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 7.69081465, avgBuy: 54.98, invested: 422.87, value: 430.84, color: '#15803d', divYield: 6.20 },
+      { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 17.24634077, avgBuy: 24.49, invested: 422.34, value: 427.54, color: '#7c3aed', divYield: 12.90 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 63.39125402, avgBuy: 5.97, invested: 378.36, value: 367.67, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 887.20, color: '#2563eb', divYield: 1.30 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.26, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 147.99, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 509.59, // 22 Sep 2026: MSTR sold ($509.01) - fee ($1.53) + prev ($2.11) -> net cash $509.59
+    cash: 0.00, // 22 Sep 2026: fully reinvested ($509.59: BXSL $351.05, MAIN $80.67, ARCC $39.76, LYG $38.11 incl fees) -> net cash $0.00
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -288,6 +288,15 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 22 სექ 2026 TBC dividend reinvestment ($509.59 total) · MAIN ($80.67), LYG ($38.11), ARCC ($39.76), BXSL ($351.05) · net cash $0.00 ---
+      { date: '2026-09-22', type: 'buy',     ticker: 'MAIN', shares: 0.43441855, price: 56.07495, commission: 0 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'MAIN', shares: 1.00000000, price: 56.07,    commission: 0.24 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'LYG',  shares: 0.59882610, price: 5.76127,  commission: 0 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'LYG',  shares: 6.00000000, price: 5.75833,  commission: 0.11 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'ARCC', shares: 0.04766873, price: 19.29986, commission: 0 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'ARCC', shares: 2.00000000, price: 19.36,    commission: 0.12 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'BXSL', shares: 0.14793076, price: 24.7413,  commission: 0 },
+      { date: '2026-09-22', type: 'buy',     ticker: 'BXSL', shares: 14.00000000, price: 24.73857, commission: 1.05 },
       // --- 22 სექ 2026 MSTR liquidation ($167.71 + $341.30 = $509.01) · TBC app · commission $1.53 · net cash $509.59 ---
       { date: '2026-09-22', type: 'sell',    ticker: 'MSTR', shares: 0.98278100, price: 170.6484, commission: 0 },
       { date: '2026-09-22', type: 'sell',    ticker: 'MSTR', shares: 2.00000000, price: 170.65,   commission: 1.53 },
