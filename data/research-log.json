@@ -5848,7 +5848,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 49.24,
+  "return_pct": 0.64,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-14T18:56:30.730881+00:00",
@@ -5859,7 +5862,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 49.57,
+  "return_pct": 1.18,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-14T18:56:30.730886+00:00",
@@ -5871,7 +5877,10 @@
    "growth_news",
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.07,
+  "return_pct": -0.83,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-14T18:56:30.730891+00:00",
@@ -5882,7 +5891,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.42,
+  "return_pct": -4.78,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-14T18:56:30.730895+00:00",
@@ -5893,7 +5905,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 86.59,
+  "return_pct": -0.24,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-14T18:56:30.730899+00:00",
@@ -5904,7 +5919,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 253.6,
+  "return_pct": 5.52,
+  "outcome": "win"
  },
  {
   "date": "2026-09-15T17:52:23.258391+00:00",
@@ -6436,6 +6454,117 @@
   "horizon": "short",
   "catalyst_cats": [
    "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891358+00:00",
+  "ticker": "WBD",
+  "entry": 30.8,
+  "score": 63.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891369+00:00",
+  "ticker": "VKTX",
+  "entry": 38.65,
+  "score": 57.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891373+00:00",
+  "ticker": "BB",
+  "entry": 8.55,
+  "score": 52.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891376+00:00",
+  "ticker": "DBRG",
+  "entry": 15.98,
+  "score": 51.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891380+00:00",
+  "ticker": "SPNT",
+  "entry": 25.82,
+  "score": 51.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891384+00:00",
+  "ticker": "ARHS",
+  "entry": 9.23,
+  "score": 49.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "big_contract"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891388+00:00",
+  "ticker": "SMCIP",
+  "entry": 68.41,
+  "score": 47.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891395+00:00",
+  "ticker": "ONON",
+  "entry": 29.66,
+  "score": 47.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891399+00:00",
+  "ticker": "MRNA",
+  "entry": 182.62,
+  "score": 43.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-22T17:52:52.891402+00:00",
+  "ticker": "DOCN",
+  "entry": 145.89,
+  "score": 42.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
   ],
   "status": "open"
  }
