@@ -5933,7 +5933,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.98,
+  "return_pct": 2.68,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-15T17:52:23.258401+00:00",
@@ -5944,7 +5947,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 211.54,
+  "return_pct": 8.87,
+  "outcome": "win"
  },
  {
   "date": "2026-09-15T17:52:23.258406+00:00",
@@ -5956,7 +5962,10 @@
    "buyback_dividend",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 169.61,
+  "return_pct": -2.15,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-15T17:52:23.258410+00:00",
@@ -5968,7 +5977,10 @@
    "analyst_upgrade",
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 223.56,
+  "return_pct": -3.34,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-15T17:52:23.258415+00:00",
@@ -5979,7 +5991,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.44,
+  "return_pct": 7.47,
+  "outcome": "win"
  },
  {
   "date": "2026-09-15T17:52:23.258418+00:00",
@@ -5990,7 +6005,10 @@
   "catalyst_cats": [
    "big_contract"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 13.53,
+  "return_pct": -4.79,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-15T17:52:23.258421+00:00",
@@ -6001,7 +6019,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 127.44,
+  "return_pct": -0.96,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-15T17:52:23.258429+00:00",
@@ -6012,7 +6033,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 250.32,
+  "return_pct": 5.9,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179484+00:00",
@@ -6024,7 +6048,10 @@
    "earnings_beat",
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 39.83,
+  "return_pct": 13.1,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179495+00:00",
@@ -6035,7 +6062,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 211.54,
+  "return_pct": 8.52,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179499+00:00",
@@ -6046,7 +6076,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 23.98,
+  "return_pct": 3.39,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179502+00:00",
@@ -6057,7 +6090,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 90.26,
+  "return_pct": 3.3,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179506+00:00",
@@ -6068,7 +6104,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 39.47,
+  "return_pct": -5.66,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-16T17:48:05.179510+00:00",
@@ -6079,7 +6118,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.85,
+  "return_pct": -33.85,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-16T17:48:05.179513+00:00",
@@ -6090,7 +6132,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 18.44,
+  "return_pct": 7.99,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179520+00:00",
@@ -6101,7 +6146,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 50.44,
+  "return_pct": 3.41,
+  "outcome": "win"
  },
  {
   "date": "2026-09-16T17:48:05.179524+00:00",
@@ -6112,7 +6160,10 @@
   "catalyst_cats": [
    "big_contract"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 13.53,
+  "return_pct": -2.31,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-16T17:48:05.179528+00:00",
@@ -6124,7 +6175,10 @@
    "buyback_dividend",
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 169.61,
+  "return_pct": -2.05,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-17T17:52:31.746074+00:00",
@@ -6565,6 +6619,117 @@
   "horizon": "long",
   "catalyst_cats": [
    "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235280+00:00",
+  "ticker": "WBD",
+  "entry": 30.71,
+  "score": 64.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235294+00:00",
+  "ticker": "WOR",
+  "entry": 60.6,
+  "score": 53.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235298+00:00",
+  "ticker": "LKFT",
+  "entry": 31.28,
+  "score": 50.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235302+00:00",
+  "ticker": "STX",
+  "entry": 918.87,
+  "score": 47.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235306+00:00",
+  "ticker": "SNDK",
+  "entry": 1828.67,
+  "score": 46.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235309+00:00",
+  "ticker": "SNX",
+  "entry": 295.71,
+  "score": 41.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235313+00:00",
+  "ticker": "ARHS",
+  "entry": 8.94,
+  "score": 38.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "big_contract"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235320+00:00",
+  "ticker": "INTC",
+  "entry": 120.6,
+  "score": 35.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235324+00:00",
+  "ticker": "FPS",
+  "entry": 39.79,
+  "score": 34.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-23T18:06:24.235328+00:00",
+  "ticker": "CIFR",
+  "entry": 18.9,
+  "score": 33.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
   ],
   "status": "open"
  }

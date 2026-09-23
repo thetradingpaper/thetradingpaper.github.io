@@ -17,7 +17,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.92
+     "last_price": 23.97
     }
    ],
    "trades": [
@@ -102,7 +102,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.82,
+   "equity": 82.97,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -319,13 +319,17 @@
     {
      "date": "2026-09-22",
      "equity": 82.82
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 82.97
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 2,
     "win_rate": 25.0,
-    "return_pct": -17.18
+    "return_pct": -17.03
    }
   },
   "bot2": {
@@ -934,6 +938,10 @@
     {
      "date": "2026-09-22",
      "equity": 45.54
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -958,7 +966,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 90.23
+     "last_price": 87.69
     },
     {
      "ticker": "BBNX",
@@ -968,17 +976,17 @@
      "target": 26.84,
      "stop": 19.98,
      "max_days": 40,
-     "last_price": 22.96
+     "last_price": 22.11
     },
     {
-     "ticker": "PGEN",
-     "shares": 2.578399,
-     "entry": 7.809999942779541,
-     "entry_date": "2026-09-18",
-     "target": 8.73,
-     "stop": 7.44,
+     "ticker": "WOR",
+     "shares": 0.300055,
+     "entry": 60.3849983215332,
+     "entry_date": "2026-09-23",
+     "target": 69.61,
+     "stop": 57.0,
      "max_days": 40,
-     "last_price": 7.97
+     "last_price": 60.3849983215332
     }
    ],
    "trades": [
@@ -1061,9 +1069,19 @@
      "ret_pct": -10.44,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "PGEN",
+     "entry": 7.809999942779541,
+     "exit": 7.41,
+     "entry_date": "2026-09-18",
+     "exit_date": "2026-09-23",
+     "ret_pct": -9.78,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 60.1,
+   "equity": 56.36,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1280,13 +1298,17 @@
     {
      "date": "2026-09-22",
      "equity": 60.1
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 56.36
     }
    ],
    "stats": {
-    "trades": 8,
+    "trades": 9,
     "wins": 1,
-    "win_rate": 12.5,
-    "return_pct": -39.9
+    "win_rate": 11.1,
+    "return_pct": -43.64
    }
   },
   "bot4": {
@@ -1304,7 +1326,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.92
+     "last_price": 23.97
     }
    ],
    "trades": [
@@ -1409,7 +1431,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.55,
+   "equity": 78.59,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1626,13 +1648,17 @@
     {
      "date": "2026-09-22",
      "equity": 78.55
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 78.59
     }
    ],
    "stats": {
     "trades": 10,
     "wins": 1,
     "win_rate": 10.0,
-    "return_pct": -21.45
+    "return_pct": -21.41
    }
   },
   "bot5": {
@@ -1921,6 +1947,10 @@
     {
      "date": "2026-09-22",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-23",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1931,5 +1961,5 @@
    }
   }
  },
- "updated": "2026-09-22T17:52:54.430393+00:00"
+ "updated": "2026-09-23T18:06:25.582682+00:00"
 }
