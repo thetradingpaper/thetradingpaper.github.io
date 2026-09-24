@@ -17,7 +17,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.97
+     "last_price": 24.15
     }
    ],
    "trades": [
@@ -102,7 +102,7 @@
      "leverage": 1
     }
    ],
-   "equity": 82.97,
+   "equity": 83.6,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -323,13 +323,17 @@
     {
      "date": "2026-09-23",
      "equity": 82.97
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 83.6
     }
    ],
    "stats": {
     "trades": 8,
     "wins": 2,
     "win_rate": 25.0,
-    "return_pct": -17.03
+    "return_pct": -16.4
    }
   },
   "bot2": {
@@ -942,6 +946,10 @@
     {
      "date": "2026-09-23",
      "equity": 45.54
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -966,7 +974,7 @@
      "target": 92.72,
      "stop": 78.55,
      "max_days": 40,
-     "last_price": 87.69
+     "last_price": 87.33
     },
     {
      "ticker": "BBNX",
@@ -976,7 +984,7 @@
      "target": 26.84,
      "stop": 19.98,
      "max_days": 40,
-     "last_price": 22.11
+     "last_price": 21.84
     },
     {
      "ticker": "WOR",
@@ -986,7 +994,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 60.3849983215332
+     "last_price": 59.92
     }
    ],
    "trades": [
@@ -1081,7 +1089,7 @@
      "leverage": 1
     }
    ],
-   "equity": 56.36,
+   "equity": 55.89,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1302,13 +1310,17 @@
     {
      "date": "2026-09-23",
      "equity": 56.36
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 55.89
     }
    ],
    "stats": {
     "trades": 9,
     "wins": 1,
     "win_rate": 11.1,
-    "return_pct": -43.64
+    "return_pct": -44.11
    }
   },
   "bot4": {
@@ -1326,7 +1338,7 @@
      "target": 25.92,
      "stop": 21.81,
      "max_days": 7,
-     "last_price": 23.97
+     "last_price": 24.15
     }
    ],
    "trades": [
@@ -1431,7 +1443,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.59,
+   "equity": 78.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1652,13 +1664,17 @@
     {
      "date": "2026-09-23",
      "equity": 78.59
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 78.77
     }
    ],
    "stats": {
     "trades": 10,
     "wins": 1,
     "win_rate": 10.0,
-    "return_pct": -21.41
+    "return_pct": -21.23
    }
   },
   "bot5": {
@@ -1951,6 +1967,10 @@
     {
      "date": "2026-09-23",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-24",
+     "equity": 560.5
     }
    ],
    "stats": {
@@ -1961,5 +1981,5 @@
    }
   }
  },
- "updated": "2026-09-23T18:06:25.582682+00:00"
+ "updated": "2026-09-24T18:04:28.453758+00:00"
 }

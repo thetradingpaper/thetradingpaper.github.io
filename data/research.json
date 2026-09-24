@@ -1,290 +1,296 @@
 {
- "updated": "2026-09-23T18:06:24.235376+00:00",
+ "updated": "2026-09-24T18:04:27.300964+00:00",
  "mode": "STARTER",
- "notification": "🌱 Mild edge on WBD (score 64.1). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "notification": "🌱 Mild edge on GDDY (score 65.6). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
  "picks": [
   {
-   "ticker": "WBD",
-   "price": 30.71,
-   "score": 64.1,
-   "tech_score": 44.9,
-   "news_score": 19.2,
-   "rsi": 74.5,
-   "mom5": 9.54,
-   "vol_surge": 1.92,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Warner Bros Discovery Stock Surges on Settlement Progress in Paramount Merger Suit",
-     "age_h": 5.4,
-     "points": 19.2
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 30.71,
-    "target": 31.74,
-    "stop": 30.09,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "WOR",
-   "price": 60.6,
-   "score": 53.9,
-   "tech_score": 46.0,
-   "news_score": 7.9,
-   "rsi": 58.1,
-   "mom5": 11.48,
-   "vol_surge": 2.54,
+   "ticker": "GDDY",
+   "price": 101.29,
+   "score": 65.6,
+   "tech_score": 38.2,
+   "news_score": 27.3,
+   "rsi": 49.4,
+   "mom5": 2.24,
+   "vol_surge": 2.81,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "How the AI Data Center Boom Is Pushing This Industrial Manufacturing Stock Higher",
-     "age_h": 3.0,
-     "points": 7.9
+     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
+     "age_h": 2.0,
+     "points": 8.1
+    },
+    {
+     "category": "m_and_a",
+     "headline": "GoDaddy Shares Surge On Gen Digital's Reported Takeover Bid — GEN Stock Falls As Talks in Early Stages",
+     "age_h": 2.0,
+     "points": 19.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 60.6,
-    "target": 69.61,
-    "stop": 57.0,
+    "entry": 101.29,
+    "target": 118.78,
+    "stop": 94.3,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "LKFT",
-   "price": 31.28,
-   "score": 50.6,
-   "tech_score": 40.3,
-   "news_score": 10.3,
-   "rsi": 65.4,
-   "mom5": 12.07,
-   "vol_surge": 1.54,
+   "ticker": "P",
+   "price": 124.68,
+   "score": 47.0,
+   "tech_score": 28.9,
+   "news_score": 18.0,
+   "rsi": 75.5,
+   "mom5": 27.96,
+   "vol_surge": 1.12,
    "catalysts": [
     {
-     "category": "analyst_upgrade",
-     "headline": "Microsoft upgraded, HubSpot initiated: Wall Street's top analyst calls",
-     "age_h": 4.3,
-     "points": 10.3
+     "category": "earnings_beat",
+     "headline": "Everpure shares jump 16% as fiscal 2028 outlook tops estimates",
+     "age_h": 2.9,
+     "points": 18.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 31.28,
-    "target": 33.16,
-    "stop": 30.15,
+    "entry": 124.68,
+    "target": 138.47,
+    "stop": 116.4,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "STX",
-   "price": 918.87,
-   "score": 47.2,
-   "tech_score": 38.0,
-   "news_score": 9.2,
-   "rsi": 62.7,
-   "mom5": 18.93,
-   "vol_surge": 0.63,
+   "ticker": "ARM",
+   "price": 309.33,
+   "score": 46.2,
+   "tech_score": 38.1,
+   "news_score": 8.1,
+   "rsi": 67.9,
+   "mom5": 17.37,
+   "vol_surge": 1.26,
    "catalysts": [
     {
-     "category": "buyback_dividend",
-     "headline": "Seagate Retired Its 2028 Notes. Buybacks Are Next",
-     "age_h": 3.8,
-     "points": 9.2
+     "category": "growth_news",
+     "headline": "Prediction: Arm Is Our Top Pick With 83% Upside Driven by Data Center Royalty Boom",
+     "age_h": 4.6,
+     "points": 8.1
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 918.87,
-    "target": 1067.05,
-    "stop": 859.6,
+    "entry": 309.33,
+    "target": 366.26,
+    "stop": 286.55,
     "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SNDK",
-   "price": 1828.67,
-   "score": 46.4,
-   "tech_score": 36.0,
-   "news_score": 10.3,
-   "rsi": 67.5,
-   "mom5": 19.42,
-   "vol_surge": 0.56,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Sandisk Just Got a New Buy Rating at $2,400. Here’s Where the Stock Could Go",
-     "age_h": 3.9,
-     "points": 10.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 1828.67,
-    "target": 2036.23,
-    "stop": 1704.13,
-    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "SNX",
-   "price": 295.71,
-   "score": 41.1,
-   "tech_score": 35.7,
-   "news_score": 5.4,
-   "rsi": 78.2,
-   "mom5": 12.55,
-   "vol_surge": 1.96,
+   "price": 261.12,
+   "score": 44.4,
+   "tech_score": 26.3,
+   "news_score": 18.0,
+   "rsi": 54.2,
+   "mom5": 0.35,
+   "vol_surge": 2.78,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Will TD SYNNEX (SNX) Beat Estimates Again in Its Next Earnings Report?",
-     "age_h": 49.9,
-     "points": 5.4
+     "headline": "TD SYNNEX (SNX) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 6.8,
+     "points": 18.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 295.71,
-    "target": 314.63,
-    "stop": 284.36,
+    "entry": 261.12,
+    "target": 285.69,
+    "stop": 246.38,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "BB",
+   "price": 8.52,
+   "score": 44.1,
+   "tech_score": 36.0,
+   "news_score": 8.1,
+   "rsi": 67.9,
+   "mom5": 8.0,
+   "vol_surge": 2.5,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
+     "age_h": 2.0,
+     "points": 8.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 8.52,
+    "target": 9.76,
+    "stop": 8.02,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "MSTR",
+   "price": 160.83,
+   "score": 44.1,
+   "tech_score": 36.0,
+   "news_score": 8.1,
+   "rsi": 59.4,
+   "mom5": 21.77,
+   "vol_surge": 0.49,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "How H World Group Limited (HTHT) Captures China’s Domestic Lodging Expansion?",
+     "age_h": 5.1,
+     "points": 8.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 160.83,
+    "target": 188.28,
+    "stop": 149.85,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "OUST",
+   "price": 40.19,
+   "score": 42.9,
+   "tech_score": 38.0,
+   "news_score": 4.9,
+   "rsi": 67.9,
+   "mom5": 18.49,
+   "vol_surge": 0.58,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Ouster (OUST) Could Be 30% Below Fair Value After INTERGEO 2026 Launches",
+     "age_h": 42.7,
+     "points": 4.9
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 40.19,
+    "target": 46.3,
+    "stop": 37.75,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GEN",
+   "price": 23.83,
+   "score": 41.3,
+   "tech_score": 14.0,
+   "news_score": 27.3,
+   "rsi": 21.0,
+   "mom5": -22.03,
+   "vol_surge": 2.87,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
+     "age_h": 2.0,
+     "points": 8.1
+    },
+    {
+     "category": "m_and_a",
+     "headline": "GoDaddy surges 11% after FT reports takeover bid by Gen Digital",
+     "age_h": 2.9,
+     "points": 19.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 23.83,
+    "target": 27.37,
+    "stop": 22.41,
+    "hold": "2-8 კვირა"
    }
   },
   {
    "ticker": "ARHS",
-   "price": 8.94,
-   "score": 38.9,
-   "tech_score": 28.0,
-   "news_score": 10.9,
-   "rsi": 57.2,
-   "mom5": 22.72,
-   "vol_surge": 0.62,
+   "price": 9.31,
+   "score": 41.1,
+   "tech_score": 38.0,
+   "news_score": 3.1,
+   "rsi": 60.1,
+   "mom5": 29.44,
+   "vol_surge": 0.68,
    "catalysts": [
     {
      "category": "analyst_upgrade",
      "headline": "Jefferies Just Upgraded Arhaus Stock. Here's Why.",
-     "age_h": 46.1,
-     "points": 6.2
-    },
-    {
-     "category": "big_contract",
-     "headline": "Accenture Up on Partnership with Anthropic; Novo Nordisk Falls on Turnaround | Stock Movers",
-     "age_h": 51.2,
-     "points": 4.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 8.94,
-    "target": 10.33,
-    "stop": 8.39,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "INTC",
-   "price": 120.6,
-   "score": 35.9,
-   "tech_score": 28.0,
-   "news_score": 7.9,
-   "rsi": 77.3,
-   "mom5": 24.3,
-   "vol_surge": 0.55,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Not Intel. Not Nvidia. This Chip Giant Holds an Unbreakable Moat in Next-Gen Data Centers.",
-     "age_h": 0.5,
-     "points": 7.9
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 120.6,
-    "target": 140.44,
-    "stop": 112.66,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "FPS",
-   "price": 39.79,
-   "score": 34.7,
-   "tech_score": 30.0,
-   "news_score": 4.7,
-   "rsi": 69.9,
-   "mom5": 27.17,
-   "vol_surge": 0.43,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Data Center Firm Accelevation, Backer Seek $720 Million in IPO",
-     "age_h": 30.8,
-     "points": 4.7
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 39.79,
-    "target": 47.77,
-    "stop": 36.6,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "CIFR",
-   "price": 18.9,
-   "score": 33.9,
-   "tech_score": 28.0,
-   "news_score": 5.8,
-   "rsi": 66.5,
-   "mom5": 25.18,
-   "vol_surge": 0.53,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Microsoft upgraded, HubSpot initiated: Wall Street's top analyst calls",
-     "age_h": 4.3,
-     "points": 10.3
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "Ciena upgraded, Flutter downgraded: Wall Street's top analyst calls",
-     "age_h": 52.3,
-     "points": -4.5
+     "age_h": 70.1,
+     "points": 3.1
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 18.9,
-    "target": 21.94,
-    "stop": 17.07,
+    "entry": 9.31,
+    "target": 10.27,
+    "stop": 8.74,
     "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "MGM",
+   "price": 33.54,
+   "score": 33.3,
+   "tech_score": 6.0,
+   "news_score": 27.3,
+   "rsi": 10.7,
+   "mom5": -12.65,
+   "vol_surge": 4.51,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "MGM Stock Tumbles After Barry Diller’s People Scraps Takeover Bid – Mizuho Says Withdrawal Was ‘Not Terribly Surprising’",
+     "age_h": 1.6,
+     "points": 19.2
+    },
+    {
+     "category": "growth_news",
+     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
+     "age_h": 2.0,
+     "points": 8.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 33.54,
+    "target": 36.93,
+    "stop": 32.19,
+    "hold": "2-8 კვირა"
    }
   }
  ],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 187,
-   "win_rate": 27.3,
-   "avg_return": -0.68,
+   "n": 190,
+   "win_rate": 27.9,
+   "avg_return": -0.64,
    "weight_now": 0.82
   },
   {
    "category": "growth_news",
-   "n": 111,
-   "win_rate": 24.3,
-   "avg_return": -3.53,
-   "weight_now": 0.79
+   "n": 116,
+   "win_rate": 25.9,
+   "avg_return": -3.03,
+   "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 99,
-   "win_rate": 17.2,
+   "n": 100,
+   "win_rate": 17.0,
    "avg_return": -3.13,
    "weight_now": 0.74
   },
@@ -304,17 +310,17 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 33,
-   "win_rate": 21.2,
-   "avg_return": -0.75,
-   "weight_now": 0.77
+   "n": 34,
+   "win_rate": 20.6,
+   "avg_return": -0.74,
+   "weight_now": 0.76
   },
   {
    "category": "fda_approval",
-   "n": 14,
-   "win_rate": 14.3,
-   "avg_return": -4.78,
-   "weight_now": 0.71
+   "n": 15,
+   "win_rate": 20.0,
+   "avg_return": -4.24,
+   "weight_now": 0.76
   },
   {
    "category": "big_contract",
