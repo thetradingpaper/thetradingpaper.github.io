@@ -198,6 +198,13 @@
 
     var holdings = getActiveDivHoldings();
     var schedule = [];
+    var recHistory = getReceivedHistory();
+
+    function isAlreadyReceived(ticker, payDate) {
+      return recHistory.some(function (r) {
+        return r.ticker === ticker && r.date === payDate;
+      });
+    }
 
     for (var mOffset = 0; mOffset < horizon; mOffset++) {
       var targetDate = new Date(currentYear, currentMonth + mOffset, 1);
@@ -212,7 +219,7 @@
             var annualGross = h.value * (h.divYield / 100);
             var qGross = annualGross / 4;
             var payIso = formatDateIso(y, m, 15);
-            if (payIso >= todayIso) {
+            if (payIso >= todayIso && !isAlreadyReceived(h.ticker, payIso)) {
               schedule.push({
                 payDate: payIso,
                 exDate: formatDateIso(y, m, 7),
@@ -240,7 +247,7 @@
 
         if (isPayMonth) {
           var dates = meta.getDates(y, m);
-          if (dates.payDate >= todayIso) {
+          if (dates.payDate >= todayIso && !isAlreadyReceived(h.ticker, dates.payDate)) {
             var gross = h.shares * meta.estDivPerShare;
             var net = gross * TAX_MULTIPLIER;
             schedule.push({
@@ -266,7 +273,7 @@
           var sDates = meta.getSupplementalDates
             ? meta.getSupplementalDates(y, m)
             : meta.getDates(y, m);
-          if (sDates.payDate >= todayIso) {
+          if (sDates.payDate >= todayIso && !isAlreadyReceived(h.ticker, sDates.payDate)) {
             var sGross = h.shares * meta.supplementalPerShare;
             schedule.push({
               payDate: sDates.payDate,
