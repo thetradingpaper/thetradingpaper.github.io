@@ -1,273 +1,273 @@
 {
- "updated": "2026-09-24T18:04:27.300964+00:00",
- "mode": "STARTER",
- "notification": "🌱 Mild edge on GDDY (score 65.6). Bot would risk only ~30% of paper cash. Not a back-up-the-truck day.",
+ "updated": "2026-09-25T18:07:25.278255+00:00",
+ "mode": "CONCENTRATE",
+ "notification": "🔥 One clear standout: PPLI (score 78.1). Bot would put the whole paper $100 here. Entry 39.93, target 42.67, stop 38.29.",
  "picks": [
   {
-   "ticker": "GDDY",
-   "price": 101.29,
-   "score": 65.6,
-   "tech_score": 38.2,
-   "news_score": 27.3,
-   "rsi": 49.4,
-   "mom5": 2.24,
-   "vol_surge": 2.81,
+   "ticker": "PPLI",
+   "price": 39.93,
+   "score": 78.1,
+   "tech_score": 41.1,
+   "news_score": 37.0,
+   "rsi": 54.1,
+   "mom5": 10.1,
+   "vol_surge": 1.39,
    "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
-     "age_h": 2.0,
-     "points": 8.1
-    },
     {
      "category": "m_and_a",
-     "headline": "GoDaddy Shares Surge On Gen Digital's Reported Takeover Bid — GEN Stock Falls As Talks in Early Stages",
-     "age_h": 2.0,
-     "points": 19.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 101.29,
-    "target": 118.78,
-    "stop": 94.3,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "P",
-   "price": 124.68,
-   "score": 47.0,
-   "tech_score": 28.9,
-   "news_score": 18.0,
-   "rsi": 75.5,
-   "mom5": 27.96,
-   "vol_surge": 1.12,
-   "catalysts": [
+     "headline": "People Incorporated shares rise over 10% on potential MGM takeover bid",
+     "age_h": 1.6,
+     "points": 19.0
+    },
     {
      "category": "earnings_beat",
-     "headline": "Everpure shares jump 16% as fiscal 2028 outlook tops estimates",
-     "age_h": 2.9,
+     "headline": "Akamai Technologies Soars on Anthropic Deal; Costco Earnings Beat | Stock Movers",
+     "age_h": 3.4,
      "points": 18.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 124.68,
-    "target": 138.47,
-    "stop": 116.4,
+    "entry": 39.93,
+    "target": 42.67,
+    "stop": 38.29,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "ARM",
-   "price": 309.33,
-   "score": 46.2,
-   "tech_score": 38.1,
-   "news_score": 8.1,
-   "rsi": 67.9,
-   "mom5": 17.37,
-   "vol_surge": 1.26,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Prediction: Arm Is Our Top Pick With 83% Upside Driven by Data Center Royalty Boom",
-     "age_h": 4.6,
-     "points": 8.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 309.33,
-    "target": 366.26,
-    "stop": 286.55,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "SNX",
-   "price": 261.12,
-   "score": 44.4,
-   "tech_score": 26.3,
-   "news_score": 18.0,
-   "rsi": 54.2,
-   "mom5": 0.35,
-   "vol_surge": 2.78,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "TD SYNNEX (SNX) Q3 Earnings and Revenues Beat Estimates",
-     "age_h": 6.8,
-     "points": 18.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 261.12,
-    "target": 285.69,
-    "stop": 246.38,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "BB",
-   "price": 8.52,
-   "score": 44.1,
-   "tech_score": 36.0,
-   "news_score": 8.1,
-   "rsi": 67.9,
-   "mom5": 8.0,
-   "vol_surge": 2.5,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
-     "age_h": 2.0,
-     "points": 8.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 8.52,
-    "target": 9.76,
-    "stop": 8.02,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "MSTR",
-   "price": 160.83,
-   "score": 44.1,
-   "tech_score": 36.0,
-   "news_score": 8.1,
-   "rsi": 59.4,
-   "mom5": 21.77,
-   "vol_surge": 0.49,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "How H World Group Limited (HTHT) Captures China’s Domestic Lodging Expansion?",
-     "age_h": 5.1,
-     "points": 8.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 160.83,
-    "target": 188.28,
-    "stop": 149.85,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "OUST",
-   "price": 40.19,
-   "score": 42.9,
+   "ticker": "RKLB",
+   "price": 74.44,
+   "score": 57.0,
    "tech_score": 38.0,
+   "news_score": 19.0,
+   "rsi": 67.8,
+   "mom5": 15.24,
+   "vol_surge": 0.73,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "IRDM Shareholders Approve Acquisition By RKLB In $54-A-Share Deal — Iridium-Rocket Lab Merger Expected To Close By Mid-2027",
+     "age_h": 19.9,
+     "points": 19.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 74.44,
+    "target": 82.13,
+    "stop": 69.83,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "AKAM",
+   "price": 116.67,
+   "score": 56.0,
+   "tech_score": 38.0,
+   "news_score": 18.0,
+   "rsi": 62.7,
+   "mom5": 11.56,
+   "vol_surge": 5.5,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Akamai Technologies Soars on Anthropic Deal; Costco Earnings Beat | Stock Movers",
+     "age_h": 3.4,
+     "points": 18.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 116.67,
+    "target": 130.62,
+    "stop": 108.29,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "NUAI",
+   "price": 6.89,
+   "score": 40.9,
+   "tech_score": 36.0,
    "news_score": 4.9,
-   "rsi": 67.9,
-   "mom5": 18.49,
-   "vol_surge": 0.58,
+   "rsi": 63.6,
+   "mom5": 17.24,
+   "vol_surge": 0.59,
    "catalysts": [
     {
      "category": "growth_news",
-     "headline": "Ouster (OUST) Could Be 30% Below Fair Value After INTERGEO 2026 Launches",
-     "age_h": 42.7,
+     "headline": "Power Play: Vistra Powers New Era’s AI Data Center Deal",
+     "age_h": 28.4,
      "points": 4.9
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 40.19,
-    "target": 46.3,
-    "stop": 37.75,
+    "entry": 6.89,
+    "target": 9.06,
+    "stop": 6.02,
     "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "GEN",
-   "price": 23.83,
-   "score": 41.3,
-   "tech_score": 14.0,
-   "news_score": 27.3,
-   "rsi": 21.0,
-   "mom5": -22.03,
-   "vol_surge": 2.87,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
-     "age_h": 2.0,
-     "points": 8.1
-    },
-    {
-     "category": "m_and_a",
-     "headline": "GoDaddy surges 11% after FT reports takeover bid by Gen Digital",
-     "age_h": 2.9,
-     "points": 19.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 23.83,
-    "target": 27.37,
-    "stop": 22.41,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "ARHS",
-   "price": 9.31,
-   "score": 41.1,
-   "tech_score": 38.0,
-   "news_score": 3.1,
-   "rsi": 60.1,
-   "mom5": 29.44,
-   "vol_surge": 0.68,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "Jefferies Just Upgraded Arhaus Stock. Here's Why.",
-     "age_h": 70.1,
-     "points": 3.1
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.31,
-    "target": 10.27,
-    "stop": 8.74,
-    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "MGM",
-   "price": 33.54,
-   "score": 33.3,
-   "tech_score": 6.0,
-   "news_score": 27.3,
-   "rsi": 10.7,
-   "mom5": -12.65,
-   "vol_surge": 4.51,
+   "price": 32.53,
+   "score": 38.8,
+   "tech_score": 1.8,
+   "news_score": 37.0,
+   "rsi": 10.5,
+   "mom5": -14.08,
+   "vol_surge": 1.72,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "MGM Stock Tumbles After Barry Diller’s People Scraps Takeover Bid – Mizuho Says Withdrawal Was ‘Not Terribly Surprising’",
+     "headline": "People Incorporated shares rise over 10% on potential MGM takeover bid",
      "age_h": 1.6,
-     "points": 19.2
+     "points": 19.0
     },
+    {
+     "category": "earnings_beat",
+     "headline": "Akamai Technologies Soars on Anthropic Deal; Costco Earnings Beat | Stock Movers",
+     "age_h": 3.4,
+     "points": 18.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 32.53,
+    "target": 35.03,
+    "stop": 31.02,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "OUST",
+   "price": 42.99,
+   "score": 32.4,
+   "tech_score": 30.0,
+   "news_score": 2.4,
+   "rsi": 68.3,
+   "mom5": 22.51,
+   "vol_surge": 0.87,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Ouster (OUST) Could Be 30% Below Fair Value After INTERGEO 2026 Launches",
+     "age_h": 66.8,
+     "points": 2.4
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 42.99,
+    "target": 49.82,
+    "stop": 40.26,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "CDNS",
+   "price": 325.75,
+   "score": 30.4,
+   "tech_score": 20.0,
+   "news_score": 10.3,
+   "rsi": 70.4,
+   "mom5": 15.13,
+   "vol_surge": 0.5,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "This Analyst Just Upgraded Synopsys Stock. Here's Why.",
+     "age_h": 22.1,
+     "points": 10.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 325.75,
+    "target": 344.78,
+    "stop": 314.33,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "GEN",
+   "price": 22.14,
+   "score": 28.3,
+   "tech_score": 12.0,
+   "news_score": 16.2,
+   "rsi": 14.8,
+   "mom5": -23.42,
+   "vol_surge": 2.01,
+   "catalysts": [
     {
      "category": "growth_news",
      "headline": "Top Midday Stories: Oracle's Data Center Delay; People Withdraws MGM Offer; Revvity's New Diabetes Test",
-     "age_h": 2.0,
+     "age_h": 26.0,
+     "points": 4.9
+    },
+    {
+     "category": "m_and_a",
+     "headline": "GoDaddy surges 11% after FT reports takeover bid by Gen Digital",
+     "age_h": 27.0,
+     "points": 11.4
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 22.14,
+    "target": 25.9,
+    "stop": 20.63,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SECZ",
+   "price": 15.73,
+   "score": 23.8,
+   "tech_score": 19.0,
+   "news_score": 4.9,
+   "rsi": 82.8,
+   "mom5": 45.26,
+   "vol_surge": 1.12,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Cathie Wood Launches Tokenized Fund That Trades Around The Clock",
+     "age_h": 28.0,
+     "points": 4.9
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 15.73,
+    "target": 19.89,
+    "stop": 14.07,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "AESI",
+   "price": 12.58,
+   "score": 19.1,
+   "tech_score": 11.0,
+   "news_score": 8.1,
+   "rsi": 44.6,
+   "mom5": -6.97,
+   "vol_surge": 2.48,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Atlas Energy stock surges on AI data center power deals",
+     "age_h": 4.9,
      "points": 8.1
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 33.54,
-    "target": 36.93,
-    "stop": 32.19,
+    "entry": 12.58,
+    "target": 15.33,
+    "stop": 11.48,
     "hold": "2-8 კვირა"
    }
   }
@@ -275,30 +275,30 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 190,
-   "win_rate": 27.9,
+   "n": 191,
+   "win_rate": 27.7,
    "avg_return": -0.64,
    "weight_now": 0.82
   },
   {
    "category": "growth_news",
-   "n": 116,
-   "win_rate": 25.9,
-   "avg_return": -3.03,
+   "n": 119,
+   "win_rate": 26.1,
+   "avg_return": -2.98,
    "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 100,
-   "win_rate": 17.0,
-   "avg_return": -3.13,
-   "weight_now": 0.74
+   "n": 102,
+   "win_rate": 16.7,
+   "avg_return": -3.22,
+   "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 69,
-   "win_rate": 11.6,
-   "avg_return": -6.65,
+   "n": 70,
+   "win_rate": 11.4,
+   "avg_return": -6.67,
    "weight_now": 0.69
   },
   {
@@ -317,10 +317,10 @@
   },
   {
    "category": "fda_approval",
-   "n": 15,
-   "win_rate": 20.0,
-   "avg_return": -4.24,
-   "weight_now": 0.76
+   "n": 18,
+   "win_rate": 22.2,
+   "avg_return": -3.43,
+   "weight_now": 0.78
   },
   {
    "category": "big_contract",
@@ -330,7 +330,7 @@
    "weight_now": 0.87
   }
  ],
- "scanned": 5969,
+ "scanned": 5970,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

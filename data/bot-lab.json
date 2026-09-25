@@ -10,14 +10,14 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "S",
-     "shares": 3.461494,
-     "entry": 23.350000381469727,
-     "entry_date": "2026-09-15",
-     "target": 25.92,
-     "stop": 21.81,
+     "ticker": "PPLI",
+     "shares": 1.947566,
+     "entry": 39.93000030517578,
+     "entry_date": "2026-09-25",
+     "target": 42.67,
+     "stop": 38.29,
      "max_days": 7,
-     "last_price": 24.15
+     "last_price": 39.93000030517578
     }
    ],
    "trades": [
@@ -100,9 +100,19 @@
      "ret_pct": 4.57,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "S",
+     "entry": 23.350000381469727,
+     "exit": 22.75,
+     "entry_date": "2026-09-15",
+     "exit_date": "2026-09-25",
+     "ret_pct": -3.76,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 83.6,
+   "equity": 77.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -327,13 +337,17 @@
     {
      "date": "2026-09-24",
      "equity": 83.6
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 77.77
     }
    ],
    "stats": {
-    "trades": 8,
+    "trades": 9,
     "wins": 2,
-    "win_rate": 25.0,
-    "return_pct": -16.4
+    "win_rate": 22.2,
+    "return_pct": -22.23
    }
   },
   "bot2": {
@@ -950,6 +964,10 @@
     {
      "date": "2026-09-24",
      "equity": 45.54
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -967,16 +985,6 @@
    "cash": 0.0,
    "positions": [
     {
-     "ticker": "DXCM",
-     "shares": 0.205108,
-     "entry": 82.55000305175781,
-     "entry_date": "2026-07-31",
-     "target": 92.72,
-     "stop": 78.55,
-     "max_days": 40,
-     "last_price": 87.33
-    },
-    {
      "ticker": "BBNX",
      "shares": 0.915748,
      "entry": 21.989999771118164,
@@ -984,7 +992,7 @@
      "target": 26.84,
      "stop": 19.98,
      "max_days": 40,
-     "last_price": 21.84
+     "last_price": 21.68
     },
     {
      "ticker": "WOR",
@@ -994,7 +1002,17 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 59.92
+     "last_price": 61.24
+    },
+    {
+     "ticker": "NUAI",
+     "shares": 2.448919,
+     "entry": 6.885000228881836,
+     "entry_date": "2026-09-25",
+     "target": 9.06,
+     "stop": 6.02,
+     "max_days": 40,
+     "last_price": 6.885000228881836
     }
    ],
    "trades": [
@@ -1087,9 +1105,19 @@
      "ret_pct": -9.78,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "DXCM",
+     "entry": 82.55000305175781,
+     "exit": 87.08,
+     "entry_date": "2026-07-31",
+     "exit_date": "2026-09-25",
+     "ret_pct": -0.41,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 55.89,
+   "equity": 55.09,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1314,13 +1342,17 @@
     {
      "date": "2026-09-24",
      "equity": 55.89
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 55.09
     }
    ],
    "stats": {
-    "trades": 9,
+    "trades": 10,
     "wins": 1,
-    "win_rate": 11.1,
-    "return_pct": -44.11
+    "win_rate": 10.0,
+    "return_pct": -44.91
    }
   },
   "bot4": {
@@ -1328,17 +1360,17 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 54.93873815143161,
+   "cash": 53.26453304819637,
    "positions": [
     {
-     "ticker": "S",
-     "shares": 0.986895,
-     "entry": 23.350000381469727,
-     "entry_date": "2026-09-15",
-     "target": 25.92,
-     "stop": 21.81,
+     "ticker": "PPLI",
+     "shares": 0.579289,
+     "entry": 39.93000030517578,
+     "entry_date": "2026-09-25",
+     "target": 42.67,
+     "stop": 38.29,
      "max_days": 7,
-     "last_price": 24.15
+     "last_price": 39.93000030517578
     }
    ],
    "trades": [
@@ -1441,9 +1473,19 @@
      "ret_pct": -14.79,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "S",
+     "entry": 23.350000381469727,
+     "exit": 22.75,
+     "entry_date": "2026-09-15",
+     "exit_date": "2026-09-25",
+     "ret_pct": -6.74,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 78.77,
+   "equity": 76.4,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1668,13 +1710,17 @@
     {
      "date": "2026-09-24",
      "equity": 78.77
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 76.4
     }
    ],
    "stats": {
-    "trades": 10,
+    "trades": 11,
     "wins": 1,
-    "win_rate": 10.0,
-    "return_pct": -21.23
+    "win_rate": 9.1,
+    "return_pct": -23.6
    }
   },
   "bot5": {
@@ -1682,8 +1728,22 @@
    "name_ka": "ბოტი 5 · Galt CFD 2.5×",
    "desc_ka": "$1000, ბერკეტი 2.5×, $10 საკომისიო, ლიკვიდაცია −11.3%-ზე — რეალური Galt სეტაპის ასლი",
    "start": 1000,
-   "cash": 560.5043308982615,
-   "positions": [],
+   "cash": 0.0,
+   "positions": [
+    {
+     "ticker": "PPLI",
+     "shares": 34.466837,
+     "entry": 39.93000030517578,
+     "entry_date": "2026-09-25",
+     "target": 42.67,
+     "stop": 38.29,
+     "max_days": 10,
+     "leverage": 2.5,
+     "own_equity": 550.5043308982615,
+     "borrowed": 825.76,
+     "last_price": 39.93000030517578
+    }
+   ],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1746,7 +1806,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 560.5,
+   "equity": 550.23,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1971,15 +2031,19 @@
     {
      "date": "2026-09-24",
      "equity": 560.5
+    },
+    {
+     "date": "2026-09-25",
+     "equity": 550.23
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -43.95
+    "return_pct": -44.98
    }
   }
  },
- "updated": "2026-09-24T18:04:28.453758+00:00"
+ "updated": "2026-09-25T18:07:26.188770+00:00"
 }

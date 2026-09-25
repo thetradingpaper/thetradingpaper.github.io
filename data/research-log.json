@@ -6330,7 +6330,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 21.72,
+  "return_pct": -1.0,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-18T17:16:09.658405+00:00",
@@ -6341,7 +6344,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 7.67,
+  "return_pct": -1.79,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-18T17:16:09.658410+00:00",
@@ -6352,7 +6358,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.02,
+  "return_pct": -7.77,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-18T17:16:09.658414+00:00",
@@ -6363,7 +6372,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 19.33,
+  "return_pct": -13.82,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-18T17:16:09.658418+00:00",
@@ -6374,7 +6386,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.13,
+  "return_pct": -16.53,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-18T17:16:09.658422+00:00",
@@ -6385,7 +6400,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 6.26,
+  "return_pct": 1.05,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-18T17:16:09.658426+00:00",
@@ -6396,7 +6414,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 38.59,
+  "return_pct": -1.76,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-18T17:16:09.658433+00:00",
@@ -6407,7 +6428,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 87.72,
+  "return_pct": 9.4,
+  "outcome": "win"
  },
  {
   "date": "2026-09-18T17:16:09.658437+00:00",
@@ -6418,7 +6442,10 @@
   "catalyst_cats": [
    "fda_approval"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 48.81,
+  "return_pct": 4.52,
+  "outcome": "win"
  },
  {
   "date": "2026-09-18T17:16:09.658441+00:00",
@@ -6429,7 +6456,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 124.77,
+  "return_pct": 1.03,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-21T18:58:59.549464+00:00",
@@ -6872,6 +6902,119 @@
   "horizon": "long",
   "catalyst_cats": [
    "m_and_a",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278161+00:00",
+  "ticker": "PPLI",
+  "entry": 39.93,
+  "score": 78.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278172+00:00",
+  "ticker": "RKLB",
+  "entry": 74.44,
+  "score": 57.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278177+00:00",
+  "ticker": "AKAM",
+  "entry": 116.67,
+  "score": 56.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278181+00:00",
+  "ticker": "NUAI",
+  "entry": 6.89,
+  "score": 40.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278186+00:00",
+  "ticker": "MGM",
+  "entry": 32.53,
+  "score": 38.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278191+00:00",
+  "ticker": "OUST",
+  "entry": 42.99,
+  "score": 32.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278195+00:00",
+  "ticker": "CDNS",
+  "entry": 325.75,
+  "score": 30.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278203+00:00",
+  "ticker": "GEN",
+  "entry": 22.14,
+  "score": 28.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278208+00:00",
+  "ticker": "SECZ",
+  "entry": 15.73,
+  "score": 23.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-25T18:07:25.278212+00:00",
+  "ticker": "AESI",
+  "entry": 12.58,
+  "score": 19.1,
+  "horizon": "long",
+  "catalyst_cats": [
    "growth_news"
   ],
   "status": "open"
