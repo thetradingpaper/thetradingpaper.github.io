@@ -279,7 +279,7 @@ window.PORTFOLIOS = {
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.26, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 147.99, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 3.30, // 25 Sep 2026: LYG dividend received ($3.30 net) -> net cash $3.30
+    cash: 4.62, // 28 Sep 2026: MAIN dividend received ($1.32 net: $1.88 gross - $0.56 tax) -> net cash $4.62
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -288,6 +288,8 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 28 სექ 2026 MAIN dividend · TBC app · net cash $4.62 ---
+      { date: '2026-09-28', type: 'dividend', ticker: 'MAIN', amount: 1.32, note: 'დივიდენდის ჩარიცხვა $1.88 − გადასახადი $0.56 = წმინდა $1.32' },
       // --- 25 სექ 2026 LYG dividend · TBC app · net cash $3.30 ---
       { date: '2026-09-25', type: 'dividend', ticker: 'LYG',  amount: 3.30, note: 'დივიდენდის ჩარიცხვა · წმინდა $3.30' },
       // --- 22 სექ 2026 TBC dividend reinvestment ($509.59 total) · MAIN ($80.67), LYG ($38.11), ARCC ($39.76), BXSL ($351.05) · net cash $0.00 ---
