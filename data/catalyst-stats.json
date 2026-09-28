@@ -1,8 +1,8 @@
 {
  "m_and_a": {
-  "n": 102,
+  "n": 105,
   "wins": 17,
-  "sum_ret": -328.56
+  "sum_ret": -331.87
  },
  "earnings_beat": {
   "n": 191,
@@ -15,9 +15,9 @@
   "sum_ret": -466.96
  },
  "growth_news": {
-  "n": 119,
-  "wins": 31,
-  "sum_ret": -354.96
+  "n": 126,
+  "wins": 34,
+  "sum_ret": -360.95
  },
  "big_contract": {
   "n": 6,
