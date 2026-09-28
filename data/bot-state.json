@@ -1,30 +1,8 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 22.85,
+ "cash": 80.76,
  "positions": [
-  {
-   "ticker": "MSTR",
-   "opened": "2026-09-21T22:10:32.382Z",
-   "rule": "R2",
-   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $154.02 · მოცულობა 1.5×",
-   "entry": 168.5,
-   "shares": 0.118694,
-   "cost": 20,
-   "target": 189.1,
-   "stop": 153.05
-  },
-  {
-   "ticker": "PLTR",
-   "opened": "2026-09-21T22:10:32.382Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 183.09,
-   "shares": 0.109236,
-   "cost": 20,
-   "target": 197.67,
-   "stop": 172.16
-  },
   {
    "ticker": "NVDA",
    "opened": "2026-09-23T21:25:34.672Z",
@@ -35,17 +13,6 @@
    "cost": 20,
    "target": 236.53,
    "stop": 217.25
-  },
-  {
-   "ticker": "TSLA",
-   "opened": "2026-09-24T17:49:42.191Z",
-   "rule": "R3",
-   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
-   "entry": 380.69,
-   "shares": 0.052536,
-   "cost": 20,
-   "target": 403.95,
-   "stop": 363.25
   }
  ],
  "equityHistory": [
@@ -304,6 +271,10 @@
   {
    "date": "2026-09-26",
    "equity": 101.91
+  },
+  {
+   "date": "2026-09-28",
+   "equity": 101.06
   }
  ]
 }
