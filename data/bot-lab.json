@@ -17,7 +17,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 39.64
+     "last_price": 40.16
     }
    ],
    "trades": [
@@ -112,7 +112,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.2,
+   "equity": 78.21,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -345,13 +345,17 @@
     {
      "date": "2026-09-28",
      "equity": 77.2
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 78.21
     }
    ],
    "stats": {
     "trades": 9,
     "wins": 2,
     "win_rate": 22.2,
-    "return_pct": -22.8
+    "return_pct": -21.79
    }
   },
   "bot2": {
@@ -976,6 +980,10 @@
     {
      "date": "2026-09-28",
      "equity": 45.54
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -990,18 +998,8 @@
    "name_ka": "ბოტი 3 · გრძელვადიანი",
    "desc_ka": "მხოლოდ გრძელვადიანი კატალიზატორები, 2-8 კვირა",
    "start": 100,
-   "cash": 0.0,
+   "cash": 17.485290161071777,
    "positions": [
-    {
-     "ticker": "BBNX",
-     "shares": 0.915748,
-     "entry": 21.989999771118164,
-     "entry_date": "2026-09-18",
-     "target": 26.84,
-     "stop": 19.98,
-     "max_days": 40,
-     "last_price": 20.52
-    },
     {
      "ticker": "WOR",
      "shares": 0.300055,
@@ -1010,7 +1008,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 60.87
+     "last_price": 60.35
     },
     {
      "ticker": "NUAI",
@@ -1020,7 +1018,7 @@
      "target": 9.06,
      "stop": 6.02,
      "max_days": 40,
-     "last_price": 6.96
+     "last_price": 6.88
     }
    ],
    "trades": [
@@ -1123,9 +1121,19 @@
      "ret_pct": -0.41,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "BBNX",
+     "entry": 21.989999771118164,
+     "exit": 19.64,
+     "entry_date": "2026-09-18",
+     "exit_date": "2026-09-29",
+     "ret_pct": -15.27,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 54.1,
+   "equity": 52.43,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1358,13 +1366,17 @@
     {
      "date": "2026-09-28",
      "equity": 54.1
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 52.43
     }
    ],
    "stats": {
-    "trades": 10,
+    "trades": 11,
     "wins": 1,
-    "win_rate": 10.0,
-    "return_pct": -45.9
+    "win_rate": 9.1,
+    "return_pct": -47.57
    }
   },
   "bot4": {
@@ -1382,7 +1394,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 39.64
+     "last_price": 40.16
     }
    ],
    "trades": [
@@ -1497,7 +1509,7 @@
      "leverage": 1
     }
    ],
-   "equity": 76.23,
+   "equity": 76.53,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1730,13 +1742,17 @@
     {
      "date": "2026-09-28",
      "equity": 76.23
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 76.53
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -23.77
+    "return_pct": -23.47
    }
   },
   "bot5": {
@@ -1757,7 +1773,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 39.64
+     "last_price": 40.16
     }
    ],
    "trades": [
@@ -1822,7 +1838,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 539.69,
+   "equity": 557.34,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2055,15 +2071,19 @@
     {
      "date": "2026-09-28",
      "equity": 539.69
+    },
+    {
+     "date": "2026-09-29",
+     "equity": 557.34
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -46.03
+    "return_pct": -44.27
    }
   }
  },
- "updated": "2026-09-28T20:20:34.769228+00:00"
+ "updated": "2026-09-29T18:55:28.388415+00:00"
 }

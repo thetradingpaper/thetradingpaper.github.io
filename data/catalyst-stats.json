@@ -1,28 +1,28 @@
 {
  "m_and_a": {
-  "n": 105,
+  "n": 107,
   "wins": 17,
-  "sum_ret": -331.87
+  "sum_ret": -349.28
  },
  "earnings_beat": {
-  "n": 191,
+  "n": 192,
   "wins": 53,
-  "sum_ret": -122.51
+  "sum_ret": -120.52
  },
  "analyst_upgrade": {
-  "n": 70,
+  "n": 71,
   "wins": 8,
-  "sum_ret": -466.96
+  "sum_ret": -464.09
  },
  "growth_news": {
-  "n": 126,
-  "wins": 34,
-  "sum_ret": -360.95
+  "n": 129,
+  "wins": 35,
+  "sum_ret": -350.14
  },
  "big_contract": {
-  "n": 6,
+  "n": 7,
   "wins": 2,
-  "sum_ret": -15.44
+  "sum_ret": -12.57
  },
  "fda_approval": {
   "n": 18,
@@ -30,13 +30,13 @@
   "sum_ret": -61.8
  },
  "buyback_dividend": {
-  "n": 34,
+  "n": 36,
   "wins": 7,
-  "sum_ret": -25.04
+  "sum_ret": -29.11
  },
  "guidance_raise": {
-  "n": 35,
+  "n": 36,
   "wins": 13,
-  "sum_ret": -22.41
+  "sum_ret": -28.48
  }
 }

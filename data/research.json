@@ -1,201 +1,50 @@
 {
- "updated": "2026-09-28T20:20:33.738051+00:00",
+ "updated": "2026-09-29T18:55:27.538694+00:00",
  "mode": "WAIT",
- "notification": "ბოტი ელოდება — candidates exist but nothing scores high enough. Skip today.",
- "picks": [
-  {
-   "ticker": "MEDS",
-   "price": 3.81,
-   "score": 34.5,
-   "tech_score": 26.3,
-   "news_score": 8.2,
-   "rsi": 64.7,
-   "mom5": -8.85,
-   "vol_surge": 2.04,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "DataMeds AI Launches Health Lives Here App Focused on GLP-1 Telehealth and Pharmacy Services",
-     "age_h": 5.3,
-     "points": 8.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 3.81,
-    "target": 9.1,
-    "stop": 1.7,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "GFI",
-   "price": 35.18,
-   "score": 30.1,
-   "tech_score": 11.1,
-   "news_score": 19.0,
-   "rsi": 18.7,
-   "mom5": -16.27,
-   "vol_surge": 1.89,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Update: Gold Fields' $27 Billion Takeover Bid for Northern Star Resources Rejected",
-     "age_h": 11.0,
-     "points": 19.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 35.18,
-    "target": 38.99,
-    "stop": 32.9,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "KOD",
-   "price": 89.92,
-   "score": 29.1,
-   "tech_score": 20.0,
-   "news_score": 9.1,
-   "rsi": 90.8,
-   "mom5": 177.36,
-   "vol_surge": 13.94,
-   "catalysts": [
-    {
-     "category": "buyback_dividend",
-     "headline": "Top Midday Stories: MongoDB CEO Leaves to Lead Meta Enterprise Platform; Nvidia Ups Buyback Program by $150 Billion",
-     "age_h": 4.7,
-     "points": 9.1
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 89.92,
-    "target": 108.85,
-    "stop": 82.35,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "NU",
-   "price": 12.23,
-   "score": 15.1,
-   "tech_score": 3.7,
-   "news_score": 11.4,
-   "rsi": 13.8,
-   "mom5": -13.02,
-   "vol_surge": 1.96,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "Buyout firm Advent eyes Monzo stake amid £10bn Nubank bid talks",
-     "age_h": 32.7,
-     "points": 11.4
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 12.23,
-    "target": 13.27,
-    "stop": 11.61,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "AUR",
-   "price": 5.29,
-   "score": 7.1,
-   "tech_score": -1.1,
-   "news_score": 8.2,
-   "rsi": 21.5,
-   "mom5": -18.74,
-   "vol_surge": 1.36,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "Aurora Innovation’s Road to Profitability Runs Through Fleet Expansion",
-     "age_h": 23.7,
-     "points": 8.2
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 5.29,
-    "target": 6.42,
-    "stop": 4.84,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "MOD",
-   "price": 175.04,
-   "score": 6.9,
-   "tech_score": 2.0,
-   "news_score": 4.9,
-   "rsi": 39.8,
-   "mom5": -11.43,
-   "vol_surge": 2.41,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "3 AI Infrastructure Stocks Retail Investors Are Watching For Data Center Growth",
-     "age_h": 29.2,
-     "points": 4.9
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 175.04,
-    "target": 208.01,
-    "stop": 161.85,
-    "hold": "2-8 კვირა"
-   }
-  }
- ],
+ "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
+ "picks": [],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 191,
-   "win_rate": 27.7,
-   "avg_return": -0.64,
+   "n": 192,
+   "win_rate": 27.6,
+   "avg_return": -0.63,
    "weight_now": 0.82
   },
   {
    "category": "growth_news",
-   "n": 126,
-   "win_rate": 27.0,
-   "avg_return": -2.86,
+   "n": 129,
+   "win_rate": 27.1,
+   "avg_return": -2.71,
    "weight_now": 0.82
   },
   {
    "category": "m_and_a",
-   "n": 105,
-   "win_rate": 16.2,
-   "avg_return": -3.16,
+   "n": 107,
+   "win_rate": 15.9,
+   "avg_return": -3.26,
    "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 70,
-   "win_rate": 11.4,
-   "avg_return": -6.67,
+   "n": 71,
+   "win_rate": 11.3,
+   "avg_return": -6.54,
    "weight_now": 0.69
   },
   {
-   "category": "guidance_raise",
-   "n": 35,
-   "win_rate": 37.1,
-   "avg_return": -0.64,
-   "weight_now": 0.9
+   "category": "buyback_dividend",
+   "n": 36,
+   "win_rate": 19.4,
+   "avg_return": -0.81,
+   "weight_now": 0.76
   },
   {
-   "category": "buyback_dividend",
-   "n": 34,
-   "win_rate": 20.6,
-   "avg_return": -0.74,
-   "weight_now": 0.76
+   "category": "guidance_raise",
+   "n": 36,
+   "win_rate": 36.1,
+   "avg_return": -0.79,
+   "weight_now": 0.89
   },
   {
    "category": "fda_approval",
@@ -206,13 +55,13 @@
   },
   {
    "category": "big_contract",
-   "n": 6,
-   "win_rate": 33.3,
-   "avg_return": -2.57,
-   "weight_now": 0.87
+   "n": 7,
+   "win_rate": 28.6,
+   "avg_return": -1.8,
+   "weight_now": 0.83
   }
  ],
- "scanned": 5971,
+ "scanned": 5970,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
