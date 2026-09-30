@@ -279,7 +279,7 @@ window.PORTFOLIOS = {
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.26, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 147.99, color: '#0284c7', divYield: 4.50 },
     ],
-    cash: 71.94, // 28 Sep 2026: deposit $67.32 + MAIN div $1.32 + prev cash $3.30 -> net cash $71.94
+    cash: 74.70, // 30 Sep 2026: VOO ($1.59) + DIVO ($0.41) + ARCC ($0.76) divs (+$2.76 net) + prev cash $71.94 -> net cash $74.70
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -288,8 +288,12 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
-      // --- 28 სექ 2026 TBC $67.32 deposit · TBC app · net cash $71.94 ---
-      { date: '2026-09-28', type: 'deposit', amount: 67.32 },
+      // --- 30 სექ 2026 VOO, DIVO, ARCC dividends · TBC app · net cash $74.70 ---
+      { date: '2026-09-30', type: 'dividend', ticker: 'VOO',  amount: 1.59, note: 'დივიდენდის ჩარიცხვა $2.27 − გადასახადი $0.68 = წმინდა $1.59' },
+      { date: '2026-09-30', type: 'dividend', ticker: 'DIVO', amount: 0.41, note: 'დივიდენდის ჩარიცხვა $0.59 − გადასახადი $0.18 = წმინდა $0.41' },
+      { date: '2026-09-30', type: 'dividend', ticker: 'ARCC', amount: 0.76, note: 'დივიდენდის ჩარიცხვა $1.09 − გადასახადი $0.33 = წმინდა $0.76' },
+      // --- 29 სექ 2026 TBC $67.32 deposit · TBC app · net cash $71.94 ---
+      { date: '2026-09-29', type: 'deposit', amount: 67.32 },
       // --- 28 სექ 2026 MAIN dividend · TBC app · net cash $4.62 ---
       { date: '2026-09-28', type: 'dividend', ticker: 'MAIN', amount: 1.32, note: 'დივიდენდის ჩარიცხვა $1.88 − გადასახადი $0.56 = წმინდა $1.32' },
       // --- 25 სექ 2026 LYG dividend · TBC app · net cash $3.30 ---
