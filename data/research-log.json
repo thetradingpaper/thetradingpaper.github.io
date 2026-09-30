@@ -6751,7 +6751,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 30.79,
+  "return_pct": 0.26,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-23T18:06:24.235294+00:00",
@@ -6762,7 +6765,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 60.91,
+  "return_pct": 0.51,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-23T18:06:24.235298+00:00",
@@ -6773,7 +6779,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 29.92,
+  "return_pct": -4.35,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-23T18:06:24.235302+00:00",
@@ -6784,7 +6793,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 919.55,
+  "return_pct": 0.07,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-23T18:06:24.235306+00:00",
@@ -6795,7 +6807,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 1744.89,
+  "return_pct": -4.58,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-23T18:06:24.235309+00:00",
@@ -6806,7 +6821,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 255.08,
+  "return_pct": -13.74,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-23T18:06:24.235313+00:00",
@@ -6818,7 +6836,10 @@
    "analyst_upgrade",
    "big_contract"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 9.43,
+  "return_pct": 5.43,
+  "outcome": "win"
  },
  {
   "date": "2026-09-23T18:06:24.235320+00:00",
@@ -6829,7 +6850,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 119.28,
+  "return_pct": -1.1,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-23T18:06:24.235324+00:00",
@@ -6840,7 +6864,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 37.56,
+  "return_pct": -5.6,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-23T18:06:24.235328+00:00",
@@ -6851,7 +6878,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 15.98,
+  "return_pct": -15.48,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-24T18:04:27.300878+00:00",
@@ -7142,6 +7172,118 @@
   "horizon": "long",
   "catalyst_cats": [
    "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872348+00:00",
+  "ticker": "RCL",
+  "entry": 266.87,
+  "score": 78.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872357+00:00",
+  "ticker": "PBF",
+  "entry": 80.0,
+  "score": 44.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872361+00:00",
+  "ticker": "DPRO",
+  "entry": 6.08,
+  "score": 44.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872365+00:00",
+  "ticker": "TLN",
+  "entry": 316.62,
+  "score": 42.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872368+00:00",
+  "ticker": "UTHR",
+  "entry": 545.19,
+  "score": 40.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872372+00:00",
+  "ticker": "STAA",
+  "entry": 22.5,
+  "score": 34.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872375+00:00",
+  "ticker": "CNXC",
+  "entry": 25.59,
+  "score": 30.1,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872382+00:00",
+  "ticker": "P",
+  "entry": 130.78,
+  "score": 28.5,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872385+00:00",
+  "ticker": "CAG",
+  "entry": 13.57,
+  "score": 21.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-09-30T18:38:59.872389+00:00",
+  "ticker": "JBL",
+  "entry": 286.05,
+  "score": 20.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
   ],
   "status": "open"
  }

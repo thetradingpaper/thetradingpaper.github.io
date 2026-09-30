@@ -17,7 +17,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 40.16
+     "last_price": 41.17
     }
    ],
    "trades": [
@@ -112,7 +112,7 @@
      "leverage": 1
     }
    ],
-   "equity": 78.21,
+   "equity": 80.18,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -349,13 +349,17 @@
     {
      "date": "2026-09-29",
      "equity": 78.21
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 80.18
     }
    ],
    "stats": {
     "trades": 9,
     "wins": 2,
     "win_rate": 22.2,
-    "return_pct": -21.79
+    "return_pct": -19.82
    }
   },
   "bot2": {
@@ -984,6 +988,10 @@
     {
      "date": "2026-09-29",
      "equity": 45.54
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -998,7 +1006,7 @@
    "name_ka": "ბოტი 3 · გრძელვადიანი",
    "desc_ka": "მხოლოდ გრძელვადიანი კატალიზატორები, 2-8 კვირა",
    "start": 100,
-   "cash": 17.485290161071777,
+   "cash": 0.0,
    "positions": [
     {
      "ticker": "WOR",
@@ -1008,7 +1016,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 60.35
+     "last_price": 60.86
     },
     {
      "ticker": "NUAI",
@@ -1018,7 +1026,17 @@
      "target": 9.06,
      "stop": 6.02,
      "max_days": 40,
-     "last_price": 6.88
+     "last_price": 6.77
+    },
+    {
+     "ticker": "RCL",
+     "shares": 0.063606,
+     "entry": 267.0400085449219,
+     "entry_date": "2026-09-30",
+     "target": 300.62,
+     "stop": 253.37,
+     "max_days": 40,
+     "last_price": 267.0400085449219
     }
    ],
    "trades": [
@@ -1133,7 +1151,7 @@
      "leverage": 1
     }
    ],
-   "equity": 52.43,
+   "equity": 51.83,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1370,13 +1388,17 @@
     {
      "date": "2026-09-29",
      "equity": 52.43
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 51.83
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -47.57
+    "return_pct": -48.17
    }
   },
   "bot4": {
@@ -1394,7 +1416,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 40.16
+     "last_price": 41.17
     }
    ],
    "trades": [
@@ -1509,7 +1531,7 @@
      "leverage": 1
     }
    ],
-   "equity": 76.53,
+   "equity": 77.11,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1746,13 +1768,17 @@
     {
      "date": "2026-09-29",
      "equity": 76.53
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 77.11
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -23.47
+    "return_pct": -22.89
    }
   },
   "bot5": {
@@ -1773,7 +1799,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 40.16
+     "last_price": 41.17
     }
    ],
    "trades": [
@@ -1838,7 +1864,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 557.34,
+   "equity": 591.88,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2075,15 +2101,19 @@
     {
      "date": "2026-09-29",
      "equity": 557.34
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 591.88
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -44.27
+    "return_pct": -40.81
    }
   }
  },
- "updated": "2026-09-29T18:55:28.388415+00:00"
+ "updated": "2026-09-30T18:39:00.791524+00:00"
 }
