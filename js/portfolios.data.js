@@ -278,8 +278,9 @@ window.PORTFOLIOS = {
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 887.20, color: '#2563eb', divYield: 1.30 },
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.26, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 147.99, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 1.36276890, avgBuy: 55.44, invested: 75.55, value: 75.55, color: '#0d9488', divYield: 13.76 },
     ],
-    cash: 74.70, // 30 Sep 2026: VOO ($1.59) + DIVO ($0.41) + ARCC ($0.76) divs (+$2.76 net) + prev cash $71.94 -> net cash $74.70
+    cash: 0.00, // 01 Oct 2026: KO div $0.85 net + prev cash $74.70 = $75.55 -> QQQI buys (1.3627689 sh = $75.55) -> net cash $0.00
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -288,6 +289,10 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 01 ოქტ 2026 QQQI buy (1.3627689 sh = $75.55) from cash + KO dividend ($0.85 net) · TBC app · net cash $0.00 ---
+      { date: '2026-10-01', type: 'buy',      ticker: 'QQQI', shares: 0.36276890, price: 55.43474, commission: 0 },
+      { date: '2026-10-01', type: 'buy',      ticker: 'QQQI', shares: 1.00000000, price: 55.44,    commission: 0 },
+      { date: '2026-10-01', type: 'dividend', ticker: 'KO',   amount: 0.85, note: 'დივიდენდის ჩარიცხვა $1.21 − გადასახადი $0.36 = წმინდა $0.85' },
       // --- 30 სექ 2026 VOO, DIVO, ARCC dividends · TBC app · net cash $74.70 ---
       { date: '2026-09-30', type: 'dividend', ticker: 'VOO',  amount: 1.59, note: 'დივიდენდის ჩარიცხვა $2.27 − გადასახადი $0.68 = წმინდა $1.59' },
       { date: '2026-09-30', type: 'dividend', ticker: 'DIVO', amount: 0.41, note: 'დივიდენდის ჩარიცხვა $0.59 − გადასახადი $0.18 = წმინდა $0.41' },

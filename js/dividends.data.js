@@ -120,6 +120,19 @@
           payDate: formatDateIso(year, month, pDay)
         };
       }
+    },
+    QQQI: {
+      name: 'NEOS Nasdaq-100 High Income ETF',
+      freq: 'monthly',
+      estDivPerShare: 0.64,
+      // Distributes monthly ~around 23rd-25th; ex-date ~2 days prior
+      getDates: function (year, month) {
+        var pDay = 24;
+        return {
+          exDate: shiftIso(year, month, pDay, -2),
+          payDate: formatDateIso(year, month, pDay)
+        };
+      }
     }
   };
 
