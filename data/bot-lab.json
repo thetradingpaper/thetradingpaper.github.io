@@ -17,7 +17,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 41.17
+     "last_price": 40.89
     }
    ],
    "trades": [
@@ -112,7 +112,7 @@
      "leverage": 1
     }
    ],
-   "equity": 80.18,
+   "equity": 79.64,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -353,13 +353,17 @@
     {
      "date": "2026-09-30",
      "equity": 80.18
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 79.64
     }
    ],
    "stats": {
     "trades": 9,
     "wins": 2,
     "win_rate": 22.2,
-    "return_pct": -19.82
+    "return_pct": -20.36
    }
   },
   "bot2": {
@@ -992,6 +996,10 @@
     {
      "date": "2026-09-30",
      "equity": 45.54
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -1016,7 +1024,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 60.86
+     "last_price": 59.33
     },
     {
      "ticker": "NUAI",
@@ -1026,7 +1034,7 @@
      "target": 9.06,
      "stop": 6.02,
      "max_days": 40,
-     "last_price": 6.77
+     "last_price": 6.47
     },
     {
      "ticker": "RCL",
@@ -1036,7 +1044,7 @@
      "target": 300.62,
      "stop": 253.37,
      "max_days": 40,
-     "last_price": 267.0400085449219
+     "last_price": 269.96
     }
    ],
    "trades": [
@@ -1151,7 +1159,7 @@
      "leverage": 1
     }
    ],
-   "equity": 51.83,
+   "equity": 50.81,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1392,13 +1400,17 @@
     {
      "date": "2026-09-30",
      "equity": 51.83
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 50.81
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -48.17
+    "return_pct": -49.19
    }
   },
   "bot4": {
@@ -1416,7 +1428,7 @@
      "target": 42.67,
      "stop": 38.29,
      "max_days": 7,
-     "last_price": 41.17
+     "last_price": 40.89
     }
    ],
    "trades": [
@@ -1531,7 +1543,7 @@
      "leverage": 1
     }
    ],
-   "equity": 77.11,
+   "equity": 76.95,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1772,13 +1784,17 @@
     {
      "date": "2026-09-30",
      "equity": 77.11
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 76.95
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -22.89
+    "return_pct": -23.05
    }
   },
   "bot5": {
@@ -1799,7 +1815,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 41.17
+     "last_price": 40.89
     }
    ],
    "trades": [
@@ -1864,7 +1880,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 591.88,
+   "equity": 581.96,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2105,15 +2121,19 @@
     {
      "date": "2026-09-30",
      "equity": 591.88
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 581.96
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -40.81
+    "return_pct": -41.8
    }
   }
  },
- "updated": "2026-09-30T18:39:00.791524+00:00"
+ "updated": "2026-10-01T19:09:14.774186+00:00"
 }
