@@ -1,8 +1,42 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 101.21,
- "positions": [],
+ "cash": 41.21,
+ "positions": [
+  {
+   "ticker": "NVDA",
+   "opened": "2026-10-01T18:47:40.983Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 232.04,
+   "shares": 0.086192,
+   "cost": 20,
+   "target": 242.66,
+   "stop": 224.07
+  },
+  {
+   "ticker": "MSTR",
+   "opened": "2026-10-01T18:47:40.983Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 159.98,
+   "shares": 0.125016,
+   "cost": 20,
+   "target": 178.62,
+   "stop": 146
+  },
+  {
+   "ticker": "PLTR",
+   "opened": "2026-10-01T18:47:40.983Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 190.11,
+   "shares": 0.105202,
+   "cost": 20,
+   "target": 201.81,
+   "stop": 181.34
+  }
+ ],
  "equityHistory": [
   {
    "date": "2026-06-10",
@@ -270,6 +304,10 @@
   },
   {
    "date": "2026-09-30",
+   "equity": 101.21
+  },
+  {
+   "date": "2026-10-01",
    "equity": 101.21
   }
  ]
