@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T15:26:47.179Z",
+  "updated": "2026-10-02T17:53:00.661Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -14,7 +14,7 @@
       "previousClose": 568.53
     },
     "VOO": {
-      "price": 705.905,
+      "price": 707.25,
       "previousClose": 702.35
     },
     "ASX": {
@@ -34,8 +34,8 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 251.10,
-      "previousClose": 251.10
+      "price": 251.19,
+      "previousClose": 246.12
     },
     "WMT": {
       "price": 108.1,
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 160.39,
+      "price": 157.4,
       "previousClose": 160.5
     },
     "CRDO": {
@@ -62,20 +62,20 @@
       "previousClose": 19.16
     },
     "MAIN": {
-      "price": 54.619,
+      "price": 55.06,
       "previousClose": 55.66
     },
     "BXSL": {
-      "price": 23.57,
+      "price": 23.605,
       "previousClose": 23.92
     },
     "LYG": {
-      "price": 5.438,
+      "price": 5.495,
       "previousClose": 5.42
     },
     "SNDK": {
-      "price": 1720.82,
-      "previousClose": 1720.82
+      "price": 1720.981,
+      "previousClose": 1787.69
     },
     "GOOG": {
       "price": 343.445,
@@ -114,15 +114,15 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 85.505,
+      "price": 85.63,
       "previousClose": 86.1
     },
     "DIVO": {
-      "price": 46.575,
+      "price": 46.72,
       "previousClose": 46.47
     },
     "QQQI": {
-      "price": 56.035,
+      "price": 56.095,
       "previousClose": 55.67
     },
     "MU": {
@@ -134,8 +134,8 @@
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 272.57,
-      "previousClose": 272.57
+      "price": 273.23,
+      "previousClose": 268.08
     },
     "QBTS": {
       "price": 17.695,
@@ -146,8 +146,8 @@
       "previousClose": 11.63
     },
     "BE": {
-      "price": 285.24,
-      "previousClose": 285.24
+      "price": 287.965,
+      "previousClose": 277.58
     },
     "SOXX": {
       "price": 499.46,
@@ -158,7 +158,7 @@
       "previousClose": 217.44
     },
     "O": {
-      "price": 53.945,
+      "price": 54.065,
       "previousClose": 53.53
     }
   }
