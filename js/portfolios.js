@@ -484,12 +484,32 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
 }
 
 // Newspaper-style card grid for holdings (PDF aesthetic) — one card per stock
+const ASSET_META_PORTFOLIOS = {
+  VOO:  { sector: 'S&P 500 Index ETF', desc: 'აშშ-ის 500 უმსხვილესი კორპორაცია · საბაზრო საძირკველი', icon: '🏛️' },
+  MAIN: { sector: 'BDC · Private Credit', desc: 'ამერიკის საშუალო ბიზნესის დაკრედიტება · თვიური დივიდენდი', icon: '🏢' },
+  BXSL: { sector: 'Senior Secured Loans', desc: 'Blackstone-ის პირველი რიგის უზრუნველყოფილი სესხები (12.9% yield)', icon: '🛡️' },
+  LYG:  { sector: 'UK Banking Group', desc: 'დიდი ბრიტანეთის წამყვანი რითეილ ბანკი · Deep Value', icon: '🏦' },
+  KO:   { sector: 'Consumer Monopoly', desc: 'Coca-Cola · 62-წლიანი დივიდენდური არისტოკრატი (Dividend King)', icon: '🥤' },
+  O:    { sector: 'Commercial REIT', desc: 'The Monthly Dividend Co. · 15,400+ კომერციული ობიექტი', icon: '🏬' },
+  DIVO: { sector: 'Covered Call ETF', desc: 'დივიდენდური ლურჯი ჩიპები + ტაქტიკური დაფარული ოფციონები', icon: '📈' },
+  QQQI: { sector: 'Nasdaq-100 Income', desc: 'Nasdaq ზრდა + ყოველთვიური ოფციონური ფულადი ნაკადი (13.7%)', icon: '⚡' },
+  ARCC: { sector: 'Direct Lending BDC', desc: 'აშშ-ის უდიდესი საჯარო BDC · $22B+ დივერსიფიცირებული პორტფელი', icon: '💼' },
+  MRVL: { sector: 'AI Optics & Silicon', desc: 'AI მონაცემთა ცენტრების ოპტიკური ჩიპები & ASIC პროცესორები', icon: '🔬' },
+  SNDK: { sector: 'NAND & Flash Storage', desc: 'Enterprise SSD დისკები და ფლეშ-მეხსიერების სუპერციკლი', icon: '💾' },
+  VRT:  { sector: 'Liquid Cooling Systems', desc: 'AI კლასტერების თხევადი გაგრილების გლობალური მონოპოლისტი', icon: '❄️' },
+  BE:   { sector: 'Clean Energy & SOFC', desc: 'On-Site მყაროქსიდიანი გენერაცია AI სერვერებისთვის ქსელის გარეშე', icon: '🔋' }
+};
+
+// Newspaper-style card grid for holdings — modern illustrated cards
 function renderHoldingsCards(containerId, portfolioKey) {
   const p = portfolios[portfolioKey];
   const c = document.getElementById(containerId);
   if (!c) return;
   let html = '';
+  const totalVal = p.holdings.reduce((s, h) => s + (h.value || 0), 0) + (p.cash || 0);
+
   for (const h of p.holdings) {
+    const meta = ASSET_META_PORTFOLIOS[h.ticker] || { sector: 'Stock', desc: h.name || h.ticker, icon: '📌' };
     const price = h.livePrice || h.avgBuy || 0;
     const value = (h.shares !== undefined && price)
       ? +(h.shares * price).toFixed(2)
@@ -498,32 +518,93 @@ function renderHoldingsCards(containerId, portfolioKey) {
     const unreal = value - invested;
     const unrealPct = invested > 0 ? (unreal / invested) * 100 : 0;
     const dayPct = h.dayChangePct;
-    const dayDollar = (h.dayChangePct !== undefined && h.shares !== undefined && h.previousClose)
-      ? +((price - h.previousClose) * h.shares).toFixed(2)
-      : null;
+    const hasDay = (dayPct !== undefined && dayPct !== null && h.previousClose && h.shares !== undefined);
+    const dayDollar = hasDay ? +((price - h.previousClose) * h.shares).toFixed(2) : null;
 
-    const sess = (h.liveSession === 'PRE') ? ` <span class="sess-badge pre">PRE</span>`
-      : (h.liveSession === 'POST') ? ` <span class="sess-badge post">POST</span>`
-      : '';
+    const sess = (h.liveSession === 'PRE') ? '<span class="sess-badge pre">PRE</span>'
+      : (h.liveSession === 'POST') ? '<span class="sess-badge post">POST</span>'
+      : (price && h.livePrice) ? '<span class="sess-badge" style="background:rgba(22,101,52,0.12);color:var(--green)">LIVE</span>' : '';
 
     const unrealClass = unreal >= 0 ? 'pos' : 'neg';
     const dayClass = (dayPct >= 0) ? 'pos' : 'neg';
+    const sharesStr = (+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '');
+    const weightPct = totalVal > 0 ? (value / totalVal * 100) : 0;
+
+    let divBanner = '';
+    if (portfolioKey === 'tbc') {
+      const dMeta = (window.TP_DIVIDENDS && window.TP_DIVIDENDS.DIV_META) ? window.TP_DIVIDENDS.DIV_META[h.ticker] : null;
+      let annualGross = 0;
+      let freqLabel = '';
+      if (dMeta && dMeta.estDivPerShare) {
+        const freqMult = (dMeta.freq === 'monthly') ? 12 : (dMeta.freq === 'semi-annual') ? 2 : 4;
+        annualGross = h.shares * dMeta.estDivPerShare * freqMult;
+        if (dMeta.supplementalPerShare && dMeta.supplementalMonths) {
+          annualGross += h.shares * dMeta.supplementalPerShare * dMeta.supplementalMonths.length;
+        }
+        freqLabel = (dMeta.freq === 'monthly') ? 'ყოველთვიური (Monthly)' : (dMeta.freq === 'semi-annual') ? 'ნახევარწლიური' : 'კვარტალური (Quarterly)';
+      } else if (h.divYield > 0) {
+        annualGross = value * (h.divYield / 100);
+        freqLabel = 'რეგულარული დივიდენდი';
+      }
+      if (annualGross > 0) {
+        const annualNet = annualGross * 0.70;
+        const yld = h.divYield ? (h.divYield.toFixed(2) + '%') : (value > 0 ? (annualGross / value * 100).toFixed(2) + '%' : '—');
+        divBanner = `
+<div class="hc-div-banner">
+  <div class="hc-div-title">💰 დივიდენდი · ${yld} Yield</div>
+  <div class="hc-div-stats">
+    <span class="hc-div-item">წლიური: <strong>${fmtMoney(annualGross)} gross</strong></span>
+    <span class="hc-div-item">წმინდა: <strong style="color:var(--green)">+${fmtMoney(annualNet)} net</strong></span>
+    <span class="hc-div-item">გრაფიკი: <strong>${freqLabel}</strong></span>
+  </div>
+</div>`;
+      }
+    }
+
+    const brandColor = h.color || '#1a1a1a';
+    const dayStr = hasDay ? `${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}% (${dayDollar >= 0 ? '+' : '−'}${fmtMoney(Math.abs(dayDollar))})` : '—';
 
     html += `
-<div class="hcard">
-<div class="hcard-head">
-<span class="hcard-ticker">${h.ticker}</span>
-<span class="hcard-name">${h.name.toUpperCase()}</span>
-</div>
-<table class="hcard-tbl">
-<tr><td>SHARES</td><td class="num">${(+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '')}</td></tr>
-<tr><td>AVG BUY</td><td class="num">$${h.avgBuy.toFixed(2)}</td></tr>
-<tr><td>PRICE</td><td class="num">$${price.toFixed(2)}${sess}</td></tr>
-<tr><td>INVESTED</td><td class="num">$${invested.toFixed(2)}</td></tr>
-<tr><td>VALUE</td><td class="num">$${value.toFixed(2)}</td></tr>
-<tr><td>UNREALISED</td><td class="num ${unrealClass}">${unreal >= 0 ? '+' : '−'}$${Math.abs(unreal).toFixed(2)} (${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}%)</td></tr>
-${dayDollar !== null ? `<tr><td>DAY</td><td class="num ${dayClass}">${dayDollar >= 0 ? '+' : '−'}$${Math.abs(dayDollar).toFixed(2)} (${dayPct >= 0 ? '+' : '−'}${Math.abs(dayPct).toFixed(2)}%)</td></tr>` : ''}
-</table>
+<div class="hcard-v2" style="border-top: 3px solid ${brandColor};">
+  <div class="hc-head">
+    <div class="hc-identity">
+      <span class="hc-icon">${meta.icon}</span>
+      <div>
+        <div class="hc-title-row">
+          <span class="hc-ticker" style="background:${brandColor};">${h.ticker}</span>
+          <span class="hc-name">${h.name || h.ticker}</span>
+          <span class="hc-book-tag ${portfolioKey}">${portfolioKey.toUpperCase()} · ${portfolioKey === 'tbc' ? 'დივიდენდი' : 'ტექ-ზრდა'}</span>
+        </div>
+        <div class="hc-desc">${meta.sector} — ${meta.desc}</div>
+      </div>
+    </div>
+    <div class="hc-links">
+      <a href="https://www.tradingview.com/symbols/${h.ticker}/" target="_blank" rel="noopener" class="hc-link-btn">📊 TradingView ↗</a>
+    </div>
+  </div>
+  <div class="hc-grid">
+    <div class="hc-tile">
+      <div class="hc-label">საბაზრო ღირებულება · Value</div>
+      <div class="hc-val">${fmtMoney(value)}</div>
+      <div class="hc-sub">ჩადებული: ${fmtMoney(invested)} <span class="hc-dot">·</span> Avg: $${h.avgBuy.toFixed(2)}</div>
+    </div>
+    <div class="hc-tile">
+      <div class="hc-label">მიმდინარე ფასი · Live Price ${sess}</div>
+      <div class="hc-val">$${price.toFixed(2)}</div>
+      <div class="hc-sub ${hasDay ? dayClass : ''}">${dayStr} (1D)</div>
+    </div>
+    <div class="hc-tile ${unrealClass}-bg">
+      <div class="hc-label">წმინდა P/L · Total Return</div>
+      <div class="hc-val ${unrealClass}">${unreal >= 0 ? '+' : '−'}${fmtMoney(Math.abs(unreal))}</div>
+      <div class="hc-sub ${unrealClass}">${unreal >= 0 ? '+' : '−'}${Math.abs(unrealPct).toFixed(2)}% მთლიანი უკუგება</div>
+    </div>
+    <div class="hc-tile">
+      <div class="hc-label">წილები &amp; წილი წიგნში</div>
+      <div class="hc-val">${sharesStr} <span style="font-size:11px;font-weight:600;color:var(--muted)">sh</span></div>
+      <div class="hc-sub">${weightPct > 0 ? (weightPct.toFixed(1) + '% ' + portfolioKey.toUpperCase() + '-ში') : 'პოზიციის წილი'}</div>
+    </div>
+  </div>
+  ${divBanner}
 </div>`;
   }
   c.innerHTML = html;

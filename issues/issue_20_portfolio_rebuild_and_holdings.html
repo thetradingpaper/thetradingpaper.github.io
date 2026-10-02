@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — გამოცემა №20</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;800;900&family=Noto+Sans+Georgian:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fffdf7;
+    --bg: #f4f1ea;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #d9d4c8;
+    --rule: #1a1a1a;
+    --red: #b91c1c;
+    --green: #166534;
+    --blue: #1d4ed8;
+    --gold: #8b6914;
+    --card-bg: #ffffff;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px 10px 60px;
+    line-height: 1.65;
+  }
+  .container {
+    max-width: 940px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 4px double var(--rule);
+    border-bottom: 4px double var(--rule);
+    padding: 44px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  header.masthead {
+    text-align: center;
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 22px;
+    margin-bottom: 32px;
+  }
+  .masthead .top-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-size: 44px;
+    font-weight: 900;
+    margin: 0 0 8px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .masthead .sub-title {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 800;
+  }
+  .hero-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--green);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .hero-box h2 {
+    font-family: 'Noto Serif Georgian', serif;
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--ink);
+  }
+  .hero-box p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+  .grid-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 28px 0;
+  }
+  @media(max-width: 768px) {
+    .grid-stats { grid-template-columns: 1fr 1fr; }
+    .container { padding: 20px; }
+    .masthead h1 { font-size: 32px; }
+  }
+  @media(max-width: 480px) {
+    .grid-stats { grid-template-columns: 1fr; }
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-top: 3px solid var(--ink);
+    border-radius: 2px;
+  }
+  .stat-card .label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .stat-card .value {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 6px 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-card .value.pos { color: var(--green); }
+  .stat-card .value.neg { color: var(--red); }
+  .stat-card .sub {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  h2.sec-heading {
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 25px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  h2.sec-heading .sec-tag {
+    font-size: 12px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .data-table th, .data-table td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .data-table th {
+    background: #eae6dd;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .data-table td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, monospace;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 800;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .badge.tbc { background: #1a1a1a; color: #fff; }
+  .badge.bog { background: #b91c1c; color: #fff; }
+  .badge.pos { background: #dcfce7; color: var(--green); }
+  .badge.div { background: #fef3c7; color: #92400e; }
+  .badge.growth { background: #e0e7ff; color: #3730a3; }
+
+  .callout-box {
+    background: rgba(22, 101, 52, 0.05);
+    border: 1px solid rgba(22, 101, 52, 0.2);
+    border-left: 4px solid var(--green);
+    padding: 18px 22px;
+    margin: 24px 0;
+    border-radius: 4px;
+  }
+  .callout-box h4 {
+    margin: 0 0 8px;
+    color: var(--green);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .5px;
+  }
+
+  .holding-profile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    margin-bottom: 22px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+  .holding-profile-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #fbf9f4;
+    border-bottom: 1px solid var(--border);
+    border-top: 3px solid var(--ink);
+  }
+  .holding-profile-head.tbc { border-top-color: #1a1a1a; }
+  .holding-profile-head.bog { border-top-color: var(--red); }
+  .holding-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .holding-ticker {
+    font-family: ui-monospace, monospace;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: .5px;
+  }
+  .holding-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .holding-meta-pill {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .holding-body {
+    padding: 18px;
+  }
+  .holding-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #f8f6f0;
+    padding: 12px 14px;
+    border-radius: 4px;
+    border: 1px solid #e7e2d6;
+    margin-bottom: 14px;
+    font-family: ui-monospace, monospace;
+  }
+  @media(max-width: 600px) {
+    .holding-grid-mini { grid-template-columns: 1fr 1fr; }
+  }
+  .holding-grid-mini .cell .c-label {
+    font-size: 9.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    letter-spacing: .5px;
+  }
+  .holding-grid-mini .cell .c-val {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+  .holding-grid-mini .cell .c-val.pos { color: var(--green); }
+  .holding-grid-mini .cell .c-val.neg { color: var(--red); }
+  .holding-grid-mini .cell .c-sub {
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .holding-thesis {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #2b2b2b;
+  }
+  .holding-thesis strong {
+    color: var(--ink);
+  }
+  .lesson-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-radius: 4px;
+  }
+  .lesson-card h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: var(--ink);
+    font-family: 'Noto Serif Georgian', serif;
+  }
+  .lesson-card p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.6;
+  }
+  footer.paper-footer {
+    border-top: 3px double var(--rule);
+    margin-top: 48px;
+    padding-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="masthead">
+    <div class="top-meta">
+      <span>გამოცემა №20 · კაპიტალური შეჯამება</span>
+      <span>02 ოქტომბერი, 2026</span>
+      <span>Wiesbaden / Georgia</span>
+    </div>
+    <h1>The Trading Paper</h1>
+    <div class="sub-title">The Great Rebuild: $3,000-იანი ეტაპი, 13 აქტივის სრული ანალიზი &amp; რა გვასწავლა აგვისტოს შტორმმა</div>
+  </header>
+
+  <div class="hero-box">
+    <h2>$3,000-იანი კაპიტალის ზღვარი და სტრატეგიული მეტამორფოზა</h2>
+    <p>
+      გამოცემა №19-ის (10 აგვისტო, 2026) შემდეგ The Trading Paper-ის ისტორიაში ყველაზე მნიშვნელოვანი ტრანსფორმაცია მოხდა. 
+      აგვისტოს დამღლელი, ემოციური 2X ჰებელური ETF-ების (SNXX, SPCG, RKLZ) და სკალპინგის ეპოქა სრულად დასრულდა. 
+      დღეს პორტფელმა პირველად ოფიციალურად გადალახა <strong>$3,000-იანი კაპიტალის ზღვარი ($3,010.53 ჩადებული / $3,155.64 ცოცხალი საბაზრო ღირებულება)</strong>. 
+      ჩამოყალიბდა ორი მკაფიოდ გამიჯნული წიგნი: <strong>TBC Capital (9 დივიდენდური გიგანტი)</strong>, რომელიც წელიწადში <strong>$120.52 წმინდა დივიდენდს ($10.04/თვეში)</strong> აგენერირებს, და <strong>BOG ($150.00)</strong>, რომელიც მიმართულია 4 ექსკლუზიურ AI/Tech ზრდის აქტივზე ბერკეტის გარეშე.
+    </p>
+  </div>
+
+  <div class="grid-stats">
+    <div class="stat-card">
+      <div class="label">მთლიანი პორტფელი</div>
+      <div class="value pos">$3,155.64</div>
+      <div class="sub">შესყიდვის ბაზა: $3,010.53 · 13 აქტივი</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">წლიური დივიდენდი</div>
+      <div class="value pos">$120.52</div>
+      <div class="sub">წმინდა (30% GE tax-ის შემდეგ) · მთლიანი: $172.17</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">თვიური პასიური შემოსავალი</div>
+      <div class="value pos">$10.04 / თვე</div>
+      <div class="sub">100% ავტომატური ფულადი ნაკადი</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">მიღებული დივიდენდები</div>
+      <div class="value pos">$10.61</div>
+      <div class="sub">12 რეალური ჩარიცხვა TBC-ის ისტორიაში</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2 class="sec-heading">
+    <span>1. რა ვისწავლეთ: აგვისტოს შტორმიდან მშვიდობიან კაპიტალამდე</span>
+    <span class="sec-tag">Lessons &amp; Psychology</span>
+  </h2>
+
+  <div class="lesson-card">
+    <h3>1. ჰებელური ETF-ებისა და Volatility Decay-ს მათემატიკური რეალობა</h3>
+    <p>
+      2X და 3X ETF-ები (SNXX, SMCZ, SPCG) ყოველდღიურად ანგარიშობენ პროცენტს. რყევად ბაზარზე მათი დატოვება მათემატიკურად იწვევს კაპიტალის განადგურებას (Volatility Drag). 
+      აზარტული ვაჭრობის მოტივაცია იყო არა რეალური ზრდა, არამედ დოპამინის მარყუჟი. ამ მახის დახურვა და ყველა ჰებელური პოზიციის ლიკვიდაცია იყო პორტფელის გადარჩენის მთავარი ფაქტორი.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>2. ფულადი ნაკადის (Cash Flow) უპირატესობა ილუზორულ ზრდაზე</h3>
+    <p>
+      აქციის ფასი ეკრანზე შეიძლება ყოველდღე ირყეოდეს, მაგრამ დივიდენდი, რომელიც ანგარიშზე ჯდება, რეალური ნაღდი ფულია. 
+      დღეს TBC-ის პორტფელი თვეში საშუალოდ $10.04-ს გამოიმუშავებს მაშინაც კი, როდესაც ბაზარი წითელია. ეს ფული ავტომატურად რეინვესტირდება და ქმნის შეუქცევად რთულ პროცენტს (Compound Interest).
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>3. ორი წიგნის მკაცრი გამიჯვნა (Separation of Church and State)</h3>
+    <p>
+      უმთავრესი სტრატეგიული წესი: <strong>TBC არის ხელშეუხებელი საპენსიო/დივიდენდური სიმაგრე</strong>, საიდანაც ფული არასდროს გადის და არ ექვემდებარება დღიურ სპეკულაციას. 
+      <strong>BOG არის აქტიური ტექ-კალათა</strong> ($150), რომელიც მკაცრად შეზღუდულია ბიუჯეტით, არ იყენებს არანაირ მარჟას და ორიენტირებულია გრძელვადიან სექტორულ ტრენდებზე.
+    </p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 class="sec-heading">
+    <span>2. TBC Capital: დივიდენდური იმპერიის 9 საყრდენი ($2,860.53)</span>
+    <span class="sec-tag">Dividend Machine</span>
+  </h2>
+  <p style="font-size:14px; color:var(--muted); margin-top:-10px; margin-bottom:20px;">
+    TBC პორტფელი აგებულია მაღალი საიმედოობის, ბაზრის ლიდერი აქტივებისგან, რომლებიც აბალანსებენ S&P 500-ის ზრდას, BDC კრედიტს, უძრავ ქონებას და მაღალშემოსავლიან დაფარულ ოფციონებს (Covered Calls).
+  </p>
+
+  <!-- 1. VOO -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">VOO</span>
+        <span class="holding-name">Vanguard S&amp;P 500 ETF</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge">Core Index</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">1.2435 sh</div><div class="c-sub">Avg: $697.32</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$879.02</div><div class="c-sub">ჩადებული: $867.09</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">+$11.93 (+1.38%)</div><div class="c-sub">29.2% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$6.83 net</div><div class="c-sub">1.30% Yield · კვარტალი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> VOO არის პორტფელის უდიდესი აქტივი და ამერიკის ეკონომიკის უძლეველი ლოკომოტივი. აერთიანებს აშშ-ის 500 უმსხვილეს კომპანიას (Apple, Microsoft, Nvidia, Amazon, Alphabet, Meta, Berkshire Hathaway). 
+        მისი მიზანი არ არის სწრაფი დივიდენდი, არამედ კაპიტალის დაცვა, ინფლაციის დაძლევა და გრძელვადიანი ზრდა. ის წარმოადგენს პორტფელის უსაფრთხოების ბალიშს.
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">MAIN</span>
+        <span class="holding-name">Main Street Capital Corporation</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">Monthly Div + Supp</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">7.6908 sh</div><div class="c-sub">Avg: $54.98</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$424.53</div><div class="c-sub">ჩადებული: $422.87</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">+$1.66 (+0.39%)</div><div class="c-sub">14.1% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$23.58 net</div><div class="c-sub">6.20% + ბონუსი · თვეში</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> BDC (Business Development Company) სექტორის ოქროს სტანდარტი ჰიუსტონიდან. აფინანსებს ამერიკის საშუალო და მცირე ბიზნესებს ($10M-$150M შემოსავლით) და იღებს წილებს მათ კაპიტალში. 
+        2007 წლის IPO-ს შემდეგ MAIN-ს რეგულარული დივიდენდი არასდროს შეუმცირებია. იხდის წელიწადში 12 ყოველთვიურ დივიდენდს ($0.265/თვეში) პლუს 4 კვარტალურ დამატებით ბონუს-დივიდენდს ($0.30/კვარტალში).
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. BXSL -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">BXSL</span>
+        <span class="holding-name">Blackstone Secured Lending Fund</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">12.9% High Yield</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">17.2463 sh</div><div class="c-sub">Avg: $24.49</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$407.62</div><div class="c-sub">ჩადებული: $422.34</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$14.72 (-3.49%)</div><div class="c-sub">13.6% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$37.18 net</div><div class="c-sub">12.90% Yield · კვარტალი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> მართავს Blackstone — მსოფლიოს უდიდესი ალტერნატიული აქტივების მმართველი ($1 ტრილიონზე მეტი AUM). 
+        BXSL-ის პორტფელის 98%+ შედგება პირველი რიგის უზრუნველყოფილი სესხებისგან (First-Lien Senior Secured Debt). ეს ნიშნავს, რომ კომპანიის გაკოტრების შემთხვევაშიც კი, Blackstone პირველი იბრუნებს ფულს. 
+        პორტფელის უდიდესი დივიდენდის მომტანი აქტივი ($37.18 წმინდა/წელი).
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. LYG -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">LYG</span>
+        <span class="holding-name">Lloyds Banking Group plc</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge">UK Banking Value</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">72.5344 sh</div><div class="c-sub">Avg: $5.91</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$398.21</div><div class="c-sub">ჩადებული: $428.36</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$30.15 (-7.04%)</div><div class="c-sub">13.2% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$11.17 net</div><div class="c-sub">3.66% Yield · ნახევარწლიური</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> დიდი ბრიტანეთის უმსხვილესი რითეილ ბანკი 26 მილიონზე მეტი მომხმარებლით. ევროპული კლასიკური Deep Value აქტივი, რომელიც ვაჭრობს ხელსაყრელ ფასად წიგნის ღირებულებასთან მიმართებაში. 
+        მაღალი საპროცენტო მარჟა, აგრესიული აქციების გამოსყიდვა (Buybacks) და სტაბილური ნახევარწლიური დივიდენდები.
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. KO -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">KO</span>
+        <span class="holding-name">The Coca-Cola Company</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">Dividend King (62 yrs)</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">2.8454 sh</div><div class="c-sub">Avg: $86.96</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$243.54</div><div class="c-sub">ჩადებული: $247.44</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$3.90 (-1.58%)</div><div class="c-sub">8.1% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$4.22 net</div><div class="c-sub">3.10% Yield · კვარტალი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> მსოფლიოს უძლიერესი სამომხმარებლო მონოპოლია და უორენ ბაფეტის 35-წლიანი ფავორიტი. 62 უწყვეტი წელი დივიდენდის ყოველწლიური ზრდით. 
+        ფლობს წარმოუდგენელ ფასწარმოქმნის ძალას (Pricing Power) — ინფლაციის დროსაც კი Coca-Cola მარტივად ზრდის ფასებს მოთხოვნის შემცირების გარეშე.
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. O -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">O</span>
+        <span class="holding-name">Realty Income Corporation</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">The Monthly Dividend Co.</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">3.6902 sh</div><div class="c-sub">Avg: $54.20</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$199.48</div><div class="c-sub">ჩადებული: $200.00</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$0.52 (-0.26%)</div><div class="c-sub">6.6% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$8.42 net</div><div class="c-sub">6.01% Yield · ყოველთვიური</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> ახალი შესყიდვა 2 ოქტომბერს ($200.00). S&amp;P 500 REIT (Real Estate Investment Trust), რომელიც ფლობს 15,400-ზე მეტ კომერციულ ობიექტს Triple-Net Lease ხელშეკრულებებით (მოიჯარეები თავად იხდიან გადასახადებს, დაზღვევას და რემონტს). 
+        650-ზე მეტი უწყვეტი ყოველთვიური დივიდენდი და 30+ წელი ყოველწლიური ზრდა. პირველი დივიდენდი ირიცხება 15 ნოემბერს.
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. DIVO -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">DIVO</span>
+        <span class="holding-name">Amplify CWP Enhanced Dividend ETF</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">Covered Calls + Quality</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">4.1896 sh</div><div class="c-sub">Avg: $48.12</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$195.70</div><div class="c-sub">ჩადებული: $201.59</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$5.89 (-2.92%)</div><div class="c-sub">6.5% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$6.45 net</div><div class="c-sub">4.50% Yield · ყოველთვიური</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> ტაქტიკური დაფარული ოფციონების (Covered Calls) ფონდი, რომელიც აერთიანებს მაღალი ხარისხის დივიდენდურ ლურჯ ჩიპებს (Microsoft, Apple, Visa, JPMorgan). 
+        მენეჯერები შერჩევით წერენ Out-of-the-Money ქოლ-ოფციონებს, რაც აგენერირებს დამატებით პრემიას და ამცირებს პორტფელის მერყეობას ბაზრის დაცემისას.
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. QQQI -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">QQQI</span>
+        <span class="holding-name">NEOS Nasdaq-100 High Income ETF</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">13.76% Tech Cashflow</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">3.1356 sh</div><div class="c-sub">Avg: $55.89</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$175.79</div><div class="c-sub">ჩადებული: $175.25</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">+$0.54 (+0.31%)</div><div class="c-sub">5.8% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$16.86 net</div><div class="c-sub">13.76% Yield · ყოველთვიური</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> უახლესი თაობის ოფციონური ETF. განსხვავებით ძველი ფონდებისგან (როგორიცაა QYLD), QQQI იყენებს Call Spread სტრატეგიას, რაც საშუალებას აძლევს მონაწილეობა მიიღოს Nasdaq-ის ზრდაში და პარალელურად გადაიხადოს მასიური ყოველთვიური დივიდენდი ($0.64/აქციაზე). 
+        უზრუნველყოფს ტექნოლოგიური სექტორის ფულად ნაკადად გარდაქმნას.
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. ARCC -->
+  <div class="holding-profile">
+    <div class="holding-profile-head tbc">
+      <div class="holding-title">
+        <span class="holding-ticker">ARCC</span>
+        <span class="holding-name">Ares Capital Corporation</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge tbc">TBC</span>
+        <span class="badge div">10.4% Div Champion</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">4.3192 sh</div><div class="c-sub">Avg: $18.89</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$81.29</div><div class="c-sub">ჩადებული: $81.60</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$0.31 (-0.38%)</div><div class="c-sub">2.7% TBC-ში</div></div>
+        <div class="cell"><div class="c-label">წლიური დივიდენდი</div><div class="c-val pos">+$5.80 net</div><div class="c-sub">10.40% Yield · კვარტალი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> ამერიკის უდიდესი საჯარო BDC $22 მილიარდზე მეტი აქტივებით, რომელსაც მართავს Ares Management ($450B+ AUM). 
+        არნახული დივერსიფიკაცია 500-ზე მეტ კომპანიაში, კონსერვატიული ბალანსი და 15+ წელი უწყვეტი მაღალი კვარტალური დივიდენდები ($0.48/აქციაზე).
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2 class="sec-heading">
+    <span>3. BOG: AI &amp; მძიმე ტექნოლოგიური სექტორის 4 რჩეული ($150.00)</span>
+    <span class="sec-tag">Active Growth</span>
+  </h2>
+  <p style="font-size:14px; color:var(--muted); margin-top:-10px; margin-bottom:20px;">
+    BOG-ში აღარ არის არცერთი ჰებელური ETF. 2 ოქტომბერს $150.00-იანი ახალი დეპოზიტით ჩამოყალიბდა სუფთა, ფუნდამენტური AI ინფრასტრუქტურის კალათა.
+  </p>
+
+  <!-- 10. MRVL -->
+  <div class="holding-profile">
+    <div class="holding-profile-head bog">
+      <div class="holding-title">
+        <span class="holding-ticker">MRVL</span>
+        <span class="holding-name">Marvell Technology Group Ltd</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge bog">BOG</span>
+        <span class="badge growth">AI Optics &amp; Custom Silicon</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">0.1101 sh</div><div class="c-sub">Avg: $272.57</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$29.98</div><div class="c-sub">ჩადებული: $30.00</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val neg">-$0.02 (-0.06%)</div><div class="c-sub">20.0% BOG-ში</div></div>
+        <div class="cell"><div class="c-label">სექტორი</div><div class="c-val">Semiconductors</div><div class="c-sub">AI მონაცემთა ცენტრები</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> ხელოვნური ინტელექტის უდიდესი შეზღუდვა არის ჩიპებს შორის მონაცემთა გადაცემის სიჩქარე. Marvell არის მსოფლიო ლიდერი მაღალსიჩქარიან ოპტიკურ ინტერკონექტებში (PAM4 DSPs) და ჰიპერსკეილერების (Amazon AWS, Google, Microsoft) კასტომიზირებულ AI ASIC პროცესორებში. 
+        რაც უფრო იზრდება AI მოდელები, მით მეტი Marvell-ის ოპტიკური ჩიპია საჭირო სერვერების დასაკავშირებლად.
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. SNDK -->
+  <div class="holding-profile">
+    <div class="holding-profile-head bog">
+      <div class="holding-title">
+        <span class="holding-ticker">SNDK</span>
+        <span class="holding-name">SanDisk Corp</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge bog">BOG</span>
+        <span class="badge growth">NAND &amp; AI Enterprise Storage</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">0.0291 sh</div><div class="c-sub">Avg: $1720.82</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$50.11</div><div class="c-sub">ჩადებული: $50.00</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">+$0.11 (+0.22%)</div><div class="c-sub">33.3% BOG-ში</div></div>
+        <div class="cell"><div class="c-label">სექტორი</div><div class="c-val">Flash Storage</div><div class="c-sub">მეხსიერების ციკლი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> AI ტრენინგისა და ინფერენსისთვის საჭიროა ექსტრემალურად სწრაფი მონაცემთა წვდომა. SanDisk წარმოადგენს NAND Flash მეხსიერებისა და Enterprise SSD დისკების ფუნდამენტურ მიმწოდებელს. 
+        მეხსიერების ბაზრის ახალი სუპერციკლი და კორპორატიული მონაცემთა საცავების გაფართოება კომპანიას ძლიერ საფასო უპირატესობას ანიჭებს.
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. VRT -->
+  <div class="holding-profile">
+    <div class="holding-profile-head bog">
+      <div class="holding-title">
+        <span class="holding-ticker">VRT</span>
+        <span class="holding-name">Vertiv Holdings Co</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge bog">BOG</span>
+        <span class="badge growth">Liquid Cooling Monopoly</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">0.1991 sh</div><div class="c-sub">Avg: $251.10</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$50.00</div><div class="c-sub">ჩადებული: $50.00</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">$0.00 (0.00%)</div><div class="c-sub">33.3% BOG-ში</div></div>
+        <div class="cell"><div class="c-label">სექტორი</div><div class="c-val">Thermal Management</div><div class="c-sub">Blackwell თხევადი გაგრილება</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> AI-ს "Picks &amp; Shovels" უმთავრესი ბენეფიციარი. Nvidia-ს უახლესი ჩიპები (Blackwell B200) მოიხმარენ 120 კილოვატამდე ენერგიას ერთ სერვერულ კარადაზე — ტრადიციული ჰაერით გაგრილება ფიზიკურად უძლურია. 
+        Vertiv არის თხევადი გაგრილების (Direct-to-Chip Liquid Cooling) და ენერგომართვის გლობალური ლიდერი, რომლის გარეშეც არცერთი თანამედროვე AI Data Center არ შენდება.
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. BE -->
+  <div class="holding-profile">
+    <div class="holding-profile-head bog">
+      <div class="holding-title">
+        <span class="holding-ticker">BE</span>
+        <span class="holding-name">Bloom Energy Corp</span>
+      </div>
+      <div class="holding-meta-pill">
+        <span class="badge bog">BOG</span>
+        <span class="badge growth">On-Site Clean Power</span>
+      </div>
+    </div>
+    <div class="holding-body">
+      <div class="holding-grid-mini">
+        <div class="cell"><div class="c-label">წილები</div><div class="c-val">0.0701 sh</div><div class="c-sub">Avg: $285.24</div></div>
+        <div class="cell"><div class="c-label">ღირებულება</div><div class="c-val">$20.37</div><div class="c-sub">ჩადებული: $20.00</div></div>
+        <div class="cell"><div class="c-label">მოგება (P/L)</div><div class="c-val pos">+$0.37 (+1.84%)</div><div class="c-sub">13.3% BOG-ში</div></div>
+        <div class="cell"><div class="c-label">სექტორი</div><div class="c-val">Clean Energy / SOFC</div><div class="c-sub">ენერგეტიკული ბოთლისყელი</div></div>
+      </div>
+      <div class="holding-thesis">
+        <strong>საინვესტიციო თეზისი:</strong> პასუხობს AI-ის ყველაზე კრიტიკულ პრობლემას: ელექტროქსელის დეფიციტს. აშშ-ში მონაცემთა ცენტრების ელექტროქსელთან მიერთების რიგი 5-დან 7 წლამდე გაიზარდა. 
+        Bloom Energy-ის მყაროქსიდიანი საწვავის ელემენტები (Solid Oxide Fuel Cells) გამოიმუშავებენ მუდმივ, სუფთა ელექტროენერგიას პირდაპირ ადგილზე, რაც საშუალებას აძლევს AI კომპანიებს სერვერები ქსელის გარეშე, მყისიერად ჩართონ.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 class="sec-heading">
+    <span>4. მომავლის სტრატეგია და 2026-2027 წლების გეგმა</span>
+    <span class="sec-tag">Outlook</span>
+  </h2>
+  <div class="callout-box">
+    <h4>სამოქმედო გეგმა მომდევნო ეტაპისთვის:</h4>
+    <ul style="margin:0; padding-left:20px; font-size:14px; line-height:1.7; color:#2d2d2d;">
+      <li><strong>TBC DCA დისციპლინა:</strong> ყველა ახალი დეპოზიტი ნაწილდება TBC-ის დივიდენდურ საძირკველში (VOO, MAIN, BXSL, O, QQQI), რათა წლიური წმინდა დივიდენდი უახლოეს თვეებში გაიზარდოს <strong>$150/წლამდე</strong>, ხოლო შემდეგ <strong>$200/წლამდე ($16.6/თვე)</strong>.</li>
+      <li><strong>BOG-ის მკაცრი ლიმიტი:</strong> BOG-ის პორტფელი რჩება 4 AI აქტივზე (MRVL, SNDK, VRT, BE) და არასდროს გამოიყენებს ბერკეტს ან ოფციონებს.</li>
+      <li><strong>დივიდენდების 100%-იანი რეინვესტირება:</strong> ყველა მიღებული დივიდენდი ($10.04/თვე საშუალოდ) ავტომატურად ყიდულობს დამატებით წილებს TBC-ში, რაც ქმნის ექსპონენციალურ რთულ პროცენტს.</li>
+    </ul>
+  </div>
+
+  <footer class="paper-footer">
+    <p>The Trading Paper · გამოცემა №20 · გამოქვეყნებულია 02 ოქტომბერი, 2026 · Wiesbaden / Georgia</p>
+    <p><em>ეს არის პირადი საინვესტიციო ჟურნალი და ანალიტიკური ჩანაწერი, რომელიც არ წარმოადგენს ფინანსურ რჩევას.</em></p>
+  </footer>
+  <div class="no-print" style="text-align:center;margin-top:24px;">
+    <button onclick="window.print()" style="padding:10px 28px;background:var(--ink,#1a1a1a);color:#fff;border:none;font-size:13px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:'Noto Sans Georgian',sans-serif;border-radius:4px;font-weight:700;">🖨️ ამობეჭდვა / Save as PDF</button>
+  </div>
+</div>
+
+</body>
+</html>

@@ -14,7 +14,7 @@
 <meta property="og:image" content="images/lasha.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f4f1ea'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='22' font-weight='900' text-anchor='middle' fill='%23b91c1c'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/enhance.css?v=20260722c">
+<link rel="stylesheet" href="css/enhance.css?v=20261003a">
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -490,9 +490,215 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     .ag-ext.neg{color:var(--red);background:rgba(185,28,28,.08);}
     .ag-ext-lbl{font-size:10px;font-weight:800;letter-spacing:.5px;margin-right:3px;opacity:.8;}
     .ag-ext-sub{font-size:11px;opacity:.9;}
-    .ag-detail{padding:0 14px 12px;}
-    .ag-detail .hcard{border:1px solid var(--border);border-top:1px dashed var(--border);}
+    .ag-detail{padding:0 14px 14px;}
     .ag-empty{padding:14px;font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);}
+
+    /* ===== MODERN ILLUSTRATED ASSET DETAIL CARD ===== */
+    .hcard-v2 {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px 14px;
+      margin-top: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      font-family: 'Noto Sans Georgian', sans-serif;
+      transition: all .2s ease;
+    }
+    .hc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .hc-identity {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .hc-icon {
+      font-size: 24px;
+      line-height: 1;
+      padding: 8px;
+      background: rgba(0,0,0,0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    [data-theme="dark"] .hc-icon {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .hc-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hc-ticker {
+      font-family: ui-monospace, monospace;
+      font-weight: 900;
+      font-size: 15px;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: .5px;
+    }
+    .hc-name {
+      font-family: 'Noto Serif Georgian', serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--ink);
+    }
+    .hc-book-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .hc-book-tag.tbc { background: #1a1a1a; color: #fff; }
+    .hc-book-tag.bog { background: #b91c1c; color: #fff; }
+    .hc-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .hc-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .hc-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--ink);
+      background: var(--paper);
+      transition: all .15s ease;
+    }
+    .hc-link-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+      transform: translateY(-1px);
+    }
+    .hc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 768px) {
+      .hc-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hc-grid { grid-template-columns: 1fr; }
+    }
+    .hc-tile {
+      background: rgba(0,0,0,0.015);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    [data-theme="dark"] .hc-tile {
+      background: rgba(255,255,255,0.02);
+    }
+    .hc-tile.pos-bg {
+      border-left: 3px solid var(--green);
+      background: rgba(22,101,52,0.03);
+    }
+    .hc-tile.neg-bg {
+      border-left: 3px solid var(--red);
+      background: rgba(185,28,28,0.03);
+    }
+    .hc-label {
+      font-size: 10px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .hc-val {
+      font-family: ui-monospace, monospace;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .hc-val.pos { color: var(--green); }
+    .hc-val.neg { color: var(--red); }
+    .hc-sub {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .hc-sub.pos { color: var(--green); font-weight: 600; }
+    .hc-sub.neg { color: var(--red); font-weight: 600; }
+    .hc-dot { margin: 0 4px; opacity: .5; }
+    .hc-div-banner {
+      background: linear-gradient(135deg, rgba(22,101,52,0.06), rgba(22,101,52,0.02));
+      border: 1px solid rgba(22,101,52,0.2);
+      border-left: 4px solid var(--green);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    [data-theme="dark"] .hc-div-banner {
+      background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.03));
+      border-color: rgba(34,197,94,0.25);
+    }
+    .hc-div-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .hc-div-stats {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .hc-div-item {
+      color: var(--muted);
+    }
+    .hc-div-item strong {
+      color: var(--ink);
+      font-family: ui-monospace, monospace;
+    }
+    .hc-ext-banner {
+      background: rgba(139,105,20,0.06);
+      border: 1px dashed var(--gold);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 10px;
+      font-size: 11.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   </style>
   <div class="tp-tabs no-print" role="tablist">
     <button class="tp-tab-btn active" data-pane="tab-total" role="tab" aria-selected="true">მთლიანი პორტფელი</button>
@@ -1854,39 +2060,131 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   'use strict';
   function fmtUSD2(n){ return ((+n||0)<0?'−$':'$')+Math.abs(+n||0).toFixed(2); }
 
-  function holdingDetailCard(h){
-    var price=h.livePrice||h.avgBuy||0;
-    var value=(h.shares!==undefined&&price)?+(h.shares*price).toFixed(2):(+h.value||0);
-    var invested=h.invested||0, unreal=value-invested, unrealPct=invested>0?(unreal/invested*100):0;
-    var dayPct=h.dayChangePct;
-    var hasDay=(dayPct!==undefined&&dayPct!==null&&h.previousClose&&h.shares!==undefined);
-    var dayDollar=hasDay?+((price-h.previousClose)*h.shares).toFixed(2):null;
-    var ucls=unreal>=0?'pos':'neg', dcls=(dayPct>=0)?'pos':'neg';
-    var sess=(h.liveSession==='PRE')?' <span class="sess-badge pre">PRE</span>':(h.liveSession==='POST')?' <span class="sess-badge post">POST</span>':'';
-    var shares=(+h.shares).toFixed(8).replace(/0+$/,'').replace(/\.$/,'');
+  var ASSET_META = {
+    VOO:  { sector: 'S&P 500 Index ETF', desc: 'აშშ-ის 500 უმსხვილესი კორპორაცია · საბაზრო საძირკველი', icon: '🏛️' },
+    MAIN: { sector: 'BDC · Private Credit', desc: 'ამერიკის საშუალო ბიზნესის დაკრედიტება · თვიური დივიდენდი', icon: '🏢' },
+    BXSL: { sector: 'Senior Secured Loans', desc: 'Blackstone-ის პირველი რიგის უზრუნველყოფილი სესხები (12.9% yield)', icon: '🛡️' },
+    LYG:  { sector: 'UK Banking Group', desc: 'დიდი ბრიტანეთის წამყვანი რითეილ ბანკი · Deep Value', icon: '🏦' },
+    KO:   { sector: 'Consumer Monopoly', desc: 'Coca-Cola · 62-წლიანი დივიდენდური არისტოკრატი (Dividend King)', icon: '🥤' },
+    O:    { sector: 'Commercial REIT', desc: 'The Monthly Dividend Co. · 15,400+ კომერციული ობიექტი', icon: '🏬' },
+    DIVO: { sector: 'Covered Call ETF', desc: 'დივიდენდური ლურჯი ჩიპები + ტაქტიკური დაფარული ოფციონები', icon: '📈' },
+    QQQI: { sector: 'Nasdaq-100 Income', desc: 'Nasdaq ზრდა + ყოველთვიური ოფციონური ფულადი ნაკადი (13.7%)', icon: '⚡' },
+    ARCC: { sector: 'Direct Lending BDC', desc: 'აშშ-ის უდიდესი საჯარო BDC · $22B+ დივერსიფიცირებული პორტფელი', icon: '💼' },
+    MRVL: { sector: 'AI Optics & Silicon', desc: 'AI მონაცემთა ცენტრების ოპტიკური ჩიპები & ASIC პროცესორები', icon: '🔬' },
+    SNDK: { sector: 'NAND & Flash Storage', desc: 'Enterprise SSD დისკები და ფლეშ-მეხსიერების სუპერციკლი', icon: '💾' },
+    VRT:  { sector: 'Liquid Cooling Systems', desc: 'AI კლასტერების თხევადი გაგრილების გლობალური მონოპოლისტი', icon: '❄️' },
+    BE:   { sector: 'Clean Energy & SOFC', desc: 'On-Site მყაროქსიდიანი გენერაცია AI სერვერებისთვის ქსელის გარეშე', icon: '🔋' }
+  };
+
+  function holdingDetailCard(h, bookKey, bookTotalVal){
+    var meta = ASSET_META[h.ticker] || { sector: 'Stock', desc: h.name || h.ticker, icon: '📌' };
+    var bk = bookKey || (['MRVL','SNDK','VRT','BE'].indexOf(h.ticker)!==-1 ? 'bog' : 'tbc');
+    var price = h.livePrice || h.avgBuy || 0;
+    var value = (h.shares !== undefined && price) ? +(h.shares * price).toFixed(2) : (+h.value || 0);
+    var invested = +h.invested || 0;
+    var unreal = value - invested;
+    var unrealPct = invested > 0 ? (unreal / invested * 100) : 0;
+    var dayPct = h.dayChangePct;
+    var hasDay = (dayPct !== undefined && dayPct !== null && h.previousClose && h.shares !== undefined);
+    var dayDollar = hasDay ? +((price - h.previousClose) * h.shares).toFixed(2) : null;
+    var ucls = unreal >= 0 ? 'pos' : 'neg';
+    var dcls = (dayPct >= 0) ? 'pos' : 'neg';
+    var sess = (h.liveSession === 'PRE') ? '<span class="sess-badge pre">PRE</span>'
+      : (h.liveSession === 'POST') ? '<span class="sess-badge post">POST</span>'
+      : (price && h.livePrice) ? '<span class="sess-badge" style="background:rgba(22,101,52,0.12);color:var(--green)">LIVE</span>' : '';
+    var shares = (+h.shares).toFixed(8).replace(/0+$/, '').replace(/\.$/, '');
+    var weightPct = (bookTotalVal && bookTotalVal > 0) ? (value / bookTotalVal * 100) : 0;
 
     var extP = h.extPrice || h.postPrice || h.prePrice;
     var regP = h.regularPrice || h.previousClose || h.avgBuy || 0;
-    var extRow = '';
+    var extBanner = '';
     if (extP && regP && Math.abs(extP - regP) > 0.001) {
       var extDiff = extP - regP;
       var extPct = (regP > 0) ? (extDiff / regP * 100) : 0;
       var extDollar = (h.shares !== undefined) ? (extDiff * h.shares) : 0;
       var extCls = extDiff >= 0 ? 'pos' : 'neg';
-      var sessLbl = (h.liveSession === 'PRE' || h.liveState === 'PRE') ? 'PRE' : 'AH';
-      extRow = '<tr><td>AFTER-MARKET (' + sessLbl + ')</td><td class="num ' + extCls + '">$' + extP.toFixed(2) + ' (' + (extDiff >= 0 ? '+' : '−') + '$' + Math.abs(extDollar).toFixed(2) + ' / ' + (extDiff >= 0 ? '+' : '−') + Math.abs(extPct).toFixed(2) + '%)</td></tr>';
+      var sessLbl = (h.liveSession === 'PRE' || h.liveState === 'PRE') ? 'Pre-Market' : 'After-Hours';
+      extBanner = '<div class="hc-ext-banner">'
+        + '<span><strong>🌙 ' + sessLbl + ':</strong> $' + extP.toFixed(2) + '</span>'
+        + '<span class="' + extCls + '" style="font-family:ui-monospace,monospace;font-weight:700;">' + (extDiff >= 0 ? '+' : '−') + '$' + Math.abs(extDollar).toFixed(2) + ' (' + (extDiff >= 0 ? '+' : '−') + Math.abs(extPct).toFixed(2) + '%)</span>'
+        + '</div>';
     }
 
-    var rows=''
-      +'<tr><td>SHARES</td><td class="num">'+shares+'</td></tr>'
-      +'<tr><td>AVG BUY</td><td class="num">$'+(+h.avgBuy).toFixed(2)+'</td></tr>'
-      +'<tr><td>PRICE</td><td class="num">$'+price.toFixed(2)+sess+'</td></tr>'
-      +extRow
-      +'<tr><td>INVESTED</td><td class="num">$'+invested.toFixed(2)+'</td></tr>'
-      +'<tr><td>VALUE</td><td class="num">$'+value.toFixed(2)+'</td></tr>'
-      +'<tr><td>UNREALISED</td><td class="num '+ucls+'">'+(unreal>=0?'+':'−')+'$'+Math.abs(unreal).toFixed(2)+' ('+(unreal>=0?'+':'−')+Math.abs(unrealPct).toFixed(2)+'%)</td></tr>'
-      +(dayDollar!==null?'<tr><td>DAY</td><td class="num '+dcls+'">'+(dayDollar>=0?'+':'−')+'$'+Math.abs(dayDollar).toFixed(2)+' ('+(dayPct>=0?'+':'−')+Math.abs(dayPct).toFixed(2)+'%)</td></tr>':'');
-    return '<div class="hcard"><table class="hcard-tbl">'+rows+'</table></div>';
+    var divBanner = '';
+    if (bk === 'tbc') {
+      var dMeta = (window.TP_DIVIDENDS && window.TP_DIVIDENDS.DIV_META) ? window.TP_DIVIDENDS.DIV_META[h.ticker] : null;
+      var annualGross = 0;
+      var freqLabel = '';
+      if (dMeta && dMeta.estDivPerShare) {
+        var freqMult = (dMeta.freq === 'monthly') ? 12 : (dMeta.freq === 'semi-annual') ? 2 : 4;
+        annualGross = h.shares * dMeta.estDivPerShare * freqMult;
+        if (dMeta.supplementalPerShare && dMeta.supplementalMonths) {
+          annualGross += h.shares * dMeta.supplementalPerShare * dMeta.supplementalMonths.length;
+        }
+        freqLabel = (dMeta.freq === 'monthly') ? 'ყოველთვიური (Monthly)' : (dMeta.freq === 'semi-annual') ? 'ნახევარწლიური' : 'კვარტალური (Quarterly)';
+      } else if (h.divYield > 0) {
+        annualGross = value * (h.divYield / 100);
+        freqLabel = 'რეგულარული დივიდენდი';
+      }
+      if (annualGross > 0) {
+        var annualNet = annualGross * 0.70;
+        var yld = h.divYield ? (h.divYield.toFixed(2) + '%') : (value > 0 ? (annualGross / value * 100).toFixed(2) + '%' : '—');
+        divBanner = '<div class="hc-div-banner">'
+          + '<div class="hc-div-title">💰 დივიდენდური ანალიტიკა · ' + yld + ' Yield</div>'
+          + '<div class="hc-div-stats">'
+          + '<span class="hc-div-item">წლიური: <strong>$' + annualGross.toFixed(2) + ' gross</strong></span>'
+          + '<span class="hc-div-item">წმინდა: <strong style="color:var(--green)">+$' + annualNet.toFixed(2) + ' net</strong> (30% GE)</span>'
+          + '<span class="hc-div-item">გრაფიკი: <strong>' + freqLabel + '</strong></span>'
+          + '</div>'
+          + '</div>';
+      }
+    }
+
+    var brandColor = h.color || '#1a1a1a';
+    var dayStr = hasDay ? ((dayPct >= 0 ? '+' : '−') + Math.abs(dayPct).toFixed(2) + '% (' + (dayDollar >= 0 ? '+' : '−') + '$' + Math.abs(dayDollar).toFixed(2) + ')') : '—';
+
+    return '<div class="hcard-v2" style="border-top: 3px solid ' + brandColor + ';">'
+      + '<div class="hc-head">'
+      +   '<div class="hc-identity">'
+      +     '<span class="hc-icon">' + meta.icon + '</span>'
+      +     '<div>'
+      +       '<div class="hc-title-row">'
+      +         '<span class="hc-ticker" style="background:' + brandColor + ';">' + h.ticker + '</span>'
+      +         '<span class="hc-name">' + (h.name || h.ticker) + '</span>'
+      +         '<span class="hc-book-tag ' + bk + '">' + bk.toUpperCase() + ' · ' + (bk === 'tbc' ? 'დივიდენდი' : 'ტექ-ზრდა') + '</span>'
+      +       '</div>'
+      +       '<div class="hc-desc">' + meta.sector + ' — ' + meta.desc + '</div>'
+      +     '</div>'
+      +   '</div>'
+      +   '<div class="hc-links">'
+      +     '<a href="https://www.tradingview.com/symbols/' + h.ticker + '/" target="_blank" rel="noopener" class="hc-link-btn">📊 TradingView ↗</a>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="hc-grid">'
+      +   '<div class="hc-tile">'
+      +     '<div class="hc-label">საბაზრო ღირებულება · Value</div>'
+      +     '<div class="hc-val">' + fmtUSD2(value) + '</div>'
+      +     '<div class="hc-sub">ჩადებული: ' + fmtUSD2(invested) + '<span class="hc-dot">·</span>Avg: $' + (+h.avgBuy).toFixed(2) + '</div>'
+      +   '</div>'
+      +   '<div class="hc-tile">'
+      +     '<div class="hc-label">მიმდინარე ფასი · Live Price ' + sess + '</div>'
+      +     '<div class="hc-val">$' + price.toFixed(2) + '</div>'
+      +     '<div class="hc-sub ' + (hasDay ? dcls : '') + '">' + dayStr + ' (1D)</div>'
+      +   '</div>'
+      +   '<div class="hc-tile ' + ucls + '-bg">'
+      +     '<div class="hc-label">წმინდა P/L · Total Return</div>'
+      +     '<div class="hc-val ' + ucls + '">' + (unreal >= 0 ? '+' : '−') + '$' + Math.abs(unreal).toFixed(2) + '</div>'
+      +     '<div class="hc-sub ' + ucls + '">' + (unreal >= 0 ? '+' : '−') + Math.abs(unrealPct).toFixed(2) + '% მთლიანი უკუგება</div>'
+      +   '</div>'
+      +   '<div class="hc-tile">'
+      +     '<div class="hc-label">წილები &amp; წილი წიგნში</div>'
+      +     '<div class="hc-val">' + shares + ' <span style="font-size:11px;font-weight:600;color:var(--muted)">sh</span></div>'
+      +     '<div class="hc-sub">' + (weightPct > 0 ? (weightPct.toFixed(1) + '% ' + bk.toUpperCase() + '-ში') : 'პოზიციის წილი') + '</div>'
+      +   '</div>'
+      + '</div>'
+      + divBanner
+      + extBanner
+      + '</div>';
   }
 
   function renderAssetsGrouped(){
@@ -1956,7 +2254,7 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
             + extHtml
             +'<span class="ag-val">'+fmtUSD2(value)+'</span>'
             +'<span class="ag-day '+(hasDay?dcls:'')+'">'+dayTxt+'</span>'
-            +'</summary><div class="ag-detail">'+holdingDetailCard(h)+'</div></details>';
+            +'</summary><div class="ag-detail">'+holdingDetailCard(h, b.k, gVal)+'</div></details>';
         });
       }
       out+='</div>';
