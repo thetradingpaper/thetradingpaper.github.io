@@ -289,15 +289,35 @@ function renderStatBanner(containerId, portfolioKey) {
 
   // Annual dividend — sum across holdings that have a divYield, then net after 30% GE withholding.
   // Only show the cell when at least one holding actually pays a dividend.
+  // BOG holds temporary/active trading stocks; dividends are excluded for BOG per user request.
   let divGross = 0;
+  let divNet = 0;
   let anyYield = false;
-  for (const h of p.holdings) {
-    if (typeof h.divYield === 'number' && h.divYield > 0) {
-      divGross += h.value * (h.divYield / 100);
-      anyYield = true;
+
+  if (portfolioKey === 'tbc') {
+    if (window.TP_DIVIDENDS && typeof window.TP_DIVIDENDS.getSummary === 'function') {
+      const s = window.TP_DIVIDENDS.getSummary();
+      divGross = s.annualGross || 0;
+      divNet = s.annualNet || 0;
+      anyYield = divGross > 0;
+    } else {
+      for (const h of p.holdings) {
+        if (typeof h.divYield === 'number' && h.divYield > 0) {
+          divGross += h.value * (h.divYield / 100);
+          anyYield = true;
+        }
+      }
+      divNet = divGross * 0.70;
     }
+  } else if (portfolioKey !== 'bog') {
+    for (const h of p.holdings) {
+      if (typeof h.divYield === 'number' && h.divYield > 0) {
+        divGross += h.value * (h.divYield / 100);
+        anyYield = true;
+      }
+    }
+    divNet = divGross * 0.70;
   }
-  const divNet = divGross * 0.70; // GE 30% withholding tax
   const portYieldPct = a.currentValue > 0 ? (divGross / a.currentValue) * 100 : 0;
 
   const divCell = anyYield ? `
@@ -307,7 +327,9 @@ function renderStatBanner(containerId, portfolioKey) {
 </div>` : '';
 
   let divReceived = 0;
-  for (const tx of p.transactions) { if (tx.type === 'dividend') divReceived += (tx.amount || 0); }
+  if (portfolioKey !== 'bog') {
+    for (const tx of p.transactions) { if (tx.type === 'dividend') divReceived += (tx.amount || 0); }
+  }
   const recvCell = divReceived > 0 ? `
 <div class="stat-cell">
 <div class="stat-label">სულ მიღებული დივიდენდი <a href="dividends.html" style="text-decoration:none;color:#b91c1c;font-weight:800" title="დივიდენდების ისტორია">↗</a></div>
