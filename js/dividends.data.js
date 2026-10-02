@@ -184,6 +184,20 @@
     return window.PORTFOLIOS || {};
   }
 
+  // Find the date of the earliest purchase of a ticker in a given book
+  function getFirstBuyDate(ticker, bookKey) {
+    var P = parsePortfolios();
+    var book = P[bookKey];
+    if (!book || !book.transactions) return null;
+    var first = null;
+    book.transactions.forEach(function (t) {
+      if (t.type === 'buy' && t.ticker === ticker && t.date) {
+        if (!first || t.date < first) first = t.date;
+      }
+    });
+    return first;
+  }
+
   // Get active holdings across all portfolios that yield dividends
   function getActiveDivHoldings() {
     var P = parsePortfolios();
@@ -274,6 +288,12 @@
         if (isPayMonth) {
           var dates = meta.getDates(y, m);
           if (dates.payDate >= todayIso && !isAlreadyReceived(h.ticker, dates.payDate)) {
+            // If the ex-dividend date was already in the past when the position was opened,
+            // the investor did not hold the shares on the record date and is not eligible for this payout.
+            var firstBuy = getFirstBuyDate(h.ticker, h.bookKey);
+            if (dates.exDate && dates.exDate < todayIso && firstBuy && firstBuy > dates.exDate) {
+              return;
+            }
             var gross = h.shares * meta.estDivPerShare;
             var net = gross * TAX_MULTIPLIER;
             schedule.push({
