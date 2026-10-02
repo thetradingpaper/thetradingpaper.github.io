@@ -1537,5 +1537,23 @@
       }
     },
     "note": "BOG $0 (-100.0%) · TBC $2558.17 (-45.1%) · GALT closed"
+  },
+  {
+    "date": "2026-10-02",
+    "books": {
+      "bog": {
+        "deposited": 1968.99,
+        "value": 0
+      },
+      "tbc": {
+        "deposited": 4659.15,
+        "value": 2559.94
+      },
+      "galt": {
+        "deposited": 78.63,
+        "value": 0
+      }
+    },
+    "note": "BOG $0 (-100.0%) · TBC $2559.94 (-45.1%) · GALT closed"
   }
 ]
