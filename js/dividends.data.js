@@ -133,6 +133,19 @@
           payDate: formatDateIso(year, month, pDay)
         };
       }
+    },
+    O: {
+      name: 'Realty Income Corporation',
+      freq: 'monthly',
+      estDivPerShare: 0.2715,
+      // Distributes monthly ~around the 15th; ex-date ~15 days prior
+      getDates: function (year, month) {
+        var pDay = 15;
+        return {
+          exDate: shiftIso(year, month, pDay, -15),
+          payDate: formatDateIso(year, month, pDay)
+        };
+      }
     }
   };
 

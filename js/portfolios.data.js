@@ -274,13 +274,14 @@ window.PORTFOLIOS = {
       { ticker: 'ARCC', name: 'Ares Capital Corporation', shares: 4.31918651, avgBuy: 18.89, invested: 81.60, value: 83.62, color: '#1d4ed8', divYield: 10.40 },
       { ticker: 'MAIN', name: 'Main Street Capital Corporation', shares: 7.69081465, avgBuy: 54.98, invested: 422.87, value: 430.84, color: '#15803d', divYield: 6.20 },
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 17.24634077, avgBuy: 24.49, invested: 422.34, value: 427.54, color: '#7c3aed', divYield: 12.90 },
-      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 63.39125402, avgBuy: 5.97, invested: 378.36, value: 367.67, color: '#006a4d', divYield: 3.66 },
+      { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 72.53436194, avgBuy: 5.91, invested: 428.36, value: 396.76, color: '#006a4d', divYield: 3.66 },
       { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 1.24346234, avgBuy: 697.32, invested: 867.09, value: 887.20, color: '#2563eb', divYield: 1.30 },
-      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.28860792, avgBuy: 87.39, invested: 200.00, value: 201.26, color: '#dc2626', divYield: 3.10 },
-      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 3.11960181, avgBuy: 48.59, invested: 151.59, value: 147.99, color: '#0284c7', divYield: 4.50 },
-      { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 1.36276890, avgBuy: 55.44, invested: 75.55, value: 75.55, color: '#0d9488', divYield: 13.76 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.84535792, avgBuy: 86.96, invested: 247.44, value: 242.45, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 4.18961032, avgBuy: 48.12, invested: 201.59, value: 195.78, color: '#0284c7', divYield: 4.50 },
+      { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 3.13557263, avgBuy: 55.89, invested: 175.25, value: 176.34, color: '#0d9488', divYield: 13.76 },
+      { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
     ],
-    cash: 0.00, // 01 Oct 2026: KO div $0.85 net + prev cash $74.70 = $75.55 -> QQQI buys (1.3627689 sh = $75.55) -> net cash $0.00
+    cash: 0.00, // 02 Oct 2026: deposit $447.44 -> buys QQQI ($99.70 + $0.30 fee), DIVO ($50.00), LYG ($50.00), KO ($47.44), O ($200.00) -> net cash $0.00
     priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
     priorCostBasis: 0.00,
     transactions: [
@@ -289,6 +290,17 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 02 ოქტ 2026 TBC $447.44 deposit & buys (QQQI, DIVO, LYG, KO, O) · TBC app · commission $0.30 · net cash $0.00 ---
+      { date: '2026-10-02', type: 'buy',      ticker: 'O',    shares: 0.69022753, price: 54.20009, commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'O',    shares: 3.00000000, price: 54.19667, commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'KO',   shares: 0.55675000, price: 85.20880, commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'LYG',  shares: 0.14310792, price: 5.45043,  commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'LYG',  shares: 9.00000000, price: 5.46889,  commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'DIVO', shares: 0.07000851, price: 46.70860, commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'DIVO', shares: 1.00000000, price: 46.73,    commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'QQQI', shares: 0.77280373, price: 56.23679, commission: 0 },
+      { date: '2026-10-02', type: 'buy',      ticker: 'QQQI', shares: 1.00000000, price: 56.24,    commission: 0.30 },
+      { date: '2026-10-02', type: 'deposit',  amount: 447.44 },
       // --- 01 ოქტ 2026 QQQI buy (1.3627689 sh = $75.55) from cash + KO dividend ($0.85 net) · TBC app · net cash $0.00 ---
       { date: '2026-10-01', type: 'buy',      ticker: 'QQQI', shares: 0.36276890, price: 55.43474, commission: 0 },
       { date: '2026-10-01', type: 'buy',      ticker: 'QQQI', shares: 1.00000000, price: 55.44,    commission: 0 },

@@ -1453,7 +1453,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         VOO:  { estDivPerShare: 1.962, freq: 'quarterly' },
         KO:   { estDivPerShare: 0.53, freq: 'quarterly' },
         DIVO: { estDivPerShare: 0.1834, freq: 'monthly' },
-        QQQI: { estDivPerShare: 0.64, freq: 'monthly' }
+        QQQI: { estDivPerShare: 0.64, freq: 'monthly' },
+        O:    { estDivPerShare: 0.2715, freq: 'monthly' }
       };
       ['bog','tbc'].forEach(k => {
         const p = portfolios[k]; if (!p || !p.holdings) return;
@@ -1625,7 +1626,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           VOO:  { estDivPerShare: 1.962, freq: 'quarterly' },
           KO:   { estDivPerShare: 0.53, freq: 'quarterly' },
           DIVO: { estDivPerShare: 0.1834, freq: 'monthly' },
-          QQQI: { estDivPerShare: 0.64, freq: 'monthly' }
+          QQQI: { estDivPerShare: 0.64, freq: 'monthly' },
+          O:    { estDivPerShare: 0.2715, freq: 'monthly' }
         };
         ['bog','tbc'].forEach(k => {
           const p = portfolios[k]; if (!p || !p.holdings) return;
