@@ -14,13 +14,24 @@ window.PORTFOLIOS = {
     tagline: 'გრძელვადიანი DCA · $100-200/თვე · მიზანი 35%/წელი',
     startDate: '2025-12-09',
     annualGoalPct: 35,
-    holdings: [],
-    cash: 0.00, // 17 Sep 2026: all remaining positions (QBTS) liquidated ($60.00) & withdrawn to card -> net cash balance $0.00
+    holdings: [
+      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.11006395, avgBuy: 272.57, invested: 30.00, value: 30.00, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.02905593, avgBuy: 1720.82, invested: 50.00, value: 50.00, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.19912480, avgBuy: 251.10, invested: 50.00, value: 50.00, color: '#16a34a', divYield: 0.10 },
+      { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.07011668, avgBuy: 285.24, invested: 20.00, value: 20.00, color: '#84cc16', divYield: 0.00 },
+    ],
+    cash: 0.00, // 02 Oct 2026: deposit $150.00 -> buys MRVL ($30.00), SNDK ($50.00), VRT ($50.00), BE ($20.00) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 02 ოქტ 2026 BOG $150.00 deposit & 4 purchases (MRVL, SNDK, VRT, BE) · BOG app · net cash $0.00 ---
+      { date: '2026-10-02', type: 'buy',     ticker: 'BE',   shares: 0.07011668, price: 285.2388, commission: 0 },
+      { date: '2026-10-02', type: 'buy',     ticker: 'VRT',  shares: 0.19912480, price: 251.0988, commission: 0 },
+      { date: '2026-10-02', type: 'buy',     ticker: 'SNDK', shares: 0.02905593, price: 1720.819, commission: 0 },
+      { date: '2026-10-02', type: 'buy',     ticker: 'MRVL', shares: 0.11006395, price: 272.5688, commission: 0 },
+      { date: '2026-10-02', type: 'deposit', amount: 150.00, note: 'ახალი დეპოზიტი ($150.00)' },
       // --- 17 სექ 2026 BOG: თანხის გატანა ($60.00) · QBTS სრული ლიკვიდაცია · net cash $0.00 ---
       { date: '2026-09-17', type: 'withdraw', amount: 60.00, note: 'ბარათზე გატანა · QBTS სრული ლიკვიდაცია' },
       { date: '2026-09-17', type: 'sell',    ticker: 'QBTS', shares: 3.63128540, price: 16.5231, commission: 0 },
