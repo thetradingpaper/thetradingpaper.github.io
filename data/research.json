@@ -1,35 +1,35 @@
 {
- "updated": "2026-10-01T19:09:13.628248+00:00",
+ "updated": "2026-10-02T18:44:44.303536+00:00",
  "mode": "WAIT",
  "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
  "picks": [],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 195,
-   "win_rate": 28.2,
-   "avg_return": -0.62,
+   "n": 198,
+   "win_rate": 28.3,
+   "avg_return": -0.65,
    "weight_now": 0.83
   },
   {
    "category": "growth_news",
-   "n": 139,
-   "win_rate": 25.9,
-   "avg_return": -2.68,
-   "weight_now": 0.81
+   "n": 144,
+   "win_rate": 25.0,
+   "avg_return": -2.81,
+   "weight_now": 0.8
   },
   {
    "category": "m_and_a",
-   "n": 111,
-   "win_rate": 15.3,
-   "avg_return": -3.33,
-   "weight_now": 0.72
+   "n": 115,
+   "win_rate": 15.7,
+   "avg_return": -3.25,
+   "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 76,
-   "win_rate": 13.2,
-   "avg_return": -6.28,
+   "n": 77,
+   "win_rate": 14.3,
+   "avg_return": -6.1,
    "weight_now": 0.71
   },
   {
@@ -61,7 +61,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5972,
+ "scanned": 5971,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
