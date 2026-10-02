@@ -1456,7 +1456,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
         QQQI: { estDivPerShare: 0.64, freq: 'monthly' },
         O:    { estDivPerShare: 0.2715, freq: 'monthly' }
       };
-      ['bog','tbc'].forEach(k => {
+      // BOG holds temporary/active stocks; only TBC represents the dividend portfolio
+      ['tbc'].forEach(k => {
         const p = portfolios[k]; if (!p || !p.holdings) return;
         p.holdings.forEach(h => {
           const meta = divMeta[h.ticker];
@@ -1629,7 +1630,8 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
           QQQI: { estDivPerShare: 0.64, freq: 'monthly' },
           O:    { estDivPerShare: 0.2715, freq: 'monthly' }
         };
-        ['bog','tbc'].forEach(k => {
+        // BOG holds temporary/active stocks; only TBC represents the dividend portfolio
+        ['tbc'].forEach(k => {
           const p = portfolios[k]; if (!p || !p.holdings) return;
           p.holdings.forEach(h => {
             const meta = divMeta[h.ticker];

@@ -88,7 +88,8 @@
     O:    { estDivPerShare: 0.2715, freq: 'monthly' }
   };
   var rows=[], grossTot=0, valTot=0;
-  ['bog','tbc','galt'].forEach(function(k){
+  // BOG holds temporary/active stocks; only TBC represents the dividend income portfolio
+  ['tbc'].forEach(function(k){
     var p=P[k]; if(!p||!p.holdings) return;
     p.holdings.forEach(function(h){
       valTot += (+h.value||0);

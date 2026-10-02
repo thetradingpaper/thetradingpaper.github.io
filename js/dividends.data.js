@@ -198,11 +198,11 @@
     return first;
   }
 
-  // Get active holdings across all portfolios that yield dividends
+  // Get active holdings across dividend portfolios (TBC only; BOG holds active/temporary trading stocks)
   function getActiveDivHoldings() {
     var P = parsePortfolios();
     var holdings = [];
-    ['bog', 'tbc', 'galt'].forEach(function (bookKey) {
+    ['tbc'].forEach(function (bookKey) {
       var book = P[bookKey];
       if (!book || !book.holdings || book.status === 'closed') return;
       book.holdings.forEach(function (h) {

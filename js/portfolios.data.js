@@ -17,7 +17,7 @@ window.PORTFOLIOS = {
     holdings: [
       { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.11006395, avgBuy: 272.57, invested: 30.00, value: 30.00, color: '#2563eb', divYield: 0.00 },
       { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.02905593, avgBuy: 1720.82, invested: 50.00, value: 50.00, color: '#dc2626', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.19912480, avgBuy: 251.10, invested: 50.00, value: 50.00, color: '#16a34a', divYield: 0.10 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.19912480, avgBuy: 251.10, invested: 50.00, value: 50.00, color: '#16a34a', divYield: 0.00 },
       { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.07011668, avgBuy: 285.24, invested: 20.00, value: 20.00, color: '#84cc16', divYield: 0.00 },
     ],
     cash: 0.00, // 02 Oct 2026: deposit $150.00 -> buys MRVL ($30.00), SNDK ($50.00), VRT ($50.00), BE ($20.00) -> net cash $0.00
