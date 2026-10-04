@@ -15,6 +15,28 @@
 // manual editor (edit.html) can regenerate it cleanly. Helpers stay here.
 const portfolios = window.PORTFOLIOS || {};
 
+// ============================================================
+// CHAPTERS — "a new chapter" resets the scoreboard.
+// From `start` on, every book is measured against its market value on
+// that day (`baseline`, frozen from data/history.json), plus only the
+// money deposited/withdrawn after it. Everything before stays in the
+// transaction history and is summarised once as the closed Chapter I.
+// To start the next chapter: add a new object with the new start date
+// and that day's values from data/history.json.
+// ============================================================
+const TP_CHAPTER = window.TP_CHAPTER || {
+  no: 'II',
+  title: 'თავი II',
+  start: '2026-10-03',                          // first day of the new chapter
+  baseline: { bog: 150.43, tbc: 3006.35, galt: 0 } // book values on 2026-10-03 (data/history.json)
+};
+window.TP_CHAPTER = TP_CHAPTER;
+
+function tpBookKey(p) {
+  for (const k in portfolios) if (portfolios[k] === p) return k;
+  return null;
+}
+
 
 // ============================================================
 // Helpers
@@ -38,11 +60,19 @@ function fmtDate(s) {
 function txPaid(tx) { return tx.shares * tx.price + (tx.commission || 0); }
 function txReceived(tx) { return tx.shares * tx.price - (tx.commission || 0); }
 
-function aggregate(p) {
-  let deposits = (p.priorDeposits || 0);
-  let bought = (p.priorCostBasis || 0);
+function aggregate(p, opts) {
+  // Chapter mode (default): baseline value + money moved after the chapter start.
+  // Lifetime mode ({ lifetime: true }): every deposit since the very first day.
+  const ch = (opts && opts.lifetime) ? null : TP_CHAPTER;
+  const key = ch ? tpBookKey(p) : null;
+  const inCh = !!(ch && key && ch.baseline && ch.baseline[key] != null);
+  const before = !!(opts && opts.before);        // lifetime, but only up to the chapter start
+  let deposits = inCh ? ch.baseline[key] : (p.priorDeposits || 0);
+  let bought = inCh ? ch.baseline[key] : (p.priorCostBasis || 0);
   let sold = 0, fees = 0, withdrawn = 0;
   for (const tx of p.transactions) {
+    if (inCh && tx.date < ch.start) continue;
+    if (before && TP_CHAPTER && tx.date >= TP_CHAPTER.start) continue;
     if (tx.type === 'deposit') deposits += tx.amount;
     if (tx.type === 'withdraw') withdrawn += tx.amount; // cash taken OUT
     if (tx.type === 'buy') { bought += tx.shares * tx.price; fees += (tx.commission || 0); }
@@ -54,9 +84,68 @@ function aggregate(p) {
   // withdrawn cash is realized value that left the book — count it so P/L stays honest
   const pnl = currentValue + withdrawn - deposits;
   const pnlPct = netInvested > 0 ? (pnl / netInvested) * 100 : 0;
-  const hasHistory = p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
-  return { deposits, bought, sold, fees, withdrawn, currentValue, netInvested, pnl, pnlPct, hasHistory };
+  const hasHistory = inCh || p.transactions.length > 0 || (p.priorDeposits || 0) > 0;
+  return { deposits, bought, sold, fees, withdrawn, currentValue, netInvested, pnl, pnlPct, hasHistory, chapter: inCh ? ch : null };
 }
+
+// Closed previous chapter: everything deposited before the chapter start vs
+// what it was worth on the start day. Returned per book and in total.
+function chapterOneSummary() {
+  const ch = TP_CHAPTER, out = { books: {}, deposited: 0, endValue: 0, result: 0 };
+  if (!ch) return out;
+  for (const k of ['bog', 'tbc', 'galt']) {
+    const p = portfolios[k]; if (!p) continue;
+    const a = aggregate(p, { lifetime: true, before: true });
+    const dep = a.deposits - a.withdrawn;
+    const end = (ch.baseline && ch.baseline[k]) || 0;
+    out.books[k] = { deposited: dep, endValue: end, result: end - dep };
+    out.deposited += dep; out.endValue += end;
+  }
+  out.result = out.endValue - out.deposited;
+  out.resultPct = out.deposited > 0 ? out.result / out.deposited * 100 : 0;
+  return out;
+}
+window.chapterOneSummary = chapterOneSummary;
+
+// Rebase data/history.json rows onto the current chapter: keep rows from the
+// start date, shift "deposited" so the chapter starts at its baseline.
+// If fewer than 2 rows exist yet, add a "now" point from the current data.
+function chapterHistory(rows) {
+  const ch = TP_CHAPTER;
+  const nd = new Date();
+  const today = nd.getFullYear() + '-' + String(nd.getMonth() + 1).padStart(2, '0') + '-' + String(nd.getDate()).padStart(2, '0');
+  if (!ch || !Array.isArray(rows)) return rows;
+  const sorted = rows.slice().sort((a, b) => a.date.localeCompare(b.date));
+  const kept = sorted.filter(e => e.date >= ch.start && e.books);
+  const first = kept[0];
+  const out = kept.map(e => {
+    const books = {};
+    for (const k in e.books) {
+      const base = (ch.baseline && ch.baseline[k] != null) ? ch.baseline[k] : 0;
+      const startDep = (first && first.books[k]) ? (+first.books[k].deposited || 0) : 0;
+      books[k] = { deposited: +((+e.books[k].deposited || 0) - startDep + base).toFixed(2), value: e.books[k].value };
+    }
+    return Object.assign({}, e, { books, label: e.date === ch.start ? ch.title : e.label });
+  });
+  if (!out.length || out[out.length - 1].date < today) {
+    if (!out.length) {
+      const b0 = {};
+      for (const k of ['bog', 'tbc', 'galt']) if (portfolios[k]) b0[k] = { deposited: ch.baseline[k] || 0, value: ch.baseline[k] || 0 };
+      out.push({ date: ch.start, label: ch.title, books: b0 });
+    }
+    if (out.length < 2) {
+      const bn = {};
+      for (const k of ['bog', 'tbc', 'galt']) {
+        const p = portfolios[k]; if (!p) continue;
+        const a = aggregate(p);
+        bn[k] = { deposited: +(a.deposits - a.withdrawn).toFixed(2), value: +a.currentValue.toFixed(2) };
+      }
+      out.push({ date: today, label: 'ახლა', books: bn });
+    }
+  }
+  return out;
+}
+window.chapterHistory = chapterHistory;
 
 // ============================================================
 // Renderers
@@ -133,8 +222,10 @@ function getDepositDetailsHtml(portfolioKey) {
   const a = aggregate(p);
   const rows = [];
 
+  const chD = a.chapter;
   if (p.transactions && p.transactions.length) {
     p.transactions.forEach(tx => {
+      if (chD && tx.date < chD.start) return;
       if (tx.type === 'deposit') {
         const isXfer = (tx.amount < 0 || /transfer|გადა|გადმ/i.test(tx.note || ''));
         rows.push({
@@ -158,7 +249,16 @@ function getDepositDetailsHtml(portfolioKey) {
     });
   }
 
-  if (p.priorDeposits && p.priorDeposits > 0) {
+  if (chD) {
+    rows.push({
+      date: fmtDate(chD.start),
+      type: 'START',
+      badgeClass: 'badge-deposit',
+      note: chD.title + ' · საწყისი ღირებულება (წინა თავი დახურულია)',
+      amount: chD.baseline[portfolioKey] || 0,
+      isPositive: true
+    });
+  } else if (p.priorDeposits && p.priorDeposits > 0) {
     rows.push({
       date: 'ISS 01 → 07',
       type: 'INITIAL',
@@ -775,9 +875,9 @@ async function loadHistory() {
   try {
     const base = (location.pathname.indexOf('/articles/') !== -1) ? '../' : '';
     const r = await fetch(base + 'data/history.json', { cache: 'no-store' });
-    if (r.ok) return await r.json();
+    if (r.ok) return chapterHistory(await r.json());
   } catch (e) { /* offline / first deploy */ }
-  return null;
+  return TP_CHAPTER ? chapterHistory([]) : null;
 }
 
 async function refreshLivePrices(portfolioKey) {
