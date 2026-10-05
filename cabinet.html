@@ -722,10 +722,6 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     .th-sub{font-family:'Noto Sans Georgian',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
     .th-top-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;}
     .th-top-deposit{margin-top:4px;}
-    .th-chapter{margin-top:10px;font-family:'Noto Sans Georgian',sans-serif;font-size:11.5px;color:var(--muted);line-height:1.5;}
-    .th-chapter .ch-badge{display:inline-block;background:var(--ink,#1a1a1a);color:var(--paper,#fffdf7);font-weight:800;letter-spacing:1.5px;font-size:10px;padding:2px 8px;margin-right:6px;}
-    .th-chapter .ch-old{display:block;margin-top:3px;font-size:10.5px;}
-    .th-chapter .ch-old b{font-family:ui-monospace,monospace;}
     .th-top-dep-label{font-family:'Noto Sans Georgian',sans-serif;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;}
     .th-top-dep-val{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-weight:900;font-size:28px;letter-spacing:-0.5px;color:var(--ink);line-height:1.1;margin-top:2px;}
     .th-top-dep-sub{font-size:10px;color:var(--muted);margin-top:3px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:0.2px;}
@@ -930,7 +926,6 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
         <div class="th-eyebrow">სრული პორტფელი · Total Portfolio</div>
         <div class="th-person">ლაშა ფხაკაძე <a href="edit.html" class="th-edit no-print" title="რედაქტირება" aria-label="რედაქტირება">&#9998;</a></div>
         <div class="th-sub">სამი წიგნი · BOG · TBC · GALT · ვისბადენი</div>
-        <div id="chapter-line" class="th-chapter"></div>
         <div id="me-fees" style="font-family:ui-monospace,monospace;font-size:11px;color:var(--red);margin-top:7px;letter-spacing:0.5px;"></div>
       </div>
       <div class="th-top-right">
@@ -1805,18 +1800,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
     const dayStr = prevVal > 0 ? `${daySign}${fmtUSD(Math.abs(dayDollar))}` : '—';
     const dayPctStr = prevVal > 0 ? `${daySign}${Math.abs(dayPct).toFixed(2)}%` : '';
 
-    const CH = window.TP_CHAPTER;
-    const chLine = document.getElementById('chapter-line');
-    if (chLine && CH) {
-      const one = (typeof chapterOneSummary === 'function') ? chapterOneSummary() : null;
-      const d = new Date(CH.start + 'T00:00:00');
-      const MG = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
-      const ds = d.getDate() + ' ' + MG[d.getMonth()] + ' ' + d.getFullYear();
-      chLine.innerHTML = `<span class="ch-badge">${CH.title}</span>ახალი თავი · ${ds}-დან · ქულები თავიდან`
-        + (one ? `<span class="ch-old">თავი I (დახურული): ჩარიცხული <b>${fmtUSD(one.deposited)}</b> → ${ds}-ს <b>${fmtUSD(one.endValue)}</b> · შედეგი <b style="color:${one.result<0?'var(--red)':'var(--green)'}">${fmtUSD(one.result)}</b></span>` : '');
-      const lab = document.querySelector('#th-top-deposit .th-top-dep-label');
-      if (lab && !lab.dataset.ch) { lab.dataset.ch = '1'; lab.firstChild.textContent = CH.title + ' · საწყისი + ჩარიცხული '; }
-    }
     const topDepVal = document.getElementById('top-dep-val');
     if (topDepVal) topDepVal.textContent = fmtUSD(netDep);
     const topDepSub = document.getElementById('top-dep-sub');
@@ -1917,10 +1900,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   function bookStats(key) {
     var p = portfolios[key];
     var D = window.MEPORTF || {};
-    if (key === 'galt' && D.galt && D.galt.closed && window.TP_CHAPTER) {
-      return { key: key, value: 0, deposits: 0, pnl: 0, pnlPct: 0,
-               dayPnl: 0, dayPct: 0, havePrev: false, closed: true };
-    }
     if (key === 'galt' && D.galt && D.galt.closed) {
       var dep = +D.galt.deposit || 0, net = +D.galt.net || 0;
       return { key: key, value: 0, deposits: dep, pnl: net,

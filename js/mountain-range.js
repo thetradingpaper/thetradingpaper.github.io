@@ -110,7 +110,6 @@
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (h) {
         HIST = Array.isArray(h) ? h.slice().sort(function (a, b) { return a.date.localeCompare(b.date); }) : [];
-        if (typeof window.chapterHistory === 'function') HIST = window.chapterHistory(HIST);
         BOOKS.forEach(function (k) { state[k] = 'all'; buildBar(k); draw(k); });
       })
       .catch(function () { /* leave defaults */ });
