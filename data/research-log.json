@@ -7178,7 +7178,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 3.35,
+  "return_pct": -12.07,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-28T20:20:33.737973+00:00",
@@ -7189,7 +7192,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 35.69,
+  "return_pct": 1.45,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-28T20:20:33.737977+00:00",
@@ -7200,7 +7206,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 93.81,
+  "return_pct": 4.33,
+  "outcome": "win"
  },
  {
   "date": "2026-09-28T20:20:33.737981+00:00",
@@ -7211,7 +7220,10 @@
   "catalyst_cats": [
    "m_and_a"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 15.18,
+  "return_pct": 24.12,
+  "outcome": "win"
  },
  {
   "date": "2026-09-28T20:20:33.738003+00:00",
@@ -7222,7 +7234,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 5.75,
+  "return_pct": 8.7,
+  "outcome": "win"
  },
  {
   "date": "2026-09-28T20:20:33.738007+00:00",
@@ -7233,7 +7248,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 182.91,
+  "return_pct": 4.5,
+  "outcome": "win"
  },
  {
   "date": "2026-09-30T18:38:59.872348+00:00",

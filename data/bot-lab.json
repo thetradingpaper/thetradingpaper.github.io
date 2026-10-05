@@ -7,19 +7,8 @@
    "name_ka": "ბოტი 1 · კონცენტრატი",
    "desc_ka": "მთელი $100 ერთ საუკეთესო არჩევანში",
    "start": 100,
-   "cash": 0.0,
-   "positions": [
-    {
-     "ticker": "PPLI",
-     "shares": 1.947566,
-     "entry": 39.93000030517578,
-     "entry_date": "2026-09-25",
-     "target": 42.67,
-     "stop": 38.29,
-     "max_days": 7,
-     "last_price": 41.49
-    }
-   ],
+   "cash": 80.77192828847504,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -110,9 +99,19 @@
      "ret_pct": -3.76,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "PPLI",
+     "entry": 39.93000030517578,
+     "exit": 41.73,
+     "entry_date": "2026-09-25",
+     "exit_date": "2026-10-05",
+     "ret_pct": 3.2,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 80.8,
+   "equity": 80.77,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -361,13 +360,17 @@
     {
      "date": "2026-10-02",
      "equity": 80.8
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 80.77
     }
    ],
    "stats": {
-    "trades": 9,
-    "wins": 2,
-    "win_rate": 22.2,
-    "return_pct": -19.2
+    "trades": 10,
+    "wins": 3,
+    "win_rate": 30.0,
+    "return_pct": -19.23
    }
   },
   "bot2": {
@@ -1008,6 +1011,10 @@
     {
      "date": "2026-10-02",
      "equity": 45.54
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -1032,7 +1039,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 60.97
+     "last_price": 61.14
     },
     {
      "ticker": "NUAI",
@@ -1042,7 +1049,7 @@
      "target": 9.06,
      "stop": 6.02,
      "max_days": 40,
-     "last_price": 6.26
+     "last_price": 6.05
     },
     {
      "ticker": "RCL",
@@ -1052,7 +1059,7 @@
      "target": 300.62,
      "stop": 253.37,
      "max_days": 40,
-     "last_price": 275.29
+     "last_price": 275.03
     }
    ],
    "trades": [
@@ -1167,7 +1174,7 @@
      "leverage": 1
     }
    ],
-   "equity": 51.15,
+   "equity": 50.65,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1416,13 +1423,17 @@
     {
      "date": "2026-10-02",
      "equity": 51.15
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 50.65
     }
    ],
    "stats": {
     "trades": 11,
     "wins": 1,
     "win_rate": 9.1,
-    "return_pct": -48.85
+    "return_pct": -49.35
    }
   },
   "bot4": {
@@ -1430,19 +1441,8 @@
    "name_ka": "ბოტი 4 · ფრთხილი",
    "desc_ka": "მაქს. 30% პოზიცია, ერთი ჯერზე",
    "start": 100,
-   "cash": 53.26453304819637,
-   "positions": [
-    {
-     "ticker": "PPLI",
-     "shares": 0.579289,
-     "entry": 39.93000030517578,
-     "entry_date": "2026-09-25",
-     "target": 42.67,
-     "stop": 38.29,
-     "max_days": 7,
-     "last_price": 41.49
-    }
-   ],
+   "cash": 76.9382627530189,
+   "positions": [],
    "trades": [
     {
      "ticker": "ROKU",
@@ -1553,9 +1553,19 @@
      "ret_pct": -6.74,
      "reason": "time",
      "leverage": 1
+    },
+    {
+     "ticker": "PPLI",
+     "entry": 39.93000030517578,
+     "exit": 41.73,
+     "entry_date": "2026-09-25",
+     "exit_date": "2026-10-05",
+     "ret_pct": 0.18,
+     "reason": "time",
+     "leverage": 1
     }
    ],
-   "equity": 77.3,
+   "equity": 76.94,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1804,13 +1814,17 @@
     {
      "date": "2026-10-02",
      "equity": 77.3
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 76.94
     }
    ],
    "stats": {
-    "trades": 11,
-    "wins": 1,
-    "win_rate": 9.1,
-    "return_pct": -22.7
+    "trades": 12,
+    "wins": 2,
+    "win_rate": 16.7,
+    "return_pct": -23.06
    }
   },
   "bot5": {
@@ -1831,7 +1845,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 41.49
+     "last_price": 41.73
     }
    ],
    "trades": [
@@ -1896,7 +1910,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 602.37,
+   "equity": 609.83,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2145,15 +2159,19 @@
     {
      "date": "2026-10-02",
      "equity": 602.37
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 609.83
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -39.76
+    "return_pct": -39.02
    }
   }
  },
- "updated": "2026-10-02T18:44:45.045789+00:00"
+ "updated": "2026-10-05T21:24:53.628930+00:00"
 }

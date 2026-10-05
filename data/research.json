@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-02T18:44:44.303536+00:00",
+ "updated": "2026-10-05T21:24:52.826459+00:00",
  "mode": "WAIT",
  "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
  "picks": [],
@@ -13,16 +13,16 @@
   },
   {
    "category": "growth_news",
-   "n": 144,
-   "win_rate": 25.0,
-   "avg_return": -2.81,
-   "weight_now": 0.8
+   "n": 147,
+   "win_rate": 25.9,
+   "avg_return": -2.74,
+   "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 115,
-   "win_rate": 15.7,
-   "avg_return": -3.25,
+   "n": 117,
+   "win_rate": 16.2,
+   "avg_return": -2.97,
    "weight_now": 0.73
   },
   {
@@ -34,10 +34,10 @@
   },
   {
    "category": "buyback_dividend",
-   "n": 37,
-   "win_rate": 18.9,
-   "avg_return": -0.78,
-   "weight_now": 0.75
+   "n": 38,
+   "win_rate": 21.1,
+   "avg_return": -0.65,
+   "weight_now": 0.77
   },
   {
    "category": "guidance_raise",
@@ -61,7 +61,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5971,
+ "scanned": 5969,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
