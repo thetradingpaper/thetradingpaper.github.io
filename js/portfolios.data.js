@@ -22,7 +22,7 @@ window.PORTFOLIOS = {
     ],
     cash: 0.00, // 02 Oct 2026: deposit $150.00 -> buys MRVL ($30.00), SNDK ($50.00), VRT ($50.00), BE ($20.00) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
-    priorDeposits: 2297.66, // $997.66 base + $1,300.00 historical lost BOG bank deposits
+    priorDeposits: 997.66, // base deposits before the transaction log (old lost bank deposits $1,300.00 removed 05 Oct 2026)
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
@@ -293,7 +293,7 @@ window.PORTFOLIOS = {
       { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
     ],
     cash: 0.00, // 02 Oct 2026: deposit $447.44 -> buys QQQI ($99.70 + $0.30 fee), DIVO ($50.00), LYG ($50.00), KO ($47.44), O ($200.00) -> net cash $0.00
-    priorDeposits: 2215.00, // $2,215.00 historical lost TBC bank deposits
+    priorDeposits: 0.00, // old lost TBC bank deposits $2,215.00 removed 05 Oct 2026
     priorCostBasis: 0.00,
     transactions: [
       // Dividend rows feed dividends.html (სულ მიღებული) and the historical-growth graph.
