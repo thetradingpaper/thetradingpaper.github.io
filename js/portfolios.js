@@ -26,11 +26,22 @@ function fmtMoney(n) {
 }
 
 function fmtPct(n) {
-  return (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+  return (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2) + '%';
 }
 
+// Compact page list: 1 … (current±2) … last — keeps long histories on one line
+function pageWindow(page, total) {
+  const out = [];
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || Math.abs(i - page) <= 2) out.push(i);
+    else if (out[out.length - 1] !== null) out.push(null);
+  }
+  return out;
+}
+window.pageWindow = pageWindow;
+
 function fmtDate(s) {
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const months = ['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'];
   const d = new Date(s);
   return `${String(d.getDate()).padStart(2,'0')} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
@@ -474,8 +485,10 @@ function renderPaginated(listId, pagerId, portfolioKey, perPage = 4) {
     if (!pager) return;
     let html = '';
     if (page > 1) html += `<button class="page-link" data-p="${page-1}">← წინა</button>`;
-    for (let i = 1; i <= total; i++)
-      html += i === page ? `<span class="page-current">${i}</span>` : `<button class="page-link" data-p="${i}">${i}</button>`;
+    pageWindow(page, total).forEach(i => {
+      html += i === null ? `<span class="page-gap">…</span>`
+        : i === page ? `<span class="page-current">${i}</span>` : `<button class="page-link" data-p="${i}">${i}</button>`;
+    });
     if (page < total) html += `<button class="page-link" data-p="${page+1}">შემდეგი →</button>`;
     pager.innerHTML = html;
     pager.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { page = +b.dataset.p; draw(); }));
