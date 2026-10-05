@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>სწავლის წიგნი · ჩემი შეცდომები · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/theme.js?v=20260725"></script>
+<script src="js/portfolios.data.js?v=20261005-1"></script>
+<script src="portfolio-data.js?v=20261002-4"></script>
+<style>
+  :root{
+    --bg:#fffdf7; --paper:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b; --border:#e6e0d4; --rule:#1a1a1a;
+    --red:#b91c1c; --red-bg:rgba(185,28,28,.06); --green:#166534; --green-bg:rgba(22,101,52,.08);
+    --gold:#8b6914; --gold-bg:rgba(139,105,20,.08);
+  }
+  [data-theme="dark"]{
+    --bg:#121315; --paper:#1a1c20; --ink:#e6e8ec; --muted:#9ea4b0; --border:#2d3139; --rule:#404652;
+    --red:#ef4444; --red-bg:rgba(239,68,68,.10); --green:#22c55e; --green-bg:rgba(34,197,94,.12);
+    --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Georgian',sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:20px 20px 64px}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+  .pos{color:var(--green)} .neg{color:var(--red)} .mut{color:var(--muted)}
+
+  .cover{border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:22px 0 18px;margin:8px 0 22px}
+  .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:800}
+  h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:36px;margin:6px 0 8px;letter-spacing:-.5px;line-height:1.1}
+  .lede{font-size:15px;color:var(--muted);max-width:720px;line-height:1.6;margin:0}
+
+  .score{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);background:var(--paper)}
+  .sc{padding:14px 16px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .sc:nth-child(4n){border-right:none}
+  .sc .l{font-size:10.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;font-weight:700}
+  .sc .v{font-family:ui-monospace,monospace;font-weight:800;font-size:22px;margin-top:5px}
+  .sc .n{font-size:11px;color:var(--muted);margin-top:3px}
+  .verdict{border-left:4px solid var(--red);background:var(--red-bg);padding:14px 18px;margin:16px 0 0;font-size:14px;line-height:1.65}
+
+  h2{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:24px;margin:42px 0 6px;border-bottom:1px solid var(--rule);padding-bottom:8px}
+  h2 .no{color:var(--red);font-size:13px;letter-spacing:2px;margin-right:10px;vertical-align:middle}
+  .h2sub{font-size:13px;color:var(--muted);margin:0 0 16px}
+
+  .mistake{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--red);margin:0 0 16px;padding:18px 20px}
+  .mistake.good{border-left-color:var(--green)}
+  .m-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .m-title{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:19px}
+  .m-title .n{color:var(--red);margin-right:8px}
+  .mistake.good .m-title .n{color:var(--green)}
+  .m-cost{font-family:ui-monospace,monospace;font-weight:800;font-size:15px}
+  .m-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:12px}
+  .m-block .k{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:4px}
+  .m-block p{margin:0;font-size:13.5px;line-height:1.6}
+  .rule{grid-column:1/-1;background:var(--gold-bg);border:1px dashed var(--gold);padding:10px 14px;font-size:13.5px;line-height:1.55}
+  .rule b{color:var(--gold)}
+  .facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{font-family:ui-monospace,monospace;font-size:11px;font-weight:700;padding:2px 7px;border:1px solid var(--border);border-radius:3px;background:var(--bg)}
+  .chip.neg{color:var(--red)} .chip.pos{color:var(--green)}
+
+  .bars{margin-top:10px}
+  .bar-row{display:grid;grid-template-columns:120px 1fr 90px;gap:10px;align-items:center;font-size:12.5px;margin:6px 0}
+  .bar-track{height:14px;background:var(--border);position:relative}
+  .bar-fill{position:absolute;top:0;bottom:0}
+
+  .lessons{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lesson{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink);padding:16px 18px}
+  .lesson h3{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;margin:0 0 8px}
+  .lesson p{font-size:13px;line-height:1.65;margin:0 0 8px}
+  .lesson .ex{font-family:ui-monospace,monospace;font-size:12px;background:var(--bg);border:1px solid var(--border);padding:8px 10px;line-height:1.6}
+
+  .check{background:var(--paper);border:2px solid var(--ink);padding:18px 22px}
+  .check ol{margin:0;padding-left:22px}
+  .check li{font-size:14px;line-height:1.7;margin-bottom:4px}
+  .note{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+  .foot{text-align:center;font-size:11.5px;color:var(--muted);border-top:3px double var(--rule);margin-top:44px;padding-top:14px}
+
+  @media (max-width:760px){
+    .score{grid-template-columns:1fr 1fr}
+    .sc:nth-child(2n){border-right:none}
+    .m-grid,.lessons{grid-template-columns:1fr}
+    h1{font-size:28px}
+    .bar-row{grid-template-columns:90px 1fr 70px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="cover">
+    <div class="eyebrow">სწავლის წიგნი · ჩემი ვაჭრობის ანალიზი</div>
+    <h1>რა გავაკეთე, სად შევცდი და რა ვისწავლე</h1>
+    <p class="lede">ეს გვერდი ჩემს რეალურ ტრანზაქციებზეა აგებული: ყოველი ყიდვა, გაყიდვა და საკომისიო. რიცხვები ავტომატურად ითვლება ჩემი პორტფელის მონაცემებიდან. ყოველ შეცდომას აქვს ახსნა, გაკვეთილი და ახალი წესი.</p>
+  </header>
+
+  <!-- ===== SCOREBOARD ===== -->
+  <div class="score" id="score"></div>
+  <div class="verdict" id="verdict"></div>
+
+  <!-- ===== MISTAKES ===== -->
+  <h2><span class="no">I</span>ჩემი შეცდომები</h2>
+  <p class="h2sub">დალაგებულია იმის მიხედვით, რამდენი დამიჯდა. თითოეულს აქვს ახალი წესი.</p>
+  <div id="mistakes"></div>
+
+  <!-- ===== HOLDING TIME ===== -->
+  <h2><span class="no">II</span>მოთმინება ფულს აკეთებს</h2>
+  <p class="h2sub">დახურული ვაჭრობები იმის მიხედვით, რამდენ ხანს ვინახავდი აქციას.</p>
+  <div class="bars" id="hold-bars"></div>
+
+  <!-- ===== WHAT WORKED ===== -->
+  <h2><span class="no">III</span>რაც გამომივიდა</h2>
+  <p class="h2sub">ეს უნდა გავიმეორო.</p>
+  <div id="good"></div>
+
+  <!-- ===== LESSONS ===== -->
+  <h2><span class="no">IV</span>გაკვეთილები აქციებზე</h2>
+  <p class="h2sub">ძირითადი ცნებები, რომლებიც ზემოთ ჩამოთვლილ შეცდომებს ხსნის.</p>
+  <div class="lessons">
+    <div class="lesson">
+      <h3>1. საკომისიოს მათემატიკა</h3>
+      <p>საკომისიო ფიქსირებული თანხაა და არა პროცენტი. რაც უფრო პატარაა შეკვეთა, მით უფრო დიდი ნაწილი მიდის საკომისიოზე. ყიდვაც იხდის და გაყიდვაც.</p>
+      <div class="ex">$20-ის ყიდვა, საკომისიო $0.50 → 2.5%<br>გაყიდვა, კიდევ $0.50 → სულ ~5%<br>ანუ აქცია 5%-ით უნდა გაიზარდოს, რომ ნულზე გავიდე.</div>
+    </div>
+    <div class="lesson">
+      <h3>2. ზარალის ასიმეტრია</h3>
+      <p>ზარალიდან ამოსვლა უფრო რთულია, ვიდრე ჩავარდნა. რაც უფრო ღრმაა ვარდნა, მით უფრო დიდი ზრდაა საჭირო დასაბრუნებლად.</p>
+      <div class="ex">−10% → საჭიროა +11%<br>−25% → საჭიროა +33%<br>−50% → საჭიროა +100%<br>−75% → საჭიროა +300%</div>
+    </div>
+    <div class="lesson">
+      <h3>3. ბერკეტიანი ETP და CFD</h3>
+      <p>2x/3x პროდუქტები ყოველდღე თავიდან „ინულება“ (daily reset). მერყევ ბაზარზე ისინი კარგავენ ღირებულებას მაშინაც, როცა აქცია ბოლოს იმავე ფასზე ბრუნდება (volatility decay). მარჟა კი ზარალს ამრავლებს და პოზიციას ავტომატურად ხურავს.</p>
+      <div class="ex">აქცია: +10%, მერე −10% → −1%<br>3x ETP: +30%, მერე −30% → −9%</div>
+    </div>
+    <div class="lesson">
+      <h3>4. მოსალოდნელი შედეგი (Expectancy)</h3>
+      <p>მოგების ალბათობა მარტო არაფერს ნიშნავს. მთავარია: რამდენს ვიგებ, როცა ვიგებ, და რამდენს ვკარგავ, როცა ვკარგავ.</p>
+      <div class="ex">შედეგი = (მოგების % × საშ. მოგება) − (წაგების % × საშ. წაგება)<br>თუ წაგება მოგებაზე დიდია, მაღალი win rate-იც ვერ მიშველის.</div>
+    </div>
+    <div class="lesson">
+      <h3>5. პოზიციის ზომა</h3>
+      <p>ერთ ვაჭრობაზე მთელი კაპიტალის მცირე ნაწილი უნდა იყოს რისკის ქვეშ. მაშინ ერთი ცუდი დღე ვერ გაანადგურებს ანგარიშს.</p>
+      <div class="ex">კაპიტალი $3,000 × 2% = $60 მაქსიმალური ზარალი ერთ ვაჭრობაზე.<br>stop-loss −10%-ზე → პოზიცია მაქს. $600.</div>
+    </div>
+    <div class="lesson">
+      <h3>6. თეზისი ყიდვამდე</h3>
+      <p>ყიდვამდე უნდა ვიცოდე: რატომ ვყიდულობ, რა ფასზე გავალ მოგებით, რა ფასზე ვაღიარებ შეცდომას და რამდენ ხანს ვინახავ. თუ ამას ვერ ვწერ ერთ წინადადებაში, არ ვყიდულობ.</p>
+      <div class="ex">„ვყიდულობ X-ს, რადგან ___.<br>გავდივარ +__%-ზე ან −__%-ზე, ან თუ ___ შეიცვლება.“</div>
+    </div>
+    <div class="lesson">
+      <h3>7. FOMO და შურისძიების ვაჭრობა</h3>
+      <p>FOMO არის ყიდვა იმიტომ, რომ ფასი უკვე მკვეთრად აიწია. Revenge trading არის ზარალის შემდეგ მაშინვე ახალი ვაჭრობა, რომ „დავიბრუნო“. ორივე ემოციაა და არა ანალიზი. ორივე იწვევს ბევრ ვაჭრობას ერთ დღეში.</p>
+      <div class="ex">წესი: 2 წაგების შემდეგ იმ დღეს აღარ ვვაჭრობ.</div>
+    </div>
+    <div class="lesson">
+      <h3>8. კონცენტრაცია</h3>
+      <p>თუ ყველა აქცია ერთი სექტორიდანაა (AI, ჩიპები), ისინი ერთად ეცემა. ეს ერთი დიდი ფსონია, დაყოფილი სხვადასხვა სახელით. ინდექსი (VOO) და შემოსავლის წიგნი ამ რისკს ამცირებს.</p>
+      <div class="ex">10 ჩიპის აქცია ≠ დივერსიფიკაცია<br>VOO = 500 კომპანია 11 სექტორში</div>
+    </div>
+  </div>
+
+  <!-- ===== CHECKLIST ===== -->
+  <h2><span class="no">V</span>ჩემი წესები ყოველი ვაჭრობის წინ</h2>
+  <p class="h2sub">ყიდვის ღილაკს მხოლოდ მაშინ ვაჭერ, თუ ყველა პასუხი „კი“-ა.</p>
+  <div class="check">
+    <ol id="checklist">
+      <li>დავწერე თეზისი ერთ წინადადებაში?</li>
+      <li>ვიცი, რა ფასზე გავალ მოგებით და რა ფასზე ზარალით?</li>
+      <li>შესაძლო ზარალი კაპიტალის 2%-ზე ნაკლებია?</li>
+      <li>შეკვეთა იმდენად დიდია, რომ საკომისიო 1%-ზე ნაკლები იყოს?</li>
+      <li>ეს არ არის ბერკეტიანი პროდუქტი (2x/3x ETP, CFD, მარჟა)?</li>
+      <li>დღეს უკვე 3 ვაჭრობაზე ნაკლები გავაკეთე და 2-ჯერ არ წავაგე?</li>
+      <li>ვყიდულობ იმიტომ, რომ გეგმაშია, და არა იმიტომ, რომ ფასი უკვე აიწია?</li>
+      <li>ეს წესს არ არღვევს (BOG-იდან არ გავიტანო, წიგნებს შორის არ გადავიტანო)?</li>
+    </ol>
+  </div>
+
+  <p class="note" id="method"></p>
+
+  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · ავტომატურად განახლებადი · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script src="js/masthead.js"></script>
+<script src="js/clocks.js"></script>
+<script>
+(function () {
+  'use strict';
+  // Tickers that are leveraged / daily-reset products. Add new ones here.
+  var LEVERAGED = ['SNXX', 'RKLZ', 'SPCG', 'SMCZ'];
+  var MONTHS = ['იან','თებ','მარ','აპრ','მაი','ივნ','ივლ','აგვ','სექ','ოქტ','ნოე','დეკ'];
+
+  var P = window.PORTFOLIOS || {}, M = window.MEPORTF || {};
+  function $(id) { return document.getElementById(id); }
+  function usd(n) { n = +n || 0; return (n < 0 ? '−$' : '$') + Math.abs(n).toFixed(2); }
+  function sgn(n) { return (n >= 0 ? '+' : '−') + '$' + Math.abs(n).toFixed(2); }
+  function d(s) { var p = s.split('-'); return +p[2] + ' ' + MONTHS[+p[1] - 1]; }
+  function days(a, b) { return Math.round((new Date(b) - new Date(a)) / 864e5); }
+
+  // ---------- Rebuild closed trades with average-cost basis ----------
+  var all = [];
+  ['bog', 'tbc'].forEach(function (k) {
+    (P[k] && P[k].transactions || []).forEach(function (t) { all.push(Object.assign({ book: k }, t)); });
+  });
+  all.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : (a.type === 'buy' ? -1 : 1); });
+
+  var pos = {}, closes = {}, unknown = 0, tradeCount = 0, tickers = {}, perDay = {}, fees = 0, smallOrders = 0;
+  all.forEach(function (t) {
+    if (t.type !== 'buy' && t.type !== 'sell') return;
+    tradeCount++; tickers[t.ticker] = 1; perDay[t.date] = (perDay[t.date] || 0) + 1;
+    var c = +t.commission || 0; fees += c;
+    var notional = t.shares * t.price;
+    if (c > 0 && notional > 0 && c / notional > 0.01) smallOrders++;
+    var key = t.book + ':' + t.ticker, s = pos[key] || (pos[key] = { sh: 0, cost: 0, since: null });
+    if (t.type === 'buy') {
+      if (s.sh <= 1e-9) s.since = t.date;
+      s.sh += t.shares; s.cost += notional + c;
+    } else {
+      var proceeds = notional - c;
+      if (s.sh < t.shares - 1e-6) { unknown++; s.sh = 0; s.cost = 0; return; }
+      var cost = s.cost / s.sh * t.shares;
+      var id = t.date + ':' + key;
+      var r = closes[id] || (closes[id] = { date: t.date, book: t.book, tk: t.ticker, pl: 0, cost: 0, held: days(s.since, t.date) });
+      r.pl += proceeds - cost; r.cost += cost;
+      s.sh -= t.shares; s.cost -= cost; if (s.sh < 1e-7) { s.sh = 0; s.cost = 0; }
+    }
+  });
+  var trades = Object.keys(closes).map(function (k) { return closes[k]; });
+  var realized = trades.reduce(function (a, t) { return a + t.pl; }, 0);
+  var wins = trades.filter(function (t) { return t.pl > 0; }), losses = trades.filter(function (t) { return t.pl <= 0; });
+  var avgWin = wins.length ? wins.reduce(function (a, t) { return a + t.pl; }, 0) / wins.length : 0;
+  var avgLoss = losses.length ? losses.reduce(function (a, t) { return a + t.pl; }, 0) / losses.length : 0;
+  var winRate = trades.length ? wins.length / trades.length * 100 : 0;
+  var feesPaid = +M.feesPaid || fees;
+  var galt = M.galt || {};
+  var busiest = Object.keys(perDay).sort(function (a, b) { return perDay[b] - perDay[a]; })[0];
+  var nTick = Object.keys(tickers).length;
+  var dates = Object.keys(perDay).sort(), first = dates[0], last = dates[dates.length - 1];
+  var weeks = Math.max(1, days(first, last) / 7);
+  var byTicker = {}; trades.forEach(function (t) { byTicker[t.tk] = (byTicker[t.tk] || 0) + t.pl; });
+
+  // ---------- Scoreboard ----------
+  var net = realized - feesPaid + (+galt.net || 0);
+  var cells = [
+    ['ვაჭრობა სულ', tradeCount, nTick + ' სხვადასხვა აქცია · ' + (tradeCount / weeks).toFixed(1) + ' კვირაში', ''],
+    ['დახურული ვაჭრობები', trades.length, 'მოგებით ' + wins.length + ' · წაგებით ' + losses.length, ''],
+    ['მოგების %', winRate.toFixed(0) + '%', 'win rate', ''],
+    ['საშ. მოგება / წაგება', sgn(avgWin) + ' / ' + sgn(avgLoss), 'წაგება მოგებაზე ' + (avgWin ? (Math.abs(avgLoss) / avgWin).toFixed(2) : '—') + '×-ით დიდია', avgLoss + avgWin < 0 ? 'neg' : 'pos'],
+    ['რეალიზებული (აქციები)', sgn(realized), 'BOG + TBC · საკომისიოს გარეშე', realized >= 0 ? 'pos' : 'neg'],
+    ['გადახდილი საკომისიო', '−' + usd(feesPaid).replace('$', '$'), 'ყველა ბროკერი + ბანკის გადარიცხვა', 'neg'],
+    ['GALT (მარჟა)', sgn(+galt.net || 0), 'ჩარიცხული ' + usd(galt.deposit || 0) + ' · საკომისიო ' + usd(galt.fees || 0), 'neg'],
+    ['ჯამი ვაჭრობიდან', sgn(net), 'რეალიზებული − საკომისიო + GALT', net >= 0 ? 'pos' : 'neg']
+  ];
+  $('score').innerHTML = cells.map(function (c) {
+    return '<div class="sc"><div class="l">' + c[0] + '</div><div class="v mono ' + c[3] + '">' + c[1] + '</div><div class="n">' + c[2] + '</div></div>';
+  }).join('');
+  $('verdict').innerHTML = '<b>მთავარი დასკვნა:</b> ' + d(first) + '-დან ' + d(last) + '-მდე გავაკეთე <b>' + tradeCount + '</b> ვაჭრობა <b>' + nTick + '</b> სხვადასხვა აქციაზე. დახურულმა ვაჭრობებმა მომიტანა <b>' + sgn(realized) + '</b>, მაგრამ საკომისიომ წაიღო <b>' + usd(feesPaid) + '</b>, მარჟამ კი <b>' + usd(Math.abs(+galt.net || 0)) + '</b>. ბევრი ვაჭრობა მეტ ფულს არ ნიშნავს. ფული მაშინ ჩნდებოდა, როცა ვიცდიდი.';
+
+  // ---------- Mistakes ----------
+  function block(k, html) { return '<div class="m-block"><div class="k">' + k + '</div><p>' + html + '</p></div>'; }
+  function card(n, title, cost, what, why, rule, chips, good) {
+    return '<article class="mistake' + (good ? ' good' : '') + '"><div class="m-head"><div class="m-title"><span class="n">' + n + '</span>' + title + '</div>'
+      + (cost ? '<div class="m-cost ' + (good ? 'pos' : 'neg') + '">' + cost + '</div>' : '') + '</div>'
+      + (chips ? '<div class="facts">' + chips + '</div>' : '')
+      + '<div class="m-grid">' + block('რა მოხდა', what) + block(good ? 'რატომ იმუშავა' : 'რატომ არის ეს შეცდომა', why)
+      + '<div class="rule"><b>' + (good ? 'გავიმეორო:' : 'ახალი წესი:') + '</b> ' + rule + '</div></div></article>';
+  }
+  function chip(t, cls) { return '<span class="chip ' + (cls || '') + '">' + t + '</span>'; }
+
+  var out = [], i = 1;
+
+  // 1. Leverage
+  var lev = trades.filter(function (t) { return LEVERAGED.indexOf(t.tk) !== -1; });
+  var levPl = lev.reduce(function (a, t) { return a + t.pl; }, 0);
+  var levWorst = lev.slice().sort(function (a, b) { return a.pl - b.pl; })[0];
+  var levTotal = levPl + (+galt.net || 0);
+  if (lev.length || galt.deposit) {
+    out.push({ cost: levTotal, html: function (n) {
+      return card(n, 'ბერკეტი და მარჟა', sgn(levTotal),
+        (levWorst ? '<b>' + levWorst.tk + '</b> (ბერკეტიანი ETP) ' + d(levWorst.date) + '-ს: <b class="neg">' + sgn(levWorst.pl) + '</b> (' + (levWorst.pl / levWorst.cost * 100).toFixed(0) + '%) ' + (levWorst.held <= 1 ? 'ერთ დღეში' : levWorst.held + ' დღეში') + '. ' : '')
+          + 'ყველა ბერკეტიანი ETP ერთად: ' + sgn(levPl) + '. GALT-ში MSTR CFD მარჟით: ჩავრიცხე ' + usd(galt.deposit) + ', შედეგი <b class="neg">' + sgn(+galt.net || 0) + '</b>, აქედან ' + usd(galt.fees) + ' მხოლოდ საკომისიო იყო.',
+        'ბერკეტი ზარალს ამრავლებს და ყოველდღიური „ინულება“ ღირებულებას ჭამს. ერთმა ასეთმა ვაჭრობამ წაშალა ათობით პატარა მოგება. ჩემი ზომის კაპიტალით ბერკეტის საკომისიოც კი (CFD-ზე $10) მოგების უდიდეს ნაწილს ჭამს.',
+        'არანაირი 2x/3x ETP, CFD ან მარჟა, სანამ 6 თვე ზედიზედ არ ვიქნები პლიუსში ჩვეულებრივ აქციებზე.',
+        lev.map(function (t) { return chip(t.tk + ' ' + sgn(t.pl), t.pl < 0 ? 'neg' : 'pos'); }).join('') + (galt.deposit ? chip('GALT ' + sgn(+galt.net || 0), 'neg') : ''));
+    } });
+  }
+
+  // 2. Overtrading / fees
+  out.push({ cost: -feesPaid, html: function (n) {
+    return card(n, 'ზედმეტი ვაჭრობა და საკომისიო', '−' + usd(feesPaid),
+      tradeCount + ' ვაჭრობა ' + nTick + ' აქციაზე. ყველაზე დატვირთულ დღეს, <b>' + d(busiest) + '</b>-ს, გავაკეთე <b>' + perDay[busiest] + '</b> ვაჭრობა. ' + smallOrders + ' შეკვეთაზე საკომისიო თანხის 1%-ზე მეტი იყო. საკომისიოში სულ გადავიხადე <b class="neg">' + usd(feesPaid) + '</b>' + (realized > 0 && feesPaid > realized ? ', ეს მეტია, ვიდრე ყველა დახურული ვაჭრობის მოგება (' + sgn(realized) + ').' : '.'),
+      'ყოველი ყიდვა-გაყიდვა იხდის საკომისიოს და ხშირად ემოციით კეთდება. ერთ დღეში ათობით ვაჭრობა ნიშნავს, რომ არ მქონდა გეგმა და ბაზრის ხმაურზე ვრეაგირებდი.',
+      'მაქსიმუმ 3 ვაჭრობა დღეში და 10 კვირაში. შეკვეთა მინიმუმ ისეთი, რომ საკომისიო 1%-ზე ნაკლები იყოს.',
+      chip(d(busiest) + ': ' + perDay[busiest] + ' ვაჭრობა', 'neg') + chip(nTick + ' აქცია') + chip(smallOrders + ' ძვირი შეკვეთა', 'neg'));
+  } });
+
+  // 3. Impatience (1-3 day holds)
+  var short = trades.filter(function (t) { return t.held >= 1 && t.held <= 3; });
+  var shortPl = short.reduce(function (a, t) { return a + t.pl; }, 0);
+  var longT = trades.filter(function (t) { return t.held > 3; });
+  var longPl = longT.reduce(function (a, t) { return a + t.pl; }, 0);
+  if (shortPl < 0) {
+    out.push({ cost: shortPl, html: function (n) {
+      return card(n, 'მოუთმენლობა: 1–3 დღეში გაყიდვა', sgn(shortPl),
+        short.length + ' ვაჭრობა, რომელიც 1–3 დღე გავაჩერე, ჯამში <b class="neg">' + sgn(shortPl) + '</b> იყო. ' + longT.length + ' ვაჭრობამ, რომელიც 3 დღეზე მეტხანს ვინახე, მომიტანა <b class="pos">' + sgn(longPl) + '</b>.',
+        'მოკლე ვადაში ფასი თითქმის შემთხვევითად მოძრაობს. რამდენიმე დღეში გაყიდვა ნიშნავს ხმაურზე ფსონს და არა კომპანიაზე.',
+        'ყიდვისას ვწერ, რამდენ ხანს ვინახავ (მინიმუმ 2 კვირა). ადრე ვყიდი მხოლოდ თუ stop-loss ამოქმედდა ან თეზისი დაირღვა.',
+        '');
+    } });
+  }
+
+  // 4. Chasing: worst vs best on same ticker
+  var best = trades.slice().sort(function (a, b) { return b.pl - a.pl; })[0];
+  var sameWorst = best ? trades.filter(function (t) { return t.tk === best.tk && t.pl < 0; }).sort(function (a, b) { return a.pl - b.pl; })[0] : null;
+  if (sameWorst) {
+    out.push({ cost: sameWorst.pl, html: function (n) {
+      return card(n, 'მაღალ ფასზე ყიდვა (FOMO): ' + best.tk, sgn(sameWorst.pl),
+        'ერთი და იგივე აქცია, ორი სრულიად სხვა შედეგი. <b>' + best.tk + '</b>, რომელიც ძვირად ვიყიდე და ' + sameWorst.held + ' დღის შემდეგ ვარდნაზე გავყიდე: <b class="neg">' + sgn(sameWorst.pl) + '</b> (' + (sameWorst.pl / sameWorst.cost * 100).toFixed(0) + '%). იგივე აქცია, რომელიც დაბალ ფასზე ვიყიდე და ' + best.held + ' დღე მოთმინებით ვინახე: <b class="pos">' + sgn(best.pl) + '</b>.',
+        'აქცია ყოველთვის ერთი და იგივეა. განსხვავებას ქმნის შესვლის ფასი და მოთმინება. როცა ვყიდულობ იმიტომ, რომ ფასი უკვე ბევრი აიწია, ყველაზე ძვირად ვიხდი.',
+        'არ ვყიდულობ აქციას, რომელიც ბოლო 5 დღეში 15%-ზე მეტით აიწია. ვყიდულობ ნაწილებად (DCA) და მხოლოდ გეგმით.',
+        chip(best.tk + ' ' + d(sameWorst.date) + ': ' + sgn(sameWorst.pl), 'neg') + chip(best.tk + ' ' + d(best.date) + ': ' + sgn(best.pl), 'pos'));
+    } });
+  }
+
+  // 5. Losses bigger than wins + holding losers
+  var bigLosers = trades.filter(function (t) { return t.pl < 0 && t.held >= 20 && t.pl / t.cost <= -0.15; });
+  if (avgLoss + avgWin < 0 || bigLosers.length) {
+    var blPl = bigLosers.reduce(function (a, t) { return a + t.pl; }, 0);
+    out.push({ cost: blPl, html: function (n) {
+      return card(n, 'წამგებიანი აქციების დიდხანს შენახვა', sgn(blPl),
+        'საშუალო წაგება (<b class="neg">' + sgn(avgLoss) + '</b>) საშუალო მოგებაზე (<b class="pos">' + sgn(avgWin) + '</b>) დიდია. ' + bigLosers.length + ' აქცია −15%-ზე მეტით ჩავარდა და მაინც 20 დღეზე მეტხანს ვინახე, გეგმის გარეშე. მოგებიან აქციებს კი სწრაფად ვყიდდი.',
+        'ეს კლასიკური შეცდომაა: მოგებას ადრე ვხურავ, წაგებას ვაცდი, რომ „დაბრუნდეს“. ასე მოგების მაღალი %-იც კი წაგებაში გადადის.',
+        'ყოველ პოზიციას აქვს stop-loss ყიდვის მომენტიდანვე (მაგ. −10%). მოგებიან აქციას ვაჩერებ, სანამ თეზისი მუშაობს.',
+        bigLosers.map(function (t) { return chip(t.tk + ' ' + (t.pl / t.cost * 100).toFixed(0) + '% · ' + t.held + 'დ', 'neg'); }).join(''));
+    } });
+  }
+
+  // 6. Breaking own rules (BOG never-withdraw)
+  var wd = (P.bog && P.bog.transactions || []).filter(function (t) { return t.type === 'withdraw'; });
+  var wdSum = wd.reduce(function (a, t) { return a + (+t.amount || 0); }, 0);
+  var xfer = (M.transfers || []).filter(function (t) { return t.from === 'BOG'; }).reduce(function (a, t) { return a + (+t.amount || 0); }, 0);
+  if (wdSum > 0) {
+    out.push({ cost: 0, html: function (n) {
+      return card(n, 'ჩემივე წესების დარღვევა', '−' + usd(wdSum) + ' გატანილი',
+        'BOG-ის წესი იყო: <b>„არასოდეს გავიტანო“</b>. სინამდვილეში BOG-იდან ბარათზე გავიტანე <b class="neg">' + usd(wdSum) + '</b> (' + wd.length + '-ჯერ) და კიდევ <b>' + usd(xfer) + '</b> გადავიტანე TBC-ში. BOG რამდენჯერმე თითქმის ნულამდე დაიცალა.',
+        'წესები მაშინ მუშაობს, როცა მკაცრია. თუ წესი დაირღვა ერთხელ, მეორედ უფრო ადვილად ირღვევა. გრძელვადიანი წიგნი არ იზრდება, თუ მას ყოველთვიურად ვცლი.',
+        'BOG = მხოლოდ ჩარიცხვა. თუ ფული მჭირდება, ჯერ ვწერ „რატომ“ და ვიცდი 48 საათს. წიგნებს შორის გადატანა მხოლოდ თვეში ერთხელ, გეგმით.',
+        wd.map(function (t) { return chip(d(t.date) + ' −' + usd(t.amount), 'neg'); }).join(''));
+    } });
+  }
+
+  out.sort(function (a, b) { return a.cost - b.cost; });
+  $('mistakes').innerHTML = out.map(function (o) { return o.html(i++); }).join('');
+
+  // ---------- Holding-time bars ----------
+  var buckets = [
+    ['იმავე დღეს', function (h) { return h === 0; }],
+    ['1–3 დღე', function (h) { return h >= 1 && h <= 3; }],
+    ['4–14 დღე', function (h) { return h >= 4 && h <= 14; }],
+    ['15+ დღე', function (h) { return h >= 15; }]
+  ].map(function (b) {
+    var s = trades.filter(function (t) { return b[1](t.held); });
+    return { l: b[0], n: s.length, pl: s.reduce(function (a, t) { return a + t.pl; }, 0) };
+  });
+  var maxAbs = Math.max.apply(null, buckets.map(function (b) { return Math.abs(b.pl); })) || 1;
+  $('hold-bars').innerHTML = buckets.map(function (b) {
+    var w = Math.abs(b.pl) / maxAbs * 50;
+    var style = b.pl >= 0 ? 'left:50%;width:' + w + '%;background:var(--green)' : 'right:50%;width:' + w + '%;background:var(--red)';
+    return '<div class="bar-row"><span>' + b.l + ' <span class="mut">(' + b.n + ')</span></span><div class="bar-track"><div class="bar-fill" style="' + style + '"></div><div style="position:absolute;left:50%;top:-3px;bottom:-3px;border-left:1px solid var(--ink)"></div></div><span class="mono ' + (b.pl >= 0 ? 'pos' : 'neg') + '" style="text-align:right">' + sgn(b.pl) + '</span></div>';
+  }).join('');
+
+  // ---------- What worked ----------
+  var topTickers = Object.keys(byTicker).sort(function (a, b) { return byTicker[b] - byTicker[a]; }).slice(0, 3).filter(function (k) { return byTicker[k] > 0; });
+  var divs = 0, divN = 0;
+  ['bog', 'tbc'].forEach(function (k) { (P[k] && P[k].transactions || []).forEach(function (t) { if (t.type === 'dividend') { divs += +t.amount || 0; divN++; } }); });
+  var g = 1, goodHtml = '';
+  if (best) goodHtml += card(g++, 'მოთმინება: ' + best.tk, sgn(best.pl),
+    best.tk + ' ' + best.held + ' დღე ვინახე და დავხურე <b class="pos">' + sgn(best.pl) + '</b> (' + (best.pl / best.cost * 100).toFixed(0) + '%). ეს ჩემი ყველაზე დიდი მოგებაა.',
+    'ერთმა მომთმენმა ვაჭრობამ მეტი მომიტანა, ვიდრე ათობით სწრაფმა ერთად.',
+    'კარგ შესვლას ვაძლევ დროს. მოგებიან აქციას ადრე არ ვყიდი.', '', true);
+  goodHtml += card(g++, 'ყველაზე მომგებიანი აქციები', '',
+    'ჯამური რეალიზებული მოგება აქციების მიხედვით: ' + topTickers.map(function (k) { return '<b>' + k + '</b> ' + sgn(byTicker[k]); }).join(', ') + '.',
+    'ეს ის კომპანიებია, რომლებიც კარგად ვიცი და რომელთა სიახლეებსაც ვადევნებ თვალს.',
+    'ვრჩები იმ აქციებთან, რომლებიც მესმის. ახალ აქციას ვყიდულობ მხოლოდ თეზისით.',
+    topTickers.map(function (k) { return chip(k + ' ' + sgn(byTicker[k]), 'pos'); }).join(''), true);
+  if (divs > 0) goodHtml += card(g++, 'დივიდენდები: პასიური შემოსავალი', sgn(divs),
+    divN + ' დივიდენდი, სულ <b class="pos">' + sgn(divs) + '</b> (წმინდა, 30% გადასახადის შემდეგ). ამისთვის არცერთი ვაჭრობა არ დამჭირვებია.',
+    'ეს ფული საკომისიოს გარეშე მოდის და ყოველ თვე იზრდება, როცა ახალ აქციებს ვამატებ.',
+    'შემოსავლის წიგნს (TBC) ვავსებ ყოველთვიურად და დივიდენდებს ისევ ვაბანდებ.', '', true);
+  $('good').innerHTML = goodHtml;
+
+  $('method').textContent = 'მეთოდი: დახურული ვაჭრობის შედეგი ითვლება საშუალო ფასის მეთოდით, ყიდვისა და გაყიდვის საკომისიოს ჩათვლით. ' + unknown + ' გაყიდვა, რომლის ყიდვის ფასიც ჟურნალში არ არის (ჟურნალის დაწყებამდე ნაყიდი), გამოტოვებულია. GALT ცალკე ითვლება. მონაცემები: js/portfolios.data.js და portfolio-data.js.';
+})();
+</script>
+</body>
+</html>

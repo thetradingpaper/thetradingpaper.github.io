@@ -32,6 +32,7 @@
     { href: '/notes.html',     label: lang === 'ka' ? 'ჩემი ჩანაწერები' : 'My Notes' },
     { href: '/ledger.html',    label: lang === 'ka' ? 'ბიუჯეტი' : 'Ledger' },
     { href: '/dividends.html', label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
+    { href: '/learning.html',  label: lang === 'ka' ? 'სწავლა' : 'Learning' },
     { href: '/edit.html',      label: lang === 'ka' ? 'რედაქტირება' : 'Edit' }
   ];
 
@@ -70,7 +71,7 @@
     && (filename === '' || filename === 'index.html' || filename === 'cabinet.html');
   // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
   var inCabArea = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
-    && (isCabinet || /^(goals|notes|ledger|annual-income|dividends|edit)/.test(filename));
+    && (isCabinet || /^(goals|notes|ledger|annual-income|dividends|learning|edit)/.test(filename));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
