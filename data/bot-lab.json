@@ -364,6 +364,10 @@
     {
      "date": "2026-10-05",
      "equity": 80.77
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 80.77
     }
    ],
    "stats": {
@@ -1015,6 +1019,10 @@
     {
      "date": "2026-10-05",
      "equity": 45.54
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -1029,7 +1037,7 @@
    "name_ka": "ბოტი 3 · გრძელვადიანი",
    "desc_ka": "მხოლოდ გრძელვადიანი კატალიზატორები, 2-8 კვირა",
    "start": 100,
-   "cash": 0.0,
+   "cash": 13.899644000256538,
    "positions": [
     {
      "ticker": "WOR",
@@ -1039,17 +1047,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 61.14
-    },
-    {
-     "ticker": "NUAI",
-     "shares": 2.448919,
-     "entry": 6.885000228881836,
-     "entry_date": "2026-09-25",
-     "target": 9.06,
-     "stop": 6.02,
-     "max_days": 40,
-     "last_price": 6.05
+     "last_price": 61.28
     },
     {
      "ticker": "RCL",
@@ -1059,7 +1057,7 @@
      "target": 300.62,
      "stop": 253.37,
      "max_days": 40,
-     "last_price": 275.03
+     "last_price": 288.21
     }
    ],
    "trades": [
@@ -1172,9 +1170,19 @@
      "ret_pct": -15.27,
      "reason": "stop",
      "leverage": 1
+    },
+    {
+     "ticker": "NUAI",
+     "entry": 6.885000228881836,
+     "exit": 5.88,
+     "entry_date": "2026-09-25",
+     "exit_date": "2026-10-06",
+     "ret_pct": -19.94,
+     "reason": "stop",
+     "leverage": 1
     }
    ],
-   "equity": 50.65,
+   "equity": 50.62,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1427,13 +1435,17 @@
     {
      "date": "2026-10-05",
      "equity": 50.65
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 50.62
     }
    ],
    "stats": {
-    "trades": 11,
+    "trades": 12,
     "wins": 1,
-    "win_rate": 9.1,
-    "return_pct": -49.35
+    "win_rate": 8.3,
+    "return_pct": -49.38
    }
   },
   "bot4": {
@@ -1818,6 +1830,10 @@
     {
      "date": "2026-10-05",
      "equity": 76.94
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 76.94
     }
    ],
    "stats": {
@@ -1845,7 +1861,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 41.73
+     "last_price": 41.62
     }
    ],
    "trades": [
@@ -1910,7 +1926,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 609.83,
+   "equity": 605.94,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2163,15 +2179,19 @@
     {
      "date": "2026-10-05",
      "equity": 609.83
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 605.94
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -39.02
+    "return_pct": -39.41
    }
   }
  },
- "updated": "2026-10-05T21:24:53.628930+00:00"
+ "updated": "2026-10-06T19:09:06.739894+00:00"
 }
