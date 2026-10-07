@@ -270,6 +270,8 @@
     border-top: 1px solid var(--border);
     padding-top: 18px;
   }
+  /* phone: wide tables scroll inside themselves instead of widening the page */
+  @media (max-width:700px){#upcomingTable,#historyTable{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
 </style>
 </head>
 <body>

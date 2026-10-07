@@ -33,6 +33,8 @@
   .book{ display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; color:#fff; border-radius:3px; padding:2px 7px; }
   .empty{ color:var(--muted); padding:20px; text-align:center; }
   .foot{ color:var(--muted); font-size:12px; margin-top:36px; text-align:center; border-top:1px solid var(--line); padding-top:14px; }
+  /* phone: wide tables scroll inside themselves instead of widening the page */
+  @media (max-width:700px){#commTable{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
 </style>
 </head>
 <body>
