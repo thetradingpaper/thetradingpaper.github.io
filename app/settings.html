@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="../js/theme.js?v=20260725"></script>
-<link rel="stylesheet" href="pai.css?v=20261007-1">
+<link rel="stylesheet" href="pai.css?v=20261007-3">
 <style>
   .set{display:grid;grid-template-columns:240px 1fr;gap:24px;border-bottom:1px solid var(--border);padding:22px 0}
   .set h3{font-family:'Noto Serif Georgian',serif;font-size:17px;margin:0 0 6px}
@@ -30,7 +30,7 @@
       <div><span class="tag gold">ონლაინ გადახდა ჯერ არ არის ჩართული — მანამდე წვდომა ღიაა</span></div></div></div></div>
 
   <div class="set"><div><h3>პროფილი</h3><p class="d">სახელი გამოჩნდება დაფაზე და შენს გაზეთში.</p></div>
-    <div class="c"><div class="row"><div><label class="f">სახელი</label><input class="i" id="name"></div><div><label class="f">ელფოსტა</label><input class="i" id="email" disabled></div></div></div></div>
+    <div class="c"><div class="row"><div><label class="f">სახელი</label><input class="i" id="name"></div><div><label class="f">ქალაქი</label><input class="i" id="city" placeholder="მაგ. თბილისი"></div><div><label class="f">ელფოსტა</label><input class="i" id="email" disabled></div></div><div class="row" style="align-items:center"><img id="ph" alt="" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--border);display:none"><label class="btn sm" style="cursor:pointer">📷 პროფილის ფოტო<input type="file" id="ph-in" accept="image/*" hidden></label><button class="btn sm link" id="ph-del" type="button">ფოტოს წაშლა</button></div></div></div>
 
   <div class="set"><div><h3>ვალუტა და გადასახადი</h3><p class="d">ჯამები ამ ვალუტაში გამოჩნდება (კურსი — ავტომატურად). დივიდენდის დაკავება საქართველოში — 30%.</p></div>
     <div class="c"><div class="row"><div><label class="f">ჯამების ვალუტა</label><select class="i" id="cur"><option>USD</option><option>GEL</option><option>EUR</option><option>GBP</option></select></div>
@@ -59,7 +59,7 @@
 <script src="pai-config.js?v=20261007-1"></script>
 <script src="../js/portfolios.data.js?v=20261006-1"></script>
 <script src="../portfolio-data.js?v=20261002-4"></script>
-<script src="pai-core.js?v=20261007-1"></script>
+<script src="pai-core.js?v=20261007-2"></script>
 <script>
 (async function () {
   var U = PAI.util, esc = U.esc, $ = function (id) { return document.getElementById(id); };
@@ -75,6 +75,12 @@
   $('store-d').textContent = PAI.store.mode === 'cloud' ? 'მონაცემები ინახება ღრუბელში (Supabase) და ჩანს ყველა მოწყობილობაზე.' : 'მონაცემები ინახება ამ მოწყობილობაზე (ბრაუზერში). სხვა მოწყობილობაზე გადასატანად — ექსპორტი და იმპორტი.';
 
   $('name').onchange = function () { acc.name = this.value.trim(); PAI.save(acc); PAI.ui.toast('შენახულია'); };
+  $('city').value = acc.city || (acc.linkSite ? 'ვისბადენი' : '');
+  $('city').onchange = function () { acc.city = this.value.trim(); PAI.save(acc); PAI.ui.toast('შენახულია'); };
+  function ph() { var src = acc.photo || acc.photoUrl || (acc.linkSite ? '../images/lasha.jpg' : ''); $('ph').style.display = src ? 'block' : 'none'; if (src) $('ph').src = src; }
+  ph();
+  $('ph-in').onchange = function () { var f = this.files[0]; if (!f) return; var im = new Image(); im.onload = function () { var s = 320, c = document.createElement('canvas'); c.width = c.height = s; var k = Math.max(s / im.width, s / im.height), w = im.width * k, h = im.height * k; c.getContext('2d').drawImage(im, (s - w) / 2, (s - h) / 2, w, h); acc.photo = c.toDataURL('image/jpeg', 0.85); PAI.save(acc, true); ph(); PAI.ui.toast('ფოტო განახლდა'); }; im.src = URL.createObjectURL(f); };
+  $('ph-del').onclick = function () { delete acc.photo; acc.photoUrl = ''; PAI.save(acc, true); ph(); };
   $('cur').onchange = function () { acc.settings.currency = this.value; PAI.save(acc); PAI.ui.toast('ვალუტა: ' + this.value); };
   $('tax').onchange = function () { acc.settings.taxPct = Math.max(0, Math.min(60, +this.value || 0)); PAI.save(acc); PAI.ui.toast('შენახულია'); };
   $('gkey').onchange = function () { PAI.secrets.set({ geminiKey: this.value.trim() }); PAI.ui.toast(this.value.trim() ? 'Gemini გასაღები შენახულია ამ მოწყობილობაზე' : 'გასაღები წაიშალა'); };

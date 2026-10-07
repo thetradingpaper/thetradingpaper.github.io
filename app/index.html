@@ -3,26 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>დაფა · Portfolio AI</title>
+<title>ჩემი პროფილი · Portfolio AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="../js/theme.js?v=20260725"></script>
-<link rel="stylesheet" href="pai.css?v=20261007-1">
+<link rel="stylesheet" href="pai.css?v=20261007-3">
+<link rel="stylesheet" href="profile.css?v=20261007-1">
 <style>
-  .hello{font-family:'Noto Serif Georgian',serif}
-  .empty{background:var(--paper);border:2px dashed var(--border);padding:34px;text-align:center}
-  .empty h3{font-family:'Noto Serif Georgian',serif;font-size:22px;margin:0 0 8px}
-  .filter{display:inline-flex;gap:6px;align-items:center;font-size:12px;border:1px solid var(--ink);padding:3px 8px;margin-left:8px;cursor:pointer}
-  .teaser{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--red);padding:18px 20px}
-  .teaser .big{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:40px;color:var(--red);line-height:1}
-  .teaser h3{font-family:'Noto Serif Georgian',serif;margin:0 0 4px;font-size:18px}
-  .teaser p{margin:0;font-size:13px;color:var(--muted)}
-  .src{font-size:10px;color:var(--muted);margin-left:4px}
-  /* assistant (same classes as js/paper-ai.js) */
+  .pwrap{max-width:1320px;margin:0 auto;padding:6px 24px 64px}
+  .tp-tab-pane{display:none} .tp-tab-pane.active{display:block}
+  .th-ring svg{position:absolute;inset:0}
+  .th-photo label{position:absolute;inset:0;cursor:pointer}
+  .th-photo .cam{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:10px;background:rgba(0,0,0,.55);color:#fff;padding:2px 8px;border-radius:10px;opacity:0;transition:opacity .15s}
+  .th-photo:hover .cam{opacity:1}
+  .th-belt .v.pos{color:var(--green)} .th-belt .v.neg{color:var(--red)}
+  .th-belt a{color:var(--red);text-decoration:none;font-weight:700}
+  .fee-link{font-family:ui-monospace,monospace;font-size:11px;color:var(--red);margin-top:7px;letter-spacing:.5px;text-decoration:none;border-bottom:1px dotted var(--red);display:inline-block}
+  .add-book{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;flex:0 0 calc((100% - 52px) / 3);min-height:330px;border:2px dashed var(--border);color:var(--muted);text-decoration:none;font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:18px;text-align:center;padding:20px}
+  .add-book:hover{border-color:var(--red);color:var(--red)}
+  @media(max-width:900px){.add-book{flex:0 0 290px}}
+  .bk.c-book{background:var(--bc)} .bk.c-book::before{background:rgba(0,0,0,.35)}
+  /* assets */
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+  .chips button{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:7px 12px;background:var(--paper);border:1px solid var(--border);cursor:pointer;color:var(--muted)}
+  .chips button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .hcard{background:var(--paper);border:1px solid var(--border);border-top:4px solid var(--c);padding:16px 18px;position:relative}
+  .hcard .t{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:24px;line-height:1}
+  .hcard .nm{font-size:11.5px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hcard .bb{position:absolute;top:14px;right:14px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--c);padding:3px 7px;font-weight:700}
+  .hcard .val{font-family:ui-monospace,monospace;font-weight:800;font-size:24px;margin:12px 0 2px}
+  .hcard .pl{font-family:ui-monospace,monospace;font-weight:700;font-size:13px}
+  .hcard dl{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin:12px 0 0;font-size:11.5px}
+  .hcard dt{color:var(--muted);font-size:9.5px;letter-spacing:1px;text-transform:uppercase}
+  .hcard dd{margin:0;font-family:ui-monospace,monospace;font-weight:700}
+  .hcard .w{height:5px;background:var(--border);margin-top:12px}.hcard .w i{display:block;height:100%;background:var(--c)}
+  /* history */
+  .txh{display:grid;grid-template-columns:110px 92px 90px 1fr auto;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--paper);font-size:13px}
+  .txh:first-child{border-top:1px solid var(--rule)}
+  .badge{display:inline-block;font-size:9.5px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;padding:3px 0;width:88px;text-align:center;color:#fff}
+  .b-buy{background:#166534}.b-sell{background:#b91c1c}.b-deposit{background:#1d4ed8}.b-withdraw{background:#7c3aed}.b-dividend{background:#8b6914}.b-fee{background:#6b6b6b}
+  .bkb{display:inline-block;font-size:9.5px;letter-spacing:1px;font-weight:700;text-transform:uppercase;color:#fff;padding:3px 6px;min-width:80px;text-align:center}
+  .txh .amt{font-family:ui-monospace,monospace;font-weight:800;text-align:right;white-space:nowrap}
+  .txh .src{font-size:10px;color:var(--muted)}
+  .pager{display:flex;gap:4px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+  .pager button{min-width:34px;padding:6px 10px;border:1px solid var(--border);background:var(--paper);color:var(--ink);cursor:pointer;font-family:ui-monospace,monospace}
+  .pager button.on{background:var(--ink);color:var(--paper)}
+  /* issues */
+  .igrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .icard{background:var(--paper);border:1px solid var(--border);padding:16px 10px;text-align:center;text-decoration:none;color:var(--ink)}
+  .icard.latest{border:2px solid var(--red)}
+  .icard .n{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:26px;line-height:1}
+  .icard .dt{font-size:11px;color:var(--muted);margin:6px 0 10px}
+  .icard .go{display:inline-block;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--red);color:var(--red);padding:5px 9px;font-weight:700}
+  /* assistant */
   #ai-mode{font-size:11.5px;color:var(--muted);margin:0 0 10px;display:flex;align-items:center;gap:8px}
   .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block} .ai-dot.on{background:var(--green)}
   .ai-box{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink)}
-  #ai-log{min-height:220px;max-height:520px;overflow-y:auto;padding:16px 16px 4px}
+  #ai-log{min-height:180px;max-height:460px;overflow-y:auto;padding:16px 16px 4px}
   .ai-msg{margin:0 0 14px} .ai-who{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:4px}
   .ai-msg.bot .ai-who{color:var(--red)} .ai-body{font-size:14px;line-height:1.65}
   .ai-msg.bot .ai-body{border-left:3px solid var(--red);padding:2px 0 2px 14px}
@@ -40,49 +78,73 @@
   #ai-form{display:flex;border-top:1px solid var(--rule)}
   #ai-input{flex:1;min-width:0;font-family:inherit;font-size:15px;padding:13px 15px;border:0;background:var(--paper);color:var(--ink);outline:none}
   #ai-send{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;background:var(--red);color:#fff;border:0;padding:0 20px;cursor:pointer}
-  @media (max-width:640px){ .teaser{grid-template-columns:1fr} }
+  .empty-hero{text-align:center;padding:30px 10px}
+  .empty-hero h3{font-family:'Noto Serif Georgian',serif;font-size:22px;margin:0 0 6px}
+  @media(max-width:1000px){.hgrid{grid-template-columns:1fr 1fr}.igrid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.pwrap{padding:4px 12px 48px}.hgrid{grid-template-columns:1fr}.igrid{grid-template-columns:1fr 1fr}.txh{grid-template-columns:1fr auto;gap:4px 10px}.txh .d,.txh .bkc{font-size:11px}.th-ring{width:260px;height:260px}.th-photo{width:146px;height:146px}.total-hero{padding:16px 14px 20px}}
 </style>
 </head>
 <body>
 <div id="pai-nav-host"></div>
-<div class="wrap">
-  <div class="ph">
-    <div><div class="eyebrow" id="today">—</div><h1 class="hello" id="hello">გამარჯობა</h1></div>
-    <div class="side"><span id="upd">ფასები იტვირთება…</span><br><button class="btn link" id="refresh" type="button">↻ განახლება</button></div>
+<div class="pwrap">
+  <div class="tp-tabs no-print" role="tablist">
+    <button class="tp-tab-btn active" data-pane="tab-total" role="tab">მთლიანი პორტფელი</button>
+    <button class="tp-tab-btn" data-pane="tab-assets" role="tab">აქტივების დეტალები</button>
+    <button class="tp-tab-btn" data-pane="tab-history" role="tab">ტრანზაქციების ისტორია</button>
+    <button class="tp-tab-btn" data-pane="tab-issues" role="tab">გაზეთები</button>
   </div>
 
-  <div id="warn"></div>
-  <div id="empty" class="empty hidden">
-    <h3>შენი პორტფელი ჯერ ცარიელია</h3>
-    <p class="note">ჩააგდე ბროკერის სქრინშოტი — AI თვითონ ამოიკითხავს და დაამატებს. ან შეიყვანე ხელით.</p>
-    <a class="btn primary" href="editor.html">→ პორტფელის რედაქტორი</a>
-  </div>
+  <!-- ================= TAB 1 · TOTAL ================= -->
+  <div id="tab-total" class="tp-tab-pane active">
+    <section class="total-hero">
+      <div class="th-top">
+        <div>
+          <div class="th-eyebrow">სრული პორტფელი · Total Portfolio</div>
+          <div class="th-person"><span id="p-name">—</span> <a href="settings.html" class="th-edit no-print" title="პროფილის რედაქტირება" aria-label="რედაქტირება">&#9998;</a></div>
+          <div class="th-sub" id="p-sub">—</div>
+          <a class="fee-link" id="p-fees" href="#" data-goto="tab-history">—</a>
+        </div>
+        <div class="th-top-right">
+          <div class="th-live"><span id="p-live">● იტვირთება…</span></div>
+          <div class="th-top-deposit">
+            <div class="th-top-dep-label">სრული ჩარიცხული · Total Deposit</div>
+            <div class="th-top-dep-val" id="p-dep">—</div>
+            <div class="th-top-dep-sub" id="p-dep-sub">—</div>
+          </div>
+        </div>
+      </div>
+      <div class="th-body">
+        <div class="th-ring">
+          <svg id="p-donut" viewBox="0 0 300 300" width="100%" height="100%" aria-hidden="true"></svg>
+          <div class="th-photo" title="ფოტოს შეცვლა">
+            <img id="p-photo" alt="" style="display:none">
+            <span id="p-initials" class="th-initials">?</span>
+            <span class="cam">📷 შეცვლა</span>
+            <label><input type="file" id="photo-in" accept="image/*" hidden></label>
+          </div>
+        </div>
+        <div class="th-right">
+          <div class="th-stats" id="p-stats"></div>
+          <table class="th-legend" id="p-legend"></table>
+        </div>
+      </div>
 
-  <div id="main">
-    <div class="kpis" id="kpis"></div>
+      <div class="section-head">პორტფელების რეიტინგი</div>
+      <div class="rank-tools">
+        <span class="lbl" id="p-rank-lbl">წიგნები — ცოცხალი ფასებით, საუკეთესოდან</span>
+        <span class="live-note mut" id="p-live2" style="font-size:12px"></span>
+        <div class="sort-toggle" role="tablist"><button id="sort-total" class="on" type="button">ჯამური %</button><button id="sort-day" type="button">დღიური %</button></div>
+      </div>
+      <div class="books-carousel-wrapper">
+        <button id="car-prev" class="carousel-btn prev disabled" type="button" aria-label="წინა">❮</button>
+        <div class="books-grid-viewport" id="car-vp"><div class="books-grid" id="p-books"></div></div>
+        <button id="car-next" class="carousel-btn next" type="button" aria-label="შემდეგი">❯</button>
+      </div>
 
-    <h2 class="sec">წიგნები <small id="books-sub"></small><a href="editor.html#books">+ ბროკერის დამატება</a></h2>
-    <div class="grid g3" id="books"></div>
+      <div class="th-belt" id="p-belt"></div>
+    </section>
 
-    <div class="grid g2" style="margin-top:14px">
-      <div class="card top"><div class="donut-wrap"><div id="donut1"></div><div class="legend" id="leg1"></div></div></div>
-      <div class="card top"><div class="donut-wrap"><div id="donut2"></div><div class="legend" id="leg2"></div></div></div>
-    </div>
-
-    <h2 class="sec">პოზიციები <span id="filter-host"></span><small id="pos-sub"></small></h2>
-    <div class="tw"><table class="t" id="holdings"></table></div>
-
-    <h2 class="sec">ბოლო ოპერაციები <a href="editor.html#tx">ყველა →</a></h2>
-    <div class="tw"><table class="t" id="recent"></table></div>
-
-    <h2 class="sec">თვის გაზეთი</h2>
-    <a class="teaser" href="paper.html" style="text-decoration:none;color:inherit">
-      <div class="big">№<span id="issue-no">01</span></div>
-      <div><h3 id="teaser-h">შენი თვის გამოცემა მზადაა</h3><p id="teaser-p">შედეგი, ლიდერები, საკომისიოები, დივიდენდები და თვის გაკვეთილი — ერთ გვერდზე.</p></div>
-      <span class="btn sm">გახსნა →</span>
-    </a>
-
-    <h2 class="sec" id="assistant">AI ასისტენტი <small>ჰკითხე ქართულად შენს პორტფელზე</small></h2>
+    <div class="section-head" id="assistant">AI ასისტენტი · ჰკითხე შენს პორტფელზე</div>
     <div id="ai-mode"></div>
     <div class="ai-box">
       <div id="ai-log" aria-live="polite"></div>
@@ -98,131 +160,225 @@
     </div>
   </div>
 
-  <div class="foot">Portfolio AI · The Trading Paper · <a href="../ai.html">შესახებ</a> · <a href="../cabinet.html">The Trading Paper</a><br>ეს არ არის ფინანსური რჩევა</div>
+  <!-- ================= TAB 2 · ASSETS ================= -->
+  <div id="tab-assets" class="tp-tab-pane">
+    <div class="chips" id="a-chips"></div>
+    <div class="hgrid" id="a-grid"></div>
+  </div>
+
+  <!-- ================= TAB 3 · HISTORY ================= -->
+  <div id="tab-history" class="tp-tab-pane">
+    <div class="chips" id="h-chips"></div>
+    <div id="h-list"></div>
+    <div class="pager" id="h-pager"></div>
+    <p class="note" style="text-align:center"><a href="editor.html" style="color:var(--red);font-weight:700">+ ოპერაციის დამატება (სქრინშოტით ან ხელით)</a></p>
+  </div>
+
+  <!-- ================= TAB 4 · ISSUES ================= -->
+  <div id="tab-issues" class="tp-tab-pane">
+    <div class="section-head">შენი გაზეთები · ყოველთვიური გამოცემა</div>
+    <div class="igrid" id="i-grid"></div>
+  </div>
+
+  <div class="foot">Portfolio AI · The Trading Paper · <a href="../ai.html">შესახებ</a><br>ეს არ არის ფინანსური რჩევა</div>
 </div>
 
 <script src="pai-config.js?v=20261007-1"></script>
 <script src="../js/portfolios.data.js?v=20261006-1"></script>
 <script src="../portfolio-data.js?v=20261002-4"></script>
 <script src="../js/dividends.data.js?v=20261002-4"></script>
-<script src="pai-core.js?v=20261007-1"></script>
+<script src="pai-core.js?v=20261007-2"></script>
 <script>
 (async function () {
-  var U = PAI.util, esc = U.esc;
+  var U = PAI.util, esc = U.esc, $ = function (id) { return document.getElementById(id); };
   var acc = await PAI.requireAuth();
   PAI.ui.nav('index', acc);
   var disp = acc.settings.currency || 'USD';
   var ctx = { quotes: {}, rates: { USD: 1 }, display: disp, meta: {} };
-  var model = null, filter = null, firstRender = true;
-  var d = new Date();
-  document.getElementById('today').textContent = d.getDate() + ' ' + U.MONFULL[d.getMonth()] + ' ' + d.getFullYear();
-  document.getElementById('hello').textContent = 'გამარჯობა, ' + (String(acc.name || '').split(' ')[0] || 'მეგობარო');
+  var model = null, sortMode = 'total', aFilter = null, hFilter = null, hPage = 1, PER = 15;
+  var TY = { buy: 'ყიდვა', sell: 'გაყიდვა', deposit: 'დეპოზიტი', withdraw: 'გატანა', dividend: 'დივიდენდი', fee: 'საკომისიო' };
+  function m(n, c) { return U.money(n, c || disp); }
 
-  function money(n, cur) { return U.money(n, cur || disp); }
-  function donut(el, segs) {
-    var tot = segs.reduce(function (s, x) { return s + Math.max(0, x.v); }, 0), R = 54, C = 2 * Math.PI * R, off = 0;
-    var svg = '<svg width="150" height="150" viewBox="0 0 150 150" role="img"><circle cx="75" cy="75" r="' + R + '" fill="none" stroke="var(--border)" stroke-width="22"/>';
-    segs.forEach(function (x) { if (x.v <= 0 || !tot) return; var len = x.v / tot * C; svg += '<circle cx="75" cy="75" r="' + R + '" fill="none" stroke="' + x.color + '" stroke-width="22" stroke-dasharray="' + len + ' ' + (C - len) + '" stroke-dashoffset="' + (-off) + '" transform="rotate(-90 75 75)"/>'; off += len; });
-    svg += '<text x="75" y="72" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="Noto Sans Georgian">' + esc(el.dataset.t || '') + '</text><text x="75" y="90" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)" font-family="ui-monospace,monospace">' + segs.filter(function (x) { return x.v > 0; }).length + '</text></svg>';
-    el.innerHTML = svg;
+  // ---------- tabs ----------
+  function showTab(id) {
+    Array.prototype.forEach.call(document.querySelectorAll('.tp-tab-btn'), function (b) { b.classList.toggle('active', b.dataset.pane === id); });
+    Array.prototype.forEach.call(document.querySelectorAll('.tp-tab-pane'), function (p) { p.classList.toggle('active', p.id === id); });
+    try { history.replaceState(null, '', '#' + id.replace('tab-', '')); } catch (e) {}
   }
-  function legend(el, segs) {
-    var tot = segs.reduce(function (s, x) { return s + Math.max(0, x.v); }, 0);
-    el.innerHTML = segs.filter(function (x) { return x.v > 0; }).map(function (x) { return '<div><span><span class="dot" style="background:' + x.color + '"></span>' + esc(x.label) + '</span><span>' + (tot ? (x.v / tot * 100).toFixed(1) : '0') + '%</span></div>'; }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('.tp-tab-btn'), function (b) { b.onclick = function () { showTab(b.dataset.pane); }; });
+  document.addEventListener('click', function (e) { var g = e.target.closest('[data-goto]'); if (g) { e.preventDefault(); if (g.dataset.book) { aFilter = hFilter = g.dataset.book; renderAssets(); renderHistory(); } showTab(g.dataset.goto); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
+
+  // ---------- profile photo ----------
+  var initials = String(acc.name || '?').trim().split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+  function paintPhoto() {
+    var src = acc.photo || acc.photoUrl || (acc.linkSite ? '../images/lasha.jpg' : '');
+    var img = $('p-photo'), ini = $('p-initials');
+    ini.textContent = initials;
+    if (src) { img.onerror = function () { img.style.display = 'none'; ini.style.display = 'block'; }; img.src = src; img.style.display = 'block'; ini.style.display = 'none'; }
+    else { img.style.display = 'none'; ini.style.display = 'block'; }
+  }
+  $('photo-in').onchange = function () {
+    var f = this.files[0]; if (!f) return;
+    var im = new Image(); im.onload = function () {
+      var s = 320, c = document.createElement('canvas'); c.width = c.height = s;
+      var k = Math.max(s / im.width, s / im.height), w = im.width * k, h = im.height * k;
+      c.getContext('2d').drawImage(im, (s - w) / 2, (s - h) / 2, w, h);
+      acc.photo = c.toDataURL('image/jpeg', 0.85); PAI.save(acc, true); paintPhoto(); PAI.ui.toast('ფოტო განახლდა');
+    }; im.src = URL.createObjectURL(f);
+  };
+
+  // ---------- donut (SVG, same proportions as the cabinet ring) ----------
+  function donut(segs) {
+    var tot = segs.reduce(function (s, x) { return s + Math.max(0, x.v); }, 0), R = 131, C = 2 * Math.PI * R, off = 0, gap = segs.filter(function (x) { return x.v > 0; }).length > 1 ? 2 : 0;
+    var h = '<circle cx="150" cy="150" r="' + R + '" fill="none" stroke="var(--border)" stroke-width="34"/>';
+    segs.forEach(function (x) { if (x.v <= 0 || !tot) return; var len = x.v / tot * C; h += '<circle cx="150" cy="150" r="' + R + '" fill="none" stroke="' + x.color + '" stroke-width="34" stroke-dasharray="' + Math.max(0, len - gap) + ' ' + (C - Math.max(0, len - gap)) + '" stroke-dashoffset="' + (-off) + '" transform="rotate(-90 150 150)"/>'; off += len; });
+    $('p-donut').innerHTML = h;
   }
 
+  // ---------- render ----------
   function render() {
     model = PAI.compute(acc, ctx);
-    var T = model.totals, has = model.books.length && (model.rows.length || model.tx.length || T.deposited);
-    document.getElementById('empty').classList.toggle('hidden', !!has);
-    document.getElementById('main').classList.toggle('hidden', !has && !model.books.length);
-    document.getElementById('warn').innerHTML = model.warnings.map(function (w) { return '<div class="warn">' + esc(w) + '</div>'; }).join('');
-    document.getElementById('kpis').innerHTML = [
-      ['მთლიანი ღირებულება', money(T.value), model.books.length + ' წიგნი · ' + model.rows.length + ' პოზიცია'],
-      ['წმინდა ჩარიცხული', money(T.netInvested), 'ჩარ. ' + money(T.deposited) + ' · გატ. ' + money(T.withdrawn)],
-      ['წმინდა P/L', '<span class="' + U.cls(T.pnl) + '">' + U.smoney(T.pnl, disp) + '</span>', '<span class="' + U.cls(T.pnl) + '">' + U.pct(T.pnlPct) + '</span>'],
-      ['დღის ცვლილება', '<span class="' + U.cls(T.dayAbs) + '">' + U.smoney(T.dayAbs, disp) + '</span>', '<span class="' + U.cls(T.dayAbs) + '">' + U.pct(T.dayPct) + ' (1D)</span>'],
-      ['დივიდენდი / წელი', '<span class="pos">' + money(T.annualDiv) + '</span>', 'წმინდა · მიღებული ' + money(T.dividends)]
-    ].map(function (k) { return '<div class="kpi"><div class="l">' + k[0] + '</div><div class="v">' + k[1] + '</div><div class="n">' + k[2] + '</div></div>'; }).join('');
+    var T = model.totals, now = new Date(), hm = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    var live = model.rows.some(function (r) { var q = ctx.quotes[r.ticker]; return q && q.src === 'live'; });
+    $('p-name').textContent = acc.name || 'ჩემი პორტფელი';
+    var names = model.books.map(function (b) { return b.name; });
+    var nWord = ['', 'ერთი', 'ორი', 'სამი', 'ოთხი', 'ხუთი', 'ექვსი'][names.length] || names.length;
+    $('p-sub').textContent = (names.length ? nWord + ' წიგნი · ' + names.join(' · ') : 'წიგნი ჯერ არ არის') + ((acc.city || (acc.linkSite ? 'ვისბადენი' : '')) ? ' · ' + (acc.city || 'ვისბადენი') : '');
+    $('p-fees').textContent = 'გადახდილი საკომისიო/გადასახადი: ' + m(T.fees) + ' ▾';
+    $('p-live').textContent = '● ' + (live ? 'LIVE' : 'ქეშირებული') + ' · ' + hm;
+    $('p-live2').textContent = '● ' + (live ? 'LIVE' : 'სნეპშოტი') + ' · ' + hm;
+    $('p-dep').textContent = m(T.netInvested);
+    $('p-dep-sub').innerHTML = 'ჩარ: <span style="color:#0056b3;font-weight:700">' + m(T.deposited) + '</span> · გატ: <span style="color:var(--green);font-weight:700">' + m(T.withdrawn) + '</span>';
+    paintPhoto();
 
-    document.getElementById('books-sub').textContent = model.books.filter(function (b) { return !b.closed; }).length + ' აქტიური';
-    document.getElementById('books').innerHTML = model.books.map(function (b) {
-      return '<div class="book' + (b.closed ? ' closed' : '') + '" style="--c:' + b.color + '" data-book="' + esc(b.id) + '">' +
-        '<div class="bh"><span class="bn">' + esc(b.name) + '</span><span class="bb">' + esc(b.full) + ' · ' + b.currency + (b.closed ? ' · <span class="tag">დახურული</span>' : '') + '</span></div>' +
-        '<div class="bv">' + U.money(b.value, b.currency) + '</div>' +
-        '<div class="bs"><span class="' + U.cls(b.pnl) + '">' + U.smoney(b.pnl, b.currency) + ' (' + U.pct(b.pnlPct) + ')</span><span>ჩარ. ' + U.money(b.netInvested, b.currency) + '</span><span>' + b.rows.length + ' პოზ.</span>' + (Math.abs(b.cash) > 0.005 ? '<span>ნაღდი ' + U.money(b.cash, b.currency) + '</span>' : '') + '</div></div>';
-    }).join('');
-    Array.prototype.forEach.call(document.querySelectorAll('.book'), function (el) { el.onclick = function () { filter = el.dataset.book; renderHoldings(); document.getElementById('holdings').scrollIntoView({ behavior: 'smooth', block: 'center' }); }; });
+    donut(model.books.map(function (b) { return { v: model.conv(Math.max(0, b.value), b.currency), color: b.color }; }));
+    var dc = U.cls(T.dayAbs), pc = U.cls(T.pnl);
+    $('p-stats').innerHTML =
+      '<div class="c"><div class="l">მთლიანი პორტფელი</div><div class="v">' + m(T.value) + '</div></div>' +
+      '<div class="c"><div class="l">დღიური ცვლილება</div><div class="v ' + dc + '">' + U.smoney(T.dayAbs, disp) + '</div><div style="font-size:10px;font-family:ui-monospace,monospace;font-weight:700;margin-top:3px" class="' + dc + '">' + U.pct(T.dayPct) + ' (1D)</div></div>' +
+      '<div class="c"><div class="l">წმინდა P/L</div><div class="v ' + pc + '">' + U.smoney(T.pnl, disp) + '</div></div>' +
+      '<div class="c"><div class="l">უკუგება</div><div class="v ' + pc + '">' + U.pct(T.pnlPct) + '</div></div>';
+    var val = T.value || 0;
+    $('p-legend').innerHTML = model.books.map(function (b) {
+      var v = model.conv(b.value, b.currency);
+      return '<tr class="clickable-row" style="cursor:pointer" data-goto="tab-assets" data-book="' + esc(b.id) + '"><td><span class="sw" style="background:' + b.color + '"></span><span class="nm">' + esc(b.name) + '</span>' + (b.currency !== disp ? ' <span class="mut">(' + b.currency + ')</span>' : '') + '</td><td class="vv">' + m(v) + '</td><td class="pp">' + (val > 0 ? (v / val * 100).toFixed(1) : '0.0') + '%</td></tr>';
+    }).join('') +
+      '<tr><td><span class="sw" style="background:var(--green);color:#fff;font-size:9px;text-align:center;line-height:10px;width:14px;height:14px">₾</span><span class="nm" style="color:var(--green)">წლიური დივიდენდი</span><div style="font-size:9.5px;color:var(--muted);margin-left:21px">მიღებული: <b style="color:var(--green)">' + m(T.dividends) + '</b> · პროგნოზი: <b style="color:var(--green)">' + m(T.annualDiv) + '</b></div></td><td class="vv" style="color:var(--green)">' + m(T.annualDiv) + '</td><td class="pp" style="color:var(--green);font-weight:700">' + (val > 0 ? (T.annualDiv / val * 100).toFixed(1) : '0.0') + '%</td></tr>';
 
-    var d1 = document.getElementById('donut1'); d1.dataset.t = 'წიგნები';
-    var segB = model.books.map(function (b) { return { v: model.conv(Math.max(0, b.value), b.currency), color: b.color, label: b.name }; });
-    donut(d1, segB); legend(document.getElementById('leg1'), segB);
-    var PAL = ['#b91c1c', '#0e7490', '#8b6914', '#166534', '#7c3aed', '#c2410c', '#1d4ed8', '#be185d', '#4d7c0f', '#0f766e'];
-    var top = model.rows.slice(0, 8), rest = model.rows.slice(8).reduce(function (s, r) { return s + r.valueD; }, 0);
-    var segA = top.map(function (r, i) { return { v: r.valueD, color: PAL[i % PAL.length], label: r.ticker }; }); if (rest > 0) segA.push({ v: rest, color: '#9ca3af', label: 'სხვა' });
-    var d2 = document.getElementById('donut2'); d2.dataset.t = 'აქტივები'; donut(d2, segA); legend(document.getElementById('leg2'), segA);
-
-    renderHoldings();
-    var rec = model.tx.slice(0, 8), bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
-    document.getElementById('recent').innerHTML = '<thead><tr><th>თარიღი</th><th>წიგნი</th><th>ოპერაცია</th><th class="num">თანხა</th></tr></thead><tbody>' + (rec.length ? rec.map(function (t) {
-      var b = bn[t.book] || {}, cur = b.currency || disp, amt = t.type === 'buy' ? -(t.shares * t.price + (+t.fee || 0)) : t.type === 'sell' ? (t.shares * t.price - (+t.fee || 0)) : t.type === 'withdraw' || t.type === 'fee' ? -t.amount : +t.amount;
-      var lbl = { buy: 'ყიდვა', sell: 'გაყიდვა', deposit: 'დეპოზიტი', withdraw: 'გატანა', dividend: 'დივიდენდი', fee: 'საკომისიო' }[t.type] || t.type;
-      return '<tr><td>' + U.gDate(t.date) + '</td><td><span class="dot" style="background:' + (b.color || '#999') + '"></span>' + esc(b.name || '') + '</td><td>' + lbl + (t.ticker ? ' <span class="tk">' + esc(t.ticker) + '</span>' : '') + (t.shares ? ' <span class="mut mono">' + U.shares(t.shares) + ' @ ' + U.money(t.price, cur) + '</span>' : '') + '</td><td class="num ' + U.cls(amt) + '">' + U.smoney(amt, cur) + '</td></tr>';
-    }).join('') : '<tr><td colspan="4" class="mut">ჯერ ოპერაციები არ არის</td></tr>') + '</tbody>';
-
-    var srcs = {}; model.rows.forEach(function (r) { var q = ctx.quotes[r.ticker]; srcs[r.manual ? 'manual' : q ? q.src : 'cost'] = 1; });
-    document.getElementById('upd').textContent = 'ფასები: ' + (srcs.live ? 'ცოცხალი' : srcs.snapshot ? 'სნეპშოტი' : 'საშუალო ფასით') + ' · ' + new Date().toTimeString().slice(0, 5) + (disp !== 'USD' ? ' · ' + disp : '');
-    var firstD = model.tx.reduce(function (m, t) { return t.date && (!m || t.date < m) ? t.date : m; }, null) || U.today();
-    document.getElementById('issue-no').textContent = String((d.getFullYear() - +firstD.slice(0, 4)) * 12 + (d.getMonth() + 1 - +firstD.slice(5, 7)) + 1).padStart(2, '0');
-    if (T.pnl != null) {
-      document.getElementById('teaser-h').textContent = U.MONFULL[d.getMonth()] + ': ' + (T.pnl >= 0 ? 'პორტფელი პლიუსშია' : 'პორტფელი ჯერ მინუსშია') + ' — ' + U.smoney(T.pnl, disp);
-    }
-    // assistant engine (live view of this model)
+    renderBooks();
+    var rz = model.realized.reduce(function (s, r) { return s + model.conv(r.pl, r.cur); }, 0);
+    var cash = model.books.reduce(function (s, b) { return s + model.conv(b.cash, b.currency); }, 0);
+    $('p-belt').innerHTML = [
+      ['ჯამური საკომისიო · Total Fees', '<span class="neg">' + m(T.fees) + '</span>', 'ყველა წიგნი · <a href="#" data-goto="tab-history">ისტორია ↗</a>'],
+      ['რეალიზებული P/L · Realized', '<span class="' + U.cls(rz) + '">' + U.smoney(rz, disp) + '</span>', model.realized.length + ' დახურული გაყიდვა'],
+      ['სულ მიღებული · Dividends', '<span class="pos">' + m(T.dividends) + '</span>', 'წმინდა · მიღებული'],
+      ['წლიური დივიდენდი · Projected', '<span class="pos">' + m(T.annualDiv) + '</span>', 'წმინდა · ' + model.taxPct + '% დაკავების შემდეგ'],
+      ['პოზიციები · Positions', String(model.rows.length), 'ნაღდი: ' + m(cash) + ' · <a href="#" data-goto="tab-assets">დეტალები ↗</a>']
+    ].map(function (c) { return '<div class="cell"><div class="l">' + c[0] + '</div><div class="v">' + c[1] + '</div><div class="n">' + c[2] + '</div></div>'; }).join('');
+    renderAssets(); renderHistory(); renderIssues();
     window.TP_AI_ENGINE = PAI.assistantEngine(acc, model, { transfers: acc.linkSite && window.MEPORTF ? window.MEPORTF.transfers : [] });
   }
-  function renderHoldings() {
-    var rows = model.rows.filter(function (r) { return !filter || r.book === filter; });
-    var fb = model.books.filter(function (b) { return b.id === filter; })[0];
-    document.getElementById('filter-host').innerHTML = fb ? '<span class="filter" id="clear-filter">' + esc(fb.name) + ' ✕</span>' : '';
-    if (fb) document.getElementById('clear-filter').onclick = function () { filter = null; renderHoldings(); };
-    document.getElementById('pos-sub').textContent = rows.length + ' აქტივი';
-    document.getElementById('holdings').innerHTML = '<thead><tr><th>აქტივი</th><th>წიგნი</th><th class="num">რაოდენობა</th><th class="num">საშ. ფასი</th><th class="num">ფასი</th><th class="num">დღე</th><th class="num">ღირებულება</th><th class="num">P/L</th></tr></thead><tbody>' +
-      (rows.length ? rows.map(function (r) {
-        return '<tr><td><span class="tk">' + esc(r.ticker) + '</span> <span class="mut" style="font-size:11.5px">' + esc(String(r.name || '').slice(0, 28)) + '</span></td><td><span class="dot" style="background:' + r.color + '"></span>' + esc(r.bookName) + '</td>' +
-          '<td class="num">' + U.shares(r.shares) + '</td><td class="num">' + U.money(r.avgBuy, r.cur) + '</td><td class="num">' + U.money(r.price, r.cur) + (r.manual ? '<span class="src">ხელით</span>' : r.live ? '' : '<span class="src">საშ.</span>') + '</td>' +
-          '<td class="num ' + (r.day == null ? 'mut' : U.cls(r.day)) + '">' + (r.day == null ? '—' : U.pct(r.day)) + '</td><td class="num"><b>' + U.money(r.value, r.cur) + '</b></td>' +
-          '<td class="num ' + U.cls(r.pl) + '">' + U.smoney(r.pl, r.cur) + '<br><span style="font-size:11px">' + U.pct(r.plPct) + '</span></td></tr>';
-      }).join('') : '<tr><td colspan="8" class="mut">პოზიციები არ არის</td></tr>') + '</tbody>';
+
+  function renderBooks() {
+    var bs = model.books.slice().sort(function (a, b) {
+      if (!!a.closed !== !!b.closed) return a.closed ? 1 : -1;
+      var ea = !a.rows.length && !a.deposits, eb = !b.rows.length && !b.deposits; if (ea !== eb) return ea ? 1 : -1;
+      return sortMode === 'day' ? b.dayPct - a.dayPct : b.pnlPct - a.pnlPct;
+    });
+    var SUB = { bog: 'გრძელვადიანი წიგნი', tbc: 'დივიდენდების წიგნი', galt: 'მარჟის წიგნი' };
+    var html = bs.map(function (b, i) {
+      var empty = !b.closed && !b.rows.length && Math.abs(b.deposits) < 0.005 && Math.abs(b.value) < 0.005;
+      var cls = (b.closed || empty) ? 'closed' : (b.pnl >= 0 ? 'pos' : 'neg'), tc = b.pnl >= 0 ? 'up' : 'dn', dcl = b.dayAbs >= 0 ? 'up' : 'dn';
+      var sub = b.closed ? 'დახურულია · CLOSED' : ((b.site && SUB[b.id]) || b.full) + ' · ' + b.currency;
+      if (empty) return '<a class="bookcard" href="editor.html"><div class="bk closed"><div class="rank-no">' + (i + 1) + '</div><div class="inner"><div class="b-name">' + esc(b.name) + '</div><div class="b-sub">' + esc(sub) + '</div><hr><div class="b-cap">ჯერ ცარიელია</div><div class="b-val" style="font-size:22px;margin:18px 0">ჩააგდე სქრინშოტი</div><div class="b-dep">AI თვითონ ამოიკითხავს და დაამატებს</div><div class="b-open">რედაქტორი →</div></div></div></a>';
+      return '<a class="bookcard" href="#" data-goto="tab-assets" data-book="' + esc(b.id) + '"><div class="bk ' + cls + '"><div class="rank-no">' + (i + 1) + '</div><div class="inner">' +
+        '<div class="b-name">' + esc(b.name) + '</div><div class="b-sub">' + esc(sub) + '</div><hr>' +
+        '<div class="b-cap">მიმდინარე ღირებულება</div><div class="b-val">' + U.money(b.value, b.currency) + '</div>' +
+        '<div class="b-row"><div class="cell"><div class="b-cap">P / L</div><div class="v ' + tc + '">' + U.smoney(b.pnl, b.currency) + '</div></div>' +
+        '<div class="cell"><div class="b-cap">ჯამური</div><div class="v ' + tc + '">' + U.pct(b.pnlPct) + '</div></div>' +
+        '<div class="cell"><div class="b-cap">დღიური</div><div class="v ' + dcl + '">' + (b.havePrev && !b.closed ? U.pct(b.dayPct) : '—') + '</div></div></div>' +
+        '<div class="b-dep">ჩარიცხული · ' + U.money(b.netInvested, b.currency) + '</div><div class="b-open">' + (b.closed ? 'ისტორია →' : 'გახსენი წიგნი →') + '</div></div></div></a>';
+    }).join('') + '<a class="add-book" href="editor.html#books">+ ბროკერის დამატება<span style="font-size:12px;font-weight:400;font-family:\'Noto Sans Georgian\',sans-serif">ქართული ან უცხოური</span></a>';
+    $('p-books').innerHTML = html;
+    $('p-rank-lbl').textContent = (model.books.length || 'არცერთი') + ' წიგნი — ცოცხალი ფასებით, საუკეთესოდან';
+    setTimeout(arrows, 50);
+  }
+  var vp = $('car-vp');
+  function arrows() { var max = vp.scrollWidth - vp.clientWidth; $('car-prev').classList.toggle('disabled', vp.scrollLeft <= 5); $('car-next').classList.toggle('disabled', vp.scrollLeft >= max - 5); }
+  vp.addEventListener('scroll', arrows); window.addEventListener('resize', arrows);
+  function slide(d) { var c = vp.querySelector('.bookcard,.add-book'); if (c) vp.scrollBy({ left: d * (c.offsetWidth + 26), behavior: 'smooth' }); }
+  $('car-prev').onclick = function () { slide(-1); }; $('car-next').onclick = function () { slide(1); };
+  $('sort-total').onclick = function () { sortMode = 'total'; this.className = 'on'; $('sort-day').className = ''; renderBooks(); };
+  $('sort-day').onclick = function () { sortMode = 'day'; this.className = 'on'; $('sort-total').className = ''; renderBooks(); };
+
+  function chips(el, cur, onPick) {
+    el.innerHTML = '<button type="button" data-k=""' + (!cur ? ' class="on"' : '') + '>ყველა</button>' + model.books.map(function (b) { return '<button type="button" data-k="' + esc(b.id) + '"' + (cur === b.id ? ' class="on"' : '') + '><span class="dot" style="background:' + b.color + ';width:8px;height:8px"></span>' + esc(b.name) + '</button>'; }).join('');
+    Array.prototype.forEach.call(el.querySelectorAll('button'), function (b) { b.onclick = function () { onPick(b.dataset.k || null); }; });
+  }
+  function renderAssets() {
+    chips($('a-chips'), aFilter, function (k) { aFilter = k; renderAssets(); });
+    var rows = model.rows.filter(function (r) { return !aFilter || r.book === aFilter; }), tot = rows.reduce(function (s, r) { return s + r.valueD; }, 0);
+    $('a-grid').innerHTML = rows.length ? rows.map(function (r) {
+      return '<div class="hcard" style="--c:' + r.color + '"><span class="bb">' + esc(r.bookName) + '</span><div class="t">' + esc(r.ticker) + '</div><div class="nm">' + esc(r.name || '') + '</div>' +
+        '<div class="val">' + U.money(r.value, r.cur) + '</div><div class="pl ' + U.cls(r.pl) + '">' + U.smoney(r.pl, r.cur) + ' · ' + U.pct(r.plPct) + '</div>' +
+        '<dl><div><dt>რაოდენობა</dt><dd>' + U.shares(r.shares) + '</dd></div><div><dt>საშ. ფასი</dt><dd>' + U.money(r.avgBuy, r.cur) + '</dd></div>' +
+        '<div><dt>ფასი ახლა' + (r.manual ? ' · ხელით' : r.live ? '' : ' · საშ.') + '</dt><dd>' + U.money(r.price, r.cur) + '</dd></div><div><dt>დღეს</dt><dd class="' + (r.day == null ? 'mut' : U.cls(r.day)) + '">' + (r.day == null ? '—' : U.pct(r.day)) + '</dd></div>' +
+        '<div><dt>ჩადებული</dt><dd>' + U.money(r.invested, r.cur) + '</dd></div><div><dt>დივ. შემოსავ.</dt><dd>' + (r.divYield ? r.divYield.toFixed(2) + '%' : '—') + '</dd></div></dl>' +
+        '<div class="w" title="წილი"><i style="width:' + (tot ? (r.valueD / tot * 100).toFixed(1) : 0) + '%"></i></div><div class="note" style="margin-top:4px">' + (tot ? (r.valueD / tot * 100).toFixed(1) : 0) + '% ' + (aFilter ? 'წიგნის' : 'პორტფელის') + '</div></div>';
+    }).join('') : '<div class="empty-hero" style="grid-column:1/-1"><h3>პოზიციები არ არის</h3><p class="note">ჩააგდე ბროკერის სქრინშოტი — AI თვითონ დაამატებს.</p><a class="btn primary" href="editor.html">→ რედაქტორი</a></div>';
+  }
+  function renderHistory() {
+    chips($('h-chips'), hFilter, function (k) { hFilter = k; hPage = 1; renderHistory(); });
+    var bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
+    var list = model.tx.filter(function (t) { return !hFilter || t.book === hFilter; });
+    var pages = Math.max(1, Math.ceil(list.length / PER)); if (hPage > pages) hPage = pages;
+    $('h-list').innerHTML = list.length ? list.slice((hPage - 1) * PER, hPage * PER).map(function (t) {
+      var b = bn[t.book] || {}, cur = b.currency || disp, fee = +t.fee || 0;
+      var amt = t.type === 'buy' ? -(t.shares * t.price + fee) : t.type === 'sell' ? (t.shares * t.price - fee) : (t.type === 'withdraw' || t.type === 'fee') ? -Math.abs(t.amount) : +t.amount;
+      var transfer = t.type === 'deposit' && (t.amount < 0 || /transfer|გადატან|გადმოტან/i.test(t.note || ''));
+      var line = t.shares ? '<b>' + esc(t.ticker) + '</b> <span class="mono mut">' + U.shares(t.shares) + ' × ' + U.money(t.price, cur) + (fee ? ' + საკ. ' + U.money(fee, cur) : '') + '</span>' : (t.ticker ? '<b>' + esc(t.ticker) + '</b> ' : '') + '<span class="mut">' + esc(t.note || '') + '</span>';
+      return '<div class="txh"><span class="d">' + U.gDate(t.date) + '</span><span><span class="badge b-' + t.type + '">' + (transfer ? 'გადატანა' : TY[t.type] || t.type) + '</span></span><span class="bkc"><span class="bkb" style="background:' + (b.color || '#666') + '">' + esc(b.name || '') + '</span></span><span>' + line + (t.hist ? '' : ' <span class="src">· ' + ({ screenshot: 'სქრინიდან', manual: 'ხელით', auto: 'ავტო', import: 'იმპორტი' }[t.src] || '') + '</span>') + '</span><span class="amt ' + U.cls(amt) + '">' + U.smoney(amt, cur) + '</span></div>';
+    }).join('') : '<div class="empty-hero"><h3>ოპერაციები ჯერ არ არის</h3></div>';
+    var pg = ''; for (var i = 1; i <= pages; i++) if (i === 1 || i === pages || Math.abs(i - hPage) <= 2) pg += '<button type="button" data-p="' + i + '"' + (i === hPage ? ' class="on"' : '') + '>' + i + '</button>'; else if (!/…<\/span>$/.test(pg)) pg += '<span class="mut">…</span>';
+    $('h-pager').innerHTML = pages > 1 ? pg : '';
+    Array.prototype.forEach.call($('h-pager').querySelectorAll('button'), function (b) { b.onclick = function () { hPage = +b.dataset.p; renderHistory(); }; });
+  }
+  function renderIssues() {
+    var now = new Date(), cur = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0'), months = {};
+    months[cur] = 1; model.tx.forEach(function (t) { if (t.date) months[t.date.slice(0, 7)] = 1; });
+    var list = Object.keys(months).sort(), first = list[0];
+    var no = function (mm) { return (+mm.slice(0, 4) - +first.slice(0, 4)) * 12 + (+mm.slice(5) - +first.slice(5)) + 1; };
+    $('i-grid').innerHTML = list.slice().reverse().map(function (mm, i) {
+      return '<a class="icard' + (i === 0 ? ' latest' : '') + '" href="paper.html?m=' + mm + '"><div class="n">№' + String(no(mm)).padStart(2, '0') + '</div><div class="dt">' + U.MONFULL[+mm.slice(5) - 1] + ' ' + mm.slice(0, 4) + '</div><span class="go">წაკითხვა →</span></a>';
+    }).join('');
   }
 
+  // ---------- data ----------
   async function loadPrices(force) {
     if (force) { try { localStorage.removeItem('pai.cache.quotes'); } catch (e) {} }
-    var tickers = PAI.compute(acc, ctx).rows.map(function (r) { return r.ticker; });
-    ctx.quotes = await PAI.market.quotes(tickers);
+    ctx.quotes = await PAI.market.quotes(PAI.compute(acc, ctx).rows.map(function (r) { return r.ticker; }));
     render();
   }
   async function loadMeta() {
-    // names + dividend yields for user-added tickers (cached daily)
     var need = model.rows.filter(function (r) { return !r.divYield && !ctx.meta[r.ticker]; }).slice(0, 12);
     for (var i = 0; i < need.length; i++) ctx.meta[need[i].ticker] = await PAI.market.meta(need[i].ticker);
     if (need.length) render();
   }
-
   render();
+  var h = (location.hash || '').slice(1); if (/^(assets|history|issues)$/.test(h)) showTab('tab-' + h);
+  if (h === 'assistant') setTimeout(function () { $('assistant').scrollIntoView(); }, 600);
   ctx.rates = await PAI.market.fx(); render();
   if (PAI.gemini.key()) {
     window.TP_AI_LLM = function (history, context) {
       var sys = 'შენ ხარ Portfolio AI — მომხმარებლის პირადი ფინანსური ასისტენტი. უპასუხე ქართულად (ინგლისურ კითხვაზე — ინგლისურად), მოკლედ და ზუსტად, მხოლოდ ქვემოთ მოცემული მონაცემებით. რიცხვები არ მოიგონო. ყიდვა/გაყიდვაზე რჩევას არ იძლევი — აღწერ ფაქტებს. ზარალს არ მალავ.\n\nDATA:\n' + context;
-      var convo = history.map(function (m) { return (m.role === 'user' ? 'მომხმარებელი: ' : 'ასისტენტი: ') + m.content; }).join('\n');
+      var convo = history.map(function (x) { return (x.role === 'user' ? 'მომხმარებელი: ' : 'ასისტენტი: ') + x.content; }).join('\n');
       return PAI.gemini.generate([{ text: convo + '\nასისტენტი:' }], { system: sys, temperature: 0.3, maxTokens: 900 });
     };
   }
-  document.getElementById('refresh').onclick = function () { document.getElementById('upd').textContent = 'ფასები იტვირთება…'; loadPrices(true); };
   await loadPrices(false);
-  PAI.loadScript('../js/paper-ai.js?v=20261007-3');
+  PAI.loadScript('../js/paper-ai.js?v=20261007-4');
   loadMeta();
   setInterval(function () { if (document.visibilityState === 'visible') loadPrices(false); }, 120000);
-  if (location.hash === '#assistant') setTimeout(function () { document.getElementById('assistant').scrollIntoView(); }, 600);
 })();
 </script>
 </body>

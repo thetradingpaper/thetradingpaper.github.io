@@ -96,7 +96,7 @@
   // ---------------- site-linked books (Lasha's real portfolio) ----------------
   var SITE_META = {
     bog: { broker: 'bog', color: '#b91c1c' },
-    tbc: { broker: 'tbc', color: '#0e7490' },
+    tbc: { broker: 'tbc', color: '#1a1a1a' },
     galt: { broker: 'galt', color: '#8b6914' }
   };
   function siteBooks() {
@@ -186,7 +186,7 @@
     },
     async demo() {
       var all = this._all(), id = 'lasha';
-      if (!all.byId[id]) { var acc = newAccount({ id: id, email: 'lasha@thetradingpaper', name: 'ლაშა ფხაკაძე', linkSite: true }); all.byId[id] = acc; all.email[acc.email] = id; this._put(all); }
+      if (!all.byId[id]) { var acc = newAccount({ id: id, email: 'lasha@thetradingpaper', name: 'ლაშა ფხაკაძე', linkSite: true }); acc.city = 'ვისბადენი'; acc.photoUrl = '../images/lasha.jpg'; all.byId[id] = acc; all.email[acc.email] = id; this._put(all); }
       LS.set(K.session, id); return hydrate(all.byId[id]);
     },
     async current() { var id = LS.get(K.session, null); if (!id) return null; var all = this._all(); return all.byId[id] ? hydrate(all.byId[id]) : null; },
@@ -379,7 +379,7 @@
       if (op.galt && op.galt.deposit) pctBase = op.galt.deposit;               // closed GALT: % of the money put in, like the cabinet
       books.push({ id: b.id, key: b.id, name: b.name, full: brokerById(b.broker).name, broker: b.broker, currency: b.currency, color: b.color, closed: !!b.closed, site: !!b.site, note: b.note, tagline: b.note,
         deposits: st.dep, withdrawn: st.wd, netInvested: net, fees: st.fees, dividends: st.divs, cash: st.cash, value: value, pnl: pnl, pnlPct: pctBase > 0 ? pnl / pctBase * 100 : 0,
-        dayAbs: dayAbs, annualDiv: annualDiv, rows: rows, galt: op.galt || null, startDate: b.startDate || b.createdAt });
+        dayAbs: dayAbs, dayPct: (value - dayAbs) > 0 ? dayAbs / (value - dayAbs) * 100 : 0, havePrev: rows.some(function (r) { return r.day != null; }), annualDiv: annualDiv, rows: rows, galt: op.galt || null, startDate: b.startDate || b.createdAt });
     });
     allTx.sort(function (a, b2) { return a.date < b2.date ? 1 : a.date > b2.date ? -1 : (a.hist === b2.hist ? 0 : a.hist ? 1 : -1); });
     var T = { value: 0, deposited: 0, withdrawn: 0, netInvested: 0, pnl: 0, fees: 0, dividends: 0, dayAbs: 0, annualDiv: 0 };
@@ -458,7 +458,7 @@
     setTimeout(function () { t.classList.remove('show'); setTimeout(function () { t.remove(); }, 300); }, undo ? 9000 : 3500);
   }
   function nav(active, acc) {
-    var tabs = [['index', 'დაფა', 'index.html'], ['editor', 'რედაქტორი', 'editor.html'], ['paper', 'გაზეთი', 'paper.html'], ['assistant', 'ასისტენტი', 'index.html#assistant'], ['settings', 'პარამეტრები', 'settings.html']];
+    var tabs = [['index', 'პროფილი', 'index.html'], ['editor', 'რედაქტორი', 'editor.html'], ['paper', 'გაზეთი', 'paper.html'], ['assistant', 'ასისტენტი', 'index.html#assistant'], ['settings', 'პარამეტრები', 'settings.html']];
     var el = document.createElement('div'); el.className = 'pai-nav no-print';
     var initials = String(acc && acc.name || '?').trim().split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
     el.innerHTML = '<div class="pai-nav-in"><a class="pai-brand" href="index.html">Portfolio <b>AI</b></a><nav>' +

@@ -418,7 +418,7 @@
     d.className = 'ai-msg ' + (role === 'user' ? 'me' : 'bot');
     d.innerHTML = '<div class="ai-who">' + (role === 'user' ? 'შენ' : 'Portfolio AI') + '</div><div class="ai-body">' + html + '</div>';
     log.appendChild(d);
-    if (role !== 'user' || log.children.length > 1) d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    log.scrollTop = log.scrollHeight; // scroll inside the chat box only — never jump the page
     return d;
   }
   function ask(q) {
@@ -454,9 +454,10 @@
   function setMode() {
     if (!modeEl) return;
     if (REMOTE === 'llm') { modeEl.innerHTML = '<span class="ai-dot on"></span> Gemini ჩართულია · პასუხები შენს მონაცემებზე დაყრდნობით'; return; }
+    var src = E() ? 'შენს მონაცემებზე' : 'საიტის მონაცემებზე';
     modeEl.innerHTML = REMOTE
-      ? '<span class="ai-dot on"></span> Claude ჩართულია · პასუხები საიტის მონაცემებზე დაყრდნობით'
-      : '<span class="ai-dot"></span> ლოკალური ძრავა · პასუხები პირდაპირ საიტის მონაცემებიდან';
+      ? '<span class="ai-dot on"></span> Claude ჩართულია · პასუხები ' + src + ' დაყრდნობით'
+      : '<span class="ai-dot"></span> ლოკალური ძრავა · პასუხები პირდაპირ ' + (E() ? 'შენი მონაცემებიდან' : 'საიტის მონაცემებიდან');
   }
   function getJSON(url) { return fetch(url, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
   function probe(url) {

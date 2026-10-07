@@ -108,5 +108,6 @@ are now redirect stubs to the matching tab — never add content back there.
 ## Portfolio AI (app/) — multi-user product, 29.99 ₾/month
 - Landing `ai.html`; app in `app/` (login, index=dashboard, editor, paper, settings). Shared code: `app/pai-core.js` (accounts, engine, prices), `app/pai-vision.js` (screenshot reading), `app/pai-config.js` (public config).
 - Lasha's app account (`id: lasha`, `linkSite: true`) rebuilds BOG/TBC/GALT from `js/portfolios.data.js` on every load — keep updating the data files as before; the app follows automatically.
+- `app/index.html` is each user's profile in the cabinet's design (styles copied into `app/profile.css`): hero + photo ring, KPI cells, ranked book cards, belt, tabs (assets / history / monthly papers).
 - The assistant `js/paper-ai.js` runs on site data by default, or on any user's portfolio via `window.TP_AI_ENGINE`.
 - Keys/setup: see `PORTFOLIO-AI.md`. Retired URLs (research, edit, ledger, goals, notes, tp-logout) are redirect stubs — don't delete them.

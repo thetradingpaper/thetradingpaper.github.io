@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="../js/theme.js?v=20260725"></script>
-<link rel="stylesheet" href="pai.css?v=20261007-1">
+<link rel="stylesheet" href="pai.css?v=20261007-3">
 <style>
   .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}
   .bar select{font-family:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--border);background:var(--paper);color:var(--ink)}
@@ -54,7 +54,7 @@
 <script src="../js/portfolios.data.js?v=20261006-1"></script>
 <script src="../portfolio-data.js?v=20261002-4"></script>
 <script src="../js/dividends.data.js?v=20261002-4"></script>
-<script src="pai-core.js?v=20261007-1"></script>
+<script src="pai-core.js?v=20261007-2"></script>
 <script>
 (async function () {
   var U = PAI.util, esc = U.esc;
@@ -135,6 +135,7 @@
       '<span class="stamp">' + (ai ? 'AI · დაწერილია შენთვის' : 'Portfolio AI') + '</span></aside></div>' +
       '<div class="fn">© The Trading Paper · Portfolio AI · ყველა რიცხვი შენი მონაცემებიდანაა · ეს არ არის ფინანსური რჩევა</div>';
   }
+  var qm = new URLSearchParams(location.search).get('m'); if (qm && list.indexOf(qm) !== -1) $('month').value = qm;
   $('month').onchange = render;
   $('ai-note').textContent = PAI.gemini.key() ? '' : 'AI-ით წერისთვის საჭიროა Gemini-ს გასაღები (პარამეტრები)';
   $('ai').onclick = async function () {

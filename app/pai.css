@@ -1,13 +1,13 @@
 /* Portfolio AI — shared app styles (newspaper look, light + dark) */
 :root{
-  --bg:#fffdf7; --paper:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b; --border:#e6e0d4; --rule:#1a1a1a;
+  --bg:#f7f3ec; --paper:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --border:#d4cfc4; --rule:#1a1a1a; --accent:#8b6914;
   --red:#b91c1c; --red-bg:rgba(185,28,28,.06); --green:#166534; --green-bg:rgba(22,101,52,.08);
-  --gold:#8b6914; --gold-bg:rgba(139,105,20,.08); --cream:#f6f1e4; --blue:#1d4ed8;
+  --gold:#8b6914; --gold-bg:rgba(139,105,20,.08); --cream:#ece6d8; --blue:#1d4ed8;
 }
 [data-theme="dark"]{
   --bg:#121315; --paper:#1a1c20; --ink:#e6e8ec; --muted:#9ea4b0; --border:#2d3139; --rule:#404652;
   --red:#ef4444; --red-bg:rgba(239,68,68,.10); --green:#22c55e; --green-bg:rgba(34,197,94,.12);
-  --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10); --cream:#202227; --blue:#60a5fa;
+  --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10); --cream:#202227; --blue:#60a5fa; --accent:#d8af4e;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Georgian',sans-serif}
@@ -20,7 +20,7 @@ a{color:inherit}
 
 /* ---------- app nav ---------- */
 .pai-nav{background:var(--paper);border-bottom:3px double var(--rule);position:sticky;top:0;z-index:50}
-.pai-nav-in{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.pai-nav-in{max-width:1320px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .pai-brand{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:20px;text-decoration:none;letter-spacing:-.3px}
 .pai-brand b{color:var(--red)}
 .pai-nav nav{display:flex;gap:2px;flex:1;flex-wrap:wrap}
@@ -30,7 +30,7 @@ a{color:inherit}
 .pai-user{display:flex;align-items:center;gap:8px;font-size:13px}
 .pai-av{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
 .pai-out{color:var(--red);text-decoration:none;font-weight:700;font-size:12px;border:1px solid var(--red);padding:3px 8px}
-.pai-mode{max-width:1120px;margin:0 auto;padding:0 20px 7px;font-size:11px;color:var(--muted)}
+.pai-mode{max-width:1320px;margin:0 auto;padding:0 20px 7px;font-size:11px;color:var(--muted)}
 
 /* ---------- headings ---------- */
 .ph{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding:18px 0 10px;margin-bottom:18px}
