@@ -1,21 +1,21 @@
 {
- "updated": "2026-10-06T19:09:05.580628+00:00",
+ "updated": "2026-10-07T19:35:58.294755+00:00",
  "mode": "WAIT",
  "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
  "picks": [],
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 198,
-   "win_rate": 28.3,
-   "avg_return": -0.65,
+   "n": 202,
+   "win_rate": 28.7,
+   "avg_return": -0.57,
    "weight_now": 0.83
   },
   {
    "category": "growth_news",
-   "n": 147,
-   "win_rate": 25.9,
-   "avg_return": -2.74,
+   "n": 150,
+   "win_rate": 26.0,
+   "avg_return": -2.8,
    "weight_now": 0.81
   },
   {
@@ -27,24 +27,24 @@
   },
   {
    "category": "analyst_upgrade",
-   "n": 77,
-   "win_rate": 14.3,
-   "avg_return": -6.1,
-   "weight_now": 0.71
+   "n": 79,
+   "win_rate": 15.2,
+   "avg_return": -5.75,
+   "weight_now": 0.72
   },
   {
    "category": "buyback_dividend",
-   "n": 38,
-   "win_rate": 21.1,
-   "avg_return": -0.65,
-   "weight_now": 0.77
+   "n": 40,
+   "win_rate": 22.5,
+   "avg_return": -0.15,
+   "weight_now": 0.78
   },
   {
    "category": "guidance_raise",
-   "n": 36,
-   "win_rate": 36.1,
-   "avg_return": -0.79,
-   "weight_now": 0.89
+   "n": 37,
+   "win_rate": 37.8,
+   "avg_return": -0.57,
+   "weight_now": 0.9
   },
   {
    "category": "fda_approval",
@@ -61,7 +61,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5966,
+ "scanned": 5964,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

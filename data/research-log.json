@@ -7263,7 +7263,10 @@
    "guidance_raise",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 287.08,
+  "return_pct": 7.57,
+  "outcome": "win"
  },
  {
   "date": "2026-09-30T18:38:59.872357+00:00",
@@ -7274,7 +7277,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 82.94,
+  "return_pct": 3.68,
+  "outcome": "win"
  },
  {
   "date": "2026-09-30T18:38:59.872361+00:00",
@@ -7285,7 +7291,10 @@
   "catalyst_cats": [
    "growth_news"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 4.71,
+  "return_pct": -22.53,
+  "outcome": "loss"
  },
  {
   "date": "2026-09-30T18:38:59.872365+00:00",
@@ -7296,7 +7305,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 375.83,
+  "return_pct": 18.7,
+  "outcome": "win"
  },
  {
   "date": "2026-09-30T18:38:59.872368+00:00",
@@ -7307,7 +7319,10 @@
   "catalyst_cats": [
    "buyback_dividend"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 544.31,
+  "return_pct": -0.16,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-30T18:38:59.872372+00:00",
@@ -7318,7 +7333,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 22.39,
+  "return_pct": -0.51,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-30T18:38:59.872375+00:00",
@@ -7330,7 +7348,10 @@
    "growth_news",
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 26.25,
+  "return_pct": 2.6,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-30T18:38:59.872382+00:00",
@@ -7341,7 +7362,10 @@
   "catalyst_cats": [
    "analyst_upgrade"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 152.45,
+  "return_pct": 16.57,
+  "outcome": "win"
  },
  {
   "date": "2026-09-30T18:38:59.872385+00:00",
@@ -7352,7 +7376,10 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 13.26,
+  "return_pct": -2.28,
+  "outcome": "flat"
  },
  {
   "date": "2026-09-30T18:38:59.872389+00:00",
@@ -7363,6 +7390,9 @@
   "catalyst_cats": [
    "earnings_beat"
   ],
-  "status": "open"
+  "status": "graded",
+  "exit_price": 300.79,
+  "return_pct": 5.15,
+  "outcome": "win"
  }
 ]
