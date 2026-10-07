@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>პარამეტრები · Portfolio AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="../js/theme.js?v=20260725"></script>
+<link rel="stylesheet" href="pai.css?v=20261007-1">
+<style>
+  .set{display:grid;grid-template-columns:240px 1fr;gap:24px;border-bottom:1px solid var(--border);padding:22px 0}
+  .set h3{font-family:'Noto Serif Georgian',serif;font-size:17px;margin:0 0 6px}
+  .set .d{font-size:12.5px;color:var(--muted);line-height:1.6}
+  .set .c{display:grid;gap:12px}
+  .plan{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;background:var(--paper);border:2px solid var(--ink);padding:16px 18px}
+  .plan .p{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:30px}
+  .plan .p small{font-size:14px;color:var(--muted)}
+  .mp{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end}
+  @media (max-width:700px){ .set{grid-template-columns:1fr;gap:10px} }
+</style>
+</head>
+<body>
+<div id="pai-nav-host"></div>
+<div class="wrap">
+  <div class="ph"><div><div class="eyebrow">ანგარიში</div><h1>პარამეტრები</h1></div><div class="side" id="who"></div></div>
+
+  <div class="set"><div><h3>გამოწერა</h3><p class="d">ერთი გეგმა, ყველაფერი შედის.</p></div>
+    <div class="c"><div class="plan"><div><div class="p"><span id="price">29.99</span> <small>₾ / თვე</small></div><div class="note">Portfolio AI · სრული — ყველა ბროკერი, AI ამოცნობა, ასისტენტი, ყოველთვიური გაზეთი</div></div>
+      <div><span class="tag gold">ონლაინ გადახდა ჯერ არ არის ჩართული — მანამდე წვდომა ღიაა</span></div></div></div></div>
+
+  <div class="set"><div><h3>პროფილი</h3><p class="d">სახელი გამოჩნდება დაფაზე და შენს გაზეთში.</p></div>
+    <div class="c"><div class="row"><div><label class="f">სახელი</label><input class="i" id="name"></div><div><label class="f">ელფოსტა</label><input class="i" id="email" disabled></div></div></div></div>
+
+  <div class="set"><div><h3>ვალუტა და გადასახადი</h3><p class="d">ჯამები ამ ვალუტაში გამოჩნდება (კურსი — ავტომატურად). დივიდენდის დაკავება საქართველოში — 30%.</p></div>
+    <div class="c"><div class="row"><div><label class="f">ჯამების ვალუტა</label><select class="i" id="cur"><option>USD</option><option>GEL</option><option>EUR</option><option>GBP</option></select></div>
+      <div><label class="f">დივიდენდის დაკავება, %</label><input class="i" id="tax" type="number" min="0" max="60" step="1"></div></div></div></div>
+
+  <div class="set" id="ai"><div><h3>AI (Gemini)</h3><p class="d">ჩასვი Google Gemini-ს API გასაღები — მაშინ სქრინშოტებს ნებისმიერი ბანკიდან და ენაზე AI წაიკითხავს, ასისტენტი თავისუფლად ისაუბრებს და გაზეთსაც AI დაწერს. გასაღები ინახება მხოლოდ ამ მოწყობილობაზე. აიღე: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a></p></div>
+    <div class="c"><div class="row"><div style="flex:2 1 260px"><label class="f">Gemini API key</label><input class="i" id="gkey" type="password" autocomplete="off" placeholder="AIza…"></div>
+      <div><label class="f">მოდელი</label><select class="i" id="gmodel"><option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (ყველაზე იაფი)</option><option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite</option><option value="gemini-3.8-flash">gemini-3.8-flash (ჭკვიანი)</option></select></div>
+      <div style="flex:0 0 auto"><button class="btn sm" id="gtest" type="button">შემოწმება</button></div></div><div id="gmsg" class="note"></div></div></div>
+
+  <div class="set"><div><h3>ფასები</h3><p class="d">აშშ-ის აქციები — ცოცხლად (Finnhub). თუ რომელიმე ტიკერს ფასი არ აქვს (მაგ. ადგილობრივი ობლიგაცია), აქ ხელით მიუთითე.</p></div>
+    <div class="c"><div class="mp"><div><label class="f">ტიკერი</label><input class="i" id="mp-t" placeholder="GEOBOND26" style="text-transform:uppercase"></div><div><label class="f">ფასი</label><input class="i" id="mp-p" inputmode="decimal"></div><button class="btn sm dark" id="mp-add" type="button">დაყენება</button></div><div id="mp-list" class="note"></div>
+      <div class="row"><div><label class="f">საკუთარი Finnhub key (არასავალდებულო)</label><input class="i" id="fkey" type="password" autocomplete="off" placeholder="სტანდარტულად — საიტის საჯარო გასაღები"></div></div></div></div>
+
+  <div class="set" id="sync-row"><div><h3>სინქრონიზაცია</h3><p class="d">შენი BOG · TBC · GALT წიგნები ავტომატურად იღებს The Trading Paper-ის მონაცემებს.</p></div>
+    <div class="c"><label style="display:flex;gap:8px;align-items:center;font-size:14px"><input type="checkbox" id="link"> The Trading Paper-თან სინქრონიზაცია</label></div></div>
+
+  <div class="set"><div><h3>მონაცემები</h3><p class="d" id="store-d"></p></div>
+    <div class="c"><div class="row" style="align-items:center"><button class="btn sm" id="exp" type="button">⬇ ექსპორტი (JSON)</button><label class="btn sm" style="cursor:pointer">⬆ იმპორტი<input type="file" id="imp" accept="application/json" hidden></label></div></div></div>
+
+  <div class="set"><div><h3>ანგარიში</h3></div>
+    <div class="c"><div class="row" style="align-items:center"><a class="btn sm" href="login.html?logout=1">გასვლა</a><button class="btn sm" id="del" type="button" style="border-color:var(--red);color:var(--red)">ანგარიშის წაშლა</button></div></div></div>
+
+  <div class="foot">Portfolio AI · The Trading Paper<br>ეს არ არის ფინანსური რჩევა</div>
+</div>
+<script src="pai-config.js?v=20261007-1"></script>
+<script src="../js/portfolios.data.js?v=20261006-1"></script>
+<script src="../portfolio-data.js?v=20261002-4"></script>
+<script src="pai-core.js?v=20261007-1"></script>
+<script>
+(async function () {
+  var U = PAI.util, esc = U.esc, $ = function (id) { return document.getElementById(id); };
+  var acc = await PAI.requireAuth();
+  PAI.ui.nav('settings', acc);
+  var S = PAI.secrets.get();
+  $('price').textContent = (PAI.CFG.priceGEL || 29.99).toFixed(2);
+  $('who').textContent = acc.email || '';
+  $('name').value = acc.name || ''; $('email').value = acc.email || '';
+  $('cur').value = acc.settings.currency || 'USD'; $('tax').value = acc.settings.taxPct != null ? acc.settings.taxPct : 30;
+  $('gkey').value = S.geminiKey || ''; $('gmodel').value = S.geminiModel || PAI.CFG.geminiModel; $('fkey').value = S.finnhubKey || '';
+  $('link').checked = !!acc.linkSite; if (acc.id !== 'lasha' && !acc.linkSite) $('sync-row').classList.add('hidden');
+  $('store-d').textContent = PAI.store.mode === 'cloud' ? 'მონაცემები ინახება ღრუბელში (Supabase) და ჩანს ყველა მოწყობილობაზე.' : 'მონაცემები ინახება ამ მოწყობილობაზე (ბრაუზერში). სხვა მოწყობილობაზე გადასატანად — ექსპორტი და იმპორტი.';
+
+  $('name').onchange = function () { acc.name = this.value.trim(); PAI.save(acc); PAI.ui.toast('შენახულია'); };
+  $('cur').onchange = function () { acc.settings.currency = this.value; PAI.save(acc); PAI.ui.toast('ვალუტა: ' + this.value); };
+  $('tax').onchange = function () { acc.settings.taxPct = Math.max(0, Math.min(60, +this.value || 0)); PAI.save(acc); PAI.ui.toast('შენახულია'); };
+  $('gkey').onchange = function () { PAI.secrets.set({ geminiKey: this.value.trim() }); PAI.ui.toast(this.value.trim() ? 'Gemini გასაღები შენახულია ამ მოწყობილობაზე' : 'გასაღები წაიშალა'); };
+  $('gmodel').onchange = function () { PAI.secrets.set({ geminiModel: this.value }); };
+  $('fkey').onchange = function () { PAI.secrets.set({ finnhubKey: this.value.trim() }); PAI.ui.toast('შენახულია'); };
+  $('gtest').onclick = async function () {
+    PAI.secrets.set({ geminiKey: $('gkey').value.trim(), geminiModel: $('gmodel').value });
+    $('gmsg').textContent = 'ვამოწმებ…';
+    try { var t = await PAI.gemini.generate([{ text: 'Reply with exactly: OK' }], { maxTokens: 10 }); $('gmsg').innerHTML = '<span class="pos">✓ მუშაობს</span> (' + esc(PAI.gemini.model()) + ': ' + esc(t.slice(0, 20)) + ')'; }
+    catch (e) { $('gmsg').innerHTML = '<span class="neg">✗ ' + esc(e.message) + '</span>'; }
+  };
+  function mpList() {
+    var mp = acc.manualPrices || {};
+    $('mp-list').innerHTML = Object.keys(mp).length ? Object.keys(mp).map(function (t) { return '<span class="tag" style="margin:0 6px 6px 0">' + esc(t) + ' = ' + mp[t] + ' <a href="#" data-t="' + esc(t) + '" style="color:var(--red);text-decoration:none">✕</a></span>'; }).join('') : 'ხელით მითითებული ფასი არ არის.';
+    Array.prototype.forEach.call(document.querySelectorAll('#mp-list a'), function (a) { a.onclick = function (e) { e.preventDefault(); delete acc.manualPrices[a.dataset.t]; PAI.save(acc); mpList(); }; });
+  }
+  $('mp-add').onclick = function () { var t = $('mp-t').value.trim().toUpperCase(), p = parseFloat(String($('mp-p').value).replace(',', '.')); if (!t || !(p > 0)) return; acc.manualPrices = acc.manualPrices || {}; acc.manualPrices[t] = p; PAI.save(acc); mpList(); $('mp-t').value = $('mp-p').value = ''; };
+  mpList();
+  $('link').onchange = function () { acc.linkSite = this.checked; PAI.save(acc, true).then(function () { location.reload(); }); };
+  $('exp').onclick = function () {
+    var data = JSON.parse(JSON.stringify(acc)); delete data.auth;
+    if (data.linkSite) data.books = data.books.filter(function (b) { return !b.site; });
+    var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
+    a.download = 'portfolio-ai-' + U.today() + '.json'; a.click();
+  };
+  $('imp').onchange = function () {
+    var f = this.files[0]; if (!f) return;
+    f.text().then(function (txt) {
+      var d = JSON.parse(txt); if (!d || !Array.isArray(d.books) || !Array.isArray(d.tx)) throw new Error('ფაილი არ არის Portfolio AI-ის ექსპორტი');
+      if (!confirm('ჩავანაცვლო ამ ანგარიშის წიგნები და ოპერაციები ფაილიდან? (' + d.books.length + ' წიგნი, ' + d.tx.length + ' ოპერაცია)')) return;
+      acc.books = (acc.linkSite ? acc.books.filter(function (b) { return b.site; }) : []).concat(d.books.filter(function (b) { return !b.site; }));
+      acc.tx = d.tx.map(function (t) { t.src = t.src || 'import'; return t; }); acc.manualPrices = d.manualPrices || acc.manualPrices || {};
+      if (d.settings) acc.settings = Object.assign(acc.settings, d.settings);
+      return PAI.save(acc, true).then(function () { PAI.ui.toast('✓ იმპორტირებულია'); });
+    }).catch(function (e) { PAI.ui.toast(esc(e.message), 'err'); });
+  };
+  $('del').onclick = async function () {
+    if (!confirm('ანგარიში და ყველა მონაცემი სამუდამოდ წაიშლება. გავაგრძელო?')) return;
+    await PAI.store.remove(acc); location.replace('login.html');
+  };
+  if (location.hash === '#ai') setTimeout(function () { $('ai').scrollIntoView(); $('gkey').focus(); }, 200);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>თვის გაზეთი · Portfolio AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="../js/theme.js?v=20260725"></script>
+<link rel="stylesheet" href="pai.css?v=20261007-1">
+<style>
+  .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}
+  .bar select{font-family:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--border);background:var(--paper);color:var(--ink)}
+  .np{background:var(--paper);border:1px solid var(--border);padding:34px 40px;box-shadow:10px 10px 0 var(--cream)}
+  .np .mast{text-align:center;border-bottom:4px double var(--rule);padding-bottom:12px}
+  .np .mast .t{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:52px;letter-spacing:-1px;line-height:1}
+  .np .mast .s{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .np .dl{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--rule);padding:7px 0;margin-bottom:22px}
+  .np h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:36px;line-height:1.15;margin:0 0 12px;text-align:center}
+  .np .lead{font-size:17px;line-height:1.75;text-align:center;max-width:780px;margin:0 auto 22px;color:var(--ink)}
+  .np .k{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:24px}
+  .np .k > div{padding:12px 14px;border-right:1px solid var(--border);text-align:center} .np .k > div:last-child{border-right:0}
+  .np .k .l{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .np .k .v{font-family:ui-monospace,monospace;font-weight:800;font-size:20px;margin-top:4px}
+  .np .cols{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+  .np h2{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:20px;border-bottom:1px solid var(--rule);padding-bottom:5px;margin:0 0 10px}
+  .np p{font-size:14.5px;line-height:1.75;margin:0 0 12px}
+  .np .body p:first-child::first-letter{font-family:'Noto Serif Georgian',serif;font-size:46px;float:left;line-height:.9;margin:4px 8px 0 0;color:var(--red);font-weight:900}
+  .np table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:16px}
+  .np td{border-bottom:1px dotted var(--border);padding:5px 4px}
+  .np td.n{text-align:right;font-family:ui-monospace,monospace}
+  .np .box{border:2px solid var(--ink);padding:14px 16px;margin-bottom:16px}
+  .np .box.red{border-color:var(--red)}
+  .np .box h3{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+  .np .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-size:10px;letter-spacing:2px;font-weight:800;padding:3px 8px;transform:rotate(-3deg)}
+  .np .fn{font-size:11px;color:var(--muted);text-align:center;border-top:4px double var(--rule);margin-top:20px;padding-top:10px}
+  @media (max-width:760px){ .np{padding:20px} .np .mast .t{font-size:32px} .np h1{font-size:24px} .np .lead{font-size:15px} .np .k{grid-template-columns:1fr 1fr} .np .cols{grid-template-columns:1fr} }
+  @media print{ .np{box-shadow:none;border:0;padding:0} .wrap{max-width:none;padding:0} }
+</style>
+</head>
+<body>
+<div id="pai-nav-host"></div>
+<div class="wrap">
+  <div class="bar no-print">
+    <label class="f" style="margin:0">თვე</label><select id="month"></select>
+    <button class="btn sm" id="ai" type="button">✎ AI-ით დაწერა</button>
+    <button class="btn sm dark" type="button" onclick="window.print()">⎙ PDF / ბეჭდვა</button>
+    <span class="note" id="ai-note"></span>
+  </div>
+  <article class="np" id="np"></article>
+  <div class="foot no-print">Portfolio AI · The Trading Paper<br>ეს არ არის ფინანსური რჩევა</div>
+</div>
+<script src="pai-config.js?v=20261007-1"></script>
+<script src="../js/portfolios.data.js?v=20261006-1"></script>
+<script src="../portfolio-data.js?v=20261002-4"></script>
+<script src="../js/dividends.data.js?v=20261002-4"></script>
+<script src="pai-core.js?v=20261007-1"></script>
+<script>
+(async function () {
+  var U = PAI.util, esc = U.esc;
+  var acc = await PAI.requireAuth();
+  PAI.ui.nav('paper', acc);
+  var disp = acc.settings.currency || 'USD';
+  var ctx = { quotes: {}, rates: await PAI.market.fx(), display: disp, meta: {} };
+  var model = PAI.compute(acc, ctx);
+  ctx.quotes = await PAI.market.quotes(model.rows.map(function (r) { return r.ticker; }));
+  model = PAI.compute(acc, ctx);
+  var aiText = {};
+
+  // months with activity + current month
+  var now = new Date(), cur = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  var months = {}; months[cur] = 1; model.tx.forEach(function (t) { if (t.date) months[t.date.slice(0, 7)] = 1; });
+  var list = Object.keys(months).sort().reverse();
+  var first = list[list.length - 1];
+  $('month').innerHTML = list.map(function (m) { return '<option value="' + m + '">' + U.MONFULL[+m.slice(5) - 1] + ' ' + m.slice(0, 4) + '</option>'; }).join('');
+  function $(id) { return document.getElementById(id); }
+  function issueNo(m) { var a = first.split('-'), b = m.split('-'); return (b[0] - a[0]) * 12 + (b[1] - a[1]) + 1; }
+  function money(n, c) { return U.money(n, c || disp); }
+
+  function facts(m) {
+    var bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
+    var tx = model.tx.filter(function (t) { return t.date && t.date.slice(0, 7) === m; });
+    var f = { tx: tx, dep: 0, wd: 0, buys: 0, sells: 0, bought: 0, sold: 0, fees: 0, divs: 0, realized: 0, biggest: null };
+    tx.forEach(function (t) {
+      var c = (bn[t.book] || {}).currency || disp, cv = function (n) { return model.conv(n, c); };
+      if (t.type === 'deposit' && t.amount > 0) f.dep += cv(+t.amount);
+      if (t.type === 'withdraw') f.wd += cv(+t.amount);
+      if (t.type === 'buy') { f.buys++; var v = cv(t.shares * t.price); f.bought += v; if (!f.biggest || v > f.biggest.v) f.biggest = { t: t.ticker, v: v }; }
+      if (t.type === 'sell') { f.sells++; f.sold += cv(t.shares * t.price); }
+      f.fees += cv(+t.fee || 0); if (t.type === 'fee') f.fees += cv(+t.amount);
+      if (t.type === 'dividend') f.divs += cv(+t.amount);
+    });
+    model.realized.forEach(function (r) { if (r.date && r.date.slice(0, 7) === m) f.realized += model.conv(r.pl, r.cur); });
+    var rows = model.rows.slice().sort(function (a, b) { return b.plPct - a.plPct; });
+    f.top = rows.slice(0, 3); f.bottom = rows.slice(-3).reverse().filter(function (r) { return f.top.indexOf(r) === -1; });
+    var T = model.totals; f.T = T;
+    var big = model.rows[0]; f.conc = big && T.value > 0 ? { t: big.ticker, p: big.valueD / T.value * 100 } : null;
+    return f;
+  }
+  function lessons(f) {
+    var L = [];
+    if (f.conc && f.conc.p > 30) L.push('<b>კონცენტრაცია.</b> ' + esc(f.conc.t) + ' მთლიანი პორტფელის ' + f.conc.p.toFixed(0) + '%-ია. ერთი აქტივის რყევა მთელ სურათს ცვლის — ეს ცოდნა გადაწყვეტილების ნაწილი უნდა იყოს.');
+    if (f.realized < 0) L.push('<b>რეალიზებული ზარალი.</b> ამ თვეში დახურულმა პოზიციებმა ' + money(f.realized) + ' მოიტანა. ჩაიწერე რატომ გაყიდე — ასე იქცევა ზარალი გაკვეთილად.');
+    if (f.fees > 0 && f.bought > 0 && f.fees / f.bought > 0.01) L.push('<b>ხარჯები.</b> საკომისიომ ნაყიდის ' + (f.fees / f.bought * 100).toFixed(1) + '% შეჭამა. მცირე, ხშირი ყიდვები ძვირი ჯდება.');
+    if (!f.dep && !f.buys) L.push('<b>სიჩუმის თვე.</b> ახალი დეპოზიტი და ყიდვა არ ყოფილა. რეგულარული, თუნდაც მცირე თანხა (DCA) გრძელვადიან შედეგს ყველაზე მეტად ეხმარება.');
+    if (f.dep > 0 && f.buys > 0) L.push('<b>დისციპლინა.</b> ამ თვეში ' + money(f.dep) + ' შეიტანე და ' + f.buys + ' ყიდვა გააკეთე — გეგმა მუშაობს.');
+    if (!L.length) L.push('<b>შენარჩუნება.</b> დიდი ცვლილება არ ყოფილა. თვალი ადევნე ლიდერებს და ჩამორჩენილებს — და გაიხსენე, რატომ იყიდე თითოეული.');
+    return L.slice(0, 3);
+  }
+  function render() {
+    var m = $('month').value, f = facts(m), T = f.T, mon = U.MONFULL[+m.slice(5) - 1] + ' ' + m.slice(0, 4), ai = aiText[m];
+    var head = ai ? ai.headline : (T.pnl >= 0 ? (f.buys ? 'პორტფელი პლიუსშია — და ' + f.buys + ' ახალი ყიდვით იზრდება' : 'პორტფელი პლიუსშია: მშვიდი თვე, მყარი სურათი') : (f.buys ? 'ჯერ მინუსში, მაგრამ ' + f.buys + ' ყიდვით წინ — ' + mon : 'ჯამი ჯერ მინუსშია: რა უნდა გვახსოვდეს ' + mon + '-ში'));
+    var lead = ai ? ai.lead : ('პორტფელის ღირებულება ამ დღეებში <b>' + money(T.value) + '</b>-ია, წმინდა ჩარიცხული — ' + money(T.netInvested) + '. ჯამური შედეგი: <b class="' + U.cls(T.pnl) + '">' + U.smoney(T.pnl, disp) + ' (' + U.pct(T.pnlPct) + ')</b>. ' +
+      (f.tx.length ? 'თვის განმავლობაში: ' + (f.dep ? 'შეტანილი ' + money(f.dep) + ', ' : '') + f.buys + ' ყიდვა' + (f.sells ? ', ' + f.sells + ' გაყიდვა' : '') + '.' : 'ამ თვეში ოპერაცია არ ყოფილა.'));
+    var body = ai ? ai.paragraphs.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') :
+      '<p>' + (f.biggest ? 'თვის ყველაზე დიდი ნაბიჯი — <b>' + esc(f.biggest.t) + '</b>, ' + money(f.biggest.v) + '. ' : '') + (f.top[0] ? 'ღია პოზიციებიდან ლიდერია <b>' + esc(f.top[0].ticker) + '</b> (' + U.pct(f.top[0].plPct) + ')' : '') + (f.bottom[0] ? ', ყველაზე სუსტი — <b>' + esc(f.bottom[0].ticker) + '</b> (' + U.pct(f.bottom[0].plPct) + ').' : '.') + '</p>' +
+      '<p>' + model.books.filter(function (b) { return !b.closed; }).map(function (b) { return '<b>' + esc(b.name) + '</b> — ' + U.money(b.value, b.currency) + ', <span class="' + U.cls(b.pnl) + '">' + U.smoney(b.pnl, b.currency) + '</span>'; }).join('; ') + '.</p>' +
+      (f.realized ? '<p>დახურული პოზიციების რეალიზებული შედეგი ამ თვეში: <b class="' + U.cls(f.realized) + '">' + U.smoney(f.realized, disp) + '</b>.</p>' : '') +
+      '<p>წლიური დივიდენდის პროგნოზი (წმინდა, ' + model.taxPct + '% დაკავების შემდეგ) — <b>' + money(T.annualDiv) + '</b>, ანუ თვეში დაახლოებით ' + money(T.annualDiv / 12) + '.</p>';
+    var lessonHtml = ai && ai.lesson ? '<p>' + esc(ai.lesson) + '</p>' : lessons(f).map(function (l) { return '<p>' + l + '</p>'; }).join('');
+    var bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
+    var TY = { buy: 'ყიდვა', sell: 'გაყიდვა', deposit: 'დეპოზიტი', withdraw: 'გატანა', dividend: 'დივიდენდი', fee: 'საკომისიო' };
+    $('np').innerHTML =
+      '<div class="mast"><div class="t">The Trading Paper</div><div class="s">პირადი გამოცემა · ' + esc(acc.name || '') + ' · Portfolio AI</div></div>' +
+      '<div class="dl"><span>' + mon + '</span><span>გამოცემა №' + String(issueNo(m)).padStart(2, '0') + '</span><span>' + model.books.length + ' წიგნი · ' + model.rows.length + ' პოზიცია</span></div>' +
+      '<h1>' + esc(head) + '</h1><p class="lead">' + lead + '</p>' +
+      '<div class="k"><div><div class="l">ღირებულება</div><div class="v">' + money(T.value) + '</div></div><div><div class="l">წმინდა P/L</div><div class="v ' + U.cls(T.pnl) + '">' + U.smoney(T.pnl, disp) + '</div></div><div><div class="l">თვეში შეტანილი</div><div class="v">' + money(f.dep) + '</div></div><div><div class="l">დივ. / წელი</div><div class="v pos">' + money(T.annualDiv) + '</div></div></div>' +
+      '<div class="cols"><div class="body"><h2>თვის მიმოხილვა</h2>' + body + '<h2 style="margin-top:18px">თვის ოპერაციები</h2>' +
+      (f.tx.length ? '<table>' + f.tx.slice(0, 14).map(function (t) { var b = bn[t.book] || {}; var c = b.currency || disp; var v = t.shares ? t.shares * t.price : +t.amount; return '<tr><td>' + U.gDate(t.date) + '</td><td>' + esc(b.name || '') + '</td><td>' + (TY[t.type] || t.type) + (t.ticker ? ' <b>' + esc(t.ticker) + '</b>' : '') + '</td><td class="n">' + U.money(v, c) + '</td></tr>'; }).join('') + '</table>' + (f.tx.length > 14 ? '<p class="mut">… და კიდევ ' + (f.tx.length - 14) + '</p>' : '') : '<p class="mut">ოპერაცია არ ყოფილა.</p>') +
+      '</div><aside>' +
+      '<div class="box"><h3>ლიდერები</h3><table>' + f.top.map(function (r) { return '<tr><td><b>' + esc(r.ticker) + '</b></td><td class="n ' + U.cls(r.plPct) + '">' + U.pct(r.plPct) + '</td></tr>'; }).join('') + '</table>' +
+      (f.bottom.length ? '<h3>ჩამორჩენილები</h3><table>' + f.bottom.map(function (r) { return '<tr><td><b>' + esc(r.ticker) + '</b></td><td class="n ' + U.cls(r.plPct) + '">' + U.pct(r.plPct) + '</td></tr>'; }).join('') + '</table>' : '') + '</div>' +
+      '<div class="box"><h3>ფული · თვე</h3><table><tr><td>შეტანილი</td><td class="n">' + money(f.dep) + '</td></tr><tr><td>გატანილი</td><td class="n">' + money(f.wd) + '</td></tr><tr><td>ნაყიდი</td><td class="n">' + money(f.bought) + '</td></tr><tr><td>გაყიდული</td><td class="n">' + money(f.sold) + '</td></tr><tr><td>საკომისიო</td><td class="n neg">' + money(f.fees) + '</td></tr><tr><td>დივიდენდი</td><td class="n pos">' + money(f.divs) + '</td></tr></table></div>' +
+      '<div class="box red"><h3>თვის გაკვეთილი</h3>' + lessonHtml + '</div>' +
+      '<span class="stamp">' + (ai ? 'AI · დაწერილია შენთვის' : 'Portfolio AI') + '</span></aside></div>' +
+      '<div class="fn">© The Trading Paper · Portfolio AI · ყველა რიცხვი შენი მონაცემებიდანაა · ეს არ არის ფინანსური რჩევა</div>';
+  }
+  $('month').onchange = render;
+  $('ai-note').textContent = PAI.gemini.key() ? '' : 'AI-ით წერისთვის საჭიროა Gemini-ს გასაღები (პარამეტრები)';
+  $('ai').onclick = async function () {
+    if (!PAI.gemini.key()) { location.href = 'settings.html#ai'; return; }
+    var m = $('month').value, f = facts(m), btn = this; btn.disabled = true; $('ai-note').textContent = 'AI წერს…';
+    var T = f.T, bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
+    var data = ['MONTH: ' + m, 'TOTAL value ' + T.value.toFixed(2) + ' ' + disp + ', net invested ' + T.netInvested.toFixed(2) + ', P/L ' + T.pnl.toFixed(2) + ' (' + T.pnlPct.toFixed(2) + '%), annual dividend est ' + T.annualDiv.toFixed(2),
+      'BOOKS: ' + model.books.map(function (b) { return b.name + ' (' + b.full + ') value ' + b.value.toFixed(2) + ' ' + b.currency + ', P/L ' + b.pnl.toFixed(2); }).join('; '),
+      'MONTH ACTIVITY: deposits ' + f.dep.toFixed(2) + ', withdrawals ' + f.wd.toFixed(2) + ', buys ' + f.buys + ' (' + f.bought.toFixed(2) + '), sells ' + f.sells + ', realized ' + f.realized.toFixed(2) + ', fees ' + f.fees.toFixed(2) + ', dividends ' + f.divs.toFixed(2),
+      'TRANSACTIONS: ' + f.tx.slice(0, 25).map(function (t) { return t.date + ' ' + (bn[t.book] || {}).name + ' ' + t.type + ' ' + (t.ticker || '') + ' ' + (t.shares ? t.shares + '@' + t.price : t.amount); }).join(' | '),
+      'POSITIONS: ' + model.rows.slice(0, 15).map(function (r) { return r.ticker + ' ' + r.valueD.toFixed(2) + ' P/L ' + r.plPct.toFixed(1) + '%'; }).join(', ')].join('\n');
+    try {
+      var txt = await PAI.gemini.generate([{ text: 'დაწერე ამ თვის პირადი ფინანსური გაზეთის გამოცემა ქართულად, გაზეთის ტონით: ზუსტი, მოკლე წინადადებები, კონკრეტული რიცხვები. გამოიყენე მხოლოდ ქვემოთ მოცემული მონაცემები, არაფერი მოიგონო. ყიდვა/გაყიდვის რჩევას ნუ მისცემ. ზარალი არ დამალო. დააბრუნე JSON: {"headline": string, "lead": string, "paragraphs": [string, string, string], "lesson": string}.\n\n' + data }], { json: true, temperature: 0.5, maxTokens: 1400 });
+      var j = JSON.parse(txt.replace(/^```(?:json)?|```$/g, ''));
+      if (!j.headline || !Array.isArray(j.paragraphs)) throw new Error('არასრული პასუხი');
+      j.lead = esc(j.lead || ''); aiText[m] = j; render(); $('ai-note').textContent = '✓ დაწერა Gemini-მ';
+    } catch (e) { $('ai-note').textContent = 'ვერ დაიწერა: ' + e.message; }
+    btn.disabled = false;
+  };
+  render();
+})();
+</script>
+</body>
+</html>

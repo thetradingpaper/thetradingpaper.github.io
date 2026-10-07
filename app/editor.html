@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>რედაქტორი · Portfolio AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="../js/theme.js?v=20260725"></script>
+<link rel="stylesheet" href="pai.css?v=20261007-1">
+<style>
+  .ai-panel{background:var(--paper);border:2px solid var(--ink)}
+  .drop{border-bottom:1px solid var(--border);padding:30px 22px;text-align:center;cursor:pointer;transition:background .15s;position:relative}
+  .drop.over{background:var(--red-bg)}
+  .drop .ic{font-size:34px;line-height:1}
+  .drop h3{font-family:'Noto Serif Georgian',serif;font-size:21px;margin:10px 0 4px}
+  .drop p{margin:0;font-size:13px;color:var(--muted)}
+  .thumbs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+  .thumb{position:relative;width:76px;height:110px;border:1px solid var(--border);background:var(--bg) center/cover no-repeat}
+  .thumb button{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;border:0;background:var(--ink);color:var(--bg);cursor:pointer;font-size:12px;line-height:22px;padding:0}
+  .cmd{display:flex;gap:0;border-bottom:1px solid var(--border)}
+  .cmd input{flex:1;min-width:0;border:0;padding:15px 16px;font-family:inherit;font-size:15px;background:var(--paper);color:var(--ink);outline:none}
+  .cmd button{border:0;background:var(--red);color:#fff;font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:15px;padding:0 24px;cursor:pointer}
+  .cmd button:disabled{opacity:.5}
+  .opts{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:11px 16px;font-size:12.5px}
+  .opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
+  .opts select{font-family:inherit;font-size:12.5px;padding:5px 8px;border:1px solid var(--border);background:var(--bg);color:var(--ink)}
+  .eng{font-size:11px;color:var(--muted);padding:0 16px 12px}
+  #progress{padding:14px 16px;border-top:1px solid var(--border);font-size:13.5px}
+  .spin{display:inline-block;width:12px;height:12px;border:2px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-1px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  table.t input,table.t select{font-family:ui-monospace,monospace;font-size:12.5px;border:1px solid var(--border);background:var(--bg);color:var(--ink);padding:4px 6px;width:100%;min-width:70px}
+  table.t td.st{font-size:12px;white-space:normal;min-width:120px}
+  .s-ok{color:var(--green);font-weight:700} .s-bad{color:var(--red);font-weight:700} .s-dup{color:var(--gold);font-weight:700}
+  .res-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:12px 16px;border-top:1px solid var(--border)}
+  details.raw summary{cursor:pointer;font-size:12px;color:var(--muted);padding:0 16px 12px}
+  details.raw pre{white-space:pre-wrap;font-size:11px;background:var(--bg);border:1px solid var(--border);padding:10px;margin:0 16px 14px;max-height:220px;overflow:auto}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--border);background:var(--paper);padding:8px 12px;cursor:pointer;font-family:inherit;font-size:13px;color:var(--ink)}
+  .chip:hover,.chip.on{border-color:var(--red);color:var(--red)}
+  .chip small{display:block;font-size:10px;color:var(--muted)}
+  .welcome{background:var(--paper);border:1px solid var(--border);border-left:5px solid var(--red);padding:18px 20px;margin-bottom:18px}
+  .welcome h3{font-family:'Noto Serif Georgian',serif;margin:0 0 6px;font-size:19px}
+  .bk{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--border);border-left:5px solid var(--c);padding:10px 14px;margin-bottom:8px}
+  .bk .nm{font-weight:800}
+  .bk input{font-family:inherit;font-size:14px;font-weight:800;border:1px solid transparent;background:transparent;color:var(--ink);padding:3px 5px;width:100%}
+  .bk input:focus{border-color:var(--border);outline:none}
+  .bk .acts{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  .xbtn{border:0;background:none;color:var(--red);cursor:pointer;font-size:15px;padding:2px 6px}
+</style>
+</head>
+<body>
+<div id="pai-nav-host"></div>
+<div class="wrap">
+  <div class="ph">
+    <div><div class="eyebrow">პორტფელის რედაქტორი</div><h1>ჩააგდე სქრინშოტი — დანარჩენს AI გააკეთებს</h1></div>
+    <div class="side">BOG · TBC · Galt &amp; Taggart · IBKR · Trading 212 · Revolut · eToro …</div>
+  </div>
+
+  <div id="welcome" class="welcome hidden">
+    <h3>მოგესალმები Portfolio AI-ში 👋</h3>
+    <p class="note" style="margin:0 0 12px">აირჩიე ბროკერები, სადაც ინვესტიცია გაქვს — თითოეულისთვის ცალკე „წიგნი“ შეიქმნება. შემდეგ უბრალოდ ჩააგდე სქრინშოტები.</p>
+    <div class="chips" id="quick-brokers"></div>
+    <div style="margin-top:12px"><button class="btn primary sm" id="quick-create" type="button">შექმნა →</button></div>
+  </div>
+
+  <div class="ai-panel">
+    <div class="drop" id="drop" tabindex="0" role="button" aria-label="სქრინშოტების ატვირთვა">
+      <div class="ic">⬇</div>
+      <h3>ჩააგდე აქ ბროკერის სქრინშოტები</h3>
+      <p>ან დააჭირე ასარჩევად · ან ჩასვი Ctrl+V · რამდენიც გინდა ერთად</p>
+      <div class="thumbs" id="thumbs"></div>
+      <input type="file" id="file" accept="image/*" multiple hidden>
+    </div>
+    <div class="cmd">
+      <input id="instr" value="გაანალიზე და დაამატე პორტფელს" aria-label="ბრძანება">
+      <button id="go" type="button" disabled>გაანალიზე →</button>
+    </div>
+    <div class="opts">
+      <label>წიგნი: <select id="book-sel"></select></label>
+      <label><input type="checkbox" id="opt-auto"> ავტომატურად დაამატე, თუ ყველაფერი სწორია</label>
+      <label><input type="checkbox" id="opt-dep"> თუ ნაღდი არ კმარა — სხვაობა დეპოზიტად ჩაწერე</label>
+    </div>
+    <div class="eng" id="eng"></div>
+    <div id="progress" class="hidden"></div>
+    <div id="result" class="hidden">
+      <div class="tw" style="border:0;border-top:1px solid var(--border)"><table class="t" id="items"></table></div>
+      <div class="res-actions">
+        <button class="btn primary" id="apply" type="button">დაამატე პორტფელს</button>
+        <button class="btn sm" id="discard" type="button">გაუქმება</button>
+        <span class="note" id="res-note"></span>
+      </div>
+      <details class="raw"><summary>ამოკითხული ტექსტი / AI-ის პასუხი</summary><pre id="raw"></pre></details>
+    </div>
+  </div>
+
+  <h2 class="sec" id="manual">ხელით დამატება</h2>
+  <div class="card">
+    <div class="row">
+      <div><label class="f">წიგნი</label><select class="i" id="m-book"></select></div>
+      <div><label class="f">თარიღი</label><input class="i" id="m-date" type="date"></div>
+      <div><label class="f">ტიპი</label><select class="i" id="m-type"><option value="buy">ყიდვა</option><option value="sell">გაყიდვა</option><option value="deposit">დეპოზიტი</option><option value="withdraw">გატანა</option><option value="dividend">დივიდენდი</option><option value="fee">საკომისიო</option></select></div>
+      <div class="m-tr"><label class="f">ტიკერი</label><input class="i" id="m-ticker" placeholder="VOO" style="text-transform:uppercase"></div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <div class="m-tr"><label class="f">რაოდენობა</label><input class="i" id="m-shares" inputmode="decimal" placeholder="0.5"></div>
+      <div class="m-tr"><label class="f">ფასი</label><input class="i" id="m-price" inputmode="decimal" placeholder="650.20"></div>
+      <div class="m-tr"><label class="f">საკომისიო</label><input class="i" id="m-fee" inputmode="decimal" placeholder="0"></div>
+      <div class="m-amt hidden"><label class="f">თანხა</label><input class="i" id="m-amount" inputmode="decimal" placeholder="100"></div>
+      <div><label class="f">შენიშვნა</label><input class="i" id="m-note" placeholder="არასავალდებულო"></div>
+      <div style="flex:0 0 auto"><button class="btn dark" id="m-add" type="button">+ დამატება</button></div>
+    </div>
+  </div>
+
+  <h2 class="sec" id="books">წიგნები (ბროკერები) <small>ქართული და უცხოური</small></h2>
+  <div id="book-list"></div>
+  <div class="card" style="margin-top:10px">
+    <div class="row">
+      <div><label class="f">ბროკერი</label><select class="i" id="nb-broker"></select></div>
+      <div><label class="f">სახელი</label><input class="i" id="nb-name" placeholder="მაგ. IBKR · გრძელვადიანი"></div>
+      <div><label class="f">ვალუტა</label><select class="i" id="nb-cur"><option>USD</option><option>EUR</option><option>GEL</option><option>GBP</option><option>CHF</option></select></div>
+      <div style="flex:0 0 auto"><button class="btn dark" id="nb-add" type="button">+ წიგნის დამატება</button></div>
+    </div>
+  </div>
+
+  <h2 class="sec" id="tx">ოპერაციები <small id="tx-sub"></small></h2>
+  <div class="tw"><table class="t" id="tx-table"></table></div>
+  <p class="note" id="tx-note"></p>
+
+  <div class="foot">Portfolio AI · The Trading Paper<br>ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script src="pai-config.js?v=20261007-1"></script>
+<script src="../js/portfolios.data.js?v=20261006-1"></script>
+<script src="../portfolio-data.js?v=20261002-4"></script>
+<script src="pai-core.js?v=20261007-1"></script>
+<script src="pai-vision.js?v=20261007-1"></script>
+<script>
+(async function () {
+  var U = PAI.util, esc = U.esc;
+  var acc = await PAI.requireAuth();
+  PAI.ui.nav('editor', acc);
+  var files = [], current = null, lastBatch = [];
+  var TYPES = { buy: 'ყიდვა', sell: 'გაყიდვა', deposit: 'დეპოზიტი', withdraw: 'გატანა', dividend: 'დივიდენდი', fee: 'საკომისიო' };
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ---------- options ----------
+  $('opt-auto').checked = acc.settings.autoAdd !== false;
+  $('opt-dep').checked = acc.settings.autoDeposit !== false;
+  $('opt-auto').onchange = function () { acc.settings.autoAdd = this.checked; PAI.save(acc); };
+  $('opt-dep').onchange = function () { acc.settings.autoDeposit = this.checked; PAI.save(acc); };
+  $('eng').innerHTML = PAI.gemini.key() ? 'ამომცნობი: <b>Gemini (' + esc(PAI.gemini.model()) + ')</b> — კითხულობს ნებისმიერ ბანკს და ენას' : 'ამომცნობი: <b>უფასო ტექსტის ამოცნობა ბრაუზერში</b> (ქართული + ინგლისური). უფრო ჭკვიანი AI-სთვის ჩასვი Gemini-ს გასაღები <a href="settings.html#ai">პარამეტრებში</a>.';
+
+  // ---------- books ----------
+  function bookOptions(sel, withAuto) {
+    var open = acc.books.filter(function (b) { return !b.closed; });
+    sel.innerHTML = (withAuto ? '<option value="">ავტომატურად (სქრინიდან)</option>' : '') + open.map(function (b) { return '<option value="' + esc(b.id) + '">' + esc(b.name) + ' · ' + esc(PAI.brokerById(b.broker).name) + ' · ' + b.currency + '</option>'; }).join('') + '<option value="__new">+ ახალი წიგნი…</option>';
+  }
+  function refreshBooks() {
+    bookOptions($('book-sel'), true); bookOptions($('m-book'), false);
+    var model = PAI.compute(acc, {});
+    var counts = {}; acc.tx.forEach(function (t) { counts[t.bookId] = (counts[t.bookId] || 0) + 1; });
+    $('book-list').innerHTML = model.books.length ? model.books.map(function (b) {
+      var raw = acc.books.filter(function (x) { return x.id === b.id; })[0];
+      return '<div class="bk" style="--c:' + b.color + '" data-id="' + esc(b.id) + '"><span class="dot" style="background:' + b.color + ';width:14px;height:14px"></span>' +
+        '<div>' + (raw.site ? '<span class="nm">' + esc(b.name) + '</span>' : '<input value="' + esc(b.name) + '" data-rename aria-label="სახელი">') +
+        '<div class="note">' + esc(b.full) + ' · ' + b.currency + ' · ' + (counts[b.id] || 0) + ' ოპერაცია' + (raw.site ? ' · სინქრონდება The Trading Paper-თან' : '') + (b.closed ? ' · <span class="tag">დახურული</span>' : '') + '</div></div>' +
+        '<div class="acts">' + (raw.site ? '' : '<button class="btn sm" data-close type="button">' + (b.closed ? 'გახსნა' : 'დახურვა') + '</button>' + (counts[b.id] ? '' : '<button class="xbtn" data-del title="წაშლა" type="button">✕</button>')) + '</div></div>';
+    }).join('') : '<p class="note">ჯერ წიგნი არ გაქვს — დაამატე ქვემოთ, ან უბრალოდ ჩააგდე სქრინშოტი და ბროკერს AI თვითონ ამოიცნობს.</p>';
+    Array.prototype.forEach.call(document.querySelectorAll('.bk'), function (el) {
+      var id = el.dataset.id, raw = acc.books.filter(function (x) { return x.id === id; })[0];
+      var inp = el.querySelector('[data-rename]'); if (inp) inp.onchange = function () { raw.name = inp.value.trim() || raw.name; PAI.save(acc); refreshBooks(); renderTx(); };
+      var cl = el.querySelector('[data-close]'); if (cl) cl.onclick = function () { raw.closed = !raw.closed; PAI.save(acc); refreshBooks(); };
+      var del = el.querySelector('[data-del]'); if (del) del.onclick = function () { if (!confirm('წავშალო წიგნი „' + raw.name + '“?')) return; acc.books = acc.books.filter(function (x) { return x.id !== id; }); PAI.save(acc); refreshBooks(); };
+    });
+  }
+  function onNewBookSelect(sel) {
+    sel.onchange = function () {
+      if (sel.value !== '__new') return;
+      document.getElementById('books').scrollIntoView({ behavior: 'smooth' }); $('nb-broker').focus(); sel.selectedIndex = 0;
+    };
+  }
+  onNewBookSelect($('book-sel')); onNewBookSelect($('m-book'));
+  $('nb-broker').innerHTML = '<optgroup label="საქართველო">' + PAI.BROKERS.filter(function (b) { return b.country === 'GE'; }).map(function (b) { return '<option value="' + b.id + '">' + esc(b.name) + '</option>'; }).join('') + '</optgroup>' +
+    '<optgroup label="საერთაშორისო">' + PAI.BROKERS.filter(function (b) { return b.country !== 'GE'; }).map(function (b) { return '<option value="' + b.id + '">' + esc(b.name) + '</option>'; }).join('') + '</optgroup>';
+  $('nb-broker').onchange = function () { $('nb-cur').value = PAI.brokerById(this.value).currency; };
+  $('nb-add').onclick = function () {
+    var b = PAI.addBook(acc, $('nb-broker').value, $('nb-name').value.trim(), $('nb-cur').value);
+    $('nb-name').value = ''; PAI.save(acc); refreshBooks(); PAI.ui.toast('დაემატა წიგნი: ' + esc(b.name));
+  };
+
+  // welcome / quick brokers
+  if (/welcome=1/.test(location.search) || !acc.books.length) {
+    $('welcome').classList.remove('hidden');
+    var picked = {};
+    $('quick-brokers').innerHTML = PAI.BROKERS.filter(function (b) { return b.id !== 'other'; }).map(function (b) { return '<button type="button" class="chip" data-b="' + b.id + '">' + esc(b.name) + '<small>' + (b.country === 'GE' ? 'საქართველო' : b.country === 'INT' ? 'საერთაშორისო' : b.country) + ' · ' + b.currency + '</small></button>'; }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('#quick-brokers .chip'), function (c) { c.onclick = function () { picked[c.dataset.b] = !picked[c.dataset.b]; c.classList.toggle('on', !!picked[c.dataset.b]); }; });
+    $('quick-create').onclick = function () {
+      var ids = Object.keys(picked).filter(function (k) { return picked[k]; });
+      if (!ids.length) { PAI.ui.toast('აირჩიე ერთი ბროკერი მაინც'); return; }
+      ids.forEach(function (id) { if (!acc.books.some(function (b) { return b.broker === id; })) PAI.addBook(acc, id); });
+      PAI.save(acc); refreshBooks(); $('welcome').classList.add('hidden'); PAI.ui.toast('წიგნები შეიქმნა — ახლა ჩააგდე სქრინშოტები');
+      history.replaceState(null, '', 'editor.html');
+    };
+  }
+
+  // ---------- files ----------
+  function addFiles(list) {
+    Array.prototype.forEach.call(list, function (f) { if (/^image\//.test(f.type)) files.push(f); });
+    renderThumbs();
+  }
+  function renderThumbs() {
+    $('thumbs').innerHTML = files.map(function (f, i) { return '<div class="thumb" style="background-image:url(' + URL.createObjectURL(f) + ')"><button type="button" data-i="' + i + '" aria-label="ამოღება">✕</button></div>'; }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('.thumb button'), function (b) { b.onclick = function (e) { e.stopPropagation(); files.splice(+b.dataset.i, 1); renderThumbs(); }; });
+    $('go').disabled = !files.length;
+  }
+  var drop = $('drop');
+  drop.onclick = function () { $('file').click(); };
+  drop.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('file').click(); } };
+  $('file').onchange = function () { addFiles(this.files); this.value = ''; };
+  ['dragenter', 'dragover'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+  ['dragleave', 'drop'].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('over'); }); });
+  drop.addEventListener('drop', function (e) { addFiles(e.dataTransfer.files); });
+  document.addEventListener('paste', function (e) {
+    var items = (e.clipboardData || {}).items || [], got = [];
+    for (var i = 0; i < items.length; i++) if (items[i].kind === 'file') { var f = items[i].getAsFile(); if (f) got.push(f); }
+    if (got.length) { addFiles(got); PAI.ui.toast(got.length + ' სურათი ჩაისვა'); }
+  });
+  $('instr').onkeydown = function (e) { if (e.key === 'Enter' && files.length) $('go').click(); };
+
+  // ---------- analysis ----------
+  function bookFor(res) {
+    var sel = $('book-sel').value;
+    if (sel && sel !== '__new') return acc.books.filter(function (b) { return b.id === sel; })[0];
+    if (res.broker) {
+      var hit = acc.books.filter(function (b) { return b.broker === res.broker && !b.closed; })[0];
+      if (hit) return hit;
+      return { _create: res.broker };
+    }
+    var open = acc.books.filter(function (b) { return !b.closed; });
+    return open.length === 1 ? open[0] : (open[0] || { _create: 'other' });
+  }
+  function existingKeys(bookId) {
+    var keys = {};
+    acc.tx.forEach(function (t) { if (t.bookId === bookId) keys[PAI.txKey(t)] = 1; });
+    acc.books.forEach(function (b) { if (b.id === bookId && b.opening) (b.opening.history || []).forEach(function (t) { keys[PAI.txKey(t)] = 1; }); });
+    return keys;
+  }
+  function status(it, bookId) {
+    it.problems = PAI_VISION.validate(it);
+    it.dup = !!existingKeys(bookId)[PAI.txKey(it)];
+    return it;
+  }
+  function renderItems() {
+    var r = current; if (!r) return;
+    var bk = r.book, bookLabel = bk._create ? 'ახალი: ' + PAI.brokerById(bk._create).name : bk.name + ' · ' + bk.currency;
+    $('items').innerHTML = '<thead><tr><th></th><th>თარიღი</th><th>ტიპი</th><th>ტიკერი</th><th class="num">რაოდენობა</th><th class="num">ფასი</th><th class="num">საკომისიო</th><th class="num">თანხა</th><th>სტატუსი</th></tr></thead><tbody>' +
+      r.items.map(function (it, i) {
+        status(it, bk.id);
+        var st = it.added ? '<span class="s-ok">✓ დაემატა</span>' : it.dup ? '<span class="s-dup">⚠ უკვე არის პორტფელში</span>' : it.problems.length ? '<span class="s-bad">შეავსე: ' + it.problems.join(', ') + '</span>' : '<span class="s-ok">მზადაა</span>';
+        var dis = it.added ? ' disabled' : '';
+        return '<tr data-i="' + i + '"><td><input type="checkbox" data-k="use"' + (it.use !== false && !it.dup && !it.added ? ' checked' : '') + dis + ' style="width:auto;min-width:0"></td>' +
+          '<td><input type="date" data-k="date" value="' + esc(it.date || '') + '"' + dis + '></td>' +
+          '<td><select data-k="type"' + dis + '>' + Object.keys(TYPES).map(function (k) { return '<option value="' + k + '"' + (it.type === k ? ' selected' : '') + '>' + TYPES[k] + '</option>'; }).join('') + '</select></td>' +
+          '<td><input data-k="ticker" value="' + esc(it.ticker || '') + '" style="text-transform:uppercase"' + dis + '></td>' +
+          '<td><input data-k="shares" value="' + (it.shares != null ? it.shares : '') + '" inputmode="decimal"' + dis + '></td>' +
+          '<td><input data-k="price" value="' + (it.price != null ? it.price : '') + '" inputmode="decimal"' + dis + '></td>' +
+          '<td><input data-k="fee" value="' + (it.fee || 0) + '" inputmode="decimal"' + dis + '></td>' +
+          '<td><input data-k="amount" value="' + (it.amount != null ? it.amount : '') + '" inputmode="decimal"' + dis + '></td>' +
+          '<td class="st">' + st + (it.currency && !bk._create && it.currency !== bk.currency ? '<br><span class="s-dup">ვალუტა ' + esc(it.currency) + ' ≠ ' + bk.currency + '</span>' : '') + '</td></tr>';
+      }).join('') + '</tbody>';
+    Array.prototype.forEach.call(document.querySelectorAll('#items [data-k]'), function (inp) {
+      inp.onchange = function () {
+        var it = current.items[+inp.closest('tr').dataset.i], k = inp.dataset.k;
+        if (k === 'use') it.use = inp.checked;
+        else if (k === 'shares' || k === 'price' || k === 'fee' || k === 'amount') it[k] = inp.value === '' ? null : PAI_VISION.num(inp.value);
+        else if (k === 'ticker') it.ticker = inp.value.trim().toUpperCase() || null;
+        else it[k] = inp.value;
+        if ((it.type === 'buy' || it.type === 'sell') && it.shares && it.price && (k === 'shares' || k === 'price' || k === 'fee')) it.amount = U.r2(it.shares * it.price + (it.type === 'buy' ? 1 : -1) * (it.fee || 0));
+        renderItems();
+      };
+    });
+    var ready = current.items.filter(function (it) { return !it.added && it.use !== false && !it.dup && !(it.problems || []).length; }).length;
+    $('apply').disabled = !ready; $('apply').textContent = 'დაამატე პორტფელს (' + ready + ')';
+    $('res-note').innerHTML = 'წიგნი: <b>' + esc(bookLabel) + '</b> · ' + esc(r.engine);
+  }
+
+  function applyItems() {
+    var r = current, bk = r.book;
+    if (bk._create) { bk = PAI.addBook(acc, bk._create); r.book = bk; PAI.ui.toast('შეიქმნა ახალი წიგნი: ' + esc(bk.name)); }
+    var model = PAI.compute(acc, {}), b = model.books.filter(function (x) { return x.id === bk.id; })[0];
+    var cash = b ? b.cash : 0, added = [], deps = 0;
+    var todo = r.items.filter(function (it) { status(it, bk.id); return !it.added && it.use !== false && !it.dup && !it.problems.length; })
+      .sort(function (a, c) { return a.date < c.date ? -1 : a.date > c.date ? 1 : 0; });
+    todo.forEach(function (it) {
+      var fee = +it.fee || 0;
+      if (it.type === 'buy') {
+        var cost = it.shares * it.price + fee;
+        if (cash + 0.005 < cost && acc.settings.autoDeposit !== false) {
+          var need = U.r2(cost - Math.max(cash, 0));
+          var dep = { id: U.uid('t'), bookId: bk.id, date: it.date, type: 'deposit', amount: need, note: 'ავტო-დეპოზიტი — ნაყიდის დასაფარად', src: 'auto', addedAt: new Date().toISOString() };
+          acc.tx.push(dep); added.push(dep.id); cash += need; deps += need;
+        }
+        cash -= cost;
+      } else if (it.type === 'sell') cash += it.shares * it.price - fee;
+      else if (it.type === 'deposit' || it.type === 'dividend') cash += +it.amount;
+      else cash -= +it.amount;
+      var tx = { id: U.uid('t'), bookId: bk.id, date: it.date, type: it.type, ticker: it.ticker || null, name: it.name || null, shares: it.shares || null, price: it.price || null, fee: fee, amount: (it.type === 'buy' || it.type === 'sell') ? null : +it.amount, note: it.note || '', src: 'screenshot', addedAt: new Date().toISOString() };
+      acc.tx.push(tx); added.push(tx.id); it.added = true;
+    });
+    if (!added.length) return 0;
+    lastBatch = added.slice();
+    PAI.save(acc, true);
+    renderItems(); renderTx(); refreshBooks();
+    PAI.ui.toast('✓ დაემატა ' + todo.length + ' ოპერაცია „' + esc(bk.name) + '“-ში' + (deps ? ' (+ დეპოზიტი ' + U.money(deps, bk.currency) + ')' : ''), '', function () {
+      acc.tx = acc.tx.filter(function (t) { return lastBatch.indexOf(t.id) === -1; });
+      r.items.forEach(function (it) { it.added = false; });
+      PAI.save(acc, true); renderItems(); renderTx(); refreshBooks(); PAI.ui.toast('გაუქმდა');
+    });
+    return todo.length;
+  }
+
+  $('go').onclick = async function () {
+    if (!files.length) return;
+    var btn = this; btn.disabled = true;
+    $('result').classList.add('hidden');
+    var pr = $('progress'); pr.classList.remove('hidden'); pr.innerHTML = '<span class="spin"></span>ვიწყებ…';
+    try {
+      var instr = $('instr').value.trim();
+      var res = await PAI_VISION.analyze(files.slice(), { instruction: instr, onProgress: function (m) { pr.innerHTML = '<span class="spin"></span>' + esc(m); } });
+      res.book = bookFor(res);
+      current = res;
+      $('raw').textContent = res.raw || '';
+      if (!res.items.length) {
+        pr.innerHTML = '<div class="warn">სქრინშოტზე ტრანზაქცია ვერ ვიპოვე. სცადე უფრო მკაფიო სურათი (ტრანზაქციის დეტალების გვერდი), ან დაამატე ხელით ქვემოთ.' + (res.errors.length ? '<br><span class="mut">' + esc(res.errors.join(' · ')) + '</span>' : '') + '</div>';
+        $('result').classList.remove('hidden'); renderItems(); btn.disabled = false; return;
+      }
+      $('result').classList.remove('hidden');
+      renderItems();
+      var wantsAdd = /დაამატ|ჩაამატ|add|დაწერ|ჩაწერ/i.test(instr);
+      var allGood = res.items.every(function (it) { return !it.problems.length && !it.dup; });
+      if (wantsAdd && acc.settings.autoAdd !== false && allGood) {
+        var n = applyItems();
+        pr.innerHTML = '<div class="ok">✓ გავაანალიზე ' + files.length + ' სურათი და დავამატე ' + n + ' ოპერაცია. <a href="index.html">დაფაზე ნახვა →</a></div>';
+        files = []; renderThumbs();
+      } else {
+        var dupN = res.items.filter(function (it) { return it.dup; }).length, badN = res.items.filter(function (it) { return it.problems.length; }).length;
+        pr.innerHTML = '<div class="warn">ვიპოვე ' + res.items.length + ' ოპერაცია' + (dupN ? ' · ' + dupN + ' უკვე არის პორტფელში' : '') + (badN ? ' · ' + badN + '-ს რაღაც აკლია — შეავსე ცხრილში' : '') + '. შეამოწმე და დააჭირე „დაამატე პორტფელს“.</div>';
+      }
+    } catch (e) {
+      pr.innerHTML = '<div class="err">ანალიზი ვერ მოხერხდა: ' + esc(e.message) + '</div>';
+    }
+    btn.disabled = !files.length;
+  };
+  $('apply').onclick = function () { var n = applyItems(); if (n) { $('progress').innerHTML = '<div class="ok">✓ დაემატა ' + n + ' ოპერაცია. <a href="index.html">დაფაზე ნახვა →</a></div>'; files = []; renderThumbs(); } };
+  $('discard').onclick = function () { current = null; $('result').classList.add('hidden'); $('progress').classList.add('hidden'); };
+
+  // ---------- manual ----------
+  $('m-date').value = U.today();
+  function manualMode() { var t = $('m-type').value, tr = t === 'buy' || t === 'sell'; Array.prototype.forEach.call(document.querySelectorAll('.m-tr'), function (e) { e.classList.toggle('hidden', !tr && !(t === 'dividend' && e.querySelector('#m-ticker'))); }); document.querySelector('.m-amt').classList.toggle('hidden', tr); }
+  $('m-type').onchange = manualMode; manualMode();
+  $('m-add').onclick = function () {
+    var t = $('m-type').value, bookId = $('m-book').value;
+    if (!bookId || bookId === '__new') { PAI.ui.toast('ჯერ შექმენი წიგნი', 'err'); return; }
+    var it = { date: $('m-date').value, type: t, ticker: $('m-ticker').value.trim().toUpperCase() || null, shares: PAI_VISION.num($('m-shares').value), price: PAI_VISION.num($('m-price').value), fee: PAI_VISION.num($('m-fee').value) || 0, amount: PAI_VISION.num($('m-amount').value), note: $('m-note').value.trim() };
+    var p = PAI_VISION.validate(it); if (p.length) { PAI.ui.toast('შეავსე: ' + p.join(', '), 'err'); return; }
+    acc.tx.push({ id: U.uid('t'), bookId: bookId, date: it.date, type: t, ticker: it.ticker, shares: it.shares, price: it.price, fee: it.fee, amount: (t === 'buy' || t === 'sell') ? null : it.amount, note: it.note, src: 'manual', addedAt: new Date().toISOString() });
+    PAI.save(acc, true); renderTx(); refreshBooks();
+    ['m-ticker', 'm-shares', 'm-price', 'm-fee', 'm-amount', 'm-note'].forEach(function (id) { $(id).value = ''; });
+    PAI.ui.toast('✓ დაემატა');
+  };
+
+  // ---------- tx list ----------
+  function renderTx() {
+    var bn = {}; acc.books.forEach(function (b) { bn[b.id] = b; });
+    var list = acc.tx.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : (b.addedAt || '').localeCompare(a.addedAt || ''); });
+    var histN = acc.books.reduce(function (s, b) { return s + (b.opening && b.opening.history ? b.opening.history.length : 0); }, 0);
+    $('tx-sub').textContent = list.length + ' ჩანაწერი' + (histN ? ' · + ' + histN + ' The Trading Paper-ის ისტორიიდან' : '');
+    $('tx-table').innerHTML = '<thead><tr><th>თარიღი</th><th>წიგნი</th><th>ტიპი</th><th>ტიკერი</th><th class="num">რაოდენობა</th><th class="num">ფასი</th><th class="num">საკ.</th><th class="num">თანხა</th><th>წყარო</th><th></th></tr></thead><tbody>' +
+      (list.length ? list.map(function (t) {
+        var b = bn[t.bookId] || {}, cur = b.currency || 'USD';
+        var amt = t.type === 'buy' ? t.shares * t.price + (+t.fee || 0) : t.type === 'sell' ? t.shares * t.price - (+t.fee || 0) : +t.amount;
+        return '<tr><td>' + U.gDate(t.date) + '</td><td><span class="dot" style="background:' + (b.color || '#999') + '"></span>' + esc(b.name || '?') + '</td><td>' + (TYPES[t.type] || t.type) + '</td><td class="tk">' + esc(t.ticker || '') + '</td>' +
+          '<td class="num">' + (t.shares ? U.shares(t.shares) : '') + '</td><td class="num">' + (t.price ? U.money(t.price, cur) : '') + '</td><td class="num">' + (t.fee ? U.money(t.fee, cur) : '') + '</td><td class="num">' + U.money(amt, cur) + '</td>' +
+          '<td class="mut" style="font-size:11px">' + ({ screenshot: 'სქრინი', manual: 'ხელით', auto: 'ავტო', import: 'იმპორტი' }[t.src] || '') + '</td><td><button class="xbtn" data-del="' + esc(t.id) + '" title="წაშლა" type="button">✕</button></td></tr>';
+      }).join('') : '<tr><td colspan="10" class="mut">ჯერ ოპერაციები არ დაგიმატებია</td></tr>') + '</tbody>';
+    Array.prototype.forEach.call(document.querySelectorAll('#tx-table [data-del]'), function (bt) {
+      bt.onclick = function () {
+        var id = bt.dataset.del, removed = acc.tx.filter(function (t) { return t.id === id; })[0];
+        acc.tx = acc.tx.filter(function (t) { return t.id !== id; }); PAI.save(acc, true); renderTx(); refreshBooks();
+        PAI.ui.toast('წაიშალა', '', function () { acc.tx.push(removed); PAI.save(acc, true); renderTx(); refreshBooks(); });
+      };
+    });
+    $('tx-note').textContent = acc.linkSite ? 'შენი წიგნები (BOG · TBC · GALT) ავტომატურად იღებს The Trading Paper-ის ყველა ჩანაწერს. აქ დამატებული ახალი ოპერაცია ჩანს მაშინვე; როცა იგივე ოპერაცია საიტზეც აისახება, დუბლიკატი თავისით გაქრება.' : '';
+  }
+
+  refreshBooks(); renderTx(); renderThumbs();
+})();
+</script>
+</body>
+</html>

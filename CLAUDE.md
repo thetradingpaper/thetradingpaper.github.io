@@ -104,3 +104,9 @@ are now redirect stubs to the matching tab — never add content back there.
   (jsDelivr → raw.githubusercontent → committed snapshot `data/public-apis.json`),
   cached 24h in localStorage `tp_apilib_v1`. Finnhub / Alpha Vantage rows are badged
   "USED HERE". Refresh the snapshot occasionally by re-parsing the repo README.
+
+## Portfolio AI (app/) — multi-user product, 29.99 ₾/month
+- Landing `ai.html`; app in `app/` (login, index=dashboard, editor, paper, settings). Shared code: `app/pai-core.js` (accounts, engine, prices), `app/pai-vision.js` (screenshot reading), `app/pai-config.js` (public config).
+- Lasha's app account (`id: lasha`, `linkSite: true`) rebuilds BOG/TBC/GALT from `js/portfolios.data.js` on every load — keep updating the data files as before; the app follows automatically.
+- The assistant `js/paper-ai.js` runs on site data by default, or on any user's portfolio via `window.TP_AI_ENGINE`.
+- Keys/setup: see `PORTFOLIO-AI.md`. Retired URLs (research, edit, ledger, goals, notes, tp-logout) are redirect stubs — don't delete them.

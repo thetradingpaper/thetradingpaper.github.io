@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>დაფა · Portfolio AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="../js/theme.js?v=20260725"></script>
+<link rel="stylesheet" href="pai.css?v=20261007-1">
+<style>
+  .hello{font-family:'Noto Serif Georgian',serif}
+  .empty{background:var(--paper);border:2px dashed var(--border);padding:34px;text-align:center}
+  .empty h3{font-family:'Noto Serif Georgian',serif;font-size:22px;margin:0 0 8px}
+  .filter{display:inline-flex;gap:6px;align-items:center;font-size:12px;border:1px solid var(--ink);padding:3px 8px;margin-left:8px;cursor:pointer}
+  .teaser{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--red);padding:18px 20px}
+  .teaser .big{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:40px;color:var(--red);line-height:1}
+  .teaser h3{font-family:'Noto Serif Georgian',serif;margin:0 0 4px;font-size:18px}
+  .teaser p{margin:0;font-size:13px;color:var(--muted)}
+  .src{font-size:10px;color:var(--muted);margin-left:4px}
+  /* assistant (same classes as js/paper-ai.js) */
+  #ai-mode{font-size:11.5px;color:var(--muted);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block} .ai-dot.on{background:var(--green)}
+  .ai-box{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink)}
+  #ai-log{min-height:220px;max-height:520px;overflow-y:auto;padding:16px 16px 4px}
+  .ai-msg{margin:0 0 14px} .ai-who{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:4px}
+  .ai-msg.bot .ai-who{color:var(--red)} .ai-body{font-size:14px;line-height:1.65}
+  .ai-msg.bot .ai-body{border-left:3px solid var(--red);padding:2px 0 2px 14px}
+  .ai-msg.me{text-align:right} .ai-msg.me .ai-body{display:inline-block;text-align:left;background:var(--bg);border:1px solid var(--border);padding:8px 12px;max-width:85%;font-weight:600}
+  .ai-body p{margin:0 0 8px} .ai-body a{color:var(--red);font-weight:700;text-decoration:none}
+  .ai-ul{margin:4px 0 10px;padding-left:20px} .ai-hr{border:0;border-top:1px dashed var(--border);margin:12px 0}
+  .ai-src{font-size:11px;color:var(--muted);margin-top:6px} .ai-warn{background:var(--gold-bg);border:1px dashed var(--gold);padding:8px 12px;font-size:13px}
+  .ai-tw{overflow-x:auto;margin:6px 0 8px}
+  .ai-t{border-collapse:collapse;width:100%;font-family:ui-monospace,monospace;font-size:12px}
+  .ai-t th{text-align:left;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding:5px 8px 5px 0;font-family:'Noto Sans Georgian',sans-serif}
+  .ai-t td{border-bottom:1px solid var(--border);padding:5px 8px 5px 0;white-space:nowrap}
+  .ai-dots::after{content:'…'}
+  .ai-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-top:1px solid var(--border)}
+  .ai-chips button{font-family:inherit;font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--border);padding:5px 10px;cursor:pointer}
+  #ai-form{display:flex;border-top:1px solid var(--rule)}
+  #ai-input{flex:1;min-width:0;font-family:inherit;font-size:15px;padding:13px 15px;border:0;background:var(--paper);color:var(--ink);outline:none}
+  #ai-send{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;background:var(--red);color:#fff;border:0;padding:0 20px;cursor:pointer}
+  @media (max-width:640px){ .teaser{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div id="pai-nav-host"></div>
+<div class="wrap">
+  <div class="ph">
+    <div><div class="eyebrow" id="today">—</div><h1 class="hello" id="hello">გამარჯობა</h1></div>
+    <div class="side"><span id="upd">ფასები იტვირთება…</span><br><button class="btn link" id="refresh" type="button">↻ განახლება</button></div>
+  </div>
+
+  <div id="warn"></div>
+  <div id="empty" class="empty hidden">
+    <h3>შენი პორტფელი ჯერ ცარიელია</h3>
+    <p class="note">ჩააგდე ბროკერის სქრინშოტი — AI თვითონ ამოიკითხავს და დაამატებს. ან შეიყვანე ხელით.</p>
+    <a class="btn primary" href="editor.html">→ პორტფელის რედაქტორი</a>
+  </div>
+
+  <div id="main">
+    <div class="kpis" id="kpis"></div>
+
+    <h2 class="sec">წიგნები <small id="books-sub"></small><a href="editor.html#books">+ ბროკერის დამატება</a></h2>
+    <div class="grid g3" id="books"></div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card top"><div class="donut-wrap"><div id="donut1"></div><div class="legend" id="leg1"></div></div></div>
+      <div class="card top"><div class="donut-wrap"><div id="donut2"></div><div class="legend" id="leg2"></div></div></div>
+    </div>
+
+    <h2 class="sec">პოზიციები <span id="filter-host"></span><small id="pos-sub"></small></h2>
+    <div class="tw"><table class="t" id="holdings"></table></div>
+
+    <h2 class="sec">ბოლო ოპერაციები <a href="editor.html#tx">ყველა →</a></h2>
+    <div class="tw"><table class="t" id="recent"></table></div>
+
+    <h2 class="sec">თვის გაზეთი</h2>
+    <a class="teaser" href="paper.html" style="text-decoration:none;color:inherit">
+      <div class="big">№<span id="issue-no">01</span></div>
+      <div><h3 id="teaser-h">შენი თვის გამოცემა მზადაა</h3><p id="teaser-p">შედეგი, ლიდერები, საკომისიოები, დივიდენდები და თვის გაკვეთილი — ერთ გვერდზე.</p></div>
+      <span class="btn sm">გახსნა →</span>
+    </a>
+
+    <h2 class="sec" id="assistant">AI ასისტენტი <small>ჰკითხე ქართულად შენს პორტფელზე</small></h2>
+    <div id="ai-mode"></div>
+    <div class="ai-box">
+      <div id="ai-log" aria-live="polite"></div>
+      <div class="ai-chips">
+        <button type="button" data-ask="რამდენია მთლიანი პორტფელი?">მთლიანი</button>
+        <button type="button" data-ask="საუკეთესო და ყველაზე ცუდი პოზიციები">ლიდერები</button>
+        <button type="button" data-ask="ბოლო ტრანზაქციები">ბოლო ოპერაციები</button>
+        <button type="button" data-ask="რამდენ დივიდენდს ველი წელიწადში?">დივიდენდები</button>
+        <button type="button" data-ask="რამდენი საკომისიო გადავიხადე?">საკომისიოები</button>
+        <button type="button" data-ask="განაწილება აქტივების მიხედვით">განაწილება</button>
+      </div>
+      <form id="ai-form" autocomplete="off"><input id="ai-input" maxlength="500" placeholder="მაგ. რამდენი ვიშოვე ამ თვეში?" aria-label="კითხვა"><button id="ai-send" type="submit">→</button></form>
+    </div>
+  </div>
+
+  <div class="foot">Portfolio AI · The Trading Paper · <a href="../ai.html">შესახებ</a> · <a href="../cabinet.html">The Trading Paper</a><br>ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script src="pai-config.js?v=20261007-1"></script>
+<script src="../js/portfolios.data.js?v=20261006-1"></script>
+<script src="../portfolio-data.js?v=20261002-4"></script>
+<script src="../js/dividends.data.js?v=20261002-4"></script>
+<script src="pai-core.js?v=20261007-1"></script>
+<script>
+(async function () {
+  var U = PAI.util, esc = U.esc;
+  var acc = await PAI.requireAuth();
+  PAI.ui.nav('index', acc);
+  var disp = acc.settings.currency || 'USD';
+  var ctx = { quotes: {}, rates: { USD: 1 }, display: disp, meta: {} };
+  var model = null, filter = null, firstRender = true;
+  var d = new Date();
+  document.getElementById('today').textContent = d.getDate() + ' ' + U.MONFULL[d.getMonth()] + ' ' + d.getFullYear();
+  document.getElementById('hello').textContent = 'გამარჯობა, ' + (String(acc.name || '').split(' ')[0] || 'მეგობარო');
+
+  function money(n, cur) { return U.money(n, cur || disp); }
+  function donut(el, segs) {
+    var tot = segs.reduce(function (s, x) { return s + Math.max(0, x.v); }, 0), R = 54, C = 2 * Math.PI * R, off = 0;
+    var svg = '<svg width="150" height="150" viewBox="0 0 150 150" role="img"><circle cx="75" cy="75" r="' + R + '" fill="none" stroke="var(--border)" stroke-width="22"/>';
+    segs.forEach(function (x) { if (x.v <= 0 || !tot) return; var len = x.v / tot * C; svg += '<circle cx="75" cy="75" r="' + R + '" fill="none" stroke="' + x.color + '" stroke-width="22" stroke-dasharray="' + len + ' ' + (C - len) + '" stroke-dashoffset="' + (-off) + '" transform="rotate(-90 75 75)"/>'; off += len; });
+    svg += '<text x="75" y="72" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="Noto Sans Georgian">' + esc(el.dataset.t || '') + '</text><text x="75" y="90" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)" font-family="ui-monospace,monospace">' + segs.filter(function (x) { return x.v > 0; }).length + '</text></svg>';
+    el.innerHTML = svg;
+  }
+  function legend(el, segs) {
+    var tot = segs.reduce(function (s, x) { return s + Math.max(0, x.v); }, 0);
+    el.innerHTML = segs.filter(function (x) { return x.v > 0; }).map(function (x) { return '<div><span><span class="dot" style="background:' + x.color + '"></span>' + esc(x.label) + '</span><span>' + (tot ? (x.v / tot * 100).toFixed(1) : '0') + '%</span></div>'; }).join('');
+  }
+
+  function render() {
+    model = PAI.compute(acc, ctx);
+    var T = model.totals, has = model.books.length && (model.rows.length || model.tx.length || T.deposited);
+    document.getElementById('empty').classList.toggle('hidden', !!has);
+    document.getElementById('main').classList.toggle('hidden', !has && !model.books.length);
+    document.getElementById('warn').innerHTML = model.warnings.map(function (w) { return '<div class="warn">' + esc(w) + '</div>'; }).join('');
+    document.getElementById('kpis').innerHTML = [
+      ['მთლიანი ღირებულება', money(T.value), model.books.length + ' წიგნი · ' + model.rows.length + ' პოზიცია'],
+      ['წმინდა ჩარიცხული', money(T.netInvested), 'ჩარ. ' + money(T.deposited) + ' · გატ. ' + money(T.withdrawn)],
+      ['წმინდა P/L', '<span class="' + U.cls(T.pnl) + '">' + U.smoney(T.pnl, disp) + '</span>', '<span class="' + U.cls(T.pnl) + '">' + U.pct(T.pnlPct) + '</span>'],
+      ['დღის ცვლილება', '<span class="' + U.cls(T.dayAbs) + '">' + U.smoney(T.dayAbs, disp) + '</span>', '<span class="' + U.cls(T.dayAbs) + '">' + U.pct(T.dayPct) + ' (1D)</span>'],
+      ['დივიდენდი / წელი', '<span class="pos">' + money(T.annualDiv) + '</span>', 'წმინდა · მიღებული ' + money(T.dividends)]
+    ].map(function (k) { return '<div class="kpi"><div class="l">' + k[0] + '</div><div class="v">' + k[1] + '</div><div class="n">' + k[2] + '</div></div>'; }).join('');
+
+    document.getElementById('books-sub').textContent = model.books.filter(function (b) { return !b.closed; }).length + ' აქტიური';
+    document.getElementById('books').innerHTML = model.books.map(function (b) {
+      return '<div class="book' + (b.closed ? ' closed' : '') + '" style="--c:' + b.color + '" data-book="' + esc(b.id) + '">' +
+        '<div class="bh"><span class="bn">' + esc(b.name) + '</span><span class="bb">' + esc(b.full) + ' · ' + b.currency + (b.closed ? ' · <span class="tag">დახურული</span>' : '') + '</span></div>' +
+        '<div class="bv">' + U.money(b.value, b.currency) + '</div>' +
+        '<div class="bs"><span class="' + U.cls(b.pnl) + '">' + U.smoney(b.pnl, b.currency) + ' (' + U.pct(b.pnlPct) + ')</span><span>ჩარ. ' + U.money(b.netInvested, b.currency) + '</span><span>' + b.rows.length + ' პოზ.</span>' + (Math.abs(b.cash) > 0.005 ? '<span>ნაღდი ' + U.money(b.cash, b.currency) + '</span>' : '') + '</div></div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('.book'), function (el) { el.onclick = function () { filter = el.dataset.book; renderHoldings(); document.getElementById('holdings').scrollIntoView({ behavior: 'smooth', block: 'center' }); }; });
+
+    var d1 = document.getElementById('donut1'); d1.dataset.t = 'წიგნები';
+    var segB = model.books.map(function (b) { return { v: model.conv(Math.max(0, b.value), b.currency), color: b.color, label: b.name }; });
+    donut(d1, segB); legend(document.getElementById('leg1'), segB);
+    var PAL = ['#b91c1c', '#0e7490', '#8b6914', '#166534', '#7c3aed', '#c2410c', '#1d4ed8', '#be185d', '#4d7c0f', '#0f766e'];
+    var top = model.rows.slice(0, 8), rest = model.rows.slice(8).reduce(function (s, r) { return s + r.valueD; }, 0);
+    var segA = top.map(function (r, i) { return { v: r.valueD, color: PAL[i % PAL.length], label: r.ticker }; }); if (rest > 0) segA.push({ v: rest, color: '#9ca3af', label: 'სხვა' });
+    var d2 = document.getElementById('donut2'); d2.dataset.t = 'აქტივები'; donut(d2, segA); legend(document.getElementById('leg2'), segA);
+
+    renderHoldings();
+    var rec = model.tx.slice(0, 8), bn = {}; model.books.forEach(function (b) { bn[b.id] = b; });
+    document.getElementById('recent').innerHTML = '<thead><tr><th>თარიღი</th><th>წიგნი</th><th>ოპერაცია</th><th class="num">თანხა</th></tr></thead><tbody>' + (rec.length ? rec.map(function (t) {
+      var b = bn[t.book] || {}, cur = b.currency || disp, amt = t.type === 'buy' ? -(t.shares * t.price + (+t.fee || 0)) : t.type === 'sell' ? (t.shares * t.price - (+t.fee || 0)) : t.type === 'withdraw' || t.type === 'fee' ? -t.amount : +t.amount;
+      var lbl = { buy: 'ყიდვა', sell: 'გაყიდვა', deposit: 'დეპოზიტი', withdraw: 'გატანა', dividend: 'დივიდენდი', fee: 'საკომისიო' }[t.type] || t.type;
+      return '<tr><td>' + U.gDate(t.date) + '</td><td><span class="dot" style="background:' + (b.color || '#999') + '"></span>' + esc(b.name || '') + '</td><td>' + lbl + (t.ticker ? ' <span class="tk">' + esc(t.ticker) + '</span>' : '') + (t.shares ? ' <span class="mut mono">' + U.shares(t.shares) + ' @ ' + U.money(t.price, cur) + '</span>' : '') + '</td><td class="num ' + U.cls(amt) + '">' + U.smoney(amt, cur) + '</td></tr>';
+    }).join('') : '<tr><td colspan="4" class="mut">ჯერ ოპერაციები არ არის</td></tr>') + '</tbody>';
+
+    var srcs = {}; model.rows.forEach(function (r) { var q = ctx.quotes[r.ticker]; srcs[r.manual ? 'manual' : q ? q.src : 'cost'] = 1; });
+    document.getElementById('upd').textContent = 'ფასები: ' + (srcs.live ? 'ცოცხალი' : srcs.snapshot ? 'სნეპშოტი' : 'საშუალო ფასით') + ' · ' + new Date().toTimeString().slice(0, 5) + (disp !== 'USD' ? ' · ' + disp : '');
+    var firstD = model.tx.reduce(function (m, t) { return t.date && (!m || t.date < m) ? t.date : m; }, null) || U.today();
+    document.getElementById('issue-no').textContent = String((d.getFullYear() - +firstD.slice(0, 4)) * 12 + (d.getMonth() + 1 - +firstD.slice(5, 7)) + 1).padStart(2, '0');
+    if (T.pnl != null) {
+      document.getElementById('teaser-h').textContent = U.MONFULL[d.getMonth()] + ': ' + (T.pnl >= 0 ? 'პორტფელი პლიუსშია' : 'პორტფელი ჯერ მინუსშია') + ' — ' + U.smoney(T.pnl, disp);
+    }
+    // assistant engine (live view of this model)
+    window.TP_AI_ENGINE = PAI.assistantEngine(acc, model, { transfers: acc.linkSite && window.MEPORTF ? window.MEPORTF.transfers : [] });
+  }
+  function renderHoldings() {
+    var rows = model.rows.filter(function (r) { return !filter || r.book === filter; });
+    var fb = model.books.filter(function (b) { return b.id === filter; })[0];
+    document.getElementById('filter-host').innerHTML = fb ? '<span class="filter" id="clear-filter">' + esc(fb.name) + ' ✕</span>' : '';
+    if (fb) document.getElementById('clear-filter').onclick = function () { filter = null; renderHoldings(); };
+    document.getElementById('pos-sub').textContent = rows.length + ' აქტივი';
+    document.getElementById('holdings').innerHTML = '<thead><tr><th>აქტივი</th><th>წიგნი</th><th class="num">რაოდენობა</th><th class="num">საშ. ფასი</th><th class="num">ფასი</th><th class="num">დღე</th><th class="num">ღირებულება</th><th class="num">P/L</th></tr></thead><tbody>' +
+      (rows.length ? rows.map(function (r) {
+        return '<tr><td><span class="tk">' + esc(r.ticker) + '</span> <span class="mut" style="font-size:11.5px">' + esc(String(r.name || '').slice(0, 28)) + '</span></td><td><span class="dot" style="background:' + r.color + '"></span>' + esc(r.bookName) + '</td>' +
+          '<td class="num">' + U.shares(r.shares) + '</td><td class="num">' + U.money(r.avgBuy, r.cur) + '</td><td class="num">' + U.money(r.price, r.cur) + (r.manual ? '<span class="src">ხელით</span>' : r.live ? '' : '<span class="src">საშ.</span>') + '</td>' +
+          '<td class="num ' + (r.day == null ? 'mut' : U.cls(r.day)) + '">' + (r.day == null ? '—' : U.pct(r.day)) + '</td><td class="num"><b>' + U.money(r.value, r.cur) + '</b></td>' +
+          '<td class="num ' + U.cls(r.pl) + '">' + U.smoney(r.pl, r.cur) + '<br><span style="font-size:11px">' + U.pct(r.plPct) + '</span></td></tr>';
+      }).join('') : '<tr><td colspan="8" class="mut">პოზიციები არ არის</td></tr>') + '</tbody>';
+  }
+
+  async function loadPrices(force) {
+    if (force) { try { localStorage.removeItem('pai.cache.quotes'); } catch (e) {} }
+    var tickers = PAI.compute(acc, ctx).rows.map(function (r) { return r.ticker; });
+    ctx.quotes = await PAI.market.quotes(tickers);
+    render();
+  }
+  async function loadMeta() {
+    // names + dividend yields for user-added tickers (cached daily)
+    var need = model.rows.filter(function (r) { return !r.divYield && !ctx.meta[r.ticker]; }).slice(0, 12);
+    for (var i = 0; i < need.length; i++) ctx.meta[need[i].ticker] = await PAI.market.meta(need[i].ticker);
+    if (need.length) render();
+  }
+
+  render();
+  ctx.rates = await PAI.market.fx(); render();
+  if (PAI.gemini.key()) {
+    window.TP_AI_LLM = function (history, context) {
+      var sys = 'შენ ხარ Portfolio AI — მომხმარებლის პირადი ფინანსური ასისტენტი. უპასუხე ქართულად (ინგლისურ კითხვაზე — ინგლისურად), მოკლედ და ზუსტად, მხოლოდ ქვემოთ მოცემული მონაცემებით. რიცხვები არ მოიგონო. ყიდვა/გაყიდვაზე რჩევას არ იძლევი — აღწერ ფაქტებს. ზარალს არ მალავ.\n\nDATA:\n' + context;
+      var convo = history.map(function (m) { return (m.role === 'user' ? 'მომხმარებელი: ' : 'ასისტენტი: ') + m.content; }).join('\n');
+      return PAI.gemini.generate([{ text: convo + '\nასისტენტი:' }], { system: sys, temperature: 0.3, maxTokens: 900 });
+    };
+  }
+  document.getElementById('refresh').onclick = function () { document.getElementById('upd').textContent = 'ფასები იტვირთება…'; loadPrices(true); };
+  await loadPrices(false);
+  PAI.loadScript('../js/paper-ai.js?v=20261007-3');
+  loadMeta();
+  setInterval(function () { if (document.visibilityState === 'visible') loadPrices(false); }, 120000);
+  if (location.hash === '#assistant') setTimeout(function () { document.getElementById('assistant').scrollIntoView(); }, 600);
+})();
+</script>
+</body>
+</html>

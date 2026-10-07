@@ -17,13 +17,17 @@
   var M = window.MEPORTF || {};
   var BOOKS = ['bog', 'tbc', 'galt'];
   var BOOKFULL = { bog: 'BOG · Bank of Georgia', tbc: 'TBC Capital', galt: 'Galt & Taggart' };
+  // Portfolio AI app plugs any user's portfolio in through window.TP_AI_ENGINE (see app/pai-core.js)
+  function E() { return window.TP_AI_ENGINE || null; }
+  function MM() { return E() ? E().meta() : M; }
+  function bname(k) { if (E()) { var n = E().bookNames()[k]; return n ? n[0] : k; } return String(k).toUpperCase(); }
   var KB = { prices: {}, pricesUpdated: null, issues: [], signals: null };
   var HISTORY = [];               // [{role, content}] for Claude mode
   var REMOTE = null;              // endpoint URL when Claude mode is live
 
   // ---------- formatting ----------
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-  function usd(n) { var s = Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); return (n < 0 ? '−$' : '$') + s; }
+  function usd(n) { if (E()) return E().money(n); var s = Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); return (n < 0 ? '−$' : '$') + s; }
   function sUsd(n) { return (n >= 0 ? '+' : '−') + usd(Math.abs(n)); }
   function pct(n) { return (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2) + '%'; }
   function cls(n) { return n >= 0 ? 'pos' : 'neg'; }
@@ -32,8 +36,9 @@
   function shares(n) { return (+n).toFixed(8).replace(/0+$/, '').replace(/\.$/, ''); }
 
   // ---------- computations (same formulas as cabinet.html) ----------
-  function livePrice(t) { var q = KB.prices[t]; return q && q.price ? +q.price : null; }
+  function livePrice(t) { if (E()) return E().price(t); var q = KB.prices[t]; return q && q.price ? +q.price : null; }
   function holdingRows(bookKey) {
+    if (E()) return E().holdingRows(bookKey);
     var b = P[bookKey]; if (!b || !b.holdings) return [];
     return b.holdings.map(function (h) {
       var px = livePrice(h.ticker); var live = px != null;
@@ -45,8 +50,9 @@
         day: prev ? (px - prev) / prev * 100 : null, divYield: h.divYield || 0 };
     });
   }
-  function allRows() { var r = []; BOOKS.forEach(function (k) { r = r.concat(holdingRows(k)); }); return r; }
+  function allRows() { if (E()) return E().allRows(); var r = []; BOOKS.forEach(function (k) { r = r.concat(holdingRows(k)); }); return r; }
   function bookAgg(k) {
+    if (E()) return E().bookAgg(k);
     var p = P[k]; if (!p) return null;
     var dep = p.priorDeposits || 0, wd = 0, fees = 0, divs = 0;
     (p.transactions || []).forEach(function (t) {
@@ -64,6 +70,7 @@
       pnl: pnl, pnlPct: net > 0 ? pnl / net * 100 : 0, rows: rows, startDate: p.startDate };
   }
   function totals() {
+    if (E()) return E().totals();
     var dep = 0, wd = 0, val = 0, divs = 0;
     var books = BOOKS.map(bookAgg).filter(Boolean);
     books.forEach(function (b) { dep += b.deposits; wd += b.withdrawn; val += b.value; divs += b.dividends; });
@@ -71,6 +78,7 @@
     return { books: books, deposited: gross, withdrawn: wd, netInvested: net, value: val, pnl: pl, pnlPct: net > 0 ? pl / net * 100 : 0, dividends: divs };
   }
   function allTx() {
+    if (E()) return E().allTx();
     var out = [];
     BOOKS.forEach(function (k) { var p = P[k]; if (!p) return; (p.transactions || []).forEach(function (t, i) { out.push(Object.assign({ book: k, _i: i }, t)); }); });
     out.sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : a._i - b._i; });
@@ -78,6 +86,7 @@
   }
   // realized P/L per SELL — average cost incl. buy fees
   function realized() {
+    if (E()) return E().realized();
     var res = [];
     BOOKS.forEach(function (k) {
       var p = P[k]; if (!p) return;
@@ -98,7 +107,7 @@
     });
     return res;
   }
-  function divSummary() { try { return window.TP_DIVIDENDS ? window.TP_DIVIDENDS.getSummary() : null; } catch (e) { return null; } }
+  function divSummary() { if (E()) return E().dividends(); try { return window.TP_DIVIDENDS ? window.TP_DIVIDENDS.getSummary() : null; } catch (e) { return null; } }
 
   // ---------- known tickers ----------
   function knownTickers() {
@@ -160,6 +169,13 @@
   };
   function bookIn(q) {
     var out = [];
+    if (E()) {
+      var names = E().bookNames(), low = q.toLowerCase();
+      Object.keys(names).forEach(function (k) { var n = names[k]; if ((n[0] && n[0].length > 1 && low.indexOf(n[0].toLowerCase()) !== -1) || (n[1] && low.indexOf(n[1].toLowerCase()) !== -1)) out.push(k); });
+      if (/საქართველოს ბანკ|ბოგ/.test(low) && names.bog && out.indexOf('bog') === -1) out.push('bog');
+      if (/თიბისი/.test(low) && names.tbc && out.indexOf('tbc') === -1) out.push('tbc');
+      return out;
+    }
     if (/\bbog\b|საქართველოს ბანკ|ბოგ/i.test(q)) out.push('bog');
     if (/\btbc\b|თიბისი/i.test(q)) out.push('tbc');
     if (/\bgalt\b|გალტ|taggart/i.test(q)) out.push('galt');
@@ -172,6 +188,7 @@
       rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
   }
   function priceNote() {
+    if (E()) return '';
     return KB.pricesUpdated
       ? '<div class="ai-src">ფასები: ' + gDate(KB.pricesUpdated) + ' ' + String(KB.pricesUpdated).slice(11, 16) + ' UTC · ავტომატური სნეპშოტი</div>'
       : '<div class="ai-src">ცოცხალი ფასი ვერ ჩაიტვირთა — ნაჩვენებია ბოლო შენახული ღირებულება.</div>';
@@ -189,8 +206,9 @@
   function aBook(k) {
     var b = bookAgg(k); if (!b) return '';
     var h = '<p><b>' + esc(b.full) + '</b> — ' + esc(b.tagline || '') + '</p>';
+    if (b.closed && E() && !b.galt) return h + '<p>წიგნი <b>დახურულია</b>. ჩარიცხული ' + usd(b.deposits) + ', გატანილი ' + usd(b.withdrawn) + ' → შედეგი <b class="' + cls(b.pnl) + '">' + sUsd(b.pnl) + '</b>.</p>';
     if (b.closed) {
-      var g = M.galt || {};
+      var g = (E() ? b.galt : M.galt) || {};
       return h + '<p>წიგნი <b>დახურულია</b>. ჩარიცხული ' + usd(g.deposit || 0) + ', საკომისიო ' + usd(g.fees || 0) + ', BOG-ში დაბრუნდა ' + usd(g.withdrawnToBOG || 0) +
         ' → წმინდა შედეგი <b class="neg">' + usd(g.net || 0) + '</b>. ზარალი სრულად ჩანს — ესაა გაკვეთილი ბერკეტზე.</p>';
     }
@@ -209,13 +227,13 @@
     if (t.type === 'fee') return 'საკომისიო ' + usd(t.amount);
     return esc(t.type);
   }
-  function txRow(t) { return [gDate(t.date), t.book.toUpperCase(), txLabel(t)]; }
+  function txRow(t) { return [gDate(t.date), bname(t.book), txLabel(t)]; }
   function aTicker(t) {
     var rows = allRows().filter(function (r) { return r.ticker === t; });
     var tx = allTx().filter(function (x) { return x.ticker === t; });
     var h = '';
     rows.forEach(function (r) {
-      h += '<p><b>' + t + '</b> · ' + esc(r.name) + ' · <span class="mut">' + r.book.toUpperCase() + '</span></p>' +
+      h += '<p><b>' + t + '</b> · ' + esc(r.name) + ' · <span class="mut">' + bname(r.book) + '</span></p>' +
         tbl(['', ''], [
           ['აქციები', shares(r.shares)], ['საშუალო ფასი', usd(r.avgBuy)], ['ჩადებული', usd(r.invested)],
           ['ფასი ახლა', usd(r.price) + (r.day != null ? ' <span class="' + cls(r.day) + '">' + pct(r.day) + ' დღეს</span>' : '')],
@@ -246,7 +264,7 @@
   function aDiv() {
     var S = divSummary(), T = totals(), h = '';
     if (S) {
-      h += '<p>პროგნოზირებული წლიური დივიდენდი (წმინდა, 30% დაკავების შემდეგ): <b>' + usd(S.annualNet) + '</b> — თვეში საშუალოდ <b>' + usd(S.monthlyNetAvg) + '</b>.</p>';
+      h += '<p>პროგნოზირებული წლიური დივიდენდი (წმინდა, ' + ((S && S.taxPct != null) ? S.taxPct : 30) + '% დაკავების შემდეგ): <b>' + usd(S.annualNet) + '</b> — თვეში საშუალოდ <b>' + usd(S.monthlyNetAvg) + '</b>.</p>';
       var n = S.nextDividend;
       if (n) h += '<p>შემდეგი გადახდა: <b>' + esc(n.ticker) + '</b> · ' + gDate(n.payDate) + (n.netAmount != null ? ' · ≈ ' + usd(n.netAmount) : '') + (n.daysRemaining != null ? ' · ' + n.daysRemaining + ' დღეში' : '') + '.</p>';
     }
@@ -256,8 +274,8 @@
     return h + '<div class="ai-src">დეტალები: <a href="dividends.html">დივიდენდების გვერდი</a></div>';
   }
   function aFees() {
-    var rows = (M.feesByBook || []).map(function (f) { return [esc(f.book), usd(f.amount), '<span class="mut">' + esc(f.note || '') + '</span>']; });
-    return '<p>სულ გადახდილი საკომისიო: <b class="neg">' + usd(M.feesPaid || 0) + '</b>.</p>' + tbl(['წიგნი', 'თანხა', 'შენიშვნა'], rows) +
+    var rows = (MM().feesByBook || []).map(function (f) { return [esc(f.book), usd(f.amount), '<span class="mut">' + esc(f.note || '') + '</span>']; });
+    return '<p>სულ გადახდილი საკომისიო: <b class="neg">' + usd(MM().feesPaid || 0) + '</b>.</p>' + tbl(['წიგნი', 'თანხა', 'შენიშვნა'], rows) +
       '<div class="ai-src"><a href="commissions.html">საკომისიოების გვერდი</a></div>';
   }
   function aDep(books) {
@@ -265,7 +283,7 @@
     var tx = allTx().filter(function (t) { return (t.type === 'deposit' || t.type === 'withdraw') && (!books.length || books.indexOf(t.book) !== -1); }).slice(0, 8);
     var h = '<p>სულ ჩარიცხული <b>' + usd(T.deposited) + '</b>, გატანილი <b>' + usd(T.withdrawn) + '</b>, წმინდა <b>' + usd(T.netInvested) + '</b>. შიდა გადატანა (წიგნიდან წიგნში) ჯამს არ ცვლის.</p>';
     if (tx.length) h += tbl(['თარიღი', 'წიგნი', 'ოპერაცია'], tx.map(txRow));
-    if ((M.transfers || []).length) h += '<p class="mut">შიდა გადატანები: ' + M.transfers.slice(0, 4).map(function (x) { return esc(x.date) + ' ' + esc(x.from) + ' → ' + esc(x.to) + ' ' + usd(x.amount); }).join(' · ') + '</p>';
+    if ((MM().transfers || []).length) h += '<p class="mut">შიდა გადატანები: ' + MM().transfers.slice(0, 4).map(function (x) { return esc(x.date) + ' ' + esc(x.from) + ' → ' + esc(x.to) + ' ' + usd(x.amount); }).join(' · ') + '</p>';
     return h + '<div class="ai-src"><a href="history-bog.html">ჩარიცხვები & გატანები</a></div>';
   }
   function aBest() {
@@ -286,7 +304,7 @@
     var rows = allRows(), tot = rows.reduce(function (s, r) { return s + r.value; }, 0);
     rows.sort(function (a, b) { return b.value - a.value; });
     return '<p>ღია პოზიციები: <b>' + rows.length + '</b> აქტივი, სულ ' + usd(tot) + '.</p>' +
-      tbl(['აქტივი', 'წიგნი', 'ღირებულება', 'წილი'], rows.map(function (r) { return ['<b>' + r.ticker + '</b>', r.book.toUpperCase(), usd(r.value), (tot ? r.value / tot * 100 : 0).toFixed(1) + '%']; }));
+      tbl(['აქტივი', 'წიგნი', 'ღირებულება', 'წილი'], rows.map(function (r) { return ['<b>' + r.ticker + '</b>', bname(r.book), usd(r.value), (tot ? r.value / tot * 100 : 0).toFixed(1) + '%']; }));
   }
   function aIssues(q) {
     var m = q.match(/№\s*(\d{1,3})|(\d{1,3})/), list = KB.issues || [];
@@ -311,6 +329,11 @@
       tbc: '<b>TBC</b> — დივიდენდების წიგნი: BDC-ები, REIT, ETF-ები. დივიდენდი ითვლება წმინდად (−30%).',
       galt: '<b>GALT</b> — 2.5× ბერკეტიანი MSTR ვაჭრობა. დახურულია უვადოდ; სხვა წიგნიდან არ ივსება.'
     };
+    if (E()) {
+      var ks2 = books.length ? books : E().bookKeys();
+      return '<ul class="ai-ul">' + ks2.map(function (k) { var b = bookAgg(k); return b ? '<li><b>' + esc(b.name) + '</b> — ' + esc(b.full) + (b.tagline ? ' · ' + esc(b.tagline) : '') + '</li>' : ''; }).join('') + '</ul>' +
+        '<p class="mut">წესები, რომლითაც Portfolio AI ითვლის: შიდა გადატანა ჯამს არ ცვლის · ყველა საკომისიო აღირიცხება · ზარალი არასოდეს იმალება.</p>';
+    }
     var ks = books.length ? books : BOOKS;
     return '<ul class="ai-ul">' + ks.map(function (k) { return '<li>' + R[k] + '</li>'; }).join('') + '</ul>' +
       '<p class="mut">საერთო წესები: შიდა გადატანა ჯამს არ ცვლის · ყველა საკომისიო აღირიცხება · ზარალი არასოდეს იმალება.</p>' +
@@ -321,7 +344,7 @@
   }
   var EXAMPLES = ['რამდენია მთლიანი პორტფელი?', 'BOG-ის მდგომარეობა', 'SNDK როგორ არის?', 'რამდენ დივიდენდს ველი წელიწადში?', 'ბოლო ტრანზაქციები', 'საუკეთესო და ყველაზე ცუდი ვაჭრობა', 'რამდენი საკომისიო გადავიხადე?', 'გამოცემა №19', 'რა არის volatility decay?'];
   function aHelp() {
-    return '<p>მე ვარ <b>Portfolio AI</b> — ვკითხულობ ამ საიტის მონაცემებს და ვპასუხობ ქართულად. მკითხე, მაგალითად:</p><ul class="ai-ul">' +
+    return '<p>მე ვარ <b>Portfolio AI</b> — ვკითხულობ ' + (E() ? 'შენს პორტფელს' : 'ამ საიტის მონაცემებს') + ' და ვპასუხობ ქართულად. მკითხე, მაგალითად:</p><ul class="ai-ul">' +
       EXAMPLES.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
   }
 
@@ -358,20 +381,20 @@
   // ---------- compact context for Claude ----------
   function buildContext() {
     var T = totals(), L = [];
-    L.push('TOTAL: value ' + usd(T.value) + ', deposited ' + usd(T.deposited) + ', withdrawn ' + usd(T.withdrawn) + ', net invested ' + usd(T.netInvested) + ', P/L ' + sUsd(T.pnl) + ' (' + pct(T.pnlPct) + '), dividends received ' + usd(T.dividends) + ', fees paid ' + usd(M.feesPaid || 0));
+    L.push('TOTAL: value ' + usd(T.value) + ', deposited ' + usd(T.deposited) + ', withdrawn ' + usd(T.withdrawn) + ', net invested ' + usd(T.netInvested) + ', P/L ' + sUsd(T.pnl) + ' (' + pct(T.pnlPct) + '), dividends received ' + usd(T.dividends) + ', fees paid ' + usd(MM().feesPaid || 0));
     T.books.forEach(function (b) {
       L.push('BOOK ' + b.name + ' (' + b.full + ')' + (b.closed ? ' CLOSED' : '') + ': ' + (b.tagline || '') + '; value ' + usd(b.value) + ', net invested ' + usd(b.netInvested) + ', P/L ' + sUsd(b.pnl) + ' (' + pct(b.pnlPct) + '), cash ' + usd(b.cash));
       b.rows.forEach(function (r) { L.push('  ' + r.ticker + ' ' + r.name + ': ' + shares(r.shares) + ' sh, avg ' + usd(r.avgBuy) + ', invested ' + usd(r.invested) + ', price ' + usd(r.price) + (r.day != null ? ' (' + pct(r.day) + ' today)' : '') + ', value ' + usd(r.value) + ', P/L ' + sUsd(r.pl) + ' (' + pct(r.plPct) + ')' + (r.divYield ? ', div yield ' + r.divYield + '%' : '')); });
     });
-    if (M.galt) L.push('GALT closed book: deposit ' + usd(M.galt.deposit || 0) + ', fees ' + usd(M.galt.fees || 0) + ', returned to BOG ' + usd(M.galt.withdrawnToBOG || 0) + ', net ' + usd(M.galt.net || 0));
-    L.push('RECENT TRANSACTIONS:'); allTx().slice(0, 18).forEach(function (t) { L.push('  ' + t.date + ' ' + t.book.toUpperCase() + ' ' + txLabel(t)); });
-    var rz = realized(); if (rz.length) { L.push('REALIZED SELLS (avg cost incl. fees):'); rz.slice(-15).forEach(function (r) { L.push('  ' + r.date + ' ' + r.book.toUpperCase() + ' ' + r.ticker + ' ' + sUsd(r.pl) + ' (' + pct(r.plPct) + ')'); }); }
+    if (!E() && M.galt) L.push('GALT closed book: deposit ' + usd(M.galt.deposit || 0) + ', fees ' + usd(M.galt.fees || 0) + ', returned to BOG ' + usd(M.galt.withdrawnToBOG || 0) + ', net ' + usd(M.galt.net || 0));
+    L.push('RECENT TRANSACTIONS:'); allTx().slice(0, 18).forEach(function (t) { L.push('  ' + t.date + ' ' + bname(t.book) + ' ' + txLabel(t)); });
+    var rz = realized(); if (rz.length) { L.push('REALIZED SELLS (avg cost incl. fees):'); rz.slice(-15).forEach(function (r) { L.push('  ' + r.date + ' ' + bname(r.book) + ' ' + r.ticker + ' ' + sUsd(r.pl) + ' (' + pct(r.plPct) + ')'); }); }
     var S = divSummary(); if (S) L.push('DIVIDENDS: projected annual net ' + usd(S.annualNet) + ', monthly avg ' + usd(S.monthlyNetAvg) + (S.nextDividend ? ', next ' + S.nextDividend.ticker + ' on ' + S.nextDividend.payDate : '') + '. Georgian withholding 30%.');
-    L.push('FEES BY BOOK: ' + (M.feesByBook || []).map(function (f) { return f.book + ' ' + usd(f.amount); }).join(', '));
-    if ((M.transfers || []).length) L.push('INTERNAL TRANSFERS (do not change total deposited): ' + M.transfers.map(function (x) { return x.date + ' ' + x.from + '->' + x.to + ' ' + usd(x.amount); }).join('; '));
+    L.push('FEES BY BOOK: ' + (MM().feesByBook || []).map(function (f) { return f.book + ' ' + usd(f.amount); }).join(', '));
+    if ((MM().transfers || []).length) L.push('INTERNAL TRANSFERS (do not change total deposited): ' + MM().transfers.map(function (x) { return x.date + ' ' + x.from + '->' + x.to + ' ' + usd(x.amount); }).join('; '));
     if (KB.issues.length) { L.push('ISSUES:'); KB.issues.slice(0, 6).forEach(function (i) { L.push('  ' + i.title + ' (' + i.date + '): ' + i.desc); }); }
     if (KB.signals && KB.signals.results) L.push('SIGNAL BOT (paper only): ' + KB.signals.results.filter(function (r) { return r.ok; }).map(function (r) { return r.ticker + ' ' + r.signal + ' RSI ' + r.rsi; }).join(', '));
-    L.push('RULES: BOG long-term DCA $100-200/month, goal 35%/yr; TBC dividend book; GALT 2.5x margin MSTR, closed. Prices as of ' + (KB.pricesUpdated || 'n/a') + '.');
+    if (!E()) L.push('RULES: BOG long-term DCA $100-200/month, goal 35%/yr; TBC dividend book; GALT 2.5x margin MSTR, closed. Prices as of ' + (KB.pricesUpdated || 'n/a') + '.');
     return L.join('\n');
   }
 
@@ -405,6 +428,12 @@
     input.value = '';
     HISTORY.push({ role: 'user', content: q });
     if (!REMOTE) { setTimeout(function () { finish(localAnswer(q), null); }, 180); return; }
+    if (REMOTE === 'llm' && window.TP_AI_LLM) {
+      var w2 = bubble('bot', '<p class="mut ai-dots">ვფიქრობ</p>');
+      window.TP_AI_LLM(HISTORY.slice(-8), buildContext()).then(function (txt) { w2.remove(); finish(md(txt), txt); })
+        .catch(function () { w2.remove(); finish(localAnswer(q) + '<div class="ai-src">AI ახლა მიუწვდომელია — პასუხი ლოკალური ძრავიდანაა.</div>', null); });
+      return;
+    }
     var wait = bubble('bot', '<p class="mut ai-dots">ვფიქრობ</p>');
     fetch(REMOTE, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ messages: HISTORY.slice(-8), context: buildContext() }) })
       .then(function (r) { return r.json(); })
@@ -424,6 +453,7 @@
   }
   function setMode() {
     if (!modeEl) return;
+    if (REMOTE === 'llm') { modeEl.innerHTML = '<span class="ai-dot on"></span> Gemini ჩართულია · პასუხები შენს მონაცემებზე დაყრდნობით'; return; }
     modeEl.innerHTML = REMOTE
       ? '<span class="ai-dot on"></span> Claude ჩართულია · პასუხები საიტის მონაცემებზე დაყრდნობით'
       : '<span class="ai-dot"></span> ლოკალური ძრავა · პასუხები პირდაპირ საიტის მონაცემებიდან';
@@ -453,11 +483,17 @@
       getJSON(base + 'data/signals.json').then(function (d) { KB.signals = d; }).catch(function () {})
     ]).then(function () {
       var T = totals();
+      if (E()) {
+        bubble('bot', '<p>გამარჯობა' + (E().userName ? ', <b>' + esc(String(E().userName).split(' ')[0]) + '</b>' : '') + '! მე ვარ <b>Portfolio AI</b> — ვიცი შენი ყველა წიგნი, პოზიცია და ტრანზაქცია.</p>' +
+          '<p>ახლა: პორტფელი <b>' + usd(T.value) + '</b>, წმინდა შედეგი <b class="' + cls(T.pnl) + '">' + sUsd(T.pnl) + ' (' + pct(T.pnlPct) + ')</b>. რა გაინტერესებს?</p>');
+        return;
+      }
       bubble('bot', '<p>გამარჯობა — მე ვარ <b>Portfolio AI</b>. ეს დემოა: ვკითხულობ ლაშას რეალურ პორტფელს (BOG · TBC · GALT) — ყველა ტრანზაქციას, დივიდენდს, საკომისიოს და გამოცემას.</p>' +
         '<p>მოკლედ ახლა: პორტფელი <b>' + usd(T.value) + '</b>, წმინდა შედეგი <b class="' + cls(T.pnl) + '">' + sUsd(T.pnl) + ' (' + pct(T.pnlPct) + ')</b>. რა გაინტერესებს?</p>');
     });
 
     // Claude mode: same-origin on Cloudflare Pages, cross-origin from the GitHub mirror.
+    if (window.TP_AI_LLM) { REMOTE = 'llm'; setMode(); return; }
     var cfg = window.TP_AI_CONFIG || {}, cands = [];
     if (cfg.endpoint) cands.push(cfg.endpoint);
     if (/pages\.dev$/.test(location.hostname)) cands.push('/api/ai');
