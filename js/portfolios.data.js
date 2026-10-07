@@ -17,15 +17,17 @@ window.PORTFOLIOS = {
     holdings: [
       { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.29283333, avgBuy: 273.19, invested: 80.00, value: 80.00, color: '#2563eb', divYield: 0.00 },
       { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.09345445, avgBuy: 1712.06, invested: 160.00, value: 160.00, color: '#dc2626', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.19912480, avgBuy: 251.10, invested: 50.00, value: 50.00, color: '#16a34a', divYield: 0.00 },
-      { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.07011668, avgBuy: 285.24, invested: 20.00, value: 20.00, color: '#84cc16', divYield: 0.00 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.28192151, avgBuy: 249.36, invested: 70.30, value: 70.30, color: '#16a34a', divYield: 0.00 },
     ],
-    cash: 0.00, // 06 Oct 2026: deposit $50.00 -> buy SNDK ($50.00) -> net cash $0.00
+    cash: 0.00, // 07 Oct 2026: sell BE ($20.30) -> buy VRT ($20.30) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 997.66, // base deposits before the transaction log (old lost bank deposits $1,300.00 removed 05 Oct 2026)
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 07 ოქტ 2026 BOG: BE სრული გაყიდვა ($20.30) -> VRT ყიდვა ($20.30) · BOG app · 19:07 · net cash $0.00 ---
+      { date: '2026-10-07', type: 'buy',     ticker: 'VRT',  shares: 0.08279671, price: 245.1788, commission: 0 },
+      { date: '2026-10-07', type: 'sell',    ticker: 'BE',   shares: 0.07011668, price: 289.4812, commission: 0 },
       // --- 06 ოქტ 2026 BOG $50.00 deposit & 1 purchase (SNDK) · BOG app · 17:07 · net cash $0.00 ---
       { date: '2026-10-06', type: 'buy',     ticker: 'SNDK', shares: 0.02972724, price: 1681.9588, commission: 0 },
       { date: '2026-10-06', type: 'deposit', amount: 50.00, note: 'ახალი დეპოზიტი ($50.00)' },
