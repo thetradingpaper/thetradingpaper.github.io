@@ -17,24 +17,23 @@
   try { lang = localStorage.getItem('tp_lang') === 'en' ? 'en' : 'ka'; } catch (e) {}
 
   // ---- PRIMARY horizontal tabs -------------------------------------------
-  // Market · My Cabinet · Research Center
+  // Market · My Cabinet · Portfolio AI
   var TABS = [
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
     { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
-    { href: '/research.html',      label: lang === 'ka' ? 'კვლევა' : 'Research', re: /^\/(research|kvleva)/ },
-    { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/ai(\.html)?$/ }
+    { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
   // Shown as a red-underline sub-nav line when inside the Cabinet area
   // (dashboard + its tools). Replaced the old "კაბინეტი ▾" dropdown.
   var MENU = [
-    { href: '/goals.html',     label: lang === 'ka' ? 'მიზნები' : 'Goals' },
-    { href: '/notes.html',     label: lang === 'ka' ? 'ჩემი ჩანაწერები' : 'My Notes' },
-    { href: '/ledger.html',    label: lang === 'ka' ? 'ბიუჯეტი' : 'Ledger' },
-    { href: '/dividends.html', label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
-    { href: '/learning.html',  label: lang === 'ka' ? 'სწავლა' : 'Learning' },
-    { href: '/edit.html',      label: lang === 'ka' ? 'რედაქტირება' : 'Edit' }
+    { href: '/dividends.html',     label: lang === 'ka' ? 'დივიდენდები' : 'Dividends' },
+    { href: '/annual-income.html', label: lang === 'ka' ? 'წლიური შემოსავალი' : 'Annual income' },
+    { href: '/history-bog.html',   label: lang === 'ka' ? 'ჩარიცხვები' : 'Deposits' },
+    { href: '/commissions.html',   label: lang === 'ka' ? 'საკომისიოები' : 'Fees' },
+    { href: '/learning.html',      label: lang === 'ka' ? 'სწავლა' : 'Learning' },
+    { href: '/app/editor.html',    label: lang === 'ka' ? 'რედაქტორი' : 'Editor' }
   ];
 
   var path = location.pathname;
@@ -72,7 +71,7 @@
     && (filename === '' || filename === 'index.html' || filename === 'cabinet.html');
   // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
   var inCabArea = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
-    && (isCabinet || /^(goals|notes|ledger|annual-income|dividends|learning|edit)/.test(filename));
+    && (isCabinet || /^(annual-income|dividends|learning|history-bog|commissions|service-fee)/.test(filename));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
@@ -186,7 +185,7 @@
     +   '<a id="tp-theme-btn" style="cursor:pointer;" class="no-print" title="ბნელი / ნათელი თემა">' + (document.documentElement.getAttribute('data-theme')==='dark' ? '☀' : '☾') + '</a> &nbsp;·&nbsp; '
     +   '<a id="tp-lang-btn" style="cursor:pointer;font-weight:bold;margin-right:8px;" class="no-print">' + (lang === 'ka' ? 'EN' : 'KA') + '</a> &nbsp;·&nbsp; '
     +   '<a id="tp-print-btn" onclick="window.print()" style="cursor:pointer;font-weight:bold;margin-right:8px;color:var(--ink);" class="no-print" title="გვერდის ამობეჭდვა / PDF-ად შენახვა">🖨️ ' + (lang === 'ka' ? 'ამობეჭდვა' : 'Print') + '</a> &nbsp;·&nbsp; '
-    +   '<a href="' + resolveUrl('/tp-logout') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
+    +   '<a href="' + resolveUrl('/app/login.html?logout=1') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
     + '</div>'
     + '<div class="tpm-row">'
     +   '<div class="tpm-brand"><h1><a href="' + resolveUrl('/meportfolio/') + '">The Trading Paper</a></h1>'
