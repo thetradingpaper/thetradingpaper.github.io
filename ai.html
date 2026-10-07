@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Paper AI · ასისტენტი · The Trading Paper</title>
+<title>Portfolio AI · შენი ყველა პორტფელი ერთ გაზეთში · The Trading Paper</title>
+<meta name="description" content="Portfolio AI — აერთიანებს BOG, TBC Capital და Galt & Taggart პორტფელებს, ადევნებს თვალს, აჯამებს და ყოველთვიურად გიწერს შენს პირად ფინანსურ გაზეთს. 29.99 ₾ / თვე.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
 <script src="js/theme.js?v=20260725"></script>
@@ -14,29 +15,99 @@
   :root{
     --bg:#fffdf7; --paper:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b; --border:#e6e0d4; --rule:#1a1a1a;
     --red:#b91c1c; --red-bg:rgba(185,28,28,.06); --green:#166534; --green-bg:rgba(22,101,52,.08);
-    --gold:#8b6914; --gold-bg:rgba(139,105,20,.08);
+    --gold:#8b6914; --gold-bg:rgba(139,105,20,.08); --cream:#f6f1e4;
   }
   [data-theme="dark"]{
     --bg:#121315; --paper:#1a1c20; --ink:#e6e8ec; --muted:#9ea4b0; --border:#2d3139; --rule:#404652;
     --red:#ef4444; --red-bg:rgba(239,68,68,.10); --green:#22c55e; --green-bg:rgba(34,197,94,.12);
-    --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10);
+    --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10); --cream:#202227;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Georgian',sans-serif}
-  .wrap{max-width:860px;margin:0 auto;padding:20px 20px 64px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px 20px 64px}
   .mut{color:var(--muted)} .pos{color:var(--green)} .neg{color:var(--red)}
+  .serif{font-family:'Noto Serif Georgian',serif}
+  .mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+  a{color:inherit}
 
-  .cover{border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:22px 0 18px;margin:8px 0 18px}
+  /* ---------- hero ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:34px 0 30px;margin:8px 0 0}
   .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:800}
-  h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:36px;margin:6px 0 8px;letter-spacing:-.5px;line-height:1.1}
-  .lede{font-size:15px;color:var(--muted);max-width:680px;line-height:1.6;margin:0}
+  .hero h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:46px;line-height:1.08;margin:10px 0 14px;letter-spacing:-.5px}
+  .hero h1 em{font-style:normal;color:var(--red)}
+  .lede{font-size:16px;color:var(--muted);line-height:1.7;margin:0 0 22px;max-width:560px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-block;font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;letter-spacing:.5px;padding:13px 22px;text-decoration:none;border:2px solid var(--ink);cursor:pointer}
+  .btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn:hover{transform:translateY(-1px)}
+  .trust{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--muted)}
+  .trust span::before{content:'✓ ';color:var(--green);font-weight:800}
 
+  /* hero visual: mini newspaper */
+  .mini{background:var(--paper);border:1px solid var(--border);box-shadow:8px 8px 0 var(--cream);padding:18px 20px;transform:rotate(-1deg)}
+  .mini .mast{text-align:center;border-bottom:3px double var(--rule);padding-bottom:8px}
+  .mini .mast .t{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:22px}
+  .mini .mast .s{font-size:9.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px}
+  .mini .row{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);border-bottom:1px solid var(--rule);padding:5px 0;margin-bottom:10px}
+  .mini .head{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:17px;line-height:1.25;margin:0 0 8px}
+  .mini .kpis{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);margin:10px 0}
+  .mini .k{padding:8px 9px;border-right:1px solid var(--border)} .mini .k:last-child{border-right:0}
+  .mini .k .l{font-size:8.5px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;font-weight:700}
+  .mini .k .v{font-family:ui-monospace,monospace;font-weight:800;font-size:14px;margin-top:3px}
+  .mini .bars{display:flex;height:8px;margin:8px 0 4px}
+  .mini .leg{display:flex;gap:10px;font-size:10px;color:var(--muted)}
+  .mini .leg i{display:inline-block;width:8px;height:8px;margin-right:4px;vertical-align:middle}
+  .mini .col{columns:2;column-gap:14px;font-size:11px;line-height:1.55;margin-top:10px;color:var(--ink)}
+  .mini .tag{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:#fff;background:var(--red);padding:2px 6px;margin-bottom:6px}
+
+  /* ---------- sections ---------- */
+  section{margin-top:64px}
+  .sh{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:20px}
+  .sh .no{color:var(--red);font-size:12px;letter-spacing:2px;font-weight:800}
+  .sh h2{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:28px;margin:0}
+  .sub{font-size:14px;color:var(--muted);margin:-10px 0 22px;line-height:1.6;max-width:720px}
+
+  .brokers{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--border);background:var(--paper);margin-top:26px}
+  .brokers div{flex:1 1 160px;padding:14px 16px;border-right:1px solid var(--border);text-align:center}
+  .brokers div:last-child{border-right:0}
+  .brokers b{display:block;font-family:'Noto Serif Georgian',serif;font-size:16px}
+  .brokers span{font-size:11px;color:var(--muted)}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink);padding:18px 20px}
+  .card .ic{font-size:22px;line-height:1}
+  .card h3{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:17px;margin:10px 0 8px}
+  .card p{font-size:13.5px;line-height:1.65;margin:0;color:var(--ink)}
+  .card .soon{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--gold);margin-left:6px}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);background:var(--paper)}
+  .step{padding:22px 22px;border-right:1px solid var(--border)} .step:last-child{border-right:0}
+  .step .n{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:40px;color:var(--red);line-height:1}
+  .step h3{font-family:'Noto Serif Georgian',serif;font-size:17px;margin:10px 0 6px}
+  .step p{font-size:13.5px;line-height:1.65;margin:0;color:var(--muted)}
+
+  /* newspaper sample */
+  .paper{background:var(--paper);border:1px solid var(--border);padding:26px 30px}
+  .paper .pm{text-align:center;border-bottom:3px double var(--rule);padding-bottom:10px}
+  .paper .pm .t{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:34px}
+  .paper .pm .s{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .paper .pr{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--rule);padding:6px 0;margin-bottom:16px}
+  .paper .pcols{display:grid;grid-template-columns:2fr 1fr;gap:26px}
+  .paper h3{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:24px;line-height:1.2;margin:0 0 10px}
+  .paper p{font-size:14px;line-height:1.75;margin:0 0 10px}
+  .paper aside{border-left:1px solid var(--border);padding-left:20px}
+  .paper aside h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+  .paper aside li{font-size:13px;line-height:1.6;margin-bottom:6px}
+  .paper .stamp{display:inline-block;border:2px solid var(--red);color:var(--red);font-size:10px;letter-spacing:2px;font-weight:800;padding:3px 8px;transform:rotate(-3deg);margin-top:6px}
+
+  /* ---------- demo chat ---------- */
   #ai-mode{font-size:11.5px;color:var(--muted);letter-spacing:.3px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
   .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
   .ai-dot.on{background:var(--green)}
-
   .ai-box{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink)}
-  #ai-log{min-height:320px;max-height:62vh;overflow-y:auto;padding:18px 18px 6px}
+  #ai-log{min-height:300px;max-height:60vh;overflow-y:auto;padding:18px 18px 6px}
   .ai-msg{margin:0 0 16px;max-width:100%}
   .ai-who{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:4px}
   .ai-msg.bot .ai-who{color:var(--red)}
@@ -46,7 +117,6 @@
   .ai-msg.me .ai-body{display:inline-block;text-align:left;background:var(--bg);border:1px solid var(--border);padding:8px 12px;max-width:85%;font-weight:600}
   .ai-body p{margin:0 0 8px}
   .ai-body a{color:var(--red);font-weight:700;text-decoration:none}
-  .ai-body a:hover{text-decoration:underline}
   .ai-ul{margin:4px 0 10px;padding-left:20px} .ai-ul li{margin:0 0 5px}
   .ai-hr{border:0;border-top:1px dashed var(--border);margin:12px 0}
   .ai-src{font-size:11px;color:var(--muted);margin-top:6px}
@@ -55,64 +125,258 @@
   .ai-t{border-collapse:collapse;width:100%;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums;font-size:12px}
   .ai-t th{text-align:left;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding:5px 8px 5px 0;font-family:'Noto Sans Georgian',sans-serif}
   .ai-t td{border-bottom:1px solid var(--border);padding:5px 8px 5px 0;white-space:nowrap}
-  .ai-t th:empty{display:none}
   .ai-dots::after{content:'…';animation:blink 1s steps(3) infinite}
   @keyframes blink{50%{opacity:.2}}
-
   .ai-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 18px;border-top:1px solid var(--border)}
   .ai-chips button{font-family:inherit;font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--border);padding:5px 10px;cursor:pointer}
   .ai-chips button:hover{border-color:var(--red);color:var(--red)}
-  #ai-form{display:flex;gap:0;border-top:1px solid var(--rule)}
+  #ai-form{display:flex;border-top:1px solid var(--rule)}
   #ai-input{flex:1;min-width:0;font-family:inherit;font-size:15px;padding:14px 16px;border:0;background:var(--paper);color:var(--ink);outline:none}
   #ai-send{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;letter-spacing:1px;background:var(--red);color:#fff;border:0;padding:0 22px;cursor:pointer}
   #ai-send:disabled{opacity:.5;cursor:default}
 
-  .note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
-  .foot{text-align:center;font-size:11.5px;color:var(--muted);border-top:3px double var(--rule);margin-top:44px;padding-top:14px}
-  @media (max-width:600px){
-    h1{font-size:28px}
+  /* ---------- pricing ---------- */
+  .price{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);background:var(--paper)}
+  .price .l{padding:30px 32px;border-right:1px solid var(--border)}
+  .price .r{padding:30px 32px;background:var(--cream)}
+  .price .plan{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:800;color:var(--red)}
+  .price .amt{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:64px;line-height:1;margin:12px 0 4px}
+  .price .amt small{font-size:20px;color:var(--muted);font-weight:700}
+  .price .per{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .price ul{list-style:none;padding:0;margin:0}
+  .price li{font-size:14px;line-height:1.5;padding:7px 0;border-bottom:1px dashed var(--border)}
+  .price li::before{content:'✓';color:var(--green);font-weight:900;margin-right:10px}
+  .price .note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6}
+  .launch{display:inline-block;margin-top:14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--gold);border:1px dashed var(--gold);padding:5px 10px}
+
+  /* ---------- faq ---------- */
+  details{background:var(--paper);border:1px solid var(--border);margin-bottom:8px}
+  summary{cursor:pointer;padding:14px 18px;font-family:'Noto Serif Georgian',serif;font-weight:700;font-size:15px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';float:right;color:var(--red);font-weight:900}
+  details[open] summary::after{content:'−'}
+  details p{margin:0;padding:0 18px 16px;font-size:14px;line-height:1.7;color:var(--muted)}
+
+  .foot{text-align:center;font-size:11.5px;color:var(--muted);border-top:3px double var(--rule);margin-top:56px;padding-top:14px;line-height:1.7}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:28px}
+    .hero h1{font-size:34px}
+    .mini{transform:none}
+    .grid3,.steps{grid-template-columns:1fr}
+    .step{border-right:0;border-bottom:1px solid var(--border)} .step:last-child{border-bottom:0}
+    .paper{padding:20px}
+    .paper .pcols{grid-template-columns:1fr}
+    .paper aside{border-left:0;padding-left:0;border-top:1px solid var(--border);padding-top:14px}
+    .price{grid-template-columns:1fr}
+    .price .l{border-right:0;border-bottom:1px solid var(--border)}
+    .price .amt{font-size:52px}
+  }
+  @media (max-width:520px){
+    .wrap{padding:16px 16px 48px}
+    .hero h1{font-size:29px}
+    .sh h2{font-size:22px}
+    .mini .col{columns:1}
     #ai-log{max-height:58vh;padding:14px 12px 4px}
     .ai-chips{padding:10px 12px}
     #ai-send{padding:0 16px}
+    .price .l,.price .r{padding:22px 20px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="cover">
-    <div class="eyebrow">The Paper AI · ასისტენტი</div>
-    <h1>ჰკითხე გაზეთს</h1>
-    <p class="lede">ასისტენტი, რომელიც კითხულობს ამ საიტის მონაცემებს — სამივე წიგნს, ყველა ტრანზაქციას, დივიდენდებს, საკომისიოებს და გამოცემებს — და პასუხობს ქართულად. რიცხვებს არ იგონებს.</p>
-  </div>
-
-  <div id="ai-mode"></div>
-
-  <div class="ai-box">
-    <div id="ai-log" aria-live="polite"></div>
-    <div class="ai-chips">
-      <button type="button" data-ask="რამდენია მთლიანი პორტფელი?">მთლიანი პორტფელი</button>
-      <button type="button" data-ask="BOG-ის მდგომარეობა">BOG</button>
-      <button type="button" data-ask="TBC-ის მდგომარეობა">TBC</button>
-      <button type="button" data-ask="რამდენ დივიდენდს ველი წელიწადში?">დივიდენდები</button>
-      <button type="button" data-ask="ბოლო ტრანზაქციები">ბოლო ტრანზაქციები</button>
-      <button type="button" data-ask="საუკეთესო და ყველაზე ცუდი ვაჭრობა">ლიდერები / წამგებიანები</button>
-      <button type="button" data-ask="რამდენი საკომისიო გადავიხადე?">საკომისიოები</button>
-      <button type="button" data-ask="ბოლო გამოცემები">გამოცემები</button>
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Portfolio AI · The Trading Paper</div>
+      <h1>შენი ყველა პორტფელი.<br><em>ერთ გაზეთში.</em></h1>
+      <p class="lede">Portfolio AI აერთიანებს შენს ანგარიშებს BOG-ში, TBC Capital-სა და Galt &amp; Taggart-ში, ყოველდღე ადევნებს თვალს, გიჯამებს რა მოხდა და თვეში ერთხელ გიწერს <b>შენს პირად ფინანსურ გაზეთს</b> — ქართულად, ზუსტი ციფრებით.</p>
+      <div class="cta">
+        <a class="btn primary" href="#demo">სცადე ცოცხლად →</a>
+        <a class="btn ghost" href="#price">29.99 ₾ / თვე</a>
+      </div>
+      <div class="trust">
+        <span>ბანკის პაროლს არ ვითხოვთ</span>
+        <span>ზარალი არასოდეს იმალება</span>
+        <span>გაუქმება ნებისმიერ დროს</span>
+      </div>
     </div>
-    <form id="ai-form" autocomplete="off">
-      <input id="ai-input" type="text" maxlength="500" placeholder="დაწერე კითხვა… მაგ. SNDK როგორ არის?" aria-label="კითხვა">
-      <button id="ai-send" type="submit">კითხვა →</button>
-    </form>
+
+    <div class="mini" aria-hidden="true">
+      <div class="mast"><div class="t">შენი გაზეთი</div><div class="s">Portfolio AI · ყოველთვიური გამოცემა</div></div>
+      <div class="row"><span id="mini-date">ოქტომბერი 2026</span><span>გამოცემა №01</span></div>
+      <span class="tag">თვის მთავარი</span>
+      <div class="head">სამი წიგნი, ერთი სურათი: სად დგას შენი ფული ამ თვეს</div>
+      <div class="kpis">
+        <div class="k"><div class="l">ღირებულება</div><div class="v" id="mini-val">—</div></div>
+        <div class="k"><div class="l">წმინდა P/L</div><div class="v" id="mini-pl">—</div></div>
+        <div class="k"><div class="l">დივ. / წელი</div><div class="v pos" id="mini-div">—</div></div>
+      </div>
+      <div class="bars" id="mini-bars"></div>
+      <div class="leg" id="mini-leg"></div>
+      <div class="col">ყველაზე დიდი პოზიცია, თვის ლიდერი და ჩამორჩენილი, რამდენი დაგიჯდა საკომისიოებში და რა დივიდენდები მოდის შემდეგ თვეს — ყველაფერი ერთ გვერდზე, AI-ის მიერ დაწერილი შენთვის.</div>
+    </div>
   </div>
 
-  <p class="note">ასისტენტი მხოლოდ კითხულობს მონაცემებს და არაფერს ცვლის. ფასები მოდის საიტის საათობრივი სნეპშოტიდან. ეს არის ინფორმაცია და კვლევა — ყიდვა/გაყიდვაზე რჩევას არ იძლევა.</p>
+  <div class="brokers">
+    <div><b>BOG</b><span>Bank of Georgia</span></div>
+    <div><b>TBC Capital</b><span>აქციები · ETF</span></div>
+    <div><b>Galt &amp; Taggart</b><span>CFD · მარჟა</span></div>
+    <div><b>+ სხვა</b><span>ხელით ან სქრინშოტით</span></div>
+  </div>
 
-  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · The Paper AI · ეს არ არის ფინანსური რჩევა</div>
+  <!-- ============ FEATURES ============ -->
+  <section id="features">
+    <div class="sh"><span class="no">01</span><h2>რას აკეთებს</h2></div>
+    <div class="grid3">
+      <div class="card"><div class="ic">◎</div><h3>ყველა ანგარიში ერთად</h3><p>BOG, TBC და Galt &amp; Taggart ერთ დაფაზე: ჯამური ღირებულება, ჩარიცხული თანხა, წმინდა მოგება-ზარალი და წილი თითო წიგნში.</p></div>
+      <div class="card"><div class="ic">◷</div><h3>ცოცხალი თვალყური</h3><p>ფასები ახლდება ავტომატურად. ხედავ დღის ცვლილებას, თითო აქტივის P/L-ს და თითო გაყიდვის რეალიზებულ შედეგს — საკომისიოს ჩათვლით.</p></div>
+      <div class="card"><div class="ic">✎</div><h3>AI შეჯამება</h3><p>ჰკითხე ქართულად: „როგორ არის ჩემი პორტფელი?“, „რამდენი გადავიხადე საკომისიოში?“ — პასუხი შენი ციფრებიდან, არა მოგონილი.</p></div>
+      <div class="card"><div class="ic">❡</div><h3>ყოველთვიური გაზეთი <span class="soon">მალე</span></h3><p>თვის ბოლოს AI გიწერს გამოცემას: რა იყიდე, რა გაყიდე, რა იმუშავა, რა არა, და რა უნდა გახსოვდეს შემდეგ თვეს. PDF-ად შესანახი.</p></div>
+      <div class="card"><div class="ic">₾</div><h3>დივიდენდები და ხარჯები</h3><p>დივიდენდების კალენდარი წმინდად (საქართველოს 30%-იანი დაკავების შემდეგ) და ყველა საკომისიოს ჯამი — ზუსტად ხედავ, რა „ჭამს“ შენს უკუგებას.</p></div>
+      <div class="card"><div class="ic">◆</div><h3>სწავლის წიგნი</h3><p>შენი შეცდომები და წესები, გამოთვლილი შენივე ვაჭრობიდან: სად დაკარგე, რატომ, და რა წესი დაიცავს მომავალში.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ HOW ============ -->
+  <section id="how">
+    <div class="sh"><span class="no">02</span><h2>როგორ მუშაობს</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>შექმენი ანგარიში</h3><p>ელფოსტით, ერთ წუთში. შენი მონაცემები მხოლოდ შენ გეკუთვნის და მხოლოდ შენ ხედავ.</p></div>
+      <div class="step"><div class="n">2</div><h3>დაამატე ტრანზაქციები</h3><p>ატვირთე ბროკერის სქრინშოტი — AI ამოიკითხავს ტიკერს, რაოდენობას, ფასს და საკომისიოს. ან შეიყვანე ხელით.</p></div>
+      <div class="step"><div class="n">3</div><h3>მიიღე სურათი და გაზეთი</h3><p>დაფა ახლდება ავტომატურად, ასისტენტი ყოველთვის მზადაა, თვის ბოლოს კი შენი გამოცემა გელოდება.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ SAMPLE ISSUE ============ -->
+  <section id="sample">
+    <div class="sh"><span class="no">03</span><h2>ასე გამოიყურება შენი გამოცემა</h2></div>
+    <p class="sub">ნიმუში — დაწერილია ლაშას რეალური პორტფელის მიხედვით. შენი გაზეთი შენს ციფრებზე დაიწერება.</p>
+    <div class="paper">
+      <div class="pm"><div class="t">The Trading Paper</div><div class="s">პირადი გამოცემა · Portfolio AI</div></div>
+      <div class="pr"><span id="paper-date">ოქტომბერი 2026</span><span>გამოცემა №01</span><span>ვისბადენი · თბილისი</span></div>
+      <div class="pcols">
+        <div>
+          <h3 id="paper-head">თვის მიმოხილვა</h3>
+          <p id="paper-p1">—</p>
+          <p id="paper-p2">—</p>
+          <span class="stamp">AI · დაწერილია შენთვის</span>
+        </div>
+        <aside>
+          <h4>ამ ნომერში</h4>
+          <ul id="paper-list" style="padding-left:18px;margin:0"></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section id="demo">
+    <div class="sh"><span class="no">04</span><h2>სცადე ცოცხლად</h2></div>
+    <p class="sub">დემო მუშაობს ლაშას რეალურ, საჯარო პორტფელზე. დაწერე კითხვა ან აირჩიე ქვემოთ.</p>
+    <div id="ai-mode"></div>
+    <div class="ai-box">
+      <div id="ai-log" aria-live="polite"></div>
+      <div class="ai-chips">
+        <button type="button" data-ask="რამდენია მთლიანი პორტფელი?">მთლიანი პორტფელი</button>
+        <button type="button" data-ask="BOG-ის მდგომარეობა">BOG</button>
+        <button type="button" data-ask="TBC-ის მდგომარეობა">TBC</button>
+        <button type="button" data-ask="რამდენ დივიდენდს ველი წელიწადში?">დივიდენდები</button>
+        <button type="button" data-ask="ბოლო ტრანზაქციები">ბოლო ტრანზაქციები</button>
+        <button type="button" data-ask="საუკეთესო და ყველაზე ცუდი ვაჭრობა">ლიდერები / წამგებიანები</button>
+        <button type="button" data-ask="რამდენი საკომისიო გადავიხადე?">საკომისიოები</button>
+        <button type="button" data-ask="ბოლო გამოცემები">გამოცემები</button>
+      </div>
+      <form id="ai-form" autocomplete="off">
+        <input id="ai-input" type="text" maxlength="500" placeholder="დაწერე კითხვა… მაგ. SNDK როგორ არის?" aria-label="კითხვა">
+        <button id="ai-send" type="submit">კითხვა →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ PRICE ============ -->
+  <section id="price">
+    <div class="sh"><span class="no">05</span><h2>ფასი</h2></div>
+    <div class="price">
+      <div class="l">
+        <div class="plan">Portfolio AI · სრული</div>
+        <div class="amt">29.99 <small>₾</small></div>
+        <div class="per">თვეში · ერთი გეგმა, ყველაფერი შედის</div>
+        <a class="btn primary" href="#signup" id="signup">რეგისტრაცია იხსნება მალე</a>
+        <div><span class="launch">გაშვება — 2026 წლის ბოლომდე</span></div>
+        <p class="note">გადახდა ქართული ბარათით, ლარში. გაუქმება ნებისმიერ დროს, ერთი დაჭერით.</p>
+      </div>
+      <div class="r">
+        <ul>
+          <li>შეუზღუდავი პორტფელი და ანგარიში</li>
+          <li>BOG · TBC Capital · Galt &amp; Taggart ერთ დაფაზე</li>
+          <li>ცოცხალი ფასები და დღიური ცვლილება</li>
+          <li>AI ასისტენტი ქართულად — შეუზღუდავი კითხვა</li>
+          <li>სქრინშოტიდან ტრანზაქციის ამოკითხვა</li>
+          <li>ყოველთვიური პირადი გაზეთი (PDF)</li>
+          <li>დივიდენდების კალენდარი და საკომისიოების აღრიცხვა</li>
+          <li>სწავლის წიგნი — შენი შეცდომები და წესები</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="sh"><span class="no">06</span><h2>ხშირი კითხვები</h2></div>
+    <details><summary>ჩემს ბანკის ანგარიშს უკავშირდება?</summary><p>არა. ბანკის პაროლს ან წვდომას არასოდეს ვითხოვთ. ტრანზაქციებს შენ ამატებ — ხელით ან ბროკერის აპლიკაციის სქრინშოტით. Portfolio AI მხოლოდ კითხულობს და ითვლის.</p></details>
+    <details><summary>მეტყვის რა ვიყიდო ან გავყიდო?</summary><p>არა. Portfolio AI არის აღრიცხვის, ანალიზისა და სწავლის ინსტრუმენტი. ის გიჩვენებს ფაქტებს და გიხსნის რა ხდება, მაგრამ საინვესტიციო რჩევას არ იძლევა — გადაწყვეტილება ყოველთვის შენია.</p></details>
+    <details><summary>ვინ ხედავს ჩემს მონაცემებს?</summary><p>მხოლოდ შენ. თითოეულ მომხმარებელს აქვს საკუთარი, დახურული ანგარიში. მონაცემებს არ ვყიდით და არ ვაზიარებთ.</p></details>
+    <details><summary>როგორ იწერება ყოველთვიური გაზეთი?</summary><p>თვის ბოლოს AI იღებს შენი პორტფელის ციფრებს — ტრანზაქციებს, შედეგს, დივიდენდებს, საკომისიოებს — და წერს მოკლე, გაზეთის სტილის გამოცემას ქართულად. ყველა რიცხვი შენი მონაცემებიდან მოდის.</p></details>
+    <details><summary>შემიძლია გავაუქმო?</summary><p>კი, ნებისმიერ დროს, ერთი დაჭერით. მომდევნო თვიდან აღარ ჩამოგეჭრება.</p></details>
+  </section>
+
+  <div class="foot">© 2026 The Trading Paper · Portfolio AI · ლაშა ფხაკაძე<br>ეს არ არის ფინანსური რჩევა</div>
 </div>
 
 <script src="js/masthead.js"></script>
 <script src="js/clocks.js"></script>
-<script src="js/paper-ai.js?v=20261007-1"></script>
+<script src="js/paper-ai.js?v=20261007-2"></script>
+<script>
+// Fill the hero mini-paper and the sample issue from the same live data the demo uses.
+(function () {
+  function usd(n){ var s=Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); return (n<0?'−$':'$')+s; }
+  function sgn(n){ return (n>=0?'+':'−')+usd(Math.abs(n)); }
+  var MON=['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  var d=new Date(), monthStr=MON[d.getMonth()]+' '+d.getFullYear();
+  ['mini-date','paper-date'].forEach(function(id){ var e=document.getElementById(id); if(e) e.textContent=monthStr; });
+  function fill(){
+    if(!window.TP_AI) return;
+    var T=window.TP_AI.totals(), div=null;
+    try{ div=window.TP_DIVIDENDS?window.TP_DIVIDENDS.getSummary():null; }catch(e){}
+    var set=function(id,h,c){ var e=document.getElementById(id); if(e){ e.textContent=h; if(c) e.className='v '+c; } };
+    set('mini-val',usd(T.value)); set('mini-pl',sgn(T.pnl),T.pnl>=0?'pos':'neg'); if(div) set('mini-div',usd(div.annualNet),'pos');
+    var COL={bog:'#b91c1c',tbc:'#1a1a1a',galt:'#8b6914'};
+    var live=T.books.filter(function(b){return b.value>0;});
+    document.getElementById('mini-bars').innerHTML=live.map(function(b){return '<div style="flex:'+b.value+';background:'+COL[b.key]+'"></div>';}).join('');
+    document.getElementById('mini-leg').innerHTML=live.map(function(b){return '<span><i style="background:'+COL[b.key]+'"></i>'+b.name+' '+(T.value?(b.value/T.value*100).toFixed(0):0)+'%</span>';}).join('');
+    // sample issue
+    var rows=[]; T.books.forEach(function(b){ rows=rows.concat(b.rows); });
+    rows.sort(function(a,b){return b.plPct-a.plPct;});
+    var top=rows[0], bot=rows[rows.length-1], big=rows.slice().sort(function(a,b){return b.value-a.value;})[0];
+    var tbc=T.books.filter(function(b){return b.key==='tbc';})[0], bog=T.books.filter(function(b){return b.key==='bog';})[0];
+    document.getElementById('paper-head').textContent = T.pnl>=0 ? 'პორტფელი პლიუსში — მაგრამ წიგნები სხვადასხვა ისტორიას ყვება' : 'ჯამი ჯერ მინუსშია — ერთი წიგნი იხდის მეორის ძველ ვალს';
+    document.getElementById('paper-p1').innerHTML = 'სამი წიგნის ჯამური ღირებულება ამ დღეებში <b>'+usd(T.value)+'</b>-ია, წმინდა ჩარიცხული — '+usd(T.netInvested)+'. ჯამური შედეგი: <b class="'+(T.pnl>=0?'pos':'neg')+'">'+sgn(T.pnl)+'</b>.' + (tbc&&bog ? ' TBC-ის დივიდენდების წიგნი '+sgn(tbc.pnl)+'-ზეა, BOG კი ჯერ კიდევ ძველ ზარალს ('+sgn(bog.pnl)+') იბრუნებს.' : '');
+    document.getElementById('paper-p2').innerHTML = (top?'თვის ლიდერი — <b>'+top.ticker+'</b> ('+(top.plPct>=0?'+':'')+top.plPct.toFixed(2)+'%), ':'')+(bot?'ყველაზე სუსტი — <b>'+bot.ticker+'</b> ('+bot.plPct.toFixed(2)+'%). ':'')+(big?'უდიდესი პოზიცია — '+big.ticker+', '+usd(big.value)+'. ':'')+(div?'წლიური წმინდა დივიდენდი პროგნოზით '+usd(div.annualNet)+' — თვეში დაახლოებით '+usd(div.monthlyNetAvg)+'.':'');
+    var M=window.MEPORTF||{};
+    document.getElementById('paper-list').innerHTML=[
+      'თვის შედეგი წიგნების მიხედვით',
+      'ლიდერები და ჩამორჩენილები',
+      'საკომისიოები: სულ '+usd(M.feesPaid||0),
+      div&&div.nextDividend?'შემდეგი დივიდენდი: '+div.nextDividend.ticker:'დივიდენდების კალენდარი',
+      'თვის გაკვეთილი და ერთი წესი'
+    ].map(function(x){return '<li>'+x+'</li>';}).join('');
+  }
+  // prices load async inside paper-ai.js — fill twice: now (stored values) and after prices arrive
+  fill(); setTimeout(fill,1500); setTimeout(fill,4000);
+})();
+</script>
 </body>
 </html>

@@ -321,7 +321,7 @@
   }
   var EXAMPLES = ['რამდენია მთლიანი პორტფელი?', 'BOG-ის მდგომარეობა', 'SNDK როგორ არის?', 'რამდენ დივიდენდს ველი წელიწადში?', 'ბოლო ტრანზაქციები', 'საუკეთესო და ყველაზე ცუდი ვაჭრობა', 'რამდენი საკომისიო გადავიხადე?', 'გამოცემა №19', 'რა არის volatility decay?'];
   function aHelp() {
-    return '<p>მე ვარ <b>The Paper AI</b> — ვკითხულობ ამ საიტის მონაცემებს და ვპასუხობ ქართულად. მკითხე, მაგალითად:</p><ul class="ai-ul">' +
+    return '<p>მე ვარ <b>Portfolio AI</b> — ვკითხულობ ამ საიტის მონაცემებს და ვპასუხობ ქართულად. მკითხე, მაგალითად:</p><ul class="ai-ul">' +
       EXAMPLES.map(function (s) { return '<li>' + s + '</li>'; }).join('') + '</ul>';
   }
 
@@ -393,7 +393,7 @@
   function bubble(role, html) {
     var d = document.createElement('div');
     d.className = 'ai-msg ' + (role === 'user' ? 'me' : 'bot');
-    d.innerHTML = '<div class="ai-who">' + (role === 'user' ? 'შენ' : 'The Paper AI') + '</div><div class="ai-body">' + html + '</div>';
+    d.innerHTML = '<div class="ai-who">' + (role === 'user' ? 'შენ' : 'Portfolio AI') + '</div><div class="ai-body">' + html + '</div>';
     log.appendChild(d);
     if (role !== 'user' || log.children.length > 1) d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     return d;
@@ -453,7 +453,7 @@
       getJSON(base + 'data/signals.json').then(function (d) { KB.signals = d; }).catch(function () {})
     ]).then(function () {
       var T = totals();
-      bubble('bot', '<p>გამარჯობა — მე ვარ <b>The Paper AI</b>, ამ გაზეთის ასისტენტი. ვიცი სამივე წიგნი, ყველა ტრანზაქცია, დივიდენდები, საკომისიოები და გამოცემები.</p>' +
+      bubble('bot', '<p>გამარჯობა — მე ვარ <b>Portfolio AI</b>. ეს დემოა: ვკითხულობ ლაშას რეალურ პორტფელს (BOG · TBC · GALT) — ყველა ტრანზაქციას, დივიდენდს, საკომისიოს და გამოცემას.</p>' +
         '<p>მოკლედ ახლა: პორტფელი <b>' + usd(T.value) + '</b>, წმინდა შედეგი <b class="' + cls(T.pnl) + '">' + sUsd(T.pnl) + ' (' + pct(T.pnlPct) + ')</b>. რა გაინტერესებს?</p>');
     });
 
