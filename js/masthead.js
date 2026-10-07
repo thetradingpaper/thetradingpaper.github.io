@@ -21,7 +21,8 @@
   var TABS = [
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
     { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
-    { href: '/research.html',      label: lang === 'ka' ? 'კვლევა' : 'Research', re: /^\/(research|kvleva)/ }
+    { href: '/research.html',      label: lang === 'ka' ? 'კვლევა' : 'Research', re: /^\/(research|kvleva)/ },
+    { href: '/ai.html',            label: lang === 'ka' ? 'AI ასისტენტი' : 'Paper AI', re: /^\/ai(\.html)?$/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------

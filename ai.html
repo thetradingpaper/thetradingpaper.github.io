@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paper AI · ასისტენტი · The Trading Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;600;700;800&family=Noto+Serif+Georgian:wght@700;900&display=swap" rel="stylesheet">
+<script src="js/theme.js?v=20260725"></script>
+<script src="js/portfolios.data.js?v=20261006-1"></script>
+<script src="portfolio-data.js?v=20261002-4"></script>
+<script src="js/dividends.data.js?v=20261002-4"></script>
+<style>
+  :root{
+    --bg:#fffdf7; --paper:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b; --border:#e6e0d4; --rule:#1a1a1a;
+    --red:#b91c1c; --red-bg:rgba(185,28,28,.06); --green:#166534; --green-bg:rgba(22,101,52,.08);
+    --gold:#8b6914; --gold-bg:rgba(139,105,20,.08);
+  }
+  [data-theme="dark"]{
+    --bg:#121315; --paper:#1a1c20; --ink:#e6e8ec; --muted:#9ea4b0; --border:#2d3139; --rule:#404652;
+    --red:#ef4444; --red-bg:rgba(239,68,68,.10); --green:#22c55e; --green-bg:rgba(34,197,94,.12);
+    --gold:#d4a72c; --gold-bg:rgba(212,167,44,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Georgian',sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:20px 20px 64px}
+  .mut{color:var(--muted)} .pos{color:var(--green)} .neg{color:var(--red)}
+
+  .cover{border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:22px 0 18px;margin:8px 0 18px}
+  .eyebrow{font-size:10.5px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:800}
+  h1{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:36px;margin:6px 0 8px;letter-spacing:-.5px;line-height:1.1}
+  .lede{font-size:15px;color:var(--muted);max-width:680px;line-height:1.6;margin:0}
+
+  #ai-mode{font-size:11.5px;color:var(--muted);letter-spacing:.3px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  .ai-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+  .ai-dot.on{background:var(--green)}
+
+  .ai-box{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink)}
+  #ai-log{min-height:320px;max-height:62vh;overflow-y:auto;padding:18px 18px 6px}
+  .ai-msg{margin:0 0 16px;max-width:100%}
+  .ai-who{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:4px}
+  .ai-msg.bot .ai-who{color:var(--red)}
+  .ai-body{font-size:14px;line-height:1.65}
+  .ai-msg.bot .ai-body{border-left:3px solid var(--red);padding:2px 0 2px 14px}
+  .ai-msg.me{text-align:right}
+  .ai-msg.me .ai-body{display:inline-block;text-align:left;background:var(--bg);border:1px solid var(--border);padding:8px 12px;max-width:85%;font-weight:600}
+  .ai-body p{margin:0 0 8px}
+  .ai-body a{color:var(--red);font-weight:700;text-decoration:none}
+  .ai-body a:hover{text-decoration:underline}
+  .ai-ul{margin:4px 0 10px;padding-left:20px} .ai-ul li{margin:0 0 5px}
+  .ai-hr{border:0;border-top:1px dashed var(--border);margin:12px 0}
+  .ai-src{font-size:11px;color:var(--muted);margin-top:6px}
+  .ai-warn{background:var(--gold-bg);border:1px dashed var(--gold);padding:8px 12px;font-size:13px}
+  .ai-tw{overflow-x:auto;margin:6px 0 8px}
+  .ai-t{border-collapse:collapse;width:100%;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums;font-size:12px}
+  .ai-t th{text-align:left;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);padding:5px 8px 5px 0;font-family:'Noto Sans Georgian',sans-serif}
+  .ai-t td{border-bottom:1px solid var(--border);padding:5px 8px 5px 0;white-space:nowrap}
+  .ai-t th:empty{display:none}
+  .ai-dots::after{content:'…';animation:blink 1s steps(3) infinite}
+  @keyframes blink{50%{opacity:.2}}
+
+  .ai-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 18px;border-top:1px solid var(--border)}
+  .ai-chips button{font-family:inherit;font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--border);padding:5px 10px;cursor:pointer}
+  .ai-chips button:hover{border-color:var(--red);color:var(--red)}
+  #ai-form{display:flex;gap:0;border-top:1px solid var(--rule)}
+  #ai-input{flex:1;min-width:0;font-family:inherit;font-size:15px;padding:14px 16px;border:0;background:var(--paper);color:var(--ink);outline:none}
+  #ai-send{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:14px;letter-spacing:1px;background:var(--red);color:#fff;border:0;padding:0 22px;cursor:pointer}
+  #ai-send:disabled{opacity:.5;cursor:default}
+
+  .note{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+  .foot{text-align:center;font-size:11.5px;color:var(--muted);border-top:3px double var(--rule);margin-top:44px;padding-top:14px}
+  @media (max-width:600px){
+    h1{font-size:28px}
+    #ai-log{max-height:58vh;padding:14px 12px 4px}
+    .ai-chips{padding:10px 12px}
+    #ai-send{padding:0 16px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cover">
+    <div class="eyebrow">The Paper AI · ასისტენტი</div>
+    <h1>ჰკითხე გაზეთს</h1>
+    <p class="lede">ასისტენტი, რომელიც კითხულობს ამ საიტის მონაცემებს — სამივე წიგნს, ყველა ტრანზაქციას, დივიდენდებს, საკომისიოებს და გამოცემებს — და პასუხობს ქართულად. რიცხვებს არ იგონებს.</p>
+  </div>
+
+  <div id="ai-mode"></div>
+
+  <div class="ai-box">
+    <div id="ai-log" aria-live="polite"></div>
+    <div class="ai-chips">
+      <button type="button" data-ask="რამდენია მთლიანი პორტფელი?">მთლიანი პორტფელი</button>
+      <button type="button" data-ask="BOG-ის მდგომარეობა">BOG</button>
+      <button type="button" data-ask="TBC-ის მდგომარეობა">TBC</button>
+      <button type="button" data-ask="რამდენ დივიდენდს ველი წელიწადში?">დივიდენდები</button>
+      <button type="button" data-ask="ბოლო ტრანზაქციები">ბოლო ტრანზაქციები</button>
+      <button type="button" data-ask="საუკეთესო და ყველაზე ცუდი ვაჭრობა">ლიდერები / წამგებიანები</button>
+      <button type="button" data-ask="რამდენი საკომისიო გადავიხადე?">საკომისიოები</button>
+      <button type="button" data-ask="ბოლო გამოცემები">გამოცემები</button>
+    </div>
+    <form id="ai-form" autocomplete="off">
+      <input id="ai-input" type="text" maxlength="500" placeholder="დაწერე კითხვა… მაგ. SNDK როგორ არის?" aria-label="კითხვა">
+      <button id="ai-send" type="submit">კითხვა →</button>
+    </form>
+  </div>
+
+  <p class="note">ასისტენტი მხოლოდ კითხულობს მონაცემებს და არაფერს ცვლის. ფასები მოდის საიტის საათობრივი სნეპშოტიდან. ეს არის ინფორმაცია და კვლევა — ყიდვა/გაყიდვაზე რჩევას არ იძლევა.</p>
+
+  <div class="foot">© 2026 The Trading Paper · ლაშა ფხაკაძე · The Paper AI · ეს არ არის ფინანსური რჩევა</div>
+</div>
+
+<script src="js/masthead.js"></script>
+<script src="js/clocks.js"></script>
+<script src="js/paper-ai.js?v=20261007-1"></script>
+</body>
+</html>
