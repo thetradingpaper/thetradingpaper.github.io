@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T15:00:25.610Z",
+  "updated": "2026-10-07T20:25:49.009Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -14,7 +14,7 @@
       "previousClose": 568.53
     },
     "VOO": {
-      "price": 711.76,
+      "price": 714.34,
       "previousClose": 716.2
     },
     "ASX": {
@@ -34,7 +34,7 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 242.15,
+      "price": 246.49,
       "previousClose": 253.14
     },
     "WMT": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 155.22,
+      "price": 153.37,
       "previousClose": 164.55
     },
     "CRDO": {
@@ -58,23 +58,23 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 18.425,
+      "price": 18.45,
       "previousClose": 18.64
     },
     "MAIN": {
-      "price": 53.645,
+      "price": 54.18,
       "previousClose": 54.77
     },
     "BXSL": {
-      "price": 23.365,
+      "price": 23.49,
       "previousClose": 23.52
     },
     "LYG": {
-      "price": 5.415,
+      "price": 5.4,
       "previousClose": 5.56
     },
     "SNDK": {
-      "price": 1710.64,
+      "price": 1692.42,
       "previousClose": 1660.46
     },
     "GOOG": {
@@ -114,15 +114,15 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 86.445,
+      "price": 85.82,
       "previousClose": 86.17
     },
     "DIVO": {
-      "price": 46.86,
+      "price": 46.98,
       "previousClose": 47.17
     },
     "QQQI": {
-      "price": 56.395,
+      "price": 56.61,
       "previousClose": 56.66
     },
     "MU": {
@@ -134,7 +134,7 @@
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 281.473,
+      "price": 284.68,
       "previousClose": 287.01
     },
     "QBTS": {
@@ -146,7 +146,7 @@
       "previousClose": 11.63
     },
     "BE": {
-      "price": 287.53,
+      "price": 291.29,
       "previousClose": 295.78
     },
     "SOXX": {
@@ -158,7 +158,7 @@
       "previousClose": 217.44
     },
     "O": {
-      "price": 54.145,
+      "price": 53.35,
       "previousClose": 54.25
     }
   }
