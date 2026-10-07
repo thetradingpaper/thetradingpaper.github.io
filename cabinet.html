@@ -771,14 +771,15 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
     .th-m-label{font-family:'Noto Serif Georgian',serif;font-weight:900;font-size:16px;margin-bottom:2px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
     .th-m-label em{font-weight:400;color:var(--muted);font-size:12px;font-style:italic;}
     .th-m-wrap{height:220px;position:relative;margin-top:8px;}
-    .th-belt{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
+    .th-belt{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);background:var(--paper);margin-top:18px;}
     .th-belt .cell{padding:14px 18px;border-right:1px solid var(--border);border-bottom:none;display:block;text-decoration:none;color:inherit;transition:background-color .15s;}
     .th-belt .cell:hover{background:rgba(0,0,0,0.02);}
     .th-belt .cell:last-child{border-right:none;}
     @media (max-width:1100px){
-      .th-belt{grid-template-columns:repeat(3,1fr);}
+      .th-belt{grid-template-columns:repeat(2,1fr);}
       .th-belt .cell{border-bottom:1px solid var(--border);}
-      .th-belt .cell:nth-child(3n){border-right:none;}
+      .th-belt .cell:nth-child(2n){border-right:none;}
+      .th-belt .cell:nth-last-child(-n+2){border-bottom:none;}
     }
     @media (max-width:650px){
       .th-belt{grid-template-columns:repeat(2,1fr);}
@@ -984,7 +985,6 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 
     <!-- Fees & Dividends belt -->
     <div class="th-belt">
-      <div class="cell" id="total-platform-fees"></div>
       <div class="cell" id="total-next-dividend"></div>
       <div class="cell" id="total-dividends-received"></div>
       <div class="cell" id="total-dividends-projected"></div>
@@ -1626,11 +1626,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
   // ----- Total withdrawn from investments (change spec §6) -----
   // Sum of every 'withdraw' transaction across all books since 09 Dec 2025.
   // (Internal book-to-book transfers are NOT withdrawals — they don't count.)
-  function renderPlatformFees(){
-    const est = D.marginFinancingEst || 0;
-    const el = document.getElementById('total-platform-fees');
-    if (el) el.innerHTML = '<div class="l">პლატფორმის მომსახურება <a href="service-fee.html" class="no-print" style="color:var(--red);text-decoration:none;font-weight:bold;">↗</a> · Service Fee</div><div class="v" style="color:var(--red)">'+fmtUSD(est)+'</div><div class="n">ბროკერებს ფიქსირებული გადასახადი არ აქვთ · დეტალები ↗</div>';
-  }
 
   // ----- Portfolio-wide dividend goal + received dividends (change spec §5) -----
   const DIV_TARGET = 100; // $100 / year — first milestone, whole portfolio
@@ -1883,7 +1878,6 @@ var fe=document.getElementById('me-fees');if(fe){var bd=(D.feesByBook||[]).map(f
       });
     }
     // fees + dividend goal repaint alongside the totals
-    renderPlatformFees();
     renderDividendGoal();
     const stamp = document.getElementById('total-live-stamp');
     if (stamp){ const n=new Date(); stamp.textContent = `● LIVE · ${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`; }
