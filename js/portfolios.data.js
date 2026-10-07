@@ -16,16 +16,19 @@ window.PORTFOLIOS = {
     annualGoalPct: 35,
     holdings: [
       { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.29283333, avgBuy: 273.19, invested: 80.00, value: 80.00, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.06372721, avgBuy: 1726.11, invested: 110.00, value: 110.00, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.09345445, avgBuy: 1712.06, invested: 160.00, value: 160.00, color: '#dc2626', divYield: 0.00 },
       { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.19912480, avgBuy: 251.10, invested: 50.00, value: 50.00, color: '#16a34a', divYield: 0.00 },
       { ticker: 'BE',   name: 'Bloom Energy Corp',            shares: 0.07011668, avgBuy: 285.24, invested: 20.00, value: 20.00, color: '#84cc16', divYield: 0.00 },
     ],
-    cash: 0.00, // 05 Oct 2026: deposit $110.00 -> buys SNDK ($60.00), MRVL ($50.00) -> net cash $0.00
+    cash: 0.00, // 06 Oct 2026: deposit $50.00 -> buy SNDK ($50.00) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 997.66, // base deposits before the transaction log (old lost bank deposits $1,300.00 removed 05 Oct 2026)
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 06 ოქტ 2026 BOG $50.00 deposit & 1 purchase (SNDK) · BOG app · 17:07 · net cash $0.00 ---
+      { date: '2026-10-06', type: 'buy',     ticker: 'SNDK', shares: 0.02972724, price: 1681.9588, commission: 0 },
+      { date: '2026-10-06', type: 'deposit', amount: 50.00, note: 'ახალი დეპოზიტი ($50.00)' },
       // --- 05 ოქტ 2026 BOG $110.00 deposit & 2 purchases (SNDK, MRVL) · BOG app · net cash $0.00 ---
       { date: '2026-10-05', type: 'buy',     ticker: 'MRVL', shares: 0.18276938, price: 273.5688, commission: 0 },
       { date: '2026-10-05', type: 'buy',     ticker: 'SNDK', shares: 0.03467128, price: 1730.5388, commission: 0 },
