@@ -299,8 +299,7 @@ window.PORTFOLIOS = {
       { ticker: 'BXSL', name: 'Blackstone Secured Lending Fund', shares: 17.24634077, avgBuy: 24.49, invested: 422.34, value: 427.54, color: '#7c3aed', divYield: 12.90 },
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 72.53436194, avgBuy: 5.91, invested: 428.36, value: 396.76, color: '#006a4d', divYield: 3.66 },
       { ticker: 'SMH', name: 'VanEck Semiconductor ETF', shares: 1.40512272, avgBuy: 619.16, invested: 870.00, value: 870.00, color: '#9333ea', divYield: 0.20 },
-      // VOO: 08 Oct 2026 sold 1.24321045 of 1.24346234 recorded sh — 0.00025189 sh residual kept until the TBC app confirms 0 (likely rounding on the 23 Jul buy)
-      { ticker: 'VOO', name: 'Vanguard S&P 500 ETF', shares: 0.00025189, avgBuy: 697.32, invested: 0.18, value: 0.18, color: '#2563eb', divYield: 1.30 },
+      // VOO fully sold 08 Oct 2026 (TBC app confirms 0). Log buys sum to 1.24346234 vs 1.24321045 sold — 0.00025189 sh rounding in an older entry (likely 23 Jul 0.515).
       { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.84535792, avgBuy: 86.96, invested: 247.44, value: 242.45, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 4.18961032, avgBuy: 48.12, invested: 201.59, value: 195.78, color: '#0284c7', divYield: 4.50 },
       { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 3.13557263, avgBuy: 55.89, invested: 175.25, value: 176.34, color: '#0d9488', divYield: 13.76 },
