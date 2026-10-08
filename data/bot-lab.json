@@ -372,6 +372,10 @@
     {
      "date": "2026-10-07",
      "equity": 80.77
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 80.77
     }
    ],
    "stats": {
@@ -1031,6 +1035,10 @@
     {
      "date": "2026-10-07",
      "equity": 45.54
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 45.54
     }
    ],
    "stats": {
@@ -1055,7 +1063,7 @@
      "target": 69.61,
      "stop": 57.0,
      "max_days": 40,
-     "last_price": 61.28
+     "last_price": 61.2
     },
     {
      "ticker": "RCL",
@@ -1065,7 +1073,7 @@
      "target": 300.62,
      "stop": 253.37,
      "max_days": 40,
-     "last_price": 288.21
+     "last_price": 280.58
     }
    ],
    "trades": [
@@ -1190,7 +1198,7 @@
      "leverage": 1
     }
    ],
-   "equity": 50.62,
+   "equity": 50.11,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -1451,13 +1459,17 @@
     {
      "date": "2026-10-07",
      "equity": 50.62
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 50.11
     }
    ],
    "stats": {
     "trades": 12,
     "wins": 1,
     "win_rate": 8.3,
-    "return_pct": -49.38
+    "return_pct": -49.89
    }
   },
   "bot4": {
@@ -1850,6 +1862,10 @@
     {
      "date": "2026-10-07",
      "equity": 76.94
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 76.94
     }
    ],
    "stats": {
@@ -1877,7 +1893,7 @@
      "leverage": 2.5,
      "own_equity": 550.5043308982615,
      "borrowed": 825.76,
-     "last_price": 41.62
+     "last_price": 40.56
     }
    ],
    "trades": [
@@ -1942,7 +1958,7 @@
      "leverage": 2.5
     }
    ],
-   "equity": 605.49,
+   "equity": 568.69,
    "equity_history": [
     {
      "date": "2026-06-12",
@@ -2203,15 +2219,19 @@
     {
      "date": "2026-10-07",
      "equity": 605.49
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 568.69
     }
    ],
    "stats": {
     "trades": 6,
     "wins": 2,
     "win_rate": 33.3,
-    "return_pct": -39.45
+    "return_pct": -43.13
    }
   }
  },
- "updated": "2026-10-07T19:35:59.069043+00:00"
+ "updated": "2026-10-08T19:31:42.369462+00:00"
 }
