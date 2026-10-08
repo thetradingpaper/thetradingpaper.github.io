@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trading Paper — გამოცემა №21</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;800;900&family=Noto+Sans+Georgian:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fffdf7;
+    --bg: #f4f1ea;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #d9d4c8;
+    --rule: #1a1a1a;
+    --red: #b91c1c;
+    --green: #166534;
+    --blue: #1d4ed8;
+    --gold: #8b6914;
+    --card-bg: #ffffff;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans Georgian', 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px 10px 60px;
+    line-height: 1.65;
+  }
+  .container {
+    max-width: 940px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-top: 4px double var(--rule);
+    border-bottom: 4px double var(--rule);
+    padding: 44px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  header.masthead {
+    text-align: center;
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 22px;
+    margin-bottom: 32px;
+  }
+  .masthead .top-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-size: 44px;
+    font-weight: 900;
+    margin: 0 0 8px;
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .masthead .sub-title {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 800;
+  }
+  .hero-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--green);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .hero-box h2 {
+    font-family: 'Noto Serif Georgian', serif;
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--ink);
+  }
+  .hero-box p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+  .grid-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 28px 0;
+  }
+  @media(max-width: 768px) {
+    .grid-stats { grid-template-columns: 1fr 1fr; }
+    .container { padding: 20px; }
+    .masthead h1 { font-size: 32px; }
+  }
+  @media(max-width: 480px) {
+    .grid-stats { grid-template-columns: 1fr; }
+  }
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-top: 3px solid var(--ink);
+    border-radius: 2px;
+  }
+  .stat-card .label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .stat-card .value {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 6px 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-card .value.pos { color: var(--green); }
+  .stat-card .value.neg { color: var(--red); }
+  .stat-card .sub {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  h2.sec-heading {
+    font-family: 'Noto Serif Georgian', serif;
+    font-size: 25px;
+    font-weight: 800;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  h2.sec-heading .sec-tag {
+    font-size: 12px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .data-table th, .data-table td {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .data-table th {
+    background: #eae6dd;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .data-table td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, monospace;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 800;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .badge.tbc { background: #1a1a1a; color: #fff; }
+  .badge.bog { background: #b91c1c; color: #fff; }
+  .badge.pos { background: #dcfce7; color: var(--green); }
+  .badge.div { background: #fef3c7; color: #92400e; }
+  .badge.growth { background: #e0e7ff; color: #3730a3; }
+
+  .callout-box {
+    background: rgba(22, 101, 52, 0.05);
+    border: 1px solid rgba(22, 101, 52, 0.2);
+    border-left: 4px solid var(--green);
+    padding: 18px 22px;
+    margin: 24px 0;
+    border-radius: 4px;
+  }
+  .callout-box h4 {
+    margin: 0 0 8px;
+    color: var(--green);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .5px;
+  }
+
+  .holding-profile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    margin-bottom: 22px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  }
+  .holding-profile-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #fbf9f4;
+    border-bottom: 1px solid var(--border);
+    border-top: 3px solid var(--ink);
+  }
+  .holding-profile-head.tbc { border-top-color: #1a1a1a; }
+  .holding-profile-head.bog { border-top-color: var(--red); }
+  .holding-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .holding-ticker {
+    font-family: ui-monospace, monospace;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: .5px;
+  }
+  .holding-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .holding-meta-pill {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .holding-body {
+    padding: 18px;
+  }
+  .holding-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: #f8f6f0;
+    padding: 12px 14px;
+    border-radius: 4px;
+    border: 1px solid #e7e2d6;
+    margin-bottom: 14px;
+    font-family: ui-monospace, monospace;
+  }
+  @media(max-width: 600px) {
+    .holding-grid-mini { grid-template-columns: 1fr 1fr; }
+  }
+  .holding-grid-mini .cell .c-label {
+    font-size: 9.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    letter-spacing: .5px;
+  }
+  .holding-grid-mini .cell .c-val {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-top: 2px;
+  }
+  .holding-grid-mini .cell .c-val.pos { color: var(--green); }
+  .holding-grid-mini .cell .c-val.neg { color: var(--red); }
+  .holding-grid-mini .cell .c-sub {
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .holding-thesis {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #2b2b2b;
+  }
+  .holding-thesis strong {
+    color: var(--ink);
+  }
+  .lesson-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    border-radius: 4px;
+  }
+  .lesson-card h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: var(--ink);
+    font-family: 'Noto Serif Georgian', serif;
+  }
+  .lesson-card p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #444;
+    line-height: 1.6;
+  }
+  footer.paper-footer {
+    border-top: 3px double var(--rule);
+    margin-top: 48px;
+    padding-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* №21 additions */
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-wrap .data-table { min-width: 560px; }
+  .data-table td.pos { color: var(--green); font-weight: 700; }
+  .data-table td.neg { color: var(--red); font-weight: 700; }
+  .data-table tr.ai td:first-child { border-left: 3px solid var(--red); }
+  .data-table tr.total td { background: #f3efe6; }
+  .badge.galt { background: #6b6b6b; color: #fff; }
+  .bar { height: 8px; background: #eee9dd; border-radius: 1px; }
+  .bar i { display: block; height: 100%; background: var(--ink); }
+  .bar i.ai { background: var(--red); }
+  .lede { font-size: 14px; color: var(--muted); margin-top: -10px; margin-bottom: 18px; }
+  .fine { font-size: 12px; color: var(--muted); margin: 10px 0 0; line-height: 1.55; }
+  .pull-quote {
+    font-family: 'Noto Serif Georgian', Georgia, serif;
+    font-size: 22px; font-weight: 800; line-height: 1.4;
+    text-align: center; margin: 26px 0 8px; padding: 18px 10px;
+    border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  }
+  @media(max-width: 480px) { .pull-quote { font-size: 18px; } }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff; padding: 0; }
+    .container { box-shadow: none; border: none; }
+    .lesson-card, .holding-profile, .callout-box, .data-table tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="masthead">
+    <div class="top-meta">
+      <span>გამოცემა №21 · როტაცია &amp; გაკვეთილები</span>
+      <span>08 ოქტომბერი, 2026</span>
+      <span>Wiesbaden / Georgia</span>
+    </div>
+    <h1>The Trading Paper</h1>
+    <div class="sub-title">VOO → SMH: დიდი როტაცია · 184 ტრანზაქციის აღსარება · 8 გაკვეთილი, რომელიც ფულით ვისწავლე</div>
+  </header>
+
+  <div class="hero-box">
+    <h2>6.5% არ მყოფნის. მაგრამ ჯერ ჩემს ციფრებს ვკითხე.</h2>
+    <p>
+      დღეს TBC-ში მთელი VOO გავყიდე — <strong>$885.02</strong> — და თითქმის ყველაფერი <strong>SMH-ში</strong> (VanEck Semiconductor ETF) ჩავდე: <strong>$870.00</strong>.
+      ნარჩენი $9.72 MAIN-ში წავიდა. BOG-ში ახალი $21.64 SNDK-ს დაემატა.
+      მიზეზი მარტივია: ანალიტიკოსები (Goldman Sachs) S&amp;P 500-ისგან მომდევნო ათწლეულში წელიწადში დაახლოებით <strong>6.5%</strong>-ს ელოდებიან. მე მეტი მინდა.
+      გეგმა: ზრდის აქტივიდან მოგება ავიღო და დივიდენდის გადამხდელებში გადავანაწილო.
+      მაგრამ სანამ ბაზრისგან მეტს მოვითხოვ, ეს გამოცემა საკუთარ თავს ეკითხება: <strong>რა მიჩვენა ჩემმა საკუთარმა ჟურნალმა?</strong>
+    </p>
+  </div>
+
+  <div class="grid-stats">
+    <div class="stat-card">
+      <div class="label">მთლიანი პორტფელი</div>
+      <div class="value">$3,312.74</div>
+      <div class="sub">BOG $324.58 + TBC $2,988.16 · 08 ოქტ</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">მთლიანი P/L</div>
+      <div class="value neg">−$99.09</div>
+      <div class="sub">−2.9% · წმინდა ჩადებული $3,411.83</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">AI / ნახევარგამტარები</div>
+      <div class="value">36.1%</div>
+      <div class="sub">იყო 9.2% · SMH + SNDK + MRVL + VRT</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">წლიური დივიდენდი (net)</div>
+      <div class="value">$115.46</div>
+      <div class="sub">იყო $120.52 · −$5.06/წელი როტაციის გამო</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <h2 class="sec-heading">
+    <span>1. 08 ოქტომბრის ტრანზაქციები</span>
+    <span class="sec-tag">Trade Log</span>
+  </h2>
+
+  <div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>წიგნი</th><th>ოპერაცია</th><th>ტიკერი</th><th>წილი</th><th>ფასი</th><th>თანხა</th><th>საკომისიო</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge tbc">TBC</span></td><td>გაყიდვა</td><td><strong>VOO</strong></td><td class="num">1.00000000</td><td class="num">$711.88</td><td class="num">$711.88</td><td class="num">$2.66</td></tr>
+      <tr><td><span class="badge tbc">TBC</span></td><td>გაყიდვა</td><td><strong>VOO</strong></td><td class="num">0.24321045</td><td class="num">$711.89</td><td class="num">$173.14</td><td class="num">—</td></tr>
+      <tr><td><span class="badge tbc">TBC</span></td><td>ყიდვა</td><td><strong>SMH</strong></td><td class="num">1.00000000</td><td class="num">$619.16</td><td class="num">$619.16</td><td class="num">$2.61</td></tr>
+      <tr><td><span class="badge tbc">TBC</span></td><td>ყიდვა</td><td><strong>SMH</strong></td><td class="num">0.40512272</td><td class="num">$619.17</td><td class="num">$250.84</td><td class="num">—</td></tr>
+      <tr><td><span class="badge tbc">TBC</span></td><td>ყიდვა</td><td><strong>MAIN</strong></td><td class="num">0.17987075</td><td class="num">$54.04</td><td class="num">$9.72</td><td class="num">$0.03</td></tr>
+      <tr><td><span class="badge bog">BOG</span></td><td>დეპოზიტი</td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num">$21.64</td><td class="num">—</td></tr>
+      <tr><td><span class="badge bog">BOG</span></td><td>ყიდვა</td><td><strong>SNDK</strong></td><td class="num">0.01307561</td><td class="num">$1,654.99</td><td class="num">$21.64</td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout-box">
+    <h4>ბალანსი იკვრება</h4>
+    <p style="margin:0;font-size:14px;line-height:1.7;color:#2d2d2d;">
+      VOO-ს რეალიზებული შედეგი: <strong>+$14.71 (+1.69%)</strong> ყველა საკომისიოს შემდეგ (საშუალო ფასი $697.91, საკომისიოების ჩათვლით).
+      გაყიდვა $885.02 − $2.66 = $882.36 → ყიდვები $872.61 + $9.75 = $882.36. <strong>ნაღდი ფული ორივე წიგნში: $0.00.</strong>
+      დღის საკომისიო: <strong>$5.30</strong>.
+    </p>
+    <p class="fine">შენიშვნა: ჟურნალში VOO 1.24346234 წილი ეწერა, გაიყიდა 1.24321045. სხვაობა — 0.00025189 წილი ($0.18) — დროებით რჩება, სანამ TBC აპლიკაციაში ნულს არ დავადასტურებ.</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 class="sec-heading">
+    <span>2. პორტფელის ახალი სურათი</span>
+    <span class="sec-tag">Allocation</span>
+  </h2>
+  <p class="lede">12 პოზიცია (+ VOO-ს $0.18 ნარჩენი). SMH ახლა ყველაზე დიდი აქტივია — მთელი პორტფელის მეოთხედზე მეტი. წითლად მონიშნულია AI/ნახევარგამტარების კლასტერი.</p>
+
+  <div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>ტიკერი</th><th>წიგნი</th><th>ღირებულება</th><th>წილი</th><th style="width:34%">განაწილება</th></tr>
+    </thead>
+    <tbody>
+      <tr class="ai"><td><strong>SMH</strong></td><td>TBC</td><td class="num">$870.00</td><td class="num">26.3%</td><td><div class="bar"><i class="ai" style="width:100%"></i></div></td></tr>
+      <tr><td><strong>MAIN</strong></td><td>TBC</td><td class="num">$425.96</td><td class="num">12.9%</td><td><div class="bar"><i style="width:49%"></i></div></td></tr>
+      <tr><td><strong>BXSL</strong></td><td>TBC</td><td class="num">$408.13</td><td class="num">12.3%</td><td><div class="bar"><i style="width:47%"></i></div></td></tr>
+      <tr><td><strong>LYG</strong></td><td>TBC</td><td class="num">$386.25</td><td class="num">11.7%</td><td><div class="bar"><i style="width:44%"></i></div></td></tr>
+      <tr><td><strong>KO</strong></td><td>TBC</td><td class="num">$247.50</td><td class="num">7.5%</td><td><div class="bar"><i style="width:28%"></i></div></td></tr>
+      <tr><td><strong>DIVO</strong></td><td>TBC</td><td class="num">$196.89</td><td class="num">5.9%</td><td><div class="bar"><i style="width:23%"></i></div></td></tr>
+      <tr><td><strong>O</strong></td><td>TBC</td><td class="num">$196.34</td><td class="num">5.9%</td><td><div class="bar"><i style="width:23%"></i></div></td></tr>
+      <tr><td><strong>QQQI</strong></td><td>TBC</td><td class="num">$176.94</td><td class="num">5.3%</td><td><div class="bar"><i style="width:20%"></i></div></td></tr>
+      <tr class="ai"><td><strong>SNDK</strong></td><td>BOG</td><td class="num">$174.43</td><td class="num">5.3%</td><td><div class="bar"><i class="ai" style="width:20%"></i></div></td></tr>
+      <tr class="ai"><td><strong>MRVL</strong></td><td>BOG</td><td class="num">$80.33</td><td class="num">2.4%</td><td><div class="bar"><i class="ai" style="width:9%"></i></div></td></tr>
+      <tr><td><strong>ARCC</strong></td><td>TBC</td><td class="num">$79.97</td><td class="num">2.4%</td><td><div class="bar"><i style="width:9%"></i></div></td></tr>
+      <tr class="ai"><td><strong>VRT</strong></td><td>BOG</td><td class="num">$69.82</td><td class="num">2.1%</td><td><div class="bar"><i class="ai" style="width:8%"></i></div></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="fine">ფასები: 08 ოქტ, ~17:00 (SMH — შესყიდვის ფასით $619.16). ცოცხალი ციფრები — კაბინეტში.</p>
+
+  <!-- SECTION 3 -->
+  <h2 class="sec-heading">
+    <span>3. სამი წიგნი, ერთი სიმართლე</span>
+    <span class="sec-tag">Reality Check</span>
+  </h2>
+  <p class="lede">ჩემი გეგმის ძრავა ტრეიდინგის მოგებაა. ამიტომ ჯერ ის გავზომე, რაც უკვე მოხდა.</p>
+
+  <div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>წიგნი</th><th>სტილი</th><th>წმინდა ჩადებული</th><th>ღირებულება</th><th>P/L</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge bog">BOG</span></td><td>აქტიური ტრეიდინგი</td><td class="num">$441.61</td><td class="num">$324.58</td><td class="num neg">−$117.03 (−26.5%)</td></tr>
+      <tr><td><span class="badge tbc">TBC</span></td><td>დივიდენდი + ინდექსი</td><td class="num">$2,891.59</td><td class="num">$2,988.16</td><td class="num pos">+$96.57 (+3.3%)</td></tr>
+      <tr><td><span class="badge galt">GALT</span></td><td>2.5× ბერკეტი · დახურული</td><td class="num">$78.63</td><td class="num">$0.00</td><td class="num neg">−$78.63 (−100%)</td></tr>
+      <tr class="total"><td colspan="2"><strong>სულ</strong></td><td class="num">$3,411.83</td><td class="num">$3,312.74</td><td class="num neg"><strong>−$99.09 (−2.9%)</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="pull-quote">ფული მხოლოდ იმ წიგნმა გააკეთა, რომელსაც ყველაზე ნაკლებად ვეხები.</div>
+
+  <!-- SECTION 4 -->
+  <h2 class="sec-heading">
+    <span>4. 8 გაკვეთილი, რომელიც ფულით ვისწავლე</span>
+    <span class="sec-tag">Lessons</span>
+  </h2>
+
+  <div class="lesson-card">
+    <h3>1. ერთმა ბერკეტიანმა ტრეიდმა ყველაფერი წაშალა</h3>
+    <p>
+      SMCZ (2X short SMCI), 11–12 აგვისტო: <strong>−$161.40</strong>. ერთი ღამე.
+      BOG-ის ყველა სხვა დახურული ტრეიდი ერთად: <strong>+$36.90</strong>. საუკეთესო ტრეიდი (SNDK): <strong>+$56.17</strong>.
+      (13 გაყიდვა, რომლის ყიდვის ფასი ჟურნალის დაწყებამდეა, არ ითვლება.) ერთმა შეცდომამ საუკეთესო ტრეიდი თითქმის სამჯერ გადაფარა. ბერკეტი ზარალს უფრო სწრაფად ამრავლებს, ვიდრე მოგებას. GALT-მა იგივე თქვა: −100%.
+      <strong>წესი: ბერკეტი = 0.</strong>
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>2. აქტიურობა ≠ პროგრესი</h3>
+    <p>
+      BOG: <strong>184 ტრანზაქცია, 36 სხვადასხვა ტიკერი, $9,117 ყიდვის ბრუნვა</strong> წიგნზე, რომლის წმინდა კაპიტალი $441.61-ია — თითქმის 21-ჯერადი ბრუნვა.
+      24 ივლისს — 35 ტრანზაქცია ერთ დღეში. შედეგი: −26.5%.
+      TBC: 73 ტრანზაქცია, 13 ტიკერი, +3.3%.
+      სადაც ყველაზე მეტს ვმოძრაობდი, იქ ყველაზე მეტი დავკარგე.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>3. საკომისიო — ჩუმი გადასახადი</h3>
+    <p>
+      ჯამში გადახდილი: <strong>$95.74</strong>. GALT-ზე $40 ოთხ ტრეიდზე — $290-იანი დეპოზიტის 13.8%.
+      დღევანდელმა ერთმა როტაციამ <strong>$5.30</strong> დაჯდა. ეს მეტია, ვიდრე $885-ზე S&amp;P 500-ის მოსალოდნელი <strong>ერთი თვის</strong> შემოსავალი (~$4.80, თუ 6.5%/წელი).
+      ყოველი გადაწყობა ჯერ საკომისიოს უნდა აჯობოს და მხოლოდ მერე — ბაზარს.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>4. იცოდე ზარალი დოლარებში, სანამ ის მოვა</h3>
+    <p>
+      SMH = 25 კომპანია. მარტო NVIDIA ~17.5%-ია, TSMC ~9.3%. ბაზრის ყოველ მოძრაობაზე SMH დაახლოებით ორმაგად რეაგირებს (ბეტა ~1.8–2.0).
+      2022-ში სექტორი დაახლოებით 45%-ით ჩამოვარდა, 2000–2002 წლებში — 80%-ზე მეტით.
+      ჩემს $870-ზე 2022-ის მსგავსი ვარდნა ≈ <strong>−$390</strong>. AI/ჩიპების წილი პორტფელში: <strong>9.2% → 36.1%</strong>.
+      თუ ამ ციფრს მშვიდად ვერ ვუყურებ, პოზიცია ძალიან დიდია. ეს უნდა ვიცოდე დღეს, და არა ვარდნის დღეს.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>5. როტაციას ფასი დივიდენდებშიც აქვს</h3>
+    <p>
+      VOO-ს შემოსავლიანობა ~1.3%-ია, SMH-ის ~0.2%. წლიური წმინდა დივიდენდი: <strong>$120.52 → $115.46</strong> (თვეში $10.04 → $9.62).
+      გეგმა „ტრეიდინგის მოგება → დივიდენდის გადამხდელები" მუშაობს მხოლოდ მაშინ, როცა მოგება <em>რეალურად</em> ჩამოდის MAIN-ში, BXSL-ში, O-ში.
+      SMH-ის მოგების გადატანას დაწერილი წესი სჭირდება — როდის და რამდენი. ჯერ არ დამიწერია. ეს შემდეგი ნაბიჯია.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>6. დაწერილი წესი vs. შესრულებული წესი</h3>
+    <p>
+      BOG-ის წესი: „არასდროს გავიტანო". რეალობა: BOG-დან ბარათზე <strong>$559.02</strong> გავიდა — ტანსაცმლისთვის $97.40, ანგარიშის დახურვისას $214.82, სექტემბრის ლიკვიდაციებში $237.36.
+      TBC-ის წესი: „წერილობითი თეზისი შესვლამდე". GALT-ის წესი: „ცალკე კაპიტალი".
+      წესი, რომელსაც ვარღვევ, წესი კი არა — სურვილია. ჟურნალი იმიტომ არსებობს, რომ სურვილს და წესს შორის სხვაობა დამანახოს.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>7. 6.5% მტერი არ არის — ეს ზოლია</h3>
+    <p>
+      Goldman Sachs-ის პროგნოზით S&amp;P 500 მომდევნო 10 წელს წელიწადში ~6.5%-ს მოიტანს — ათწლეულში დაახლოებით <strong>+88%</strong>.
+      ეს არის ზოლი, რომელიც ჩემმა ყოველმა გადაწყვეტილებამ საკომისიოს შემდეგ უნდა გადალახოს.
+      თუ ტრეიდინგი ამ ზოლს ვერ სცდება — ის ჰობია და არა სტრატეგია. საზომი ყოველთვიურია: <strong>ჩემი შედეგი vs. „რა იქნებოდა VOO-ში"</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-card">
+    <h3>8. ჭკუა არ კმარა — ჩვევაა</h3>
+    <p>
+      ბაზარი ჭკუას არ აჯილდოებს. აჯილდოებს დისციპლინას.
+      ჩემს ჟურნალში საუკეთესო შედეგი ყველაზე მოსაწყენ ჩვევას აქვს: თვიური შენატანი, დივიდენდის რეინვესტირება, ნაკლები შეხება.
+      დიდი გადაწყვეტილება ერთხელ მიიღება. ჩვევა — ყოველ დღე. ორი თვე საკმარისია, რომ ჩვევა შეიცვალოს.
+    </p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2 class="sec-heading">
+    <span>5. რას ვზომავ №22-მდე</span>
+    <span class="sec-tag">Scoreboard</span>
+  </h2>
+  <div class="callout-box">
+    <h4>ციფრები, რომლებიც ყოველ გამოცემაში დაიბეჭდება:</h4>
+    <ul style="margin:0; padding-left:20px; font-size:14px; line-height:1.7; color:#2d2d2d;">
+      <li><strong>სამი წიგნის P/L vs. VOO-ს ბენჩმარკი</strong> — იგივე თანხა, იგივე თარიღები.</li>
+      <li><strong>AI/ჩიპების წილი პორტფელში</strong> — დღეს 36.1%.</li>
+      <li><strong>SMH-ის შედეგი შესყიდვის ფასიდან ($619.16)</strong> და რამდენი გადავიდა დივიდენდებში.</li>
+      <li><strong>ბერკეტი:</strong> 0. <strong>გატანა BOG-დან:</strong> 0.</li>
+      <li><strong>ღია საკითხები:</strong> SMH-ის მოგების გადატანის წესი (დასაწერი) · VOO-ს ნარჩენი 0.00025189 (დასადასტურებელი).</li>
+    </ul>
+  </div>
+
+  <p class="fine">წყაროები: Goldman Sachs-ის 10-წლიანი პროგნოზი (2025 წლის ნოემბერი); VanEck SMH fact sheet (30.06.2026); Yahoo Finance; TBC Capital &amp; BOG ტრანზაქციების ამონაწერები; ჟურნალის მონაცემები — js/portfolios.data.js.</p>
+
+  <footer class="paper-footer">
+    <p>The Trading Paper · გამოცემა №21 · გამოქვეყნებულია 08 ოქტომბერი, 2026 · Wiesbaden / Georgia</p>
+    <p><em>ეს არის პირადი საინვესტიციო ჟურნალი და ანალიტიკური ჩანაწერი. ეს არ არის ფინანსური რჩევა.</em></p>
+  </footer>
+  <div class="no-print" style="text-align:center;margin-top:24px;">
+    <button onclick="window.print()" style="padding:10px 28px;background:var(--ink,#1a1a1a);color:#fff;border:none;font-size:13px;letter-spacing:2px;cursor:pointer;text-transform:uppercase;font-family:'Noto Sans Georgian',sans-serif;border-radius:4px;font-weight:700;">🖨️ ამობეჭდვა / Save as PDF</button>
+  </div>
+</div>
+
+<script src="/js/sitenav.js?v=20261007-1"></script>
+</body>
+</html>
