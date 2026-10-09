@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-10-09T23:09:28.418Z",
+  "opened": "2026-10-08T19:14:10.974Z",
+  "ticker": "PLTR",
+  "rule": "R2",
+  "entry": 197.12,
+  "exit": 209.05,
+  "exitType": "TARGET",
+  "pnl": 1.21,
+  "pnlPct": 6.05
+ },
+ {
   "closed": "2026-10-08T19:14:10.974Z",
   "opened": "2026-10-01T18:47:40.983Z",
   "ticker": "PLTR",

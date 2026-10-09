@@ -1,18 +1,18 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 80.61,
+ "cash": 81.82,
  "positions": [
   {
    "ticker": "PLTR",
-   "opened": "2026-10-08T19:14:10.974Z",
+   "opened": "2026-10-09T23:09:28.418Z",
    "rule": "R2",
-   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $194.78 · მოცულობა 1.6×",
-   "entry": 197.12,
-   "shares": 0.101461,
+   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $204.44 · მოცულობა 1.6×",
+   "entry": 209.05,
+   "shares": 0.095671,
    "cost": 20,
-   "target": 208.78,
-   "stop": 188.38
+   "target": 221.33,
+   "stop": 199.84
   }
  ],
  "equityHistory": [
@@ -310,7 +310,7 @@
   },
   {
    "date": "2026-10-09",
-   "equity": 101.59
+   "equity": 101.82
   }
  ]
 }
