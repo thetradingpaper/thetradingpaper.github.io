@@ -15,16 +15,23 @@ window.PORTFOLIOS = {
     startDate: '2025-12-09',
     annualGoalPct: 35,
     holdings: [
-      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.29283333, avgBuy: 273.19, invested: 80.00, value: 80.00, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.10653006, avgBuy: 1705.06, invested: 181.64, value: 176.31, color: '#dc2626', divYield: 0.00 },
-      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.28192151, avgBuy: 249.36, invested: 70.30, value: 70.30, color: '#16a34a', divYield: 0.00 },
+      { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.36656093, avgBuy: 272.81, invested: 100.00, value: 100.00, color: '#2563eb', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.12103348, avgBuy: 1693.00, invested: 204.91, value: 199.58, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.36378133, avgBuy: 248.23, invested: 90.30, value: 90.30, color: '#16a34a', divYield: 0.00 },
     ],
-    cash: 0.00, // 08 Oct 2026: deposit $21.64 -> buy SNDK ($21.64) -> net cash $0.00
+    cash: 0.00, // 09 Oct 2026: deposits $63.27 (23.27 + 20.00 + 20.00) -> buys SNDK ($23.27), MRVL ($20.00), VRT ($20.00) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 997.66, // base deposits before the transaction log (old lost bank deposits $1,300.00 removed 05 Oct 2026)
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 09 ოქტ 2026 BOG $63.27 deposits (3×) & 3 purchases (SNDK, MRVL, VRT) · BOG app · net cash $0.00 ---
+      { date: '2026-10-09', type: 'buy',     ticker: 'VRT',  shares: 0.08185982, price: 244.3201, commission: 0 },
+      { date: '2026-10-09', type: 'deposit', amount: 20.00, note: 'ახალი დეპოზიტი ($20.00)' },
+      { date: '2026-10-09', type: 'buy',     ticker: 'MRVL', shares: 0.07372760, price: 271.2688, commission: 0 },
+      { date: '2026-10-09', type: 'deposit', amount: 20.00, note: 'ახალი დეპოზიტი ($20.00)' },
+      { date: '2026-10-09', type: 'buy',     ticker: 'SNDK', shares: 0.01450342, price: 1604.4492, commission: 0 },
+      { date: '2026-10-09', type: 'deposit', amount: 23.27, note: 'ახალი დეპოზიტი ($23.27)' },
       // --- 08 ოქტ 2026 BOG $21.64 deposit & SNDK buy (0.01307561 sh @ $1,654.9888 · FULL fill) · BOG app · 16:24 · net cash $0.00 ---
       { date: '2026-10-08', type: 'buy',     ticker: 'SNDK', shares: 0.01307561, price: 1654.9888, commission: 0 },
       { date: '2026-10-08', type: 'deposit', amount: 21.64, note: 'ახალი დეპოზიტი ($21.64)' },
