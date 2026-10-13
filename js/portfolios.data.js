@@ -16,15 +16,18 @@ window.PORTFOLIOS = {
     annualGoalPct: 35,
     holdings: [
       { ticker: 'MRVL', name: 'Marvell Technology Group Ltd', shares: 0.36656093, avgBuy: 272.81, invested: 100.00, value: 100.00, color: '#2563eb', divYield: 0.00 },
-      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.12103348, avgBuy: 1693.00, invested: 204.91, value: 199.58, color: '#dc2626', divYield: 0.00 },
+      { ticker: 'SNDK', name: 'SanDisk Corp',                 shares: 0.17144826, avgBuy: 1632.62, invested: 279.91, value: 274.58, color: '#dc2626', divYield: 0.00 },
       { ticker: 'VRT',  name: 'Vertiv Holdings Co',           shares: 0.36378133, avgBuy: 248.23, invested: 90.30, value: 90.30, color: '#16a34a', divYield: 0.00 },
     ],
-    cash: 0.00, // 09 Oct 2026: deposits $63.27 (23.27 + 20.00 + 20.00) -> buys SNDK ($23.27), MRVL ($20.00), VRT ($20.00) -> net cash $0.00
+    cash: 0.00, // 12 Oct 2026: deposit $75.00 -> buy SNDK ($75.00) -> net cash $0.00
     previousValue: 0.00, // all positions closed & cash withdrawn on 17 Sep 2026
     priorDeposits: 997.66, // base deposits before the transaction log (old lost bank deposits $1,300.00 removed 05 Oct 2026)
     priorCostBasis: 1007.05,
     transactions: [
       // Newest first
+      // --- 12 ოქტ 2026 BOG $75.00 deposit & SNDK buy (0.05041478 sh @ $1,487.6588 · FULL fill) · BOG app · 15:43 · net cash $0.00 ---
+      { date: '2026-10-12', type: 'buy',     ticker: 'SNDK', shares: 0.05041478, price: 1487.6588, commission: 0 },
+      { date: '2026-10-12', type: 'deposit', amount: 75.00, note: 'ახალი დეპოზიტი ($75.00)' },
       // --- 09 ოქტ 2026 BOG $63.27 deposits (3×) & 3 purchases (SNDK, MRVL, VRT) · BOG app · net cash $0.00 ---
       { date: '2026-10-09', type: 'buy',     ticker: 'VRT',  shares: 0.08185982, price: 244.3201, commission: 0 },
       { date: '2026-10-09', type: 'deposit', amount: 20.00, note: 'ახალი დეპოზიტი ($20.00)' },
