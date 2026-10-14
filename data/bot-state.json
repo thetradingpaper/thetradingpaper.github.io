@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 81.82,
+ "cash": 61.82,
  "positions": [
   {
    "ticker": "PLTR",
@@ -13,6 +13,17 @@
    "cost": 20,
    "target": 221.33,
    "stop": 199.84
+  },
+  {
+   "ticker": "BABA",
+   "opened": "2026-10-14T21:34:03.657Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 111.17,
+   "shares": 0.179905,
+   "cost": 20,
+   "target": 116.95,
+   "stop": 106.84
   }
  ],
  "equityHistory": [
@@ -322,7 +333,7 @@
   },
   {
    "date": "2026-10-14",
-   "equity": 101.13
+   "equity": 101.05
   }
  ]
 }
