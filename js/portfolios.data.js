@@ -315,7 +315,7 @@ window.PORTFOLIOS = {
       { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 3.13557263, avgBuy: 55.89, invested: 175.25, value: 176.34, color: '#0d9488', divYield: 13.76 },
       { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
     ],
-    cash: 0.00, // 08 Oct 2026: sell VOO ($885.02 − $2.66 fee) -> buy SMH ($870.00 + $2.61 fee), MAIN ($9.72 + $0.03 fee) -> net cash $0.00
+    cash: 1.43, // 15 Oct 2026: MAIN dividend $1.43 net credited -> net cash $1.43 (08 Oct rotation left $0.00)
     priorDeposits: 0.00, // old lost TBC bank deposits $2,215.00 removed 05 Oct 2026
     priorCostBasis: 0.00,
     transactions: [
@@ -324,6 +324,8 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 15 ოქტ 2026 MAIN monthly dividend · TBC app · net cash $1.43 ---
+      { date: '2026-10-15', type: 'dividend', ticker: 'MAIN', amount: 1.43, note: 'დივიდენდის ჩარიცხვა $2.04 − გადასახადი $0.61 = წმინდა $1.43' },
       // --- 08 ოქტ 2026 TBC rotation: VOO გაყიდვა ($885.02) → SMH ($870.00) + MAIN ($9.72) · TBC app · commission $5.30 · VOO realized P/L +$14.71 · net cash $0.00 ---
       { date: '2026-10-08', type: 'buy',      ticker: 'MAIN', shares: 0.17987075, price: 54.0388,  commission: 0.03 },
       { date: '2026-10-08', type: 'buy',      ticker: 'SMH',  shares: 0.40512272, price: 619.1704, commission: 0 },
