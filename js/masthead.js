@@ -19,6 +19,7 @@
   // ---- PRIMARY horizontal tabs -------------------------------------------
   // Market · My Cabinet · Portfolio AI
   var TABS = [
+    { href: '/',                   label: lang === 'ka' ? 'მთავარი' : 'Home',               re: /^\/(index(\.html)?)?$/ },
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
     { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
     { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ }
@@ -68,14 +69,14 @@
   }
 
   var isCabinet = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
-    && (filename === '' || filename === 'index.html' || filename === 'cabinet.html');
+    && /^cabinet(\.html)?$/.test(filename);
   // Cabinet area = dashboard + any cabinet tool page → show the sub-nav there.
   var inCabArea = (pathLower.indexOf('/meportfolio/') === -1 && pathLower.indexOf('/kvleva5/') === -1)
     && (isCabinet || /^(annual-income|dividends|learning|history-bog|commissions|service-fee)/.test(filename));
 
   // ---------- styles (self-contained; works with or without style.css) ----
   var css = ''
-    + 'header.tpm{border-bottom:3px double var(--rule,#1a1a1a);margin-bottom:6px;background:transparent;}'
+    + 'header.tpm{border-bottom:3px double var(--rule,#1a1a1a);margin-bottom:6px;background:transparent;padding:0 18px;}'
     + '.tpm-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;'
     +   'font-family:"Noto Sans Georgian",sans-serif;font-size:11px;letter-spacing:1px;color:var(--muted,#6b6b6b);'
     +   'border-bottom:1px solid var(--border,#d9d4c8);padding:9px 4px;}'
@@ -132,7 +133,20 @@
     + '.tpm-marquee-wrap .pos{color:var(--green,#166534);font-weight:700;}'
     + '.tpm-marquee-wrap .neg{color:var(--red,#b91c1c);font-weight:700;}'
     + '@keyframes tpm-marquee-scroll{0%{transform:translate3d(0,0,0);}100%{transform:translate3d(-50%,0,0);}}'
-    + '@media(max-width:1200px){#tpm-center-ticker{display:none;}}';
+    + '@media(max-width:1200px){#tpm-center-ticker{display:none;}}'
+    + '.tpm-top a.tpm-in{color:var(--ink,#1a1a1a);font-weight:700;}'
+    // phones: the header used to fill the first screen — keep it to a few lines
+    + '@media(max-width:640px){'
+    +   'header.tpm{padding:0 12px;}.tpm-top{padding:7px 2px;font-size:10.5px;}.tpm-ed,.tpm-print{display:none;}'
+    +   '.tpm-row{padding:8px 0 6px;gap:8px;}.tpm-brand h1{font-size:28px;}.tpm-brand .tpm-tag{font-size:10.5px;}'
+    +   'header.tpm #tp-clocks{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;scrollbar-width:none;}'
+    +   'header.tpm #tp-clocks::-webkit-scrollbar{display:none;}'
+    +   'header.tpm #tp-clocks .clk{min-width:84px;flex:0 0 auto;padding:5px 8px 6px;}'
+    +   'header.tpm #tp-clocks .clk .c-emblem{display:none;}'
+    +   'header.tpm nav.tpm-nav{gap:16px;font-size:13px;padding:9px 0 10px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;}'
+    +   'header.tpm nav.tpm-nav::-webkit-scrollbar{display:none;}'
+    +   'header.tpm nav.tpm-nav a{white-space:nowrap;letter-spacing:.2px;text-transform:none;flex:0 0 auto;}'
+    + '}';
   var st = document.createElement('style');
   st.textContent = css;
   document.head.appendChild(st);
@@ -175,21 +189,32 @@
     if (pageTitle === 'ჩემი კაბინეტი') { pageTitle = ''; pageTag = ''; }
   }
 
+  // ---------- tagline + session -------------------------------------------
+  var isHome = /^\/(index(\.html)?)?$/.test(path);
+  var TAGLINE = isHome
+    ? (lang === 'ka' ? 'ღია საინვესტიციო ჟურნალი · ყველა ვაჭრობა ჩაწერილია' : 'An open investing journal · every trade on the record')
+    : (lang === 'ka' ? 'ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი' : 'Market · Live Indicators · Rating');
+  var signedIn = false;
+  try { signedIn = !!JSON.parse(localStorage.getItem('pai.session.v1') || 'null') || localStorage.getItem('cabinet_auth') === 'true'; } catch (e) {}
+  var authLink = signedIn
+    ? '<a href="' + resolveUrl('/app/login.html?logout=1') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a>'
+    : '<a href="' + resolveUrl('/app/login.html') + '" class="tpm-in no-print">' + (lang === 'ka' ? 'შესვლა' : 'Sign in') + '</a>';
+
   // ---------- build header -------------------------------------------------
   var header = document.createElement('header');
   header.className = 'tpm masthead';
   header.innerHTML =
       '<div class="tpm-top top-bar">'
     +   '<span id="today-date">' + dateStr + '</span>'
-    +   '<span>' + (lang === 'ka' ? 'გამოცემა · ვისბადენი' : 'Edition · Wiesbaden') + ' &nbsp;·&nbsp; '
+    +   '<span class="tpm-tools"><span class="tpm-ed">' + (lang === 'ka' ? 'გამოცემა · ვისბადენი' : 'Edition · Wiesbaden') + ' &nbsp;·&nbsp; </span>'
     +   '<a id="tp-theme-btn" style="cursor:pointer;" class="no-print" title="ბნელი / ნათელი თემა">' + (document.documentElement.getAttribute('data-theme')==='dark' ? '☀' : '☾') + '</a> &nbsp;·&nbsp; '
     +   '<a id="tp-lang-btn" style="cursor:pointer;font-weight:bold;margin-right:8px;" class="no-print">' + (lang === 'ka' ? 'EN' : 'KA') + '</a> &nbsp;·&nbsp; '
-    +   '<a id="tp-print-btn" onclick="window.print()" style="cursor:pointer;font-weight:bold;margin-right:8px;color:var(--ink);" class="no-print" title="გვერდის ამობეჭდვა / PDF-ად შენახვა">🖨️ ' + (lang === 'ka' ? 'ამობეჭდვა' : 'Print') + '</a> &nbsp;·&nbsp; '
-    +   '<a href="' + resolveUrl('/app/login.html?logout=1') + '" class="tpm-out no-print">' + (lang === 'ka' ? 'გასვლა' : 'Logout') + '</a></span>'
+    +   '<a id="tp-print-btn" onclick="window.print()" style="cursor:pointer;font-weight:bold;margin-right:8px;color:var(--ink);" class="no-print tpm-print" title="გვერდის ამობეჭდვა / PDF-ად შენახვა">🖨️ ' + (lang === 'ka' ? 'ამობეჭდვა' : 'Print') + '</a><span class="tpm-print"> &nbsp;·&nbsp; </span>'
+    +   authLink + '</span>'
     + '</div>'
     + '<div class="tpm-row">'
-    +   '<div class="tpm-brand"><h1><a href="' + resolveUrl('/meportfolio/') + '">The Trading Paper</a></h1>'
-    +   '<p class="tpm-tag tagline">' + (lang === 'ka' ? 'ბაზარი · ცოცხალი მაჩვენებლები · რეიტინგი' : 'Market · Live Indicators · Rating') + '</p></div>'
+    +   '<div class="tpm-brand"><h1><a href="' + resolveUrl('/') + '">The Trading Paper</a></h1>'
+    +   '<p class="tpm-tag tagline">' + TAGLINE + '</p></div>'
     +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
@@ -242,7 +267,7 @@
   function makeSticky() {
     var bar = document.createElement('div');
     bar.id = 'tpm-sticky';
-    bar.innerHTML = '<a class="b" href="' + resolveUrl('/meportfolio/') + '">The Trading Paper</a><nav>' + tabLinks() + '</nav>';
+    bar.innerHTML = '<a class="b" href="' + resolveUrl('/') + '">The Trading Paper</a><nav>' + tabLinks() + '</nav>';
     document.body.appendChild(bar);
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {

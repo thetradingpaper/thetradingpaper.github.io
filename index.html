@@ -1,437 +1,342 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-<meta http-equiv="refresh" content="0;url=cabinet.html">
-<script>window.location.href='cabinet.html';</script>
-<script src="js/gate.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Trading Paper — პირადი საინვესტიციო გაზეთი</title>
+<title>The Trading Paper — ღია საინვესტიციო ჟურნალი</title>
+<meta name="description" content="ერთი ადამიანის ღია საინვესტიციო ჟურნალი: ყოველი ვაჭრობა BOG-ში, TBC Capital-სა და Galt & Taggart-ში ჩაწერილია, ყოველი ზარალი ხილულია. გამოცემები, გაკვეთილები და Portfolio AI — ქართულად.">
+<link rel="canonical" href="https://thetradingpaper.pages.dev/">
+<meta name="theme-color" content="#fffdf7">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Trading Paper">
+<meta property="og:locale" content="ka_GE">
+<meta property="og:title" content="The Trading Paper — ყველა ვაჭრობა. ყველა შეცდომა. რეალური ციფრები.">
+<meta property="og:description" content="ღია საინვესტიციო ჟურნალი ქართულად: გამოცემები, რეალური შედეგები და გაკვეთილები, რომლებიც ფულით ვისწავლე.">
+<meta property="og:url" content="https://thetradingpaper.pages.dev/">
+<meta property="og:image" content="https://thetradingpaper.pages.dev/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"The Trading Paper","url":"https://thetradingpaper.pages.dev/","inLanguage":"ka","author":{"@type":"Person","name":"ლაშა ფხაკაძე","address":{"@type":"PostalAddress","addressLocality":"Wiesbaden","addressCountry":"DE"}}}
+</script>
 <script src="js/theme.js?v=1"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;800;900&family=Noto+Sans+Georgian:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
-<script>window.TP_GUEST = true;</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ---- fallbacks in case style.css is unavailable ---- */
-  :root { --paper:#fffdf7; --bg:#f4f1ea; --ink:#1a1a1a; --muted:#6b6b6b;
-          --border:#d9d4c8; --rule:#1a1a1a; --red:#b91c1c; --green:#166534; --gold:#8b6914; }
-  body { background:var(--bg); color:var(--ink); font-family:'Noto Serif Georgian', Georgia, serif; margin:0; }
-  .container { max-width:1080px; margin:0 auto; padding:0 20px 40px; }
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf7; --ink:#1a1a1a; --muted:#6b6b6b; --border:#d9d4c8; --rule:#1a1a1a;
+    --red:#b91c1c; --red-bg:rgba(185,28,28,.06); --green:#166534; --gold:#8b6914;
+  }
+  [data-theme="dark"]{
+    --bg:#121315; --paper:#1a1c20; --ink:#e6e8ec; --muted:#9ea4b0; --border:#2d3139; --rule:#404652;
+    --red:#ef4444; --red-bg:rgba(239,68,68,.10); --green:#22c55e; --gold:#d4a72c;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Serif Georgian',Georgia,serif;line-height:1.6}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px 56px}
+  .sans{font-family:'Noto Sans Georgian',sans-serif}
+  .kicker{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:3px double var(--rule);
+    border-bottom:1px solid var(--border);padding:10px 2px;margin:46px 0 20px}
+  .sec-head h2{margin:0;font-size:13px;font-family:'Noto Sans Georgian',sans-serif;letter-spacing:3px;text-transform:uppercase}
+  .sec-head a,.sec-head span{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);text-decoration:none}
+  .sec-head a:hover{color:var(--red)}
 
-  /* ---- hero ---- */
-  .pub-hero { text-align:center; padding:34px 16px 30px; border-bottom:3px double var(--rule);
-              background:var(--paper); border:1px solid var(--border); border-top:3px double var(--rule); margin-bottom:26px; }
-  .pub-hero .kicker { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; letter-spacing:4px;
-                      text-transform:uppercase; color:var(--red); margin-bottom:12px; }
-  .pub-hero h2 { font-size:34px; font-weight:900; margin:0 0 10px; letter-spacing:-0.5px; line-height:1.2; }
-  .pub-hero p { font-size:15px; color:var(--muted); max-width:640px; margin:0 auto 22px; line-height:1.65; }
-  .pub-hero .cta { display:inline-block; font-family:'Noto Sans Georgian',sans-serif; font-size:12px; letter-spacing:2px;
-                   text-transform:uppercase; text-decoration:none; padding:12px 26px; margin:0 6px 6px; }
-  .pub-hero .cta.dark { background:var(--ink); color:var(--paper); }
-  .pub-hero .cta.dark:hover { background:var(--red); }
-  .pub-hero .cta.line { border:1px solid var(--ink); color:var(--ink); }
-  .pub-hero .cta.line:hover { border-color:var(--red); color:var(--red); }
+  /* ---- lead story ---- */
+  .lead{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:stretch;padding:30px 0 6px}
+  .lead h2{font-size:clamp(34px,5.4vw,58px);line-height:1.08;font-weight:900;letter-spacing:-.5px;margin:12px 0 16px}
+  .lead h2 em{font-style:normal;color:var(--red)}
+  .lead p.dek{font-size:17px;line-height:1.7;max-width:58ch;margin:0 0 24px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+  .cta{display:inline-flex;align-items:center;gap:8px;font-family:'Noto Sans Georgian',sans-serif;font-size:14px;font-weight:700;
+    text-decoration:none;padding:13px 20px;border:2px solid var(--ink)}
+  .cta.dark{background:var(--ink);color:var(--paper)}
+  .cta.dark:hover{background:var(--red);border-color:var(--red)}
+  .cta.line:hover{color:var(--red);border-color:var(--red)}
+  .latest{background:var(--paper);border:1px solid var(--border);border-top:4px double var(--rule);padding:22px 22px 20px;
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease}
+  .latest:hover{transform:translateY(-2px);box-shadow:6px 6px 0 rgba(26,26,26,.10)}
+  .latest .no{font-size:44px;font-weight:900;line-height:1;margin:10px 0 4px}
+  .latest .date{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted)}
+  .latest .desc{font-size:15.5px;line-height:1.65;margin:14px 0 18px;flex:1}
+  .latest .go{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:700;color:var(--red)}
 
-  .section-head2 { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:3.5px; text-transform:uppercase;
-                   color:var(--ink); border-top:3px double var(--rule); border-bottom:1px solid var(--border);
-                   padding:10px 2px; margin:34px 0 18px; display:flex; justify-content:space-between; align-items:center;}
-  .section-head2 .en { color:var(--muted); letter-spacing:2px; font-size:9.5px; }
+  /* ---- numbers strip ---- */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);border:1px solid var(--border);margin-top:34px}
+  .facts div{padding:18px 16px;border-right:1px solid var(--border)}
+  .facts div:last-child{border-right:none}
+  .facts b{display:block;font-size:30px;font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+  .facts span{font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:6px}
 
-  .pub-widget { background:var(--paper); border:1px solid var(--border); padding:14px 16px; margin-bottom:20px; }
-  .pub-widget .w-title { font-family:'Noto Sans Georgian',sans-serif; font-size:10px; letter-spacing:2.5px;
-                         text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
-  .pub-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  @media(max-width:760px){ .pub-grid2 { grid-template-columns:1fr; } }
+  /* ---- three books ---- */
+  .books{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .book{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--ink);padding:20px 20px 18px}
+  .book.bog{border-top-color:var(--green)} .book.tbc{border-top-color:var(--gold)} .book.galt{border-top-color:var(--red)}
+  .book h3{margin:0;font-size:24px;font-weight:900}
+  .book .full{font-family:'Noto Sans Georgian',sans-serif;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .book p{font-size:15px;line-height:1.65;margin:12px 0 0}
+  .book .st{display:inline-block;margin-top:12px;font-family:'Noto Sans Georgian',sans-serif;font-size:11.5px;font-weight:700;
+    padding:3px 9px;border:1px solid var(--border);color:var(--muted)}
+  .books-note{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;color:var(--muted);margin:14px 2px 0}
 
-  /* ---- locked teaser books ---- */
-  .lock-wrap { position:relative; border:1px solid var(--border); border-top:3px double var(--rule);
-               border-bottom:3px double var(--rule); background:var(--paper); padding:28px 24px; overflow:hidden; }
-  .lock-books { display:grid; grid-template-columns:1fr 1fr; gap:26px; filter:blur(7px); opacity:0.85;
-                user-select:none; pointer-events:none; }
-  @media(max-width:640px){ .lock-books { grid-template-columns:1fr; } }
-  .lk-book { color:#fffdf7; padding:26px 22px 22px; text-align:center; border:2px solid var(--ink); }
-  .lk-book.red { background:var(--red); } .lk-book.green { background:var(--green); }
-  .lk-book .t { font-size:30px; font-weight:900; }
-  .lk-book .s { font-family:'Noto Sans Georgian',sans-serif; font-size:9px; letter-spacing:3px; margin:4px 0 14px; opacity:.85; }
-  .lk-book .v { font-size:34px; font-weight:900; font-variant-numeric:tabular-nums; }
-  .lk-book .row { display:flex; justify-content:space-around; margin-top:14px;
-                  font-family:'Noto Sans Georgian',sans-serif; font-size:12px; }
-  .lock-over { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-               text-align:center; background:rgba(255,253,247,0.35); padding:20px; }
-  .lock-over .padlock { font-size:34px; margin-bottom:10px; }
-  .lock-over .lt { font-weight:800; font-size:20px; background:var(--paper); padding:6px 16px; border:1px solid var(--border); }
-  .lock-over .ls { font-family:'Noto Sans Georgian',sans-serif; font-size:12px; color:var(--muted);
-                   background:var(--paper); padding:4px 12px; margin-top:6px; border:1px solid var(--border);}
-  .lock-over a.go { margin-top:14px; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:2px;
-                    text-transform:uppercase; background:var(--ink); color:var(--paper); padding:10px 22px; text-decoration:none; }
-  .lock-over a.go:hover { background:var(--red); }
+  /* ---- archive ---- */
+  .arch{list-style:none;margin:0;padding:0;background:var(--paper);border:1px solid var(--border)}
+  .arch li{border-bottom:1px solid var(--border)}
+  .arch li:last-child{border-bottom:none}
+  .arch a{display:grid;grid-template-columns:92px 1fr auto;gap:16px;align-items:baseline;padding:15px 18px;text-decoration:none;color:inherit}
+  .arch a:hover{background:var(--red-bg)}
+  .arch .n{font-weight:900;font-size:20px;font-variant-numeric:tabular-nums}
+  .arch .t{font-size:15.5px;line-height:1.55}
+  .arch .t small{display:block;font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted);margin-bottom:3px}
+  .arch .f{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);
+    border:1px solid var(--border);padding:2px 7px;white-space:nowrap}
+  .more{display:block;width:100%;margin-top:12px;padding:12px;background:transparent;border:1px solid var(--ink);color:var(--ink);
+    font-family:'Noto Sans Georgian',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer}
+  .more:hover{color:var(--red);border-color:var(--red)}
 
-  /* ---- feature strip ---- */
-  .feat { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); background:var(--paper); }
-  @media(max-width:760px){ .feat { grid-template-columns:1fr 1fr; } }
-  .feat div { padding:16px 14px; border-right:1px solid var(--border); }
-  .feat div:last-child { border-right:none; }
-  @media(max-width:760px){ .feat div:nth-child(2) { border-right:none; } }
-  .feat b { display:block; font-size:14.5px; margin-bottom:5px; }
-  .feat span { font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; color:var(--muted); line-height:1.55; }
+  /* ---- sections grid ---- */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .tile{background:var(--paper);border:1px solid var(--border);padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+  .tile:hover{border-color:var(--ink)}
+  .tile h3{margin:0 0 8px;font-size:18px;font-weight:900}
+  .tile p{margin:0;font-family:'Noto Sans Georgian',sans-serif;font-size:13.5px;line-height:1.6;color:var(--muted);flex:1}
+  .tile span{margin-top:14px;font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:700;color:var(--red)}
 
-  /* ---- packets ---- */
-  .packets { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
-  @media(max-width:820px){ .packets { grid-template-columns:1fr; } }
-  .pk { background:var(--paper); border:1px solid var(--border); border-top:3px double var(--rule);
-        padding:24px 22px 22px; text-align:center; display:flex; flex-direction:column; position:relative; }
-  .pk.feat-pk { border:2px solid var(--ink); border-top:4px double var(--ink); box-shadow:6px 6px 0 rgba(26,26,26,0.12); }
-  .pk .badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:var(--red); color:#fffdf7;
-               font-family:'Noto Sans Georgian',sans-serif; font-size:9px; letter-spacing:2px; padding:3px 12px; text-transform:uppercase; }
-  .pk h3 { font-size:21px; font-weight:900; margin:0 0 2px; }
-  .pk .en-name { font-family:'Noto Sans Georgian',sans-serif; font-size:9.5px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
-  .pk .price { font-size:38px; font-weight:900; margin:14px 0 2px; font-variant-numeric:tabular-nums; }
-  .pk .per { font-family:'Noto Sans Georgian',sans-serif; font-size:10.5px; color:var(--muted); margin-bottom:16px; }
-  .pk ul { list-style:none; padding:0; margin:0 0 20px; text-align:right; flex:1; }
-  .pk ul li { font-family:'Noto Sans Georgian',sans-serif; font-size:12.5px; padding:7px 2px; border-bottom:1px dotted var(--border);
-              display:flex; justify-content:space-between; gap:8px; }
-  .pk ul li .no { color:#b8b2a4; }
-  .pk ul li .tick { color:var(--green); }
-  .pk button { font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; letter-spacing:2px; text-transform:uppercase;
-               padding:12px; border:none; cursor:pointer; background:var(--ink); color:var(--paper); }
-  .pk button:hover { background:var(--red); }
-  .pk.free button { background:transparent; color:var(--ink); border:1px solid var(--ink); }
-  .pk.free button:hover { color:var(--red); border-color:var(--red); }
-  .pk-note { text-align:center; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--muted);
-             font-style:italic; margin-top:14px; }
+  /* ---- AI band ---- */
+  .band{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;background:var(--ink);color:var(--paper);padding:30px 30px;margin-top:46px}
+  [data-theme="dark"] .band{background:#24272d;color:var(--ink)}
+  .band h2{margin:6px 0 10px;font-size:30px;line-height:1.2;font-weight:900}
+  .band p{margin:0;font-family:'Noto Sans Georgian',sans-serif;font-size:15px;line-height:1.7;opacity:.9}
+  .band .price{font-size:40px;font-weight:900;line-height:1}
+  .band .price small{font-size:15px;font-weight:400;opacity:.8}
+  .band .cta{margin-top:16px;background:var(--red);border-color:var(--red);color:#fff}
+  .band .cta:hover{background:transparent;color:inherit;border-color:currentColor}
 
-  /* ---- modals ---- */
-  .tp-modal-bg { position:fixed; inset:0; background:rgba(26,26,26,0.55); z-index:10000; display:none;
-                 align-items:center; justify-content:center; padding:18px; }
-  .tp-modal-bg.open { display:flex; }
-  .tp-card { text-align:center; max-width:360px; width:100%; padding:34px 26px 26px; position:relative;
-             background:var(--paper); border:1px solid #d4cfc4; border-top:3px double var(--ink); border-bottom:3px double var(--ink);
-             box-shadow:0 18px 60px rgba(0,0,0,0.35); animation:tpPop .18s ease; }
-  @keyframes tpPop { from { transform:translateY(14px); opacity:0; } to { transform:none; opacity:1; } }
-  .tp-card h1 { font-weight:900; font-size:28px; letter-spacing:-0.5px; margin:0; }
-  .tp-card .sub { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; letter-spacing:3px;
-                  text-transform:uppercase; color:var(--red); margin:6px 0 22px; }
-  .tp-card label { display:block; text-align:left; font-family:'Noto Sans Georgian',sans-serif;
-                   font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-  .tp-card input, .tp-card select { display:block; width:100%; box-sizing:border-box; margin:0 0 12px; padding:11px 12px; font-size:16px;
-                                    border:1px solid var(--border,#ccc); background:var(--paper,#fff); color:var(--ink); font-family:'Noto Sans Georgian',sans-serif; }
-  .tp-card input:focus, .tp-card select:focus { outline:2px solid var(--red); outline-offset:1px; }
-  .tp-card button.main { margin-top:6px; width:100%; padding:11px; background:var(--ink); color:#fff; border:none;
-                         font-size:12px; letter-spacing:2px; cursor:pointer; text-transform:uppercase;
-                         font-family:'Noto Sans Georgian',sans-serif; }
-  .tp-card button.main:hover { background:var(--red); }
-  .tp-card .err { min-height:18px; color:var(--red); font-size:11.5px; margin:10px 0 0; font-family:'Noto Sans Georgian',sans-serif; }
-  .tp-card .foot { margin-top:16px; font-size:10.5px; color:var(--muted); font-style:italic; }
-  .tp-card .x { position:absolute; top:8px; right:12px; font-size:20px; color:var(--muted); cursor:pointer;
-                background:none; border:none; line-height:1; }
-  .tp-card .x:hover { color:var(--red); }
-  .tp-card .swap { display:block; margin-top:12px; font-family:'Noto Sans Georgian',sans-serif; font-size:11.5px; color:var(--ink); }
-  .tp-card .swap a { color:var(--red); cursor:pointer; text-decoration:underline; }
-  .tp-card .note { font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--gold);
-                   background:rgba(139,105,20,0.08); border:1px dashed var(--gold); padding:8px 10px; margin:4px 0 12px; }
+  /* ---- about ---- */
+  .about{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center;background:var(--paper);border:1px solid var(--border);padding:22px}
+  .about img{width:120px;height:120px;object-fit:cover;border-radius:50%;border:3px double var(--rule)}
+  .about h3{margin:0 0 6px;font-size:22px;font-weight:900}
+  .about p{margin:0;font-size:15.5px;line-height:1.7}
 
-  footer { text-align:center; font-family:'Noto Sans Georgian',sans-serif; font-size:11px; color:var(--muted);
-           border-top:3px double var(--rule); margin-top:44px; padding:18px 10px 30px; line-height:1.8; }
+  footer.site{border-top:3px double var(--rule);margin-top:56px;padding:22px 20px 34px;text-align:center;
+    font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px;color:var(--muted);line-height:1.9}
+  footer.site nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-bottom:8px}
+  footer.site nav a{text-decoration:none;color:var(--ink)}
+  footer.site nav a:hover{color:var(--red)}
+  footer.site .disc{font-weight:700;color:var(--ink)}
+
+  @media(max-width:900px){
+    .lead{grid-template-columns:1fr}
+    .tiles{grid-template-columns:1fr 1fr}
+    .band{grid-template-columns:1fr}
+  }
+  @media(max-width:720px){
+    .facts{grid-template-columns:1fr 1fr}
+    .facts div:nth-child(2){border-right:none}
+    .facts div:nth-child(-n+2){border-bottom:1px solid var(--border)}
+    .books{grid-template-columns:1fr}
+    .arch a{grid-template-columns:64px 1fr;gap:12px}
+    .arch .f{display:none}
+  }
+  @media(max-width:480px){
+    .wrap{padding:0 14px 44px}
+    .tiles{grid-template-columns:1fr}
+    .about{grid-template-columns:1fr;text-align:center}
+    .about img{margin:0 auto}
+    .lead p.dek{font-size:16px}
+    .cta{width:100%;justify-content:center}
+    .band{padding:24px 20px}
+  }
+  @media print{.cta-row,.band,.more{display:none!important}}
 </style>
 </head>
 <body>
+<header class="masthead"><h1>The Trading Paper</h1></header>
 
-<header class="masthead">
-  <div class="top-bar"><span id="today-date"></span><span></span></div>
-  <h1>The Trading Paper</h1>
-</header>
+<main class="wrap" id="main">
 
-<main class="container">
-
-  <!-- Ticker tape · free market pulse for everyone -->
-  <div class="pub-widget">
-    <div class="w-title">ბაზრის პულსი · Market Pulse</div>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          {"description": "S&P 500", "proName": "FOREXCOM:SPXUSD"},
-          {"description": "Nasdaq", "proName": "FOREXCOM:NSXUSD"},
-          {"description": "DAX", "proName": "XETR:DAX"},
-          {"description": "BTC", "proName": "BITSTAMP:BTCUSD"},
-          {"description": "Gold", "proName": "TVC:GOLD"},
-          {"description": "EUR/USD", "proName": "FX:EURUSD"},
-          {"description": "USD/GEL", "proName": "FX_IDC:USDGEL"},
-          {"description": "EUR/GEL", "proName": "FX_IDC:EURGEL"}
-        ],
-        "isTransparent": true, "showSymbolLogo": true, "displayMode": "regular",
-        "colorTheme": "light", "locale": "en"
-      }
-      </script>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <div class="pub-hero">
-    <div class="kicker">Private Edition · ვისბადენი</div>
-    <h2>პირადი საინვესტიციო გაზეთი</h2>
-    <p>ცოცხალი პორტფელი ორ წიგნად, ბაზრის ყოველდღიური ჩანაწერი, დივიდენდების ისტორია და
-       ყოველთვიური ბიუჯეტის წიგნი — ძველი გაზეთის ესთეტიკით, ახალი ბაზრის მონაცემებით.</p>
-    <a href="#packets" class="cta dark">გამოწერის პაკეტები ↓</a>
-    <a href="cabinet.html" class="cta line">ჩემი კაბინეტი →</a>
-  </div>
-
-  <!-- Elegant Login / Welcome Experience Section -->
-  <!-- Cabinet Welcome / Access Section -->
-  <div id="login-experience" style="display: block; max-width: 440px; margin: 0 auto 30px; background: var(--paper); border: 1px solid var(--border); border-top: 3px double var(--rule); border-bottom: 3px double var(--rule); padding: 28px 24px; text-align: center; box-shadow: 0 1px 3px rgba(26,26,26,0.05);">
-    <div id="login-authed-view" style="display: block;">
-      <h3 style="font-family:'Noto Serif Georgian', serif; font-size: 20px; font-weight:900; margin:0 0 6px; color:var(--green);">სისტემაში შესული ხართ</h3>
-      <p style="font-family:'Noto Sans Georgian', sans-serif; font-size:11px; color:var(--muted); margin:0 0 20px; text-transform:uppercase; letter-spacing:1.5px;">Welcome Back</p>
-      <p style="font-size: 14.5px; line-height: 1.6; margin-bottom: 20px;">პორტფელის ღირებულება, P/L და დეტალური ანალიზი.</p>
-      <a href="cabinet.html" class="cta dark" style="display:block; text-decoration:none; padding:12px; font-family:'Noto Sans Georgian', sans-serif; font-size:11.5px; letter-spacing:2px; text-transform:uppercase; font-weight:bold;">გადადი ჩემს კაბინეტში →</a>
-    </div>
-  </div>
-
-
-  <!-- Locked live books teaser -->
-  <div class="section-head2"><span>ცოცხალი ანგარიში</span><span class="en">Live Books · Subscribers only</span></div>
-  <div class="lock-wrap">
-    <div class="lock-books" aria-hidden="true">
-      <div class="lk-book red">
-        <div class="t">TBC</div><div class="s">სარისკო წიგნი</div>
-        <div class="v">$8,4▓▓.▓▓</div>
-        <div class="row"><span>P/L&nbsp; +$▓▓▓.▓▓</span><span>უკუგება&nbsp; +▓▓.▓%</span></div>
-      </div>
-      <div class="lk-book green">
-        <div class="t">BOG</div><div class="s">გრძელვადიანი წიგნი</div>
-        <div class="v">$5,1▓▓.▓▓</div>
-        <div class="row"><span>P/L&nbsp; +$▓▓▓.▓▓</span><span>უკუგება&nbsp; +▓.▓▓%</span></div>
+  <!-- ===== Lead story ===== -->
+  <section class="lead" aria-labelledby="lead-title">
+    <div>
+      <div class="kicker">ღია საინვესტიციო ჟურნალი · ვისბადენი</div>
+      <h2 id="lead-title">ყველა ვაჭრობა. ყველა შეცდომა. <em>რეალური ციფრები.</em></h2>
+      <p class="dek">The Trading Paper — ერთი ადამიანის საინვესტიციო ჟურნალი. სამ ქართულ ბროკერთან (BOG, TBC Capital, Galt &amp; Taggart) გაკეთებული ყოველი ოპერაცია ჩაწერილია და ყოველი ზარალი ჩანს. აქ ჩემს შეცდომებზე ისწავლი — და არა შენს ფულზე.</p>
+      <div class="cta-row">
+        <a class="cta dark" id="cta-latest" href="issues/issue_21_voo_smh_rotation_lessons.html">უახლესი გამოცემა →</a>
+        <a class="cta line" href="#archive">ყველა გამოცემა</a>
       </div>
     </div>
-    <div class="lock-over">
-      <div class="padlock">🔒</div>
-      <div class="lt">მხოლოდ გამომწერებისთვის</div>
-      <div class="ls">ცოცხალი ღირებულება · P/L · უკუგება · რეიტინგი — Yahoo-ს ფასებით, რეალურ დროში</div>
-      <a class="go" href="#packets">აირჩიე პაკეტი</a>
+    <a class="latest" id="latest-card" href="issues/issue_21_voo_smh_rotation_lessons.html">
+      <div class="kicker">უახლესი გამოცემა</div>
+      <div class="no" id="latest-no">№21</div>
+      <div class="date" id="latest-date">8 ოქტომბერი 2026</div>
+      <div class="desc" id="latest-desc">VOO → SMH როტაცია, სამი წიგნის რეალური შედეგი და 8 გაკვეთილი, რომელიც ფულით ვისწავლე.</div>
+      <div class="go">წაიკითხე →</div>
+    </a>
+  </section>
+
+  <!-- ===== Numbers (computed from the data files) ===== -->
+  <section class="facts" aria-label="ჟურნალი ციფრებში">
+    <div><b id="f-issues">21</b><span>გამოცემა 2026 წლის იანვრიდან</span></div>
+    <div><b id="f-trades">—</b><span>ჩაწერილი ყიდვა და გაყიდვა</span></div>
+    <div><b id="f-divs">—</b><span>დივიდენდის ჩარიცხვა, თითოეული ჩაწერილი</span></div>
+    <div><b>0</b><span>დამალული ზარალი. წაგებული წიგნიც ჩანს</span></div>
+  </section>
+
+  <!-- ===== Three books ===== -->
+  <div class="sec-head"><h2>სამი წიგნი</h2><span>სამი ანგარიში, სამი წესი</span></div>
+  <section class="books">
+    <article class="book bog">
+      <h3>BOG</h3><div class="full">Bank of Georgia · ზრდა</div>
+      <p>გრძელვადიანი წიგნი: ყოველთვიური შენატანი და ზრდის კომპანიები. წესი — ფულს აქედან არ ვიღებ.</p>
+      <span class="st" id="st-bog">აქტიური</span>
+    </article>
+    <article class="book tbc">
+      <h3>TBC</h3><div class="full">TBC Capital · შემოსავალი</div>
+      <p>დივიდენდების წიგნი: MAIN, BXSL, ARCC, Realty Income და სხვა. ყოველი ჩარიცხვა გადასახადის შემდეგ ჩაწერილია.</p>
+      <span class="st" id="st-tbc">აქტიური</span>
+    </article>
+    <article class="book galt">
+      <h3>GALT</h3><div class="full">Galt &amp; Taggart · ბერკეტი</div>
+      <p>2.5× მარჟით ვაჭრობის წიგნი. დახურულია — და აქ რჩება, როგორც ყველაზე ძვირად ნასწავლი გაკვეთილი.</p>
+      <span class="st" id="st-galt">დახურულია</span>
+    </article>
+  </section>
+  <p class="books-note">ციფრები, გრაფიკები და ყოველი ტრანზაქცია — გამოცემებში. ცოცხალი ანგარიში ავტორის კაბინეტშია.</p>
+
+  <!-- ===== Archive ===== -->
+  <div class="sec-head" id="archive"><h2>გამოცემების არქივი</h2><span id="arch-count">21 გამოცემა</span></div>
+  <ol class="arch" id="arch-list">
+    <li><a href="issues/issue_21_voo_smh_rotation_lessons.html"><span class="n">№21</span><span class="t"><small>8 ოქტომბერი 2026</small>VOO → SMH როტაცია და 8 გაკვეთილი</span><span class="f">HTML</span></a></li>
+    <li><a href="issues/issue_20_portfolio_rebuild_and_holdings.html"><span class="n">№20</span><span class="t"><small>2 ოქტომბერი 2026</small>The Great Rebuild და 13 აქტივის ენციკლოპედია</span><span class="f">HTML</span></a></li>
+    <li><a href="issues/issue_19_leveraged_etf_psychology.html"><span class="n">№19</span><span class="t"><small>10 აგვისტო 2026</small>2X ETF-ები და აზარტის ფსიქოლოგია</span><span class="f">HTML</span></a></li>
+  </ol>
+  <button class="more" id="arch-more" type="button" hidden>ყველა გამოცემის ჩვენება</button>
+
+  <!-- ===== Sections ===== -->
+  <div class="sec-head"><h2>საიტზე</h2><span>უფასოდ, რეგისტრაციის გარეშე</span></div>
+  <section class="tiles">
+    <a class="tile" href="learning.html"><h3>სწავლის წიგნი</h3><p>სად შევცდი, რამდენი დამიჯდა და რა ვისწავლე — დახურული ვაჭრობების ციფრებით.</p><span>წაიკითხე →</span></a>
+    <a class="tile" href="meportfolio/"><h3>ბაზარი</h3><p>დღის ლიდერები და წამგებიანები, ინდექსები და მსოფლიო ბირჟების საათები.</p><span>გახსენი →</span></a>
+    <a class="tile" href="dividends.html"><h3>დივიდენდები</h3><p>რეალური ჩარიცხვები, მომავალი თარიღები და რამდენი რჩება 30%-იანი გადასახადის შემდეგ.</p><span>ნახე →</span></a>
+    <a class="tile" href="ai.html"><h3>Portfolio AI</h3><p>შენი ყველა პორტფელი ერთ ადგილას და შენი პირადი ფინანსური გაზეთი ყოველ თვე.</p><span>გაიგე მეტი →</span></a>
+  </section>
+
+  <!-- ===== Portfolio AI band ===== -->
+  <section class="band" aria-labelledby="ai-title">
+    <div>
+      <div class="kicker" style="color:#fca5a5">Portfolio AI</div>
+      <h2 id="ai-title">შენი პორტფელიც — ერთ გაზეთში.</h2>
+      <p>BOG, TBC Capital, Galt &amp; Taggart და უცხოური ბროკერები ერთ ანგარიშზე. ჩააგდე ბროკერის სქრინშოტი — AI თვითონ ჩაწერს. თვის ბოლოს მიიღებ შენს პირად გაზეთს, ქართულად.</p>
     </div>
-  </div>
-
-  <!-- What's inside -->
-  <div class="section-head2"><span>რას შეიცავს გაზეთი</span><span class="en">Inside the paper</span></div>
-  <div class="feat">
-    <div><b>ბაზარი 🔒</b><span>რეიტინგული პორტფელის წიგნები, ცოცხალი ფასები, სექტორების რუკა, სიახლეები.</span></div>
-    <div><b>ჩემი კაბინეტი 🔒</b><span>ორი ცოცხალი წიგნი — TBC და BOG — ღირებულება, P/L და უკუგება რეალურ დროში.</span></div>
-    <div><b>დივიდენდები 🔒</b><span>მიღებული დივიდენდების სრული ისტორია, თარიღებით და ჯამებით.</span></div>
-    <div><b>ბიუჯეტი 🔒</b><span>ყოველთვიური წიგნი — შემოსავალი, ხარჯი, დანაზოგი, გეგმა.</span></div>
-
-  <!-- Curiosity Gap signals block -->
-  <div id="signals-teaser-section" style="margin-bottom: 30px;">
-    <div class="section-head2"><span>კვლევა 5.0 · სიგნალების ჟურნალი</span><span class="en">Research 5.0 · Signals Preview</span></div>
-    <div class="lock-wrap">
-      <div class="lock-books" style="display:block; padding:16px; filter:blur(4px); opacity:0.85;" aria-hidden="true">
-        <table style="width:100%; border-collapse:collapse; font-family:'Noto Sans Georgian', sans-serif; font-size:12px; text-align:left;">
-          <thead>
-            <tr style="border-bottom: 2px solid var(--ink); font-weight:700; text-transform:uppercase; color:var(--muted); font-size:10px; letter-spacing:1px;">
-              <th style="padding:8px;">თარიღი</th>
-              <th style="padding:8px;">აქცია</th>
-              <th style="padding:8px;">კატეგორია</th>
-              <th style="padding:8px;">ქულა</th>
-              <th style="padding:8px;">ვერდიქტი (30d)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px;">12.07.2026</td>
-              <td style="padding:8px; font-weight:bold;">AAPL</td>
-              <td style="padding:8px;"><span style="background:#166534; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">STRONG INTEREST</span></td>
-              <td style="padding:8px; font-family:monospace; font-weight:bold;">87</td>
-              <td style="padding:8px;"><span style="border:1px solid #166534; color:#166534; padding:2px 6px; font-size:9px; font-weight:bold;">HIT</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px;">09.07.2026</td>
-              <td style="padding:8px; font-weight:bold;">MSFT</td>
-              <td style="padding:8px;"><span style="background:#b45309; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">SOME INTEREST</span></td>
-              <td style="padding:8px; font-family:monospace; font-weight:bold;">74</td>
-              <td style="padding:8px;"><span style="border:1px solid #b45309; color:#b45309; padding:2px 6px; font-size:9px; font-weight:bold;">PENDING</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px;">05.07.2026</td>
-              <td style="padding:8px; font-weight:bold;">TSLA</td>
-              <td style="padding:8px;"><span style="background:#b91c1c; color:#fff; padding:2px 6px; font-size:9px; font-weight:bold; text-transform:uppercase;">STRONG INTEREST</span></td>
-              <td style="padding:8px; font-family:monospace; font-weight:bold;">81</td>
-              <td style="padding:8px;"><span style="border:1px solid #b91c1c; color:#b91c1c; padding:2px 6px; font-size:9px; font-weight:bold;">MISS</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="lock-over" id="signals-teaser-overlay">
-        <div class="padlock">🔒</div>
-        <div class="lt">ანალიტიკა დახურულია</div>
-        <div class="ls">კვლევა 5.0 სიგნალების სრული ისტორიის სანახავად შედით სისტემაში</div>
-        <a class="go" href="#login-experience" id="signals-teaser-auth-btn">ავტორიზაცია</a>
-      </div>
+    <div>
+      <div class="price">29.99 ₾ <small>/ თვე</small></div>
+      <a class="cta" href="ai.html">შექმენი ანგარიში →</a>
     </div>
-  </div>
+  </section>
 
-  </div>
-
-  <!-- Free charts -->
-  <div class="section-head2"><span>დღეს ბაზარზე · უფასო</span><span class="en">Free preview</span></div>
-  <div class="pub-grid2">
-    <div class="pub-widget" style="min-height:340px;">
-      <div class="w-title">S&amp;P 500</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        { "symbol": "FOREXCOM:SPXUSD", "width": "100%", "height": 300, "locale": "en", "dateRange": "12M",
-          "colorTheme": "light", "trendLineColor": "rgba(22,101,52,1)", "underLineColor": "rgba(22,101,52,0.1)",
-          "isTransparent": true, "autosize": true }
-        </script>
-      </div>
+  <!-- ===== About ===== -->
+  <div class="sec-head"><h2>ავტორი</h2><span>ვისბადენი, გერმანია</span></div>
+  <section class="about">
+    <img src="images/lasha.jpg" alt="ლაშა ფხაკაძე" width="120" height="120" loading="lazy">
+    <div>
+      <h3>ლაშა ფხაკაძე</h3>
+      <p>ვცხოვრობ ვისბადენში და 2026 წლის იანვრიდან ღიად ვწერ ჩემს ინვესტიციებს. არ ვარ ფინანსური მრჩეველი — ვარ ადამიანი, რომელიც საკუთარ ფულზე სწავლობს და არაფერს მალავს. თუ ჟურნალი გამოგადგა, გაუზიარე მეგობარს.</p>
     </div>
-    <div class="pub-widget" style="min-height:340px;">
-      <div class="w-title">Bitcoin · BTC/USD</div>
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-        { "symbol": "BITSTAMP:BTCUSD", "width": "100%", "height": 300, "locale": "en", "dateRange": "12M",
-          "colorTheme": "light", "trendLineColor": "rgba(247,147,26,1)", "underLineColor": "rgba(247,147,26,0.1)",
-          "isTransparent": true, "autosize": true }
-        </script>
-      </div>
-    </div>
-  </div>
-
-  <!-- Packets -->
-  <div class="section-head2" id="packets"><span>გამოწერის პაკეტები</span><span class="en">Subscription packets</span></div>
-  <div class="packets">
-    <div class="pk free">
-      <h3>მკითხველი</h3><div class="en-name">Reader</div>
-      <div class="price">უფასო</div><div class="per">სამუდამოდ</div>
-      <ul>
-        <li><span>ბაზრის პულსი და საათები</span><span class="tick">✔</span></li>
-        <li><span>უფასო გრაფიკები</span><span class="tick">✔</span></li>
-        <li><span>ცოცხალი პორტფელი</span><span class="no">—</span></li>
-        <li><span>დივიდენდები · ბიუჯეტი</span><span class="no">—</span></li>
-      </ul>
-      <button data-packet="Reader (Free)">დარეგისტრირდი</button>
-    </div>
-    <div class="pk feat-pk">
-      <div class="badge">ყველაზე პოპულარული</div>
-      <h3>ინვესტორი</h3><div class="en-name">Investor</div>
-      <div class="price">€5</div><div class="per">თვეში</div>
-      <ul>
-        <li><span>ყველაფერი „მკითხველი“-დან</span><span class="tick">✔</span></li>
-        <li><span>ცოცხალი წიგნები · TBC + BOG</span><span class="tick">✔</span></li>
-        <li><span>ბაზარი · რეიტინგი და რუკა</span><span class="tick">✔</span></li>
-        <li><span>დივიდენდების ისტორია</span><span class="tick">✔</span></li>
-      </ul>
-      <button data-packet="Investor (€5/mo)">გამოწერა</button>
-    </div>
-    <div class="pk">
-      <h3>პარტნიორი</h3><div class="en-name">Partner</div>
-      <div class="price">€15</div><div class="per">თვეში</div>
-      <ul>
-        <li><span>ყველაფერი „ინვესტორი“-დან</span><span class="tick">✔</span></li>
-        <li><span>ყოველთვიური ბიუჯეტის წიგნი</span><span class="tick">✔</span></li>
-        <li><span>რედაქტორის შენიშვნები</span><span class="tick">✔</span></li>
-        <li><span>პირდაპირი კონტაქტი</span><span class="tick">✔</span></li>
-      </ul>
-      <button data-packet="Partner (€15/mo)">გამოწერა</button>
-    </div>
-  </div>
-  <div class="pk-note">ონლაინ გადახდა მალე დაემატება — ჯერჯერობით მოთხოვნა იგზავნება რედაქციაში ელფოსტით.</div>
-
-  <!-- Inline Subscription Form -->
-  <div id="subscription-experience" style="max-width: 440px; margin: 20px auto 30px; background: var(--paper); border: 1px dashed var(--border); padding: 24px; text-align: center;">
-    <h3 style="font-family:'Noto Serif Georgian', serif; font-size: 18px; font-weight:900; margin:0 0 6px; color:var(--ink);">გამოწერის მოთხოვნა</h3>
-    <p style="font-family:'Noto Sans Georgian', sans-serif; font-size:11px; color:var(--muted); margin:0 0 16px; text-transform:uppercase; letter-spacing:1.5px;">Subscribe Request</p>
-    
-    <form id="tp-reg-form" style="text-align: left;">
-      <div style="margin-bottom: 12px;">
-        <label for="rn" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">სახელი · Name</label>
-        <input id="rn" name="name" type="text" required style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
-      </div>
-      <div style="margin-bottom: 12px;">
-        <label for="re" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">ელფოსტა · Email</label>
-        <input id="re" name="email" type="email" required style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
-      </div>
-      <div style="margin-bottom: 16px;">
-        <label for="rp" style="display:block; font-family:'Noto Sans Georgian', sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); margin-bottom:4px;">პაკეტი · Packet</label>
-        <select id="rp" name="packet" style="width:100%; box-sizing:border-box; padding:8px 12px; border:1px solid var(--border); background:var(--paper); font-family:inherit; font-size:14px;">
-          <option>Reader (Free)</option>
-          <option selected>Investor (€5/mo)</option>
-          <option>Partner (€15/mo)</option>
-        </select>
-      </div>
-      <button type="submit" class="cta dark" style="width:100%; padding:10px; border:none; font-family:'Noto Sans Georgian', sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; font-weight:bold; cursor:pointer; background:var(--ink); color:var(--paper);">მოთხოვნის გაგზავნა</button>
-    </form>
-  </div>
-
-
-  <!-- News -->
-  <div class="section-head2"><span>ბაზრის სიახლეები</span><span class="en">Top stories</span></div>
-  <div class="pub-widget" style="min-height:440px;">
-    <div class="w-title">რეალური დროის სიახლეები</div>
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-      { "feedMode": "all_symbols", "isTransparent": true, "displayMode": "regular",
-        "width": "100%", "height": 400, "colorTheme": "light", "locale": "en" }
-      </script>
-    </div>
-  </div>
-
+  </section>
 </main>
 
-<footer>
-  © 2026 The Trading Paper · ვისბადენი<br>
-  ეს არ არის ფინანსური რჩევა · This is not financial advice
+<footer class="site">
+  <nav aria-label="ქვედა ნავიგაცია">
+    <a href="/">მთავარი</a><a href="#archive">არქივი</a><a href="learning.html">სწავლის წიგნი</a><a href="meportfolio/">ბაზარი</a><a href="dividends.html">დივიდენდები</a><a href="ai.html">Portfolio AI</a>
+  </nav>
+  © <span id="yr">2026</span> The Trading Paper · ლაშა ფხაკაძე<br>
+  <span class="disc">ეს არ არის ფინანსური რჩევა</span> — ყველა ციფრი ავტორის პირადი გამოცდილებაა.
 </footer>
 
-<script src="js/masthead.js?v=7"></script>
-<script src="js/clocks.js?v=1"></script>
+<script src="js/portfolios.data.js?v=20261019-1"></script>
 <script>
 (function () {
-  // Smooth scroll for hero cabinet btn
-  var heroBtn = document.getElementById('hero-signin-btn');
-  var exp = document.getElementById('login-experience');
-  if (heroBtn && exp) {
-    heroBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      exp.scrollIntoView({ behavior: 'smooth' });
+  'use strict';
+  var MONTHS = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  function fmtDate(iso) {
+    var p = String(iso || '').split('-');
+    if (p.length !== 3) return iso || '';
+    return (+p[2]) + ' ' + MONTHS[(+p[1]) - 1] + ' ' + p[0];
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
+  try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
 
-  // Handle data-packet clicks
-  document.querySelectorAll('.pk button[data-packet]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var pk = b.getAttribute('data-packet');
-      var sel = document.getElementById('rp');
-      if (sel) {
-        for (var i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].text === pk) sel.selectedIndex = i;
-        }
-      }
-      var subExp = document.getElementById('subscription-experience');
-      if (subExp) {
-        subExp.scrollIntoView({ behavior: 'smooth' });
-        var rnInput = document.getElementById('rn');
-        if (rnInput) setTimeout(function() { rnInput.focus(); }, 500);
-      }
+  // ---- numbers from the data file (single source of truth) ----
+  var P = window.PORTFOLIOS || {};
+  var trades = 0, divs = 0;
+  Object.keys(P).forEach(function (k) {
+    (P[k].transactions || []).forEach(function (t) {
+      if (t.type === 'buy' || t.type === 'sell') trades++;
+      else if (t.type === 'dividend') divs++;
     });
   });
+  if (trades) document.getElementById('f-trades').textContent = trades;
+  if (divs) document.getElementById('f-divs').textContent = divs;
+  ['bog', 'tbc', 'galt'].forEach(function (k) {
+    var el = document.getElementById('st-' + k), b = P[k];
+    if (!el || !b) return;
+    el.textContent = b.status === 'closed' ? 'დახურულია' : (b.holdings || []).length + ' პოზიცია · აქტიური';
+  });
 
-  // subscription request
-  var regForm = document.getElementById('tp-reg-form');
-  if (regForm) {
-    regForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var n = document.getElementById('rn').value.trim();
-      var em = document.getElementById('re').value.trim();
-      var pk = document.getElementById('rp').value;
-      var subject = 'The Trading Paper — გამოწერის მოთხოვნა: ' + pk;
-      var body = 'სახელი: ' + n + '\nელფოსტა: ' + em + '\nპაკეტი: ' + pk + '\n\n(გაგზავნილია public გვერდიდან)';
-      location.href = 'mailto:lasha.pkhakadze2000@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  }
+  // ---- archive from issues/issues.json ----
+  var SHOW = 6;
+  fetch('issues/issues.json', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (list) {
+      if (!Array.isArray(list) || !list.length) return;
+      function issueNo(it) { var m = String(it.title).match(/№\s*(\d+)/); return m ? +m[1] : 0; }
+      list.sort(function (a, b) { return a.date === b.date ? issueNo(b) - issueNo(a) : (a.date < b.date ? 1 : -1); });
+      var top = list[0];
+      var num = (String(top.title).match(/№\s*\d+/) || [top.title])[0];
+      ['cta-latest', 'latest-card'].forEach(function (id) { document.getElementById(id).href = top.file; });
+      document.getElementById('latest-no').textContent = num;
+      document.getElementById('latest-date').textContent = fmtDate(top.date);
+      document.getElementById('latest-desc').textContent = top.desc || '';
+      document.getElementById('f-issues').textContent = list.length;
+      document.getElementById('arch-count').textContent = list.length + ' გამოცემა';
+
+      var ol = document.getElementById('arch-list');
+      ol.innerHTML = list.map(function (it, i) {
+        var n = (String(it.title).match(/№\s*\d+/) || [it.title])[0];
+        var extra = String(it.title).replace(/^.*?№\s*\d+\s*/, '');
+        var fmt = /\.pdf$/i.test(it.file) ? 'PDF' : 'HTML';
+        return '<li' + (i >= SHOW ? ' hidden' : '') + '><a href="' + esc(it.file) + '"' + (fmt === 'PDF' ? ' target="_blank" rel="noopener"' : '') + '>'
+          + '<span class="n">' + esc(n) + '</span>'
+          + '<span class="t"><small>' + esc(fmtDate(it.date)) + (extra ? ' · ' + esc(extra) : '') + '</small>' + esc(it.desc) + '</span>'
+          + '<span class="f">' + fmt + '</span></a></li>';
+      }).join('');
+      var more = document.getElementById('arch-more');
+      if (list.length > SHOW) {
+        more.hidden = false;
+        more.textContent = 'ყველა ' + list.length + ' გამოცემის ჩვენება';
+        more.addEventListener('click', function () {
+          ol.querySelectorAll('li[hidden]').forEach(function (li) { li.hidden = false; });
+          more.hidden = true;
+        });
+      }
+    })
+    .catch(function () { /* static fallback above stays */ });
 })();
 </script>
+<script src="js/masthead.js?v=8"></script>
+<script src="js/clocks.js?v=2"></script>
 </body>
 </html>

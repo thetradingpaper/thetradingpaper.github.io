@@ -50,8 +50,20 @@ bot commits to `main` hourly and you will conflict otherwise.
    `galt.holdings`, set `cash`, and update status text on `margin.html` +
    the GALT banner on `strategy.html` (both have status lines).
 
+## Public front page (2026-10-19)
+
+`index.html` is the PUBLIC homepage (no gate, no redirect): lead story, latest issue,
+facts strip, three books, archive, Portfolio AI band, author. It reads
+`issues/issues.json` (latest issue + archive) and `js/portfolios.data.js` (counts only —
+never dollar values; live balances stay in the gated cabinet). Shared nav: `js/masthead.js`
+(TABS start with მთავარი → `/`) and `js/sitenav.js`. SEO files: `robots.txt`,
+`sitemap.xml` (rebuild with `node scripts/sitemap.js`), `404.html`, `favicon.ico`,
+`apple-touch-icon.png`, `images/og-image.png` (share card).
+
 ## Playbook 3 — new ISSUE (PDF edition)
 
+0. Add the issue at the top of `issues/issues.json` (homepage + archive pick it up),
+   then `node scripts/sitemap.js`.
 1. PDF → `pdfs/thetradingpaperN.pdf`.
 2. Add entry to `ARCHIVE` array in `portfolio.html` (archive section).
 3. Search-replace `გამოცემა №0X` → new number across all *.html (incl. articles/).

@@ -10,8 +10,9 @@
   var logged = false;
   try { logged = !!JSON.parse(localStorage.getItem('pai.session.v1') || 'null'); } catch (e) {}
   var L = [
+    ['/', 'მთავარი', /^\/(index(\.html)?)?$|^\/issues\//],
     ['/meportfolio/', 'ბაზარი', /^\/meportfolio/],
-    ['/cabinet.html', 'ჩემი კაბინეტი', /^\/(cabinet|index\.html|annual-income|dividends|history-bog|commissions|service-fee|learning)|^\/$/],
+    ['/cabinet.html', 'ჩემი კაბინეტი', /^\/(cabinet|annual-income|dividends|history-bog|commissions|service-fee|learning)/],
     ['/ai.html', 'Portfolio AI', /^\/(ai\.html|app\/)/]
   ];
   var css = '#tp-sitenav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:7px 18px;border-bottom:1px solid var(--rule,#1a1a1a);background:var(--bg,#fffdf7);font-family:"Noto Sans Georgian",sans-serif;font-size:13px;position:relative;z-index:60}' +
@@ -23,7 +24,7 @@
     '@media print{#tp-sitenav{display:none}} @media (max-width:560px){#tp-sitenav .b{display:none}#tp-sitenav{padding:6px 10px}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   var bar = document.createElement('nav'); bar.id = 'tp-sitenav'; bar.className = 'no-print'; bar.setAttribute('aria-label', 'საიტის ნავიგაცია');
-  bar.innerHTML = '<a class="b" href="/cabinet.html">The Trading Paper</a>' +
+  bar.innerHTML = '<a class="b" href="/">The Trading Paper</a>' +
     L.map(function (x) { return '<a class="l' + (x[2].test(p) ? ' on' : '') + '" href="' + x[0] + '">' + x[1] + '</a>'; }).join('') +
     '<span class="sp"></span><a class="u" href="' + (logged ? '/app/index.html' : '/app/login.html') + '">' + (logged ? 'ჩემი პორტფელი →' : 'შესვლა') + '</a>';
   document.body.insertBefore(bar, document.body.firstChild);

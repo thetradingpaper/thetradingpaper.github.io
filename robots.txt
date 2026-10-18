@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /functions/
+Disallow: /cabinet
+Disallow: /edit.html
+Disallow: /tp-logout/
+
+Sitemap: https://thetradingpaper.pages.dev/sitemap.xml
