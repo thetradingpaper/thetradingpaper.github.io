@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>შეტყობინებები · რას ვადევნებ თვალს · The Trading Paper</title>
+<meta name="description" content="მომავალი მოვლენები, რომლებსაც თვალს ვადევნებ: ჩემი აქციების შედეგები, დივიდენდები, ფედის გადაწყვეტილებები და FDA-ს თარიღები ბიოტექში.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Trading Paper">
+<meta property="og:title" content="შეტყობინებები · რას ვადევნებ თვალს">
+<meta property="og:description" content="შედეგები, დივიდენდები, ფედი და FDA-ს თარიღები — ერთ კალენდარში.">
+<meta property="og:url" content="https://thetradingpaper.pages.dev/alerts.html">
+<meta property="og:image" content="https://thetradingpaper.pages.dev/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script src="js/theme.js?v=1"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;700;900&family=Noto+Sans+Georgian:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f4f1ea;--paper:#fffdf7;--ink:#1a1a1a;--muted:#6b6b6b;--border:#d9d4c8;--rule:#1a1a1a;
+    --red:#b91c1c;--red-bg:rgba(185,28,28,.07);--green:#166534;--green-bg:rgba(22,101,52,.08);
+    --gold:#8b6914;--gold-bg:rgba(139,105,20,.09);--blue:#1d4ed8;--blue-bg:rgba(29,78,216,.07);--purple:#7c3aed;--purple-bg:rgba(124,58,237,.08)}
+  [data-theme="dark"]{--bg:#121315;--paper:#1a1c20;--ink:#e6e8ec;--muted:#9ea4b0;--border:#2d3139;--rule:#404652;
+    --red:#ef4444;--red-bg:rgba(239,68,68,.10);--green:#22c55e;--green-bg:rgba(34,197,94,.10);
+    --gold:#d4a72c;--gold-bg:rgba(212,167,44,.10);--blue:#60a5fa;--blue-bg:rgba(96,165,250,.10);--purple:#a78bfa;--purple-bg:rgba(167,139,250,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Serif Georgian',Georgia,serif;line-height:1.55}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px 56px}
+  .sans{font-family:'Noto Sans Georgian',sans-serif}
+  .kicker{font-family:'Noto Sans Georgian',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+  .head{padding:26px 0 8px}
+  .head h2{font-size:clamp(28px,4.6vw,44px);font-weight:900;line-height:1.1;margin:8px 0 8px}
+  .head p{margin:0;font-family:'Noto Sans Georgian',sans-serif;font-size:14px;color:var(--muted)}
+
+  .next{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--paper);
+    border:1px solid var(--border);border-top:4px double var(--rule);padding:18px 20px;margin:20px 0 14px}
+  .next .cd{text-align:center;min-width:86px}
+  .next .cd b{display:block;font-size:44px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+  .next .cd span{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted)}
+  .next h3{margin:4px 0 4px;font-size:21px;font-weight:900;line-height:1.3}
+  .next .meta{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);border:1px solid var(--border)}
+  .stats div{padding:12px 14px;border-right:1px solid var(--border)}
+  .stats div:last-child{border-right:none}
+  .stats b{font-size:24px;font-weight:900;font-variant-numeric:tabular-nums}
+  .stats span{display:block;font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted)}
+
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:22px 0 6px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:600;padding:7px 12px;border:1px solid var(--border);
+    background:var(--paper);color:var(--ink);cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .ics-all{font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:700;padding:8px 14px;border:2px solid var(--ink);
+    background:transparent;color:var(--ink);cursor:pointer}
+  .ics-all:hover{border-color:var(--red);color:var(--red)}
+
+  .month{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+    border-top:3px double var(--rule);border-bottom:1px solid var(--border);padding:9px 2px;margin:26px 0 0}
+  .list{list-style:none;margin:0;padding:0;background:var(--paper);border:1px solid var(--border);border-top:none}
+  .ev{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border)}
+  .ev:last-child{border-bottom:none}
+  .ev.soon{background:var(--red-bg)}
+  .ev .d{text-align:center;border-right:1px solid var(--border);padding-right:12px}
+  .ev .d b{display:block;font-size:26px;font-weight:900;line-height:1.05;font-variant-numeric:tabular-nums}
+  .ev .d span{font-family:'Noto Sans Georgian',sans-serif;font-size:11.5px;color:var(--muted)}
+  .ev .top{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:3px}
+  .tag{font-family:'Noto Sans Georgian',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.6px;padding:2px 7px;border:1px solid}
+  .tag.earnings{color:var(--blue);border-color:var(--blue);background:var(--blue-bg)}
+  .tag.dividend{color:var(--green);border-color:var(--green);background:var(--green-bg)}
+  .tag.fda{color:var(--purple);border-color:var(--purple);background:var(--purple-bg)}
+  .tag.macro{color:var(--gold);border-color:var(--gold);background:var(--gold-bg)}
+  .tag.mine{color:var(--red);border-color:var(--red);background:var(--red-bg)}
+  .tag.tk{color:var(--ink);border-color:var(--border)}
+  .tag.c1{color:var(--muted);border-color:var(--border);border-style:dashed}
+  .ev h4{margin:2px 0 2px;font-size:16.5px;font-weight:900;line-height:1.35}
+  .ev .time{font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px;color:var(--ink);font-weight:600}
+  .ev .time .left{color:var(--red);font-weight:700}
+  .ev p{margin:4px 0 0;font-size:14.5px;line-height:1.6}
+  .ev .act{display:flex;gap:14px;margin-top:6px;font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px}
+  .ev .act a,.ev .act button{color:var(--muted);text-decoration:none;background:none;border:none;padding:0;cursor:pointer;font:inherit}
+  .ev .act a:hover,.ev .act button:hover{color:var(--red)}
+  .past{opacity:.6}
+  details.pastwrap{margin-top:26px}
+  details.pastwrap summary{cursor:pointer;font-family:'Noto Sans Georgian',sans-serif;font-size:13px;font-weight:700;color:var(--muted)}
+
+  .box{background:var(--paper);border:1px solid var(--border);border-left:4px solid var(--ink);padding:18px 20px;margin-top:30px}
+  .box h3{margin:0 0 10px;font-size:19px;font-weight:900}
+  .box ol{margin:0;padding-left:22px}
+  .box li{margin:5px 0;font-size:15px;line-height:1.6}
+  .box p{margin:0 0 8px;font-size:15px;line-height:1.65}
+  .box .src{font-family:'Noto Sans Georgian',sans-serif;font-size:12px;color:var(--muted)}
+  .box.fda{border-left-color:var(--purple)}
+  .empty{padding:18px;font-family:'Noto Sans Georgian',sans-serif;font-size:14px;color:var(--muted);background:var(--paper);border:1px solid var(--border)}
+
+  footer.site{border-top:3px double var(--rule);margin-top:50px;padding:20px 20px 32px;text-align:center;
+    font-family:'Noto Sans Georgian',sans-serif;font-size:12.5px;color:var(--muted);line-height:1.9}
+  footer.site b{color:var(--ink)}
+  @media(max-width:640px){
+    .wrap{padding:0 14px 44px}
+    .next{grid-template-columns:auto 1fr;gap:14px}
+    .next .go{grid-column:1/-1}
+    .stats b{font-size:20px}
+    .ev{grid-template-columns:50px 1fr;gap:10px;padding:12px}
+    .ev .d b{font-size:22px}
+    .bar{flex-direction:column;align-items:stretch}
+    .ics-all{width:100%}
+  }
+  @media print{.chips,.ics-all,.ev .act{display:none!important}}
+</style>
+</head>
+<body>
+<header class="masthead"><h1>The Trading Paper</h1></header>
+
+<main class="wrap" id="main">
+  <section class="head">
+    <div class="kicker">შეტყობინებები</div>
+    <h2>რას ვადევნებ თვალს</h2>
+    <p id="upd">ჩემი აქციების შედეგები, დივიდენდები, ფედი და FDA-ს თარიღები — ერთ კალენდარში. დრო — ბერლინის.</p>
+  </section>
+
+  <section class="next" id="next" aria-live="polite">
+    <div class="cd"><b id="next-days">—</b><span id="next-unit">დღე</span></div>
+    <div>
+      <div class="kicker" id="next-kicker">შემდეგი მოვლენა</div>
+      <h3 id="next-title">იტვირთება…</h3>
+      <div class="meta" id="next-meta"></div>
+    </div>
+    <div class="go"><button class="ics-all" type="button" id="next-ics" hidden>+ კალენდარში</button></div>
+  </section>
+
+  <section class="stats" aria-label="რამდენი მოვლენაა წინ">
+    <div><b id="s-7">—</b><span>ამ 7 დღეში</span></div>
+    <div><b id="s-30">—</b><span>30 დღეში</span></div>
+    <div><b id="s-mine">—</b><span>ჩემს აქციებზე, 30 დღეში</span></div>
+  </section>
+
+  <div class="bar">
+    <div class="chips" role="group" aria-label="ფილტრი">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">ყველა</button>
+      <button class="chip" type="button" data-f="mine" aria-pressed="false">ჩემი აქციები</button>
+      <button class="chip" type="button" data-f="dividend" aria-pressed="false">დივიდენდები</button>
+      <button class="chip" type="button" data-f="fda" aria-pressed="false">ბიოტექი · FDA</button>
+      <button class="chip" type="button" data-f="macro" aria-pressed="false">ფედი</button>
+    </div>
+    <button class="ics-all" type="button" id="ics-all">ყველა ტელეფონის კალენდარში (.ics)</button>
+  </div>
+
+  <div id="timeline"><div class="empty">იტვირთება…</div></div>
+  <div id="pending"></div>
+  <details class="pastwrap" id="pastwrap" hidden><summary id="past-sum">გასული მოვლენები</summary><div id="past"></div></details>
+
+  <section class="box">
+    <h3>ყოველი ვაჭრობის წინ — 7 წესი</h3>
+    <ol>
+      <li><b>ბერკეტი არა.</b> არც 2×/3× ETF, არც შორტ ETF, არც CFD, არც მარჟა.</li>
+      <li><b>ვაჭრობა — თვეში ერთხელ, ხელფასის დღეს.</b> ინტრადეი არა.</li>
+      <li><b>BOG-ში მაქსიმუმ 5 პოზიცია.</b> ახალი მხოლოდ ერთი აბზაცით დაწერილი თეზისით.</li>
+      <li><b>90 დღე ყიდვიდან:</b> ვყიდი მხოლოდ მაშინ, თუ თეზისი დაირღვა — ფასის ვარდნა მიზეზი არ არის.</li>
+      <li><b>BOG/TBC-დან გატანა არა.</b> ცხოვრების ხარჯი მხოლოდ სეიფიდან.</li>
+      <li><b>სეიფი ბირჟაზე არ შედის.</b></li>
+      <li><b>დავარღვიე? ვწერ აქ</b> — თარიღი, რა, რატომ.</li>
+    </ol>
+  </section>
+
+  <section class="box fda">
+    <h3>ბიოტექის თარიღები: როგორ წავიკითხო</h3>
+    <p>FDA-ზე შეტანილი განაცხადების 85.3% მტკიცდება, ამიტომ დამტკიცება ხშირად უკვე ფასშია — დიდი მოძრაობა უარყოფაზე ხდება. კლინიკურ კვლევებში Phase 2-დან Phase 3-ში 30.7% გადადის, Phase 3-დან განაცხადამდე 58.1%.</p>
+    <p>ეს სია კვლევისთვისაა, არა ყიდვისთვის. "ერთი წყარო" ნიშნავს, რომ თარიღი მხოლოდ ერთ კალენდარშია — კომპანიის განცხადებაში გადაამოწმე.</p>
+    <div class="src">წყარო: <a href="https://cdn.vanderbilt.edu/t2-main/medschool-prd/wp-content/uploads/sites/106/2025/05/BiomedtrackerPDF.pdf" target="_blank" rel="noopener">BIO/Biomedtracker, 2006–2015, 9,985 გადასვლა</a></div>
+  </section>
+</main>
+
+<footer class="site">
+  © <span id="yr">2026</span> The Trading Paper · ლაშა ფხაკაძე<br>
+  <b>ეს არ არის ფინანსური რჩევა</b> — თარიღები კომპანიების განცხადებებიდან და კალენდრებიდანაა; შეიძლება შეიცვალოს.
+</footer>
+
+<script src="js/portfolios.data.js?v=20261019-1"></script>
+<script src="js/dividends.data.js?v=20261019-1"></script>
+<script>
+(function () {
+  'use strict';
+  var MONTHS = ['იანვარი','თებერვალი','მარტი','აპრილი','მაისი','ივნისი','ივლისი','აგვისტო','სექტემბერი','ოქტომბერი','ნოემბერი','დეკემბერი'];
+  var WD = ['კვი','ორშ','სამ','ოთხ','ხუთ','პარ','შაბ'];
+  var TYPE = { earnings: 'შედეგები', dividend: 'დივიდენდი', fda: 'FDA · ბიოტექი', macro: 'ფედი' };
+  var filter = 'all', ALL = [], PENDING = [];
+  try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function parse(iso) { var p = String(iso).split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function today() { var d = new Date(); d.setHours(0, 0, 0, 0); return d; }
+  function daysTo(iso) { return Math.round((parse(iso) - today()) / 864e5); }
+  function fmt(iso) { var d = parse(iso); return d.getDate() + ' ' + MONTHS[d.getMonth()]; }
+  function left(n) { return n === 0 ? 'დღეს' : n === 1 ? 'ხვალ' : n + ' დღეში'; }
+  function isMine(it) { return !!it.book; }
+
+  // ---------- .ics (phone calendar with a reminder the day before) ----------
+  function icsEscape(s) { return String(s || '').replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;'); }
+  function ymd(iso) { return iso.replace(/-/g, ''); }
+  function nextDay(iso) { var d = parse(iso); d.setDate(d.getDate() + 1); return d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0'); }
+  function vevent(it, i) {
+    return ['BEGIN:VEVENT',
+      'UID:tp-' + ymd(it.date) + '-' + (it.ticker || 'x') + '-' + i + '@thetradingpaper',
+      'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z',
+      'DTSTART;VALUE=DATE:' + ymd(it.date),
+      'DTEND;VALUE=DATE:' + nextDay(it.date),
+      'SUMMARY:' + icsEscape((it.ticker ? it.ticker + ' · ' : '') + it.title),
+      'DESCRIPTION:' + icsEscape([it.time, it.detail, it.source].filter(Boolean).join('\n')),
+      'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + icsEscape(it.title), 'TRIGGER:-PT12H', 'END:VALARM',
+      'END:VEVENT'].join('\r\n');
+  }
+  function download(items, name) {
+    var body = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//The Trading Paper//alerts//KA', 'CALSCALE:GREGORIAN']
+      .concat(items.map(vevent)).concat(['END:VCALENDAR']).join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([body], { type: 'text/calendar;charset=utf-8' }));
+    a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  }
+
+  // ---------- dividends: computed live from the portfolio, never typed ----------
+  function dividendItems() {
+    try {
+      if (!window.TP_DIVIDENDS) return [];
+      return window.TP_DIVIDENDS.getUpcomingSchedule(3).map(function (d) {
+        var supp = d.kind === 'supplemental';
+        return {
+          date: d.payDate, type: 'dividend', ticker: String(d.ticker).replace(' SUPP', ''), book: d.bookName || 'TBC',
+          title: (d.name || d.ticker) + (supp ? ' — დამატებითი დივიდენდი' : ' — დივიდენდი'),
+          time: 'ჩარიცხვის სავარაუდო დღე',
+          detail: '≈ $' + d.netAmount.toFixed(2) + ' წმინდა (შეფასება, 30%-იანი გადასახადის შემდეგ) · ' + (+d.shares).toFixed(2) + ' აქცია',
+          source: '/dividends.html'
+        };
+      });
+    } catch (e) { return []; }
+  }
+
+  function row(it, i) {
+    var n = daysTo(it.date), d = parse(it.date);
+    var tags = '<span class="tag ' + it.type + '">' + TYPE[it.type] + '</span>'
+      + (it.ticker && it.ticker !== 'FED' ? '<span class="tag tk">' + esc(it.ticker) + '</span>' : '')
+      + (isMine(it) ? '<span class="tag mine">ჩემი · ' + esc(it.book) + '</span>' : '')
+      + (it.confirm === 1 ? '<span class="tag c1">ერთი წყარო</span>' : '');
+    var src = it.source ? '<a href="' + esc(it.source) + '"' + (/^https?:/.test(it.source) ? ' target="_blank" rel="noopener"' : '') + '>წყარო ↗</a>' : '';
+    return '<li class="ev' + (n >= 0 && n <= 3 ? ' soon' : '') + (n < 0 ? ' past' : '') + '">'
+      + '<div class="d"><b>' + d.getDate() + '</b><span>' + WD[d.getDay()] + '</span></div>'
+      + '<div><div class="top">' + tags + '</div>'
+      + '<h4>' + esc(it.title) + '</h4>'
+      + '<div class="time">' + (n >= 0 ? '<span class="left">' + left(n) + '</span> · ' : '') + esc(it.time || '') + '</div>'
+      + (it.detail ? '<p>' + esc(it.detail) + '</p>' : '')
+      + '<div class="act">' + src + (n >= 0 ? '<button type="button" data-ics="' + i + '">+ კალენდარში</button>' : '') + '</div>'
+      + '</div></li>';
+  }
+
+  function pass(it) {
+    if (filter === 'all') return true;
+    if (filter === 'mine') return isMine(it);
+    return it.type === filter;
+  }
+
+  function render() {
+    var up = [], past = [];
+    ALL.forEach(function (it, i) { it._i = i; if (!pass(it)) return; (daysTo(it.date) >= 0 ? up : past).push(it); });
+    var tl = document.getElementById('timeline');
+    if (!up.length) tl.innerHTML = '<div class="empty">ამ ფილტრით მომავალი მოვლენა არ არის.</div>';
+    else {
+      var html = '', cur = '';
+      up.forEach(function (it) {
+        var d = parse(it.date), key = d.getFullYear() + '-' + d.getMonth();
+        if (key !== cur) { if (cur) html += '</ol>'; html += '<div class="month">' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '</div><ol class="list">'; cur = key; }
+        html += row(it, it._i);
+      });
+      tl.innerHTML = html + '</ol>';
+    }
+    var pw = document.getElementById('pastwrap');
+    if (past.length) {
+      pw.hidden = false;
+      document.getElementById('past-sum').textContent = 'გასული მოვლენები (' + past.length + ')';
+      document.getElementById('past').innerHTML = '<ol class="list" style="border-top:1px solid var(--border);margin-top:10px">' + past.reverse().map(function (it) { return row(it, it._i); }).join('') + '</ol>';
+    } else pw.hidden = true;
+    var pend = PENDING.filter(function (p) { return filter === 'all' || (filter === 'mine' && p.book); });
+    document.getElementById('pending').innerHTML = pend.length
+      ? '<div class="month">თარიღი ჯერ არ არის</div><ol class="list">' + pend.map(function (p) {
+          return '<li class="ev"><div class="d"><b>?</b><span>—</span></div><div><div class="top"><span class="tag earnings">შედეგები</span><span class="tag tk">' + esc(p.ticker) + '</span>' + (p.book ? '<span class="tag mine">ჩემი · ' + esc(p.book) + '</span>' : '') + '</div><h4>' + esc(p.title) + '</h4><p>' + esc(p.detail) + '</p><div class="act">' + (p.source ? '<a href="' + esc(p.source) + '" target="_blank" rel="noopener">წყარო ↗</a>' : '') + '</div></div></li>';
+        }).join('') + '</ol>'
+      : '';
+  }
+
+  function summary() {
+    var up = ALL.filter(function (it) { return daysTo(it.date) >= 0; });
+    var in7 = up.filter(function (it) { return daysTo(it.date) <= 7; }).length;
+    var in30 = up.filter(function (it) { return daysTo(it.date) <= 30; });
+    document.getElementById('s-7').textContent = in7;
+    document.getElementById('s-30').textContent = in30.length;
+    document.getElementById('s-mine').textContent = in30.filter(isMine).length;
+    var nx = up[0];
+    if (!nx) { document.getElementById('next-title').textContent = 'მომავალი მოვლენა არ არის — data/alerts.json განაახლე.'; return; }
+    var n = daysTo(nx.date);
+    document.getElementById('next-days').textContent = n === 0 ? '!' : n;
+    document.getElementById('next-unit').textContent = n === 0 ? 'დღეს' : n === 1 ? 'დღე · ხვალ' : 'დღე';
+    document.getElementById('next-kicker').textContent = 'შემდეგი · ' + TYPE[nx.type] + (isMine(nx) ? ' · ჩემი ' + nx.book : '');
+    document.getElementById('next-title').textContent = (nx.ticker && nx.ticker !== 'FED' ? nx.ticker + ' · ' : '') + nx.title;
+    document.getElementById('next-meta').textContent = fmt(nx.date) + ' · ' + (nx.time || '');
+    var b = document.getElementById('next-ics'); b.hidden = false;
+    b.onclick = function () { download([nx], 'tp-' + ymd(nx.date) + '.ics'); };
+  }
+
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      filter = c.getAttribute('data-f');
+      document.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      render();
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-ics]');
+    if (t) { var it = ALL[+t.getAttribute('data-ics')]; if (it) download([it], 'tp-' + ymd(it.date) + '-' + (it.ticker || 'event') + '.ics'); }
+  });
+  document.getElementById('ics-all').addEventListener('click', function () {
+    var up = ALL.filter(function (it) { return daysTo(it.date) >= 0 && pass(it); });
+    if (up.length) download(up, 'the-trading-paper-alerts.ics');
+  });
+
+  fetch('data/alerts.json', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .catch(function () { return { items: [], pending: [] }; })
+    .then(function (data) {
+      ALL = (data.items || []).concat(dividendItems());
+      ALL.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : (isMine(b) - isMine(a)); });
+      PENDING = data.pending || [];
+      if (data.updated) document.getElementById('upd').textContent += ' განახლდა: ' + fmt(data.updated) + '.';
+      summary(); render();
+    });
+})();
+</script>
+<script src="js/masthead.js?v=9"></script>
+<script src="js/clocks.js?v=2"></script>
+</body>
+</html>

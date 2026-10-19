@@ -13,6 +13,7 @@ const pages = [
   { loc: '/learning.html', priority: '0.7', changefreq: 'weekly' },
   { loc: '/dividends.html', priority: '0.6', changefreq: 'weekly' },
   { loc: '/ai.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: '/alerts.html', priority: '0.7', changefreq: 'weekly', lastmod: today },
 ];
 
 const issues = JSON.parse(fs.readFileSync(path.join(root, 'issues', 'issues.json'), 'utf8'));

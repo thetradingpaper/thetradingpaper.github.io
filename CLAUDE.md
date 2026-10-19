@@ -60,6 +60,16 @@ never dollar values; live balances stay in the gated cabinet). Shared nav: `js/m
 `sitemap.xml` (rebuild with `node scripts/sitemap.js`), `404.html`, `favicon.ico`,
 `apple-touch-icon.png`, `images/og-image.png` (share card).
 
+## Alerts page — შეტყობინებები (2026-10-19)
+
+`alerts.html` = "what to watch": events from `data/alerts.json` (earnings of holdings,
+FOMC, FDA/PDUFA dates; `confirm: 1` = only one source) + dividends computed live from
+`js/dividends.data.js` (never typed into the JSON). Times are Berlin time. Past events
+drop to the bottom automatically. Each event exports to the phone calendar (.ics, reminder
+12h before). The masthead tab shows a red badge = alerts.json events in the next 7 days.
+To update: edit `data/alerts.json` only (add events with a `source` URL; move a `pending`
+item into `items` once its date is announced) and bump `updated`.
+
 ## Playbook 3 — new ISSUE (PDF edition)
 
 0. Add the issue at the top of `issues/issues.json` (homepage + archive pick it up),

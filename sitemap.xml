@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://thetradingpaper.pages.dev/</loc><lastmod>2026-10-18</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://thetradingpaper.pages.dev/meportfolio/</loc><lastmod>2026-10-18</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://thetradingpaper.pages.dev/</loc><lastmod>2026-10-19</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thetradingpaper.pages.dev/meportfolio/</loc><lastmod>2026-10-19</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/learning.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/dividends.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/ai.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thetradingpaper.pages.dev/alerts.html</loc><lastmod>2026-10-19</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/issues/issue_21_voo_smh_rotation_lessons.html</loc><lastmod>2026-10-08</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/issues/issue_20_portfolio_rebuild_and_holdings.html</loc><lastmod>2026-10-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://thetradingpaper.pages.dev/issues/issue_19_leveraged_etf_psychology.html</loc><lastmod>2026-08-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>

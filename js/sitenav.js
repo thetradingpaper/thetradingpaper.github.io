@@ -13,7 +13,8 @@
     ['/', 'მთავარი', /^\/(index(\.html)?)?$|^\/issues\//],
     ['/meportfolio/', 'ბაზარი', /^\/meportfolio/],
     ['/cabinet.html', 'ჩემი კაბინეტი', /^\/(cabinet|annual-income|dividends|history-bog|commissions|service-fee|learning)/],
-    ['/ai.html', 'Portfolio AI', /^\/(ai\.html|app\/)/]
+    ['/ai.html', 'Portfolio AI', /^\/(ai\.html|app\/)/],
+    ['/alerts.html', 'შეტყობინებები', /^\/alerts/]
   ];
   var css = '#tp-sitenav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:7px 18px;border-bottom:1px solid var(--rule,#1a1a1a);background:var(--bg,#fffdf7);font-family:"Noto Sans Georgian",sans-serif;font-size:13px;position:relative;z-index:60}' +
     '#tp-sitenav .b{font-family:"Noto Serif Georgian",Georgia,serif;font-weight:900;font-size:15px;text-decoration:none;color:var(--ink,#1a1a1a);margin-right:12px}' +

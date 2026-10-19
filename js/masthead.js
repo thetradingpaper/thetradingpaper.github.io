@@ -22,7 +22,8 @@
     { href: '/',                   label: lang === 'ka' ? 'მთავარი' : 'Home',               re: /^\/(index(\.html)?)?$/ },
     { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
     { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
-    { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ }
+    { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ },
+    { href: '/alerts.html',        label: lang === 'ka' ? 'შეტყობინებები' : 'Alerts',       re: /^\/alerts/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
@@ -223,6 +224,12 @@
   if (old) old.replaceWith(header);
   else document.body.insertBefore(header, document.body.firstChild);
 
+  // phones: the tab row scrolls sideways — bring the current tab into view
+  try {
+    var navEl = header.querySelector('nav.tpm-nav'), act = navEl && navEl.querySelector('a.active');
+    if (act && navEl.scrollWidth > navEl.clientWidth) navEl.scrollLeft = act.offsetLeft - (navEl.clientWidth - act.offsetWidth) / 2;
+  } catch (e) {}
+
   // language toggle handler
   var lBtn = document.getElementById('tp-lang-btn');
   if (lBtn) {
@@ -301,6 +308,26 @@
   } else {
     makeSticky();
   }
+
+  // Alerts badge: events in the next 7 days (data/alerts.json)
+  (function () {
+    var css2 = document.createElement('style');
+    css2.textContent = '.tpm-badge{display:inline-block;min-width:17px;height:17px;line-height:17px;padding:0 5px;margin-left:5px;border-radius:9px;background:#b91c1c;color:#fff;font-size:10.5px;font-weight:700;text-align:center;vertical-align:1px;}';
+    document.head.appendChild(css2);
+    fetch(resolveUrl('/data/alerts.json'), { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+      var t0 = new Date(); t0.setHours(0, 0, 0, 0);
+      var n = (d.items || []).filter(function (it) {
+        var p = String(it.date).split('-'); var dd = (new Date(+p[0], +p[1] - 1, +p[2]) - t0) / 864e5;
+        return dd >= 0 && dd <= 7;
+      }).length;
+      if (!n) return;
+      document.querySelectorAll('a[href$="/alerts.html"]').forEach(function (a) {
+        if (a.querySelector('.tpm-badge')) return;
+        var b = document.createElement('span'); b.className = 'tpm-badge'; b.textContent = n; b.title = n + ' მოვლენა 7 დღეში';
+        a.appendChild(b);
+      });
+    }).catch(function () {});
+  })();
 
   // Populate the center masthead ticker from kvleva3-picks
   (function() {
