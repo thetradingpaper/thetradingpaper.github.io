@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T18:20:11.063521+00:00",
+ "updated": "2026-10-22T18:14:02.520648+00:00",
  "mode": "WAIT",
  "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
  "picks": [],
@@ -61,7 +61,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5964,
+ "scanned": 5965,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
