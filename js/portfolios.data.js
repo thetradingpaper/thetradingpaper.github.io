@@ -310,12 +310,13 @@ window.PORTFOLIOS = {
       { ticker: 'LYG', name: 'Lloyds Banking Group plc', shares: 72.53436194, avgBuy: 5.91, invested: 428.36, value: 396.76, color: '#006a4d', divYield: 3.66 },
       { ticker: 'SMH', name: 'VanEck Semiconductor ETF', shares: 1.40512272, avgBuy: 619.16, invested: 870.00, value: 870.00, color: '#9333ea', divYield: 0.20 },
       // VOO fully sold 08 Oct 2026 (TBC app confirms 0). Log buys sum to 1.24346234 vs 1.24321045 sold — 0.00025189 sh rounding in an older entry (likely 23 Jul 0.515).
-      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.84535792, avgBuy: 86.96, invested: 247.44, value: 242.45, color: '#dc2626', divYield: 3.10 },
+      { ticker: 'KO',   name: 'Coca-Cola Company, The', shares: 2.63427880, avgBuy: 86.96, invested: 229.08, value: 249.60, color: '#dc2626', divYield: 3.10 },
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 4.18961032, avgBuy: 48.12, invested: 201.59, value: 195.78, color: '#0284c7', divYield: 4.50 },
       { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 3.13557263, avgBuy: 55.89, invested: 175.25, value: 176.34, color: '#0d9488', divYield: 13.76 },
       { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding Co.', shares: 0.56407446, avgBuy: 37.89, invested: 21.37, value: 21.31, color: '#8b6914', divYield: 1.50 },
     ],
-    cash: 1.43, // 15 Oct 2026: MAIN dividend $1.43 net credited -> net cash $1.43 (08 Oct rotation left $0.00)
+    cash: 0.00, // 22 Oct 2026: KO partial sell $20.00 + cash $1.43 -> ASX buy $21.31 (fees $0.12) -> net cash $0.00
     priorDeposits: 0.00, // old lost TBC bank deposits $2,215.00 removed 05 Oct 2026
     priorCostBasis: 0.00,
     transactions: [
@@ -324,6 +325,9 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 22 ოქტ 2026 TBC: KO ნაწილობრივი გაყიდვა ($20.00) + ნაშთი $1.43 → ASX ყიდვა ($21.31) · TBC app · commission $0.12 · KO realized P/L +$1.58 · net cash $0.00 ---
+      { date: '2026-10-22', type: 'buy',      ticker: 'ASX',  shares: 0.56407446, price: 37.7787,  commission: 0.06 },
+      { date: '2026-10-22', type: 'sell',     ticker: 'KO',   shares: 0.21107912, price: 94.7512,  commission: 0.06 },
       // --- 15 ოქტ 2026 MAIN monthly dividend · TBC app · net cash $1.43 ---
       { date: '2026-10-15', type: 'dividend', ticker: 'MAIN', amount: 1.43, note: 'დივიდენდის ჩარიცხვა $2.04 − გადასახადი $0.61 = წმინდა $1.43' },
       // --- 08 ოქტ 2026 TBC rotation: VOO გაყიდვა ($885.02) → SMH ($870.00) + MAIN ($9.72) · TBC app · commission $5.30 · VOO realized P/L +$14.71 · net cash $0.00 ---
