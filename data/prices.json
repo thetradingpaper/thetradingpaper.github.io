@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T13:23:00.906Z",
+  "updated": "2026-10-22T18:02:57.595Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,8 +10,8 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 556.7,
-      "previousClose": 546.36
+      "price": 524.17,
+      "previousClose": 556.7
     },
     "VOO": {
       "price": 712.035,
@@ -34,8 +34,8 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 212.15,
-      "previousClose": 203.56
+      "price": 195.62,
+      "previousClose": 212.15
     },
     "WMT": {
       "price": 108.1,
@@ -50,32 +50,32 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 153.48,
-      "previousClose": 142.72
+      "price": 143.92,
+      "previousClose": 153.48
     },
     "CRDO": {
       "price": 217,
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 18.4,
-      "previousClose": 18.51
+      "price": 18.745,
+      "previousClose": 18.4
     },
     "MAIN": {
-      "price": 53.3,
-      "previousClose": 53.36
+      "price": 53.98,
+      "previousClose": 53.3
     },
     "BXSL": {
-      "price": 23.37,
-      "previousClose": 23.61
+      "price": 23.87,
+      "previousClose": 23.37
     },
     "LYG": {
-      "price": 5.49,
-      "previousClose": 5.41
+      "price": 5.365,
+      "previousClose": 5.49
     },
     "SNDK": {
-      "price": 1378.22,
-      "previousClose": 1365.38
+      "price": 1249.11,
+      "previousClose": 1378.22
     },
     "GOOG": {
       "price": 343.445,
@@ -114,16 +114,16 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 92.68,
-      "previousClose": 93.49
+      "price": 94.825,
+      "previousClose": 92.68
     },
     "DIVO": {
-      "price": 48.17,
-      "previousClose": 48.02
+      "price": 47.92,
+      "previousClose": 48.17
     },
     "QQQI": {
-      "price": 54,
-      "previousClose": 53.5257
+      "price": 52.538,
+      "previousClose": 54
     },
     "MU": {
       "price": 927.26,
@@ -134,8 +134,8 @@
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 244.76,
-      "previousClose": 240.42
+      "price": 221.01,
+      "previousClose": 244.76
     },
     "QBTS": {
       "price": 17.695,
@@ -158,8 +158,8 @@
       "previousClose": 217.44
     },
     "O": {
-      "price": 55.35,
-      "previousClose": 56.34
+      "price": 56.89,
+      "previousClose": 55.35
     }
   }
 }
