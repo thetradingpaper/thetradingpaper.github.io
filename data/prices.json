@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22T18:02:57.595Z",
+  "updated": "2026-10-22T20:59:33.143Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,7 +10,7 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 524.17,
+      "price": 523.35,
       "previousClose": 556.7
     },
     "VOO": {
@@ -18,8 +18,8 @@
       "previousClose": 714.34
     },
     "ASX": {
-      "price": 40.49,
-      "previousClose": 40.01
+      "price": 37.74,
+      "previousClose": 42.41
     },
     "SSRM": {
       "price": 27.4,
@@ -34,7 +34,7 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 195.62,
+      "price": 195.59,
       "previousClose": 212.15
     },
     "WMT": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 143.92,
+      "price": 145.8,
       "previousClose": 153.48
     },
     "CRDO": {
@@ -58,23 +58,23 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 18.745,
+      "price": 18.79,
       "previousClose": 18.4
     },
     "MAIN": {
-      "price": 53.98,
+      "price": 54.1,
       "previousClose": 53.3
     },
     "BXSL": {
-      "price": 23.87,
+      "price": 23.91,
       "previousClose": 23.37
     },
     "LYG": {
-      "price": 5.365,
+      "price": 5.38,
       "previousClose": 5.49
     },
     "SNDK": {
-      "price": 1249.11,
+      "price": 1260.93,
       "previousClose": 1378.22
     },
     "GOOG": {
@@ -114,15 +114,15 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 94.825,
+      "price": 95.34,
       "previousClose": 92.68
     },
     "DIVO": {
-      "price": 47.92,
+      "price": 48,
       "previousClose": 48.17
     },
     "QQQI": {
-      "price": 52.538,
+      "price": 52.59,
       "previousClose": 54
     },
     "MU": {
@@ -134,7 +134,7 @@
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 221.01,
+      "price": 223.47,
       "previousClose": 244.76
     },
     "QBTS": {
@@ -158,7 +158,7 @@
       "previousClose": 217.44
     },
     "O": {
-      "price": 56.89,
+      "price": 57.06,
       "previousClose": 55.35
     }
   }
