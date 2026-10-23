@@ -316,7 +316,7 @@ window.PORTFOLIOS = {
       { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
       { ticker: 'ASX',  name: 'ASE Industrial Holding Co.', shares: 0.56407446, avgBuy: 37.89, invested: 21.37, value: 21.31, color: '#8b6914', divYield: 1.50 },
     ],
-    cash: 0.00, // 22 Oct 2026: KO partial sell $20.00 + cash $1.43 -> ASX buy $21.31 (fees $0.12) -> net cash $0.00
+    cash: 10.69, // 23 Oct 2026: BXSL dividend $9.30 net + QQQI dividend $1.39 net -> net cash $10.69
     priorDeposits: 0.00, // old lost TBC bank deposits $2,215.00 removed 05 Oct 2026
     priorCostBasis: 0.00,
     transactions: [
@@ -325,6 +325,9 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 23 ოქტ 2026 BXSL & QQQI dividends · TBC app · net cash $10.69 ---
+      { date: '2026-10-23', type: 'dividend', ticker: 'BXSL', amount: 9.30, note: 'დივიდენდის ჩარიცხვა $13.28 − გადასახადი $3.98 = წმინდა $9.30' },
+      { date: '2026-10-23', type: 'dividend', ticker: 'QQQI', amount: 1.39, note: 'დივიდენდის ჩარიცხვა $1.99 − გადასახადი $0.60 = წმინდა $1.39' },
       // --- 22 ოქტ 2026 TBC: KO ნაწილობრივი გაყიდვა ($20.00) + ნაშთი $1.43 → ASX ყიდვა ($21.31) · TBC app · commission $0.12 · KO realized P/L +$1.58 · net cash $0.00 ---
       { date: '2026-10-22', type: 'buy',      ticker: 'ASX',  shares: 0.56407446, price: 37.7787,  commission: 0.06 },
       { date: '2026-10-22', type: 'sell',     ticker: 'KO',   shares: 0.21107912, price: 94.7512,  commission: 0.06 },
