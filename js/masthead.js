@@ -18,12 +18,13 @@
 
   // ---- PRIMARY horizontal tabs -------------------------------------------
   // Market · My Cabinet · Portfolio AI
+  // 23 Oct 2026: menu tabs removed at Lasha's request (logo stays). To restore, uncomment.
   var TABS = [
-    { href: '/',                   label: lang === 'ka' ? 'მთავარი' : 'Home',               re: /^\/(index(\.html)?)?$/ },
-    { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
-    { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
-    { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ },
-    { href: '/alerts.html',        label: lang === 'ka' ? 'შეტყობინებები' : 'Alerts',       re: /^\/alerts/ }
+    // { href: '/',                   label: lang === 'ka' ? 'მთავარი' : 'Home',               re: /^\/(index(\.html)?)?$/ },
+    // { href: '/meportfolio/',       label: lang === 'ka' ? 'ბაზარი' : 'Market',              re: /^\/meportfolio/ },
+    // { href: 'cabinet.html',        label: lang === 'ka' ? 'ჩემი კაბინეტი' : 'My Cabinet',   re: /^\/cabinet/ },
+    // { href: '/ai.html',            label: lang === 'ka' ? 'Portfolio AI' : 'Portfolio AI', re: /^\/(ai(\.html)?$|app\/)/ },
+    // { href: '/alerts.html',        label: lang === 'ka' ? 'შეტყობინებები' : 'Alerts',       re: /^\/alerts/ }
   ];
 
   // ---- SECONDARY sub-nav (cabinet tools) — horizontal tab row ------------
@@ -219,7 +220,7 @@
     +   '<div id="tpm-center-ticker" class="no-print"></div>'
     +   '<div id="tp-clocks" class="no-print"></div>'
     + '</div>'
-    + '<nav class="tpm-nav">' + tabLinks() + '</nav>';
+    + (TABS.length ? '<nav class="tpm-nav">' + tabLinks() + '</nav>' : '');
 
   if (old) old.replaceWith(header);
   else document.body.insertBefore(header, document.body.firstChild);
