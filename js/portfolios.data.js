@@ -314,9 +314,9 @@ window.PORTFOLIOS = {
       { ticker: 'DIVO', name: 'Amplify CWP Enhanced Dividend ETF', shares: 4.18961032, avgBuy: 48.12, invested: 201.59, value: 195.78, color: '#0284c7', divYield: 4.50 },
       { ticker: 'QQQI', name: 'NEOS Nasdaq-100 High Income ETF', shares: 3.13557263, avgBuy: 55.89, invested: 175.25, value: 176.34, color: '#0d9488', divYield: 13.76 },
       { ticker: 'O',    name: 'Realty Income Corporation', shares: 3.69022753, avgBuy: 54.20, invested: 200.00, value: 200.00, color: '#ea580c', divYield: 6.01 },
-      { ticker: 'ASX',  name: 'ASE Industrial Holding Co.', shares: 0.56407446, avgBuy: 37.89, invested: 21.37, value: 21.31, color: '#8b6914', divYield: 1.50 },
+      { ticker: 'ASX',  name: 'ASE Industrial Holding Co.', shares: 0.84147057, avgBuy: 38.10, invested: 32.06, value: 32.34, color: '#8b6914', divYield: 1.50 },
     ],
-    cash: 10.69, // 23 Oct 2026: BXSL dividend $9.30 net + QQQI dividend $1.39 net -> net cash $10.69
+    cash: 0.00, // 23 Oct 2026: BXSL $9.30 + QQQI $1.39 net dividends ($10.69) -> ASX buy $10.66 + fee $0.03 -> net cash $0.00
     priorDeposits: 0.00, // old lost TBC bank deposits $2,215.00 removed 05 Oct 2026
     priorCostBasis: 0.00,
     transactions: [
@@ -325,6 +325,8 @@ window.PORTFOLIOS = {
       //   { date: '2026-08-15', type: 'dividend', ticker: 'MAIN', amount: 0.62, note: 'monthly · net after 30% GE' },
       // Add one row per real credit from the TBC statement. Never estimate — the
       // upcoming calendar projects estimates; this array holds actual receipts only.
+      // --- 23 ოქტ 2026 TBC: დივიდენდები ($10.69) → ASX ყიდვა ($10.66) · TBC app · commission $0.03 · net cash $0.00 ---
+      { date: '2026-10-23', type: 'buy',      ticker: 'ASX',  shares: 0.27739611, price: 38.4288,  commission: 0.03 },
       // --- 23 ოქტ 2026 BXSL & QQQI dividends · TBC app · net cash $10.69 ---
       { date: '2026-10-23', type: 'dividend', ticker: 'BXSL', amount: 9.30, note: 'დივიდენდის ჩარიცხვა $13.28 − გადასახადი $3.98 = წმინდა $9.30' },
       { date: '2026-10-23', type: 'dividend', ticker: 'QQQI', amount: 1.39, note: 'დივიდენდის ჩარიცხვა $1.99 − გადასახადი $0.60 = წმინდა $1.39' },
