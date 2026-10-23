@@ -77,7 +77,7 @@
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         var pass = document.getElementById('global-gate-pass').value;
-        if (pass === 'salamandra123' || pass === '111') {
+        if (pass === 'salamandra123') {
           localStorage.setItem('cabinet_auth', 'true');
           gate.remove();
           if (style) style.remove();
