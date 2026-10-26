@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 79.12,
+ "cash": 39.12,
  "positions": [
   {
    "ticker": "PLTR",
@@ -13,6 +13,28 @@
    "cost": 20,
    "target": 211.84,
    "stop": 183.18
+  },
+  {
+   "ticker": "NVDA",
+   "opened": "2026-10-26T19:09:17.720Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 29 < 32 · პირველი მწვანე",
+   "entry": 216.17,
+   "shares": 0.09252,
+   "cost": 20,
+   "target": 228.45,
+   "stop": 206.96
+  },
+  {
+   "ticker": "BABA",
+   "opened": "2026-10-26T19:09:17.720Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 29.1 < 32 · პირველი მწვანე",
+   "entry": 100,
+   "shares": 0.2,
+   "cost": 20,
+   "target": 106.36,
+   "stop": 95.23
   }
  ],
  "equityHistory": [
@@ -351,6 +373,10 @@
   {
    "date": "2026-10-23",
    "equity": 99.25
+  },
+  {
+   "date": "2026-10-26",
+   "equity": 99.5
   }
  ]
 }
