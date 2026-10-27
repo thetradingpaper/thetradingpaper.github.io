@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T19:10:25.246Z",
+  "updated": "2026-10-27T22:59:02.360Z",
   "quotes": {
     "SMCZ": {
       "price": 5.46,
@@ -10,7 +10,7 @@
       "previousClose": 115.26
     },
     "SMH": {
-      "price": 557.36,
+      "price": 557.98,
       "previousClose": 541.62
     },
     "VOO": {
@@ -18,7 +18,7 @@
       "previousClose": 714.34
     },
     "ASX": {
-      "price": 41.93,
+      "price": 42.06,
       "previousClose": 39.91
     },
     "SSRM": {
@@ -34,7 +34,7 @@
       "previousClose": 45.68
     },
     "VRT": {
-      "price": 210.19,
+      "price": 208.56,
       "previousClose": 199.78
     },
     "WMT": {
@@ -50,7 +50,7 @@
       "previousClose": 97.23
     },
     "MSTR": {
-      "price": 140.795,
+      "price": 141.4,
       "previousClose": 139.82
     },
     "CRDO": {
@@ -58,23 +58,23 @@
       "previousClose": 236.5
     },
     "ARCC": {
-      "price": 18.63,
+      "price": 18.51,
       "previousClose": 18.61
     },
     "MAIN": {
-      "price": 54.29,
+      "price": 54.04,
       "previousClose": 53.34
     },
     "BXSL": {
-      "price": 23.175,
+      "price": 23.11,
       "previousClose": 22.91
     },
     "LYG": {
-      "price": 5.405,
+      "price": 5.4,
       "previousClose": 5.42
     },
     "SNDK": {
-      "price": 1301.045,
+      "price": 1304.84,
       "previousClose": 1255.58
     },
     "GOOG": {
@@ -114,15 +114,15 @@
       "previousClose": 107.73
     },
     "KO": {
-      "price": 91.505,
+      "price": 91.18,
       "previousClose": 92.7
     },
     "DIVO": {
-      "price": 47.86,
+      "price": 47.83,
       "previousClose": 47.76
     },
     "QQQI": {
-      "price": 53.835,
+      "price": 53.81,
       "previousClose": 53.17
     },
     "MU": {
@@ -134,7 +134,7 @@
       "previousClose": 62.95
     },
     "MRVL": {
-      "price": 242.46,
+      "price": 243.57,
       "previousClose": 233.78
     },
     "QBTS": {
@@ -158,7 +158,7 @@
       "previousClose": 217.44
     },
     "O": {
-      "price": 56.935,
+      "price": 56.82,
       "previousClose": 57.16
     }
   }
