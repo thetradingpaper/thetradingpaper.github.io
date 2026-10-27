@@ -83,7 +83,7 @@
     VOO: {
       name: 'Vanguard S&P 500 ETF',
       freq: 'quarterly',
-      estDivPerShare: 1.962,
+      estDivPerShare: 1.857,          // average of the last 4: 1.771 · 1.872 · 1.962 · 1.823 (Dec 2025 – Sep 2026)
       months: [2, 5, 8, 11], // Mar, Jun, Sep, Dec (0-indexed)
       getDates: function (year, month) {
         var pDays = { 2: 29, 5: 30, 8: 30, 11: 29 };
@@ -111,7 +111,11 @@
     DIVO: {
       name: 'Amplify CWP Enhanced Dividend Income ETF',
       freq: 'monthly',
-      estDivPerShare: 0.1834,
+      estDivPerShare: 0.189,          // Jul–Sep 2026: 0.188 · 0.195 · 0.189 (Yahoo)
+      // December also carries the year-end distribution: Dec 2025 paid 0.953 instead of ~0.19,
+      // so ~0.76 extra on top of the regular month. Estimate from last year — it varies.
+      supplementalPerShare: 0.76,
+      supplementalMonths: [11],
       // Distributes on the last business day of every month; ex-date ~1 day prior
       getDates: function (year, month) {
         var pDay = new Date(year, month + 1, 0).getDate();
