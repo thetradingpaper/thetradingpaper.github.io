@@ -1,5 +1,16 @@
 [
  {
+  "closed": "2026-10-27T18:38:38.536Z",
+  "opened": "2026-10-20T17:55:19.127Z",
+  "ticker": "PLTR",
+  "rule": "R3",
+  "entry": 195.46,
+  "exit": 199.47,
+  "exitType": "TIME",
+  "pnl": 0.41,
+  "pnlPct": 2.05
+ },
+ {
   "closed": "2026-10-21T00:04:45.690Z",
   "opened": "2026-10-14T21:34:03.657Z",
   "ticker": "BABA",
