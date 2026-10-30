@@ -1,5 +1,27 @@
 [
  {
+  "closed": "2026-10-30T18:31:47.688Z",
+  "opened": "2026-10-27T18:38:38.536Z",
+  "ticker": "PLTR",
+  "rule": "R3",
+  "entry": 199.47,
+  "exit": 184.29,
+  "exitType": "STOP",
+  "pnl": -1.52,
+  "pnlPct": -7.61
+ },
+ {
+  "closed": "2026-10-30T18:31:47.688Z",
+  "opened": "2026-10-26T19:09:17.720Z",
+  "ticker": "NVDA",
+  "rule": "R1",
+  "entry": 216.17,
+  "exit": 201.84,
+  "exitType": "STOP",
+  "pnl": -1.33,
+  "pnlPct": -6.63
+ },
+ {
   "closed": "2026-10-27T18:38:38.536Z",
   "opened": "2026-10-20T17:55:19.127Z",
   "ticker": "PLTR",
