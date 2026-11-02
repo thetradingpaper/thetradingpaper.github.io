@@ -347,7 +347,7 @@ window.PORTFOLIOS = {
       { date: '2026-11-02', type: 'buy',      ticker: 'SMH',  shares: 0.23269051, price: 525.29,   commission: 0 },
       { date: '2026-11-02', type: 'buy',      ticker: 'QQQI', shares: 1.00000000, price: 51.84,    commission: 0 },
       { date: '2026-11-02', type: 'buy',      ticker: 'QQQI', shares: 0.92539921, price: 51.8371,  commission: 0 },
-      { date: '2026-11-02', type: 'deposit',  amount: 221.48, note: 'დეპოზიტი ყიდვების დასაფარად ($222.04 − ნაღდი $0.56) — თანხა გადასამოწმებელია' },
+      { date: '2026-11-02', type: 'deposit',  amount: 221.48, note: 'დეპოზიტი ყიდვების დასაფარად ($222.04 − ნაღდი $0.56) — თანხა შესამოწმებელია' },
       // --- 30 ოქტ 2026 DIVO dividend · TBC app · net cash $0.56 ---
       { date: '2026-10-30', type: 'dividend', ticker: 'DIVO', amount: 0.56, note: 'დივიდენდის ჩარიცხვა $0.80 − გადასახადი $0.24 = წმინდა $0.56' },
       // --- 28 ოქტ 2026 TBC: ASX სრული გაყიდვა ($36.32) → SMH ყიდვა ($36.10) · TBC app · commission $0.22 · ASX realized P/L +$4.15 · net cash $0.00 ---
