@@ -1,29 +1,29 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 56.68,
+ "cash": 57.6,
  "positions": [
   {
-   "ticker": "BABA",
-   "opened": "2026-10-26T19:09:17.720Z",
-   "rule": "R1",
-   "reason": "R1 oversold bounce · RSI 29.1 < 32 · პირველი მწვანე",
-   "entry": 100,
-   "shares": 0.2,
+   "ticker": "TSLA",
+   "opened": "2026-11-02T22:16:06.696Z",
+   "rule": "R3",
+   "reason": "R3 trend pullback · SMA5>SMA20 · ფასი დაუბრუნდა SMA5-ს",
+   "entry": 403.82,
+   "shares": 0.049527,
    "cost": 20,
-   "target": 106.36,
-   "stop": 95.23
+   "target": 434,
+   "stop": 381.19
   },
   {
-   "ticker": "TSLA",
-   "opened": "2026-10-26T23:17:06.392Z",
-   "rule": "R2",
-   "reason": "R2 breakout · ფასი > 20დ მაქსიმუმი $388.86 · მოცულობა 1.5×",
-   "entry": 391.62,
-   "shares": 0.05107,
+   "ticker": "BABA",
+   "opened": "2026-11-02T22:16:06.696Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 26.2 < 32 · პირველი მწვანე",
+   "entry": 101.5,
+   "shares": 0.197044,
    "cost": 20,
-   "target": 417.92,
-   "stop": 371.89
+   "target": 107.06,
+   "stop": 97.33
   }
  ],
  "equityHistory": [
@@ -382,6 +382,10 @@
   {
    "date": "2026-10-30",
    "equity": 96.71
+  },
+  {
+   "date": "2026-11-02",
+   "equity": 97.6
   }
  ]
 }
