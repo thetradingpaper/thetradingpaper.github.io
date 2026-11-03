@@ -1,8 +1,301 @@
 {
- "updated": "2026-11-02T22:35:23.405861+00:00",
- "mode": "WAIT",
- "notification": "ბოტი ელოდება — no clean catalyst setups today. Cash is a position too.",
- "picks": [],
+ "updated": "2026-11-03T20:22:32.218081+00:00",
+ "mode": "DIVERSIFY",
+ "notification": "📊 5 solid setups — split the paper $100 across: RACE, NXT, TBBB, RRX, FISV. No single hero today, the basket is the play.",
+ "picks": [
+  {
+   "ticker": "RACE",
+   "price": 416.16,
+   "score": 77.2,
+   "tech_score": 36.4,
+   "news_score": 40.8,
+   "rsi": 71.8,
+   "mom5": 6.79,
+   "vol_surge": 2.2,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Ferrari raises outlook as luxury buyers keep spending",
+     "age_h": 5.5,
+     "points": 22.5
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Will Earnings Beat Change Ferrari Stock Narrative (BIT:RACE)",
+     "age_h": 4.1,
+     "points": 18.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 416.16,
+    "target": 438.91,
+    "stop": 407.06,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "NXT",
+   "price": 96.01,
+   "score": 68.5,
+   "tech_score": 37.0,
+   "news_score": 31.5,
+   "rsi": 66.4,
+   "mom5": 20.97,
+   "vol_surge": 1.12,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "All You Need to Know About Nextpower (NXT) Rating Upgrade to Buy",
+     "age_h": 4.4,
+     "points": 10.8
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Nextpower (NXT) Beats And Lifts Guidance, Is The Stock Already Fully Valued?",
+     "age_h": 18.2,
+     "points": 18.3
+    },
+    {
+     "category": "growth_news",
+     "headline": "NXT Q3 deep dive: product expansion and M&A drive growth amid cost pressures",
+     "age_h": 67.5,
+     "points": 2.4
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 96.01,
+    "target": 112.11,
+    "stop": 89.57,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "TBBB",
+   "price": 61.86,
+   "score": 62.8,
+   "tech_score": 44.6,
+   "news_score": 18.3,
+   "rsi": 69.5,
+   "mom5": 7.94,
+   "vol_surge": 2.08,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "BBB Foods (TBBB) Beats Q3 Earnings and Revenue Estimates",
+     "age_h": 22.5,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 61.86,
+    "target": 65.57,
+    "stop": 59.64,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "RRX",
+   "price": 178.23,
+   "score": 61.6,
+   "tech_score": 43.3,
+   "news_score": 18.3,
+   "rsi": 66.3,
+   "mom5": 12.31,
+   "vol_surge": 1.91,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Regal Rexnord (RRX) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 8.1,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 178.23,
+    "target": 194.81,
+    "stop": 168.28,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "FISV",
+   "price": 58.87,
+   "score": 57.6,
+   "tech_score": 30.0,
+   "news_score": 27.6,
+   "rsi": 82.5,
+   "mom5": 24.39,
+   "vol_surge": 2.3,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Fiserv Beats Wall Street, But a Troubling Question Remains",
+     "age_h": 2.3,
+     "points": 18.3
+    },
+    {
+     "category": "buyback_dividend",
+     "headline": "FISV Stock Surges After Earnings Beat — Doubles Savings Target To $1B, Plans $500M Buyback",
+     "age_h": 2.7,
+     "points": 9.4
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 58.87,
+    "target": 64.61,
+    "stop": 56.57,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "UPWK",
+   "price": 9.98,
+   "score": 56.0,
+   "tech_score": 37.7,
+   "news_score": 18.3,
+   "rsi": 74.3,
+   "mom5": 9.98,
+   "vol_surge": 2.22,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Upwork surges 10.5% on earnings beat and solid guidance",
+     "age_h": 21.4,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 9.98,
+    "target": 10.86,
+    "stop": 9.45,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DT",
+   "price": 47.8,
+   "score": 55.6,
+   "tech_score": 11.9,
+   "news_score": 43.7,
+   "rsi": 18.5,
+   "mom5": -25.27,
+   "vol_surge": 1.99,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Dynatrace Stocks Slide 14% as AI Acquisition Weighs on Margin Guidance",
+     "age_h": 2.7,
+     "points": 19.0
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Dynatrace Earnings Beat. Acquisition Impacts Profit Outlook",
+     "age_h": 7.9,
+     "points": 18.3
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "CrowdStrike Upgraded On Expected AI Cybersecurity Leadership",
+     "age_h": 29.4,
+     "points": 6.5
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 47.8,
+    "target": 53.95,
+    "stop": 44.11,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "DD",
+   "price": 153.9,
+   "score": 54.6,
+   "tech_score": 36.3,
+   "news_score": 18.3,
+   "rsi": 90.2,
+   "mom5": 11.75,
+   "vol_surge": 2.04,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "DD Q3 Earnings Beat on Organic Growth, Raises 2026 Outlook",
+     "age_h": 6.1,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 153.9,
+    "target": 161.12,
+    "stop": 149.56,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ADT",
+   "price": 9.85,
+   "score": 52.9,
+   "tech_score": 29.0,
+   "news_score": 24.0,
+   "rsi": 91.6,
+   "mom5": 43.52,
+   "vol_surge": 1.12,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "ADT’s (NYSE:ADT) Q3 2026: beats on revenue",
+     "age_h": 8.3,
+     "points": 18.3
+    },
+    {
+     "category": "m_and_a",
+     "headline": "ADT (ADT) Has A 20% Overvaluation View As Its $10 Buyout Nears",
+     "age_h": 62.2,
+     "points": 5.7
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 9.85,
+    "target": 10.56,
+    "stop": 9.43,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "JAN",
+   "price": 29.46,
+   "score": 52.3,
+   "tech_score": 34.0,
+   "news_score": 18.3,
+   "rsi": 53.9,
+   "mom5": 6.03,
+   "vol_surge": 2.52,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Healthpeak's Q3 FFOA Beat Estimates on Leasing, Senior Housing Growth",
+     "age_h": 2.7,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 29.46,
+    "target": 31.54,
+    "stop": 28.21,
+    "hold": "3-7 დღე"
+   }
+  }
+ ],
  "learned": [
   {
    "category": "earnings_beat",
@@ -61,7 +354,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5961,
+ "scanned": 5957,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

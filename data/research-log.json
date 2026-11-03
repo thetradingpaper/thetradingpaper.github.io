@@ -7394,5 +7394,122 @@
   "exit_price": 300.79,
   "return_pct": 5.15,
   "outcome": "win"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218009+00:00",
+  "ticker": "RACE",
+  "entry": 416.16,
+  "score": 77.2,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218018+00:00",
+  "ticker": "NXT",
+  "entry": 96.01,
+  "score": 68.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218022+00:00",
+  "ticker": "TBBB",
+  "entry": 61.86,
+  "score": 62.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218026+00:00",
+  "ticker": "RRX",
+  "entry": 178.23,
+  "score": 61.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218028+00:00",
+  "ticker": "FISV",
+  "entry": 58.87,
+  "score": 57.6,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218031+00:00",
+  "ticker": "UPWK",
+  "entry": 9.98,
+  "score": 56.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218034+00:00",
+  "ticker": "DT",
+  "entry": 47.8,
+  "score": 55.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218040+00:00",
+  "ticker": "DD",
+  "entry": 153.9,
+  "score": 54.6,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218043+00:00",
+  "ticker": "ADT",
+  "entry": 9.85,
+  "score": 52.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-03T20:22:32.218046+00:00",
+  "ticker": "JAN",
+  "entry": 29.46,
+  "score": 52.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]
