@@ -1,297 +1,303 @@
 {
- "updated": "2026-11-03T20:22:32.218081+00:00",
- "mode": "DIVERSIFY",
- "notification": "📊 5 solid setups — split the paper $100 across: RACE, NXT, TBBB, RRX, FISV. No single hero today, the basket is the play.",
+ "updated": "2026-11-04T20:39:37.759892+00:00",
+ "mode": "CONCENTRATE",
+ "notification": "🔥 One clear standout: FLYW (score 88.8). Bot would put the whole paper $100 here. Entry 21.94, target 24.42, stop 20.95.",
  "picks": [
   {
-   "ticker": "RACE",
-   "price": 416.16,
-   "score": 77.2,
-   "tech_score": 36.4,
+   "ticker": "FLYW",
+   "price": 21.94,
+   "score": 88.8,
+   "tech_score": 48.0,
    "news_score": 40.8,
-   "rsi": 71.8,
-   "mom5": 6.79,
-   "vol_surge": 2.2,
+   "rsi": 68.1,
+   "mom5": 16.59,
+   "vol_surge": 3.13,
    "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Flywire Corp (FLYW) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and ...",
+     "age_h": 13.5,
+     "points": 18.3
+    },
     {
      "category": "guidance_raise",
-     "headline": "Ferrari raises outlook as luxury buyers keep spending",
-     "age_h": 5.5,
+     "headline": "Flywire Corp (FLYW) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and ...",
+     "age_h": 13.5,
      "points": 22.5
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Will Earnings Beat Change Ferrari Stock Narrative (BIT:RACE)",
-     "age_h": 4.1,
-     "points": 18.3
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 416.16,
-    "target": 438.91,
-    "stop": 407.06,
+    "entry": 21.94,
+    "target": 24.42,
+    "stop": 20.95,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "NXT",
-   "price": 96.01,
-   "score": 68.5,
-   "tech_score": 37.0,
-   "news_score": 31.5,
-   "rsi": 66.4,
-   "mom5": 20.97,
-   "vol_surge": 1.12,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "All You Need to Know About Nextpower (NXT) Rating Upgrade to Buy",
-     "age_h": 4.4,
-     "points": 10.8
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Nextpower (NXT) Beats And Lifts Guidance, Is The Stock Already Fully Valued?",
-     "age_h": 18.2,
-     "points": 18.3
-    },
-    {
-     "category": "growth_news",
-     "headline": "NXT Q3 deep dive: product expansion and M&A drive growth amid cost pressures",
-     "age_h": 67.5,
-     "points": 2.4
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 96.01,
-    "target": 112.11,
-    "stop": 89.57,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "TBBB",
-   "price": 61.86,
-   "score": 62.8,
-   "tech_score": 44.6,
-   "news_score": 18.3,
-   "rsi": 69.5,
-   "mom5": 7.94,
-   "vol_surge": 2.08,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "BBB Foods (TBBB) Beats Q3 Earnings and Revenue Estimates",
-     "age_h": 22.5,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 61.86,
-    "target": 65.57,
-    "stop": 59.64,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "RRX",
-   "price": 178.23,
-   "score": 61.6,
-   "tech_score": 43.3,
-   "news_score": 18.3,
-   "rsi": 66.3,
-   "mom5": 12.31,
-   "vol_surge": 1.91,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Regal Rexnord (RRX) Q3 Earnings and Revenues Beat Estimates",
-     "age_h": 8.1,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 178.23,
-    "target": 194.81,
-    "stop": 168.28,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "FISV",
-   "price": 58.87,
-   "score": 57.6,
-   "tech_score": 30.0,
-   "news_score": 27.6,
-   "rsi": 82.5,
-   "mom5": 24.39,
-   "vol_surge": 2.3,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Fiserv Beats Wall Street, But a Troubling Question Remains",
-     "age_h": 2.3,
-     "points": 18.3
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "FISV Stock Surges After Earnings Beat — Doubles Savings Target To $1B, Plans $500M Buyback",
-     "age_h": 2.7,
-     "points": 9.4
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 58.87,
-    "target": 64.61,
-    "stop": 56.57,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "UPWK",
-   "price": 9.98,
-   "score": 56.0,
-   "tech_score": 37.7,
-   "news_score": 18.3,
+   "ticker": "HELE",
+   "price": 37.51,
+   "score": 67.0,
+   "tech_score": 48.0,
+   "news_score": 19.0,
    "rsi": 74.3,
-   "mom5": 9.98,
-   "vol_surge": 2.22,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Upwork surges 10.5% on earnings beat and solid guidance",
-     "age_h": 21.4,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.98,
-    "target": 10.86,
-    "stop": 9.45,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "DT",
-   "price": 47.8,
-   "score": 55.6,
-   "tech_score": 11.9,
-   "news_score": 43.7,
-   "rsi": 18.5,
-   "mom5": -25.27,
-   "vol_surge": 1.99,
+   "mom5": 27.94,
+   "vol_surge": 3.55,
    "catalysts": [
     {
      "category": "m_and_a",
-     "headline": "Dynatrace Stocks Slide 14% as AI Acquisition Weighs on Margin Guidance",
-     "age_h": 2.7,
+     "headline": "HELE Stock On Track For Best Day In Over 25 Years After Rejecting $37 Per Share Takeover Bid",
+     "age_h": 0.9,
      "points": 19.0
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Dynatrace Earnings Beat. Acquisition Impacts Profit Outlook",
-     "age_h": 7.9,
-     "points": 18.3
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "CrowdStrike Upgraded On Expected AI Cybersecurity Leadership",
-     "age_h": 29.4,
-     "points": 6.5
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 47.8,
-    "target": 53.95,
-    "stop": 44.11,
+    "entry": 37.51,
+    "target": 40.95,
+    "stop": 35.45,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "DD",
-   "price": 153.9,
-   "score": 54.6,
+   "ticker": "PCOR",
+   "price": 75.07,
+   "score": 63.9,
    "tech_score": 36.3,
+   "news_score": 27.6,
+   "rsi": 84.2,
+   "mom5": 20.27,
+   "vol_surge": 2.03,
+   "catalysts": [
+    {
+     "category": "buyback_dividend",
+     "headline": "Procore Technologies (PCOR) Could Be 9% Undervalued As Buyback And Earnings Land",
+     "age_h": 10.4,
+     "points": 9.4
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Should Earnings Beat Require Action From Procore Technologies (PCOR) Investors?",
+     "age_h": 15.4,
+     "points": 18.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 75.07,
+    "target": 84.24,
+    "stop": 71.4,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SWK",
+   "price": 118.39,
+   "score": 63.7,
+   "tech_score": 28.0,
+   "news_score": 35.7,
+   "rsi": 88.4,
+   "mom5": 17.93,
+   "vol_surge": 2.78,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "SWK's Q3 Earnings Surge on Margin Expansion, 2026 Outlook Raised",
+     "age_h": 4.0,
+     "points": 8.1
+    },
+    {
+     "category": "buyback_dividend",
+     "headline": "Stanley Black And Decker Stock What Strong Earnings And $1 Billion Buyback Changed",
+     "age_h": 4.4,
+     "points": 9.4
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Stanley Black & Decker stock gains on earnings beat, guidance raise",
+     "age_h": 8.8,
+     "points": 18.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 118.39,
+    "target": 130.75,
+    "stop": 113.45,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "LBTYA",
+   "price": 9.41,
+   "score": 62.9,
+   "tech_score": 44.6,
    "news_score": 18.3,
-   "rsi": 90.2,
-   "mom5": 11.75,
-   "vol_surge": 2.04,
+   "rsi": 66.2,
+   "mom5": 23.36,
+   "vol_surge": 1.83,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "DD Q3 Earnings Beat on Organic Growth, Raises 2026 Outlook",
-     "age_h": 6.1,
+     "headline": "Earnings Beat Might Change The Case For Liberty Global Stock (LBTY.A)",
+     "age_h": 3.4,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 153.9,
-    "target": 161.12,
-    "stop": 149.56,
+    "entry": 9.41,
+    "target": 10.25,
+    "stop": 8.91,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "ADT",
-   "price": 9.85,
-   "score": 52.9,
-   "tech_score": 29.0,
-   "news_score": 24.0,
-   "rsi": 91.6,
-   "mom5": 43.52,
-   "vol_surge": 1.12,
+   "price": 9.9,
+   "score": 62.2,
+   "tech_score": 32.3,
+   "news_score": 29.9,
+   "rsi": 91.1,
+   "mom5": 33.67,
+   "vol_surge": 1.53,
    "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "ADT Inc (ADT) (Q3 2026) Earnings Call Highlights: $10-Per-Share Thrive Holdings Buyout and $1 ...",
+     "age_h": 13.6,
+     "points": 19.0
+    },
     {
      "category": "earnings_beat",
      "headline": "ADT’s (NYSE:ADT) Q3 2026: beats on revenue",
-     "age_h": 8.3,
-     "points": 18.3
-    },
-    {
-     "category": "m_and_a",
-     "headline": "ADT (ADT) Has A 20% Overvaluation View As Its $10 Buyout Nears",
-     "age_h": 62.2,
-     "points": 5.7
+     "age_h": 32.5,
+     "points": 11.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 9.85,
-    "target": 10.56,
-    "stop": 9.43,
+    "entry": 9.9,
+    "target": 10.57,
+    "stop": 9.5,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "JAN",
-   "price": 29.46,
-   "score": 52.3,
-   "tech_score": 34.0,
+   "ticker": "DUOL",
+   "price": 164.57,
+   "score": 56.3,
+   "tech_score": 38.0,
    "news_score": 18.3,
-   "rsi": 53.9,
-   "mom5": 6.03,
-   "vol_surge": 2.52,
+   "rsi": 59.2,
+   "mom5": 21.71,
+   "vol_surge": 5.71,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Duolingo Stock What Changed After Strong User Growth And Raised Guidance",
+     "age_h": 1.5,
+     "points": 22.5
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Adobe downgraded, Constellation upgraded: Wall Street's top analyst calls",
+     "age_h": 5.9,
+     "points": 10.8
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "Adobe downgraded, Constellation upgraded: Wall Street's top analyst calls",
+     "age_h": 5.9,
+     "points": -15.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 164.57,
+    "target": 194.76,
+    "stop": 152.49,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GXO",
+   "price": 57.16,
+   "score": 56.3,
+   "tech_score": 38.0,
+   "news_score": 18.3,
+   "rsi": 90.6,
+   "mom5": 15.25,
+   "vol_surge": 2.48,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Healthpeak's Q3 FFOA Beat Estimates on Leasing, Senior Housing Growth",
-     "age_h": 2.7,
+     "headline": "GXO Logistics (GXO) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 20.7,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 29.46,
-    "target": 31.54,
-    "stop": 28.21,
+    "entry": 57.16,
+    "target": 60.53,
+    "stop": 55.14,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "NXT",
+   "price": 107.25,
+   "score": 55.4,
+   "tech_score": 38.0,
+   "news_score": 17.4,
+   "rsi": 73.2,
+   "mom5": 30.29,
+   "vol_surge": 2.95,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "All You Need to Know About Nextpower (NXT) Rating Upgrade to Buy",
+     "age_h": 28.6,
+     "points": 6.5
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Nextpower (NXT) Beats And Lifts Guidance, Is The Stock Already Fully Valued?",
+     "age_h": 42.5,
+     "points": 11.0
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 107.25,
+    "target": 119.97,
+    "stop": 99.62,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SKY",
+   "price": 96.82,
+   "score": 55.4,
+   "tech_score": 37.1,
+   "news_score": 18.3,
+   "rsi": 73.4,
+   "mom5": 22.27,
+   "vol_surge": 1.89,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Champion Homes (SKY) Q2 Earnings and Revenues Beat Estimates",
+     "age_h": 20.7,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 96.82,
+    "target": 104.26,
+    "stop": 92.37,
     "hold": "3-7 დღე"
    }
   }
@@ -354,7 +360,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5957,
+ "scanned": 5956,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

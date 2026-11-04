@@ -7511,5 +7511,122 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759811+00:00",
+  "ticker": "FLYW",
+  "entry": 21.94,
+  "score": 88.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759820+00:00",
+  "ticker": "HELE",
+  "entry": 37.51,
+  "score": 67.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759825+00:00",
+  "ticker": "PCOR",
+  "entry": 75.07,
+  "score": 63.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759828+00:00",
+  "ticker": "SWK",
+  "entry": 118.39,
+  "score": 63.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "buyback_dividend",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759832+00:00",
+  "ticker": "LBTYA",
+  "entry": 9.41,
+  "score": 62.9,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759835+00:00",
+  "ticker": "ADT",
+  "entry": 9.9,
+  "score": 62.2,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759838+00:00",
+  "ticker": "DUOL",
+  "entry": 164.57,
+  "score": 56.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "analyst_upgrade"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759845+00:00",
+  "ticker": "GXO",
+  "entry": 57.16,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759848+00:00",
+  "ticker": "NXT",
+  "entry": 107.25,
+  "score": 55.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "analyst_upgrade",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-04T20:39:37.759852+00:00",
+  "ticker": "SKY",
+  "entry": 96.82,
+  "score": 55.4,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]
