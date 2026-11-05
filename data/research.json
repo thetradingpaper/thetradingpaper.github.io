@@ -1,303 +1,261 @@
 {
- "updated": "2026-11-04T20:39:37.759892+00:00",
+ "updated": "2026-11-05T20:55:26.249964+00:00",
  "mode": "CONCENTRATE",
- "notification": "🔥 One clear standout: FLYW (score 88.8). Bot would put the whole paper $100 here. Entry 21.94, target 24.42, stop 20.95.",
+ "notification": "🔥 One clear standout: SEZL (score 86.8). Bot would put the whole paper $100 here. Entry 153.95, target 188.71, stop 140.04.",
  "picks": [
   {
-   "ticker": "FLYW",
-   "price": 21.94,
-   "score": 88.8,
-   "tech_score": 48.0,
+   "ticker": "SEZL",
+   "price": 153.95,
+   "score": 86.8,
+   "tech_score": 46.0,
    "news_score": 40.8,
-   "rsi": 68.1,
-   "mom5": 16.59,
-   "vol_surge": 3.13,
+   "rsi": 67.5,
+   "mom5": 15.58,
+   "vol_surge": 2.97,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Flywire Corp (FLYW) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and ...",
-     "age_h": 13.5,
+     "headline": "Sezzle Stock Gains Attention After Earnings Beat And Higher Full Year Guidance",
+     "age_h": 5.6,
      "points": 18.3
     },
     {
      "category": "guidance_raise",
-     "headline": "Flywire Corp (FLYW) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and ...",
-     "age_h": 13.5,
+     "headline": "Can Sezzle (SEZL) Justify Its Price After Raised Guidance?",
+     "age_h": 7.6,
      "points": 22.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 21.94,
-    "target": 24.42,
-    "stop": 20.95,
+    "entry": 153.95,
+    "target": 188.71,
+    "stop": 140.04,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "HELE",
-   "price": 37.51,
-   "score": 67.0,
-   "tech_score": 48.0,
-   "news_score": 19.0,
+   "ticker": "MGNI",
+   "price": 27.83,
+   "score": 58.3,
+   "tech_score": 40.0,
+   "news_score": 18.3,
+   "rsi": 70.6,
+   "mom5": 24.07,
+   "vol_surge": 3.74,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "AppLovin Soars 30% on Record Quarter and Strong Outlook; Magnite Surges 17%, Trade Desk Falls 2%",
+     "age_h": 5.0,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 27.83,
+    "target": 30.55,
+    "stop": 26.2,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "VCEL",
+   "price": 51.4,
+   "score": 56.3,
+   "tech_score": 38.0,
+   "news_score": 18.3,
+   "rsi": 75.8,
+   "mom5": 20.04,
+   "vol_surge": 3.16,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Vericel Corporation (VCEL) Beats Q3 Earnings and Revenue Estimates",
+     "age_h": 7.3,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 51.4,
+    "target": 56.46,
+    "stop": 48.37,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "ADMA",
+   "price": 13.19,
+   "score": 56.3,
+   "tech_score": 38.0,
+   "news_score": 18.3,
+   "rsi": 70.1,
+   "mom5": 12.08,
+   "vol_surge": 3.45,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Adma Biologics (ADMA) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 21.2,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 13.19,
+    "target": 14.57,
+    "stop": 12.36,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "VYX",
+   "price": 9.78,
+   "score": 56.3,
+   "tech_score": 38.0,
+   "news_score": 18.3,
    "rsi": 74.3,
-   "mom5": 27.94,
-   "vol_surge": 3.55,
+   "mom5": 19.16,
+   "vol_surge": 2.67,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "HELE Stock On Track For Best Day In Over 25 Years After Rejecting $37 Per Share Takeover Bid",
-     "age_h": 0.9,
-     "points": 19.0
+     "category": "earnings_beat",
+     "headline": "NCR Voyix (VYX) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 8.7,
+     "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 37.51,
-    "target": 40.95,
-    "stop": 35.45,
+    "entry": 9.78,
+    "target": 10.89,
+    "stop": 9.11,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "PCOR",
-   "price": 75.07,
-   "score": 63.9,
-   "tech_score": 36.3,
-   "news_score": 27.6,
-   "rsi": 84.2,
-   "mom5": 20.27,
-   "vol_surge": 2.03,
+   "ticker": "JAN",
+   "price": 30.66,
+   "score": 50.7,
+   "tech_score": 45.2,
+   "news_score": 5.5,
+   "rsi": 60.8,
+   "mom5": 7.24,
+   "vol_surge": 5.88,
    "catalysts": [
     {
-     "category": "buyback_dividend",
-     "headline": "Procore Technologies (PCOR) Could Be 9% Undervalued As Buyback And Earnings Land",
-     "age_h": 10.4,
-     "points": 9.4
-    },
-    {
      "category": "earnings_beat",
-     "headline": "Should Earnings Beat Require Action From Procore Technologies (PCOR) Investors?",
-     "age_h": 15.4,
-     "points": 18.3
+     "headline": "Healthpeak's Q3 FFOA Beat Estimates on Leasing, Senior Housing Growth",
+     "age_h": 51.3,
+     "points": 5.5
     }
    ],
-   "horizon": "long",
+   "horizon": "short",
    "plan": {
-    "entry": 75.07,
-    "target": 84.24,
-    "stop": 71.4,
-    "hold": "2-8 კვირა"
+    "entry": 30.66,
+    "target": 32.88,
+    "stop": 29.32,
+    "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SWK",
-   "price": 118.39,
-   "score": 63.7,
+   "ticker": "DNUT",
+   "price": 4.61,
+   "score": 50.5,
    "tech_score": 28.0,
-   "news_score": 35.7,
-   "rsi": 88.4,
-   "mom5": 17.93,
-   "vol_surge": 2.78,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "SWK's Q3 Earnings Surge on Margin Expansion, 2026 Outlook Raised",
-     "age_h": 4.0,
-     "points": 8.1
-    },
-    {
-     "category": "buyback_dividend",
-     "headline": "Stanley Black And Decker Stock What Strong Earnings And $1 Billion Buyback Changed",
-     "age_h": 4.4,
-     "points": 9.4
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Stanley Black & Decker stock gains on earnings beat, guidance raise",
-     "age_h": 8.8,
-     "points": 18.3
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 118.39,
-    "target": 130.75,
-    "stop": 113.45,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "LBTYA",
-   "price": 9.41,
-   "score": 62.9,
-   "tech_score": 44.6,
-   "news_score": 18.3,
-   "rsi": 66.2,
-   "mom5": 23.36,
-   "vol_surge": 1.83,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Earnings Beat Might Change The Case For Liberty Global Stock (LBTY.A)",
-     "age_h": 3.4,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.41,
-    "target": 10.25,
-    "stop": 8.91,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ADT",
-   "price": 9.9,
-   "score": 62.2,
-   "tech_score": 32.3,
-   "news_score": 29.9,
-   "rsi": 91.1,
-   "mom5": 33.67,
-   "vol_surge": 1.53,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "ADT Inc (ADT) (Q3 2026) Earnings Call Highlights: $10-Per-Share Thrive Holdings Buyout and $1 ...",
-     "age_h": 13.6,
-     "points": 19.0
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "ADT’s (NYSE:ADT) Q3 2026: beats on revenue",
-     "age_h": 32.5,
-     "points": 11.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.9,
-    "target": 10.57,
-    "stop": 9.5,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "DUOL",
-   "price": 164.57,
-   "score": 56.3,
-   "tech_score": 38.0,
-   "news_score": 18.3,
-   "rsi": 59.2,
-   "mom5": 21.71,
-   "vol_surge": 5.71,
+   "news_score": 22.5,
+   "rsi": 83.0,
+   "mom5": 41.88,
+   "vol_surge": 6.19,
    "catalysts": [
     {
      "category": "guidance_raise",
-     "headline": "Duolingo Stock What Changed After Strong User Growth And Raised Guidance",
-     "age_h": 1.5,
+     "headline": "Krispy Kreme raises guidance as turnaround plan gains steam",
+     "age_h": 3.9,
      "points": 22.5
-    },
-    {
-     "category": "analyst_upgrade",
-     "headline": "Adobe downgraded, Constellation upgraded: Wall Street's top analyst calls",
-     "age_h": 5.9,
-     "points": 10.8
-    },
-    {
-     "category": "analyst_downgrade",
-     "headline": "Adobe downgraded, Constellation upgraded: Wall Street's top analyst calls",
-     "age_h": 5.9,
-     "points": -15.0
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 164.57,
-    "target": 194.76,
-    "stop": 152.49,
+    "entry": 4.61,
+    "target": 5.31,
+    "stop": 4.32,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "GXO",
-   "price": 57.16,
-   "score": 56.3,
+   "ticker": "RYTM",
+   "price": 104.32,
+   "score": 49.0,
    "tech_score": 38.0,
-   "news_score": 18.3,
-   "rsi": 90.6,
-   "mom5": 15.25,
-   "vol_surge": 2.48,
+   "news_score": 11.0,
+   "rsi": 67.2,
+   "mom5": 11.42,
+   "vol_surge": 3.2,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "GXO Logistics (GXO) Q3 Earnings and Revenues Beat Estimates",
-     "age_h": 20.7,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 57.16,
-    "target": 60.53,
-    "stop": 55.14,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "NXT",
-   "price": 107.25,
-   "score": 55.4,
-   "tech_score": 38.0,
-   "news_score": 17.4,
-   "rsi": 73.2,
-   "mom5": 30.29,
-   "vol_surge": 2.95,
-   "catalysts": [
-    {
-     "category": "analyst_upgrade",
-     "headline": "All You Need to Know About Nextpower (NXT) Rating Upgrade to Buy",
-     "age_h": 28.6,
-     "points": 6.5
-    },
-    {
-     "category": "earnings_beat",
-     "headline": "Nextpower (NXT) Beats And Lifts Guidance, Is The Stock Already Fully Valued?",
-     "age_h": 42.5,
+     "headline": "Rhythm Pharmaceuticals Stock In Focus After Earnings Beat And $750 Million Financing",
+     "age_h": 30.6,
      "points": 11.0
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 107.25,
-    "target": 119.97,
-    "stop": 99.62,
+    "entry": 104.32,
+    "target": 115.45,
+    "stop": 97.64,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SKY",
-   "price": 96.82,
-   "score": 55.4,
-   "tech_score": 37.1,
+   "ticker": "U",
+   "price": 48.43,
+   "score": 48.3,
+   "tech_score": 30.0,
    "news_score": 18.3,
-   "rsi": 73.4,
-   "mom5": 22.27,
-   "vol_surge": 1.89,
+   "rsi": 73.7,
+   "mom5": 23.38,
+   "vol_surge": 4.03,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Champion Homes (SKY) Q2 Earnings and Revenues Beat Estimates",
-     "age_h": 20.7,
+     "headline": "AppLovin Soars 30% on Record Quarter and Strong Outlook; Magnite Surges 17%, Trade Desk Falls 2%",
+     "age_h": 5.0,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 96.82,
-    "target": 104.26,
-    "stop": 92.37,
+    "entry": 48.43,
+    "target": 53.17,
+    "stop": 45.59,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "SBGI",
+   "price": 14.24,
+   "score": 48.3,
+   "tech_score": 30.0,
+   "news_score": 18.3,
+   "rsi": 68.6,
+   "mom5": 12.68,
+   "vol_surge": 2.96,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Sinclair (SBGI) Beats Q3 Earnings and Revenue Estimates",
+     "age_h": 23.1,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 14.24,
+    "target": 15.47,
+    "stop": 13.51,
     "hold": "3-7 დღე"
    }
   }
@@ -360,7 +318,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5956,
+ "scanned": 5957,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }

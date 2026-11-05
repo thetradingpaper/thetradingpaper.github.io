@@ -7628,5 +7628,116 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249881+00:00",
+  "ticker": "SEZL",
+  "entry": 153.95,
+  "score": 86.8,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249893+00:00",
+  "ticker": "MGNI",
+  "entry": 27.83,
+  "score": 58.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249897+00:00",
+  "ticker": "VCEL",
+  "entry": 51.4,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249900+00:00",
+  "ticker": "ADMA",
+  "entry": 13.19,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249904+00:00",
+  "ticker": "VYX",
+  "entry": 9.78,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249907+00:00",
+  "ticker": "JAN",
+  "entry": 30.66,
+  "score": 50.7,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249909+00:00",
+  "ticker": "DNUT",
+  "entry": 4.61,
+  "score": 50.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249915+00:00",
+  "ticker": "RYTM",
+  "entry": 104.32,
+  "score": 49.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249918+00:00",
+  "ticker": "U",
+  "entry": 48.43,
+  "score": 48.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-05T20:55:26.249921+00:00",
+  "ticker": "SBGI",
+  "entry": 14.24,
+  "score": 48.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]
