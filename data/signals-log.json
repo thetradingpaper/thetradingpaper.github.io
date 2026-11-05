@@ -1,5 +1,27 @@
 [
  {
+  "closed": "2026-11-05T20:35:07.400Z",
+  "opened": "2026-11-02T22:16:06.696Z",
+  "ticker": "BABA",
+  "rule": "R1",
+  "entry": 101.5,
+  "exit": 108.01,
+  "exitType": "TARGET",
+  "pnl": 1.28,
+  "pnlPct": 6.41
+ },
+ {
+  "closed": "2026-11-05T20:35:07.400Z",
+  "opened": "2026-11-02T22:16:06.696Z",
+  "ticker": "TSLA",
+  "rule": "R3",
+  "entry": 403.82,
+  "exit": 343.41,
+  "exitType": "STOP",
+  "pnl": -2.99,
+  "pnlPct": -14.96
+ },
+ {
   "closed": "2026-11-02T22:16:06.696Z",
   "opened": "2026-10-26T23:17:06.392Z",
   "ticker": "TSLA",
