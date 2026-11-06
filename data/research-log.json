@@ -7739,5 +7739,121 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505176+00:00",
+  "ticker": "ABNB",
+  "entry": 191.47,
+  "score": 63.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "buyback_dividend"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505190+00:00",
+  "ticker": "ENOV",
+  "entry": 27.36,
+  "score": 61.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise",
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505193+00:00",
+  "ticker": "FISV",
+  "entry": 63.72,
+  "score": 56.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat",
+   "analyst_upgrade",
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505197+00:00",
+  "ticker": "PAR",
+  "entry": 20.47,
+  "score": 55.8,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505199+00:00",
+  "ticker": "IRWD",
+  "entry": 4.39,
+  "score": 53.1,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505202+00:00",
+  "ticker": "DNUT",
+  "entry": 4.26,
+  "score": 52.7,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505204+00:00",
+  "ticker": "HALO",
+  "entry": 104.32,
+  "score": 52.4,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505210+00:00",
+  "ticker": "U",
+  "entry": 52.62,
+  "score": 50.3,
+  "horizon": "long",
+  "catalyst_cats": [
+   "earnings_beat",
+   "growth_news"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505213+00:00",
+  "ticker": "GOGO",
+  "entry": 3.87,
+  "score": 48.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-06T20:10:17.505215+00:00",
+  "ticker": "CGON",
+  "entry": 75.42,
+  "score": 48.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
  }
 ]

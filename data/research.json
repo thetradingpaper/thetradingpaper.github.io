@@ -1,261 +1,291 @@
 {
- "updated": "2026-11-05T20:55:26.249964+00:00",
- "mode": "CONCENTRATE",
- "notification": "🔥 One clear standout: SEZL (score 86.8). Bot would put the whole paper $100 here. Entry 153.95, target 188.71, stop 140.04.",
+ "updated": "2026-11-06T20:10:17.505265+00:00",
+ "mode": "DIVERSIFY",
+ "notification": "📊 4 solid setups — split the paper $100 across: ABNB, ENOV, FISV, PAR. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "SEZL",
-   "price": 153.95,
-   "score": 86.8,
-   "tech_score": 46.0,
-   "news_score": 40.8,
-   "rsi": 67.5,
-   "mom5": 15.58,
-   "vol_surge": 2.97,
+   "ticker": "ABNB",
+   "price": 191.47,
+   "score": 63.9,
+   "tech_score": 54.6,
+   "news_score": 9.4,
+   "rsi": 62.0,
+   "mom5": 16.37,
+   "vol_surge": 2.07,
    "catalysts": [
     {
-     "category": "earnings_beat",
-     "headline": "Sezzle Stock Gains Attention After Earnings Beat And Higher Full Year Guidance",
-     "age_h": 5.6,
-     "points": 18.3
-    },
-    {
-     "category": "guidance_raise",
-     "headline": "Can Sezzle (SEZL) Justify Its Price After Raised Guidance?",
-     "age_h": 7.6,
-     "points": 22.5
+     "category": "buyback_dividend",
+     "headline": "Airbnb Stocks Jump 12.27% After Results Beat and $12 Billion Buyback",
+     "age_h": 3.1,
+     "points": 9.4
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 153.95,
-    "target": 188.71,
-    "stop": 140.04,
+    "entry": 191.47,
+    "target": 211.45,
+    "stop": 183.48,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "MGNI",
-   "price": 27.83,
-   "score": 58.3,
-   "tech_score": 40.0,
-   "news_score": 18.3,
-   "rsi": 70.6,
-   "mom5": 24.07,
-   "vol_surge": 3.74,
+   "ticker": "ENOV",
+   "price": 27.36,
+   "score": 61.5,
+   "tech_score": 28.0,
+   "news_score": 33.5,
+   "rsi": 72.3,
+   "mom5": 37.12,
+   "vol_surge": 0.51,
+   "catalysts": [
+    {
+     "category": "guidance_raise",
+     "headline": "Enovis Corp (ENOV) Q3 2026 Earnings Call Highlights: Organic Growth of 5%, Raised Guidance, and ...",
+     "age_h": 20.9,
+     "points": 22.5
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Enovis (ENOV) Q3 Earnings and Revenues Beat Estimates",
+     "age_h": 32.6,
+     "points": 11.0
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 27.36,
+    "target": 32.67,
+    "stop": 25.24,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "FISV",
+   "price": 63.72,
+   "score": 56.8,
+   "tech_score": 28.0,
+   "news_score": 28.8,
+   "rsi": 84.9,
+   "mom5": 27.39,
+   "vol_surge": 0.82,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "AppLovin Soars 30% on Record Quarter and Strong Outlook; Magnite Surges 17%, Trade Desk Falls 2%",
-     "age_h": 5.0,
+     "headline": "Corpay Q3 Earnings Beat Estimates, Revenues Increase 18% Y/Y",
+     "age_h": 27.4,
+     "points": 11.0
+    },
+    {
+     "category": "analyst_upgrade",
+     "headline": "Wall Street Bets: Navitas, Duolingo And Fiserv Get Upgrades While CleanSpark Faces Texas Headwinds",
+     "age_h": 35.2,
+     "points": 6.5
+    },
+    {
+     "category": "m_and_a",
+     "headline": "Michael Burry sees buyout value in Fiserv. Do the numbers agree?",
+     "age_h": 35.7,
+     "points": 11.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 63.72,
+    "target": 68.4,
+    "stop": 60.9,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PAR",
+   "price": 20.47,
+   "score": 55.8,
+   "tech_score": 37.5,
+   "news_score": 18.3,
+   "rsi": 74.0,
+   "mom5": 15.9,
+   "vol_surge": 2.19,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "PAR Technology Corp (PAR) (Q3 2026) Earnings Call Highlights: Record Revenue, Triple-Digit ...",
+     "age_h": 14.7,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 27.83,
-    "target": 30.55,
-    "stop": 26.2,
+    "entry": 20.47,
+    "target": 22.41,
+    "stop": 19.31,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "VCEL",
-   "price": 51.4,
-   "score": 56.3,
-   "tech_score": 38.0,
+   "ticker": "IRWD",
+   "price": 4.39,
+   "score": 53.1,
+   "tech_score": 34.8,
    "news_score": 18.3,
-   "rsi": 75.8,
-   "mom5": 20.04,
-   "vol_surge": 3.16,
+   "rsi": 77.0,
+   "mom5": 25.43,
+   "vol_surge": 1.6,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Vericel Corporation (VCEL) Beats Q3 Earnings and Revenue Estimates",
-     "age_h": 7.3,
+     "headline": "IRWD Q3 Earnings Beat, Revenues Miss, 2026 View Raised, Stock Up",
+     "age_h": 3.1,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 51.4,
-    "target": 56.46,
-    "stop": 48.37,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "ADMA",
-   "price": 13.19,
-   "score": 56.3,
-   "tech_score": 38.0,
-   "news_score": 18.3,
-   "rsi": 70.1,
-   "mom5": 12.08,
-   "vol_surge": 3.45,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Adma Biologics (ADMA) Q3 Earnings and Revenues Beat Estimates",
-     "age_h": 21.2,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 13.19,
-    "target": 14.57,
-    "stop": 12.36,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "VYX",
-   "price": 9.78,
-   "score": 56.3,
-   "tech_score": 38.0,
-   "news_score": 18.3,
-   "rsi": 74.3,
-   "mom5": 19.16,
-   "vol_surge": 2.67,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "NCR Voyix (VYX) Q3 Earnings and Revenues Beat Estimates",
-     "age_h": 8.7,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 9.78,
-    "target": 10.89,
-    "stop": 9.11,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "JAN",
-   "price": 30.66,
-   "score": 50.7,
-   "tech_score": 45.2,
-   "news_score": 5.5,
-   "rsi": 60.8,
-   "mom5": 7.24,
-   "vol_surge": 5.88,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Healthpeak's Q3 FFOA Beat Estimates on Leasing, Senior Housing Growth",
-     "age_h": 51.3,
-     "points": 5.5
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 30.66,
-    "target": 32.88,
-    "stop": 29.32,
+    "entry": 4.39,
+    "target": 4.82,
+    "stop": 4.13,
     "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "DNUT",
-   "price": 4.61,
-   "score": 50.5,
-   "tech_score": 28.0,
-   "news_score": 22.5,
-   "rsi": 83.0,
-   "mom5": 41.88,
-   "vol_surge": 6.19,
+   "price": 4.26,
+   "score": 52.7,
+   "tech_score": 31.1,
+   "news_score": 21.6,
+   "rsi": 74.4,
+   "mom5": 31.6,
+   "vol_surge": 1.38,
    "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "Krispy Kreme Inc (DNUT) (Q3 2026) Earnings Call Highlights: Margin Expansion and Raised Revenue ...",
+     "age_h": 20.8,
+     "points": 8.1
+    },
     {
      "category": "guidance_raise",
      "headline": "Krispy Kreme raises guidance as turnaround plan gains steam",
-     "age_h": 3.9,
+     "age_h": 27.1,
+     "points": 13.5
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 4.26,
+    "target": 5.11,
+    "stop": 3.91,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "HALO",
+   "price": 104.32,
+   "score": 52.4,
+   "tech_score": 11.7,
+   "news_score": 40.8,
+   "rsi": 27.0,
+   "mom5": -21.27,
+   "vol_surge": 1.96,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Halozyme Therapeutics Inc (HALO) (Q3 2026) Earnings Call Highlights: Record Revenue, Raised ...",
+     "age_h": 14.7,
+     "points": 18.3
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "Halozyme falls 6% as raised guidance fails to impress investors",
+     "age_h": 20.7,
      "points": 22.5
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 4.61,
-    "target": 5.31,
-    "stop": 4.32,
+    "entry": 104.32,
+    "target": 118.74,
+    "stop": 98.55,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "RYTM",
-   "price": 104.32,
-   "score": 49.0,
-   "tech_score": 38.0,
-   "news_score": 11.0,
-   "rsi": 67.2,
-   "mom5": 11.42,
-   "vol_surge": 3.2,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Rhythm Pharmaceuticals Stock In Focus After Earnings Beat And $750 Million Financing",
-     "age_h": 30.6,
-     "points": 11.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 104.32,
-    "target": 115.45,
-    "stop": 97.64,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
    "ticker": "U",
-   "price": 48.43,
-   "score": 48.3,
-   "tech_score": 30.0,
-   "news_score": 18.3,
-   "rsi": 73.7,
-   "mom5": 23.38,
-   "vol_surge": 4.03,
+   "price": 52.62,
+   "score": 50.3,
+   "tech_score": 23.9,
+   "news_score": 26.4,
+   "rsi": 78.7,
+   "mom5": 39.5,
+   "vol_surge": 1.49,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "AppLovin Soars 30% on Record Quarter and Strong Outlook; Magnite Surges 17%, Trade Desk Falls 2%",
-     "age_h": 5.0,
+     "headline": "Unity Software Stocks Rise 4.2% After Record Quarter and 65% Growth Guide",
+     "age_h": 1.0,
+     "points": 18.3
+    },
+    {
+     "category": "growth_news",
+     "headline": "Unity Q3 Earnings Call Highlights Vector Growth and AI Expansion",
+     "age_h": 6.2,
+     "points": 8.1
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 52.62,
+    "target": 60.4,
+    "stop": 49.5,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GOGO",
+   "price": 3.87,
+   "score": 48.3,
+   "tech_score": 30.0,
+   "news_score": 18.3,
+   "rsi": 82.8,
+   "mom5": 63.35,
+   "vol_surge": 9.01,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "Gogo (GOGO) Beats Q3 Earnings Estimates",
+     "age_h": 6.4,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 48.43,
-    "target": 53.17,
-    "stop": 45.59,
+    "entry": 3.87,
+    "target": 4.4,
+    "stop": 3.54,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SBGI",
-   "price": 14.24,
+   "ticker": "CGON",
+   "price": 75.42,
    "score": 48.3,
    "tech_score": 30.0,
    "news_score": 18.3,
-   "rsi": 68.6,
-   "mom5": 12.68,
-   "vol_surge": 2.96,
+   "rsi": 76.1,
+   "mom5": 16.45,
+   "vol_surge": 2.36,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Sinclair (SBGI) Beats Q3 Earnings and Revenue Estimates",
-     "age_h": 23.1,
+     "headline": "CG Oncology, Inc. (CGON) Reports Q3 Loss, Beats Revenue Estimates",
+     "age_h": 6.2,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 14.24,
-    "target": 15.47,
-    "stop": 13.51,
+    "entry": 75.42,
+    "target": 83.39,
+    "stop": 70.64,
     "hold": "3-7 დღე"
    }
   }
@@ -318,7 +348,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5957,
+ "scanned": 5956,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
