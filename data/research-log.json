@@ -7855,5 +7855,115 @@
    "earnings_beat"
   ],
   "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401467+00:00",
+  "ticker": "GFR",
+  "entry": 7.73,
+  "score": 75.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401475+00:00",
+  "ticker": "GRDN",
+  "entry": 47.02,
+  "score": 68.9,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401478+00:00",
+  "ticker": "IMVT",
+  "entry": 35.15,
+  "score": 58.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401481+00:00",
+  "ticker": "VIR",
+  "entry": 13.65,
+  "score": 57.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401483+00:00",
+  "ticker": "APPS",
+  "entry": 11.3,
+  "score": 56.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401486+00:00",
+  "ticker": "DCTH",
+  "entry": 20.27,
+  "score": 52.5,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401489+00:00",
+  "ticker": "SDGR",
+  "entry": 33.39,
+  "score": 49.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "guidance_raise"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401494+00:00",
+  "ticker": "TTD",
+  "entry": 14.93,
+  "score": 48.3,
+  "horizon": "short",
+  "catalyst_cats": [
+   "earnings_beat"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401497+00:00",
+  "ticker": "SGRY",
+  "entry": 26.45,
+  "score": 47.0,
+  "horizon": "short",
+  "catalyst_cats": [
+   "m_and_a"
+  ],
+  "status": "open"
+ },
+ {
+  "date": "2026-11-09T23:12:34.401500+00:00",
+  "ticker": "VNT",
+  "entry": 43.88,
+  "score": 44.0,
+  "horizon": "long",
+  "catalyst_cats": [
+   "growth_news"
+  ],
+  "status": "open"
  }
 ]
