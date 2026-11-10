@@ -1,255 +1,291 @@
 {
- "updated": "2026-11-09T23:12:34.401535+00:00",
+ "updated": "2026-11-10T20:41:01.441137+00:00",
  "mode": "DIVERSIFY",
- "notification": "📊 5 solid setups — split the paper $100 across: GFR, GRDN, IMVT, VIR, APPS. No single hero today, the basket is the play.",
+ "notification": "📊 5 solid setups — split the paper $100 across: TLS, UI, AAON, GFR, DCTH. No single hero today, the basket is the play.",
  "picks": [
   {
-   "ticker": "GFR",
-   "price": 7.73,
-   "score": 75.0,
-   "tech_score": 56.0,
-   "news_score": 19.0,
-   "rsi": 61.0,
-   "mom5": 25.69,
-   "vol_surge": 6.13,
+   "ticker": "TLS",
+   "price": 7.49,
+   "score": 78.5,
+   "tech_score": 38.0,
+   "news_score": 40.5,
+   "rsi": 77.7,
+   "mom5": 45.63,
+   "vol_surge": 2.32,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Strathcona Posts Higher Q3 Operating Earnings YoY, Agrees to Acquire Greenfire Resources",
-     "age_h": 11.8,
-     "points": 19.0
+     "category": "earnings_beat",
+     "headline": "TLS Q3 Earnings Beat Estimates on Identity Strength, Guidance Raised",
+     "age_h": 8.0,
+     "points": 18.3
+    },
+    {
+     "category": "guidance_raise",
+     "headline": "Telos Corp (TLS) (Q3 2026) Earnings Call Highlights: Record Adjusted EBITDA and Raised Guidance ...",
+     "age_h": 17.6,
+     "points": 22.2
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 7.49,
+    "target": 9.22,
+    "stop": 6.8,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "UI",
+   "price": 689.0,
+   "score": 64.3,
+   "tech_score": 46.0,
+   "news_score": 18.3,
+   "rsi": 61.2,
+   "mom5": 26.32,
+   "vol_surge": 0.89,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "SANM Q4 Earnings Beat Estimates on AI Growth, Strong Execution",
+     "age_h": 8.6,
+     "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 7.73,
-    "target": 8.65,
+    "entry": 689.0,
+    "target": 760.34,
+    "stop": 646.19,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "AAON",
+   "price": 75.29,
+   "score": 63.7,
+   "tech_score": 37.3,
+   "news_score": 26.4,
+   "rsi": 50.1,
+   "mom5": 9.32,
+   "vol_surge": 2.5,
+   "catalysts": [
+    {
+     "category": "growth_news",
+     "headline": "AAON Stocks Soar 22.68% as Data Center Cooling Sales Surge 218%",
+     "age_h": 1.0,
+     "points": 8.1
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "AAON Shares Surge 22% Premarket After Q3 Earnings Beat and Higher 2026 Revenue Guidance",
+     "age_h": 9.0,
+     "points": 18.3
+    }
+   ],
+   "horizon": "long",
+   "plan": {
+    "entry": 75.29,
+    "target": 94.53,
+    "stop": 67.59,
+    "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "GFR",
+   "price": 7.71,
+   "score": 60.8,
+   "tech_score": 49.4,
+   "news_score": 11.4,
+   "rsi": 59.1,
+   "mom5": 25.04,
+   "vol_surge": 1.42,
+   "catalysts": [
+    {
+     "category": "m_and_a",
+     "headline": "Strathcona Posts Higher Q3 Operating Earnings YoY, Agrees to Acquire Greenfire Resources",
+     "age_h": 33.3,
+     "points": 11.4
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 7.71,
+    "target": 8.59,
     "stop": 7.18,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "GRDN",
-   "price": 47.02,
-   "score": 68.9,
-   "tech_score": 46.4,
-   "news_score": 22.5,
-   "rsi": 64.7,
-   "mom5": 17.55,
-   "vol_surge": 2.06,
-   "catalysts": [
-    {
-     "category": "guidance_raise",
-     "headline": "Is Guardian Pharmacy Services (GRDN) Stock Reasonable After Raised Guidance?",
-     "age_h": 2.1,
-     "points": 22.5
-    }
-   ],
-   "horizon": "long",
-   "plan": {
-    "entry": 47.02,
-    "target": 52.82,
-    "stop": 44.7,
-    "hold": "2-8 კვირა"
-   }
-  },
-  {
-   "ticker": "IMVT",
-   "price": 35.15,
-   "score": 58.3,
-   "tech_score": 40.0,
-   "news_score": 18.3,
-   "rsi": 72.9,
-   "mom5": 23.72,
-   "vol_surge": 2.68,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Immunovant surges on trial results, earnings beat",
-     "age_h": 8.2,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 35.15,
-    "target": 38.13,
-    "stop": 33.36,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "VIR",
-   "price": 13.65,
-   "score": 57.0,
-   "tech_score": 38.0,
-   "news_score": 19.0,
-   "rsi": 71.1,
-   "mom5": 24.05,
-   "vol_surge": 3.59,
-   "catalysts": [
-    {
-     "category": "m_and_a",
-     "headline": "VIR Stock Soars Over 10% Overnight, Eyes Best Year Ever — Hepatitis Win Sparks Buyout Buzz And Bigger Bullish Bets",
-     "age_h": 17.2,
-     "points": 19.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 13.65,
-    "target": 15.27,
-    "stop": 12.67,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "APPS",
-   "price": 11.3,
-   "score": 56.3,
-   "tech_score": 38.0,
-   "news_score": 18.3,
-   "rsi": 59.6,
-   "mom5": 33.57,
-   "vol_surge": 2.59,
-   "catalysts": [
-    {
-     "category": "earnings_beat",
-     "headline": "Digital Turbine (APPS) Beats Q2 Earnings and Revenue Estimates",
-     "age_h": 2.0,
-     "points": 18.3
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 11.3,
-    "target": 13.09,
-    "stop": 10.23,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
    "ticker": "DCTH",
-   "price": 20.27,
-   "score": 52.5,
-   "tech_score": 30.0,
-   "news_score": 22.5,
-   "rsi": 82.1,
-   "mom5": 41.85,
-   "vol_surge": 6.9,
+   "price": 20.3,
+   "score": 60.5,
+   "tech_score": 20.0,
+   "news_score": 40.5,
+   "rsi": 82.7,
+   "mom5": 41.15,
+   "vol_surge": 3.13,
    "catalysts": [
     {
+     "category": "earnings_beat",
+     "headline": "Delcath Systems Inc (DCTH) (Q3 2026) Earnings Call Highlights: Record Revenue, Raised Guidance ...",
+     "age_h": 19.6,
+     "points": 18.3
+    },
+    {
      "category": "guidance_raise",
-     "headline": "Delcath Systems Reports 70% Revenue Growth in Q3 2026 and Raises Full-Year Guidance to $115 Million–$117 Million",
-     "age_h": 7.4,
-     "points": 22.5
+     "headline": "Delcath Systems Inc (DCTH) (Q3 2026) Earnings Call Highlights: Record Revenue, Raised Guidance ...",
+     "age_h": 19.6,
+     "points": 22.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 20.27,
-    "target": 22.98,
-    "stop": 19.19,
+    "entry": 20.3,
+    "target": 23.42,
+    "stop": 19.05,
     "hold": "2-8 კვირა"
    }
   },
   {
-   "ticker": "SDGR",
-   "price": 33.39,
-   "score": 49.0,
-   "tech_score": 42.2,
-   "news_score": 6.8,
-   "rsi": 72.8,
-   "mom5": 27.49,
-   "vol_surge": 1.53,
+   "ticker": "TTWO",
+   "price": 224.43,
+   "score": 56.1,
+   "tech_score": 37.8,
+   "news_score": 18.3,
+   "rsi": 63.3,
+   "mom5": 15.16,
+   "vol_surge": 2.23,
    "catalysts": [
     {
+     "category": "earnings_beat",
+     "headline": "Take-Two Q2 Earnings Beat on Lower Costs Despite Bookings Miss",
+     "age_h": 2.3,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 224.43,
+    "target": 242.02,
+    "stop": 213.88,
+    "hold": "3-7 დღე"
+   }
+  },
+  {
+   "ticker": "PAYS",
+   "price": 10.07,
+   "score": 54.5,
+   "tech_score": 14.0,
+   "news_score": 40.5,
+   "rsi": 23.2,
+   "mom5": -33.51,
+   "vol_surge": 3.03,
+   "catalysts": [
+    {
+     "category": "earnings_beat",
+     "headline": "PaySign Inc (PAYS) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and a ...",
+     "age_h": 15.5,
+     "points": 18.3
+    },
+    {
      "category": "guidance_raise",
-     "headline": "Raised Guidance Could Change The Case For Schrödinger Stock (SDGR)",
-     "age_h": 51.0,
-     "points": 6.8
+     "headline": "PaySign Inc (PAYS) Q3 2026 Earnings Call Highlights: Record Revenue, Raised Guidance, and a ...",
+     "age_h": 15.5,
+     "points": 22.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 33.39,
-    "target": 40.68,
-    "stop": 30.47,
+    "entry": 10.07,
+    "target": 13.77,
+    "stop": 8.59,
     "hold": "2-8 კვირა"
+   }
+  },
+  {
+   "ticker": "SENS",
+   "price": 10.03,
+   "score": 52.2,
+   "tech_score": 38.0,
+   "news_score": 14.2,
+   "rsi": 64.5,
+   "mom5": 13.32,
+   "vol_surge": 5.03,
+   "catalysts": [
+    {
+     "category": "analyst_upgrade",
+     "headline": "DraftKings downgraded, Sarepta upgraded: Wall Street's top analyst calls",
+     "age_h": 5.9,
+     "points": 10.9
+    },
+    {
+     "category": "analyst_downgrade",
+     "headline": "DraftKings downgraded, Sarepta upgraded: Wall Street's top analyst calls",
+     "age_h": 5.9,
+     "points": -15.0
+    },
+    {
+     "category": "earnings_beat",
+     "headline": "Senseonics Holdings Inc (SENS) (Q3 2026) Earnings Call Highlights: Record Revenue of $19. ...",
+     "age_h": 13.5,
+     "points": 18.3
+    }
+   ],
+   "horizon": "short",
+   "plan": {
+    "entry": 10.03,
+    "target": 12.09,
+    "stop": 8.8,
+    "hold": "3-7 დღე"
    }
   },
   {
    "ticker": "TTD",
-   "price": 14.93,
+   "price": 15.38,
    "score": 48.3,
    "tech_score": 30.0,
    "news_score": 18.3,
-   "rsi": 70.0,
-   "mom5": 18.96,
-   "vol_surge": 4.8,
+   "rsi": 72.9,
+   "mom5": 19.56,
+   "vol_surge": 2.64,
    "catalysts": [
     {
      "category": "earnings_beat",
-     "headline": "Trade Desk’s Earnings Beat Defies Analysts’ ‘Lost Year’ Projections",
-     "age_h": 1.1,
+     "headline": "Trade Desk Q3 Earnings & Revenues Beat Estimates, Down Y/Y",
+     "age_h": 2.3,
      "points": 18.3
     }
    ],
    "horizon": "short",
    "plan": {
-    "entry": 14.93,
-    "target": 16.34,
-    "stop": 14.09,
+    "entry": 15.38,
+    "target": 16.96,
+    "stop": 14.43,
     "hold": "3-7 დღე"
    }
   },
   {
-   "ticker": "SGRY",
-   "price": 26.45,
-   "score": 47.0,
-   "tech_score": 28.0,
-   "news_score": 19.0,
-   "rsi": 96.0,
-   "mom5": 14.4,
-   "vol_surge": 2.38,
+   "ticker": "GRDN",
+   "price": 49.93,
+   "score": 47.9,
+   "tech_score": 25.6,
+   "news_score": 22.2,
+   "rsi": 81.2,
+   "mom5": 21.23,
+   "vol_surge": 1.7,
    "catalysts": [
     {
-     "category": "m_and_a",
-     "headline": "Surgery Partners Agrees to Improved $6 Billion Buyout Deal by HealthSpan Partners",
-     "age_h": 7.2,
-     "points": 19.0
-    }
-   ],
-   "horizon": "short",
-   "plan": {
-    "entry": 26.45,
-    "target": 28.5,
-    "stop": 25.22,
-    "hold": "3-7 დღე"
-   }
-  },
-  {
-   "ticker": "VNT",
-   "price": 43.88,
-   "score": 44.0,
-   "tech_score": 35.9,
-   "news_score": 8.1,
-   "rsi": 93.6,
-   "mom5": 19.14,
-   "vol_surge": 1.99,
-   "catalysts": [
-    {
-     "category": "growth_news",
-     "headline": "VNT Q3 2026 deep dive: margin expansion leads, but guidance reflects cautious demand outlook",
-     "age_h": 13.0,
-     "points": 8.1
+     "category": "guidance_raise",
+     "headline": "Is Guardian Pharmacy Services (GRDN) Stock Reasonable After Raised Guidance?",
+     "age_h": 23.5,
+     "points": 22.2
     }
    ],
    "horizon": "long",
    "plan": {
-    "entry": 43.88,
-    "target": 48.36,
-    "stop": 42.09,
+    "entry": 49.93,
+    "target": 55.8,
+    "stop": 47.58,
     "hold": "2-8 კვირა"
    }
   }
@@ -257,45 +293,45 @@
  "learned": [
   {
    "category": "earnings_beat",
-   "n": 202,
-   "win_rate": 28.7,
-   "avg_return": -0.57,
+   "n": 212,
+   "win_rate": 29.2,
+   "avg_return": -0.43,
    "weight_now": 0.83
   },
   {
    "category": "growth_news",
-   "n": 150,
-   "win_rate": 26.0,
-   "avg_return": -2.8,
+   "n": 151,
+   "win_rate": 26.5,
+   "avg_return": -2.75,
    "weight_now": 0.81
   },
   {
    "category": "m_and_a",
-   "n": 117,
-   "win_rate": 16.2,
-   "avg_return": -2.97,
+   "n": 119,
+   "win_rate": 16.0,
+   "avg_return": -3.0,
    "weight_now": 0.73
   },
   {
    "category": "analyst_upgrade",
-   "n": 79,
-   "win_rate": 15.2,
-   "avg_return": -5.75,
-   "weight_now": 0.72
+   "n": 81,
+   "win_rate": 16.0,
+   "avg_return": -5.67,
+   "weight_now": 0.73
   },
   {
    "category": "buyback_dividend",
-   "n": 40,
-   "win_rate": 22.5,
-   "avg_return": -0.15,
-   "weight_now": 0.78
+   "n": 41,
+   "win_rate": 24.4,
+   "avg_return": 0.03,
+   "weight_now": 0.8
   },
   {
    "category": "guidance_raise",
-   "n": 37,
-   "win_rate": 37.8,
-   "avg_return": -0.57,
-   "weight_now": 0.9
+   "n": 38,
+   "win_rate": 36.8,
+   "avg_return": -0.55,
+   "weight_now": 0.89
   },
   {
    "category": "fda_approval",
@@ -312,7 +348,7 @@
    "weight_now": 0.9
   }
  ],
- "scanned": 5952,
+ "scanned": 5951,
  "shortlisted": 120,
  "disclaimer": "Not financial advice — paper trading research bot. You decide real trades."
 }
