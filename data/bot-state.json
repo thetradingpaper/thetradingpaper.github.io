@@ -1,7 +1,7 @@
 {
  "startDate": "2026-06-10",
  "startCash": 100,
- "cash": 73.85,
+ "cash": 33.85,
  "positions": [
   {
    "ticker": "PLTR",
@@ -13,6 +13,28 @@
    "cost": 20,
    "target": 181.05,
    "stop": 146.22
+  },
+  {
+   "ticker": "NVDA",
+   "opened": "2026-11-11T20:07:35.282Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 27.5 < 32 · პირველი მწვანე",
+   "entry": 175.02,
+   "shares": 0.114273,
+   "cost": 20,
+   "target": 193.3,
+   "stop": 161.31
+  },
+  {
+   "ticker": "MSTR",
+   "opened": "2026-11-11T20:07:35.282Z",
+   "rule": "R1",
+   "reason": "R1 oversold bounce · RSI 29.7 < 32 · პირველი მწვანე",
+   "entry": 121.41,
+   "shares": 0.164731,
+   "cost": 20,
+   "target": 138.41,
+   "stop": 108.66
   }
  ],
  "equityHistory": [
@@ -406,7 +428,7 @@
   },
   {
    "date": "2026-11-11",
-   "equity": 94.8
+   "equity": 95.32
   }
  ]
 }
